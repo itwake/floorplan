@@ -1,0 +1,45 @@
+{
+  "name": "three",
+  "version": "0.160.0",
+  "source": "https://registry.npmjs.org/three/-/three-0.160.0.tgz",
+  "npmShasum": "cd1e4dbd01aee0719280a9086d75545db52b7a8f",
+  "license": "MIT",
+  "files": [
+    {
+      "file": "LICENSE",
+      "bytes": 1081,
+      "sha256": "852e0e8699169bf9f6fdc6bda3e682d078dcbc738b5d33e74df594721bff271d"
+    },
+    {
+      "file": "build/three.module.js",
+      "bytes": 1272972,
+      "sha256": "76dea8151bc9352aef3528b4262e249b2604f62543828328db978d060d61a495"
+    },
+    {
+      "file": "examples/jsm/controls/OrbitControls.js",
+      "bytes": 29868,
+      "sha256": "5a44a9e86a2a0fb11933eed69bc2cd33c76a496854c1aed6ed776efa87d7b064"
+    },
+    {
+      "file": "examples/jsm/controls/PointerLockControls.js",
+      "bytes": 3347,
+      "sha256": "b6ac6e2331d02fc877c49727c879b3f78e974dc56f43f2fcb89b03230e1f52ca"
+    },
+    {
+      "file": "examples/jsm/environments/RoomEnvironment.js",
+      "bytes": 3735,
+      "sha256": "e21f41b7ef2016f2984a5d27850b42dffa797a6a194a138e288b06576d765a7b"
+    },
+    {
+      "file": "examples/jsm/geometries/RoundedBoxGeometry.js",
+      "bytes": 4625,
+      "sha256": "d20aeaf7077c459a8d952d215738d7b44fba028440bb862d84b622a34f0c80bb"
+    },
+    {
+      "file": "examples/jsm/renderers/CSS2DRenderer.js",
+      "bytes": 4407,
+      "sha256": "a4f0f79184c043f6b9d2654d8ba051e49a7d631d34e8f437c1804798a68c379f"
+    }
+  ],
+  "bytes": 1320035
+}

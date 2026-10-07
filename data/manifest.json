@@ -1,0 +1,60 @@
+{
+  "version": "1.0.0",
+  "defaultScheme": "family",
+  "schemes": [
+    {
+      "id": "wood",
+      "name": "木光原境",
+      "rooms": 8,
+      "walls": 44,
+      "windows": 12,
+      "doors": 6,
+      "slidingDoors": 2,
+      "furniture": 46,
+      "source": {
+        "repository": "https://github.com/itwake/house-design",
+        "commit": "b5bcfd0f3a1806629d7e6811817573a00eb7333c",
+        "path": "models/schemes/wood/design-data.json",
+        "sha256": "d6348456f0411bdc4eb6ac11bbe4828602260ddcef82a758dd080f1800699797",
+        "importDate": "2026-10-07",
+        "lastViewerVersion": "3.13.3"
+      }
+    },
+    {
+      "id": "family",
+      "name": "木光 · 亲子储物",
+      "rooms": 8,
+      "walls": 42,
+      "windows": 12,
+      "doors": 6,
+      "slidingDoors": 2,
+      "furniture": 46,
+      "source": {
+        "repository": "https://github.com/itwake/house-design",
+        "commit": "b5bcfd0f3a1806629d7e6811817573a00eb7333c",
+        "path": "models/schemes/family/design-data.json",
+        "sha256": "3ae356782f4392280490b40a4c8b43b61ae1d02e9a07c03a61e30addd39f5f86",
+        "importDate": "2026-10-07",
+        "lastViewerVersion": "3.13.3"
+      }
+    },
+    {
+      "id": "laundry",
+      "name": "木光 · 家政整墙",
+      "rooms": 8,
+      "walls": 46,
+      "windows": 12,
+      "doors": 5,
+      "slidingDoors": 3,
+      "furniture": 42,
+      "source": {
+        "repository": "https://github.com/itwake/house-design",
+        "commit": "b5bcfd0f3a1806629d7e6811817573a00eb7333c",
+        "path": "models/schemes/laundry/design-data.json",
+        "sha256": "87be8de54877591f30ef0f29ef49ef7eaa7007fd6e89bb61535ef6b2ee438ae9",
+        "importDate": "2026-10-07",
+        "lastViewerVersion": "3.13.3"
+      }
+    }
+  ]
+}

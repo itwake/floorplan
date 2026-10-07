@@ -1,0 +1,5384 @@
+{
+  "name": "荟雅苑 104.83㎡ · 28F",
+  "version": "3.12.0",
+  "unit": "cm",
+  "north": "图上方（临道路侧）",
+  "palette": [
+    {
+      "name": "奶白柜面",
+      "value": "#ECE7DC"
+    },
+    {
+      "name": "浅原木",
+      "value": "#C5AF8B"
+    },
+    {
+      "name": "暖白墙面",
+      "value": "#F1EEE6"
+    },
+    {
+      "name": "浅米灰瓷砖",
+      "value": "#E5E0D5"
+    },
+    {
+      "name": "米灰织物",
+      "value": "#C7BFB1"
+    }
+  ],
+  "envelope": [
+    [
+      0,
+      0
+    ],
+    [
+      687,
+      0
+    ],
+    [
+      687,
+      954
+    ],
+    [
+      841,
+      954
+    ],
+    [
+      841,
+      1401
+    ],
+    [
+      200,
+      1401
+    ],
+    [
+      200,
+      632
+    ],
+    [
+      0,
+      632
+    ]
+  ],
+  "anchors": [
+    {
+      "id": "top",
+      "label": "北侧总宽",
+      "valueMm": 6870,
+      "grade": "旧设计参考",
+      "source": "旧模型尺寸；本次复尺未完成全屋闭合，不是已确认现状总尺。"
+    },
+    {
+      "id": "height",
+      "label": "主体墙身总长（不含外凸飘窗）",
+      "valueMm": 14010,
+      "grade": "旧设计参考",
+      "source": "旧模型尺寸；本次复尺未完成全屋闭合，不是已确认现状总尺。"
+    },
+    {
+      "id": "bottom",
+      "label": "南侧下部总宽",
+      "valueMm": 6410,
+      "grade": "旧设计参考",
+      "source": "旧模型尺寸；本次复尺未完成全屋闭合，不是已确认现状总尺。"
+    },
+    {
+      "id": "topRooms",
+      "label": "北侧卧室净跨",
+      "valueMm": "3010 / 3500",
+      "grade": "旧设计参考",
+      "source": "旧模型尺寸；本次复尺未完成全屋闭合，不是已确认现状总尺。"
+    },
+    {
+      "id": "bottomRooms",
+      "label": "下部两跨",
+      "valueMm": "3180 / 2870",
+      "grade": "旧设计参考",
+      "source": "旧模型尺寸；本次复尺未完成全屋闭合，不是已确认现状总尺。"
+    },
+    {
+      "id": "wall",
+      "label": "统一墙厚",
+      "valueMm": 120,
+      "grade": "旧设计参考",
+      "source": "旧模型尺寸；本次复尺未完成全屋闭合，不是已确认现状总尺。"
+    },
+    {
+      "id": "offset",
+      "label": "下部向东偏移",
+      "valueMm": 2000,
+      "grade": "旧设计参考",
+      "source": "旧模型尺寸；本次复尺未完成全屋闭合，不是已确认现状总尺。"
+    },
+    {
+      "id": "livingWindow",
+      "label": "客厅窗水平记录宽",
+      "valueMm": 2120,
+      "grade": "局部复尺",
+      "source": "L02/L03/L04/L05：宽2120、高2210、台400、外凸600mm；中心位置暂留旧模型，净框基准待核。"
+    },
+    {
+      "id": "bcVestibule",
+      "label": "B东南门厅 / C东北凹口",
+      "valueMm": "净900×1000",
+      "grade": "旧设计参考",
+      "source": "旧模型尺寸；本次复尺未完成全屋闭合，不是已确认现状总尺。"
+    },
+    {
+      "id": "hallWidth",
+      "label": "北部走廊暂定净宽",
+      "valueMm": 850,
+      "grade": "旧设计参考",
+      "source": "旧模型尺寸；本次复尺未完成全屋闭合，不是已确认现状总尺。"
+    },
+    {
+      "id": "wallHeight",
+      "label": "已录入房间高度",
+      "valueMm": "客厅2700 / 主卧2790",
+      "grade": "局部复尺",
+      "source": "L12、B3_ROOM_HEIGHT；其他房间2700仍暂定。"
+    },
+    {
+      "id": "bathWindows",
+      "label": "两卫东向窄窗",
+      "valueMm": "主卫500 / 客卫600旧占位",
+      "grade": "旧设计参考",
+      "source": "R2 S05/S06：实测记录窗宽500、窗高1400mm；经用户确认保留旧位置及台1500／高800mm示意，不将1400叠加旧窗台；窗台、窗中心、净高及框内/框外参考面待核。"
+    }
+  ],
+  "rooms": [
+    {
+      "id": "room_b",
+      "name": "次卧 B",
+      "tone": "bedroom",
+      "points": [
+        [
+          12,
+          12
+        ],
+        [
+          313,
+          12
+        ],
+        [
+          313,
+          422
+        ],
+        [
+          223,
+          422
+        ],
+        [
+          223,
+          322
+        ],
+        [
+          12,
+          322
+        ]
+      ],
+      "grade": "B",
+      "notes": "恢复东南门厅，门位于其东侧；门厅净900×1000是图像比例推算",
+      "modelAreaM2": 10.231
+    },
+    {
+      "id": "room_a",
+      "name": "主卧 A",
+      "tone": "bedroom",
+      "points": [
+        [
+          325,
+          12
+        ],
+        [
+          675,
+          12
+        ],
+        [
+          675,
+          322
+        ],
+        [
+          325,
+          322
+        ]
+      ],
+      "modelAreaM2": 10.85,
+      "heightCm": 279
+    },
+    {
+      "id": "room_c",
+      "name": "小卧 C",
+      "tone": "bedroom",
+      "points": [
+        [
+          12,
+          334
+        ],
+        [
+          211,
+          334
+        ],
+        [
+          211,
+          434
+        ],
+        [
+          313,
+          434
+        ],
+        [
+          313,
+          620
+        ],
+        [
+          12,
+          620
+        ]
+      ],
+      "grade": "B",
+      "notes": "恢复东北凹口；最大净宽3010、凹口深1000按图形比例推算",
+      "modelAreaM2": 7.589
+    },
+    {
+      "id": "bath_1",
+      "name": "主卫",
+      "tone": "wet",
+      "points": [
+        [
+          422,
+          334
+        ],
+        [
+          675,
+          334
+        ],
+        [
+          675,
+          487
+        ],
+        [
+          522,
+          487
+        ],
+        [
+          522,
+          463
+        ],
+        [
+          422,
+          463
+        ]
+      ],
+      "modelAreaM2": 3.6309,
+      "notes": "北侧入口通主卧；与客卫的共墙呈阶梯。阶梯坐标及门宽均为比例/概念值，待复尺。"
+    },
+    {
+      "id": "bath_2",
+      "name": "客卫",
+      "tone": "wet",
+      "points": [
+        [
+          422,
+          475
+        ],
+        [
+          510,
+          475
+        ],
+        [
+          510,
+          499
+        ],
+        [
+          675,
+          499
+        ],
+        [
+          675,
+          620
+        ],
+        [
+          422,
+          620
+        ]
+      ],
+      "modelAreaM2": 3.2725,
+      "notes": "西北侧向北扩出盆位，保留公共过道入口；凹凸精确尺寸待复尺。"
+    },
+    {
+      "id": "living",
+      "name": "客餐厅 / 过道",
+      "tone": "living",
+      "points": [
+        [
+          325,
+          334
+        ],
+        [
+          410,
+          334
+        ],
+        [
+          410,
+          632
+        ],
+        [
+          675,
+          632
+        ],
+        [
+          675,
+          954
+        ],
+        [
+          646.25,
+          954
+        ],
+        [
+          646.25,
+          1115
+        ],
+        [
+          530,
+          1115
+        ],
+        [
+          530,
+          1389
+        ],
+        [
+          212,
+          1389
+        ],
+        [
+          212,
+          632
+        ],
+        [
+          325,
+          632
+        ]
+      ],
+      "modelAreaM2": 33.1462,
+      "heightCm": 270
+    },
+    {
+      "id": "balcony",
+      "name": "阳台",
+      "tone": "balcony",
+      "points": [
+        [
+          658.25,
+          966
+        ],
+        [
+          829,
+          966
+        ],
+        [
+          829,
+          1115
+        ],
+        [
+          658.25,
+          1115
+        ]
+      ],
+      "modelAreaM2": 2.5442,
+      "planLabel": [
+        742,
+        988
+      ],
+      "notes": "原复尺1240mm＋借厅287.5mm＝局部保守1527.5mm；旧全屋轮廓多180mm不可用作安装余量。借用面积不新增产权面积。"
+    },
+    {
+      "id": "kitchen",
+      "name": "厨房",
+      "tone": "kitchen",
+      "points": [
+        [
+          542,
+          1127
+        ],
+        [
+          829,
+          1127
+        ],
+        [
+          829,
+          1389
+        ],
+        [
+          542,
+          1389
+        ]
+      ],
+      "modelAreaM2": 7.519
+    }
+  ],
+  "walls": [
+    [
+      6,
+      6,
+      681,
+      6
+    ],
+    [
+      6,
+      6,
+      6,
+      626
+    ],
+    [
+      6,
+      626,
+      206,
+      626
+    ],
+    [
+      206,
+      626,
+      206,
+      1395
+    ],
+    [
+      206,
+      1395,
+      835,
+      1395
+    ],
+    [
+      835,
+      960,
+      835,
+      1395
+    ],
+    [
+      681,
+      960,
+      835,
+      960
+    ],
+    [
+      681,
+      6,
+      681,
+      960
+    ],
+    [
+      319,
+      6,
+      319,
+      626
+    ],
+    [
+      6,
+      328,
+      217,
+      328
+    ],
+    [
+      319,
+      328,
+      681,
+      328
+    ],
+    [
+      416,
+      328,
+      416,
+      626
+    ],
+    [
+      416,
+      469,
+      516,
+      469
+    ],
+    [
+      416,
+      626,
+      681,
+      626
+    ],
+    [
+      652.25,
+      960,
+      652.25,
+      1121
+    ],
+    [
+      681,
+      1121,
+      835,
+      1121
+    ],
+    [
+      536,
+      1121,
+      681,
+      1121
+    ],
+    [
+      536,
+      1121,
+      536,
+      1395
+    ],
+    [
+      217,
+      328,
+      217,
+      428
+    ],
+    [
+      217,
+      428,
+      319,
+      428
+    ],
+    [
+      206,
+      626,
+      319,
+      626
+    ],
+    [
+      516,
+      469,
+      516,
+      493
+    ],
+    [
+      516,
+      493,
+      681,
+      493
+    ],
+    [
+      652.25,
+      960,
+      681,
+      960
+    ]
+  ],
+  "wallSpecs": [
+    {
+      "id": "w_north",
+      "coords": [
+        6,
+        6,
+        681,
+        6
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C",
+      "heightSegments": [
+        {
+          "fromCm": 319,
+          "toCm": 681,
+          "heightCm": 279
+        }
+      ]
+    },
+    {
+      "id": "w_west_upper",
+      "coords": [
+        6,
+        6,
+        6,
+        626
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C"
+    },
+    {
+      "id": "w_upper_step",
+      "coords": [
+        6,
+        626,
+        206,
+        626
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C"
+    },
+    {
+      "id": "w_west_lower",
+      "coords": [
+        206,
+        626,
+        206,
+        1395
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C"
+    },
+    {
+      "id": "w_south",
+      "coords": [
+        206,
+        1395,
+        835,
+        1395
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C"
+    },
+    {
+      "id": "w_east_lower",
+      "coords": [
+        835,
+        960,
+        835,
+        1395
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C"
+    },
+    {
+      "id": "w_east_step",
+      "coords": [
+        681,
+        960,
+        835,
+        960
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C"
+    },
+    {
+      "id": "w_east_upper",
+      "coords": [
+        681,
+        6,
+        681,
+        960
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C",
+      "heightSegments": [
+        {
+          "fromCm": 6,
+          "toCm": 328,
+          "heightCm": 279
+        }
+      ]
+    },
+    {
+      "id": "w_bed_partition",
+      "coords": [
+        319,
+        6,
+        319,
+        626
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C",
+      "heightSegments": [
+        {
+          "fromCm": 6,
+          "toCm": 328,
+          "heightCm": 279
+        }
+      ]
+    },
+    {
+      "id": "w_bed_b_south",
+      "coords": [
+        6,
+        328,
+        217,
+        328
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C"
+    },
+    {
+      "id": "w_bed_a_south",
+      "coords": [
+        319,
+        328,
+        681,
+        328
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C",
+      "heightSegments": [
+        {
+          "fromCm": 319,
+          "toCm": 681,
+          "heightCm": 279
+        }
+      ]
+    },
+    {
+      "id": "w_bath_west",
+      "coords": [
+        416,
+        328,
+        416,
+        626
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C"
+    },
+    {
+      "id": "w_bath_middle",
+      "coords": [
+        416,
+        469,
+        516,
+        469
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C"
+    },
+    {
+      "id": "w_bath_south",
+      "coords": [
+        416,
+        626,
+        681,
+        626
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C"
+    },
+    {
+      "id": "w_balcony_west",
+      "coords": [
+        652.25,
+        960,
+        652.25,
+        1121
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C",
+      "source": "方案一条件改造：阳台内隔断西移287.5mm，原净宽1240mm；非外扩外墙，结构与共同定位待复核。"
+    },
+    {
+      "id": "w_balcony_south",
+      "coords": [
+        681,
+        1121,
+        835,
+        1121
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C"
+    },
+    {
+      "id": "w_kitchen_north",
+      "coords": [
+        536,
+        1121,
+        681,
+        1121
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C"
+    },
+    {
+      "id": "w_kitchen_west",
+      "coords": [
+        536,
+        1121,
+        536,
+        1395
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C"
+    },
+    {
+      "id": "w_b_vestibule_west",
+      "coords": [
+        217,
+        328,
+        217,
+        428
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "B"
+    },
+    {
+      "id": "w_b_vestibule_south",
+      "coords": [
+        217,
+        428,
+        319,
+        428
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "B"
+    },
+    {
+      "id": "w_bed_c_south",
+      "coords": [
+        206,
+        626,
+        319,
+        626
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "B",
+      "source": "2026-09-07用户圈图确认书房与客厅间为实墙；1130mm长度由当前模型端点推算，厚度及高度待复尺"
+    },
+    {
+      "id": "w_bath_middle_step",
+      "coords": [
+        516,
+        469,
+        516,
+        493
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C",
+      "source": "2026-09-08用户确认两卫共墙阶梯；偏移240mm及转折横坐标暂定，待复尺"
+    },
+    {
+      "id": "w_bath_middle_east",
+      "coords": [
+        516,
+        493,
+        681,
+        493
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C",
+      "source": "与西端抬高的盆位共墙连续，精确长度待复尺"
+    },
+    {
+      "id": "wood_laundry_north_return",
+      "coords": [
+        652.25,
+        960,
+        681,
+        960
+      ],
+      "thicknessCm": 12,
+      "heightCm": 270,
+      "grade": "C"
+    }
+  ],
+  "doors": [
+    {
+      "id": "balcony_door",
+      "name": "方案一 · 条件外移阳台推拉门",
+      "kind": "glass-door",
+      "x1": 652.25,
+      "y1": 960,
+      "x2": 652.25,
+      "y2": 1110,
+      "widthMm": 1500,
+      "grade": "C",
+      "sillCm": 0,
+      "heightCm": 240,
+      "roomId": "balcony",
+      "sliding": {
+        "panelCount": 3,
+        "trackCount": 3,
+        "stackTo": "south",
+        "jambCm": 3.8,
+        "overlapCm": 3,
+        "panelDepthCm": 2.4,
+        "trackPitchCm": 4,
+        "stackStaggerCm": 1.5,
+        "frameDepthCm": 14.5,
+        "frameFinish": "warm-white",
+        "condition": "1500mm洞口，三扇向南叠停；向客厅外移287.5mm，台面前操作带约740mm；本方案不设客厅整墙书架。"
+      },
+      "notes": "内隔断移位不是外墙扩建；结构、门垛、防水、窗框与现场尺寸待确认。"
+    },
+    {
+      "id": "entry_door",
+      "name": "入户门（待复尺）",
+      "kind": "entry-door",
+      "x1": 390,
+      "y1": 1395,
+      "x2": 490,
+      "y2": 1395,
+      "widthMm": 1000,
+      "grade": "C",
+      "sillCm": 0,
+      "heightCm": 220
+    },
+    {
+      "id": "door_a",
+      "name": "主卧门800（避开过道端墙，待复尺）",
+      "kind": "interior-door",
+      "x1": 327.5,
+      "y1": 328,
+      "x2": 407.5,
+      "y2": 328,
+      "widthMm": 800,
+      "grade": "C",
+      "sillCm": 0,
+      "heightCm": 215,
+      "notes": "旧900门与湿区墙端相交；按当前850净走廊暂用800门洞，不代表现场门宽"
+    },
+    {
+      "id": "door_b",
+      "name": "次卧B门厅东门（比例复原，待复尺）",
+      "kind": "interior-door",
+      "x1": 319,
+      "y1": 335.5,
+      "x2": 319,
+      "y2": 420.5,
+      "widthMm": 850,
+      "grade": "B",
+      "swing": "向B房内开，避开走廊",
+      "sillCm": 0,
+      "heightCm": 215
+    },
+    {
+      "id": "door_c",
+      "name": "书房C东门（待复尺）",
+      "kind": "interior-door",
+      "x1": 319,
+      "y1": 457.5,
+      "x2": 319,
+      "y2": 542.5,
+      "widthMm": 850,
+      "grade": "B",
+      "swing": "向C房内开，门后850×850无家具",
+      "sillCm": 0,
+      "heightCm": 215
+    },
+    {
+      "id": "door_bath_1",
+      "name": "主卧套内主卫门（门宽和开启方式待复尺）",
+      "kind": "interior-door",
+      "x1": 432,
+      "y1": 328,
+      "x2": 507,
+      "y2": 328,
+      "widthMm": 750,
+      "grade": "C",
+      "sillCm": 0,
+      "heightCm": 210,
+      "connects": [
+        "room_a",
+        "bath_1"
+      ],
+      "notes": "2026-09-08用户确认主卫从主卧进入；门洞750为暂定，关闭展示不代表已核验开启方向。"
+    },
+    {
+      "id": "door_bath_2",
+      "name": "客卫门（外开/移门条件）",
+      "kind": "interior-door",
+      "x1": 416,
+      "y1": 517.5,
+      "x2": 416,
+      "y2": 592.5,
+      "widthMm": 750,
+      "grade": "C",
+      "sillCm": 0,
+      "heightCm": 210
+    },
+    {
+      "id": "door_kitchen",
+      "name": "厨房1700三扇三轨玻璃推拉门（扩洞条件方案，待复尺）",
+      "kind": "glass-door",
+      "x1": 536,
+      "y1": 1145,
+      "x2": 536,
+      "y2": 1315,
+      "widthMm": 1700,
+      "grade": "C",
+      "sillCm": 0,
+      "heightCm": 220,
+      "sliding": {
+        "panelCount": 3,
+        "trackCount": 3,
+        "stackTo": "north",
+        "jambCm": 3.8,
+        "overlapCm": 3,
+        "panelDepthCm": 2.4,
+        "trackPitchCm": 4,
+        "stackStaggerCm": 1.5,
+        "frameDepthCm": 14.5,
+        "frameFinish": "warm-gray metal",
+        "condition": "三扇洞内向北叠停；1700mm洞口不等于净开，模型净开约1033mm，五金深化后以约1000mm为目标而非保证。"
+      },
+      "notes": "原900mm门洞向北300mm、向南500mm拓宽；北端墙中心线剩240mm、南端800mm。南端距鞋柜起点50mm、南柜140mm，门套与承重/管线须现场核验，不能据图直接扩洞。"
+    }
+  ],
+  "windows": [
+    {
+      "id": "window_b",
+      "name": "次卧北飘窗（复尺400mm台面，软垫为条件设计）",
+      "kind": "window",
+      "windowType": "bay",
+      "bay": {
+        "projectionCm": 60,
+        "outward": [
+          0,
+          -1
+        ],
+        "returnThicknessCm": 10,
+        "slabThicknessCm": 10,
+        "sideStyle": "solid",
+        "grade": "C",
+        "source": "2026-09-07用户圈图与原户型图确认向北外凸；外凸600mm从外墙外表面至前框中心暂定，侧面构造、板厚和全部窗尺寸待复尺"
+      },
+      "x1": 99,
+      "y1": 6,
+      "x2": 275,
+      "y2": 6,
+      "widthMm": 1760,
+      "grade": "局部复尺",
+      "sillCm": 40,
+      "heightCm": 167,
+      "baselineSillCm": 90,
+      "baselineHeightCm": 140,
+      "designScenario": "复尺台面400mm、窗高1670mm；设计软垫完成面450mm。窗侧定位和框内净深、结构承载、防坠仍须核验；不代表允许拆改窗台。",
+      "source": "B2_WINDOW_*：宽1760、高1670、台400mm；西墙段870定位，东墙段待全屋闭合；外凸600仍旧占位。",
+      "measurementStatus": {
+        "date": "2026-10-04",
+        "reference": "models/measurements-20261004-r2.json",
+        "scope": "B2_WINDOW_*：宽1760、高1670、台400mm；西墙段870定位，东墙段待全屋闭合；外凸600仍旧占位。",
+        "fullyLocated": false
+      }
+    },
+    {
+      "id": "window_a",
+      "name": "主卧北飘窗（存在确认，尺寸待复尺）",
+      "kind": "window",
+      "windowType": "bay",
+      "bay": {
+        "projectionCm": 60,
+        "outward": [
+          0,
+          -1
+        ],
+        "returnThicknessCm": 10,
+        "slabThicknessCm": 10,
+        "sideStyle": "solid",
+        "grade": "C",
+        "source": "2026-09-07用户圈图与原户型图确认向北外凸；外凸600mm从外墙外表面至前框中心暂定，侧面构造、板厚和全部窗尺寸待复尺"
+      },
+      "x1": 411,
+      "y1": 6,
+      "x2": 587,
+      "y2": 6,
+      "widthMm": 1760,
+      "grade": "局部复尺",
+      "sillCm": 41,
+      "heightCm": 166,
+      "source": "R2 B3_WINDOW_LENGTH/UPPER_OFFSET/LOWER_OFFSET：窗宽1760mm，按西墙段860mm条件定位；860＋1760＋870＝3490比净跨3500少10mm，模型东段暂880mm。台410／高1660，外凸600仍旧占位。",
+      "measurementStatus": {
+        "date": "2026-10-04",
+        "reference": "models/measurements-20261004-r2.json",
+        "scope": "R2 B3_WINDOW_LENGTH/UPPER_OFFSET/LOWER_OFFSET：窗宽1760mm，按西墙段860mm条件定位；860＋1760＋870＝3490比净跨3500少10mm，模型东段暂880mm。台410／高1660，外凸600仍旧占位。",
+        "fullyLocated": false
+      },
+      "designScenario": "窗宽1760mm已修正；西段860mm定位仍受全屋共同基准限制，东段暂880mm而实测870mm，保留10mm差值待核。窗台410、高1660、房高2790mm；外凸与框内净深未测。"
+    },
+    {
+      "id": "window_c",
+      "name": "小卧西窗（待复尺）",
+      "kind": "window",
+      "x1": 6,
+      "y1": 415,
+      "x2": 6,
+      "y2": 525,
+      "widthMm": 1100,
+      "grade": "C",
+      "sillCm": 90,
+      "heightCm": 140
+    },
+    {
+      "id": "window_living_west",
+      "name": "客厅西低飘窗（400台高暂估，非实测）",
+      "kind": "window",
+      "windowType": "bay",
+      "bay": {
+        "projectionCm": 60,
+        "outward": [
+          -1,
+          0
+        ],
+        "returnThicknessCm": 10,
+        "slabThicknessCm": 10,
+        "sideStyle": "solid",
+        "grade": "C",
+        "source": "2026-09-07用户圈图与目标户型图确认向西外凸；外凸600mm从外墙外表面至前框中心暂定，侧面构造、板厚和全部窗尺寸待复尺"
+      },
+      "x1": 206,
+      "y1": 641,
+      "x2": 206,
+      "y2": 853,
+      "widthMm": 2120,
+      "grade": "局部复尺",
+      "sillCm": 40,
+      "heightCm": 221,
+      "baselineSillCm": 90,
+      "baselineHeightCm": 140,
+      "designScenario": "复尺台面400mm、窗高2210mm，窗顶2610mm；设计可拆软垫50mm，完成坐面约450mm。窗中心仍沿旧模型，框内净空、承载和防坠需现场核验，不是拆改结构许可。",
+      "source": "L02/L03/L04/L05：宽2120、高2210、台400、外凸600mm；中心位置暂留旧模型，净框基准待核。",
+      "measurementStatus": {
+        "date": "2026-10-04",
+        "reference": "models/measurements-20261004-r2.json",
+        "scope": "L02/L03/L04/L05：宽2120、高2210、台400、外凸600mm；中心位置暂留旧模型，净框基准待核。",
+        "fullyLocated": false
+      }
+    },
+    {
+      "id": "window_bath_1_east",
+      "name": "主卫东窗（原图有窗，尺寸待复尺）",
+      "kind": "window",
+      "x1": 681,
+      "y1": 375,
+      "x2": 681,
+      "y2": 425,
+      "widthMm": 500,
+      "sillCm": 150,
+      "heightCm": 80,
+      "grade": "局部复尺",
+      "source": "R2 S05/S06：实测记录窗宽500、窗高1400mm；经用户确认保留旧位置及台1500／高800mm示意，不将1400叠加旧窗台；窗台、窗中心、净高及框内/框外参考面待核。",
+      "measurementStatus": {
+        "date": "2026-10-04",
+        "reference": "models/measurements-20261004-r2.json",
+        "scope": "R2 S05/S06：实测记录窗宽500、窗高1400mm；经用户确认保留旧位置及台1500／高800mm示意，不将1400叠加旧窗台；窗台、窗中心、净高及框内/框外参考面待核。",
+        "fullyLocated": false
+      },
+      "designScenario": "主卫实测窗宽500、窗高1400mm；模型保留台1500／高800mm旧示意，窗台、定位及测量参考面待核。",
+      "measuredDimensions": {
+        "widthMm": 500,
+        "heightMm": 1400,
+        "sillMm": null,
+        "fullyLocated": false
+      },
+      "placeholderDecision": {
+        "geometry": "保留旧窗示意",
+        "sillMm": 1500,
+        "heightMm": 800,
+        "userConfirmed": true,
+        "reason": "新窗高1400不能与未测的旧窗台1500组合；不自行降低窗台。"
+      }
+    },
+    {
+      "id": "window_bath_2_east",
+      "name": "客卫东窗（同户型图有窗，目标须复尺）",
+      "kind": "window",
+      "x1": 681,
+      "y1": 530,
+      "x2": 681,
+      "y2": 590,
+      "widthMm": 600,
+      "sillCm": 150,
+      "heightCm": 80,
+      "grade": "C",
+      "source": "assets/original-plan.webp 客卫东墙可见窄窗；目标房源该处缺少明确宽高标注，存在与尺寸均须现场确认"
+    },
+    {
+      "id": "window_kitchen_balcony",
+      "name": "厨房与阳台共墙大窗（尺寸及窗型待复尺）",
+      "kind": "window",
+      "roomId": "kitchen",
+      "connects": [
+        "kitchen",
+        "balcony"
+      ],
+      "x1": 698,
+      "y1": 1121,
+      "x2": 818,
+      "y2": 1121,
+      "widthMm": 1200,
+      "sillCm": 100,
+      "heightCm": 130,
+      "grade": "C",
+      "windowSystem": {
+        "type": "two-track-horizontal-slider",
+        "panelCount": 2,
+        "frameCm": 3.5,
+        "panelFrameCm": 2.8,
+        "overlapCm": 3,
+        "trackPitchCm": 3.6,
+        "panelDepthCm": 2.4
+      },
+      "source": "业主确认厨房与阳台之间应有大窗；共墙位置沿用模型，洞宽1200/高1300/台高1000及双扇推拉窗型均为暂定，不是实测。",
+      "notes": "厨房与家政阳台之间的内窗，不是通往客厅的窗或阳台外窗。保留窗下墙、两边台下柜和现有门；阳台外侧采光通风条件另核。"
+    },
+    {
+      "id": "balcony_north_opening",
+      "name": "生活阳台北向通透开口（矮墙及防护保留；尺寸暂估）",
+      "kind": "window",
+      "roomId": "balcony",
+      "connects": [
+        "balcony",
+        "outside"
+      ],
+      "windowType": "guarded-open-air",
+      "glazing": false,
+      "x1": 687,
+      "y1": 960,
+      "x2": 829,
+      "y2": 960,
+      "widthMm": 1420,
+      "sillCm": 110,
+      "heightCm": 135,
+      "grade": "C",
+      "dimensionsVerified": false,
+      "guard": {
+        "frameCm": 2,
+        "barWidthCm": 1.2,
+        "nominalSpacingCm": 10,
+        "status": "schematic-not-engineered"
+      },
+      "source": "2026-10-05业主标注图与阳台实景确认北、东两面上部通透；开口尺寸和标高暂估，不是实测。",
+      "notes": "保留下方矮墙、边柱、顶梁及防护示意；无玻璃、无新增遮挡柜。不是拆改施工图。"
+    },
+    {
+      "id": "balcony_east_opening",
+      "name": "生活阳台东向通透开口（矮墙及防护保留；尺寸暂估）",
+      "kind": "window",
+      "roomId": "balcony",
+      "connects": [
+        "balcony",
+        "outside"
+      ],
+      "windowType": "guarded-open-air",
+      "glazing": false,
+      "x1": 835,
+      "y1": 966,
+      "x2": 835,
+      "y2": 1115,
+      "widthMm": 1490,
+      "sillCm": 110,
+      "heightCm": 135,
+      "grade": "C",
+      "dimensionsVerified": false,
+      "guard": {
+        "frameCm": 2,
+        "barWidthCm": 1.2,
+        "nominalSpacingCm": 10,
+        "status": "schematic-not-engineered"
+      },
+      "source": "2026-10-05业主标注图与阳台实景确认北、东两面上部通透；开口尺寸和标高暂估，不是实测。",
+      "notes": "保留下方矮墙、边柱、顶梁及防护示意；无玻璃、无新增遮挡柜。不是拆改施工图。"
+    }
+  ],
+  "furniture": [
+    {
+      "name": "次卧1350床",
+      "id": "bed_b",
+      "x": 12,
+      "y": 120,
+      "w": 210,
+      "d": 145,
+      "headDirection": "west",
+      "frameWidthCm": 145,
+      "frameLengthCm": 210,
+      "mattressWidthCm": 135,
+      "mattressLengthCm": 200,
+      "a": 0,
+      "tone": "fabric",
+      "roomId": "room_b"
+    },
+    {
+      "name": "次卧衣柜",
+      "x": 283,
+      "y": 12,
+      "w": 30,
+      "d": 310,
+      "a": 0,
+      "tone": "wood",
+      "face": "west",
+      "doorStyle": "sliding",
+      "notes": "东墙300mm浅柜沿墙到北端，以叠衣为主；旧模型床尾610mm、按3000mm局部净宽保守600mm。不是常规600mm挂衣柜。",
+      "id": "secondary_east_wardrobe",
+      "roomId": "room_b"
+    },
+    {
+      "name": "主卧1500床",
+      "id": "bed_a",
+      "x": 465,
+      "y": 60,
+      "w": 210,
+      "d": 160,
+      "headDirection": "east",
+      "frameWidthCm": 160,
+      "frameLengthCm": 210,
+      "mattressWidthCm": 150,
+      "mattressLengthCm": 200,
+      "a": 0,
+      "tone": "fabric",
+      "roomId": "room_a"
+    },
+    {
+      "name": "主卧衣柜",
+      "x": 325,
+      "y": 12,
+      "w": 60,
+      "d": 220,
+      "a": 0,
+      "tone": "wood",
+      "face": "east",
+      "doorStyle": "sliding",
+      "notes": "西墙600mm深衣柜延至北墙，柜南端止于y232，入口内侧保留900mm；床尾模型800mm。奶白移门，门套和收口待核。",
+      "id": "master_full_wardrobe",
+      "roomId": "room_a"
+    },
+    {
+      "name": "书房办公椅",
+      "x": 155,
+      "y": 510,
+      "w": 48,
+      "d": 50,
+      "a": 0,
+      "tone": "fabric",
+      "face": "south",
+      "roomId": "room_c",
+      "woodRole": "chair"
+    },
+    {
+      "name": "三人沙发",
+      "x": 394,
+      "y": 856,
+      "w": 241,
+      "d": 98,
+      "a": 0,
+      "tone": "fabric",
+      "face": "north",
+      "rugCm": {
+        "x": 403,
+        "y": 681,
+        "w": 244,
+        "d": 192
+      },
+      "productKey": "sofa",
+      "heightCm": 83,
+      "purchasedProductId": "ikea-vimle-39635114",
+      "displayName": "VIMLE 维姆勒 三人沙发 · 科耐贝克浅米色"
+    },
+    {
+      "name": "电视薄柜",
+      "x": 415,
+      "y": 633,
+      "w": 220,
+      "d": 34,
+      "a": 0,
+      "tone": "wood"
+    },
+    {
+      "name": "茶几",
+      "x": 465,
+      "y": 744,
+      "w": 120,
+      "d": 62,
+      "a": 0,
+      "tone": "wood"
+    },
+    {
+      "name": "四人餐桌",
+      "x": 320,
+      "y": 1106,
+      "w": 140,
+      "d": 78,
+      "a": 0,
+      "tone": "wood",
+      "productKey": "table",
+      "heightCm": 74,
+      "face": "north",
+      "purchasedProductId": "ikea-lisabo-80365717",
+      "displayName": "LISABO 利萨伯 固定四人餐桌 · 白蜡木贴面"
+    },
+    {
+      "name": "餐椅北1",
+      "productKey": "chair",
+      "x": 332,
+      "y": 1042.5,
+      "w": 46,
+      "d": 51,
+      "heightCm": 80,
+      "face": "south",
+      "a": 0,
+      "tone": "wood",
+      "purchasedProductId": "ikea-lisabo-80457236",
+      "displayName": "LISABO 利萨伯 餐椅 · 白蜡木"
+    },
+    {
+      "name": "餐椅北2",
+      "productKey": "chair",
+      "x": 402,
+      "y": 1042.5,
+      "w": 46,
+      "d": 51,
+      "heightCm": 80,
+      "face": "south",
+      "a": 0,
+      "tone": "wood",
+      "purchasedProductId": "ikea-lisabo-80457236",
+      "displayName": "LISABO 利萨伯 餐椅 · 白蜡木"
+    },
+    {
+      "name": "餐椅南1",
+      "productKey": "chair",
+      "x": 332,
+      "y": 1196.5,
+      "w": 46,
+      "d": 51,
+      "heightCm": 80,
+      "face": "north",
+      "a": 0,
+      "tone": "wood",
+      "purchasedProductId": "ikea-lisabo-80457236",
+      "displayName": "LISABO 利萨伯 餐椅 · 白蜡木"
+    },
+    {
+      "name": "餐椅南2",
+      "productKey": "chair",
+      "x": 402,
+      "y": 1196.5,
+      "w": 46,
+      "d": 51,
+      "heightCm": 80,
+      "face": "north",
+      "a": 0,
+      "tone": "wood",
+      "purchasedProductId": "ikea-lisabo-80457236",
+      "displayName": "LISABO 利萨伯 餐椅 · 白蜡木"
+    },
+    {
+      "name": "玄关柜",
+      "id": "entry_storage",
+      "storageFitoutId": "entry_shoe_station",
+      "x": 495,
+      "y": 1320,
+      "w": 34,
+      "d": 65,
+      "heightCm": 250,
+      "a": 0,
+      "tone": "wood",
+      "face": "west",
+      "doorStyle": "sliding",
+      "notes": "进门右侧靠厨房实墙，650mm沿墙长、340mm外深。浅柜净深及鞋长须复核；柜体不占1000mm入户门洞，门把手/门套/实际开启须量房后确定，不设固定换鞋凳。"
+    },
+    {
+      "name": "餐边柜",
+      "id": "dining_sideboard",
+      "storageFitoutId": "dining_sideboard_wall",
+      "x": 212.5,
+      "y": 860,
+      "w": 40,
+      "d": 489,
+      "heightCm": 250,
+      "a": 0,
+      "tone": "wood",
+      "face": "east",
+      "doorStyle": "sliding",
+      "notes": "西墙7字餐柜主臂分1200/1200/1200/1290mm四模块，另有南侧盲角。400mm底深、280mm上深，850mm台面与650mm中空；鞋柜已移至进门右侧。"
+    },
+    {
+      "name": "餐边柜南侧转折",
+      "id": "dining_sideboard_return",
+      "storageFitoutId": "dining_sideboard_wall",
+      "x": 252.5,
+      "y": 1349,
+      "w": 122.5,
+      "d": 40,
+      "heightCm": 250,
+      "a": 0,
+      "tone": "wood",
+      "face": "north",
+      "doorStyle": "sliding",
+      "notes": "南墙沿门左侧短转折，含西盲角的整臂总长1625mm；本段可开柜1225mm。末端距门洞左边150mm，转角不作为可用储物容量。"
+    },
+    {
+      "name": "餐边柜封闭盲角",
+      "id": "dining_sideboard_corner",
+      "storageFitoutId": "dining_sideboard_wall",
+      "x": 212.5,
+      "y": 1349,
+      "w": 40,
+      "d": 40,
+      "heightCm": 250,
+      "a": 0,
+      "tone": "wood",
+      "face": "north",
+      "notes": "400×400mm下柜转角封闭不用，台面在上方连续转折；退进上柜的盲角单独按实际280mm深生成。非实心满高占位，不重复生成模型。"
+    },
+    {
+      "name": "主卫750浴室柜",
+      "id": "vanity_main",
+      "x": 424,
+      "y": 423,
+      "w": 75,
+      "d": 40,
+      "a": 0,
+      "tone": "sanitary",
+      "face": "north",
+      "notes": "750×400mm盆柜靠西段南墙，盆柜与镜面均朝北门；盆柜前至北内墙890mm为旧模型参考。",
+      "roomId": "bath_1"
+    },
+    {
+      "name": "主卫壁挂马桶",
+      "x": 533,
+      "y": 428,
+      "w": 36,
+      "d": 58,
+      "a": 0,
+      "tone": "sanitary",
+      "face": "north",
+      "id": "main_wc_south",
+      "roomId": "bath_1",
+      "notes": "壁挂马桶及隐藏水箱移向东段南墙、朝北；真实水箱外廓约470×585mm，排污口和支架安装未核实。"
+    },
+    {
+      "name": "主卫淋浴区",
+      "x": 581,
+      "y": 340,
+      "w": 90,
+      "d": 141,
+      "a": 0,
+      "tone": "wet",
+      "screenAnchor": "south",
+      "screenLengthCm": 60,
+      "notes": "淋浴区尺寸不变；西固定屏由北段移至南段y419–479，北留790mm入口，配合南墙马桶。玻璃固定、防水及挡水须深化。"
+    },
+    {
+      "name": "客卫600浴室柜",
+      "id": "vanity_guest",
+      "x": 432,
+      "y": 475,
+      "w": 60,
+      "d": 35,
+      "a": 0,
+      "tone": "sanitary",
+      "face": "south",
+      "notes": "600宽350深浅盆柜放在西北扩出的盆位，实际产品和门套需复核。"
+    },
+    {
+      "name": "客卫壁挂马桶",
+      "x": 528,
+      "y": 502,
+      "w": 36,
+      "d": 58,
+      "a": 0,
+      "tone": "sanitary",
+      "face": "south"
+    },
+    {
+      "name": "客卫淋浴区",
+      "x": 582,
+      "y": 504,
+      "w": 88,
+      "d": 111,
+      "a": 0,
+      "tone": "wet"
+    },
+    {
+      "id": "kitchen_shaft_footprint",
+      "name": "西南烟道不可用",
+      "x": 542,
+      "y": 1329,
+      "w": 60,
+      "d": 60,
+      "heightCm": 270,
+      "tone": "wall",
+      "roomId": "kitchen",
+      "a": 0,
+      "kitchenFitoutId": "kitchen-20261005"
+    },
+    {
+      "id": "kitchen_north_footprint",
+      "name": "厨房北侧台面占地",
+      "x": 622,
+      "y": 1127,
+      "w": 207,
+      "d": 65,
+      "heightCm": 89,
+      "tone": "cabinet",
+      "roomId": "kitchen",
+      "a": 0,
+      "kitchenFitoutId": "kitchen-20261005"
+    },
+    {
+      "id": "kitchen_east_footprint",
+      "name": "厨房东侧双槽柜",
+      "x": 764,
+      "y": 1192,
+      "w": 65,
+      "d": 132,
+      "heightCm": 89,
+      "tone": "cabinet",
+      "roomId": "kitchen",
+      "a": 0,
+      "kitchenFitoutId": "kitchen-20261005"
+    },
+    {
+      "id": "kitchen_south_footprint",
+      "name": "厨房南侧炉灶柜",
+      "x": 602,
+      "y": 1324,
+      "w": 227,
+      "d": 65,
+      "heightCm": 89,
+      "tone": "cabinet",
+      "roomId": "kitchen",
+      "a": 0,
+      "kitchenFitoutId": "kitchen-20261005"
+    },
+    {
+      "id": "kitchen_fridge_footprint",
+      "name": "厨房冰箱",
+      "x": 550,
+      "y": 1132,
+      "w": 65,
+      "d": 60,
+      "heightCm": 190,
+      "tone": "metal",
+      "roomId": "kitchen",
+      "a": 0,
+      "kitchenFitoutId": "kitchen-20261005"
+    },
+    {
+      "id": "master_nightstand",
+      "name": "主卧北侧床头柜",
+      "roomId": "room_a",
+      "woodRole": "nightstand",
+      "x": 625,
+      "y": 16,
+      "w": 45,
+      "d": 40,
+      "face": "south",
+      "heightCm": 48,
+      "a": 0,
+      "tone": "wood"
+    },
+    {
+      "id": "master_small_desk",
+      "name": "主卧南侧小书桌",
+      "roomId": "room_a",
+      "woodRole": "compact-desk",
+      "x": 595,
+      "y": 272,
+      "w": 80,
+      "d": 50,
+      "face": "north",
+      "heightCm": 74,
+      "a": 0,
+      "tone": "wood"
+    },
+    {
+      "id": "master_small_chair",
+      "name": "主卧小桌配椅",
+      "roomId": "room_a",
+      "woodRole": "chair",
+      "x": 613,
+      "y": 229,
+      "w": 44,
+      "d": 43,
+      "face": "south",
+      "heightCm": 78,
+      "a": 0,
+      "tone": "fabric"
+    },
+    {
+      "id": "secondary_nightstand",
+      "name": "次卧南侧床头柜",
+      "roomId": "room_b",
+      "woodRole": "nightstand",
+      "x": 12,
+      "y": 272,
+      "w": 40,
+      "d": 40,
+      "face": "north",
+      "heightCm": 48,
+      "a": 0,
+      "tone": "wood"
+    },
+    {
+      "id": "secondary_small_desk",
+      "name": "次卧北侧小书桌",
+      "roomId": "room_b",
+      "woodRole": "compact-desk",
+      "x": 12,
+      "y": 12,
+      "w": 80,
+      "d": 50,
+      "face": "south",
+      "heightCm": 74,
+      "a": 0,
+      "tone": "wood"
+    },
+    {
+      "id": "secondary_small_chair",
+      "name": "次卧小桌配椅",
+      "roomId": "room_b",
+      "woodRole": "chair",
+      "x": 30,
+      "y": 67,
+      "w": 44,
+      "d": 45,
+      "face": "north",
+      "heightCm": 78,
+      "a": 0,
+      "tone": "fabric"
+    },
+    {
+      "name": "书房通长桌",
+      "x": 12,
+      "y": 565,
+      "w": 301,
+      "d": 55,
+      "a": 0,
+      "tone": "wood",
+      "face": "north",
+      "notes": "参考方案三通长桌形式，按方案一南墙净宽改3010×550mm，含支架和支脚。",
+      "id": "study_full_desk",
+      "roomId": "room_c",
+      "woodRole": "full-desk"
+    },
+    {
+      "id": "study_north_sofa",
+      "name": "书房北墙沙发",
+      "x": 16.5,
+      "y": 334,
+      "w": 190,
+      "d": 80,
+      "a": 0,
+      "tone": "fabric",
+      "face": "south",
+      "notes": "1900×800mm小沙发背北朝南，放入1990×1000mm凹位，左右各45mm；须按含扶手软包的实际外包尺寸选购，不示意沙发床展开。",
+      "roomId": "room_c",
+      "woodRole": "study-sofa"
+    },
+    {
+      "id": "wood_laundry_footprint",
+      "name": "阳台并排洗烘浅盆台",
+      "x": 661,
+      "y": 1040,
+      "w": 142,
+      "d": 75,
+      "heightCm": 98,
+      "roomId": "balcony",
+      "tone": "cabinet",
+      "a": 0,
+      "laundryFitoutId": "wood_parallel_laundry"
+    }
+  ],
+  "coordinateSystem": {
+    "unit": "cm",
+    "x": "向东（图右）",
+    "y": "向南（图下）",
+    "z": "向上",
+    "furnitureOrigin": "x,y为平面包围盒左上角；w,d是沿全局x,y的占位，不是局部模型宽深",
+    "faceSemantics": "柜体face=门板朝向；座椅face=坐者视线；桌face=主要使用者位于哪一侧。桌/椅面对方向通常相反。",
+    "blenderMapping": "(X,Y,Z)=(x/100,-y/100,z/100)，米；局部平面旋转angle取负号",
+    "sourceModel": "model-data.json / Home.xml 保留为 V2.3 归档"
+  },
+  "geometryRevision": "2026-10-04 R2 · 主卧窗宽及条件定位；主卫窗保持旧示意",
+  "clearances": [
+    {
+      "id": "bed_b_entry",
+      "name": "B门厅净空",
+      "x": 223,
+      "y": 334,
+      "w": 90,
+      "d": 88,
+      "grade": "B"
+    },
+    {
+      "id": "bed_c_entry",
+      "name": "C门内850×850落脚区",
+      "x": 228,
+      "y": 457.5,
+      "w": 85,
+      "d": 85,
+      "grade": "B"
+    },
+    {
+      "id": "hall_north",
+      "name": "北走廊850净宽",
+      "x": 325,
+      "y": 334,
+      "w": 85,
+      "d": 298,
+      "grade": "B"
+    },
+    {
+      "id": "wood_master_entry",
+      "name": "主卧柜南端900mm入口保护带",
+      "x": 325,
+      "y": 232,
+      "w": 90,
+      "d": 90,
+      "grade": "C"
+    },
+    {
+      "id": "wood_secondary_foot",
+      "name": "次卧床尾610mm模型净距（局部实测保守600）",
+      "x": 222,
+      "y": 120,
+      "w": 61,
+      "d": 145,
+      "grade": "C"
+    }
+  ],
+  "measurementRevision": {
+    "date": "2026-10-04",
+    "version": "3.6.1",
+    "stage": "partial-confirmed",
+    "source": "models/measurements-20261004-r2.json",
+    "summary": "补充复尺已录入：主卧窗宽1760mm并按西墙段860mm条件定位；主卫实测局部轮廓独立展示。主卫窗高1400mm已确认，但模型保留旧窗占位等待定位；全屋墙线、面积及家具通道仍为旧设计参考。",
+    "orientation": "九张分房图逆时针旋转90°对应网站北向；原分房图上下不代表实地正北。",
+    "oldEnvelope": true,
+    "baseline": "3cd0096513a5baaae15ba5db167d3dc3015f5f13",
+    "applied": [
+      {
+        "label": "客厅飘窗",
+        "value": "宽2120 × 高2210；台400；外凸600mm",
+        "scope": "三套方案2D/3D",
+        "note": "L02/L03/L04/L05；绝对位置沿旧中心，坐垫50mm为设计值。"
+      },
+      {
+        "label": "次卧飘窗",
+        "value": "宽1760 × 高1670；台400；西墙段870mm",
+        "scope": "三套方案2D/3D及茶座",
+        "note": "B2_WINDOW_*；坐垫与茶托随窗平移90mm、降低30mm，完成坐面450mm。东墙段仍差10mm。"
+      },
+      {
+        "label": "主卧窗立面与净高",
+        "value": "台410＋窗1660＋距顶720＝房高2790mm",
+        "scope": "三套方案3D分区立面",
+        "note": "B3_WINDOW_* / B3_ROOM_HEIGHT；只升主卧边界对应墙段及顶面，不把次卧、卫生间一并升高。"
+      },
+      {
+        "label": "客厅净高",
+        "value": "2700mm",
+        "scope": "维持当前客厅顶面",
+        "note": "L12已确认；不推广为其他未测房间的净高。"
+      },
+      {
+        "label": "主卧窗宽与条件定位",
+        "value": "1760mm；西段860mm",
+        "scope": "三套方案2D/3D及同源效果图",
+        "note": "R2确认窗宽1760；三段合计3490对净跨3500差10mm，不取平均。东段模型暂880对记录870。"
+      },
+      {
+        "label": "主卫现状局部轮廓",
+        "value": "1010×1320＋1390×1530mm；总宽2400、退台210为推算",
+        "scope": "复尺核对明细独立局部图；不替换改造墙线",
+        "note": "S01–S04与O_S_DEPTH／D_SUITE_STEP。全屋共同基准未闭合，不取消已设计的套内玄关。"
+      },
+      {
+        "label": "主卫窗明确尺寸",
+        "value": "实测记录500×1400mm；定位待核",
+        "scope": "核对数据与醒目占位提醒；不修改本轮3D窗高",
+        "note": "主卫实测窗宽500、窗高1400mm；模型保留台1500／高800mm旧示意，窗台、定位及测量参考面待核。 用户已选择保留旧示意，未授权猜测新窗台。"
+      },
+      {
+        "label": "其他补充复核",
+        "value": "书房左下990、两卧现门820mm；客餐厅30／次卧20mm偏差已接受",
+        "scope": "现状数据记录；不覆盖拟建门及扩大书房",
+        "note": "现门量取面仍需分清；厨房↔阳台1000原记录已撤销采用，不能当已确认尺寸。"
+      }
+    ],
+    "pending": [
+      {
+        "room": "全屋",
+        "label": "墙厚与总轮廓闭合",
+        "measured": "厨房净2420×2610；原阳台净1240×1490；餐区宽条件值3330mm",
+        "model": "统一墙厚120mm、旧总轮廓暂留",
+        "reason": "图纸旋转到网站坐标后，假定厨房/阳台东墙共线，会相差150mm。尚无法区分墙厚、墙面错位或量尺基准；不擅自加厚墙或移动外墙。"
+      },
+      {
+        "room": "客餐厅",
+        "label": "整体净尺寸与窗定位",
+        "measured": "东西4660；南北7570（5450＋2120条件合成），另一侧合计7600mm",
+        "model": "原房间多边形/面积保留，客厅高度2700mm已确认",
+        "reason": "两条南北链差30mm已由用户接受，原读数分别保留，不将3300改写为3270。全屋共同定位、墙厚及入户开口仍不足，窗中心仍沿用旧模型。"
+      },
+      {
+        "room": "次卧B",
+        "label": "主体及入口凹位",
+        "measured": "东西3000×南北3080；原入口860×1200mm",
+        "model": "主体东西3010mm，入口为当前改造布局",
+        "reason": "4300对3080＋1200＝4280的20mm偏差已接受；不等于所有墙线已闭合。当前主体3010对实测3000仍差10mm，窗东段380对370多10mm；现状入口不能覆盖拟建入口。"
+      },
+      {
+        "room": "主卧",
+        "label": "净跨与窗位闭合差",
+        "measured": "东西3500、南北3090；西860＋窗1760＋东870＝3490mm",
+        "model": "东西3500、南北3100仍为原主体；窗宽1760、西段860，模型东段880mm",
+        "reason": "旧2620窗宽已更正，不再保留850mm冲突。新水平链剩10mm待核，主体南北仍差10mm；不平均分摊、不擅自移动卧室隔墙。"
+      },
+      {
+        "room": "书房",
+        "label": "现状净尺寸与改造扩大区分",
+        "measured": "南北2730；左下990；东西2000＋990＝2990，与旧3030差40mm",
+        "model": "各方案原书房墙线/推拉门、家具暂留",
+        "reason": "左下990已确认，底段2730＋130－1200＝1660为推算；3030/2990的40mm仍未结案。扩大书房和推拉门属拟改造，不用现状一个矩形覆盖。"
+      },
+      {
+        "room": "主卫",
+        "label": "现状轮廓已明确；窗台与改造定位待核",
+        "measured": "西段1010×1320、东段1390×1530；窗记录500×1400mm",
+        "model": "现状局部图独立展示；全屋两卫及套内玄关墙线暂留，主卫窗台1500／高800mm为旧示意",
+        "reason": "总宽2400与退台210为推算，不能直接覆盖缩入套内玄关后的改造卫生间。窗高1400已确认；窗台、绝对定位、净高及框内/框外基准仍待核。经用户选择，不按猜测窗台900建模。"
+      },
+      {
+        "room": "客卫",
+        "label": "局部宽不能代替总净宽",
+        "measured": "深段净宽980；两段720＋1630＝2350为推算；门右短墙510mm",
+        "model": "原两卫边界/台盆和洁具位置暂留",
+        "reason": "980仅为深段，不代表入口段总宽；左侧短墙未测，门600/520量取面未统一，完整退台轮廓仍不能确定。不得用510直接替代总宽。"
+      },
+      {
+        "room": "家政阳台",
+        "label": "现状与借厅扩展方案",
+        "measured": "原净1240×1490mm，局部凸出50×150mm位置待补",
+        "model": "原版现状占位；亲子/整墙保留借厅扩展设计与并排洗烘",
+        "reason": "已记录原净尺寸，但借厅后尺寸不可直接回退到原阳台；设备净空、窗框及与厨房的共同基准须随全屋闭合复核。水龙头迁移与换表未办结。"
+      },
+      {
+        "room": "门与走廊",
+        "label": "保留拟建门，不混同现状门",
+        "measured": "原走廊940；书房、次卧现门820；主卫洞750/内650/高1950；主卧门830与走廊侧820/920mm",
+        "model": "主卧平开门、书房推拉门、厨房1700推拉门等设计参数未改",
+        "reason": "须分清门扇、框内与结构洞口；末端130与门区950为条件推算，不是新实测。厨房↔阳台1000原记录本轮撤销采用，性质待核；不等同拟建1200大窗，设计1700推拉门保持。"
+      },
+      {
+        "room": "窗边安全",
+        "label": "净深、承载和防坠",
+        "measured": "仅客厅外凸600确认；两卧外凸仍未测",
+        "model": "两卧外凸600mm旧占位；软垫和防护均是设计意图",
+        "reason": "宽高数据不等于窗框系统净空或结构承载认证；28楼防坠、开启限位、台面承载、排水及墙体可拆性需专业核验。"
+      },
+      {
+        "room": "原版主卧高桌",
+        "label": "高桌与低飘台的适配",
+        "measured": "飘台410mm，旧900mm占位不成立",
+        "model": "原设计台高931/座高640mm保留比较",
+        "reason": "桌椅设计未擅自改动，窗侧台板需独立支撑与重新校核，不能按现图下单。亲子/家政方案无该桌椅。"
+      }
+    ],
+    "roomDescriptions": {
+      "living": "复尺记录客厅窗宽2120mm、窗高2210mm、台面离地400mm、外凸600mm，窗顶2610mm。两片960×550mm可拆洗软垫各厚50mm，完成坐面约450mm；不加桌椅，不向厅内外扩。窗在整墙上的定位暂留旧中心，框内净深、排水和高层防坠仍须核验。",
+      "room_b": "次卧无独立桌椅。复尺窗宽1760mm、窗高1670mm、台面400mm；茶座坐垫完成面450mm。窗位按西内墙留870mm定位，东侧旧墙仍多10mm，待全屋墙线闭合。",
+      "room_a": "主卧实台现按410mm建模，原931mm高桌与高椅暂保留作为历史设计比较；窗前台板不能再视为落在900mm实台上。需重新确认独立支撑、普通桌高度、玻璃前净空与防坠后才可深化。 R2窗宽已改1760mm，西墙段按860mm条件定位，东侧留10mm闭合差；未改原高桌家具。",
+      "bath_1": {
+        "title": "主卫 · 实测尺寸与旧窗占位",
+        "description": "主卫实测窗宽500、窗高1400mm；模型保留台1500／高800mm旧示意，窗台、定位及测量参考面待核。 主卫现状为西段1010×1320、东段1390×1530mm，总宽2400与南侧退台210mm由分段推算。局部现状图仅供复核，不直接替换套内玄关和拟建卫生间墙线；需取得共同基准、墙厚和窗台实测后再调整整体模型，不能据旧窗示意下单。",
+        "notice": "主卫实测窗宽500、窗高1400mm；模型保留台1500／高800mm旧示意，窗台、定位及测量参考面待核。",
+        "features": [
+          "实测窗高1400mm",
+          "旧窗示意未改",
+          "窗台及定位待核"
+        ]
+      }
+    },
+    "revision": "r2",
+    "previousVersion": "3.6.0",
+    "sourceSummary": {
+      "已解决": 12,
+      "用户接受偏差": 2,
+      "未完成": 8
+    },
+    "localExistingPlans": [
+      {
+        "id": "suite-bath-existing",
+        "title": "主卫现状局部轮廓",
+        "pointsMm": [
+          [
+            0,
+            0
+          ],
+          [
+            2400,
+            0
+          ],
+          [
+            2400,
+            1530
+          ],
+          [
+            1010,
+            1530
+          ],
+          [
+            1010,
+            1320
+          ],
+          [
+            0,
+            1320
+          ]
+        ],
+        "basis": "分段实测S01/S02/S03/S04；总宽2400＝1010＋1390、退台210＝1530－1320为推算。分房图逆时针90°转为网站北向。",
+        "notes": [
+          "此图仅定位在局部坐标，不代表已与全屋墙线闭合；不覆盖套内玄关及拟建主卫墙线。",
+          "窗记录宽500、高1400mm，窗台与定位待核；本局部图不猜测门窗位置。",
+          "模型仍保留主卫窗台1500／窗高800mm旧示意。尺寸需按完成面及门窗参考面复核后才能施工。"
+        ]
+      }
+    ]
+  },
+  "purchasedFurnitureRevision": {
+    "version": "3.7.0",
+    "date": "2026-10-05",
+    "products": [
+      {
+        "id": "ikea-vimle-39635114",
+        "name": "VIMLE 维姆勒 三人沙发 · 科耐贝克浅米色",
+        "articleNumber": "396.351.14",
+        "url": "https://www.ikea.cn/cn/zh/p/vimle-wei-mu-le-san-ren-sha-fa-ke-nai-bei-ke-qian-mi-se-s39635114/",
+        "verificationUrl": "https://www.ikea.com/sg/en/p/vimle-3-seat-sofa-knaebaeck-light-beige-s39635114/",
+        "dimensionsMm": {
+          "width": 2410,
+          "depth": 980,
+          "height": 830
+        },
+        "seatMm": {
+          "width": 2110,
+          "depth": 550,
+          "height": 480
+        },
+        "armWidthMm": 150,
+        "modelType": "parametric-approximation"
+      },
+      {
+        "id": "ikea-lisabo-80365717",
+        "name": "LISABO 利萨伯 固定四人餐桌 · 白蜡木贴面",
+        "articleNumber": "803.657.17",
+        "url": "https://www.ikea.cn/cn/zh/p/lisabo-li-sa-bo-zhuo-zi-bai-zha-mu-tie-mian-80365717/",
+        "dimensionsMm": {
+          "width": 1400,
+          "depth": 780,
+          "height": 740
+        },
+        "extendable": false,
+        "modelType": "parametric-approximation"
+      },
+      {
+        "id": "ikea-lisabo-80457236",
+        "name": "LISABO 利萨伯 餐椅 · 白蜡木",
+        "articleNumber": "804.572.36",
+        "url": "https://www.ikea.cn/cn/zh/p/lisabo-li-sa-bo-yi-zi-bai-zha-mu-80457236/",
+        "dimensionsMm": {
+          "width": 460,
+          "depth": 510,
+          "height": 800
+        },
+        "seatMm": {
+          "width": 440,
+          "depth": 390,
+          "height": 450
+        },
+        "modelType": "parametric-approximation"
+      }
+    ],
+    "quantityAssumption": "餐椅暂按原四席设4把。",
+    "modelNotice": "家具为按官方外包尺寸及产品照片重建的参数模型，缝线、弧度和腿型为近似，并非宜家官方CAD；不替代现场搬运、门洞和净距核验。",
+    "layoutNotes": [
+      "沙发保留东缘655与南缘999cm；扩大21cm向西、增深10cm向北。",
+      "餐桌保留原中心390/1145cm；北椅拉出后的椅后窄带不作通道，走桌两端。"
+    ],
+    "clearancesCm": {
+      "sofaEastToWall": 20,
+      "westSideboardToSofa": 161.5,
+      "coffeeToSofa": 50,
+      "westSideboardToTable": 67.5,
+      "tableEastToKitchenWall": 70,
+      "southChairEastToKitchenWall": 82,
+      "southChairPulledToSouthReturn": 71.5,
+      "northChairPulledToSofa": 13.5
+    },
+    "roomDescriptions": {
+      "living": "已购VIMLE浅米色三人沙发2410×980×830mm，三座垫、三靠垫，坐高480mm。以官方外包尺寸替换旧通用沙发，不为适配走道缩小家具。 沙发保留东缘655与南缘999cm；扩大21cm向西、增深10cm向北。 餐桌保留原中心390/1145cm；北椅拉出后的椅后窄带不作通道，走桌两端。 复尺记录客厅窗宽2120mm、窗高2210mm、台面离地400mm、外凸600mm，窗顶2610mm。两片960×550mm可拆洗软垫各厚50mm，完成坐面约450mm；不加桌椅，不向厅内外扩。窗在整墙上的定位暂留旧中心，框内净深、排水和高层防坠仍须核验。",
+      "dining": "已购LISABO固定餐桌1400×780×740mm，四把LISABO木餐椅外包460×510×800mm，南北两侧各两席。取消旧抽拉桌及收桌演示，不假设桌椅可折叠或藏进柜里。 沙发保留东缘655与南缘999cm；扩大21cm向西、增深10cm向北。 餐桌保留原中心390/1145cm；北椅拉出后的椅后窄带不作通道，走桌两端。 家具为按官方外包尺寸及产品照片重建的参数模型，缝线、弧度和腿型为近似，并非宜家官方CAD；不替代现场搬运、门洞和净距核验。"
+    }
+  },
+  "modelAddons": {
+    "livingFloorLampCm": {
+      "x": 648,
+      "y": 810
+    }
+  },
+  "balconyOpennessRevision": {
+    "id": "balcony-two-sided-open-20261005",
+    "version": "3.12.0",
+    "baselineCommit": "f9f4cb94ecf2bbdc39ab6e6ba086956081457c27",
+    "topologyConfirmedByOwner": true,
+    "dimensionsVerified": false,
+    "constructionApproved": false,
+    "evidenceFiles": [
+      "188e6af399cb806e2e2453d96a983d86.png",
+      "33082a0817245f15ae9db5cb51f6cde4.jpg"
+    ],
+    "openingIds": [
+      "balcony_north_opening",
+      "balcony_east_opening"
+    ],
+    "northWall": [
+      681,
+      960,
+      835,
+      960
+    ],
+    "eastWall": [
+      835,
+      960,
+      835,
+      1395
+    ],
+    "estimatedSillCm": 110,
+    "estimatedOpeningHeightCm": 135,
+    "estimatedOpeningTopCm": 245,
+    "originalWallHeightCm": 270,
+    "conditions": [
+      "本次纠正阳台北、东两面被画成整面实墙的错误：按业主照片表达下部矮墙、上部通透防护开口，保留边柱及顶梁；不是新拆墙或拆护栏方案。",
+      "矮墙高1100mm、开口高1350mm、上口2450mm均暂按照片估算；总高2700mm沿用旧模型。开口水平范围沿旧模型端点，不是实测净宽。",
+      "防护框、竖杆和间距仅为存在性示意，不作为防坠、承重、安装或规范验收依据；梁柱、矮墙、防护及排水管不得据模型擅改。",
+      "北侧借厅短墙仍保留；东面仅阳台段通透，厨房东墙、厨房与阳台内窗、生活阳台门及洗烘设备位置均不变。",
+      "未增加封窗玻璃、柜体或背景景观。窗外楼栋、管线及实际遮挡以现场为准，不承诺无遮拦远景。"
+    ],
+    "roomDescriptions": {
+      "balcony": {
+        "title": "北东通透，洗烘如旧",
+        "description": "洗衣机600×530×840mm和烘干机600×600×840mm靠厨房墙落地并排，上方1420×750mm独立承重浅盆台，完成面980mm。原净宽1240mm，隔断条件外移287.5mm后按1527.5mm保守宽度排布；操作带约740mm，旧图多180mm不计可用。 北、东两面改正为矮墙上通透开口，保留防护、边柱和顶梁，不增封窗玻璃；标高及宽度暂估待复尺。",
+        "features": [
+          "北、东双面通透",
+          "保留矮墙与防护",
+          "开口标高暂估"
+        ]
+      }
+    }
+  },
+  "woodRevision": {
+    "id": "wood-20261005",
+    "version": "3.9.0",
+    "baseCommit": "a2b4adfd4c92c9424b28df55c61609cb1049deec",
+    "scope": "scheme-1-only",
+    "secondaryWardrobeChoice": "300mm-shallow-design-assumption",
+    "decisionBasis": "业主要求继续；在保证过道的约束下采用300mm浅柜，阳台参考方案三外移内隔断。均为可调整设计，不声称业主已逐项确认厂家安装方案。",
+    "floorFinish": {
+      "type": "matte-ceramic-tile",
+      "tileSizeCm": 60,
+      "wetTileSizeCm": 30,
+      "groutMm": 2,
+      "color": "#E5E0D5",
+      "note": "全屋瓷砖；干区600×600、湿区300×300仅作设计排版。实际砖型、防滑、坡度及铺贴方案待选样。"
+    },
+    "materialColors": {
+      "Wall": "#F1EEE6",
+      "Cream": "#ECE7DC",
+      "Oak": "#C5AF8B",
+      "OakLight": "#D2BE9F",
+      "Tile": "#E5E0D5",
+      "Grout": "#D1CBC0"
+    },
+    "conditions": [
+      "本轮只调整方案一；方案二、三源数据、原生模型和图片保持原样。墙线、门窗位置与复尺证据不因家具重排而变成完整实测。",
+      "次卧东西向局部复尺链约3000mm，旧模型3010mm；2100mm床架加300mm浅柜，保守床尾约600mm（模型610mm）。浅柜以叠衣为主，不等同600mm深挂衣柜。",
+      "两卧小桌椅为紧凑短时工作/梳妆位；使用时桌前空间被占用，不保证有人坐时椅后仍可通行。通行从床尾和另一侧组织。",
+      "两卧衣柜止于入口保护区，沿现墙延至北墙；门套、踢脚线、实际柜门厚度、开门方向与安装收口需现场核验。",
+      "洗衣机600×530×840mm、烘干机600×600×840mm按业主提供机身尺寸建模；门把、软管、开门及厂家散热净距未核定。",
+      "洗烘上方浅盆由独立侧板/支架承重，后置排水，盆底880mm与840mm机顶暂留40mm；不能将普通深盆直接压在机器上。980mm台面偏高，实际人体工学与振动检修须确认。",
+      "阳台复尺原净宽1240mm；内隔断暂向客厅西移287.5mm后，局部保守净宽1527.5mm，配置1420mm台面。旧模型仍多180mm，东侧空余不计可用机位。内隔断可改性、尺寸共同定位与防水须复核。",
+      "只借鉴方案三阳台外移门，不增加客厅书架。两机并排仍需实际开门排演，一次操作一台；机门全开不能保证双人通行。沙发和茶几西移200mm、北移450mm，保持完整尺寸，给阳台入口让位。",
+      "主卫马桶移向南墙仅为布局表达；原排污口、降板、排水坡度与检修条件须专业确认，不据模型直接移管或砸墙。盆柜与镜子同时转至南墙，面向北侧入口。淋浴区不缩小，西侧600mm固定屏移至南段，北侧留约790mm入口，避免新马桶与原屏端形成夹口。",
+      "配色参考业主提供照片，采用奶白柜面与浅原木，不复制参考照片的尺寸；全屋地面改瓷砖。已购家具尺寸不变，沙发随阳台入口让位，餐桌椅保持原位置。"
+    ],
+    "livingShifts": {
+      "sofa": {
+        "dx": -20,
+        "dy": -45
+      },
+      "rug": {
+        "dx": -20,
+        "dy": -45
+      },
+      "coffee": {
+        "dx": -20,
+        "dy": -45
+      },
+      "tv": {
+        "dx": -20,
+        "dy": 0
+      },
+      "lamp": {
+        "x": 648,
+        "y": 810
+      }
+    },
+    "metrics": {
+      "masterFootAisleCm": 80,
+      "masterDoorBufferCm": 90,
+      "secondaryFootAisleModelCm": 61,
+      "secondaryFootAisleConservativeCm": 60,
+      "studySofaSideGapCm": 4.5,
+      "studyDeskWidthCm": 301,
+      "balconyOperationAisleCm": 74
+    },
+    "roomDescriptions": {
+      "overall": {
+        "title": "奶白与木色，让日常更轻盈",
+        "description": "方案一保留三房两卫，升级两卧收纳与小桌、书房凹位沙发及通长桌；阳台内隔断条件外移容纳并排洗烘浅盆台。奶白柜面配浅原木，全屋瓷砖。",
+        "features": [
+          "奶白＋浅原木",
+          "全屋瓷砖",
+          "并排洗烘"
+        ]
+      },
+      "living": {
+        "title": "沙发让位，阳台好进出",
+        "description": "保留2410×980mm已购VIMLE沙发外廓，随阳台改造西移200mm、北移450mm，茶几与地毯同步；电视柜西移200mm，落地灯避开沙发和阳台入口。餐桌椅原位不动。",
+        "features": [
+          "已购家具不缩小",
+          "阳台入口让位",
+          "奶白原木瓷砖"
+        ]
+      },
+      "dining": {
+        "title": "奶白餐柜，白蜡木桌边",
+        "description": "沿用已购LISABO 1400×780×740mm餐桌及四把460×510×800mm餐椅，桌椅位置不变。7字餐边柜与鞋柜改奶白柜面配浅原木；客厅沙发另行北移、西移为阳台入口让位，家具外廓不缩小。",
+        "features": [
+          "已购桌椅原尺寸",
+          "7字餐边收纳",
+          "奶白浅木"
+        ]
+      },
+      "room_a": {
+        "title": "窗前留白，衣柜延伸",
+        "description": "主卧飘窗高桌与高椅移除，保留410mm低窗台。西墙600mm深衣柜延至北墙，南端留900mm入口区；床头仍朝东，北侧床头柜、南侧800×500mm小桌及配椅。床尾模型800mm，桌前为紧凑使用位。",
+        "features": [
+          "北延衣柜",
+          "南侧小桌",
+          "窗台留白"
+        ]
+      },
+      "room_b": {
+        "title": "床头贴墙，床尾轻收纳",
+        "description": "1350mm床垫、2100mm长床架贴西墙；东墙300mm浅衣柜到北墙，以叠衣为主。床尾旧模型610mm、按局部净宽保守600mm；北侧800×500mm小桌与配椅，南侧床头柜。",
+        "features": [
+          "300mm浅柜",
+          "约600mm通道",
+          "北桌南床头柜"
+        ]
+      },
+      "room_c": {
+        "title": "凹位小沙发，一整面工作台",
+        "description": "1900×800mm沙发放入北侧1990mm凹位，左右各45mm，背北朝南；南墙3010×550mm通长桌与280mm深浅书架，东侧门内落脚区保持空置。",
+        "features": [
+          "1900mm小沙发",
+          "3010mm通长桌",
+          "浅书架"
+        ]
+      },
+      "bath_1": {
+        "title": "朝向入口的洗漱区",
+        "description": "主卫750×400mm盆柜与镜子移至南侧西段，面向北侧主卧门；马桶移到南墙、朝北。保留阶梯边界及原淋浴区，西侧固定玻璃移至南段、北留790mm入口；排污口、水箱和窗定位待核。",
+        "features": [
+          "南墙镜面",
+          "淋浴北侧进入",
+          "管线待核"
+        ]
+      },
+      "balcony": {
+        "title": "洗烘并排，上方洗手台",
+        "description": "洗衣机600×530×840mm和烘干机600×600×840mm靠厨房墙落地并排，上方1420×750mm独立承重浅盆台，完成面980mm。原净宽1240mm，隔断条件外移287.5mm后按1527.5mm保守宽度排布；操作带约740mm，旧图多180mm不计可用。",
+        "features": [
+          "按业主机身尺寸",
+          "独立承重浅盆",
+          "条件外移隔断"
+        ]
+      }
+    }
+  },
+  "bayFitouts": [
+    {
+      "id": "bay_a_office_vanity",
+      "roomId": "room_a",
+      "openingId": "window_a",
+      "type": "bare_ledge",
+      "title": "主卧低窗台 · 留白",
+      "summary": "移除原飘窗高桌、支撑及高椅，保留410mm实测低窗台；小桌改放床南侧。主卧窗宽1760mm及10mm水平闭合差沿用复尺记录。",
+      "parts": [],
+      "conditions": [
+        "不拆改窗台或玻璃，窗框、外凸、窗扇开启与防坠条件仍需专业复核。",
+        "低窗台也有攀爬风险，不能把纱窗或效果图玻璃当作已验证防坠。"
+      ],
+      "dimensions": [
+        "实测低窗台410mm，保留原台，不增加桌面或高椅。",
+        "窗宽1760mm；西段860mm，水平链10mm闭合差仍待核。",
+        "西墙衣柜2200×600mm，小书桌改放床南侧800×500mm。"
+      ]
+    },
+    {
+      "id": "bay_b_tea",
+      "roomId": "room_b",
+      "openingId": "window_b",
+      "type": "tea_seat",
+      "title": "次卧 · 一人的窗边茶座",
+      "summary": "保留400mm低窗台与茶座；床头贴西，东墙为300mm浅衣柜；北侧小桌椅与南侧床头柜作为新增家具。窗宽1760mm、东侧10mm闭合差及防坠条件不变。",
+      "parts": [
+        {
+          "id": "b_cushion",
+          "role": "seat_cushion",
+          "x": 104,
+          "y": -50,
+          "w": 85,
+          "d": 55,
+          "zCm": 40.2,
+          "hCm": 4.8
+        },
+        {
+          "id": "b_tea_tray",
+          "role": "tea_tray",
+          "x": 194,
+          "y": -45,
+          "w": 28,
+          "d": 32,
+          "zCm": 40.2,
+          "hCm": 16.3
+        },
+        {
+          "id": "b_back_cushion",
+          "role": "back_cushion",
+          "x": 106,
+          "y": -49,
+          "w": 43,
+          "d": 12,
+          "zCm": 45,
+          "hCm": 26
+        }
+      ],
+      "conditions": [
+        "台高已按复尺更新，不表示窗框净深、结构承载和防护已核准。",
+        "保留软垫可拆洗和茶盘可移；不虚构台下抽屉；不放电热壶。",
+        "28楼防坠和开启限位须先专业核验，纱窗不代替防坠；不设计为儿童攀爬区。"
+      ],
+      "dimensions": [
+        "台面400＋薄垫50＝完成坐面450mm",
+        "单人坐垫850×550、茶托280×320mm",
+        "窗宽1760、窗高1670mm；外凸600仍待核",
+        "现墙下东侧段380mm，较实测370mm多10mm待闭合"
+      ]
+    },
+    {
+      "id": "bay_living_family",
+      "roomId": "living",
+      "openingId": "window_living_west",
+      "type": "low_lounge",
+      "title": "客厅 · 低飘窗软垫休憩",
+      "summary": "复尺记录客厅窗宽2120mm、窗高2210mm、台面离地400mm、外凸600mm，窗顶2610mm。两片960×550mm可拆洗软垫各厚50mm，完成坐面约450mm；不加桌椅，不向厅内外扩。窗在整墙上的定位暂留旧中心，框内净深、排水和高层防坠仍须核验。",
+      "parts": [
+        {
+          "id": "l_seat_pad_north",
+          "title": "客厅北片可拆洗坐垫",
+          "role": "seat_cushion",
+          "x": 148,
+          "y": 650,
+          "w": 55,
+          "d": 96,
+          "zCm": 40,
+          "hCm": 5
+        },
+        {
+          "id": "l_seat_pad_south",
+          "title": "客厅南片可拆洗坐垫",
+          "role": "seat_cushion",
+          "x": 148,
+          "y": 748,
+          "w": 55,
+          "d": 96,
+          "zCm": 40,
+          "hCm": 5
+        }
+      ],
+      "conditions": [
+        "台面400mm、窗高2210mm来自本次核对表，不是允许降低或拆改结构的施工指令。",
+        "软垫分两片可取下、可拆洗；先查渗水、返潮及排水口，不封死窗框排水与检修。",
+        "28楼且家有幼童：先由专业人员核验防坠、开窗限位和无绳窗帘；软垫不等于安全措施，纱窗不能替代防坠。",
+        "按成人短时休憩展示，不布置儿童攀玩设施；不加靠玻璃受力的靠背，不默认台下可挖空收纳。"
+      ],
+      "dimensions": [
+        "复尺台400＋设计软垫50＝坐面约450mm",
+        "两片960×550mm软垫，中缝20mm",
+        "记录窗宽2120、窗高2210、外凸600mm",
+        "窗中心与框内净空仍待全屋定位核验"
+      ]
+    }
+  ],
+  "storageFitouts": [
+    {
+      "id": "entry_shoe_station",
+      "roomId": "living",
+      "type": "entry",
+      "title": "玄关 · 进门右手的浅鞋柜",
+      "summary": "从南侧大门进来，右手东侧是面向过道的浅鞋柜。奶白门板、浅木钥匙中空和底部常鞋位参考业主图2，位置按本户方向重新安排；取消旧西侧鞋柜与固定换鞋凳。",
+      "furnitureIds": [
+        "entry_storage"
+      ],
+      "parts": [
+        {
+          "id": "e_shoe_lower",
+          "role": "shoe_lower",
+          "segmentId": "east-entry",
+          "x": 495,
+          "y": 1320,
+          "w": 34,
+          "d": 65,
+          "zCm": 0,
+          "hCm": 100,
+          "face": "west",
+          "openBaseCm": 20,
+          "doorStyle": "sliding",
+          "doorPanels": 2
+        },
+        {
+          "id": "e_key_niche",
+          "role": "key_niche",
+          "segmentId": "east-entry",
+          "x": 495,
+          "y": 1320,
+          "w": 34,
+          "d": 65,
+          "zCm": 100,
+          "hCm": 50,
+          "face": "west"
+        },
+        {
+          "id": "e_shoe_upper",
+          "role": "upper_cabinet",
+          "segmentId": "east-entry",
+          "x": 501,
+          "y": 1320,
+          "w": 28,
+          "d": 65,
+          "zCm": 150,
+          "hCm": 100,
+          "face": "west",
+          "doorPanels": 2
+        },
+        {
+          "id": "e_key_accessories",
+          "role": "entry_accessories",
+          "segmentId": "east-entry",
+          "x": 500,
+          "y": 1323,
+          "w": 24,
+          "d": 60,
+          "zCm": 100,
+          "hCm": 30,
+          "face": "west",
+          "preset": "compact"
+        }
+      ],
+      "conditions": [
+        "650mm是本模型能留出门把手端部余量的紧凑方案，不照抄参考图鞋柜长度；门套、把手、电箱、对讲及闭门器实测后再定柜。",
+        "340mm外深要扣门轨与背板；不保证平放所有尺码，应按鞋长调整层板/斜放，图示不承诺鞋双数。",
+        "入户右合页90°时门片会挡住柜前，必须先收门再使用；超过90°向柜侧打开还可能碰撞，不能凭图认为门吸限位已完成。",
+        "模型示意门把手端部留空不代表真实五金扫动已通过；需要现场全开/关门、取鞋和多人进出试摆。",
+        "不设固定换鞋凳或镜面屏风，以免挤占门口；鞋柜与左边杯盘柜独立，灯带与插座仅预留。"
+      ],
+      "dimensions": [
+        "沿墙650×外深340，高2500mm；柜面朝西",
+        "底部200mm常鞋位，中部1000–1500mm置物格",
+        "上柜外深280mm；鞋柜北端距新厨房门洞南端仅50mm，门套须复核",
+        "柜面距暂定右开90°门片约40mm，取鞋前需收门"
+      ]
+    },
+    {
+      "id": "dining_sideboard_wall",
+      "roomId": "living",
+      "type": "sideboard",
+      "title": "餐边 · 左手整墙7字收纳",
+      "summary": "从大门进入的左侧，沿西墙做整排奶白柜与木色中空，再沿南墙转折成为7字。参考业主图3连续台面与上、下柜的关系；以本户尺寸分模块，替代原来分散的矮柜、鞋柜和换鞋凳。",
+      "furnitureIds": [
+        "dining_sideboard",
+        "dining_sideboard_return",
+        "dining_sideboard_corner"
+      ],
+      "parts": [
+        {
+          "id": "d1_base",
+          "role": "sideboard_base",
+          "segmentId": "west-run",
+          "x": 212.5,
+          "y": 860,
+          "w": 40,
+          "d": 120,
+          "zCm": 0,
+          "hCm": 85,
+          "face": "east",
+          "doorStyle": "sliding",
+          "doorPanels": 2,
+          "drawerPanels": 2,
+          "drawerExtensionCm": 25,
+          "flushJoints": true
+        },
+        {
+          "id": "d1_niche",
+          "role": "sideboard_niche",
+          "segmentId": "west-run",
+          "x": 212.5,
+          "y": 860,
+          "w": 40,
+          "d": 120,
+          "zCm": 85,
+          "hCm": 65,
+          "face": "east",
+          "omitEndPanel": true,
+          "flushJoints": true
+        },
+        {
+          "id": "d1_upper",
+          "role": "upper_cabinet",
+          "segmentId": "west-run",
+          "x": 212.5,
+          "y": 860,
+          "w": 28,
+          "d": 120,
+          "zCm": 150,
+          "hCm": 100,
+          "face": "east",
+          "doorPanels": 2,
+          "openEndCm": 30,
+          "openEndSide": "south",
+          "flushJoints": true
+        },
+        {
+          "id": "d_base",
+          "role": "sideboard_base",
+          "segmentId": "west-run",
+          "x": 212.5,
+          "y": 980,
+          "w": 40,
+          "d": 120,
+          "zCm": 0,
+          "hCm": 85,
+          "face": "east",
+          "doorStyle": "sliding",
+          "doorPanels": 2,
+          "drawerPanels": 2,
+          "drawerExtensionCm": 25,
+          "flushJoints": true
+        },
+        {
+          "id": "d_niche",
+          "role": "sideboard_niche",
+          "segmentId": "west-run",
+          "x": 212.5,
+          "y": 980,
+          "w": 40,
+          "d": 120,
+          "zCm": 85,
+          "hCm": 65,
+          "face": "east",
+          "omitStartPanel": true,
+          "omitEndPanel": true,
+          "flushJoints": true
+        },
+        {
+          "id": "d_upper",
+          "role": "upper_cabinet",
+          "segmentId": "west-run",
+          "x": 212.5,
+          "y": 980,
+          "w": 28,
+          "d": 120,
+          "zCm": 150,
+          "hCm": 100,
+          "face": "east",
+          "doorPanels": 2,
+          "frontPaletteRole": "cabinetAccent",
+          "flushJoints": true
+        },
+        {
+          "id": "d3_base",
+          "role": "sideboard_base",
+          "segmentId": "west-run",
+          "x": 212.5,
+          "y": 1100,
+          "w": 40,
+          "d": 120,
+          "zCm": 0,
+          "hCm": 85,
+          "face": "east",
+          "doorStyle": "sliding",
+          "doorPanels": 2,
+          "drawerPanels": 0,
+          "drawerExtensionCm": 0,
+          "flushJoints": true
+        },
+        {
+          "id": "d3_niche",
+          "role": "sideboard_niche",
+          "segmentId": "west-run",
+          "x": 212.5,
+          "y": 1100,
+          "w": 40,
+          "d": 120,
+          "zCm": 85,
+          "hCm": 65,
+          "face": "east",
+          "omitStartPanel": true,
+          "omitEndPanel": true,
+          "flushJoints": true
+        },
+        {
+          "id": "d3_upper",
+          "role": "upper_cabinet",
+          "segmentId": "west-run",
+          "x": 212.5,
+          "y": 1100,
+          "w": 28,
+          "d": 120,
+          "zCm": 150,
+          "hCm": 100,
+          "face": "east",
+          "doorPanels": 2,
+          "flushJoints": true
+        },
+        {
+          "id": "d4_base",
+          "role": "sideboard_base",
+          "segmentId": "west-run",
+          "x": 212.5,
+          "y": 1220,
+          "w": 40,
+          "d": 129,
+          "zCm": 0,
+          "hCm": 85,
+          "face": "east",
+          "doorStyle": "sliding",
+          "doorPanels": 2,
+          "drawerPanels": 0,
+          "drawerExtensionCm": 0,
+          "omitEndPanel": true,
+          "flushJoints": true
+        },
+        {
+          "id": "d4_niche",
+          "role": "sideboard_niche",
+          "segmentId": "west-run",
+          "x": 212.5,
+          "y": 1220,
+          "w": 40,
+          "d": 129,
+          "zCm": 85,
+          "hCm": 65,
+          "face": "east",
+          "omitStartPanel": true,
+          "omitEndPanel": true,
+          "flushJoints": true
+        },
+        {
+          "id": "d4_upper",
+          "role": "upper_cabinet",
+          "segmentId": "west-run",
+          "x": 212.5,
+          "y": 1220,
+          "w": 28,
+          "d": 141,
+          "zCm": 150,
+          "hCm": 100,
+          "face": "east",
+          "doorPanels": 2,
+          "omitEndPanel": true,
+          "flushJoints": true
+        },
+        {
+          "id": "d_accessories",
+          "role": "dining_accessories",
+          "segmentId": "west-run",
+          "x": 218,
+          "y": 990,
+          "w": 29,
+          "d": 98,
+          "zCm": 85,
+          "hCm": 40,
+          "face": "east"
+        },
+        {
+          "id": "d_return_base",
+          "role": "sideboard_base",
+          "segmentId": "south-return",
+          "x": 252.5,
+          "y": 1349,
+          "w": 122.5,
+          "d": 40,
+          "zCm": 0,
+          "hCm": 85,
+          "face": "north",
+          "doorStyle": "sliding",
+          "doorPanels": 2,
+          "drawerPanels": 0,
+          "drawerExtensionCm": 0,
+          "omitStartPanel": true,
+          "flushJoints": true
+        },
+        {
+          "id": "d_return_niche",
+          "role": "sideboard_niche",
+          "segmentId": "south-return",
+          "x": 252.5,
+          "y": 1349,
+          "w": 122.5,
+          "d": 40,
+          "zCm": 85,
+          "hCm": 65,
+          "face": "north",
+          "omitStartPanel": true,
+          "flushJoints": true
+        },
+        {
+          "id": "d_return_upper",
+          "role": "upper_cabinet",
+          "segmentId": "south-return",
+          "x": 240.5,
+          "y": 1361,
+          "w": 134.5,
+          "d": 28,
+          "zCm": 150,
+          "hCm": 100,
+          "face": "north",
+          "doorPanels": 2,
+          "omitStartPanel": true,
+          "frontPaletteRole": "cabinetAccent",
+          "flushJoints": true
+        },
+        {
+          "id": "d_return_accessories",
+          "role": "dining_accessories",
+          "segmentId": "south-return",
+          "x": 270,
+          "y": 1355,
+          "w": 98,
+          "d": 29,
+          "zCm": 85,
+          "hCm": 40,
+          "face": "north"
+        },
+        {
+          "id": "d_corner_base",
+          "role": "sideboard_blind_base",
+          "segmentId": "corner",
+          "x": 212.5,
+          "y": 1349,
+          "w": 40,
+          "d": 40,
+          "zCm": 0,
+          "hCm": 85,
+          "face": "north",
+          "usableStorage": false,
+          "flushJoints": true
+        },
+        {
+          "id": "d_corner_niche",
+          "role": "sideboard_corner_niche",
+          "segmentId": "corner",
+          "x": 212.5,
+          "y": 1349,
+          "w": 40,
+          "d": 40,
+          "zCm": 85,
+          "hCm": 65,
+          "face": "north",
+          "usableStorage": false,
+          "flushJoints": true
+        },
+        {
+          "id": "d_corner_upper",
+          "role": "upper_blind_corner",
+          "segmentId": "corner",
+          "x": 212.5,
+          "y": 1361,
+          "w": 28,
+          "d": 28,
+          "zCm": 150,
+          "hCm": 100,
+          "face": "north",
+          "usableStorage": false,
+          "flushJoints": true
+        }
+      ],
+      "conditions": [
+        "400×400mm下盲角和退进上盲角封闭不用，不画假门、假抽屉或重复计算容量；转角台面及中空连通，实际拼缝/固定需深化。",
+        "西柜北端离现模型窗返边仅约30mm，不可凭概念净距下单；先量窗套、帘盒、电箱、踢脚线与墙面垂直度。",
+        "桌旁和南短臂下柜均为移门，没有向过道拉出的抽屉；北段250mm抽屉加取物站位期间，柜前不同时作绕行通道。",
+        "南上柜延续7字造型，会增加入口围合感；闭门及开启时的头部活动、可达性、转角门扇与高柜防倾倒须专业深化。",
+        "采用已购1400×780mm固定四人桌及460×510mm餐椅，已重新核对椅位；退椅300mm只是一种校核情景，进出时收椅，不能当作多人或无障碍通行认证。",
+        "台面仅放杯盘、保温壶等小件，不默认400mm深可装咖啡机、净饮机或蒸烤箱；须核对插头、散热、蒸汽、开盖高度和电气回路。"
+      ],
+      "dimensions": [
+        "西臂总长5290mm；南臂总长1625mm（两者均含400mm盲角）",
+        "底柜外深400、台面高850mm；上柜深280、高1500–2500mm",
+        "西直柜4890mm分1200/1200/1200/1290四模块，南可开柜段1225mm",
+        "中空高650mm；抽屉仅北两模块，最多伸出250mm",
+        "固定餐桌西侧675、东侧700mm；南椅拉出300mm后至南短臂约715mm，仍须现场核对"
+      ]
+    }
+  ],
+  "wallFitouts": [
+    {
+      "id": "study_bookwall",
+      "roomId": "room_c",
+      "title": "通长桌与奶白浅书架",
+      "x": 12,
+      "y": 591.75,
+      "w": 272,
+      "d": 28.25,
+      "zCm": 145.2,
+      "hCm": 104.8,
+      "face": "north",
+      "description": "方案一南墙3010mm通长书桌，上方280mm深浅书架，六分格、上层奶白柜门。",
+      "parts": [
+        {
+          "id": "back",
+          "role": "back",
+          "x": 12,
+          "y": 618.8,
+          "zCm": 146,
+          "w": 301,
+          "d": 1.2,
+          "hCm": 104,
+          "material": "Cream"
+        },
+        {
+          "id": "upright_0",
+          "role": "upright",
+          "x": 12,
+          "y": 592,
+          "zCm": 146,
+          "w": 2.2,
+          "d": 26.8,
+          "hCm": 104,
+          "material": "Cream"
+        },
+        {
+          "id": "upright_1",
+          "role": "upright",
+          "x": 61.800000000000004,
+          "y": 592,
+          "zCm": 146,
+          "w": 2.2,
+          "d": 26.8,
+          "hCm": 104,
+          "material": "Cream"
+        },
+        {
+          "id": "upright_2",
+          "role": "upright",
+          "x": 111.60000000000001,
+          "y": 592,
+          "zCm": 146,
+          "w": 2.2,
+          "d": 26.8,
+          "hCm": 104,
+          "material": "Cream"
+        },
+        {
+          "id": "upright_3",
+          "role": "upright",
+          "x": 161.4,
+          "y": 592,
+          "zCm": 146,
+          "w": 2.2,
+          "d": 26.8,
+          "hCm": 104,
+          "material": "Cream"
+        },
+        {
+          "id": "upright_4",
+          "role": "upright",
+          "x": 211.20000000000002,
+          "y": 592,
+          "zCm": 146,
+          "w": 2.2,
+          "d": 26.8,
+          "hCm": 104,
+          "material": "Cream"
+        },
+        {
+          "id": "upright_5",
+          "role": "upright",
+          "x": 261,
+          "y": 592,
+          "zCm": 146,
+          "w": 2.2,
+          "d": 26.8,
+          "hCm": 104,
+          "material": "Cream"
+        },
+        {
+          "id": "upright_6",
+          "role": "upright",
+          "x": 310.8,
+          "y": 592,
+          "zCm": 146,
+          "w": 2.2,
+          "d": 26.8,
+          "hCm": 104,
+          "material": "Cream"
+        },
+        {
+          "id": "shelf_0_146",
+          "role": "shelf",
+          "x": 14.2,
+          "y": 594.2,
+          "zCm": 146,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "shelf_0_180",
+          "role": "shelf",
+          "x": 14.2,
+          "y": 594.2,
+          "zCm": 180,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "shelf_0_214",
+          "role": "shelf",
+          "x": 14.2,
+          "y": 594.2,
+          "zCm": 214,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "shelf_0_247.8",
+          "role": "shelf",
+          "x": 14.2,
+          "y": 594.2,
+          "zCm": 247.8,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "door_0",
+          "role": "door",
+          "x": 14.35,
+          "y": 592,
+          "zCm": 216.35,
+          "w": 47.300000000000004,
+          "d": 1.8,
+          "hCm": 31.3,
+          "material": "Cream"
+        },
+        {
+          "id": "pull_0",
+          "role": "pull",
+          "x": 35,
+          "y": 591.75,
+          "zCm": 217,
+          "w": 6,
+          "d": 0.25,
+          "hCm": 0.7,
+          "material": "WarmGrayMetal"
+        },
+        {
+          "id": "book_0_0_0",
+          "role": "book",
+          "x": 17.2,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_0_0_1",
+          "role": "book",
+          "x": 21.099999999999998,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "book_0_0_2",
+          "role": "book",
+          "x": 25,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 25,
+          "material": "OakLight"
+        },
+        {
+          "id": "book_0_0_3",
+          "role": "book",
+          "x": 28.9,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_0_0_4",
+          "role": "book",
+          "x": 32.8,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "book_0_1_0",
+          "role": "book",
+          "x": 17.2,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_0_1_1",
+          "role": "book",
+          "x": 21.099999999999998,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "book_0_1_2",
+          "role": "book",
+          "x": 25,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 25,
+          "material": "OakLight"
+        },
+        {
+          "id": "book_0_1_3",
+          "role": "book",
+          "x": 28.9,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_0_1_4",
+          "role": "book",
+          "x": 32.8,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "shelf_1_146",
+          "role": "shelf",
+          "x": 64,
+          "y": 594.2,
+          "zCm": 146,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "shelf_1_180",
+          "role": "shelf",
+          "x": 64,
+          "y": 594.2,
+          "zCm": 180,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "shelf_1_214",
+          "role": "shelf",
+          "x": 64,
+          "y": 594.2,
+          "zCm": 214,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "shelf_1_247.8",
+          "role": "shelf",
+          "x": 64,
+          "y": 594.2,
+          "zCm": 247.8,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "door_1",
+          "role": "door",
+          "x": 64.15,
+          "y": 592,
+          "zCm": 216.35,
+          "w": 47.300000000000004,
+          "d": 1.8,
+          "hCm": 31.3,
+          "material": "Cream"
+        },
+        {
+          "id": "pull_1",
+          "role": "pull",
+          "x": 84.8,
+          "y": 591.75,
+          "zCm": 217,
+          "w": 6,
+          "d": 0.25,
+          "hCm": 0.7,
+          "material": "WarmGrayMetal"
+        },
+        {
+          "id": "book_1_0_0",
+          "role": "book",
+          "x": 67,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_1_0_1",
+          "role": "book",
+          "x": 70.9,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "book_1_0_2",
+          "role": "book",
+          "x": 74.8,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 25,
+          "material": "OakLight"
+        },
+        {
+          "id": "book_1_0_3",
+          "role": "book",
+          "x": 78.7,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_1_0_4",
+          "role": "book",
+          "x": 82.6,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "book_1_1_0",
+          "role": "book",
+          "x": 67,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_1_1_1",
+          "role": "book",
+          "x": 70.9,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "book_1_1_2",
+          "role": "book",
+          "x": 74.8,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 25,
+          "material": "OakLight"
+        },
+        {
+          "id": "book_1_1_3",
+          "role": "book",
+          "x": 78.7,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_1_1_4",
+          "role": "book",
+          "x": 82.6,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "shelf_2_146",
+          "role": "shelf",
+          "x": 113.80000000000001,
+          "y": 594.2,
+          "zCm": 146,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "shelf_2_180",
+          "role": "shelf",
+          "x": 113.80000000000001,
+          "y": 594.2,
+          "zCm": 180,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "shelf_2_214",
+          "role": "shelf",
+          "x": 113.80000000000001,
+          "y": 594.2,
+          "zCm": 214,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "shelf_2_247.8",
+          "role": "shelf",
+          "x": 113.80000000000001,
+          "y": 594.2,
+          "zCm": 247.8,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "door_2",
+          "role": "door",
+          "x": 113.95000000000002,
+          "y": 592,
+          "zCm": 216.35,
+          "w": 47.300000000000004,
+          "d": 1.8,
+          "hCm": 31.3,
+          "material": "Cream"
+        },
+        {
+          "id": "pull_2",
+          "role": "pull",
+          "x": 134.60000000000002,
+          "y": 591.75,
+          "zCm": 217,
+          "w": 6,
+          "d": 0.25,
+          "hCm": 0.7,
+          "material": "WarmGrayMetal"
+        },
+        {
+          "id": "book_2_0_0",
+          "role": "book",
+          "x": 116.80000000000001,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_2_0_1",
+          "role": "book",
+          "x": 120.70000000000002,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "book_2_0_2",
+          "role": "book",
+          "x": 124.60000000000001,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 25,
+          "material": "OakLight"
+        },
+        {
+          "id": "book_2_0_3",
+          "role": "book",
+          "x": 128.5,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_2_0_4",
+          "role": "book",
+          "x": 132.4,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "book_2_1_0",
+          "role": "book",
+          "x": 116.80000000000001,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_2_1_1",
+          "role": "book",
+          "x": 120.70000000000002,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "book_2_1_2",
+          "role": "book",
+          "x": 124.60000000000001,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 25,
+          "material": "OakLight"
+        },
+        {
+          "id": "book_2_1_3",
+          "role": "book",
+          "x": 128.5,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_2_1_4",
+          "role": "book",
+          "x": 132.4,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "shelf_3_146",
+          "role": "shelf",
+          "x": 163.6,
+          "y": 594.2,
+          "zCm": 146,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "shelf_3_180",
+          "role": "shelf",
+          "x": 163.6,
+          "y": 594.2,
+          "zCm": 180,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "shelf_3_214",
+          "role": "shelf",
+          "x": 163.6,
+          "y": 594.2,
+          "zCm": 214,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "shelf_3_247.8",
+          "role": "shelf",
+          "x": 163.6,
+          "y": 594.2,
+          "zCm": 247.8,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "door_3",
+          "role": "door",
+          "x": 163.75,
+          "y": 592,
+          "zCm": 216.35,
+          "w": 47.300000000000004,
+          "d": 1.8,
+          "hCm": 31.3,
+          "material": "Cream"
+        },
+        {
+          "id": "pull_3",
+          "role": "pull",
+          "x": 184.4,
+          "y": 591.75,
+          "zCm": 217,
+          "w": 6,
+          "d": 0.25,
+          "hCm": 0.7,
+          "material": "WarmGrayMetal"
+        },
+        {
+          "id": "book_3_0_0",
+          "role": "book",
+          "x": 166.6,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_3_0_1",
+          "role": "book",
+          "x": 170.5,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "book_3_0_2",
+          "role": "book",
+          "x": 174.4,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 25,
+          "material": "OakLight"
+        },
+        {
+          "id": "book_3_0_3",
+          "role": "book",
+          "x": 178.29999999999998,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_3_0_4",
+          "role": "book",
+          "x": 182.2,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "book_3_1_0",
+          "role": "book",
+          "x": 166.6,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_3_1_1",
+          "role": "book",
+          "x": 170.5,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "book_3_1_2",
+          "role": "book",
+          "x": 174.4,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 25,
+          "material": "OakLight"
+        },
+        {
+          "id": "book_3_1_3",
+          "role": "book",
+          "x": 178.29999999999998,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_3_1_4",
+          "role": "book",
+          "x": 182.2,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "shelf_4_146",
+          "role": "shelf",
+          "x": 213.4,
+          "y": 594.2,
+          "zCm": 146,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "shelf_4_180",
+          "role": "shelf",
+          "x": 213.4,
+          "y": 594.2,
+          "zCm": 180,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "shelf_4_214",
+          "role": "shelf",
+          "x": 213.4,
+          "y": 594.2,
+          "zCm": 214,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "shelf_4_247.8",
+          "role": "shelf",
+          "x": 213.4,
+          "y": 594.2,
+          "zCm": 247.8,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "door_4",
+          "role": "door",
+          "x": 213.55,
+          "y": 592,
+          "zCm": 216.35,
+          "w": 47.300000000000004,
+          "d": 1.8,
+          "hCm": 31.3,
+          "material": "Cream"
+        },
+        {
+          "id": "pull_4",
+          "role": "pull",
+          "x": 234.20000000000002,
+          "y": 591.75,
+          "zCm": 217,
+          "w": 6,
+          "d": 0.25,
+          "hCm": 0.7,
+          "material": "WarmGrayMetal"
+        },
+        {
+          "id": "book_4_0_0",
+          "role": "book",
+          "x": 216.4,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_4_0_1",
+          "role": "book",
+          "x": 220.3,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "book_4_0_2",
+          "role": "book",
+          "x": 224.20000000000002,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 25,
+          "material": "OakLight"
+        },
+        {
+          "id": "book_4_0_3",
+          "role": "book",
+          "x": 228.1,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_4_0_4",
+          "role": "book",
+          "x": 232,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "book_4_1_0",
+          "role": "book",
+          "x": 216.4,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_4_1_1",
+          "role": "book",
+          "x": 220.3,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "book_4_1_2",
+          "role": "book",
+          "x": 224.20000000000002,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 25,
+          "material": "OakLight"
+        },
+        {
+          "id": "book_4_1_3",
+          "role": "book",
+          "x": 228.1,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_4_1_4",
+          "role": "book",
+          "x": 232,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "shelf_5_146",
+          "role": "shelf",
+          "x": 263.20000000000005,
+          "y": 594.2,
+          "zCm": 146,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "shelf_5_180",
+          "role": "shelf",
+          "x": 263.20000000000005,
+          "y": 594.2,
+          "zCm": 180,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "shelf_5_214",
+          "role": "shelf",
+          "x": 263.20000000000005,
+          "y": 594.2,
+          "zCm": 214,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "shelf_5_247.8",
+          "role": "shelf",
+          "x": 263.20000000000005,
+          "y": 594.2,
+          "zCm": 247.8,
+          "w": 47.6,
+          "d": 24.6,
+          "hCm": 2.2,
+          "material": "OakLight"
+        },
+        {
+          "id": "door_5",
+          "role": "door",
+          "x": 263.35,
+          "y": 592,
+          "zCm": 216.35,
+          "w": 47.300000000000004,
+          "d": 1.8,
+          "hCm": 31.3,
+          "material": "Cream"
+        },
+        {
+          "id": "pull_5",
+          "role": "pull",
+          "x": 284.00000000000006,
+          "y": 591.75,
+          "zCm": 217,
+          "w": 6,
+          "d": 0.25,
+          "hCm": 0.7,
+          "material": "WarmGrayMetal"
+        },
+        {
+          "id": "book_5_0_0",
+          "role": "book",
+          "x": 266.20000000000005,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_5_0_1",
+          "role": "book",
+          "x": 270.1,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "book_5_0_2",
+          "role": "book",
+          "x": 274.00000000000006,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 25,
+          "material": "OakLight"
+        },
+        {
+          "id": "book_5_0_3",
+          "role": "book",
+          "x": 277.90000000000003,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_5_0_4",
+          "role": "book",
+          "x": 281.80000000000007,
+          "y": 595,
+          "zCm": 148.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "book_5_1_0",
+          "role": "book",
+          "x": 266.20000000000005,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_5_1_1",
+          "role": "book",
+          "x": 270.1,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        },
+        {
+          "id": "book_5_1_2",
+          "role": "book",
+          "x": 274.00000000000006,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 25,
+          "material": "OakLight"
+        },
+        {
+          "id": "book_5_1_3",
+          "role": "book",
+          "x": 277.90000000000003,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 21,
+          "material": "WhiteLinen"
+        },
+        {
+          "id": "book_5_1_4",
+          "role": "book",
+          "x": 281.80000000000007,
+          "y": 595,
+          "zCm": 182.2,
+          "w": 3.1,
+          "d": 21,
+          "hCm": 23,
+          "material": "Cream"
+        }
+      ],
+      "conditions": [
+        "书架总宽3010、深280、底高1460、顶高2500mm为条件家具尺寸；安装收口和墙体锚固待核。",
+        "六分格、板厚22mm；书籍荷载及层板抗挠必须由定制方核算，模型不构成承重认证。",
+        "顶部为低频收纳，不站上桌面取物；柜门开启、空调管线和照明需现场深化。"
+      ]
+    }
+  ],
+  "laundry": {
+    "id": "wood_parallel_laundry",
+    "title": "方案一 · 原阳台内并排洗烘",
+    "mode": "parallel-only",
+    "counter": {
+      "id": "laundry_counter",
+      "x": 661,
+      "y": 1040,
+      "w": 142,
+      "d": 75,
+      "zCm": 95,
+      "hCm": 3,
+      "topCm": 98
+    },
+    "basin": {
+      "id": "laundry_basin",
+      "x": 669,
+      "y": 1043,
+      "w": 52,
+      "d": 69,
+      "bottomCm": 88,
+      "rimCm": 98,
+      "drain": {
+        "x": 713,
+        "y": 1110
+      },
+      "tap": {
+        "x": 674,
+        "y": 1104
+      },
+      "concept": true
+    },
+    "machines": [
+      {
+        "id": "laundry_washer",
+        "name": "洗衣机",
+        "x": 666,
+        "y": 1045,
+        "w": 60,
+        "d": 53,
+        "heightCm": 84,
+        "face": "north"
+      },
+      {
+        "id": "laundry_dryer",
+        "name": "烘干机",
+        "x": 734,
+        "y": 1045,
+        "w": 60,
+        "d": 60,
+        "heightCm": 84,
+        "face": "north"
+      }
+    ],
+    "parts": [
+      {
+        "id": "laundry_left_gable",
+        "role": "support",
+        "x": 661,
+        "y": 1040,
+        "zCm": 0,
+        "w": 2,
+        "d": 75,
+        "hCm": 95,
+        "material": "Cream",
+        "roomId": "balcony"
+      },
+      {
+        "id": "laundry_middle_gable",
+        "role": "support",
+        "x": 729,
+        "y": 1040,
+        "zCm": 0,
+        "w": 2,
+        "d": 75,
+        "hCm": 95,
+        "material": "Cream",
+        "roomId": "balcony"
+      },
+      {
+        "id": "laundry_right_gable",
+        "role": "support",
+        "x": 801,
+        "y": 1040,
+        "zCm": 0,
+        "w": 2,
+        "d": 75,
+        "hCm": 95,
+        "material": "Cream",
+        "roomId": "balcony"
+      },
+      {
+        "id": "laundry_rear_rail",
+        "role": "support",
+        "x": 663,
+        "y": 1113,
+        "zCm": 85,
+        "w": 138,
+        "d": 2,
+        "hCm": 10,
+        "material": "Cream",
+        "roomId": "balcony"
+      },
+      {
+        "id": "counter_left",
+        "role": "counter",
+        "x": 661,
+        "y": 1040,
+        "zCm": 95,
+        "w": 8,
+        "d": 75,
+        "hCm": 3,
+        "material": "Stone",
+        "roomId": "balcony"
+      },
+      {
+        "id": "counter_right",
+        "role": "counter",
+        "x": 721,
+        "y": 1040,
+        "zCm": 95,
+        "w": 82,
+        "d": 75,
+        "hCm": 3,
+        "material": "Stone",
+        "roomId": "balcony"
+      },
+      {
+        "id": "counter_front",
+        "role": "counter",
+        "x": 669,
+        "y": 1040,
+        "zCm": 95,
+        "w": 52,
+        "d": 3,
+        "hCm": 3,
+        "material": "Stone",
+        "roomId": "balcony"
+      },
+      {
+        "id": "counter_back",
+        "role": "counter",
+        "x": 669,
+        "y": 1112,
+        "zCm": 95,
+        "w": 52,
+        "d": 3,
+        "hCm": 3,
+        "material": "Stone",
+        "roomId": "balcony"
+      }
+    ],
+    "metrics": {
+      "operationAisleCm": 74,
+      "rearServiceWasherCm": 15,
+      "rearServiceDryerCm": 8,
+      "basinMachineVerticalGapCm": 4
+    },
+    "dimensions": [
+      "两机按业主提供机身：洗衣机600×530×840mm，烘干机600×600×840mm，落地并排、正面朝北。",
+      "台面1420×750mm，完成面980mm；浅盆底880mm，机顶至盆底40mm，独立支架承重。",
+      "参照方案三内隔断向客厅外移287.5mm，复尺1240mm＋借厅287.5mm＝局部保守1527.5mm；不加客厅书架。",
+      "柜前旧模型操作带约740mm；后侧预留洗衣机150mm、烘干机80mm至支架，实际水电、门把与软管仍待核。",
+      "全屋旧阳台东侧180mm闭合差单独标注，不计入台面、机器或检修净空。"
+    ],
+    "conditions": [
+      "洗衣机600×530×840mm、烘干机600×600×840mm按业主提供机身尺寸建模；门把、软管、开门及厂家散热净距未核定。",
+      "洗烘上方浅盆由独立侧板/支架承重，后置排水，盆底880mm与840mm机顶暂留40mm；不能将普通深盆直接压在机器上。980mm台面偏高，实际人体工学与振动检修须确认。",
+      "阳台复尺原净宽1240mm；内隔断暂向客厅西移287.5mm后，局部保守净宽1527.5mm，配置1420mm台面。旧模型仍多180mm，东侧空余不计可用机位。内隔断可改性、尺寸共同定位与防水须复核。",
+      "只借鉴方案三阳台外移门，不增加客厅书架。两机并排仍需实际开门排演，一次操作一台；机门全开不能保证双人通行。沙发和茶几西移200mm、北移450mm，保持完整尺寸，给阳台入口让位。",
+      "浅盆后排水与存水弯空间须定制核验，台面下不能用立板或抽屉封死机器检修路径。",
+      "厨房内窗模型窗台1000mm、台面980mm仅差20mm；窗框、龙头及窗扇开启必须核对，龙头不能伸入玻璃面。"
+    ],
+    "partition": {
+      "oldCenterX": 681,
+      "newCenterX": 652.25,
+      "outsetCm": 28.75,
+      "originalMeasuredWidthCm": 124,
+      "conservativeWidthCm": 152.75,
+      "modelWidthCm": 170.75,
+      "unclosedDifferenceCm": 18,
+      "adjustmentBand": {
+        "x": 811,
+        "y": 966,
+        "w": 18,
+        "d": 149
+      }
+    },
+    "localEnvelope": {
+      "x": 658.25,
+      "y": 966,
+      "w": 152.75,
+      "d": 149
+    }
+  },
+  "kitchenFitout": {
+    "id": "kitchen-20261005",
+    "version": "3.8.0",
+    "date": "2026-10-05",
+    "roomId": "kitchen",
+    "summary": "厨房按标注图重排：西北650×600×1900mm冰箱，北侧独立600×600×805mm洗碗机；东侧双槽，南侧燃气灶及上方油烟机，西南烟道封实不可用。东、南吊柜在窗边热水器前止步。2420×2610mm局部复尺排布与旧2870×2620mm全屋示意分开核对，450mm差额仅作待闭合调整段。",
+    "orientation": "north-up; reference photograph compared horizontally mirrored",
+    "modelEnvelope": {
+      "x": 542,
+      "y": 1127,
+      "w": 287,
+      "d": 262,
+      "status": "old-unclosed"
+    },
+    "localEnvelope": {
+      "w": 242,
+      "d": 261,
+      "status": "r2-confirmed-room-net-only"
+    },
+    "adjustmentBand": {
+      "x": 694,
+      "w": 45,
+      "status": "unclosed-filler-not-confirmed-usable-space"
+    },
+    "localShaft": {
+      "x": 0,
+      "y": 201,
+      "w": 60,
+      "d": 60,
+      "status": "provisional"
+    },
+    "localCountertops": [
+      {
+        "x": 80,
+        "y": 0,
+        "w": 162,
+        "d": 65
+      },
+      {
+        "x": 177,
+        "y": 65,
+        "w": 65,
+        "d": 131
+      },
+      {
+        "x": 60,
+        "y": 196,
+        "w": 182,
+        "d": 65
+      }
+    ],
+    "dishwasherCavity": {
+      "x": 626,
+      "y": 1127,
+      "w": 62,
+      "d": 65,
+      "clearHeightCm": 86
+    },
+    "parts": [
+      {
+        "id": "shaft",
+        "role": "shaft",
+        "x": 542,
+        "y": 1329,
+        "zCm": 0,
+        "w": 60,
+        "d": 60,
+        "hCm": 270,
+        "material": "Wall"
+      },
+      {
+        "id": "dw_west_gable",
+        "role": "base-panel",
+        "x": 624.2,
+        "y": 1127,
+        "zCm": 0,
+        "w": 1.8,
+        "d": 65,
+        "hCm": 86,
+        "material": "Cream",
+        "face": "south"
+      },
+      {
+        "id": "dw_east_gable",
+        "role": "base-panel",
+        "x": 688,
+        "y": 1127,
+        "zCm": 0,
+        "w": 1.8,
+        "d": 65,
+        "hCm": 86,
+        "material": "Cream",
+        "face": "south"
+      },
+      {
+        "id": "north_west_filler",
+        "role": "base-front",
+        "x": 622,
+        "y": 1190.2,
+        "zCm": 10,
+        "w": 2.2,
+        "d": 1.8,
+        "hCm": 76,
+        "material": "OakLight",
+        "face": "south"
+      },
+      {
+        "id": "north_fixed_filler",
+        "role": "base-front",
+        "x": 689.8,
+        "y": 1190.2,
+        "zCm": 10,
+        "w": 4.2,
+        "d": 1.8,
+        "hCm": 76,
+        "material": "OakLight",
+        "face": "south"
+      },
+      {
+        "id": "north_adjustment_floor",
+        "role": "adjustment-panel",
+        "x": 694,
+        "y": 1127,
+        "zCm": 10,
+        "w": 45,
+        "d": 65,
+        "hCm": 1.8,
+        "material": "Cream",
+        "face": "south"
+      },
+      {
+        "id": "north_adjustment_back",
+        "role": "adjustment-panel",
+        "x": 694,
+        "y": 1127,
+        "zCm": 10,
+        "w": 45,
+        "d": 1.8,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "south"
+      },
+      {
+        "id": "north_adjustment_w",
+        "role": "adjustment-panel",
+        "x": 694,
+        "y": 1127,
+        "zCm": 10,
+        "w": 1.8,
+        "d": 65,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "south"
+      },
+      {
+        "id": "north_adjustment_e",
+        "role": "adjustment-panel",
+        "x": 737.2,
+        "y": 1127,
+        "zCm": 10,
+        "w": 1.8,
+        "d": 65,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "south"
+      },
+      {
+        "id": "north_adjustment_door_0",
+        "role": "adjustment-front",
+        "x": 694.2,
+        "y": 1190.2,
+        "zCm": 11,
+        "w": 44.6,
+        "d": 1.8,
+        "hCm": 74.6,
+        "material": "OakLight",
+        "face": "south"
+      },
+      {
+        "id": "north_adjustment_plinth",
+        "role": "plinth",
+        "x": 694,
+        "y": 1127,
+        "zCm": 0,
+        "w": 45,
+        "d": 58,
+        "hCm": 10,
+        "material": "Charcoal",
+        "face": "south"
+      },
+      {
+        "id": "north_prep_floor",
+        "role": "base-panel",
+        "x": 739,
+        "y": 1127,
+        "zCm": 10,
+        "w": 25,
+        "d": 65,
+        "hCm": 1.8,
+        "material": "Cream",
+        "face": "south"
+      },
+      {
+        "id": "north_prep_back",
+        "role": "base-panel",
+        "x": 739,
+        "y": 1127,
+        "zCm": 10,
+        "w": 25,
+        "d": 1.8,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "south"
+      },
+      {
+        "id": "north_prep_w",
+        "role": "base-panel",
+        "x": 739,
+        "y": 1127,
+        "zCm": 10,
+        "w": 1.8,
+        "d": 65,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "south"
+      },
+      {
+        "id": "north_prep_e",
+        "role": "base-panel",
+        "x": 762.2,
+        "y": 1127,
+        "zCm": 10,
+        "w": 1.8,
+        "d": 65,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "south"
+      },
+      {
+        "id": "north_prep_door_0",
+        "role": "base-front",
+        "x": 739.2,
+        "y": 1190.2,
+        "zCm": 11,
+        "w": 24.6,
+        "d": 1.8,
+        "hCm": 74.6,
+        "material": "OakLight",
+        "face": "south"
+      },
+      {
+        "id": "north_prep_plinth",
+        "role": "plinth",
+        "x": 739,
+        "y": 1127,
+        "zCm": 0,
+        "w": 25,
+        "d": 58,
+        "hCm": 10,
+        "material": "Charcoal",
+        "face": "south"
+      },
+      {
+        "id": "north_corner_floor",
+        "role": "base-panel",
+        "x": 764,
+        "y": 1127,
+        "zCm": 10,
+        "w": 65,
+        "d": 65,
+        "hCm": 1.8,
+        "material": "Cream",
+        "face": "south"
+      },
+      {
+        "id": "north_corner_back",
+        "role": "base-panel",
+        "x": 764,
+        "y": 1127,
+        "zCm": 10,
+        "w": 65,
+        "d": 1.8,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "south"
+      },
+      {
+        "id": "north_corner_w",
+        "role": "base-panel",
+        "x": 764,
+        "y": 1127,
+        "zCm": 10,
+        "w": 1.8,
+        "d": 65,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "south"
+      },
+      {
+        "id": "north_corner_e",
+        "role": "base-panel",
+        "x": 827.2,
+        "y": 1127,
+        "zCm": 10,
+        "w": 1.8,
+        "d": 65,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "south"
+      },
+      {
+        "id": "north_corner_door_0",
+        "role": "base-front",
+        "x": 764.2,
+        "y": 1190.2,
+        "zCm": 11,
+        "w": 32.1,
+        "d": 1.8,
+        "hCm": 74.6,
+        "material": "OakLight",
+        "face": "south"
+      },
+      {
+        "id": "north_corner_door_1",
+        "role": "base-front",
+        "x": 796.7,
+        "y": 1190.2,
+        "zCm": 11,
+        "w": 32.1,
+        "d": 1.8,
+        "hCm": 74.6,
+        "material": "OakLight",
+        "face": "south"
+      },
+      {
+        "id": "north_corner_plinth",
+        "role": "plinth",
+        "x": 764,
+        "y": 1127,
+        "zCm": 0,
+        "w": 65,
+        "d": 58,
+        "hCm": 10,
+        "material": "Charcoal",
+        "face": "south"
+      },
+      {
+        "id": "east_sink_floor",
+        "role": "base-panel",
+        "x": 764,
+        "y": 1192,
+        "zCm": 10,
+        "w": 65,
+        "d": 132,
+        "hCm": 1.8,
+        "material": "Cream",
+        "face": "west"
+      },
+      {
+        "id": "east_sink_back",
+        "role": "base-panel",
+        "x": 827.2,
+        "y": 1192,
+        "zCm": 10,
+        "w": 1.8,
+        "d": 132,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "west"
+      },
+      {
+        "id": "east_sink_n",
+        "role": "base-panel",
+        "x": 764,
+        "y": 1192,
+        "zCm": 10,
+        "w": 65,
+        "d": 1.8,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "west"
+      },
+      {
+        "id": "east_sink_s",
+        "role": "base-panel",
+        "x": 764,
+        "y": 1322.2,
+        "zCm": 10,
+        "w": 65,
+        "d": 1.8,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "west"
+      },
+      {
+        "id": "east_sink_door_0",
+        "role": "base-front",
+        "x": 764,
+        "y": 1192.2,
+        "zCm": 11,
+        "w": 1.8,
+        "d": 43.6,
+        "hCm": 74.6,
+        "material": "OakLight",
+        "face": "west"
+      },
+      {
+        "id": "east_sink_door_1",
+        "role": "base-front",
+        "x": 764,
+        "y": 1236.2,
+        "zCm": 11,
+        "w": 1.8,
+        "d": 43.6,
+        "hCm": 74.6,
+        "material": "OakLight",
+        "face": "west"
+      },
+      {
+        "id": "east_sink_door_2",
+        "role": "base-front",
+        "x": 764,
+        "y": 1280.2,
+        "zCm": 11,
+        "w": 1.8,
+        "d": 43.6,
+        "hCm": 74.6,
+        "material": "OakLight",
+        "face": "west"
+      },
+      {
+        "id": "east_sink_plinth",
+        "role": "plinth",
+        "x": 771,
+        "y": 1192,
+        "zCm": 0,
+        "w": 58,
+        "d": 132,
+        "hCm": 10,
+        "material": "Charcoal",
+        "face": "west"
+      },
+      {
+        "id": "south_hob_floor",
+        "role": "base-panel",
+        "x": 602,
+        "y": 1324,
+        "zCm": 10,
+        "w": 92,
+        "d": 65,
+        "hCm": 1.8,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_hob_back",
+        "role": "base-panel",
+        "x": 602,
+        "y": 1387.2,
+        "zCm": 10,
+        "w": 92,
+        "d": 1.8,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_hob_w",
+        "role": "base-panel",
+        "x": 602,
+        "y": 1324,
+        "zCm": 10,
+        "w": 1.8,
+        "d": 65,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_hob_e",
+        "role": "base-panel",
+        "x": 692.2,
+        "y": 1324,
+        "zCm": 10,
+        "w": 1.8,
+        "d": 65,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_hob_door_0",
+        "role": "base-front",
+        "x": 602.2,
+        "y": 1324,
+        "zCm": 11,
+        "w": 45.6,
+        "d": 1.8,
+        "hCm": 74.6,
+        "material": "OakLight",
+        "face": "north"
+      },
+      {
+        "id": "south_hob_door_1",
+        "role": "base-front",
+        "x": 648.2,
+        "y": 1324,
+        "zCm": 11,
+        "w": 45.6,
+        "d": 1.8,
+        "hCm": 74.6,
+        "material": "OakLight",
+        "face": "north"
+      },
+      {
+        "id": "south_hob_plinth",
+        "role": "plinth",
+        "x": 602,
+        "y": 1331,
+        "zCm": 0,
+        "w": 92,
+        "d": 58,
+        "hCm": 10,
+        "material": "Charcoal",
+        "face": "north"
+      },
+      {
+        "id": "south_adjustment_floor",
+        "role": "adjustment-panel",
+        "x": 694,
+        "y": 1324,
+        "zCm": 10,
+        "w": 45,
+        "d": 65,
+        "hCm": 1.8,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_adjustment_back",
+        "role": "adjustment-panel",
+        "x": 694,
+        "y": 1387.2,
+        "zCm": 10,
+        "w": 45,
+        "d": 1.8,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_adjustment_w",
+        "role": "adjustment-panel",
+        "x": 694,
+        "y": 1324,
+        "zCm": 10,
+        "w": 1.8,
+        "d": 65,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_adjustment_e",
+        "role": "adjustment-panel",
+        "x": 737.2,
+        "y": 1324,
+        "zCm": 10,
+        "w": 1.8,
+        "d": 65,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_adjustment_door_0",
+        "role": "adjustment-front",
+        "x": 694.2,
+        "y": 1324,
+        "zCm": 11,
+        "w": 44.6,
+        "d": 1.8,
+        "hCm": 74.6,
+        "material": "OakLight",
+        "face": "north"
+      },
+      {
+        "id": "south_adjustment_plinth",
+        "role": "plinth",
+        "x": 694,
+        "y": 1331,
+        "zCm": 0,
+        "w": 45,
+        "d": 58,
+        "hCm": 10,
+        "material": "Charcoal",
+        "face": "north"
+      },
+      {
+        "id": "south_prep_floor",
+        "role": "base-panel",
+        "x": 739,
+        "y": 1324,
+        "zCm": 10,
+        "w": 58,
+        "d": 65,
+        "hCm": 1.8,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_prep_back",
+        "role": "base-panel",
+        "x": 739,
+        "y": 1387.2,
+        "zCm": 10,
+        "w": 58,
+        "d": 1.8,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_prep_w",
+        "role": "base-panel",
+        "x": 739,
+        "y": 1324,
+        "zCm": 10,
+        "w": 1.8,
+        "d": 65,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_prep_e",
+        "role": "base-panel",
+        "x": 795.2,
+        "y": 1324,
+        "zCm": 10,
+        "w": 1.8,
+        "d": 65,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_prep_door_0",
+        "role": "base-front",
+        "x": 739.2,
+        "y": 1324,
+        "zCm": 11,
+        "w": 28.6,
+        "d": 1.8,
+        "hCm": 74.6,
+        "material": "OakLight",
+        "face": "north"
+      },
+      {
+        "id": "south_prep_door_1",
+        "role": "base-front",
+        "x": 768.2,
+        "y": 1324,
+        "zCm": 11,
+        "w": 28.6,
+        "d": 1.8,
+        "hCm": 74.6,
+        "material": "OakLight",
+        "face": "north"
+      },
+      {
+        "id": "south_prep_plinth",
+        "role": "plinth",
+        "x": 739,
+        "y": 1331,
+        "zCm": 0,
+        "w": 58,
+        "d": 58,
+        "hCm": 10,
+        "material": "Charcoal",
+        "face": "north"
+      },
+      {
+        "id": "south_corner_floor",
+        "role": "base-panel",
+        "x": 797,
+        "y": 1324,
+        "zCm": 10,
+        "w": 32,
+        "d": 65,
+        "hCm": 1.8,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_corner_back",
+        "role": "base-panel",
+        "x": 797,
+        "y": 1387.2,
+        "zCm": 10,
+        "w": 32,
+        "d": 1.8,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_corner_w",
+        "role": "base-panel",
+        "x": 797,
+        "y": 1324,
+        "zCm": 10,
+        "w": 1.8,
+        "d": 65,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_corner_e",
+        "role": "base-panel",
+        "x": 827.2,
+        "y": 1324,
+        "zCm": 10,
+        "w": 1.8,
+        "d": 65,
+        "hCm": 76,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_corner_door_0",
+        "role": "base-front",
+        "x": 797.2,
+        "y": 1324,
+        "zCm": 11,
+        "w": 31.6,
+        "d": 1.8,
+        "hCm": 74.6,
+        "material": "OakLight",
+        "face": "north"
+      },
+      {
+        "id": "south_corner_plinth",
+        "role": "plinth",
+        "x": 797,
+        "y": 1331,
+        "zCm": 0,
+        "w": 32,
+        "d": 58,
+        "hCm": 10,
+        "material": "Charcoal",
+        "face": "north"
+      },
+      {
+        "id": "east_upper_floor",
+        "role": "upper-panel",
+        "x": 797,
+        "y": 1207,
+        "zCm": 150,
+        "w": 32,
+        "d": 150,
+        "hCm": 1.8,
+        "material": "Cream",
+        "face": "west"
+      },
+      {
+        "id": "east_upper_top",
+        "role": "upper-panel",
+        "x": 797,
+        "y": 1207,
+        "zCm": 233.2,
+        "w": 32,
+        "d": 150,
+        "hCm": 1.8,
+        "material": "Cream",
+        "face": "west"
+      },
+      {
+        "id": "east_upper_back",
+        "role": "upper-panel",
+        "x": 827.2,
+        "y": 1207,
+        "zCm": 150,
+        "w": 1.8,
+        "d": 150,
+        "hCm": 85,
+        "material": "Cream",
+        "face": "west"
+      },
+      {
+        "id": "east_upper_n",
+        "role": "upper-panel",
+        "x": 797,
+        "y": 1207,
+        "zCm": 150,
+        "w": 32,
+        "d": 1.8,
+        "hCm": 85,
+        "material": "Cream",
+        "face": "west"
+      },
+      {
+        "id": "east_upper_s",
+        "role": "upper-panel",
+        "x": 797,
+        "y": 1355.2,
+        "zCm": 150,
+        "w": 32,
+        "d": 1.8,
+        "hCm": 85,
+        "material": "Cream",
+        "face": "west"
+      },
+      {
+        "id": "east_upper_door_0",
+        "role": "upper-front",
+        "x": 797,
+        "y": 1207.2,
+        "zCm": 151,
+        "w": 1.8,
+        "d": 37.1,
+        "hCm": 83.6,
+        "material": "Cream",
+        "face": "west"
+      },
+      {
+        "id": "east_upper_door_1",
+        "role": "upper-front",
+        "x": 797,
+        "y": 1244.7,
+        "zCm": 151,
+        "w": 1.8,
+        "d": 37.1,
+        "hCm": 83.6,
+        "material": "Cream",
+        "face": "west"
+      },
+      {
+        "id": "east_upper_door_2",
+        "role": "upper-front",
+        "x": 797,
+        "y": 1282.2,
+        "zCm": 151,
+        "w": 1.8,
+        "d": 37.1,
+        "hCm": 83.6,
+        "material": "Cream",
+        "face": "west"
+      },
+      {
+        "id": "east_upper_door_3",
+        "role": "upper-front",
+        "x": 797,
+        "y": 1319.7,
+        "zCm": 151,
+        "w": 1.8,
+        "d": 37.1,
+        "hCm": 83.6,
+        "material": "Cream",
+        "face": "west"
+      },
+      {
+        "id": "south_upper_floor",
+        "role": "upper-panel",
+        "x": 739,
+        "y": 1357,
+        "zCm": 150,
+        "w": 58,
+        "d": 32,
+        "hCm": 1.8,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_upper_top",
+        "role": "upper-panel",
+        "x": 739,
+        "y": 1357,
+        "zCm": 233.2,
+        "w": 58,
+        "d": 32,
+        "hCm": 1.8,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_upper_back",
+        "role": "upper-panel",
+        "x": 739,
+        "y": 1387.2,
+        "zCm": 150,
+        "w": 58,
+        "d": 1.8,
+        "hCm": 85,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_upper_w",
+        "role": "upper-panel",
+        "x": 739,
+        "y": 1357,
+        "zCm": 150,
+        "w": 1.8,
+        "d": 32,
+        "hCm": 85,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_upper_e",
+        "role": "upper-panel",
+        "x": 795.2,
+        "y": 1357,
+        "zCm": 150,
+        "w": 1.8,
+        "d": 32,
+        "hCm": 85,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_upper_door_0",
+        "role": "upper-front",
+        "x": 739.2,
+        "y": 1357,
+        "zCm": 151,
+        "w": 28.6,
+        "d": 1.8,
+        "hCm": 83.6,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "south_upper_door_1",
+        "role": "upper-front",
+        "x": 768.2,
+        "y": 1357,
+        "zCm": 151,
+        "w": 28.6,
+        "d": 1.8,
+        "hCm": 83.6,
+        "material": "Cream",
+        "face": "north"
+      },
+      {
+        "id": "east_splash",
+        "role": "backsplash",
+        "x": 827.8,
+        "y": 1174,
+        "zCm": 89,
+        "w": 1.2,
+        "d": 183,
+        "hCm": 61,
+        "material": "Tile"
+      },
+      {
+        "id": "south_splash",
+        "role": "backsplash",
+        "x": 602,
+        "y": 1387.8,
+        "zCm": 89,
+        "w": 227,
+        "d": 1.2,
+        "hCm": 61,
+        "material": "Tile"
+      }
+    ],
+    "appliances": [
+      {
+        "id": "kitchen_fridge",
+        "type": "fridge",
+        "x": 550,
+        "y": 1132,
+        "w": 65,
+        "d": 60,
+        "heightCm": 190,
+        "zCm": 0,
+        "face": "south",
+        "local": {
+          "x": 8,
+          "y": 5,
+          "w": 65,
+          "d": 60
+        },
+        "dimensionStatus": "user-confirmed-body",
+        "hinge": "east-provisional"
+      },
+      {
+        "id": "kitchen_dishwasher",
+        "type": "dishwasher",
+        "x": 627,
+        "y": 1132,
+        "w": 60,
+        "d": 60,
+        "heightCm": 80.5,
+        "zCm": 0,
+        "face": "south",
+        "local": {
+          "x": 85,
+          "y": 5,
+          "w": 60,
+          "d": 60
+        },
+        "dimensionStatus": "user-confirmed-body"
+      },
+      {
+        "id": "kitchen_double_sink",
+        "type": "doubleSink",
+        "x": 774,
+        "y": 1216,
+        "w": 45,
+        "d": 78,
+        "heightCm": 20,
+        "zCm": 69,
+        "face": "west",
+        "local": {
+          "x": 187,
+          "y": 89,
+          "w": 45,
+          "d": 78
+        },
+        "dimensionStatus": "reference-only",
+        "referenceId": "franke-bxx220-74"
+      },
+      {
+        "id": "kitchen_hob",
+        "type": "gasHob",
+        "x": 612,
+        "y": 1335,
+        "w": 75,
+        "d": 45,
+        "heightCm": 5,
+        "zCm": 89,
+        "face": "north",
+        "local": {
+          "x": 70,
+          "y": 207,
+          "w": 75,
+          "d": 45
+        },
+        "dimensionStatus": "provisional"
+      },
+      {
+        "id": "kitchen_hood",
+        "type": "hood",
+        "x": 609.5,
+        "y": 1349,
+        "w": 80,
+        "d": 40,
+        "heightCm": 45,
+        "zCm": 155,
+        "face": "north",
+        "local": {
+          "x": 67.5,
+          "y": 221,
+          "w": 80,
+          "d": 40
+        },
+        "dimensionStatus": "provisional"
+      },
+      {
+        "id": "kitchen_heater",
+        "type": "waterHeater",
+        "x": 808.5,
+        "y": 1137,
+        "w": 20.5,
+        "d": 33,
+        "heightCm": 53,
+        "zCm": 132,
+        "face": "west",
+        "local": {
+          "x": 221.5,
+          "y": 10,
+          "w": 20.5,
+          "d": 33
+        },
+        "dimensionStatus": "reference-only",
+        "referenceId": "noritz-13ex31fex"
+      },
+      {
+        "id": "kitchen_tap",
+        "type": "faucet",
+        "x": 812,
+        "y": 1252,
+        "w": 15,
+        "d": 6,
+        "heightCm": 32,
+        "zCm": 89,
+        "face": "west",
+        "local": {
+          "x": 225,
+          "y": 125,
+          "w": 15,
+          "d": 6
+        },
+        "dimensionStatus": "provisional"
+      }
+    ],
+    "countertops": [
+      {
+        "id": "north_top",
+        "x": 622,
+        "y": 1127,
+        "w": 207,
+        "d": 65,
+        "zCm": 86,
+        "hCm": 3,
+        "material": "Stone",
+        "cutouts": []
+      },
+      {
+        "id": "east_top",
+        "x": 764,
+        "y": 1192,
+        "w": 65,
+        "d": 132,
+        "zCm": 86,
+        "hCm": 3,
+        "material": "Stone",
+        "cutouts": [
+          {
+            "x": 775,
+            "y": 1217,
+            "w": 43,
+            "d": 76
+          }
+        ]
+      },
+      {
+        "id": "south_top",
+        "x": 602,
+        "y": 1324,
+        "w": 227,
+        "d": 65,
+        "zCm": 86,
+        "hCm": 3,
+        "material": "Stone",
+        "cutouts": [
+          {
+            "x": 615,
+            "y": 1338,
+            "w": 69,
+            "d": 39
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      "本轮只改厨房家具与设备；全屋墙线未闭合，旧模型厨房2870×2620mm不代表实测。局部复尺净宽2420、净深2610mm用于保守占地核对；两者不得混作一张施工图。",
+      "全屋示意在中段保留450mm调整柜段；收窄至2420mm时须删减该段，不能把它算作已经确认的备餐宽度。完成墙厚、共墙、门窗基准闭合后再统一定位。",
+      "西南烟道暂估600×600mm、按墙体不可占用。烟道实际外包、检修口、排烟接口与止回阀未测；若更大，炉灶及柜宽必须重排。",
+      "冰箱650×600×1900mm、洗碗机600×600×805mm是用户提供的机器外廓，不是橱柜开孔尺寸。散热、管线、柜门厚度、踢脚及完整开门尺寸按最终型号说明书深化。",
+      "洗碗机独立在北侧台下，模型空腔620×650mm、净高860mm，无遮挡底板或背板；台面完成面890mm。以上安装余量待厂家确认，排水和电源不设在无法检修的机器正后方。",
+      "保守尺寸下南北台面间1310mm；若洗碗机门向前投影600mm，余710mm；若投影805mm，余505mm。均为敏感性示例而非实机开门保证，一次一人操作。",
+      "冰箱门暂按向东侧铰接、朝南开启；90°开门会侵入厨房入口投影，余约542mm，不宜同时进出。需确认实际铰链、开门角度、抽屉拉出和搬入路线。",
+      "双槽780×450×200mm借鉴弗兰卡BXX220-74，沿东墙纵向摆放；只是尺寸及外形参考，非已购物品。水槽下留排水空间，东侧柜不再放洗碗机。",
+      "燃气灶暂估750×450mm，南墙近烟道；油烟机暂估800mm宽，下沿1550mm。灶面、油烟机安装高度、两侧防火距离和燃气阀位置须按选定型号复核，未把烟道接口画成已确认。",
+      "灶右至东侧台面转角在保守布局里仅320mm直线台面，属于紧凑备餐；可用北侧及转角备餐，但不把旧模型多出的450mm当实际余量。",
+      "热水器按参考照片暂作壁挂燃气式，机身参考530×330×205mm；型号/能源未定。独立外露，不封进吊柜；检修和燃烧安全净距须厂家确认。",
+      "厨房与家政阳台之间为内窗，不是室外排气出口。燃气热水器必须有经专业确认的独立排烟通向室外，不能与油烟机/公共烟道混接，也不能排在封闭阳台内。",
+      "北侧窗洞1200×1300mm、窗台1000mm仍为原条件占位；吊柜不跨窗，东柜起点距北墙800mm、止于热水器之外。热水器与窗扇、阳台龙头/机器及全部柜门开启须现场核验。",
+      "效果图、局部占地校核和网页漫游均非施工或燃气安装图；湿区防水、电路、接地、燃气、排烟必须由有资质人员复核。"
+    ],
+    "dimensions": [
+      "冰箱：650W × 600D × 1900H mm（用户提供）",
+      "洗碗机：600W × 600D × 805H mm（用户提供）",
+      "台面暂定高890mm；洗碗机上方净高860mm",
+      "双槽参考780 × 450 × 200mm，尚未选定",
+      "烟道暂估600 × 600mm，不可利用",
+      "局部复尺2420 × 2610mm；全屋图旧边界待闭合"
+    ]
+  },
+  "provenance": {
+    "repository": "https://github.com/itwake/house-design",
+    "commit": "b5bcfd0f3a1806629d7e6811817573a00eb7333c",
+    "path": "models/schemes/wood/design-data.json",
+    "sha256": "d6348456f0411bdc4eb6ac11bbe4828602260ddcef82a758dd080f1800699797",
+    "importDate": "2026-10-07",
+    "lastViewerVersion": "3.13.3"
+  }
+}

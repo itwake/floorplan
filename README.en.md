@@ -1,8 +1,14 @@
-# Floor Plan Interior Designer
+# Warm Timber Home · Floor Plan Editor
 
 [中文](README.md) | English
 
-A pure front-end tool for interior design on a floor plan: place furniture, remove or modify walls, and take measurements on a 2D plan, then switch to a Three.js 3D scene with one click — view it from above or walk through it in first person. The whole app is a single `index.html`: no build step, just open it.
+The floorplan editor now opens our apartment designs from [house-design](https://github.com/itwake/house-design), instead of the original example home. [Open the editor](https://itwake.github.io/floorplan/). Default: `family`; use the top selector for `wood` and `laundry`. No build step is required.
+
+The import preserves millimetre coordinates, door openings and actual leaf lengths, three projecting bay windows, unglazed balcony guards, detailed cabinetry and purchased furniture dimensions. Furniture uses parametric visual approximations, not exact branded product meshes. Three.js and required addons are bundled locally in `vendor/three/`.
+
+Edits auto-save separately for each scheme in this browser. Use JSON export/import to back up or transfer drafts. Geometry is versioned source data, not an interactive CAD wall-drawing system; wall removal only creates a reversible draft. Full survey closure and wall structural status are still unverified. Do not use this model as construction approval or certified floor area.
+
+See [data documentation](data/README.md) for conversion, provenance and unresolved measurements. Run `node tests/validate-import.cjs` for geometry/script checks. Serve the project over HTTP for ES Modules; deployment uses the `master` branch root on GitHub Pages. Original MIT license and author credit remain intact.
 
 ## Features
 
@@ -11,8 +17,8 @@ A pure front-end tool for interior design on a floor plan: place furniture, remo
 - Drag 60+ furniture and appliance items from the library on the left (bedroom, living room, dining & kitchen, bathroom, appliances, study & leisure)
 - Move, rotate (hold Shift for free angle), and resize items, with automatic snapping to walls
 - Measuring tool (snaps to nearby walls; hold Shift to lock horizontal / vertical)
-- Remove or modify non-load-bearing walls; load-bearing walls are marked separately
-- Layer toggles: dimensions, room names, furniture, grid, load-bearing walls
+- Reversible interior wall drafts; imported wall structural status is unverified
+- Layer toggles: dimensions, room names, furniture, grid, wall status
 
 **3D Scene**
 - Bird's-eye, oblique, and top-down views; click a room in the list to fly to it
@@ -42,7 +48,7 @@ python3 -m http.server 8000
 # Visit http://localhost:8000
 ```
 
-> Three.js is loaded from the jsDelivr CDN, so an internet connection is required the first time you open the 3D scene.
+> Three.js r160 and the required addons are bundled with the site; no external CDN is required.
 
 ## Keyboard Shortcuts
 
