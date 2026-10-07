@@ -20,6 +20,7 @@ const timeout = 60000;
     for (const mode of process.argv.includes('--phone-only') ? ['phone'] : ['desktop','phone']) {
       const context = await browser.newContext(mode === 'phone' ? {viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true} : {viewport:{width:1440,height:1000}});
       const page = await context.newPage();
+      page.setDefaultTimeout(timeout);
       page.on('pageerror', e => {errors.push(mode+': '+e.message);console.error('pageerror',mode,e.message);});
       for (const scheme of mode === 'phone' || process.argv.includes('--family-only') ? ['family'] : ['wood','family','laundry']) {
         await page.goto(`${base}/?scheme=${scheme}`,{waitUntil:'networkidle',timeout});
@@ -31,8 +32,19 @@ const timeout = 60000;
         await page.waitForFunction(() => document.querySelector('#stage').classList.contains('is3d')&&!document.querySelector('#stage').classList.contains('animating'),null,{timeout});
         const expand = !await page.locator('[data-cut="1.2"]').isVisible();
         if(expand)await page.locator('#moreTools').click();
+        await page.waitForTimeout(2000);
         await page.locator('[data-cut="1.2"]').click();
         if(expand)await page.locator('#moreTools').click();
+        // Header collapse resizes and clears the WebGL canvas. Wait for an
+        // actual painted scene, not just the transition CSS flag / labels.
+        await page.waitForFunction(() => {
+          const cv=document.querySelector('#view3d canvas');if(!cv?.width)return false;
+          const probe=document.createElement('canvas');probe.width=64;probe.height=64;
+          const g=probe.getContext('2d');g.drawImage(cv,0,0,64,64);
+          const d=g.getImageData(0,0,64,64).data,colors=new Set();
+          for(let i=0;i<d.length;i+=4)colors.add((d[i]<<16)|(d[i+1]<<8)|d[i+2]);
+          return colors.size>20;
+        },null,{timeout});
         const three = path.join(out,`${mode}-${scheme}-3d.png`);
         await page.screenshot({path:three});screenshots.push(three);
       }

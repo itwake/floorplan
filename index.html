@@ -1581,9 +1581,16 @@ function init(){
     else if (h?.room) window.select({kind:'room', id:h.room});
     else window.select(null);
   });
+  const renderedSize = new THREE.Vector2();
   new ResizeObserver(() => {
-    renderer.setSize(SW(), SH()); labelRenderer.setSize(SW(), SH());
-    camera.aspect = SW()/SH(); camera.updateProjectionMatrix();
+    const w = SW(), h = SH(); if (!w || !h) return;
+    renderer.getSize(renderedSize);
+    if (renderedSize.x === w && renderedSize.y === h) return;
+    renderer.setSize(w, h); labelRenderer.setSize(w, h);
+    camera.aspect = w/h; camera.updateProjectionMatrix();
+    // Resizing clears the WebGL buffer. Draw immediately so mobile toolbar
+    // changes do not leave a blank canvas while waiting for the next frame.
+    if (active){ renderer.render(scene, camera); labelRenderer.render(scene, camera); }
   }).observe(stage);
   bindUI();
 }
