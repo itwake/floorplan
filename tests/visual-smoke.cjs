@@ -17,18 +17,22 @@ const timeout = 60000;
   const browser = await chromium.launch({headless:true,executablePath,args:['--use-angle=swiftshader','--enable-unsafe-swiftshader']});
   const screenshots = [], errors = [];
   try {
-    for (const mode of ['desktop','phone']) {
+    for (const mode of process.argv.includes('--phone-only') ? ['phone'] : ['desktop','phone']) {
       const context = await browser.newContext(mode === 'phone' ? {viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true} : {viewport:{width:1440,height:1000}});
       const page = await context.newPage();
-      page.on('pageerror', e => errors.push(mode+': '+e.message));
+      page.on('pageerror', e => {errors.push(mode+': '+e.message);console.error('pageerror',mode,e.message);});
       for (const scheme of mode === 'phone' || process.argv.includes('--family-only') ? ['family'] : ['wood','family','laundry']) {
         await page.goto(`${base}/?scheme=${scheme}`,{waitUntil:'networkidle',timeout});
-        await page.waitForFunction(() => typeof window.View3D?.enter === 'function',null,{timeout});
+        await page.waitForFunction(() => document.querySelectorAll('#gFurn > .furn').length>0,null,{timeout});
         const two = path.join(out,`${mode}-${scheme}-2d.png`);
         await page.screenshot({path:two});screenshots.push(two);
+        await page.waitForFunction(() => typeof window.View3D?.enter === 'function',null,{timeout});
         await page.locator('[data-view="3d"]').click();
         await page.waitForFunction(() => document.querySelector('#stage').classList.contains('is3d')&&!document.querySelector('#stage').classList.contains('animating'),null,{timeout});
+        const expand = !await page.locator('[data-cut="1.2"]').isVisible();
+        if(expand)await page.locator('#moreTools').click();
         await page.locator('[data-cut="1.2"]').click();
+        if(expand)await page.locator('#moreTools').click();
         const three = path.join(out,`${mode}-${scheme}-3d.png`);
         await page.screenshot({path:three});screenshots.push(three);
       }

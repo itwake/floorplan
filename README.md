@@ -96,6 +96,8 @@ python3 -m http.server 8000
 
 验证几何与脚本：`node tests/validate-import.cjs`。浏览器测试：先开启 4190 端口静态服务器，再运行 `node tests/integration.cjs`（需 Playwright；支持 `FLOORPLAN_NODE_MODULES`、`FLOORPLAN_CHROME`、`FLOORPLAN_BASE_URL` 环境变量）。
 
+发布后运行 `node tests/verify-published.cjs`，逐项检查线上 HTML、户型数据和 3D 模块与当前提交的 SHA-256 完全一致。
+
 GitHub Pages 发布 `master` 分支根目录。原编辑器 MIT 许可与作者署名保留。
 
 ## 社交媒体
