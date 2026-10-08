@@ -8,6 +8,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
 const {execFileSync} = require('node:child_process');
+const {applyCabinetDesigns} = require('./cabinet-designs.cjs');
 const root = path.resolve(__dirname, '..');
 const ids = ['wood', 'family', 'laundry'];
 const names = {wood:'木光原境', family:'木光 · 亲子储物', laundry:'木光 · 家政整墙'};
@@ -259,6 +260,7 @@ function convert(d,id){
     conditions:['墙体、房间多边形和面积沿用既有方案；部分复尺已应用，全屋墙线和共同基准未闭合。','编辑器中的尺寸以模型坐标为准；已购家具保持机身外廓，安装、门套及五金余量待核。'],
     balconyOpenness:d.balconyOpennessRevision,garageMovement:d.garage?.movementValidation,
     converter:'tools/convert-house-plans.cjs',wallStatus:'承重性未鉴定；原源数据未授权将未知内墙标记为可拆非承重墙。'};
+  applyCabinetDesigns(plan,d);
   validate(plan,d);return plan;
 }
 

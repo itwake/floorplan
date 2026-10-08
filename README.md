@@ -14,6 +14,8 @@
 
 家具可移动、旋转、改宽深高及颜色；房间可改地面材料。改动自动保存在当前浏览器，各方案互不覆盖。换设备或长期留档，请用「文件 → 导出方案 JSON」；同方案可导入恢复，跨方案导入会拦截。重置只恢复当前方案，可撤销。JSON 是本编辑器备份格式，并非通用 CAD 文件。
 
+定制柜已按业主提供的奶白＋浅原木参考细化：常穿鞋开放位、钥匙浅抽与小挂钩，餐边柜操作台/浅吊柜/内嵌灯带，北端小物浅抽，衣柜与影音分区。保留全部原外包、位置与 800 库折叠门；贴餐桌及沙发背的柜体仍用滑门。属性面板提供柜体立面 SVG 与「3D 查看柜面」。本轮更新保留已有浏览器草稿的位置、尺寸、命名与自定义颜色，不复活已删除物件。板件与五金仍为概念建议，不是加工下单图。
+
 注意：导入的是当前设计模型，局部复尺已应用，但全屋总轮廓、墙厚、部分门窗定位仍待核。面积为模型多边形计算，不是产权面积。所有墙体承重性未鉴定，改墙仅为可撤销草案，不可据此施工。3D 家具采用参数化模型，已购家具外包尺寸保留，不宣称品牌产品的精确外观。
 
 ## 功能
@@ -95,6 +97,8 @@ python3 -m http.server 8000
 更新 house-design 快照：`node tools/convert-house-plans.cjs --source <原项目目录> --refresh-sources`。
 
 验证几何与脚本：`node tests/validate-import.cjs`。浏览器测试：先开启 4190 端口静态服务器，再运行 `node tests/integration.cjs`（需 Playwright；支持 `FLOORPLAN_NODE_MODULES`、`FLOORPLAN_CHROME`、`FLOORPLAN_BASE_URL` 环境变量）。
+
+柜体细化回归：`node tests/cabinet-design.cjs` 核对修改前后布局/全部家具外包哈希、薄板与便捷分区；`node tests/cabinet-browser.cjs` 验证旧草稿迁移、立面、柜体 3D 与备份。功能细节生成层位于 `tools/cabinet-designs.cjs`，源快照保留原样。
 
 发布后运行 `node tests/verify-published.cjs`，逐项检查线上 HTML、户型数据和 3D 模块与当前提交的 SHA-256 完全一致。
 
