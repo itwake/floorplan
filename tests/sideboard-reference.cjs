@@ -23,7 +23,8 @@ function withinUnion(p,regions){
 }
 const report=[];
 for(const [id,scheme]of Object.entries(plans.schemes)){
-  const source=JSON.parse(fs.readFileSync(path.join(root,'data/source',id+'.json'),'utf8'));
+  const referenceId=id==='wood'&&scheme.metadata.layoutUpdate?'family':id;
+  const source=JSON.parse(fs.readFileSync(path.join(root,'data/source',referenceId+'.json'),'utf8'));
   const fit=source.storageFitouts.find(q=>q.id==='dining_sideboard_wall'),f=scheme.defaultFurniture.find(q=>q.id===target);
   assert.equal(f.cabinetRevision,revision,id+': reference sideboard missing');
   assert.equal(f.cabinetDesign.revision,revision);assert.equal(f.heightMm,2700);assert.equal(f.baseHeightMm,2700);
@@ -74,11 +75,11 @@ for(const [id,scheme]of Object.entries(plans.schemes)){
   assert.equal(rail[0].heightMm,40);assert.equal(rail[0].elevationMm,1170);
   const drawers=absolute.filter(p=>p.role==='drawer-front');assert.equal(drawers.length,3,id+': lower column must have three drawers');
   assert.deepEqual(drawers.map(p=>p.drawerLayer).sort(),[1,2,3]);
-  const drawerWidth=id==='family'?400:600;
+  const drawerWidth=referenceId==='family'?400:600;
   const adaptation=f.cabinetDesign.layoutAdaptations;
   assert.equal(adaptation.facadeLeft,'south');assert.equal(adaptation.facadeRight,'north');
   assert.equal(adaptation.drawerColumn.widthMm,drawerWidth);assert.equal(adaptation.drawerColumn.maxExtensionMm,250);
-  const expectedY=id==='family'?[9190,9590]:[9200,9800];assert.deepEqual([adaptation.drawerColumn.yStartMm,adaptation.drawerColumn.yEndMm],expectedY);
+  const expectedY=referenceId==='family'?[9190,9590]:[9200,9800];assert.deepEqual([adaptation.drawerColumn.yStartMm,adaptation.drawerColumn.yEndMm],expectedY);
   const fixed=absolute.filter(p=>/^cabinet-|niche-back/.test(p.role));
   for(const drawer of absolute.filter(p=>p.role==='drawer-box'))for(const p of fixed)assert.ok(!overlap3(drawer,p),id+'/'+drawer.id+': drawer intersects fixed '+p.id);
   const peopleFurniture=source.furniture.filter(q=>q.name==='四人餐桌'||/餐椅/.test(q.name)).map(q=>({...rect(q),name:q.name}));
@@ -95,7 +96,7 @@ for(const [id,scheme]of Object.entries(plans.schemes)){
   const table=peopleFurniture.find(p=>p.name==='四人餐桌');
   for(const p of absolute.filter(q=>q.face==='east'&&q.elevationMm<850&&q.y<table.y+table.d&&q.y+q.d>table.y))if(p.role.startsWith('door-'))assert.equal(p.role,'door-sliding',id+': door at table-contact region should not hinge into it');
   const blind=absolute.filter(p=>p.id.startsWith('d_corner_')||p.id.startsWith('reference-upper-blind-bridge'));
-  if(id==='family'){
+  if(referenceId==='family'){
     assert.equal(blind.length,0);assert.ok(!absolute.some(p=>p.face==='north'),id+': north-opening 800库 must not gain a blocking return');
     assert.equal(scheme.BIFOLDS.length,1);assert.equal(scheme.BIFOLDS[0].closed,true);assert.equal(scheme.BIFOLDS[0].panels,4);
   }else{
@@ -105,6 +106,6 @@ for(const [id,scheme]of Object.entries(plans.schemes)){
   }
   const books=absolute.filter(p=>p.role==='display-book');assert.ok(books.length>=9);
   for(const p of books){assert.ok(p.heightMm<=260&&p.w<=160&&p.d<=160,p.id+': book is a real small accessory, not an opaque cubby filler');assert.equal(p.material,'BookPaper');}
-  report.push({id,planarUnionUnchanged:true,heightMm:2700,defaultHeightPendingSiteCheck:true,drawerWidthMm:drawerWidth,drawerSweepsAvoidDiningFurniture:true,ledsAnchoredToRealPanels:lights.length,roundedHollowEnd:true});
+  report.push({id,planarUnionMatchesReference:referenceId,heightMm:2700,defaultHeightPendingSiteCheck:true,drawerWidthMm:drawerWidth,drawerSweepsAvoidDiningFurniture:true,ledsAnchoredToRealPanels:lights.length,roundedHollowEnd:true});
 }
 console.log(JSON.stringify({status:'PASS',revision,modelGeometryOnly:true,schemes:report},null,2));

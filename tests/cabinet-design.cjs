@@ -1,6 +1,7 @@
 'use strict';
 const assert=require('node:assert/strict'),crypto=require('node:crypto'),path=require('node:path');
 const plans=require(path.join(__dirname,'..','data','house-plans.js'));
+const {previousPlan}=require('./wood-public-area-helpers.cjs');
 const revision='cream-oak-functional-v1',sideboardRevision='sideboard-reference-v2';
 // Recorded before the functional cabinet-detail pass. Deliberately includes
 // windows, doors and the 800-library bifold so styling cannot change layout.
@@ -26,8 +27,9 @@ if(process.argv.includes('--record-baseline')){
 const report=[];
 for(const [id,s] of Object.entries(plans.schemes)){
   assert.ok(baseline[id],id+': missing immutable pre-design baseline');
-  assert.equal(hash(layout(s)),baseline[id].layout,id+': walls/openings/rooms/bays/800 door changed');
-  assert.equal(hash(envelopes(s)),baseline[id].envelopes,id+': furniture footprint, location or dimensions changed');
+  const prior=previousPlan(s);
+  assert.equal(hash(layout(prior)),baseline[id].layout,id+': historical walls/openings/rooms/bays/800 door changed');
+  assert.equal(hash(envelopes(prior)),baseline[id].envelopes,id+': historical furniture footprint, location or dimensions changed');
   const designed=s.defaultFurniture.filter(f=>[revision,sideboardRevision].includes(f.cabinetRevision));
   assert.ok(designed.length>=2,id+': missing cabinet design');
   for(const f of designed){
@@ -84,12 +86,12 @@ for(const [id,s] of Object.entries(plans.schemes)){
   assert.ok(sideboard.parts.some(p=>p.role==='wood-countertop'),id+': wood counter missing');
   assert.ok(sideboard.parts.some(p=>p.role==='led-strip'),id+': niche lighting missing');
   assert.ok(/椅|250|抽屉/.test(JSON.stringify(sideboard.cabinetDesign)+JSON.stringify(sideboard.conditions)),id+': access limitation must remain explicit');
-  if(id==='family'){
+  if(id==='family'||s.metadata.layoutUpdate){
     const back=s.defaultFurniture.find(f=>f.id==='fit-sofa_back_storage');
     assert.ok(back.parts.some(p=>p.role==='door-sliding'),'family: sofa rear must keep sliding doors');
     assert.ok(!back.parts.some(p=>p.role==='drawer-front'),'family: no protruding sofa-rear drawers');
     assert.equal(s.BIFOLDS.length,1);assert.equal(s.BIFOLDS[0].closed,true);assert.equal(s.BIFOLDS[0].panels,4);
   }
-  report.push({id,designed:designed.length,layoutUnchanged:true,planarEnvelopesUnchanged:true,onlySideboardHeightChanged:true});
+  report.push({id,designed:designed.length,historicalLayoutUnchanged:true,historicalEnvelopesUnchanged:true,authorizedPublicAreaLayer:!!s.metadata.layoutUpdate});
 }
 console.log(JSON.stringify({status:'PASS',revision,sideboardRevision,schemes:report},null,2));

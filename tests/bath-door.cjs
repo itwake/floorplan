@@ -8,6 +8,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const plans = require(path.join(root, 'data/house-plans.js'));
+const {previousPlan}=require('./wood-public-area-helpers.cjs');
 const revision = 'bath-south-hinge-20261008';
 const stable = value => Array.isArray(value) ? value.map(stable) : value && typeof value === 'object' ? Object.fromEntries(Object.keys(value).sort().map(key => [key, stable(value[key])])) : value;
 const hash = value => crypto.createHash('sha256').update(value).digest('hex');
@@ -31,7 +32,7 @@ const baseline = {
 };
 
 function beforeCorrection(scheme, source) {
-  const previous = structuredClone(scheme);
+  const previous = previousPlan(scheme);
   const sideboard=previous.defaultFurniture.find(value=>value.id==='fit-dining_sideboard_wall');
   const sideboardIndex=previous.defaultFurniture.indexOf(sideboard);
   previous.defaultFurniture[sideboardIndex]=Object.fromEntries(['id','cx','cy','w','d','rot','heightMm','elevationMm','sourceFootprintMm'].filter(key=>sideboard[key]!==undefined).map(key=>[key,key==='heightMm'&&sideboard.cabinetRevision==='sideboard-reference-v2'?2500:sideboard[key]]));

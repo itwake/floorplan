@@ -366,7 +366,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=sideboard-20261008"></script>
+<script src="data/house-plans.js?v=wood-public-20261009"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -469,11 +469,19 @@ function defaultFurniture(){ return structuredClone(HOUSE_PLAN.defaultFurniture)
 function defaultState(){
   const rooms = {}; ROOMS.forEach(r => rooms[r.id] = {name:r.name, mat:r.mat});
   return {schemaVersion:2,projectId:'house-design',schemeId:SCHEME_ID,sourceVersion:PLAN_LIBRARY.version,
-    furniture:defaultFurniture(),rooms,demolished:[],measures:[]};
+    furniture:defaultFurniture(),rooms,demolished:[],measures:[],appliedLayoutRevisions:HOUSE_PLAN.metadata.layoutUpdate?[HOUSE_PLAN.metadata.layoutUpdate.id]:[]};
 }
 const STORE = 'floorplan:house-design:' + SCHEME_ID + ':' + PLAN_LIBRARY.version + ':' + HOUSE_PLAN.metadata.source.sha256.slice(0,12);
 function load(){
-  try { const s=JSON.parse(localStorage.getItem(STORE)); if(s && Array.isArray(s.furniture)) return fixState(s); } catch(e){}
+  try {
+    const s=JSON.parse(localStorage.getItem(STORE));
+    if(s && Array.isArray(s.furniture)){
+      const revision=HOUSE_PLAN.metadata.layoutUpdate?.id,needsUpgrade=revision&&!s.appliedLayoutRevisions?.includes(revision);
+      const fixed=fixState(s);
+      if(needsUpgrade)try{localStorage.setItem(STORE,JSON.stringify(fixed));}catch(e){} // Storage failure must not discard the user's draft.
+      return fixed;
+    }
+  } catch(e){}
   return null;
 }
 function refreshCabinetDesign(f){
@@ -488,6 +496,39 @@ function refreshCabinetDesign(f){
   for(const key of ['type','parts','baseWidthMm','baseDepthMm','baseHeightMm','cabinetRevision','cabinetDesign'])
     if(fresh[key]!==undefined) f[key]=structuredClone(fresh[key]);
 }
+function upgradePlanLayout(s){
+  const revision=HOUSE_PLAN.metadata.layoutUpdate;
+  if(!revision || s.appliedLayoutRevisions?.includes(revision.id)) return;
+  const kept=[];
+  for(const before of revision.previousFurniture){
+    const f=s.furniture.find(q=>q.id===before.id),fresh=HOUSE_PLAN.defaultFurniture.find(q=>q.id===before.id);
+    if(!f || !fresh)continue; // Do not revive a deleted existing object.
+    for(const key of [...revision.migrationFields,'name','face']){
+      if(f[key]===before[key]){
+        if(fresh[key]!==undefined)f[key]=structuredClone(fresh[key]);else delete f[key];
+      }else if(revision.migrationFields.includes(key)&&f[key]!==fresh[key])kept.push(f.id);
+    }
+    // The straight cabinet replaces the old L-shaped body, including v2
+    // drafts whose style revision is already current. Keep any custom colour.
+    if(fresh.type==='fixture' && fresh.parts){
+      for(const key of ['type','parts','baseWidthMm','baseDepthMm','baseHeightMm','cabinetRevision','cabinetDesign','notes','conditions'])
+        if(fresh[key]!==undefined)f[key]=structuredClone(fresh[key]);
+    }
+    f.layoutRevision=revision.id;
+    if(fresh.sourceFootprintMm){
+      const a=f.rot*Math.PI/180,w=Math.abs(Math.cos(a))*f.w+Math.abs(Math.sin(a))*f.d,d=Math.abs(Math.sin(a))*f.w+Math.abs(Math.cos(a))*f.d;
+      f.originalSourceFootprintMm=structuredClone(fresh.originalSourceFootprintMm||before.sourceFootprintMm);
+      f.sourceFootprintMm={x:f.cx-w/2,y:f.cy-d/2,w,d};
+    }
+  }
+  // New additions are inserted once. An intentionally cleared draft stays
+  // empty; deleting an addition later will not make it return on reload.
+  if(s.furniture.length)for(const id of revision.newFurnitureIds){
+    if(!s.furniture.some(f=>f.id===id))s.furniture.push(structuredClone(HOUSE_PLAN.defaultFurniture.find(f=>f.id===id)));
+  }
+  s.appliedLayoutRevisions=[...(Array.isArray(s.appliedLayoutRevisions)?s.appliedLayoutRevisions:[]),revision.id];
+  s.layoutMigrationKeptIds=[...new Set(kept)];
+}
 function fixState(s){
   if(!s || !Array.isArray(s.furniture)) throw Error('方案缺少家具数据');
   if(s.schemeId && s.schemeId!==SCHEME_ID) throw Error('请切换到对应方案再导入');
@@ -501,6 +542,7 @@ function fixState(s){
     if(f.parts!==undefined && (!Array.isArray(f.parts) || f.parts.some(p=>!['x','y','w','d','elevationMm','heightMm'].every(k=>Number.isFinite(p[k])) || p.w<=0 || p.d<=0 || p.heightMm<=0))) throw Error('柜体部件无效');
     refreshCabinetDesign(f);
   });
+  upgradePlanLayout(s);
   const rooms={}; ROOMS.forEach(r=>{const st=s.rooms?.[r.id];rooms[r.id]={name:typeof st?.name==='string'?st.name:r.name,mat:MATS[st?.mat]?st.mat:r.mat};});
   const demolished=Array.isArray(s.demolished)?s.demolished.filter(id=>/^w\d+$/.test(id)&&WALLS[+id.slice(1)]&&WALLS[+id.slice(1)][4]!=='b'):[];
   const measures=Array.isArray(s.measures)?s.measures.filter(m=>['a','b'].every(k=>Number.isFinite(m?.[k]?.x)&&Number.isFinite(m?.[k]?.y))):[];
@@ -872,7 +914,7 @@ function overviewPanel(){
   const dem = state.demolished.map(id => WALLS[+id.slice(1)]);
   const demLen = dem.reduce((a,w) => a + Math.max(w[2]-w[0], w[3]-w[1]), 0) / 1000;
   return `
-  <section class="project-note"><b>${esc(HOUSE_PLAN.name)}</b><br>${tr('原网站方案已导入；局部复尺值已应用，待核尺寸保留原示意。墙体承重性未鉴定，草案改墙不是施工许可。','Original schemes imported; partial surveys applied, unresolved values remain illustrative. Wall structure is unverified.')}<br><small>${tr('编辑自动保存于当前浏览器，各方案独立。换设备请导出 JSON。','Edits auto-save in this browser per scheme. Export JSON to change devices.')}</small></section>
+  <section class="project-note"><b>${esc(HOUSE_PLAN.name)}</b>${HOUSE_PLAN.metadata.layoutUpdate?`<br>${esc(HOUSE_PLAN.metadata.layoutUpdate.title)}`:''}${state.layoutMigrationKeptIds?.length?`<p data-layout-migration-warning>${tr('保留了你的自定义摆位或尺寸，新布局未完全覆盖。请核对物件重叠与动线；需要查看完整新默认布局，可先导出备份，再重置当前方案。','Your custom placement or dimensions were preserved. Check collisions and routes; export a backup before resetting to see the complete new default layout.')}</p>`:''}<br>${tr('原网站方案已导入；局部复尺值已应用，待核尺寸保留原示意。墙体承重性未鉴定，草案改墙不是施工许可。','Original schemes imported; partial surveys applied, unresolved values remain illustrative. Wall structure is unverified.')}<br><small>${tr('编辑自动保存于当前浏览器，各方案独立。换设备请导出 JSON。','Edits auto-save in this browser per scheme. Export JSON to change devices.')}</small></section>
   ${cabinetOverview()}
   <section><h3>${tr('房间面积','Room Areas')} <small>${tr('点击查看 / 更换地面','Click to view / change flooring')}</small></h3>
     <table>${rows}</table>

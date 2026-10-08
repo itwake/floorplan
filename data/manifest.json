@@ -10,7 +10,7 @@
       "windows": 12,
       "doors": 6,
       "slidingDoors": 2,
-      "furniture": 46,
+      "furniture": 50,
       "source": {
         "repository": "https://github.com/itwake/house-design",
         "commit": "b5bcfd0f3a1806629d7e6811817573a00eb7333c",
