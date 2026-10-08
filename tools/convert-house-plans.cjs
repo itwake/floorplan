@@ -9,6 +9,7 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const {execFileSync} = require('node:child_process');
 const {applyCabinetDesigns} = require('./cabinet-designs.cjs');
+const {applySideboardReference} = require('./sideboard-reference.cjs');
 const root = path.resolve(__dirname, '..');
 const ids = ['wood', 'family', 'laundry'];
 const names = {wood:'木光原境', family:'木光 · 亲子储物', laundry:'木光 · 家政整墙'};
@@ -288,6 +289,7 @@ function convert(d,id){
     balconyOpenness:d.balconyOpennessRevision,garageMovement:d.garage?.movementValidation,
     converter:'tools/convert-house-plans.cjs',wallStatus:'承重性未鉴定；原源数据未授权将未知内墙标记为可拆非承重墙。'};
   applyCabinetDesigns(plan,d);
+  applySideboardReference(plan,d);
   correctMasterBathSwing(plan);
   validate(plan,d);return plan;
 }

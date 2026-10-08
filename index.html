@@ -366,7 +366,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=bath-doors-20261008"></script>
+<script src="data/house-plans.js?v=sideboard-20261008"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -479,10 +479,12 @@ function load(){
 function refreshCabinetDesign(f){
   const fresh=HOUSE_PLAN.defaultFurniture.find(q=>q.id===f.id);
   if(!fresh?.cabinetRevision || f.cabinetRevision===fresh.cabinetRevision) return;
-  // Keep the user's placement, envelope, height, name and deletions. Only the
-  // same original cabinet's dated appearance profile is upgraded in place.
-  const oldDefault=fresh.cabinetDesign?.previousColor;
-  if(f.color===oldDefault) f.color=fresh.color;
+  // Keep placement, custom dimensions/colours, names and deletions. Only an
+  // unchanged former default height follows the new ceiling-height profile.
+  const design=fresh.cabinetDesign,oldDefaults=[design?.previousColor,...(design?.previousColors||[])];
+  if(oldDefaults.some(c=>c?.toLowerCase()===f.color.toLowerCase())) f.color=fresh.color;
+  if(Number.isFinite(design?.previousHeightMm) && f.heightMm===design.previousHeightMm)
+    f.heightMm=fresh.heightMm;
   for(const key of ['type','parts','baseWidthMm','baseDepthMm','baseHeightMm','cabinetRevision','cabinetDesign'])
     if(fresh[key]!==undefined) f[key]=structuredClone(fresh[key]);
 }
@@ -690,7 +692,8 @@ function fixtureSVG(f){
   const sx=f.w/f.baseWidthMm,sy=f.d/f.baseDepthMm, original=HOUSE_PLAN.defaultFurniture.find(p=>p.id===f.id)?.color||f.cabinetDesign?.palette?.door;
   return (f.parts||[]).slice().sort((a,b)=>a.elevationMm-b.elevationMm).map(p=>{
     const c=f.color!==original?f.color:p.color;
-    return `<rect x="${p.x*sx}" y="${p.y*sy}" width="${p.w*sx}" height="${p.d*sy}" rx="8" fill="${/^#[0-9a-f]{6}$/i.test(c)?c:'#eee'}" fill-opacity="${p.elevationMm>=1200?.35:1}" stroke="#a89d8c" stroke-width="1" vector-effect="non-scaling-stroke"><title>${esc(p.role||p.id)} · ${Math.round(p.w*sx)}×${Math.round(p.d*sy)}×${p.heightMm} mm · 离地 ${p.elevationMm} mm</title></rect>`;
+    const radius=p.shape?.startsWith('rounded-')?(p.radiusMm||60):8;
+    return `<rect x="${p.x*sx}" y="${p.y*sy}" width="${p.w*sx}" height="${p.d*sy}" rx="${radius*sx}" ry="${radius*sy}" fill="${/^#[0-9a-f]{6}$/i.test(c)?c:'#eee'}" fill-opacity="${p.elevationMm>=1200?.35:1}" stroke="#a89d8c" stroke-width="1" vector-effect="non-scaling-stroke"><title>${esc(p.role||p.id)} · ${Math.round(p.w*sx)}×${Math.round(p.d*sy)}×${p.heightMm} mm · 离地 ${p.elevationMm} mm</title></rect>`;
   }).join('');
 }
 function renderFurn(){
@@ -1005,8 +1008,12 @@ function cabinetElevationSVG(f, face){
     const baseline=HOUSE_PLAN.defaultFurniture.find(q=>q.id===f.id)?.color||f.cabinetDesign?.palette?.door;
     const color=f.color!==baseline?f.color:p.color;
     const c=/^#[0-9a-f]{6}$/i.test(color)?color:'#F4F1E9';
-    const h=Math.max(p.role==='led-strip'?10:1,p.heightMm*sh),x=p[axis]*scale-start,y=H-(p.elevationMm+p.heightMm)*sh;
-    return `<rect x="${x}" y="${y}" width="${p[span]*scale}" height="${h}" fill="${p.role==='led-strip'?'#ffe5b7':c}" stroke="${p.role==='led-strip'?'#dab986':'#b8afa0'}" stroke-width="2"><title>${esc(p.label||p.title||p.role||p.id)} · ${Math.round(p[span]*scale)}×${Math.round(p.heightMm*sh)} mm · 离地 ${Math.round(p.elevationMm*sh+(f.elevationMm||0))} mm</title></rect>`;
+    // A real frontal elevation: east-facing cabinets read south-to-north,
+    // north-facing cabinets east-to-west, rather than mirroring the 3D model.
+    const mirrorFace=['east','north'].includes(face.face),pw=p[span]*scale;
+    const h=Math.max(p.role==='led-strip'?10:1,p.heightMm*sh),x=mirrorFace?L-((p[axis]+p[span])*scale-start):p[axis]*scale-start,y=H-(p.elevationMm+p.heightMm)*sh;
+    const socket=p.role==='socket-rail'?Array.from({length:3},(_,i)=>`<circle cx="${x+pw*(i+1)/4}" cy="${y+h/2}" r="${Math.min(h*.32,24)}" fill="#f4f1e9" stroke="#9d9386" stroke-width="2"/><circle cx="${x+pw*(i+1)/4}" cy="${y+h/2}" r="4" fill="#756c61"/>`).join(''):'';
+    return `<g><rect data-part-id="${esc(p.id)}" data-role="${esc(p.role||'')}" x="${x}" y="${y}" width="${pw}" height="${h}" fill="${p.role==='led-strip'?'#ffe5b7':c}" stroke="${p.role==='led-strip'?'#dab986':'#b8afa0'}" stroke-width="2"><title>${esc(p.label||p.title||p.role||p.id)} · ${Math.round(pw)}×${Math.round(p.heightMm*sh)} mm · 离地 ${Math.round(p.elevationMm*sh+(f.elevationMm||0))} mm</title></rect>${socket}</g>`;
   }).join('');
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-${margin} -${margin} ${L+margin*2} ${H+margin*3}" role="img" aria-label="${esc(face.label||'柜体立面')} · 概念分区"><rect x="-${margin}" y="-${margin}" width="${L+margin*2}" height="${H+margin*3}" fill="#fffdf8"/>${body}<line x1="0" y1="${H+35}" x2="${L}" y2="${H+35}" stroke="#9f8d75" stroke-width="3"/><text x="${L/2}" y="${H+105}" text-anchor="middle" font-size="65" font-family="sans-serif" fill="#74695a">${Math.round(L)} mm · ${esc(face.label||face.face)}</text></svg>`;
 }
@@ -1017,7 +1024,7 @@ function cabinetDesignPanel(f){
     <ul>${features.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>
     ${faces.map((face,i)=>{const svg=cabinetElevationSVG(f,face);return svg?`<details class="cabinet-elevation" ${i===0?'open':''}><summary>${esc(face.label||face.face)} · ${tr('立面分区','Elevation')}</summary>${svg}<button class="btn" data-cabinet-face="${i}">${tr('下载立面 SVG','Download elevation SVG')}</button></details>`:'';}).join('')}
     <button class="btn primary" id="viewCabinet3d">${tr('3D 查看柜面','View cabinet front in 3D')}</button>
-    <div class="muted" style="margin-top:8px">${dimensions.map(esc).join('<br>')}<br>${tr('参考照片的功能转译，不是加工图；板厚、五金、净尺寸、插座与电器散热由厂家和电工深化。立面随模型缩放，修改外包尺寸后须重新核对分区。','Concept adapted from the references, not shop drawings. Hardware, internal dimensions and electrical/appliance requirements need professional detailing; recheck after resizing.')}</div></section>`;
+    <div class="muted" style="margin-top:8px">${dimensions.map(esc).join('<br>')}${Number.isFinite(design.previousHeightMm) && f.heightMm!==HOUSE_PLAN.defaultFurniture.find(q=>q.id===f.id)?.heightMm?'<br>'+tr('已保留你的自定义柜高；当前高度不等于默认通顶高度，请重新核对收口。','Your custom height is preserved; recheck the ceiling closure.') : ''}<br>${tr('参考照片的功能转译，不是加工图；板厚、五金、净尺寸、插座与电器散热由厂家和电工深化。立面随模型缩放，修改外包尺寸后须重新核对分区。','Concept adapted from the references, not shop drawings. Hardware, internal dimensions and electrical/appliance requirements need professional detailing; recheck after resizing.')}</div></section>`;
 }
 function cabinetOverview(){
   const cabinets=state.furniture.filter(f=>f.cabinetDesign);
@@ -1780,6 +1787,20 @@ const glowMat = (c = '#fff4dc', e = '#ffdca0', k = .5) => mat(c, {emissive:e, em
 // Subtle, locally generated oak grain. No remote texture / image service is
 // required; the milk-white fronts remain matte and visually quiet.
 const cabinetWoodCache = new Map();
+let cabinetWashMaterial;
+function cabinetShelfWash(){
+  if(!cabinetWashMaterial){
+    const canvas=document.createElement('canvas');canvas.width=8;canvas.height=128;
+    const ctx=canvas.getContext('2d'),gradient=ctx.createLinearGradient(0,0,0,128);
+    gradient.addColorStop(0,'rgba(255,222,164,.6)');gradient.addColorStop(.18,'rgba(255,228,177,.2)');gradient.addColorStop(1,'rgba(255,235,200,0)');
+    ctx.fillStyle=gradient;ctx.fillRect(0,0,8,128);
+    const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
+    // Transparent backing glow for the small shelf strips, not a solid cubby
+    // filler or extra scene light. The work niche uses real directed lights.
+    cabinetWashMaterial=new THREE.MeshBasicMaterial({map:texture,transparent:true,opacity:.5,depthWrite:false,toneMapped:false});
+  }
+  return cabinetWashMaterial;
+}
 function cabinetWood(color){
   if(!cabinetWoodCache.has(color)){
     const canvas=document.createElement('canvas');canvas.width=128;canvas.height=256;
@@ -1806,18 +1827,65 @@ function buildCabinetParts(g,f){
     let pc=f.color!==baseline?f.color:p.color;pc=/^#[0-9a-f]{6}$/i.test(pc)?pc:'#F4F1E9';
     const W=M(p.w*sx),D=M(p.d*sz),height=M(p.heightMm*sy),x=M((p.x+p.w/2)*sx),y=M(p.elevationMm*sy),z=M((p.y+p.d/2)*sz);
     const led=p.role==='led-strip',oak=/Oak|wood/i.test(p.material||'')||/oak|wood/.test(p.role||'');
-    const material=led?glowMat('#fff4d8','#ffe2ac',.55):p.role?.includes('cushion')?fabric(pc):oak?cabinetWood(pc):mat(pc,{roughness:.7});
-    if(p.role==='coat-hook'){
+    const material=led?glowMat('#fff4d8','#ffe2ac',f.cabinetRevision==='sideboard-reference-v2'?1.6:.55):p.role?.includes('cushion')?fabric(pc):oak?cabinetWood(pc):mat(pc,{roughness:.7});
+    if(p.shape==='rounded-shell'){
+      // Real 18-mm hollow shell: rounding a thin solid box would clamp its
+      // radius to 9 mm and could not reproduce the reference's curved end.
+      g.add(shell(W,D,height,M((p.wallThicknessMm||18)*Math.min(sx,sz)),M((p.radiusMm||60)*Math.min(sx,sz)),material,x,y,z));
+    }else if(p.shape==='rounded-plan-board'){
+      const geometry=new THREE.ExtrudeGeometry(rrect(W,D,M((p.radiusMm||60)*Math.min(sx,sz))),{depth:height,bevelEnabled:false,curveSegments:10});
+      geometry.rotateX(-Math.PI/2);const cap=mesh(geometry,material);cap.position.set(x,y,z);g.add(cap);
+    }else if(p.role==='coat-hook'){
       const across=['east','west'].includes(p.face),r=Math.min(height,across?D:W)/2;
       const hook=mesh(new THREE.CylinderGeometry(r,r,across?W:D,12),material);
       hook.rotation[across?'z':'x']=Math.PI/2;hook.position.set(x,y+height/2,z);g.add(hook);
     }else{
-      const part=box(W,height,D,material,x,y,z);if(led){part.castShadow=false;part.receiveShadow=false;}g.add(part);
-      if(p.role==='socket-plate'){
+      const part=box(W,height,D,material,x,y,z);if(led){part.castShadow=false;part.receiveShadow=false;part.userData.cabinetLEDStrip=true;}g.add(part);
+      if(p.role==='socket-rail'){
+        const across=['east','west'].includes(p.face),positive=['east','south'].includes(p.face),sign=positive?1:-1;
+        const radius=Math.min(.024,height*.36),socketMat=mat('#f4f1e9',{roughness:.7}),dark=mat('#756c61',{roughness:.9});
+        const outward=sign*((across?W:D)/2+.003),cy=y+height/2;
+        for(let i=0;i<3;i++){
+          const along=(i-1)*(across?D:W)/4,xx=x+(across?outward:along),zz=z+(across?along:outward);
+          const socket=mesh(new THREE.CylinderGeometry(radius,radius,.004,24),socketMat);
+          socket.rotation[across?'z':'x']=Math.PI/2;socket.position.set(xx,cy,zz);g.add(socket);
+          // Three small holes per socket, drawn just outside the round face.
+          [[-.008,.003],[.008,.003],[0,-.008]].forEach(([a,b])=>{
+            const hole=mesh(new THREE.CylinderGeometry(.0025,.0025,.001,8),dark);
+            hole.rotation[across?'z':'x']=Math.PI/2;
+            hole.position.set(xx+(across?sign*.0025:a),cy+b,zz+(across?a:sign*.0025));g.add(hole);
+          });
+        }
+      }else if(p.role==='socket-plate'){
         const across=['east','west'].includes(p.face),dark=mat('#7d766d',{roughness:.9});
         [-1,1].forEach(offset=>{
           g.add(box(across?W*1.02:W*.09,height*.12,across?D*.09:D*1.02,dark,x+(across?0:offset*W*.16),y+height*.42,z+(across?offset*D*.16:0)));
         });
+      }
+    }
+    // Downward light avoids the unshadowed point-light leak through the upper
+    // cabinet bottom. At most two directed lights illuminate the long niche.
+    if(led && p.lightWash){
+      const across=['east','west'].includes(p.face),length=across?D:W;
+      const count=length>1.5?2:1;
+      for(let i=0;i<count;i++){
+        const offset=count===1?0:(i?1:-1)*length/4;
+        const wash=new THREE.SpotLight(0xffdca0,.25,2.4,Math.PI/2.5,.65,2);
+        wash.position.set(x+(across?0:offset),y-.035,z+(across?offset:0));
+        const sign=['east','south'].includes(p.face)?1:-1;
+        wash.target.position.copy(wash.position).add(new THREE.Vector3(across?-sign*.16:0,-.45,across?0:-sign*.16));
+        wash.userData.cabinetLED=true;g.add(wash,wash.target);
+      }
+    }
+    if(led && f.cabinetRevision==='sideboard-reference-v2'){
+      const across=['east','west'].includes(p.face),along=across?p.y+p.d/2:p.x+p.w/2;
+      const back=(f.parts||[]).find(b=>b.face===p.face && /back/.test(b.role||'') && b.elevationMm<p.elevationMm && b.elevationMm+b.heightMm>=p.elevationMm && along>=(across?b.y:b.x) && along<=(across?b.y+b.d:b.x+b.w));
+      if(back){
+        const drop=M(Math.min(360,p.elevationMm-back.elevationMm)*sy),length=across?D:W;
+        const glow=new THREE.Mesh(new THREE.PlaneGeometry(length,drop),cabinetShelfWash());
+        glow.rotation.y={east:Math.PI/2,west:-Math.PI/2,north:Math.PI,south:0}[p.face]||0;
+        const front=p.face==='east'?M((back.x+back.w)*sx)+.0007:p.face==='west'?M(back.x*sx)-.0007:p.face==='south'?M((back.y+back.d)*sz)+.0007:M(back.y*sz)-.0007;
+        glow.position.set(across?front:x,y-drop/2,across?z:front);glow.userData.cabinetShelfWash=true;g.add(glow);
       }
     }
   });

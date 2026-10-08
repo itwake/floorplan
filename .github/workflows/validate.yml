@@ -16,5 +16,6 @@ jobs:
       - run: node tools/convert-house-plans.cjs
       - run: node tests/validate-import.cjs
       - run: node tests/cabinet-design.cjs
+      - run: node tests/sideboard-reference.cjs
       - run: node tests/bath-door.cjs
       - run: git diff --exit-code -- data/house-plans.js data/manifest.json

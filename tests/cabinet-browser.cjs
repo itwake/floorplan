@@ -3,7 +3,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
 const runtime=process.env.FLOORPLAN_NODE_MODULES||'C:/Users/dvnuo/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules';
 let chromium;try{({chromium}=require('playwright'));}catch{({chromium}=createRequire(path.join(runtime,'_floorplan-qa.cjs'))('playwright'));}
-const revision='cream-oak-functional-v1',base=process.env.FLOORPLAN_BASE_URL||'http://127.0.0.1:4190';
+const revision='cream-oak-functional-v1',sideboardRevision='sideboard-reference-v2',base=process.env.FLOORPLAN_BASE_URL||'http://127.0.0.1:4190';
 const out=path.resolve(process.env.FLOORPLAN_CABINET_SHOTS||path.join(__dirname,'..','..','qa-cabinets-20261008'));
 const executablePath=process.env.FLOORPLAN_CHROME||[chromium.executablePath(),'C:/Program Files/Google/Chrome/Application/chrome.exe','C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'].find(fs.existsSync);
 const timeout=60000;
@@ -25,11 +25,30 @@ const painted=()=>{
   try{
     for(const scheme of (process.argv.includes('--shots-only')?[]:['family','wood','laundry'])){
       await open(scheme);
+      // Existing default-height v1 drafts should gain the authorized ceiling
+      // extension without replacing the browser key or resetting their layout.
+      const defaultOld=await page.evaluate(scheme=>{
+        const old=structuredClone(defaultState()),f=old.furniture.find(q=>q.id==='fit-dining_sideboard_wall');
+        f.cabinetRevision='cream-oak-functional-v1';f.heightMm=2500;f.baseHeightMm=2500;
+        f.color=scheme==='wood'?'#F3EFE6':'#F4F1E9';
+        f.parts=[{id:'qa-old-default',x:0,y:0,w:18,d:100,elevationMm:0,heightMm:2500,role:'cabinet-side',color:f.color}];
+        localStorage.setItem(STORE,JSON.stringify(old));
+        return {cx:f.cx,cy:f.cy,w:f.w,d:f.d,rot:f.rot,store:STORE};
+      },scheme);
+      await page.reload({waitUntil:'networkidle'});
+      const defaultNew=await page.evaluate(()=>({f:structuredClone(getF('fit-dining_sideboard_wall')),store:STORE}));
+      for(const key of ['cx','cy','w','d','rot'])assert.equal(defaultNew.f[key],defaultOld[key],scheme+': default-height upgrade moved '+key);
+      assert.equal(defaultNew.store,defaultOld.store,scheme+': sideboard update changed the local draft key');
+      assert.equal(defaultNew.f.heightMm,2700,scheme+': old default height was not extended to model ceiling');
+      assert.equal(defaultNew.f.baseHeightMm,2700,scheme+': new cabinet base height must match native model');
+      assert.equal(defaultNew.f.cabinetRevision,sideboardRevision);
+      assert.equal(defaultNew.f.color,'#F4F1E9',scheme+': old default paint not upgraded');
+      assert.ok(!defaultNew.f.parts.some(p=>p.id==='qa-old-default'));
       const expected=await page.evaluate(()=>{
         const old=structuredClone(defaultState()),f=old.furniture.find(f=>f.id==='fit-dining_sideboard_wall');
         if(!f.cabinetDesign)throw Error('New cabinet bundle not loaded');
-        f.cx+=123;f.cy+=77;f.w+=30;f.d-=80;f.rot=15;f.heightMm-=100;f.name='QA 自定义餐边柜';f.color='#668899';
-        delete f.cabinetRevision;delete f.cabinetDesign;
+        f.cx+=123;f.cy+=77;f.w+=30;f.d-=80;f.rot=15;f.heightMm=2400;f.baseHeightMm=2500;f.name='QA 自定义餐边柜';f.color='#668899';
+        f.cabinetRevision='cream-oak-functional-v1';delete f.cabinetDesign;
         f.parts=[{id:'qa-legacy-solid',role:'sideboard_base',x:-f.baseWidthMm/2,y:-f.baseDepthMm/2,w:f.baseWidthMm,d:f.baseDepthMm,elevationMm:0,heightMm:f.heightMm,color:'#c8a77e'}];
         const clone=structuredClone(f);clone.id='qa-custom-cabinet-copy';clone.cx+=400;clone.name='QA 不匹配 ID 的复制柜';old.furniture.push(clone);
         const native=old.furniture.find(p=>p.cabinetRevision&&/衣柜/.test(p.name));
@@ -43,7 +62,8 @@ const painted=()=>{
       await page.reload({waitUntil:'networkidle'});
       const migrated=await page.evaluate(()=>({f:structuredClone(getF('fit-dining_sideboard_wall')),copy:structuredClone(getF('qa-custom-cabinet-copy')),deleted:Boolean(getF('fit-entry_shoe_station')),measures:structuredClone(state.measures),room:state.rooms.living.mat}));
       for(const k of ['cx','cy','w','d','rot','color','heightMm','name'])assert.deepEqual(migrated.f[k],expected.f[k],scheme+': migration changed user '+k);
-      assert.equal(migrated.f.cabinetRevision,revision);assert.equal(migrated.f.cabinetDesign.revision,revision);
+      assert.equal(migrated.f.cabinetRevision,sideboardRevision);assert.equal(migrated.f.cabinetDesign.revision,sideboardRevision);
+      assert.equal(migrated.f.baseHeightMm,2700,scheme+': custom height needs new native reference height for scaling');
       assert.ok(!migrated.f.parts.some(p=>p.id==='qa-legacy-solid'),scheme+': legacy solid not replaced');
       assert.equal(migrated.deleted,false,scheme+': removed shoe cabinet resurrected');
       assert.deepEqual(migrated.copy,expected.clone,scheme+': unmatched copy unexpectedly redesigned');
@@ -58,12 +78,17 @@ const painted=()=>{
       assert.equal(await page.evaluate(()=>getF('fit-dining_sideboard_wall').name),'QA 自定义餐边柜');
       const [download]=await Promise.all([page.waitForEvent('download'),menu('#exportJson')]);
       const exported=JSON.parse(fs.readFileSync(await download.path(),'utf8'));
-      assert.equal(exported.furniture.find(f=>f.id==='fit-dining_sideboard_wall').cabinetRevision,revision);
+      assert.equal(exported.furniture.find(f=>f.id==='fit-dining_sideboard_wall').cabinetRevision,sideboardRevision);
       await menu('#reset');
-      assert.equal(await page.evaluate(()=>getF('fit-dining_sideboard_wall').cabinetRevision),revision);
+      assert.equal(await page.evaluate(()=>getF('fit-dining_sideboard_wall').cabinetRevision),sideboardRevision);
       assert.ok(await page.evaluate(()=>getF('fit-entry_shoe_station')));
       assert.equal(await page.evaluate(()=>getF('qa-custom-cabinet-copy')),undefined);
-      report.push({scheme,migrationPreservesUserEdits:true,deletedNotRestored:true,copyUnchanged:true,exportAndReset:true});
+      report.push({scheme,defaultHeightUpgraded:true,draftKeyUnchanged:true,migrationPreservesUserEdits:true,customHeightPreserved:true,deletedNotRestored:true,copyUnchanged:true,exportAndReset:true});
+    }
+    if(process.argv.includes('--migration-only')){
+      assert.equal(errors.length,0,errors.join('\n'));
+      console.log(JSON.stringify({status:'PASS',revision,sideboardRevision,schemes:report,browserErrors:errors,migrationOnly:true},null,2));
+      return;
     }
     await open('family');
     await page.locator('[data-cabinet="fit-entry_shoe_station"]').click();
@@ -106,6 +131,6 @@ const painted=()=>{
       if(tv){await page.evaluate(id=>window.View3D.flyToFurniture(id),tv);await page.waitForTimeout(1500);await page.waitForFunction(painted);const file=path.join(out,'tv-storage-elevation.png');await page.screenshot({path:file});screenshots.push(file);}
     }
     assert.equal(errors.length,0,errors.join('\n'));
-    console.log(JSON.stringify({status:'PASS',revision,schemes:report,actual3DVisible:true,cabinetViewUI:true,elevationSVGAndDownload:true,browserErrors:errors,screenshots},null,2));
+    console.log(JSON.stringify({status:'PASS',revision,sideboardRevision,schemes:report,actual3DVisible:true,cabinetViewUI:true,elevationSVGAndDownload:true,browserErrors:errors,screenshots},null,2));
   }finally{await context.close();await browser.close();}
 })().catch(e=>{console.error(e.stack||e);process.exitCode=1;});
