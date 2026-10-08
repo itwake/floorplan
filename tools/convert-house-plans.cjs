@@ -69,6 +69,33 @@ function inferHinge(o){
   return {h:vector([o.x1,o.y1]),c:hz?[1,0]:[0,1],o:hz?[0,1]:[1,0]};
 }
 
+function correctMasterBathSwing(plan){
+  if(!['family','laundry'].includes(plan.id))return;
+  const door=plan.DOORS.find(d=>d.sourceId==='door_bath_1');
+  // A later user-approved revision, not a rewrite of the retained source
+  // snapshot. Revisit it explicitly if a new survey changes this opening.
+  if(!door || door.h[1]!==3800 || door.sourceAxisMm[1]!==3740 || door.sourceAxisMm[3]!==4490 || door.len!==630)
+    throw new Error(plan.id+': master-bath swing correction needs opening review');
+  door.h=[door.h[0],4430];door.c=[0,-1];door.o=[1,0];
+  door.name='主卫 · 南铰向卫内开';
+  door.directionStatus='user-design-correction';
+  door.swingRevision='bath-south-hinge-20261008';
+  door.notes='2026-10-08用户修订：改南侧合页，向主卫内开启，避开北侧洗手台；门洞、门扇宽高及位置不变。开合与五金净空仍须现场深化。';
+  door.operation={...structuredClone(door.operation),hingeCm:[door.h[0]/10,443],
+    swing:{dx:0,dy:-1,ox:1,oy:0,sweep:1},
+    openLeafCm:{...door.operation.openLeafCm,y:441}};
+  const vanity=plan.defaultFurniture.find(f=>f.sourceId==='vanity_main');
+  if(vanity)vanity.notes='600×360mm盆柜位置不变；主卫门改南铰内开后不再横挡盆前。门套、把手与使用净空仍须现场核对。';
+  if(plan.id==='family'){
+    const bedroom=plan.DOORS.find(d=>d.sourceId==='door_a');
+    if(bedroom)bedroom.notes='主卧门洞和南铰套内开向不变，与书房门纵向相隔30mm。主卫门改南铰后，原“两门全开550mm”说明不再适用；两门无门板相撞，但门板间距离不是通行净宽，仍须现场核对。';
+  }
+  plan.metadata.designCorrections=[{id:door.swingRevision,sourceId:door.sourceId,
+    description:'主卫北铰改南铰，仍向卫内开；门洞和全部家具位置不变。',
+    openingUnchanged:true,hingeMm:door.h,closedDirection:door.c,openDirection:door.o,
+    usageNote:'门扇转到入口南侧而非贴南墙。两门板间距不是通行净宽；旧源快照550mm门间带说明不再适用。'}];
+}
+
 function convertFurniture(f,id){
   const q=dimensions(f),name=f.displayName||f.name||id;
   let type='cabinet';
@@ -261,6 +288,7 @@ function convert(d,id){
     balconyOpenness:d.balconyOpennessRevision,garageMovement:d.garage?.movementValidation,
     converter:'tools/convert-house-plans.cjs',wallStatus:'承重性未鉴定；原源数据未授权将未知内墙标记为可拆非承重墙。'};
   applyCabinetDesigns(plan,d);
+  correctMasterBathSwing(plan);
   validate(plan,d);return plan;
 }
 

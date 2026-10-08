@@ -366,7 +366,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=cabinets-20261008"></script>
+<script src="data/house-plans.js?v=bath-doors-20261008"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -732,7 +732,10 @@ function renderOpenings(){
     const ox = hx + d.o[0]*L, oy = hy + d.o[1]*L, cx = hx + d.c[0]*L, cy = hy + d.c[1]*L;
     const sweep = d.o[0]*d.c[1] - d.o[1]*d.c[0] > 0 ? 1 : 0;
     const col = d.entry ? '#b5653a' : '#3d3a34';
-    s += `<polygon points="${hx},${hy} ${ox},${oy} ${ox+d.c[0]*T},${oy+d.c[1]*T} ${hx+d.c[0]*T},${hy+d.c[1]*T}" fill="#fff" stroke="${col}" stroke-width="${d.entry?1.8:1}" vector-effect="non-scaling-stroke"/>`;
+    // The revised bath leaves use the same centred 40-mm thickness as 3D;
+    // retain the legacy drawing of the other, unchanged doors.
+    const pad=d.swingRevision?T/2:0,px=d.c[0]*pad,py=d.c[1]*pad;
+    s += `<polygon points="${hx-px},${hy-py} ${ox-px},${oy-py} ${ox+d.c[0]*T-px},${oy+d.c[1]*T-py} ${hx+d.c[0]*T-px},${hy+d.c[1]*T-py}" fill="#fff" stroke="${col}" stroke-width="${d.entry?1.8:1}" vector-effect="non-scaling-stroke"/>`;
     s += `<path d="M${ox} ${oy}A${L} ${L} 0 0 ${sweep} ${cx} ${cy}" fill="none" ${DS} stroke-dasharray="5 3" opacity=".7"/>`;
   });
   SLIDES.forEach(({rect:[x0,y0,x1,y1],v,panelCount=2,name,openingWidthMm,heightMm})=>{

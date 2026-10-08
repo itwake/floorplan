@@ -12385,7 +12385,7 @@ const plans = {
           "id": "door_a",
           "name": "主卧900平开门洞 · 北移错开书房",
           "grade": "C",
-          "notes": "保持南铰向套内开，门洞较R2北移340mm；与书房门纵向相隔30mm，无洞口投影重叠。两门全开时主卫前方门板之间约550mm，仍偏紧，通行需现场确认。",
+          "notes": "主卧门洞和南铰套内开向不变，与书房门纵向相隔30mm。主卫门改南铰后，原“两门全开550mm”说明不再适用；两门无门板相撞，但门板间距离不是通行净宽，仍须现场核对。",
           "sourceId": "door_a",
           "sourceAxisMm": [
             3435,
@@ -12566,9 +12566,9 @@ const plans = {
         },
         {
           "id": "door_bath_1",
-          "name": "主卫 · 北铰向卫内开",
+          "name": "主卫 · 南铰向卫内开",
           "grade": "C",
-          "notes": "按R3确认的门洞及开启方向；门套、五金与净空仍待现场深化。",
+          "notes": "2026-10-08用户修订：改南侧合页，向主卫内开启，避开北侧洗手台；门洞、门扇宽高及位置不变。开合与五金净空仍须现场深化。",
           "sourceId": "door_bath_1",
           "sourceAxisMm": [
             4450,
@@ -12590,11 +12590,11 @@ const plans = {
           ],
           "h": [
             4450,
-            3800
+            4430
           ],
           "c": [
             0,
-            1
+            -1
           ],
           "o": [
             1,
@@ -12603,27 +12603,28 @@ const plans = {
           "len": 630,
           "entry": false,
           "defaultOpen": true,
-          "directionStatus": "source-design",
+          "directionStatus": "user-design-correction",
           "operation": {
             "type": "hinged",
             "hingeCm": [
               445,
-              380
+              443
             ],
             "swing": {
               "dx": 0,
-              "dy": 1,
+              "dy": -1,
               "ox": 1,
               "oy": 0,
-              "sweep": 0
+              "sweep": 1
             },
             "openLeafCm": {
               "x": 445,
-              "y": 378,
+              "y": 441,
               "w": 63,
               "d": 4
             }
-          }
+          },
+          "swingRevision": "bath-south-hinge-20261008"
         },
         {
           "id": "door_bath_2",
@@ -14311,7 +14312,7 @@ const plans = {
             "d": 360
           },
           "face": "south",
-          "notes": "R3随主卫西墙西移200mm，盆柜600×360mm；门开着时在盆前，洗手须先关门。",
+          "notes": "600×360mm盆柜位置不变；主卫门改南铰内开后不再横挡盆前。门套、把手与使用净空仍须现场核对。",
           "dimensionStatus": "design-pending"
         },
         {
@@ -20801,7 +20802,28 @@ const plans = {
           "title": "奶白 + 浅原木便捷分区",
           "status": "concept-pending-detail",
           "geometryPolicy": "保留所有柜体原外包、位置与800库北开口；只替换柜内/门板细节。"
-        }
+        },
+        "designCorrections": [
+          {
+            "id": "bath-south-hinge-20261008",
+            "sourceId": "door_bath_1",
+            "description": "主卫北铰改南铰，仍向卫内开；门洞和全部家具位置不变。",
+            "openingUnchanged": true,
+            "hingeMm": [
+              4450,
+              4430
+            ],
+            "closedDirection": [
+              0,
+              -1
+            ],
+            "openDirection": [
+              1,
+              0
+            ],
+            "usageNote": "门扇转到入口南侧而非贴南墙。两门板间距不是通行净宽；旧源快照550mm门间带说明不再适用。"
+          }
+        ]
       }
     },
     "laundry": {
@@ -22750,9 +22772,9 @@ const plans = {
         },
         {
           "id": "door_bath_1",
-          "name": "主卫 · 北铰向卫内开",
+          "name": "主卫 · 南铰向卫内开",
           "grade": "C",
-          "notes": "R4B条件门位。平开门模型按90度开启展示，门板保持碰撞；书房推拉门沿室内侧向北停靠。门框、门吸、隔声与实际净开待深化。",
+          "notes": "2026-10-08用户修订：改南侧合页，向主卫内开启，避开北侧洗手台；门洞、门扇宽高及位置不变。开合与五金净空仍须现场深化。",
           "sourceId": "door_bath_1",
           "sourceAxisMm": [
             4650,
@@ -22774,11 +22796,11 @@ const plans = {
           ],
           "h": [
             4650,
-            3800
+            4430
           ],
           "c": [
             0,
-            1
+            -1
           ],
           "o": [
             1,
@@ -22787,27 +22809,28 @@ const plans = {
           "len": 630,
           "entry": false,
           "defaultOpen": true,
-          "directionStatus": "source-design",
+          "directionStatus": "user-design-correction",
           "operation": {
             "type": "hinged",
             "hingeCm": [
               465,
-              380
+              443
             ],
             "openLeafCm": {
               "x": 465,
-              "y": 378,
+              "y": 441,
               "w": 63,
               "d": 4
             },
             "swing": {
               "dx": 0,
-              "dy": 1,
+              "dy": -1,
               "ox": 1,
               "oy": 0,
-              "sweep": 0
+              "sweep": 1
             }
-          }
+          },
+          "swingRevision": "bath-south-hinge-20261008"
         },
         {
           "id": "door_bath_2",
@@ -24627,7 +24650,7 @@ const plans = {
             "d": 360
           },
           "face": "south",
-          "notes": "随西墙东移200mm，620宽改600；主卫门开着时在盆前，洗手须先关门。",
+          "notes": "600×360mm盆柜位置不变；主卫门改南铰内开后不再横挡盆前。门套、把手与使用净空仍须现场核对。",
           "dimensionStatus": "design-pending"
         },
         {
@@ -33199,7 +33222,28 @@ const plans = {
           "title": "奶白 + 浅原木便捷分区",
           "status": "concept-pending-detail",
           "geometryPolicy": "保留所有柜体原外包、位置与800库北开口；只替换柜内/门板细节。"
-        }
+        },
+        "designCorrections": [
+          {
+            "id": "bath-south-hinge-20261008",
+            "sourceId": "door_bath_1",
+            "description": "主卫北铰改南铰，仍向卫内开；门洞和全部家具位置不变。",
+            "openingUnchanged": true,
+            "hingeMm": [
+              4650,
+              4430
+            ],
+            "closedDirection": [
+              0,
+              -1
+            ],
+            "openDirection": [
+              1,
+              0
+            ],
+            "usageNote": "门扇转到入口南侧而非贴南墙。两门板间距不是通行净宽；旧源快照550mm门间带说明不再适用。"
+          }
+        ]
       }
     }
   }

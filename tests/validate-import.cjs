@@ -56,9 +56,16 @@ for (const [id, p] of Object.entries(plans.schemes)) {
     eq(rectWidth(q.rect), original.widthMm, `${id}/${q.sourceId}: hole, not leaf width`);
     assert.ok(q.len <= q.openingWidthMm, `${id}/${q.sourceId}: leaf exceeds hole`);
     if (original.operation?.type === 'hinged') {
-      assert.deepEqual(q.h, original.operation.hingeCm.map(m), `${id}/${q.sourceId}: hinge`);
-      assert.deepEqual(q.c, [original.operation.swing.dx, original.operation.swing.dy]);
-      assert.deepEqual(q.o, [original.operation.swing.ox, original.operation.swing.oy]);
+      // The retained snapshots keep the old swing. Only this user-approved
+      // 2026-10-08 correction may differ; every other pivot stays source-exact.
+      const corrected = ['family', 'laundry'].includes(id) && q.sourceId === 'door_bath_1';
+      assert.deepEqual(q.h, corrected ? [m(original.operation.hingeCm[0]), 4430] : original.operation.hingeCm.map(m), `${id}/${q.sourceId}: hinge`);
+      assert.deepEqual(q.c, corrected ? [0, -1] : [original.operation.swing.dx, original.operation.swing.dy], `${id}/${q.sourceId}: closed direction`);
+      assert.deepEqual(q.o, [original.operation.swing.ox, original.operation.swing.oy], `${id}/${q.sourceId}: open direction`);
+      if (corrected) {
+        assert.equal(q.directionStatus, 'user-design-correction');
+        assert.equal(q.swingRevision, 'bath-south-hinge-20261008');
+      }
       const leaf = original.operation.openLeafCm;
       eq(q.len, m(Math.max(leaf.w, leaf.d)), `${id}/${q.sourceId}: physical leaf`);
     }

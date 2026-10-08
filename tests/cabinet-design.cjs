@@ -4,10 +4,13 @@ const plans=require(path.join(__dirname,'..','data','house-plans.js'));
 const revision='cream-oak-functional-v1';
 // Recorded before the functional cabinet-detail pass. Deliberately includes
 // windows, doors and the 800-library bifold so styling cannot change layout.
+// Only family/laundry layout hashes were revised after the user authorized
+// the 2026-10-08 master-bath south hinge. All furniture-envelope baselines and
+// the wood layout remain the original values.
 const baseline={
   wood:{layout:'f755c958669d42b65b0c821047efcb021d712287d9a2df54ee7a469be44fd0db',envelopes:'00e55ae56ab1eed679f501c96cb1db7b16decd7a2d4bf80a714e5edf902e87c0'},
-  family:{layout:'59b994af939519ac3d15304984ddc5be6e87e8b47378608c79313c7b7e97ce93',envelopes:'1f24749ad3fb87950effab23875ef5846cc342896126b34d5fddcb1176f410f0'},
-  laundry:{layout:'3dc09b7f4a056a41fd5871a3618c5f23fdbc4fab72471e042cce9cc5e1b04335',envelopes:'830d9d0109dd655ee38caee1dc1bf52394d3db12ce24504637afd0cb0f45e529'}
+  family:{layout:'2a00897b927680f9e8ce166644e1804a184ceb6b5cb8cd486f663bc1bd8df83f',envelopes:'1f24749ad3fb87950effab23875ef5846cc342896126b34d5fddcb1176f410f0'},
+  laundry:{layout:'63d62156c5a568fd2675cb7e241e57a4f6037f329edc6c347c1062ee0b826a84',envelopes:'830d9d0109dd655ee38caee1dc1bf52394d3db12ce24504637afd0cb0f45e529'}
 };
 const stable=value=>Array.isArray(value)?value.map(stable):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(k=>[k,stable(value[k])])):value;
 const hash=value=>crypto.createHash('sha256').update(JSON.stringify(stable(value))).digest('hex');
