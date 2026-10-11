@@ -366,7 +366,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=family-bath-20261011"></script>
+<script src="data/house-plans.js?v=study-laundry-20261011"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -466,7 +466,7 @@ const uid = () => 'f' + Date.now().toString(36) + (_n++);
 const F = (type,name,cx,cy,w,d,rot=0,color) => ({id:uid(),type,name,cx,cy,w,d,rot,color:color||typeColor(type)});
 
 function defaultFurniture(){ return structuredClone(HOUSE_PLAN.defaultFurniture); }
-function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate].filter(Boolean);}
+function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate].filter(Boolean);}
 function defaultState(){
   const rooms = {}; ROOMS.forEach(r => rooms[r.id] = {name:r.name, mat:r.mat});
   return {schemaVersion:2,projectId:'house-design',schemeId:SCHEME_ID,sourceVersion:PLAN_LIBRARY.version,
@@ -536,7 +536,7 @@ function upgradeConfirmedLayouts(s){
   // for defaults. New objects are inserted once; deleted objects stay deleted.
   const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
   const placementKeys=['cx','cy','w','d','rot','heightMm','elevationMm','name','color'];
-  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate].filter(Boolean)){
+  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate].filter(Boolean)){
     if(s.appliedLayoutRevisions?.includes(revision.id))continue;
     const kept=new Set(s.layoutMigrationKeptIds||[]);
     const beforeObjects=[...(revision.previousFurniture||[]),...(revision.previousEntryCabinet?[revision.previousEntryCabinet]:[])];
@@ -577,6 +577,17 @@ function upgradeConfirmedLayouts(s){
     if(s.furniture.length)for(const id of revision.newFurnitureIds){
       const fresh=HOUSE_PLAN.defaultFurniture.find(f=>f.id===id);
       if(fresh&&!s.furniture.some(f=>f.id===id))s.furniture.push(structuredClone(fresh));
+    }
+    if(revision.demolishedWallIndexMap&&Array.isArray(s.demolished)){
+      s.demolished=s.demolished.flatMap(id=>{
+        const index=/^w\d+$/.test(id)?+id.slice(1):NaN;
+        if(!Object.prototype.hasOwnProperty.call(revision.demolishedWallIndexMap,index))return [id];
+        const next=revision.demolishedWallIndexMap[index];
+        if(next!==null)return ['w'+next];
+        s.layoutMigrationWallArchive=Array.isArray(s.layoutMigrationWallArchive)?s.layoutMigrationWallArchive:[];
+        s.layoutMigrationWallArchive.push({revisionId:revision.id,wallId:id,wall:structuredClone(revision.previousWalls?.[+id.slice(1)])});
+        return [];
+      });
     }
     s.appliedLayoutRevisions=[...(Array.isArray(s.appliedLayoutRevisions)?s.appliedLayoutRevisions:[]),revision.id];
     s.layoutMigrationKeptIds=[...kept];
@@ -673,7 +684,7 @@ const ln = (x1,y1,x2,y2,ex='') => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${
 const pa = (d,f='none',ex='') => `<path d="${d}" fill="${f}" ${ST} ${ex}/>`;
 const DASH = 'stroke-dasharray="4 3"';
 
-function furnSVG(t,w,d,c){
+function furnSVG(t,w,d,c,variant){
   const x = -w/2, y = -d/2, m = Math.min(w,d);
   switch (t){
     case 'bed': {
@@ -707,7 +718,7 @@ function furnSVG(t,w,d,c){
     }
     case 'cabinet': case 'shoecab': return rc(x,y,w,d,c) + ln(x,y+d,x+w,y);
     case 'dresser': return rc(x,y,w,d,c,'rx="20"') + rc(x+w*.2,y,w*.6,55,'#dfe9ee') + ec(0,d/2+180,160,140,shade(c,.9));
-    case 'desk': return rc(x,y,w,d,c,'rx="20"') + rc(-w*.18,y+50,w*.36,45,'#555') + rc(-w*.14,y+d*.45,w*.28,d*.28,'#f4f4f4','rx="10"');
+    case 'desk': return rc(x,y,w,d,c,'rx="20"') + (variant==='bare-worktop'?'':rc(-w*.18,variant==='north-facing-workstation'?y+d-95:y+50,w*.36,45,'#555') + rc(-w*.14,y+d*(variant==='north-facing-workstation'?.25:.45),w*.28,d*.28,'#f4f4f4','rx="10"'));
     case 'chair': return rc(x+25,y+d*.16,w-50,d*.84-10,c,'rx="60"') + rc(x,y,w,d*.2,shade(c,.78),'rx="40"');
     case 'bookshelf': { let s = rc(x,y,w,d,c); for (let bx = x+400; bx < x+w-50; bx += 400) s += ln(bx,y,bx,y+d); return s; }
     case 'baycushion': return rc(x,y,w,d,c,'rx="60"') + rc(x+60,y+80,w-120,Math.min(300,d*.2),'#fff','rx="60"') + rc(x+60,y+d-80-Math.min(300,d*.2),w-120,Math.min(300,d*.2),'#fff','rx="60"');
@@ -785,7 +796,7 @@ function renderRooms(){
 }
 
 function fixtureSVG(f){
-  if(f.type!=='fixture') return furnSVG(f.type,f.w,f.d,f.color);
+  if(f.type!=='fixture') return furnSVG(f.type,f.w,f.d,f.color,f.modelVariant);
   const sx=f.w/f.baseWidthMm,sy=f.d/f.baseDepthMm, original=HOUSE_PLAN.defaultFurniture.find(p=>p.id===f.id)?.color||f.cabinetDesign?.palette?.door;
   return (f.parts||[]).slice().sort((a,b)=>a.elevationMm-b.elevationMm).map(p=>{
     const c=f.color!==original?f.color:p.color;
@@ -971,6 +982,7 @@ function overviewPanel(){
   return `
   <section class="project-note"><b>${esc(HOUSE_PLAN.name)}</b>${layoutRevisions().map(r=>`<br>${esc(r.title)}`).join('')}${HOUSE_PLAN.metadata.bedroomUpdate?`<p data-bedroom-clearance>${tr('两卧床尾至衣柜约555mm，偏紧；下部采用滑门。桌椅、床架及门套尺寸仍需现场核对。','Both bed-foot gaps are about 555 mm and tight. Lower wardrobe doors slide; furniture and door trim dimensions need verification.')}</p>`:''}${HOUSE_PLAN.metadata.familyBathUpdate?`<p data-family-bath-clearance>${tr('主卫门已北移并改北铰内开，盆厕背靠南墙。马桶侧至淋浴仅60mm，排水移位、门套及绕门通行仍待核；主卫窗保留旧定位示意，实测500×1400mm，窗台及定位待核。','The bathroom door moves north and is north-hinged inward, with the vanity and toilet against the south wall. The toilet/shower side gap is only 60 mm; drainage, trim and routes around doors need verification. The bath window retains its old illustrative placement: measured 500 × 1400 mm, sill and positioning pending.')}</p>`:''}${state.layoutMigrationKeptIds?.length?`<p data-layout-migration-warning>${tr('保留了你的自定义摆位或尺寸；已移除的旧布局物件另存于JSON备份记录。请核对重叠与动线；查看完整新默认布局前，可先导出备份再重置当前方案。','Your custom placement or dimensions were preserved; removed objects are archived in JSON. Check collisions and routes; export a backup before resetting to see the complete new default layout.')}</p>`:''}<br>${tr('原网站方案已导入；局部复尺值已应用，待核尺寸保留原示意。墙体承重性未鉴定，草案改墙不是施工许可。','Original schemes imported; partial surveys applied, unresolved values remain illustrative. Wall structure is unverified.')}<br><small>${tr('编辑自动保存于当前浏览器，各方案独立。换设备请导出 JSON。','Edits auto-save in this browser per scheme. Export JSON to change devices.')}</small></section>
   ${cabinetOverview()}
+  ${HOUSE_PLAN.metadata.familyStudyLaundryUpdate?`<section class="project-note" data-family-study-laundry-warning>${tr('书房当前保留沙发；将来1500×2000床垫按2100×1600床架替换沙发校核，床侧710mm与桌椅共用、床尾120mm不是通道。客卫台前610mm偏紧；机门、管线与检修须实物核对。阳台已取消借厅外凸，模型净宽1420与复尺1240mm仍差180mm，定位待核。','The study keeps its sofa now. A future 1500 × 2000 mattress is checked with an assumed 2100 × 1600 frame replacing it: the shared desk/bed-side strip is 710 mm; the 120 mm foot gap is not a passage. The guest bath has only 610 mm in front of the counter; appliance doors, hoses and servicing need on-site checks. The balcony no longer protrudes into the living room; the model width 1420 versus surveyed 1240 mm remains unresolved.')}</section>`:''}
   <section><h3>${tr('房间面积','Room Areas')} <small>${tr('点击查看 / 更换地面','Click to view / change flooring')}</small></h3>
     <table>${rows}</table>
     <div class="total"><span>${tr('模型使用面积','Model floor area')}</span><b>${fmt(tot)} m²</b></div>
@@ -1921,10 +1933,12 @@ function buildCabinetParts(g,f){
   const baseline=original?.color||f.cabinetDesign?.palette?.door;
   const sx=f.w/(f.baseWidthMm||f.w),sz=f.d/(f.baseDepthMm||f.d),sy=f.heightMm/(f.baseHeightMm||original?.heightMm||f.heightMm);
   (f.parts||[]).forEach(p=>{
+    const childStart=g.children.length;
     let pc=f.color!==baseline?f.color:p.color;pc=/^#[0-9a-f]{6}$/i.test(pc)?pc:'#F4F1E9';
     const W=M(p.w*sx),D=M(p.d*sz),height=M(p.heightMm*sy),x=M((p.x+p.w/2)*sx),y=M(p.elevationMm*sy),z=M((p.y+p.d/2)*sz);
     const led=p.role==='led-strip',oak=/Oak|wood/i.test(p.material||'')||/oak|wood/.test(p.role||'');
-    const material=led?glowMat('#fff4d8','#ffe2ac',f.cabinetRevision==='sideboard-reference-v2'?1.6:.55):p.role?.includes('cushion')?fabric(pc):oak?cabinetWood(pc):mat(pc,{roughness:.7});
+    const reflective=f.cabinetRevision==='family-study-laundry-confirmed-20261011'&&p.role==='mirror-face';
+    const material=reflective?mirror():led?glowMat('#fff4d8','#ffe2ac',f.cabinetRevision==='sideboard-reference-v2'?1.6:.55):p.role?.includes('cushion')?fabric(pc):oak?cabinetWood(pc):mat(pc,{roughness:.7});
     if(p.shape==='rounded-shell'){
       // Real 18-mm hollow shell: rounding a thin solid box would clamp its
       // radius to 9 mm and could not reproduce the reference's curved end.
@@ -1960,6 +1974,9 @@ function buildCabinetParts(g,f){
         });
       }
     }
+    for(const child of g.children.slice(childStart))child.traverse(o=>{
+      if(o.isMesh){o.userData.role=p.role;o.userData.cabinetPartId=p.id;}
+    });
     // Downward light avoids the unshadowed point-light leak through the upper
     // cabinet bottom. At most two directed lights illuminate the long niche.
     if(led && p.lightWash){
@@ -2202,6 +2219,10 @@ function buildFurniture(f){
         const x = s*(w/2 - .06);
         g.add(box(.03, .72, .03, bm, x, 0, d/2 - .06), box(.03, .72, .03, bm, x, 0, bz + .06), box(.03, .03, d - .1, bm, x, 0, 0), box(.03, .03, d - .1, bm, x, .69, 0));
       });
+      if(f.modelVariant==='bare-worktop'){
+        g.add(box(w - .12, .04, .015, bm, 0, .66, bz + .06));
+        break;
+      }
       g.add(box(w - .12, .04, .015, bm, 0, .66, bz + .06), box(.4, .09, d - .12, tm, w/2 - .32, .63, 0));
       pull(g, .16, false, w/2 - .32, .675, d/2 - .06);
       const my = .745, mz = bz + .15;
@@ -2597,6 +2618,12 @@ function buildFurniture(f){
     }
     default: g.add(box(w, .8, d, c));
   }
+  if(f.type==='desk'&&f.modelVariant==='north-facing-workstation'){
+    // Keep the approved plan footprint, but put the monitor at the south-wall
+    // rear edge and face its screen toward the chair on the north side.
+    const workstation=new THREE.Group();workstation.add(...g.children.slice());
+    workstation.rotation.y=Math.PI;g.add(workstation);
+  }
   if(f.type!=='fixture' && !(f.cabinetRevision && f.parts?.length) && f.heightMm){
     // Match the imported physical envelope, not generic library template dimensions.
     const b=new THREE.Box3().setFromObject(g),sz=b.getSize(new THREE.Vector3());
@@ -2609,6 +2636,7 @@ function buildFurniture(f){
   g.position.set(wx(f.cx), M(f.elevationMm||0), wz(f.cy));
   g.rotation.y = -f.rot * Math.PI/180;       // 平面顺时针旋转 → 绕 Y 轴负向
   g.userData.fid = f.id;
+  if(f.modelVariant)g.userData.modelVariant=f.modelVariant;
   return g;
 }
 
