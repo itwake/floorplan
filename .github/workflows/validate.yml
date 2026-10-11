@@ -19,4 +19,5 @@ jobs:
       - run: node tests/sideboard-reference.cjs
       - run: node tests/bath-door.cjs
       - run: node tests/wood-public-area.cjs
+      - run: node tests/layout-20261011.cjs
       - run: git diff --exit-code -- data/house-plans.js data/manifest.json

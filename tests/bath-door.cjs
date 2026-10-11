@@ -9,6 +9,10 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const plans = require(path.join(root, 'data/house-plans.js'));
 const {previousPlan}=require('./wood-public-area-helpers.cjs');
+const {verifyLayout}=require('./layout-20261011.cjs');
+// Only the exact-tested later authorization is reversed by previousPlan;
+// the bath's own immutable baseline and continuous sweep stay unchanged.
+if(plans.schemes.family.metadata.entryFamilyUpdate)verifyLayout(plans);
 // Only the original three cm source imports use these retained baselines.
 // The standalone mm screen scheme has independent screen-plan.cjs coverage.
 const legacySchemes = ['wood','family','laundry'].map(id => {assert.ok(plans.schemes[id], `${id}: original imported scheme missing`);return [id, plans.schemes[id]];});

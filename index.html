@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="theme-color" content="#fffdf9">
 <title>木光之家 · 户型编辑与设计</title>
-<meta name="description" content="木光之家：三个户型方案的毫米级 2D 布置编辑、3D 漫游、家具颜色与尺寸调整。">
+<meta name="description" content="木光之家：四个户型方案的毫米级 2D 布置编辑、3D 漫游、家具颜色与尺寸调整。">
 <style>
 :root{
   --bg:#f3efe7; --paper:#f7f4ee; --panel:#fffdf9; --line:#e3dccf; --ink:#2b2824; --muted:#8a8174;
@@ -366,7 +366,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=screen-r4-20261011"></script>
+<script src="data/house-plans.js?v=layout-20261011"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -466,17 +466,18 @@ const uid = () => 'f' + Date.now().toString(36) + (_n++);
 const F = (type,name,cx,cy,w,d,rot=0,color) => ({id:uid(),type,name,cx,cy,w,d,rot,color:color||typeColor(type)});
 
 function defaultFurniture(){ return structuredClone(HOUSE_PLAN.defaultFurniture); }
+function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate].filter(Boolean);}
 function defaultState(){
   const rooms = {}; ROOMS.forEach(r => rooms[r.id] = {name:r.name, mat:r.mat});
   return {schemaVersion:2,projectId:'house-design',schemeId:SCHEME_ID,sourceVersion:PLAN_LIBRARY.version,
-    furniture:defaultFurniture(),rooms,demolished:[],measures:[],appliedLayoutRevisions:HOUSE_PLAN.metadata.layoutUpdate?[HOUSE_PLAN.metadata.layoutUpdate.id]:[]};
+    furniture:defaultFurniture(),rooms,demolished:[],measures:[],appliedLayoutRevisions:layoutRevisions().map(r=>r.id)};
 }
 const STORE = 'floorplan:house-design:' + SCHEME_ID + ':' + PLAN_LIBRARY.version + ':' + HOUSE_PLAN.metadata.source.sha256.slice(0,12);
 function load(){
   try {
     const s=JSON.parse(localStorage.getItem(STORE));
     if(s && Array.isArray(s.furniture)){
-      const revision=HOUSE_PLAN.metadata.layoutUpdate?.id,needsUpgrade=revision&&!s.appliedLayoutRevisions?.includes(revision);
+      const needsUpgrade=layoutRevisions().some(r=>!s.appliedLayoutRevisions?.includes(r.id));
       const fixed=fixState(s);
       if(needsUpgrade)try{localStorage.setItem(STORE,JSON.stringify(fixed));}catch(e){} // Storage failure must not discard the user's draft.
       return fixed;
@@ -529,6 +530,58 @@ function upgradePlanLayout(s){
   s.appliedLayoutRevisions=[...(Array.isArray(s.appliedLayoutRevisions)?s.appliedLayoutRevisions:[]),revision.id];
   s.layoutMigrationKeptIds=[...new Set(kept)];
 }
+function upgradeConfirmedLayouts(s){
+  // Keep the same storage key and source SHA. Compare against each recorded
+  // baseline before refreshing cabinet parts, so user edits are not mistaken
+  // for defaults. New objects are inserted once; deleted objects stay deleted.
+  const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+  const placementKeys=['cx','cy','w','d','rot','heightMm','elevationMm','name','color'];
+  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate].filter(Boolean)){
+    if(s.appliedLayoutRevisions?.includes(revision.id))continue;
+    const kept=new Set(s.layoutMigrationKeptIds||[]);
+    const beforeObjects=[...(revision.previousFurniture||[]),...(revision.previousEntryCabinet?[revision.previousEntryCabinet]:[])];
+    for(const before of beforeObjects){
+      const f=s.furniture.find(q=>q.id===before.id);
+      if(!f)continue;
+      if(revision.removedFurnitureIds.includes(f.id)){
+        // Removed design objects leave the scene, but retain their exact draft
+        // values in exported JSON rather than losing a user's customized copy.
+        s.layoutMigrationArchive=Array.isArray(s.layoutMigrationArchive)?s.layoutMigrationArchive:[];
+        s.layoutMigrationArchive.push({revisionId:revision.id,furniture:structuredClone(f)});
+        if(!same(f,before))kept.add(f.id);
+        s.furniture=s.furniture.filter(q=>q!==f);
+        continue;
+      }
+      const fresh=HOUSE_PLAN.defaultFurniture.find(q=>q.id===f.id);
+      if(!fresh)continue;
+      const keys=Array.isArray(revision.migrationFields)
+        ? [...new Set([...Object.keys(before),...Object.keys(fresh)])].filter(k=>k!=='id'&&!same(before[k],fresh[k]))
+        : revision.migrationFields[f.id]||[];
+      for(const key of keys){
+        if(same(f[key],before[key])){
+          if(fresh[key]===undefined)delete f[key];else f[key]=structuredClone(fresh[key]);
+        }else if(placementKeys.includes(key)&&!same(f[key],fresh[key]))kept.add(f.id);
+      }
+      // Shape changes are explicit even when the existing style revision is
+      // already v2. Custom size, colour and position still control rendering.
+      if(revision.replacedFurnitureIds?.includes(f.id)){
+        for(const key of ['type','parts','baseWidthMm','baseDepthMm','baseHeightMm','cabinetRevision','cabinetDesign','doorStyle'])
+          if(fresh[key]!==undefined)f[key]=structuredClone(fresh[key]);
+      }
+      f.layoutRevision=revision.id;
+      if(fresh.sourceFootprintMm){
+        const a=f.rot*Math.PI/180,w=Math.abs(Math.cos(a))*f.w+Math.abs(Math.sin(a))*f.d,d=Math.abs(Math.sin(a))*f.w+Math.abs(Math.cos(a))*f.d;
+        f.sourceFootprintMm={x:f.cx-w/2,y:f.cy-d/2,w,d};
+      }
+    }
+    if(s.furniture.length)for(const id of revision.newFurnitureIds){
+      const fresh=HOUSE_PLAN.defaultFurniture.find(f=>f.id===id);
+      if(fresh&&!s.furniture.some(f=>f.id===id))s.furniture.push(structuredClone(fresh));
+    }
+    s.appliedLayoutRevisions=[...(Array.isArray(s.appliedLayoutRevisions)?s.appliedLayoutRevisions:[]),revision.id];
+    s.layoutMigrationKeptIds=[...kept];
+  }
+}
 function fixState(s){
   if(!s || !Array.isArray(s.furniture)) throw Error('方案缺少家具数据');
   if(s.schemeId && s.schemeId!==SCHEME_ID) throw Error('请切换到对应方案再导入');
@@ -539,10 +592,12 @@ function fixState(s){
     f.name=String(f.name || '家具'); f.color=/^#[0-9a-f]{6}$/i.test(f.color)?f.color:typeColor(f.type);
     if(f.heightMm!==undefined && (!Number.isFinite(f.heightMm) || f.heightMm<=0 || f.heightMm>10000)) throw Error('家具高度无效');
     if(f.elevationMm!==undefined && (!Number.isFinite(f.elevationMm) || Math.abs(f.elevationMm)>10000)) throw Error('家具离地高度无效');
+    if(f.mattressMm!==undefined && (!Array.isArray(f.mattressMm)||f.mattressMm.length!==2||!f.mattressMm.every(n=>Number.isFinite(n)&&n>0&&n<=10000))) throw Error('床垫尺寸无效');
     if(f.parts!==undefined && (!Array.isArray(f.parts) || f.parts.some(p=>!['x','y','w','d','elevationMm','heightMm'].every(k=>Number.isFinite(p[k])) || p.w<=0 || p.d<=0 || p.heightMm<=0))) throw Error('柜体部件无效');
-    refreshCabinetDesign(f);
   });
   upgradePlanLayout(s);
+  upgradeConfirmedLayouts(s);
+  s.furniture.forEach(refreshCabinetDesign);
   const rooms={}; ROOMS.forEach(r=>{const st=s.rooms?.[r.id];rooms[r.id]={name:typeof st?.name==='string'?st.name:r.name,mat:MATS[st?.mat]?st.mat:r.mat};});
   const demolished=Array.isArray(s.demolished)?s.demolished.filter(id=>/^w\d+$/.test(id)&&WALLS[+id.slice(1)]&&WALLS[+id.slice(1)][4]!=='b'):[];
   const measures=Array.isArray(s.measures)?s.measures.filter(m=>['a','b'].every(k=>Number.isFinite(m?.[k]?.x)&&Number.isFinite(m?.[k]?.y))):[];
@@ -914,7 +969,7 @@ function overviewPanel(){
   const dem = state.demolished.map(id => WALLS[+id.slice(1)]);
   const demLen = dem.reduce((a,w) => a + Math.max(w[2]-w[0], w[3]-w[1]), 0) / 1000;
   return `
-  <section class="project-note"><b>${esc(HOUSE_PLAN.name)}</b>${HOUSE_PLAN.metadata.layoutUpdate?`<br>${esc(HOUSE_PLAN.metadata.layoutUpdate.title)}`:''}${state.layoutMigrationKeptIds?.length?`<p data-layout-migration-warning>${tr('保留了你的自定义摆位或尺寸，新布局未完全覆盖。请核对物件重叠与动线；需要查看完整新默认布局，可先导出备份，再重置当前方案。','Your custom placement or dimensions were preserved. Check collisions and routes; export a backup before resetting to see the complete new default layout.')}</p>`:''}<br>${tr('原网站方案已导入；局部复尺值已应用，待核尺寸保留原示意。墙体承重性未鉴定，草案改墙不是施工许可。','Original schemes imported; partial surveys applied, unresolved values remain illustrative. Wall structure is unverified.')}<br><small>${tr('编辑自动保存于当前浏览器，各方案独立。换设备请导出 JSON。','Edits auto-save in this browser per scheme. Export JSON to change devices.')}</small></section>
+  <section class="project-note"><b>${esc(HOUSE_PLAN.name)}</b>${layoutRevisions().map(r=>`<br>${esc(r.title)}`).join('')}${HOUSE_PLAN.metadata.bedroomUpdate?`<p data-bedroom-clearance>${tr('两卧床尾至衣柜约555mm，偏紧；下部采用滑门。桌椅、床架及门套尺寸仍需现场核对。','Both bed-foot gaps are about 555 mm and tight. Lower wardrobe doors slide; furniture and door trim dimensions need verification.')}</p>`:''}${state.layoutMigrationKeptIds?.length?`<p data-layout-migration-warning>${tr('保留了你的自定义摆位或尺寸；已移除的旧布局物件另存于JSON备份记录。请核对重叠与动线；查看完整新默认布局前，可先导出备份再重置当前方案。','Your custom placement or dimensions were preserved; removed objects are archived in JSON. Check collisions and routes; export a backup before resetting to see the complete new default layout.')}</p>`:''}<br>${tr('原网站方案已导入；局部复尺值已应用，待核尺寸保留原示意。墙体承重性未鉴定，草案改墙不是施工许可。','Original schemes imported; partial surveys applied, unresolved values remain illustrative. Wall structure is unverified.')}<br><small>${tr('编辑自动保存于当前浏览器，各方案独立。换设备请导出 JSON。','Edits auto-save in this browser per scheme. Export JSON to change devices.')}</small></section>
   ${cabinetOverview()}
   <section><h3>${tr('房间面积','Room Areas')} <small>${tr('点击查看 / 更换地面','Click to view / change flooring')}</small></h3>
     <table>${rows}</table>
@@ -2023,6 +2078,27 @@ function buildFurniture(f){
       g.add(box(w*.8,.55,d*.75,fabric(c),0,.2,0),rod([-w*.35,0,0],[-w*.35,.95,0],.016,metal()),rod([w*.35,0,0],[w*.35,.95,0],.016,metal()),rod([-w*.35,.95,0],[w*.35,.95,0],.016,metal()));break;
     }
     case 'bed': {
+      if(Array.isArray(f.mattressMm)&&f.mattressMm.length===2){
+        // Confirmed beds have separate mattress and outer-frame dimensions.
+        // Keep soft textiles inside the footprint used by the clearance test.
+        const mw=Math.min(w,M(f.mattressMm[0])),md=Math.min(d-.06,M(f.mattressMm[1])),mz=d/2-md/2;
+        const fr=woodM('#b79b78'),fab=fabric(c),fh=.3,mt=.22,top=fh+mt;
+        const frame=rbox(w,.24,d-.06,fr,0,.06,.03,.015);frame.userData.role='bed-frame';
+        const mattress=rbox(mw,mt,md,'#f6f3ee',0,fh,mz,.055);mattress.userData.role='bed-mattress';
+        g.add(frame,rbox(w,1.08,.06,fr,0,0,bz+.03,.012),mattress);
+        const n=Math.max(3,Math.round(w/.28)),sw=(w-.04)/n;
+        for(let i=0;i<n;i++)g.add(rbox(sw-.006,.62,.05,fabric(darker(c,.8)),-w/2+.02+sw*(i+.5),.42,bz+.085,.025));
+        const dd=md*.66,dz=d/2-.015-dd/2;
+        g.add(rbox(mw,.27,dd,fab,0,top-.2,dz,.04),rbox(mw,.06,.22,fabric('#fbfaf7'),0,top+.025,dz-dd/2+.11,.025));
+        g.add(rbox(mw,.285,.42,fabric(darker(c,.62)),0,top-.205,d/2-.35,.03));
+        const np=mw>=1.3?2:1,pw=(mw-.16-(np-1)*.06)/np;
+        for(let i=0;i<np;i++){
+          const x=-mw/2+.08+pw/2+i*(pw+.06);
+          g.add(rot(rbox(pw,.15,.42,fabric('#ffffff'),x,top-.01,bz+.34,.07),-.28),rot(rbox(pw*.62,.3,.1,fabric(i?'#efe7da':darker(c,.7)),x,top,bz+.54,.045),-.3));
+        }
+        g.userData.modelVariant='confirmed-mattress-frame';
+        break;
+      }
       const fr = woodM('#8d7258'), fab = fabric(c), fh = .3, mt = .22, top = fh + mt, n = Math.max(3, Math.round(w/.28)), sw = (w - .04)/n;
       g.add(box(w - .12, .06, d - .14, '#4a3e33', 0, 0, .03), rbox(w, fh - .06, d - .08, fr, 0, .06, .04, .015));        // 内缩踢脚 + 床箱
       g.add(rbox(w, 1.08, .06, fr, 0, 0, bz + .03, .012));                                                                 // 床头板
@@ -2762,7 +2838,8 @@ function flyToFurniture(id){
   if(opt.mode==='walk')setMode('orbit');
   if(id==='fit-entry_shoe_station'){
     const entry=doors.find(door=>door.entry);
-    if(entry?.open){entry.open=false;toast(tr('已临时关合入户门以查看鞋柜；取鞋前同样需收门，可点门再打开。','Entry door temporarily closed to view the shoe cabinet. Close it for shoe access; click it to reopen.'));}
+    const source=DOORS.find(door=>door.entry);
+    if(entry?.open&&source?.o[1]<0){entry.open=false;toast(tr('已临时关合入户门以查看鞋柜；取鞋前同样需收门，可点门再打开。','Entry door temporarily closed to view the shoe cabinet. Close it for shoe access; click it to reopen.'));}
   }
   // Front inspection stays inside the room, rather than flying through the
   // opposite wall to fit a long run. The SVG elevation shows the entire run.

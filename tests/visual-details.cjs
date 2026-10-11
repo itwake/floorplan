@@ -11,8 +11,10 @@ const executablePath=process.env.FLOORPLAN_CHROME||[chromium.executablePath(),'C
   const browser=await chromium.launch({headless:true,executablePath,args:['--use-angle=swiftshader','--enable-unsafe-swiftshader']});
   const context=await browser.newContext({viewport:{width:1440,height:1000}}),page=await context.newPage(),screenshots=[];
   try{
-    for(const focus of (process.argv.includes('--garage-only') ? [{id:'800-library-north',x:2880,y:12940,cut:2.8,north:true}] : [{id:'bay-living',x:2300,y:7450,cut:1.2},{id:'balcony',x:7400,y:10400,cut:1.2},{id:'800-library-north',x:2880,y:12940,cut:2.8,north:true}])){
-      await page.goto(`${base}/?scheme=family`,{waitUntil:'networkidle',timeout:60000});
+    // Family no longer has an 800 library. Retain this visual coverage on
+    // wood, where the closed north-facing folding door remains authorized.
+    for(const focus of (process.argv.includes('--garage-only') ? [{id:'800-library-north',scheme:'wood',x:2880,y:12940,cut:2.8,north:true}] : [{id:'bay-living',scheme:'family',x:2300,y:7450,cut:1.2},{id:'balcony',scheme:'family',x:7400,y:10400,cut:1.2},{id:'800-library-north',scheme:'wood',x:2880,y:12940,cut:2.8,north:true}])){
+      await page.goto(`${base}/?scheme=${focus.scheme}`,{waitUntil:'networkidle',timeout:60000});
       await page.waitForFunction(()=>typeof window.View3D?.enter==='function',null,{timeout:60000});
       await page.evaluate(f=>{view.s=.21;view.x0=f.x-svg.clientWidth/(2*view.s);view.y0=f.y-svg.clientHeight/(2*view.s);applyView();},focus);
       await page.locator('[data-view="3d"]').click();
@@ -24,7 +26,7 @@ const executablePath=process.env.FLOORPLAN_CHROME||[chromium.executablePath(),'C
         await page.mouse.move(x,y);await page.mouse.down();await page.mouse.move(x+b.height*.5875,y-b.height*.13,{steps:24});await page.mouse.up();
         await page.waitForTimeout(800);
       }
-      const p=path.join(out,`desktop-family-${focus.id}-detail.png`);await page.screenshot({path:p});screenshots.push(p);
+      const p=path.join(out,`desktop-${focus.scheme}-${focus.id}-detail.png`);await page.screenshot({path:p});screenshots.push(p);
     }
     console.log(JSON.stringify({status:'PASS',screenshots},null,2));
   }finally{await context.close();await browser.close();}

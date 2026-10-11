@@ -30,6 +30,10 @@ assert.deepEqual(Object.keys(plans.schemes).sort(), ['family', 'laundry', 'scree
 // snapshot by screen-plan.cjs, rather than these three historical cm sources.
 const screenChecked = spawnSync(process.execPath, [path.join(__dirname, 'screen-plan.cjs')], {encoding:'utf8'});
 assert.equal(screenChecked.status, 0, `R4 scheme: ${screenChecked.stderr || screenChecked.stdout}`);
+// Precisely enumerate the latest approved changes; never replace historical
+// source dimensions or silently exempt all bedroom/custom-cabinet objects.
+const layoutChecked = spawnSync(process.execPath, [path.join(__dirname, 'layout-20261011.cjs')], {encoding:'utf8'});
+assert.equal(layoutChecked.status, 0, `October 11 authorized layout: ${layoutChecked.stderr || layoutChecked.stdout}`);
 const report = [];
 
 for (const id of ['wood', 'family', 'laundry']) {
@@ -115,10 +119,9 @@ for (const id of ['wood', 'family', 'laundry']) {
 }
 
 const family = plans.schemes.family;
-assert.equal(family.BIFOLDS.length, 1);
-assert.equal(family.BIFOLDS[0].panels, 4);
-assert.equal(family.BIFOLDS[0].closed, true);
-assert.equal(family.BIFOLDS[0].axis, 'x', '800 library faces north');
-assert.ok(family.defaultFurniture.some(f => f.type === 'child-bike'));
-assert.ok(family.defaultFurniture.some(f => f.type === 'folded-stroller'));
+assert.equal(family.BIFOLDS.length, 0, 'October 11 family library and its folding door must be removed');
+assert.ok(!family.defaultFurniture.some(f => ['fit-family_garage','garage-child_bike','garage-folded_stroller'].includes(f.id)));
+const woodLibrary=plans.schemes.wood.BIFOLDS;
+assert.equal(woodLibrary.length,1,'wood library remains authorized and unchanged');
+assert.equal(woodLibrary[0].panels,4);assert.equal(woodLibrary[0].closed,true);assert.equal(woodLibrary[0].axis,'x');
 console.log(JSON.stringify({status:'PASS', inlineScripts:scripts, defaultScheme:plans.defaultScheme, schemes:report}, null, 2));

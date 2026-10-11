@@ -2,6 +2,8 @@
 const assert=require('node:assert/strict'),crypto=require('node:crypto'),path=require('node:path');
 const plans=require(path.join(__dirname,'..','data','house-plans.js'));
 const {previousPlan}=require('./wood-public-area-helpers.cjs');
+const {verifyLayout}=require('./layout-20261011.cjs');
+if(plans.schemes.family.metadata.entryFamilyUpdate)verifyLayout(plans);
 // These historical baselines belong to the three original cm imports only.
 // The independently measured mm screen scheme is checked by screen-plan.cjs.
 const legacySchemes=['wood','family','laundry'].map(id=>{assert.ok(plans.schemes[id],id+': original imported scheme missing');return [id,plans.schemes[id]];});
@@ -93,7 +95,12 @@ for(const [id,s] of legacySchemes){
     const back=s.defaultFurniture.find(f=>f.id==='fit-sofa_back_storage');
     assert.ok(back.parts.some(p=>p.role==='door-sliding'),'family: sofa rear must keep sliding doors');
     assert.ok(!back.parts.some(p=>p.role==='drawer-front'),'family: no protruding sofa-rear drawers');
-    assert.equal(s.BIFOLDS.length,1);assert.equal(s.BIFOLDS[0].closed,true);assert.equal(s.BIFOLDS[0].panels,4);
+    if(id==='family'&&s.metadata.entryFamilyUpdate){
+      // User-authorized removal is precisely tested by layout-20261011.cjs;
+      // wood still retains its original closed four-panel storage door.
+      assert.equal(s.BIFOLDS.length,0);
+      assert.deepEqual(s.metadata.entryFamilyUpdate.removedBifoldIds,['800-library-door']);
+    }else{assert.equal(s.BIFOLDS.length,1);assert.equal(s.BIFOLDS[0].closed,true);assert.equal(s.BIFOLDS[0].panels,4);}
   }
   report.push({id,designed:designed.length,historicalLayoutUnchanged:true,historicalEnvelopesUnchanged:true,authorizedPublicAreaLayer:!!s.metadata.layoutUpdate});
 }

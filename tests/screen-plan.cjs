@@ -4,6 +4,7 @@
 // checks only, not structural, electrical, access or fabrication approval.
 const assert=require('node:assert/strict'),crypto=require('node:crypto'),fs=require('node:fs'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),plans=require(path.join(root,'data/house-plans.js'));
+const {beforeLayout20261011,verifyLayout}=require('./layout-20261011.cjs');
 const confirmed=path.join(root,'data/source/screen-confirmed-20261010.json');
 const localReference=path.resolve(root,'..','方案4平面修订_20261010_R4/方案4_派生设计数据.json');
 const referenceFile=fs.existsSync(confirmed)?confirmed:localReference;
@@ -22,10 +23,14 @@ if(process.argv.includes('--record-baseline')){
   console.log(JSON.stringify({...Object.fromEntries(['wood','family','laundry'].map(id=>[id,hash(plans.schemes[id])])),reference:hash(reference)},null,2));
   process.exit(0);
 }
-for(const id of ['wood','family','laundry'])assert.equal(hash(plans.schemes[id]),baseline[id],id+': adding scheme 4 changed the published scheme');
+if(plans.schemes.family.metadata.entryFamilyUpdate)verifyLayout(plans);
+for(const id of ['wood','family','laundry'])assert.equal(hash(beforeLayout20261011(plans.schemes[id])),baseline[id],id+': adding scheme 4 changed the historical published scheme');
 assert.equal(hash(reference),baseline.reference,'retained R4 reference differs from the owner-confirmed draft');
 assert.equal(plans.unit,'mm');assert.equal(plans.defaultScheme,'family','new optional scheme must not reset the established default');
-const screen=plans.schemes.screen;assert.ok(screen,'screen scheme missing');
+// R4 is still the immutable foundation. New, explicitly approved bedroom
+// objects are checked against exact October 11 coordinates in verifyLayout,
+// then reversed here; no kitchen, wall, opening or public-area exemption.
+const screen=beforeLayout20261011(plans.schemes.screen);assert.ok(screen,'screen scheme missing');
 assert.equal(screen.id,'screen');
 const tol=.02,eq=(a,b,label)=>assert.ok(Math.abs(a-b)<=tol,`${label}: ${a} != ${b}`);
 const pick=(v,keys)=>Object.fromEntries(keys.filter(k=>v[k]!==undefined).map(k=>[k,v[k]]));
@@ -140,4 +145,4 @@ for(const p of kitchen.parts){
 const mainRouteToChair=box(chair).x-2525,southChairs=screen.defaultFurniture.filter(f=>['family-f26','family-f27'].includes(f.id)),screenNorth=box(separator).y;
 const screenGap=Math.min(...southChairs.map(f=>screenNorth-(box(f).y+box(f).d)));
 eq(mainRouteToChair,1035,'west route between cabinet and single chair');eq(screenGap,685,'south dining chairs to screen');
-console.log(JSON.stringify({status:'PASS',scheme:'screen',sourceExactR4:true,otherSchemesUnchanged:true,modelOnly:true,nominalOpeningsNotCertifiedNetWidth:true,nominalOpeningEndCaps,frontFeetMm:frontFeet,grilleSlats:slats.length,westCabinetToArmchairGapMm:mainRouteToChair,southChairToScreenGapMm:screenGap,balconyFrameAligned:true},null,2));
+console.log(JSON.stringify({status:'PASS',scheme:'screen',sourceExactR4Foundation:true,otherHistoricalSchemesUnchangedAfterAuthorizedLayerReversal:true,authorizedBedroomLayerSeparatelyExactChecked:!!plans.schemes.screen.metadata.bedroomUpdate,modelOnly:true,nominalOpeningsNotCertifiedNetWidth:true,nominalOpeningEndCaps,frontFeetMm:frontFeet,grilleSlats:slats.length,westCabinetToArmchairGapMm:mainRouteToChair,southChairToScreenGapMm:screenGap,balconyFrameAligned:true},null,2));

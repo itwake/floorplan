@@ -3,13 +3,15 @@
 const assert=require('node:assert/strict'),path=require('node:path');
 const plans=require(path.join(__dirname,'..','data/house-plans.js'));
 const {previousPlan,hash,baseline}=require('./wood-public-area-helpers.cjs');
+const {beforeLayout20261011,verifyLayout}=require('./layout-20261011.cjs');
 const {worldRect,REVISION}=require('../tools/wood-public-area.cjs');
-const p=plans.schemes.wood,q=plans.schemes.family,prior=previousPlan(p),r=p.metadata.layoutUpdate;
+if(plans.schemes.family.metadata.entryFamilyUpdate)verifyLayout(plans);
+const p=beforeLayout20261011(plans.schemes.wood),q=beforeLayout20261011(plans.schemes.family),prior=previousPlan(p),r=p.metadata.layoutUpdate;
 const get=id=>p.defaultFurniture.find(f=>f.id===id),ref=id=>q.defaultFurniture.find(f=>f.id===id);
 const eq=(a,b,label)=>assert.ok(Math.abs(a-b)<.01,`${label}: ${a} != ${b}`);
 const overlaps=(a,b)=>Math.min(a.x+a.w,b.x+b.w)-Math.max(a.x,b.x)>.01&&Math.min(a.y+a.d,b.y+b.d)-Math.max(a.y,b.y)>.01;
 assert.equal(hash(prior),baseline.wood);
-for(const id of ['family','laundry'])assert.equal(hash(plans.schemes[id]),baseline[id],id+': must remain wholly unchanged');
+for(const id of ['family','laundry'])assert.equal(hash(beforeLayout20261011(plans.schemes[id])),baseline[id],id+': historical layer must remain wholly unchanged');
 assert.equal(r.id,REVISION);assert.equal(r.referenceScheme,'family');assert.equal(r.sourceSnapshotsUnchanged,true);
 assert.deepEqual(r.newFurnitureIds,['fit-sofa_back_storage','fit-wood_garage','garage-folded_stroller','garage-child_bike']);
 assert.deepEqual(r.previousFurniture.map(f=>f.id).sort(),['wood-f5','wood-f6','wood-living-rug','wood-f7','wood-f8','wood-f9','wood-f10','wood-f11','wood-f12','fit-dining_sideboard_wall'].sort());
@@ -63,4 +65,4 @@ for(let i=0;i<solid.length;i++){
 }
 const door=p.DOORS.find(d=>d.entry),stored=worldRect(garage);assert.ok(door.h[0]-(stored.x+stored.w)>door.len,'entry sweep hits library');
 assert.deepEqual(get('fit-entry_shoe_station'),prior.defaultFurniture.find(f=>f.id==='fit-entry_shoe_station'));
-console.log(JSON.stringify({status:'PASS',revision:REVISION,schemes2And3Unchanged:true,wallsOpeningsAndBedroomsUnchanged:true,alignedWallCenterMm:cx,westRouteModelMm:1715,diningRouteModelMm:1320,closedNorthBifold:true,vehicleExtractionNotApproved:true,modelOnly:true},null,2));
+console.log(JSON.stringify({status:'PASS',revision:REVISION,historicalSchemes2And3UnchangedAfterAuthorizedLayerReversal:true,historicalWallsOpeningsAndBedroomsUnchanged:true,alignedWallCenterMm:cx,westRouteModelMm:1715,diningRouteModelMm:1320,closedNorthBifold:true,vehicleExtractionNotApproved:true,modelOnly:true},null,2));

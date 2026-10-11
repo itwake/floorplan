@@ -3,6 +3,8 @@
 // clearance approval. Historical cm source files remain immutable.
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),plans=require(path.join(root,'data/house-plans.js'));
+const {verifyLayout}=require('./layout-20261011.cjs');
+if(plans.schemes.family.metadata.entryFamilyUpdate)verifyLayout(plans);
 // The reference cabinet layer and source-union comparisons belong only to
 // the three original cm imports; screen is independently checked in mm.
 const legacySchemes=['wood','family','laundry'].map(id=>{assert.ok(plans.schemes[id],id+': original imported scheme missing');return [id,plans.schemes[id]];});
@@ -26,7 +28,9 @@ function withinUnion(p,regions){
 }
 const report=[];
 for(const [id,scheme]of legacySchemes){
-  const referenceId=id==='wood'&&scheme.metadata.layoutUpdate?'family':id;
+  // Only the newly authorized family sideboard adopts laundry's entire L
+  // union. Wood retains the family-source straight union and north storage.
+  const referenceId=id==='family'&&scheme.metadata.entryFamilyUpdate?'laundry':id==='wood'&&scheme.metadata.layoutUpdate?'family':id;
   const source=JSON.parse(fs.readFileSync(path.join(root,'data/source',referenceId+'.json'),'utf8'));
   const fit=source.storageFitouts.find(q=>q.id==='dining_sideboard_wall'),f=scheme.defaultFurniture.find(q=>q.id===target);
   assert.equal(f.cabinetRevision,revision,id+': reference sideboard missing');
@@ -85,13 +89,26 @@ for(const [id,scheme]of legacySchemes){
   const expectedY=referenceId==='family'?[9190,9590]:[9200,9800];assert.deepEqual([adaptation.drawerColumn.yStartMm,adaptation.drawerColumn.yEndMm],expectedY);
   const fixed=absolute.filter(p=>/^cabinet-|niche-back/.test(p.role));
   for(const drawer of absolute.filter(p=>p.role==='drawer-box'))for(const p of fixed)assert.ok(!overlap3(drawer,p),id+'/'+drawer.id+': drawer intersects fixed '+p.id);
-  const peopleFurniture=source.furniture.filter(q=>q.name==='四人餐桌'||/餐椅/.test(q.name)).map(q=>({...rect(q),name:q.name}));
+  const peopleFurniture=id==='family'&&scheme.metadata.entryFamilyUpdate
+    ?scheme.defaultFurniture.filter(q=>['family-f23','family-f24','family-f25','family-f26','family-f27'].includes(q.id)).map(q=>{const a=q.rot*Math.PI/180,c=Math.abs(Math.cos(a)),s=Math.abs(Math.sin(a)),w=q.w*c+q.d*s,d=q.w*s+q.d*c;return{id:q.id,x:q.cx-w/2,y:q.cy-d/2,w,d,name:q.id==='family-f23'?'四人餐桌':q.name};})
+    :source.furniture.filter(q=>q.name==='四人餐桌'||/餐椅/.test(q.name)).map(q=>({...rect(q),name:q.name}));
   assert.equal(peopleFurniture.length,5,id+': dining table plus four chairs expected');
   for(const p of drawers){
     assert.equal(p.maxExtensionMm,250);assert.equal(p.placement,'north-safe-zone');eq(Math.max(p.w,p.d),drawerWidth-3,p.id+' front width');
     const extended={x:p.x+250,y:p.y,w:p.w,d:p.d};
     const swept={x:p.x,y:p.y,w:p.w+250,d:p.d};
-    for(const q of peopleFurniture)assert.ok(!overlap(swept,q),id+'/'+p.id+': 0–250mm drawer sweep collides with '+q.name);
+    for(const q of peopleFurniture){
+      if(!overlap(swept,q))continue;
+      // One owner-visible, exact-known family limitation is retained rather
+      // than moving an unauthorized chair or claiming its old safe-zone name
+      // proves practical use. All other/changed collisions still fail.
+      assert.ok(id==='family'&&scheme.metadata.entryFamilyUpdate&&q.id==='family-f24',id+'/'+p.id+': unrecognized drawer collision with '+q.name);
+      eq(Math.min(swept.x+swept.w,q.x+q.w)-Math.max(swept.x,q.x),50,id+' known overlap x');
+      eq(Math.min(swept.y+swept.d,q.y+q.d)-Math.max(swept.y,q.y),133.5,id+' known overlap y');
+      assert.equal(adaptation.actualLayoutConstraints.drawerFullExtensionRequiresMovingChair,true);
+      assert.match(f.notes,/拉满前.*收\/移/);
+      const shorter={...swept,w:p.w+180};assert.ok(!overlap(shorter,q));eq(q.x-(shorter.x+shorter.w),20,id+' illustrative 180mm extension gap');
+    }
     assert.ok(!overlap(extended,peopleFurniture[0]),id+': fully open drawer hits table');
   }
   // The photo has drawers, but this real table contact region retains sliders
@@ -109,6 +126,6 @@ for(const [id,scheme]of legacySchemes){
   }
   const books=absolute.filter(p=>p.role==='display-book');assert.ok(books.length>=9);
   for(const p of books){assert.ok(p.heightMm<=260&&p.w<=160&&p.d<=160,p.id+': book is a real small accessory, not an opaque cubby filler');assert.equal(p.material,'BookPaper');}
-  report.push({id,planarUnionMatchesReference:referenceId,heightMm:2700,defaultHeightPendingSiteCheck:true,drawerWidthMm:drawerWidth,drawerSweepsAvoidDiningFurniture:true,ledsAnchoredToRealPanels:lights.length,roundedHollowEnd:true});
+  report.push({id,planarUnionMatchesReference:referenceId,heightMm:2700,defaultHeightPendingSiteCheck:true,drawerWidthMm:drawerWidth,drawerSweepsAvoidDiningFurniture:id!=='family'||!scheme.metadata.entryFamilyUpdate,knownFamilyOverlapExplicit:id==='family'&&!!scheme.metadata.entryFamilyUpdate,ledsAnchoredToRealPanels:lights.length,roundedHollowEnd:true});
 }
 console.log(JSON.stringify({status:'PASS',revision,modelGeometryOnly:true,schemes:report},null,2));

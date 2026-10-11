@@ -14,6 +14,10 @@ Scheme 4 uses the owner-confirmed 2026-10-10 R4 plan, with actual screen slats, 
 
 ## Features
 
+October 11 update: all four entry doors now swing outward; schemes 1–3 keep their original openings and leaf dimensions. Scheme 2 removes its 800 storage enclosure, vehicles and folding door and adopts scheme 3/4's complete L-shaped ceiling sideboard with LEDs. Scheme 1 retains its storage enclosure. Schemes 2 and 4 share the confirmed mirrored 2240×600 mm wardrobes, 1500/1800×2000 mm mattresses, compact northern desks/chairs and southern nightstands; bedroom architecture is unchanged. Both bed-foot clearances are about 555 mm and tight, with sliding lower wardrobe doors. Full sideboard drawer extension in scheme 2 requires moving its northern dining chair. Public-door clearance, exact furniture dimensions and cabinet hardware remain subject to site checks.
+
+Existing browser drafts keep custom positions, sizes, colours, names and deletions. Removed default objects are archived in exported JSON, new furniture is inserted once, and cleared drafts remain empty. The source SHA and storage keys do not change. Run `tests/layout-20261011.cjs` and `tests/layout-20261011-browser.cjs` for exact geometry, migration and actual WebGL checks. [Scheme 2 in 3D](https://itwake.github.io/floorplan/?scheme=family&view=3d&v=layout-20261011) · [Scheme 4 in 3D](https://itwake.github.io/floorplan/?scheme=screen&view=3d&v=layout-20261011).
+
 **2D Floor Plan**
 - Displays the original floor plan at 1:60 / 1:100 scale, dimensions in mm
 - Drag 60+ furniture and appliance items from the library on the left (bedroom, living room, dining & kitchen, bathroom, appliances, study & leisure)
