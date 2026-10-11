@@ -5,6 +5,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
 const root=path.resolve(__dirname,'..'),plans=require('../data/house-plans.js');
 const {beforeFamilyDoorRefinement}=require('../tools/family-door-refinement-20261011.cjs');
+const {beforeFamilyStudyDoor}=require('../tools/family-study-door-20261012.cjs');
 const runtime=process.env.FLOORPLAN_NODE_MODULES||'C:/Users/dvnuo/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules';
 let chromium;try{({chromium}=require('playwright'));}catch{({chromium}=createRequire(path.join(runtime,'_floorplan-qa.cjs'))('playwright'));}
 const base=(process.env.FLOORPLAN_BASE_URL||'http://127.0.0.1:4194').replace(/\/$/,''),out=path.resolve(process.env.FLOORPLAN_DOOR_REFINEMENT_SHOTS||path.join(root,'..','output','family-door-refinement-publish-20261011-qa'));
@@ -71,7 +72,7 @@ const sameDefaultFurniture=(current,fresh)=>{assert.equal(current.length,fresh.l
  })),slideIds.map(id=>plans.schemes.family.SLIDES.find(s=>s.id===id)));
  try{
   const family=plans.schemes.family,u=family.metadata.familyDoorRefinement;assert.equal(u?.id,revisionId,'bundle lacks door refinement');
-  const baseline=beforeFamilyDoorRefinement(family);assert.equal(baseline.metadata.familyDoorRefinement,undefined,'baseline reconstruction failed');
+  const baseline=beforeFamilyDoorRefinement(beforeFamilyStudyDoor(family));assert.equal(baseline.metadata.familyDoorRefinement,undefined,'baseline reconstruction failed');
   assert.equal(family.metadata.source.sha256,baseline.metadata.source.sha256,'source SHA changed');
   for(const id of ['wood','laundry','screen']){await open(id);const actual=await page.evaluate(()=>structuredClone(HOUSE_PLAN));assert.deepEqual(actual,plans.schemes[id],id+': runtime/bundle mismatch');assert.equal(actual.metadata.familyDoorRefinement,undefined,id+': unauthorized refinement');report.unchangedOtherSchemes.push(id);}
   await open('family');assert.deepEqual(await page.evaluate(()=>structuredClone(HOUSE_PLAN)),family,'family runtime/bundle mismatch');
@@ -80,7 +81,7 @@ const sameDefaultFurniture=(current,fresh)=>{assert.equal(current.length,fresh.l
    const changed=(u.changedFurnitureIds||[]).filter(id=>baseline.defaultFurniture.some(f=>f.id===id));
    const customIds=[...new Set([...changed,'study_full_desk','fit-study_bookwall','study_window_return'])].filter(id=>baseline.defaultFurniture.some(f=>f.id===id));
    const oldDraft=async(mode='default')=>page.evaluate(({old,revisionId,mode,customIds,changed})=>{
-    const s=defaultState();s.furniture=structuredClone(old.defaultFurniture);s.appliedLayoutRevisions=s.appliedLayoutRevisions.filter(id=>id!==revisionId);
+    const s=defaultState();s.furniture=structuredClone(old.defaultFurniture);s.appliedLayoutRevisions=s.appliedLayoutRevisions.filter(id=>![revisionId,'family-study-door-20261012'].includes(id));
     if(mode==='custom'){
      for(const id of customIds){const f=s.furniture.find(f=>f.id===id);f.cx+=37;f.cy+=49;f.w+=20;f.d+=30;f.rot=(f.rot+90)%360;f.color='#668899';f.name='QA '+id;f.heightMm+=11;}
      s.furniture=s.furniture.filter(f=>f.id!=='study_north_sofa');s.measures=[{a:{x:1,y:2},b:{x:1001,y:2}}];s.rooms.room_c.mat='terrazzo';s.demolished=['w1'];
@@ -122,7 +123,7 @@ const sameDefaultFurniture=(current,fresh)=>{assert.equal(current.length,fresh.l
   for(const id of u.changedFurnitureIds||[]){const f=family.defaultFurniture.find(f=>f.id===id),mesh=actual.furniture[id];assert.ok(mesh,id+': revised furniture missing');eq(mesh.center[0],f.cx,id+' actual revised center x');eq(mesh.center[1],f.cy,id+' actual revised center y');eq(mesh.rotation,-f.rot*Math.PI/180,id+' actual revised rotation');}
   const study=family.DOORS.find(d=>d.id==='door_c');assert.ok(study,'study ordinary door missing');assert.equal(study.openingWidthMm,900,'ordinary study opening must remain900');
   const aim=async(position,target)=>{await page.evaluate(({position,target})=>window.__familyDoorRefinementQA.camera(position,target),{position,target});await page.waitForFunction(painted);};
-  const point=async(openDoor)=>{const [hx,hy]=study.h,views=[[[hx-1250,1700,hy+380],[hx-400,700,openDoor?hy:hy+260]],[[hx-700,2400,hy+870],[hx-200,700,hy+260]],[[hx+900,2200,hy+700],[hx,700,hy+260]]];
+  const point=async(openDoor)=>{const [hx,hy]=study.h,sign=study.c[1],views=[[[hx-1250,1700,hy+380*sign],[hx-400,700,openDoor?hy:hy+260*sign]],[[hx-700,2400,hy+870*sign],[hx-200,700,hy+260*sign]],[[hx+900,2200,hy+700*sign],[hx,700,hy+260*sign]]];
    for(const [position,target]of views){await aim(position,target);const hit=await page.evaluate(()=>window.__familyDoorRefinementQA.doorClickPoint('door_c'));if(hit)return hit;}
    await shot('study-pointer-failure');fs.writeFileSync(path.join(out,'study-pointer-failure.json'),JSON.stringify(await page.evaluate(()=>window.__familyDoorRefinementQA.doorClickPoint('door_c',true)),null,2));throw Error('No visible actual study door surface for pointer operation');
   };

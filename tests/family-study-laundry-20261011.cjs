@@ -9,6 +9,7 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const {beforeFamilyStudyLaundry, applyFamilyStudyLaundry, REVISION} = require('../tools/family-study-laundry-20261011.cjs');
 const {beforeFamilyDoorRefinement} = require('../tools/family-door-refinement-20261011.cjs');
+const {beforeFamilyStudyDoor} = require('../tools/family-study-door-20261012.cjs');
 const {sweptLeafHits} = require('./family-bath-review-20261011.cjs');
 const clone = value => structuredClone(value);
 const stable = value => Array.isArray(value) ? value.map(stable) : value && typeof value === 'object'
@@ -53,7 +54,7 @@ const openLeaf = d => {
 };
 
 function verifyFamilyStudyLaundry(bundle) {
-  bundle=beforeFamilyDoorRefinement(bundle);
+  bundle=beforeFamilyDoorRefinement(beforeFamilyStudyDoor(bundle));
   assert.equal(REVISION,'family-study-laundry-confirmed-20261011');
   assert.equal(bundle.defaultScheme,'family');
   assert.deepEqual(Object.keys(bundle.schemes).sort(),['family','laundry','screen','wood']);

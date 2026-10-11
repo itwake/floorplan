@@ -14717,12 +14717,12 @@ const plans = {
           2340,
           3280,
           2460,
-          4980,
+          5280,
           "u"
         ],
         [
           2340,
-          5880,
+          6180,
           2460,
           6260,
           "u"
@@ -15247,7 +15247,7 @@ const plans = {
           "heightMm": 2700,
           "bearingStatus": "unverified",
           "grade": "C",
-          "notes": "2026-10-11确认：书房900门洞南移500mm，房间外轮廓及墙轴线不变，承重性及门套待核。"
+          "notes": "2026-10-12确认：书房900门洞再南移300并南铰内开；房间轮廓/墙轴线保持，洞下室内20mm墙垛和门套结构待核。"
         },
         {
           "sourceId": "family_r3_wall_14",
@@ -15262,7 +15262,7 @@ const plans = {
           "heightMm": 2700,
           "bearingStatus": "unverified",
           "grade": "C",
-          "notes": "2026-10-11确认：书房900门洞南移500mm，房间外轮廓及墙轴线不变，承重性及门套待核。"
+          "notes": "2026-10-12确认：书房900门洞再南移300并南铰内开；房间轮廓/墙轴线保持，洞下室内20mm墙垛和门套结构待核。"
         },
         {
           "sourceId": "family_r3_wall_15",
@@ -15865,7 +15865,7 @@ const plans = {
           "id": "door_a",
           "name": "主卧900平开门 · 南移300mm",
           "grade": "C",
-          "notes": "2026-10-11确认：900mm门洞向南300mm，仍南侧合页向套内开；南墙垛模型120mm。与书房新门洞纵向错开230mm，但各向自身室内开启；主卧门全开横占套内入口，需绕门通过。门套、五金及通行仍需现场深化，不把门板间距当作连续通行净宽。",
+          "notes": "2026-10-11确认：900mm门洞向南300mm，仍南侧合页向套内开；南墙垛模型120mm。与书房新门洞纵向错开530mm，但各向自身室内开启；主卧门全开横占套内入口，需绕门通过。门套、五金及通行仍需现场深化，不把门板间距当作连续通行净宽。",
           "sourceId": "door_a",
           "sourceAxisMm": [
             3435,
@@ -15986,15 +15986,15 @@ const plans = {
         },
         {
           "id": "door_c",
-          "name": "书房900普通门 · 南移500mm",
+          "name": "书房900普通门 · 再南移300mm、南铰内开",
           "grade": "C",
-          "notes": "2026-10-11确认：900普通门南移500mm，仍北铰向书房内开；配1680南桌及西窗返桌，为未来1500×2000床垫预留。门套、把手、实物床架与拉椅待核。",
+          "notes": "2026-10-12确认：900mm门洞再南移300（自最初累计800），改南侧合页向书房内开，全开门板靠南墙但模型仍留60mm门板边距。南桌及浅书架收短1450避让；洞下墙垛仅20mm，门套、把手、墙厚及实物拉椅需现场核对。",
           "sourceId": "door_c",
           "sourceAxisMm": [
             2400,
-            4980,
+            5280,
             2400,
-            5880
+            6180
           ],
           "openingWidthMm": 900,
           "sillMm": 0,
@@ -16004,17 +16004,17 @@ const plans = {
           "placementStatus": "unresolved",
           "rect": [
             2340,
-            4980,
+            5280,
             2460,
-            5880
+            6180
           ],
           "h": [
             2400,
-            5040
+            6120
           ],
           "c": [
             0,
-            1
+            -1
           ],
           "o": [
             -1,
@@ -16028,24 +16028,24 @@ const plans = {
             "type": "hinged",
             "hingeCm": [
               240,
-              504
+              612
             ],
             "swing": {
               "dx": 0,
-              "dy": 1,
+              "dy": -1,
               "ox": -1,
               "oy": 0,
-              "sweep": 1
+              "sweep": -1
             },
             "openLeafCm": {
               "x": 162,
-              "y": 502,
+              "y": 610,
               "w": 78,
               "d": 4
             },
-            "source": "2026-10-11已确认书房7字桌与完整床预留"
+            "source": "2026-10-12已确认书房再南移与南铰门、1450桌棚"
           },
-          "swingRevision": "family-study-laundry-confirmed-20261011"
+          "swingRevision": "family-study-door-20261012"
         },
         {
           "id": "door_bath_1",
@@ -17463,10 +17463,10 @@ const plans = {
         {
           "id": "study_full_desk",
           "type": "desk",
-          "name": "书房7字桌 · 南段1680×550",
-          "cx": 960,
+          "name": "书房7字桌 · 南段1450×550",
+          "cx": 845,
           "cy": 5925,
-          "w": 1680,
+          "w": 1450,
           "d": 550,
           "rot": 0,
           "color": "#C8A77E",
@@ -17476,12 +17476,12 @@ const plans = {
           "sourceFootprintMm": {
             "x": 120,
             "y": 5650,
-            "w": 1680,
+            "w": 1450,
             "d": 550
           },
           "roomId": "room_c",
           "face": "north",
-          "notes": "确认：南桌东端缩至x1800，避让南移门扇；西端接500深窗边返桌。台高740暂沿用，支撑及收口待深化。",
+          "notes": "2026-10-12确认：南桌东端收至x1570，保留北向办公桌variant及740高，避让南铰900门连续开启；西窗返桌原位，支撑与实物使用待深化。",
           "dimensionStatus": "design-pending",
           "originalSourceFootprintMm": {
             "x": 120,
@@ -17490,7 +17490,7 @@ const plans = {
             "d": 550
           },
           "modelVariant": "north-facing-workstation",
-          "layoutRevision": "family-study-laundry-confirmed-20261011"
+          "layoutRevision": "family-study-door-20261012"
         },
         {
           "id": "family-f5",
@@ -21658,23 +21658,23 @@ const plans = {
         {
           "id": "fit-study_bookwall",
           "type": "fixture",
-          "name": "书房南墙浅书架 · 1680四格与工作灯带",
-          "cx": 960,
+          "name": "书房南墙浅书架 · 1450四格与工作灯带",
+          "cx": 845,
           "cy": 6058.75,
-          "w": 1680,
+          "w": 1450,
           "d": 282.5,
           "rot": 0,
           "color": "#F4F1E9",
-          "baseWidthMm": 1680,
+          "baseWidthMm": 1450,
           "baseDepthMm": 282.5,
           "heightMm": 2500,
           "elevationMm": 0,
           "parts": [
             {
               "id": "fit-study_bookwall-back",
-              "x": -840,
+              "x": -725,
               "y": 129.25,
-              "w": 1680,
+              "w": 1450,
               "d": 12,
               "elevationMm": 1460,
               "heightMm": 1040,
@@ -21686,7 +21686,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-upright-0",
-              "x": -840,
+              "x": -725,
               "y": -138.75,
               "w": 22,
               "d": 268,
@@ -21700,7 +21700,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-upright-1",
-              "x": -425.5,
+              "x": -368,
               "y": -138.75,
               "w": 22,
               "d": 268,
@@ -21728,7 +21728,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-upright-3",
-              "x": 403.5,
+              "x": 346,
               "y": -138.75,
               "w": 22,
               "d": 268,
@@ -21742,7 +21742,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-upright-4",
-              "x": 818,
+              "x": 703,
               "y": -138.75,
               "w": 22,
               "d": 268,
@@ -21756,9 +21756,9 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-shelf-0-1460",
-              "x": -818,
+              "x": -703,
               "y": -116.75,
-              "w": 392.5,
+              "w": 335,
               "d": 246,
               "elevationMm": 1460,
               "heightMm": 22,
@@ -21770,9 +21770,9 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-shelf-0-1800",
-              "x": -818,
+              "x": -703,
               "y": -116.75,
-              "w": 392.5,
+              "w": 335,
               "d": 246,
               "elevationMm": 1800,
               "heightMm": 22,
@@ -21784,9 +21784,9 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-shelf-0-2140",
-              "x": -818,
+              "x": -703,
               "y": -116.75,
-              "w": 392.5,
+              "w": 335,
               "d": 246,
               "elevationMm": 2140,
               "heightMm": 22,
@@ -21798,9 +21798,9 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-shelf-0-2478",
-              "x": -818,
+              "x": -703,
               "y": -116.75,
-              "w": 392.5,
+              "w": 335,
               "d": 246,
               "elevationMm": 2478,
               "heightMm": 22,
@@ -21812,9 +21812,9 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-door-0",
-              "x": -816.5,
+              "x": -701.5,
               "y": -138.75,
-              "w": 389.5,
+              "w": 332,
               "d": 18,
               "elevationMm": 2163.5,
               "heightMm": 313,
@@ -21828,7 +21828,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-pull-0",
-              "x": -651.75,
+              "x": -565.5,
               "y": -141.25,
               "w": 60,
               "d": 2.5,
@@ -21842,7 +21842,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-book-0-0-0",
-              "x": -793,
+              "x": -678,
               "y": -108.75,
               "w": 31,
               "d": 210,
@@ -21856,7 +21856,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-book-0-0-1",
-              "x": -753,
+              "x": -638,
               "y": -108.75,
               "w": 31,
               "d": 210,
@@ -21870,7 +21870,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-book-0-0-2",
-              "x": -713,
+              "x": -598,
               "y": -108.75,
               "w": 31,
               "d": 210,
@@ -21884,7 +21884,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-book-0-1-0",
-              "x": -793,
+              "x": -678,
               "y": -108.75,
               "w": 31,
               "d": 210,
@@ -21898,7 +21898,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-book-0-1-1",
-              "x": -753,
+              "x": -638,
               "y": -108.75,
               "w": 31,
               "d": 210,
@@ -21912,7 +21912,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-book-0-1-2",
-              "x": -713,
+              "x": -598,
               "y": -108.75,
               "w": 31,
               "d": 210,
@@ -21926,9 +21926,9 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-shelf-1-1460",
-              "x": -403.5,
+              "x": -346,
               "y": -116.75,
-              "w": 392.5,
+              "w": 335,
               "d": 246,
               "elevationMm": 1460,
               "heightMm": 22,
@@ -21940,9 +21940,9 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-shelf-1-1800",
-              "x": -403.5,
+              "x": -346,
               "y": -116.75,
-              "w": 392.5,
+              "w": 335,
               "d": 246,
               "elevationMm": 1800,
               "heightMm": 22,
@@ -21954,9 +21954,9 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-shelf-1-2140",
-              "x": -403.5,
+              "x": -346,
               "y": -116.75,
-              "w": 392.5,
+              "w": 335,
               "d": 246,
               "elevationMm": 2140,
               "heightMm": 22,
@@ -21968,9 +21968,9 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-shelf-1-2478",
-              "x": -403.5,
+              "x": -346,
               "y": -116.75,
-              "w": 392.5,
+              "w": 335,
               "d": 246,
               "elevationMm": 2478,
               "heightMm": 22,
@@ -21982,9 +21982,9 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-door-1",
-              "x": -402,
+              "x": -344.5,
               "y": -138.75,
-              "w": 389.5,
+              "w": 332,
               "d": 18,
               "elevationMm": 2163.5,
               "heightMm": 313,
@@ -21998,7 +21998,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-pull-1",
-              "x": -237.25,
+              "x": -208.5,
               "y": -141.25,
               "w": 60,
               "d": 2.5,
@@ -22012,7 +22012,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-book-1-0-0",
-              "x": -378.5,
+              "x": -321,
               "y": -108.75,
               "w": 31,
               "d": 210,
@@ -22026,7 +22026,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-book-1-0-1",
-              "x": -338.5,
+              "x": -281,
               "y": -108.75,
               "w": 31,
               "d": 210,
@@ -22040,7 +22040,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-book-1-0-2",
-              "x": -298.5,
+              "x": -241,
               "y": -108.75,
               "w": 31,
               "d": 210,
@@ -22054,7 +22054,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-book-1-1-0",
-              "x": -378.5,
+              "x": -321,
               "y": -108.75,
               "w": 31,
               "d": 210,
@@ -22068,7 +22068,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-book-1-1-1",
-              "x": -338.5,
+              "x": -281,
               "y": -108.75,
               "w": 31,
               "d": 210,
@@ -22082,7 +22082,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-book-1-1-2",
-              "x": -298.5,
+              "x": -241,
               "y": -108.75,
               "w": 31,
               "d": 210,
@@ -22098,7 +22098,7 @@ const plans = {
               "id": "fit-study_bookwall-shelf-2-1460",
               "x": 11,
               "y": -116.75,
-              "w": 392.5,
+              "w": 335,
               "d": 246,
               "elevationMm": 1460,
               "heightMm": 22,
@@ -22112,7 +22112,7 @@ const plans = {
               "id": "fit-study_bookwall-shelf-2-1800",
               "x": 11,
               "y": -116.75,
-              "w": 392.5,
+              "w": 335,
               "d": 246,
               "elevationMm": 1800,
               "heightMm": 22,
@@ -22126,7 +22126,7 @@ const plans = {
               "id": "fit-study_bookwall-shelf-2-2140",
               "x": 11,
               "y": -116.75,
-              "w": 392.5,
+              "w": 335,
               "d": 246,
               "elevationMm": 2140,
               "heightMm": 22,
@@ -22140,7 +22140,7 @@ const plans = {
               "id": "fit-study_bookwall-shelf-2-2478",
               "x": 11,
               "y": -116.75,
-              "w": 392.5,
+              "w": 335,
               "d": 246,
               "elevationMm": 2478,
               "heightMm": 22,
@@ -22154,7 +22154,7 @@ const plans = {
               "id": "fit-study_bookwall-door-2",
               "x": 12.5,
               "y": -138.75,
-              "w": 389.5,
+              "w": 332,
               "d": 18,
               "elevationMm": 2163.5,
               "heightMm": 313,
@@ -22168,7 +22168,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-pull-2",
-              "x": 177.25,
+              "x": 148.5,
               "y": -141.25,
               "w": 60,
               "d": 2.5,
@@ -22266,9 +22266,9 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-shelf-3-1460",
-              "x": 425.5,
+              "x": 368,
               "y": -116.75,
-              "w": 392.5,
+              "w": 335,
               "d": 246,
               "elevationMm": 1460,
               "heightMm": 22,
@@ -22280,9 +22280,9 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-shelf-3-1800",
-              "x": 425.5,
+              "x": 368,
               "y": -116.75,
-              "w": 392.5,
+              "w": 335,
               "d": 246,
               "elevationMm": 1800,
               "heightMm": 22,
@@ -22294,9 +22294,9 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-shelf-3-2140",
-              "x": 425.5,
+              "x": 368,
               "y": -116.75,
-              "w": 392.5,
+              "w": 335,
               "d": 246,
               "elevationMm": 2140,
               "heightMm": 22,
@@ -22308,9 +22308,9 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-shelf-3-2478",
-              "x": 425.5,
+              "x": 368,
               "y": -116.75,
-              "w": 392.5,
+              "w": 335,
               "d": 246,
               "elevationMm": 2478,
               "heightMm": 22,
@@ -22322,9 +22322,9 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-door-3",
-              "x": 427,
+              "x": 369.5,
               "y": -138.75,
-              "w": 389.5,
+              "w": 332,
               "d": 18,
               "elevationMm": 2163.5,
               "heightMm": 313,
@@ -22338,7 +22338,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-pull-3",
-              "x": 591.75,
+              "x": 505.5,
               "y": -141.25,
               "w": 60,
               "d": 2.5,
@@ -22352,7 +22352,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-book-3-0-0",
-              "x": 450.5,
+              "x": 393,
               "y": -108.75,
               "w": 31,
               "d": 210,
@@ -22366,7 +22366,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-book-3-0-1",
-              "x": 490.5,
+              "x": 433,
               "y": -108.75,
               "w": 31,
               "d": 210,
@@ -22380,7 +22380,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-book-3-0-2",
-              "x": 530.5,
+              "x": 473,
               "y": -108.75,
               "w": 31,
               "d": 210,
@@ -22394,7 +22394,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-book-3-1-0",
-              "x": 450.5,
+              "x": 393,
               "y": -108.75,
               "w": 31,
               "d": 210,
@@ -22408,7 +22408,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-book-3-1-1",
-              "x": 490.5,
+              "x": 433,
               "y": -108.75,
               "w": 31,
               "d": 210,
@@ -22422,7 +22422,7 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-book-3-1-2",
-              "x": 530.5,
+              "x": 473,
               "y": -108.75,
               "w": 31,
               "d": 210,
@@ -22436,9 +22436,9 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-diffuser",
-              "x": -780,
+              "x": -665,
               "y": -118.75,
-              "w": 1560,
+              "w": 1330,
               "d": 16,
               "elevationMm": 1452,
               "heightMm": 8,
@@ -22450,9 +22450,9 @@ const plans = {
             },
             {
               "id": "fit-study_bookwall-light",
-              "x": -816,
+              "x": -701,
               "y": -111.25,
-              "w": 1632,
+              "w": 1402,
               "d": 8,
               "elevationMm": 1448,
               "heightMm": 4,
@@ -22467,17 +22467,17 @@ const plans = {
           "sourceId": "fit-study_bookwall",
           "dimensionStatus": "design-pending",
           "roomId": "room_c",
-          "notes": "已确认随南桌收短1680，四格原木开放书架与上层奶白柜门；22mm板及12mm背板不缩放，下方工作灯带保留。东端与桌齐，不延伸到西窗。",
+          "notes": "2026-10-12确认：随南桌收短1450，东端x1570避让南铰门，四格真板与上层奶白门；22mm竖/层板、12mm背板、18mm门不等比缩小，保留灯带；西窗不增高柜。",
           "conditions": [
-            "1680mm外包、四格、每格净跨392.5mm；22mm竖板与层板、12mm背板、18mm上柜门沿用原构造尺寸，锚固承重需厂家核验。",
-            "开放格下口1460mm、顶2500mm为设计值；工作灯带底1448mm，不把高处书格当儿童自助书架。",
-            "书架独立吊挂，不支在桌面或西窗玻璃上；基层、窗帘和电源待现场深化。"
+            "1450mm外包、四格净跨335mm；22mm竖板及层板、12mm背板、18mm高位门原厚度保持，承载锚固仍待厂家核验。",
+            "实际下部书格、竖板、背板与灯带在门高2150mm以内，不可只检查地面桌子或把书架当空投影；模型40mm厚门叶全角度扫掠均需避让。",
+            "书格下口1460、顶2500、灯带底1448mm沿用设计值；独立吊挂及基层、窗帘、电源需现场核对。"
           ],
           "cabinetRevision": "cream-oak-functional-v1",
           "baseHeightMm": 2500,
           "cabinetDesign": {
             "revision": "cream-oak-functional-v1",
-            "title": "书房1680四格浅书墙",
+            "title": "书房1450四格浅书墙",
             "status": "concept-pending-detail",
             "previousColor": "#F3EFE6",
             "boardThicknessMm": 22,
@@ -22493,27 +22493,27 @@ const plans = {
               {
                 "face": "north",
                 "label": "书房南墙书架 · 朝北",
-                "lengthMm": 1680,
+                "lengthMm": 1450,
                 "depthMm": 282.5
               }
             ],
             "features": [
-              "四格两排开放书位与顶部奶白封闭柜门。",
-              "原22mm板件、12mm背板和独立吊挂，不等比例缩板。",
-              "下板底面工作灯带；玻璃前只有返桌，不增挡窗高柜。"
+              "四格两排开放书位与顶部奶白封闭门，净跨335mm。",
+              "22mm竖/层板、12mm背板及18mm门按真实尺寸重建，不缩放板厚。",
+              "实际下部板件及灯带与40mm门叶连续扫掠一起核对。"
             ],
             "dimensions": [
-              "1680×282.5mm外包，书格净跨392.5mm；下口1460、顶2500、薄灯带底1448mm。",
-              "门缝、拉手、照明眩光、基层锚固和荷载仍需现场深化。"
+              "1450×282.5mm外包；下口1460、顶2500、薄灯带底1448mm，门洞2150mm内板件应避让。",
+              "门套把手、板件边角、高位柜门、照明眩光与锚固荷载须现场深化。"
             ],
             "backThicknessMm": 12,
-            "layoutRevision": "family-study-laundry-confirmed-20261011"
+            "layoutRevision": "family-study-door-20261012"
           },
-          "layoutRevision": "family-study-laundry-confirmed-20261011",
+          "layoutRevision": "family-study-door-20261012",
           "sourceFootprintMm": {
             "x": 120,
             "y": 5917.5,
-            "w": 1680,
+            "w": 1450,
             "d": 282.5
           }
         },
@@ -24619,8 +24619,9 @@ const plans = {
           "编辑器中的尺寸以模型坐标为准；已购家具保持机身外廓，安装、门套及五金余量待核。",
           "入户门参照方案4向外开启，模型内不再扫过鞋柜正面；门外公共通行、相邻门、门套、闭门器及限位仍须现场确认，模型不构成外开施工批准。",
           "方案2本轮主卧门南移300mm、主卫门北移300mm并改北铰内开；盆厕贴南墙面北。门位为确认设计参数，非新增实测；马桶侧至淋浴仅60mm，排水移位与门套、通行条件仍须现场深化。",
-          "方案2书房900门洞南移500，7字桌与1680浅书墙；与主卧门洞纵向间隔230mm，历史270mm投影重叠说明已由本轮替代。未来完整床须替换沙发并收椅。客卫台前610mm偏紧，机门/取衣须实物试摆。阳台取消借厅外凸但全屋净宽与复尺差180mm尚未闭合。",
-          "方案2厨房1700、生活阳台1500mm原门洞保持，仅改双扇双轨玻璃推拉门；厨房向北、阳台向南堆叠不变。开门后的可用通行宽度约为洞宽一半，实际门框/搭接/五金再扣，须核对搬运、操作和防水高差。"
+          "方案2书房900门洞累计南移800，本轮再南移300并改南铰内开；7字南桌与浅书墙1450，与主卧门洞纵向间隔530mm。未来完整床须替换沙发并收椅。客卫台前610mm偏紧，机门/取衣须实物试摆。阳台取消借厅外凸但全屋净宽与复尺差180mm尚未闭合。",
+          "方案2厨房1700、生活阳台1500mm原门洞保持，仅改双扇双轨玻璃推拉门；厨房向北、阳台向南堆叠不变。开门后的可用通行宽度约为洞宽一半，实际门框/搭接/五金再扣，须核对搬运、操作和防水高差。",
+          "2026-10-12方案2书房1450桌/真实书架东端至40mm门叶连续扫掠外包约49.74mm，余量有限，不含把手、门套和安装偏差；洞下室内墙垛仅20mm。未来床侧710mm与坐椅共用偏紧，床尾120mm不是通道。"
         ],
         "balconyOpenness": {
           "id": "balcony-two-sided-open-20261005",
@@ -24672,7 +24673,7 @@ const plans = {
             }
           }
         },
-        "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs",
+        "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs + tools/family-study-door-20261012.cjs",
         "wallStatus": "承重性未鉴定；原源数据未授权将未知内墙标记为可拆非承重墙。",
         "cabinetRevision": {
           "revision": "cream-oak-functional-v1",
@@ -24774,6 +24775,21 @@ const plans = {
             "wallIndexesUnchanged": true,
             "furnitureUnchanged": true,
             "usageNote": "没有默认采纳尚待确认的书房反向开门及桌棚收短；此层只变两个推拉门。"
+          },
+          {
+            "id": "family-study-door-20261012",
+            "date": "2026-10-12",
+            "sourceIds": [
+              "door_c",
+              "door_a",
+              "study_full_desk",
+              "fit-study_bookwall"
+            ],
+            "description": "方案2书房900门洞再南移300并改南铰内开，南桌与浅书墙缩至1450；坐椅原位避让西窗返桌，主卧门仅纠正说明为530mm纵向间隔。",
+            "sourceSnapshotsUnchanged": true,
+            "openingWidthsUnchanged": true,
+            "wallAxesUnchanged": true,
+            "usageNote": "独立新层取代书房北铰1680旧状态；历史版本元数据不改。返桌、沙发、未来床外包、厨房/阳台双扇门全部保持。"
           }
         ],
         "entryFamilyUpdate": {
@@ -36100,6 +36116,2466 @@ const plans = {
             "洞宽1700/1500mm不是新复尺；保留旧扩洞条件与未闭合定位，不据此直接施工。",
             "双扇双轨不是单轨移门：模型保留两片玻璃的独立轨道；堆叠后开口名义约850/750mm，门框与搭接会继续减小。",
             "原书房900mm北铰门与1680书桌、浅书架未变；南移反向会涉及桌棚收短，应在业主确认后另行应用。"
+          ]
+        },
+        "familyStudyDoorUpdate": {
+          "id": "family-study-door-20261012",
+          "date": "2026-10-12",
+          "title": "方案2 · 书房南铰门与1450短桌书架",
+          "status": "applied-owner-confirmed",
+          "sourceSnapshotsUnchanged": true,
+          "sourceReference": "2026-10-12用户明确批准书房门再南移反向、书桌和书架收短至约1450mm",
+          "previousPlanFields": {
+            "DOORS": [
+              {
+                "id": "entry_door",
+                "name": "入户门 · 向室外开启（公区避让待核）",
+                "grade": "C",
+                "sourceId": "entry_door",
+                "sourceAxisMm": [
+                  3900,
+                  13950,
+                  4900,
+                  13950
+                ],
+                "openingWidthMm": 1000,
+                "sillMm": 0,
+                "heightMm": 2200,
+                "headMm": 2200,
+                "dimensionStatus": "design-pending",
+                "placementStatus": "unresolved",
+                "rect": [
+                  3900,
+                  13890,
+                  4900,
+                  14010
+                ],
+                "h": [
+                  4840,
+                  13950
+                ],
+                "c": [
+                  -1,
+                  0
+                ],
+                "o": [
+                  0,
+                  1
+                ],
+                "len": 890,
+                "entry": true,
+                "defaultOpen": true,
+                "directionStatus": "user-design-correction",
+                "operation": {
+                  "type": "hinged",
+                  "hingeCm": [
+                    484,
+                    1395
+                  ],
+                  "swing": {
+                    "dx": -1,
+                    "dy": 0,
+                    "ox": 0,
+                    "oy": 1,
+                    "sweep": -1
+                  },
+                  "openLeafCm": {
+                    "x": 482,
+                    "y": 1395,
+                    "w": 4,
+                    "d": 89
+                  },
+                  "source": "2026-10-11用户要求三套入户门完全参照方案4外开；原源快照洞口与门叶尺寸保留。"
+                },
+                "swingRevision": "entry-family-layout-20261011",
+                "notes": "2026-10-11用户修订：入户门参照方案4向室外开启，保持本方案原洞口、宽高及门叶长度；合页从本方案洞口东端内退60mm作示意。公共走廊、邻户门、门套、闭门器及允许开启角度尚待现场核对，不构成外开施工批准。",
+                "source": "2026-10-11用户要求三套入户门完全参照方案4外开；原源快照洞口与门叶尺寸保留。",
+                "sourceNotes": "仅生成层覆盖原推断的内开方向；本方案sourceAxisMm、rect、openingWidthMm、heightMm和len未改。"
+              },
+              {
+                "id": "door_a",
+                "name": "主卧900平开门 · 南移300mm",
+                "grade": "C",
+                "notes": "2026-10-11确认：900mm门洞向南300mm，仍南侧合页向套内开；南墙垛模型120mm。与书房新门洞纵向错开230mm，但各向自身室内开启；主卧门全开横占套内入口，需绕门通过。门套、五金及通行仍需现场深化，不把门板间距当作连续通行净宽。",
+                "sourceId": "door_a",
+                "sourceAxisMm": [
+                  3435,
+                  3850,
+                  3435,
+                  4750
+                ],
+                "openingWidthMm": 900,
+                "sillMm": 0,
+                "heightMm": 2150,
+                "headMm": 2150,
+                "dimensionStatus": "design-pending",
+                "placementStatus": "unresolved",
+                "rect": [
+                  3375,
+                  3850,
+                  3495,
+                  4750
+                ],
+                "h": [
+                  3435,
+                  4690
+                ],
+                "c": [
+                  0,
+                  -1
+                ],
+                "o": [
+                  1,
+                  0
+                ],
+                "len": 780,
+                "entry": false,
+                "defaultOpen": true,
+                "directionStatus": "user-design-correction",
+                "operation": {
+                  "type": "hinged",
+                  "hingeCm": [
+                    343.5,
+                    469
+                  ],
+                  "swing": {
+                    "dx": 0,
+                    "dy": -1,
+                    "ox": 1,
+                    "oy": 0,
+                    "sweep": 1
+                  },
+                  "openLeafCm": {
+                    "x": 343.5,
+                    "y": 467,
+                    "w": 78,
+                    "d": 4
+                  }
+                },
+                "swingRevision": "family-master-bath-confirmed-20261011"
+              },
+              {
+                "id": "door_b",
+                "name": "次卧900门洞 · 东铰内开靠东墙",
+                "grade": "C",
+                "notes": "东侧合页，90度开启后门扇沿东侧墙停靠，保留门套/把手空间；900洞口置于约915走廊宽中，转角收口需深化，900不是安装后净开。",
+                "sourceId": "door_b",
+                "sourceAxisMm": [
+                  2467.5,
+                  3280,
+                  3367.5,
+                  3280
+                ],
+                "openingWidthMm": 900,
+                "sillMm": 0,
+                "heightMm": 2150,
+                "headMm": 2150,
+                "dimensionStatus": "design-pending",
+                "placementStatus": "unresolved",
+                "rect": [
+                  2467.5,
+                  3220,
+                  3367.5,
+                  3340
+                ],
+                "h": [
+                  3307.5,
+                  3280
+                ],
+                "c": [
+                  -1,
+                  0
+                ],
+                "o": [
+                  0,
+                  -1
+                ],
+                "len": 780,
+                "entry": false,
+                "defaultOpen": true,
+                "directionStatus": "source-design",
+                "operation": {
+                  "type": "hinged",
+                  "hingeCm": [
+                    330.75,
+                    328
+                  ],
+                  "swing": {
+                    "dx": -1,
+                    "dy": 0,
+                    "ox": 0,
+                    "oy": -1,
+                    "sweep": 1
+                  },
+                  "openLeafCm": {
+                    "x": 328.75,
+                    "y": 250,
+                    "w": 4,
+                    "d": 78
+                  }
+                }
+              },
+              {
+                "id": "door_c",
+                "name": "书房900普通门 · 南移500mm",
+                "grade": "C",
+                "notes": "2026-10-11确认：900普通门南移500mm，仍北铰向书房内开；配1680南桌及西窗返桌，为未来1500×2000床垫预留。门套、把手、实物床架与拉椅待核。",
+                "sourceId": "door_c",
+                "sourceAxisMm": [
+                  2400,
+                  4980,
+                  2400,
+                  5880
+                ],
+                "openingWidthMm": 900,
+                "sillMm": 0,
+                "heightMm": 2150,
+                "headMm": 2150,
+                "dimensionStatus": "design-pending",
+                "placementStatus": "unresolved",
+                "rect": [
+                  2340,
+                  4980,
+                  2460,
+                  5880
+                ],
+                "h": [
+                  2400,
+                  5040
+                ],
+                "c": [
+                  0,
+                  1
+                ],
+                "o": [
+                  -1,
+                  0
+                ],
+                "len": 780,
+                "entry": false,
+                "defaultOpen": true,
+                "directionStatus": "user-design-correction",
+                "operation": {
+                  "type": "hinged",
+                  "hingeCm": [
+                    240,
+                    504
+                  ],
+                  "swing": {
+                    "dx": 0,
+                    "dy": 1,
+                    "ox": -1,
+                    "oy": 0,
+                    "sweep": 1
+                  },
+                  "openLeafCm": {
+                    "x": 162,
+                    "y": 502,
+                    "w": 78,
+                    "d": 4
+                  },
+                  "source": "2026-10-11已确认书房7字桌与完整床预留"
+                },
+                "swingRevision": "family-study-laundry-confirmed-20261011"
+              },
+              {
+                "id": "door_bath_1",
+                "name": "主卫750平开门 · 北移300mm、北铰内开",
+                "grade": "C",
+                "notes": "2026-10-11确认：750mm门洞向北300mm，改北側合页向卫内开，北墙垛模型100mm；盆柜与马桶改背靠南墙、面北，淋浴与主卫北墙不动。应先把门开启到位再使用盆柜；排水改位、壁挂水箱、门套及五金净空仍须现场核对。",
+                "sourceId": "door_bath_1",
+                "sourceAxisMm": [
+                  4450,
+                  3440,
+                  4450,
+                  4190
+                ],
+                "openingWidthMm": 750,
+                "sillMm": 0,
+                "heightMm": 2100,
+                "headMm": 2100,
+                "dimensionStatus": "design-pending",
+                "placementStatus": "unresolved",
+                "rect": [
+                  4390,
+                  3440,
+                  4510,
+                  4190
+                ],
+                "h": [
+                  4450,
+                  3500
+                ],
+                "c": [
+                  0,
+                  1
+                ],
+                "o": [
+                  1,
+                  0
+                ],
+                "len": 630,
+                "entry": false,
+                "defaultOpen": true,
+                "directionStatus": "user-design-correction",
+                "operation": {
+                  "type": "hinged",
+                  "hingeCm": [
+                    445,
+                    350
+                  ],
+                  "swing": {
+                    "dx": 0,
+                    "dy": 1,
+                    "ox": 1,
+                    "oy": 0,
+                    "sweep": 0
+                  },
+                  "openLeafCm": {
+                    "x": 445,
+                    "y": 348,
+                    "w": 63,
+                    "d": 4
+                  }
+                },
+                "swingRevision": "family-master-bath-confirmed-20261011"
+              },
+              {
+                "id": "door_bath_2",
+                "name": "客卫 · 北铰向卫内开",
+                "grade": "C",
+                "notes": "按R3确认的门洞及开启方向；门套、五金与净空仍待现场深化。",
+                "sourceId": "door_bath_2",
+                "sourceAxisMm": [
+                  3435,
+                  5010,
+                  3435,
+                  5760
+                ],
+                "openingWidthMm": 750,
+                "sillMm": 0,
+                "heightMm": 2100,
+                "headMm": 2100,
+                "dimensionStatus": "design-pending",
+                "placementStatus": "unresolved",
+                "rect": [
+                  3375,
+                  5010,
+                  3495,
+                  5760
+                ],
+                "h": [
+                  3435,
+                  5070
+                ],
+                "c": [
+                  0,
+                  1
+                ],
+                "o": [
+                  1,
+                  0
+                ],
+                "len": 630,
+                "entry": false,
+                "defaultOpen": true,
+                "directionStatus": "source-design",
+                "operation": {
+                  "type": "hinged",
+                  "hingeCm": [
+                    343.5,
+                    507
+                  ],
+                  "swing": {
+                    "dx": 0,
+                    "dy": 1,
+                    "ox": 1,
+                    "oy": 0,
+                    "sweep": 0
+                  },
+                  "openLeafCm": {
+                    "x": 343.5,
+                    "y": 505,
+                    "w": 63,
+                    "d": 4
+                  }
+                }
+              }
+            ],
+            "WALLS": [
+              [
+                60,
+                0,
+                990,
+                120,
+                "e"
+              ],
+              [
+                2750,
+                0,
+                3435,
+                120,
+                "e"
+              ],
+              [
+                3435,
+                0,
+                4110,
+                120,
+                "e"
+              ],
+              [
+                5870,
+                0,
+                6810,
+                120,
+                "e"
+              ],
+              [
+                0,
+                60,
+                120,
+                4150,
+                "e"
+              ],
+              [
+                0,
+                5250,
+                120,
+                6260,
+                "e"
+              ],
+              [
+                60,
+                6200,
+                2060,
+                6320,
+                "e"
+              ],
+              [
+                2000,
+                6260,
+                2120,
+                6410,
+                "e"
+              ],
+              [
+                2000,
+                8530,
+                2120,
+                13950,
+                "e"
+              ],
+              [
+                2060,
+                13890,
+                3900,
+                14010,
+                "e"
+              ],
+              [
+                4900,
+                13890,
+                8350,
+                14010,
+                "e"
+              ],
+              [
+                8290,
+                9600,
+                8410,
+                9660,
+                "e"
+              ],
+              [
+                8290,
+                11150,
+                8410,
+                13950,
+                "e"
+              ],
+              [
+                6810,
+                9540,
+                6870,
+                9660,
+                "e"
+              ],
+              [
+                8290,
+                9540,
+                8350,
+                9660,
+                "e"
+              ],
+              [
+                6750,
+                60,
+                6870,
+                3280,
+                "e"
+              ],
+              [
+                6750,
+                3280,
+                6870,
+                3750,
+                "e"
+              ],
+              [
+                6750,
+                4250,
+                6870,
+                5300,
+                "e"
+              ],
+              [
+                6750,
+                5900,
+                6870,
+                9600,
+                "e"
+              ],
+              [
+                6750,
+                11100,
+                6870,
+                11210,
+                "u"
+              ],
+              [
+                6810,
+                11150,
+                6980,
+                11270,
+                "u"
+              ],
+              [
+                8180,
+                11150,
+                8350,
+                11270,
+                "u"
+              ],
+              [
+                5360,
+                11150,
+                6810,
+                11270,
+                "u"
+              ],
+              [
+                5300,
+                11210,
+                5420,
+                11450,
+                "u"
+              ],
+              [
+                5300,
+                13150,
+                5420,
+                13950,
+                "u"
+              ],
+              [
+                3375,
+                60,
+                3495,
+                3850,
+                "u"
+              ],
+              [
+                3375,
+                4750,
+                3495,
+                4930,
+                "u"
+              ],
+              [
+                60,
+                3220,
+                2467.5,
+                3340,
+                "u"
+              ],
+              [
+                3367.5,
+                3220,
+                3435,
+                3340,
+                "u"
+              ],
+              [
+                2340,
+                3280,
+                2460,
+                4980,
+                "u"
+              ],
+              [
+                2340,
+                5880,
+                2460,
+                6260,
+                "u"
+              ],
+              [
+                2060,
+                6200,
+                2400,
+                6320,
+                "u"
+              ],
+              [
+                4390,
+                3280,
+                4510,
+                3440,
+                "u"
+              ],
+              [
+                4390,
+                4190,
+                4510,
+                4930,
+                "u"
+              ],
+              [
+                4450,
+                3220,
+                6810,
+                3340,
+                "u"
+              ],
+              [
+                3435,
+                4870,
+                4450,
+                4990,
+                "u"
+              ],
+              [
+                4450,
+                4870,
+                6810,
+                4990,
+                "u"
+              ],
+              [
+                3375,
+                4930,
+                3495,
+                5010,
+                "u"
+              ],
+              [
+                3375,
+                5760,
+                3495,
+                6260,
+                "u"
+              ],
+              [
+                3435,
+                6200,
+                6810,
+                6320,
+                "u"
+              ],
+              [
+                5420,
+                13290,
+                6020,
+                13890,
+                "shaft"
+              ]
+            ],
+            "WALL_META": [
+              {
+                "sourceId": "suite_r4b_wall_0",
+                "sourceWallIndex": 0,
+                "sourceAxisMm": [
+                  60,
+                  60,
+                  6810,
+                  60
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_0",
+                "sourceWallIndex": 0,
+                "sourceAxisMm": [
+                  60,
+                  60,
+                  6810,
+                  60
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_0",
+                "sourceWallIndex": 0,
+                "sourceAxisMm": [
+                  60,
+                  60,
+                  6810,
+                  60
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2790,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_0",
+                "sourceWallIndex": 0,
+                "sourceAxisMm": [
+                  60,
+                  60,
+                  6810,
+                  60
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2790,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_1",
+                "sourceWallIndex": 1,
+                "sourceAxisMm": [
+                  60,
+                  60,
+                  60,
+                  6260
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_1",
+                "sourceWallIndex": 1,
+                "sourceAxisMm": [
+                  60,
+                  60,
+                  60,
+                  6260
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_2",
+                "sourceWallIndex": 2,
+                "sourceAxisMm": [
+                  60,
+                  6260,
+                  2060,
+                  6260
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_3",
+                "sourceWallIndex": 3,
+                "sourceAxisMm": [
+                  2060,
+                  6260,
+                  2060,
+                  13950
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_3",
+                "sourceWallIndex": 3,
+                "sourceAxisMm": [
+                  2060,
+                  6260,
+                  2060,
+                  13950
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_4",
+                "sourceWallIndex": 4,
+                "sourceAxisMm": [
+                  2060,
+                  13950,
+                  8350,
+                  13950
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_4",
+                "sourceWallIndex": 4,
+                "sourceAxisMm": [
+                  2060,
+                  13950,
+                  8350,
+                  13950
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_5",
+                "sourceWallIndex": 5,
+                "sourceAxisMm": [
+                  8350,
+                  9600,
+                  8350,
+                  13950
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_5",
+                "sourceWallIndex": 5,
+                "sourceAxisMm": [
+                  8350,
+                  9600,
+                  8350,
+                  13950
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_6",
+                "sourceWallIndex": 6,
+                "sourceAxisMm": [
+                  6810,
+                  9600,
+                  8350,
+                  9600
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_6",
+                "sourceWallIndex": 6,
+                "sourceAxisMm": [
+                  6810,
+                  9600,
+                  8350,
+                  9600
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_7",
+                "sourceWallIndex": 7,
+                "sourceAxisMm": [
+                  6810,
+                  60,
+                  6810,
+                  9600
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2790,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_7",
+                "sourceWallIndex": 7,
+                "sourceAxisMm": [
+                  6810,
+                  60,
+                  6810,
+                  9600
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_7",
+                "sourceWallIndex": 7,
+                "sourceAxisMm": [
+                  6810,
+                  60,
+                  6810,
+                  9600
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_7",
+                "sourceWallIndex": 7,
+                "sourceAxisMm": [
+                  6810,
+                  60,
+                  6810,
+                  9600
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_8",
+                "sourceWallIndex": 8,
+                "sourceAxisMm": [
+                  6810,
+                  9600,
+                  6810,
+                  11210
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "C",
+                "notes": "确认：生活阳台内侧门轴退回原位向东287.5mm，取消借厅外凸；原垛、结构与防水高差待鉴定。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_9",
+                "sourceWallIndex": 9,
+                "sourceAxisMm": [
+                  6810,
+                  11210,
+                  8350,
+                  11210
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_9",
+                "sourceWallIndex": 9,
+                "sourceAxisMm": [
+                  6810,
+                  11210,
+                  8350,
+                  11210
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_10",
+                "sourceWallIndex": 10,
+                "sourceAxisMm": [
+                  5360,
+                  11210,
+                  6810,
+                  11210
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_11",
+                "sourceWallIndex": 11,
+                "sourceAxisMm": [
+                  5360,
+                  11210,
+                  5360,
+                  13950
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "suite_r4b_wall_11",
+                "sourceWallIndex": 11,
+                "sourceAxisMm": [
+                  5360,
+                  11210,
+                  5360,
+                  13950
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "baseline",
+                "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+              },
+              {
+                "sourceId": "family_r3_wall_12",
+                "sourceWallIndex": 12,
+                "sourceAxisMm": [
+                  3435,
+                  60,
+                  3435,
+                  4930
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2790,
+                "bearingStatus": "unverified",
+                "grade": "C",
+                "notes": "R3确认设计墙线，非实测或可拆性结论"
+              },
+              {
+                "sourceId": "family_r3_wall_12",
+                "sourceWallIndex": 12,
+                "sourceAxisMm": [
+                  3435,
+                  60,
+                  3435,
+                  4930
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2790,
+                "bearingStatus": "unverified",
+                "grade": "C",
+                "notes": "R3确认设计墙线，非实测或可拆性结论"
+              },
+              {
+                "sourceId": "family_r3_wall_13",
+                "sourceWallIndex": 13,
+                "sourceAxisMm": [
+                  60,
+                  3280,
+                  3435,
+                  3280
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "C",
+                "notes": "R3确认设计墙线，非实测或可拆性结论"
+              },
+              {
+                "sourceId": "family_r3_wall_13",
+                "sourceWallIndex": 13,
+                "sourceAxisMm": [
+                  60,
+                  3280,
+                  3435,
+                  3280
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "C",
+                "notes": "R3确认设计墙线，非实测或可拆性结论"
+              },
+              {
+                "sourceId": "family_r3_wall_14",
+                "sourceWallIndex": 14,
+                "sourceAxisMm": [
+                  2400,
+                  3280,
+                  2400,
+                  6260
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "C",
+                "notes": "2026-10-11确认：书房900门洞南移500mm，房间外轮廓及墙轴线不变，承重性及门套待核。"
+              },
+              {
+                "sourceId": "family_r3_wall_14",
+                "sourceWallIndex": 14,
+                "sourceAxisMm": [
+                  2400,
+                  3280,
+                  2400,
+                  6260
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "C",
+                "notes": "2026-10-11确认：书房900门洞南移500mm，房间外轮廓及墙轴线不变，承重性及门套待核。"
+              },
+              {
+                "sourceId": "family_r3_wall_15",
+                "sourceWallIndex": 15,
+                "sourceAxisMm": [
+                  2060,
+                  6260,
+                  2400,
+                  6260
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "C",
+                "notes": "R3确认设计墙线，非实测或可拆性结论"
+              },
+              {
+                "sourceId": "family_r3_wall_16",
+                "sourceWallIndex": 16,
+                "sourceAxisMm": [
+                  4450,
+                  3280,
+                  4450,
+                  4930
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2790,
+                "bearingStatus": "unverified",
+                "grade": "C",
+                "notes": "R3确认设计墙线，非实测或可拆性结论"
+              },
+              {
+                "sourceId": "family_r3_wall_16",
+                "sourceWallIndex": 16,
+                "sourceAxisMm": [
+                  4450,
+                  3280,
+                  4450,
+                  4930
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2790,
+                "bearingStatus": "unverified",
+                "grade": "C",
+                "notes": "R3确认设计墙线，非实测或可拆性结论"
+              },
+              {
+                "sourceId": "family_r3_wall_17",
+                "sourceWallIndex": 17,
+                "sourceAxisMm": [
+                  4450,
+                  3280,
+                  6810,
+                  3280
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2790,
+                "bearingStatus": "unverified",
+                "grade": "C",
+                "notes": "R3确认设计墙线，非实测或可拆性结论"
+              },
+              {
+                "sourceId": "family_r3_wall_18",
+                "sourceWallIndex": 18,
+                "sourceAxisMm": [
+                  3435,
+                  4930,
+                  6810,
+                  4930
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2790,
+                "bearingStatus": "unverified",
+                "grade": "C",
+                "notes": "R3确认设计墙线，非实测或可拆性结论"
+              },
+              {
+                "sourceId": "family_r3_wall_18",
+                "sourceWallIndex": 18,
+                "sourceAxisMm": [
+                  3435,
+                  4930,
+                  6810,
+                  4930
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "C",
+                "notes": "R3确认设计墙线，非实测或可拆性结论"
+              },
+              {
+                "sourceId": "family_r3_wall_19",
+                "sourceWallIndex": 19,
+                "sourceAxisMm": [
+                  3435,
+                  4930,
+                  3435,
+                  6260
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "C",
+                "notes": "R3确认设计墙线，非实测或可拆性结论"
+              },
+              {
+                "sourceId": "family_r3_wall_19",
+                "sourceWallIndex": 19,
+                "sourceAxisMm": [
+                  3435,
+                  4930,
+                  3435,
+                  6260
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "C",
+                "notes": "R3确认设计墙线，非实测或可拆性结论"
+              },
+              {
+                "sourceId": "family_r3_wall_20",
+                "sourceWallIndex": 20,
+                "sourceAxisMm": [
+                  3435,
+                  6260,
+                  6810,
+                  6260
+                ],
+                "thicknessMm": 120,
+                "heightMm": 2700,
+                "bearingStatus": "unverified",
+                "grade": "C",
+                "notes": "R3确认设计墙线，非实测或可拆性结论"
+              },
+              {
+                "sourceId": "shaft",
+                "sourceWallIndex": -1,
+                "thicknessMm": 600,
+                "heightMm": 2700,
+                "bearingStatus": "service-shaft",
+                "nonDemolishable": true,
+                "grade": "provisional",
+                "notes": "西南烟道不可利用；外包600×600mm仍暂估，检修与排烟接口待核。"
+              }
+            ]
+          },
+          "previousFurniture": [
+            {
+              "id": "study_full_desk",
+              "type": "desk",
+              "name": "书房7字桌 · 南段1680×550",
+              "cx": 960,
+              "cy": 5925,
+              "w": 1680,
+              "d": 550,
+              "rot": 0,
+              "color": "#C8A77E",
+              "heightMm": 740,
+              "elevationMm": 0,
+              "sourceId": "study_full_desk",
+              "sourceFootprintMm": {
+                "x": 120,
+                "y": 5650,
+                "w": 1680,
+                "d": 550
+              },
+              "roomId": "room_c",
+              "face": "north",
+              "notes": "确认：南桌东端缩至x1800，避让南移门扇；西端接500深窗边返桌。台高740暂沿用，支撑及收口待深化。",
+              "dimensionStatus": "design-pending",
+              "originalSourceFootprintMm": {
+                "x": 120,
+                "y": 5650,
+                "w": 2220,
+                "d": 550
+              },
+              "modelVariant": "north-facing-workstation",
+              "layoutRevision": "family-study-laundry-confirmed-20261011"
+            },
+            {
+              "id": "fit-study_bookwall",
+              "type": "fixture",
+              "name": "书房南墙浅书架 · 1680四格与工作灯带",
+              "cx": 960,
+              "cy": 6058.75,
+              "w": 1680,
+              "d": 282.5,
+              "rot": 0,
+              "color": "#F4F1E9",
+              "baseWidthMm": 1680,
+              "baseDepthMm": 282.5,
+              "heightMm": 2500,
+              "elevationMm": 0,
+              "parts": [
+                {
+                  "id": "fit-study_bookwall-back",
+                  "x": -840,
+                  "y": 129.25,
+                  "w": 1680,
+                  "d": 12,
+                  "elevationMm": 1460,
+                  "heightMm": 1040,
+                  "role": "back",
+                  "label": "12mm原木背板",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-upright-0",
+                  "x": -840,
+                  "y": -138.75,
+                  "w": 22,
+                  "d": 268,
+                  "elevationMm": 1460,
+                  "heightMm": 1040,
+                  "role": "upright",
+                  "label": "22mm竖板",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-upright-1",
+                  "x": -425.5,
+                  "y": -138.75,
+                  "w": 22,
+                  "d": 268,
+                  "elevationMm": 1460,
+                  "heightMm": 1040,
+                  "role": "upright",
+                  "label": "22mm竖板",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-upright-2",
+                  "x": -11,
+                  "y": -138.75,
+                  "w": 22,
+                  "d": 268,
+                  "elevationMm": 1460,
+                  "heightMm": 1040,
+                  "role": "upright",
+                  "label": "22mm竖板",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-upright-3",
+                  "x": 403.5,
+                  "y": -138.75,
+                  "w": 22,
+                  "d": 268,
+                  "elevationMm": 1460,
+                  "heightMm": 1040,
+                  "role": "upright",
+                  "label": "22mm竖板",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-upright-4",
+                  "x": 818,
+                  "y": -138.75,
+                  "w": 22,
+                  "d": 268,
+                  "elevationMm": 1460,
+                  "heightMm": 1040,
+                  "role": "upright",
+                  "label": "22mm竖板",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-shelf-0-1460",
+                  "x": -818,
+                  "y": -116.75,
+                  "w": 392.5,
+                  "d": 246,
+                  "elevationMm": 1460,
+                  "heightMm": 22,
+                  "role": "shelf",
+                  "label": "22mm薄层板",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-shelf-0-1800",
+                  "x": -818,
+                  "y": -116.75,
+                  "w": 392.5,
+                  "d": 246,
+                  "elevationMm": 1800,
+                  "heightMm": 22,
+                  "role": "shelf",
+                  "label": "22mm薄层板",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-shelf-0-2140",
+                  "x": -818,
+                  "y": -116.75,
+                  "w": 392.5,
+                  "d": 246,
+                  "elevationMm": 2140,
+                  "heightMm": 22,
+                  "role": "shelf",
+                  "label": "22mm薄层板",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-shelf-0-2478",
+                  "x": -818,
+                  "y": -116.75,
+                  "w": 392.5,
+                  "d": 246,
+                  "elevationMm": 2478,
+                  "heightMm": 22,
+                  "role": "shelf",
+                  "label": "22mm薄层板",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-door-0",
+                  "x": -816.5,
+                  "y": -138.75,
+                  "w": 389.5,
+                  "d": 18,
+                  "elevationMm": 2163.5,
+                  "heightMm": 313,
+                  "role": "door",
+                  "label": "高位封闭门",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "north",
+                  "doorStyle": "hinged",
+                  "panelIndex": 0
+                },
+                {
+                  "id": "fit-study_bookwall-pull-0",
+                  "x": -651.75,
+                  "y": -141.25,
+                  "w": 60,
+                  "d": 2.5,
+                  "elevationMm": 2170,
+                  "heightMm": 7,
+                  "role": "pull",
+                  "label": "内嵌浅原木扣手",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-0-0-0",
+                  "x": -793,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1482,
+                  "heightMm": 210,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-0-0-1",
+                  "x": -753,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1482,
+                  "heightMm": 230,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#EEE8DC",
+                  "material": "WhiteLinen",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-0-0-2",
+                  "x": -713,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1482,
+                  "heightMm": 250,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#7C9485",
+                  "material": "Sage",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-0-1-0",
+                  "x": -793,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1822,
+                  "heightMm": 210,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#EEE8DC",
+                  "material": "WhiteLinen",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-0-1-1",
+                  "x": -753,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1822,
+                  "heightMm": 230,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#7C9485",
+                  "material": "Sage",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-0-1-2",
+                  "x": -713,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1822,
+                  "heightMm": 250,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-shelf-1-1460",
+                  "x": -403.5,
+                  "y": -116.75,
+                  "w": 392.5,
+                  "d": 246,
+                  "elevationMm": 1460,
+                  "heightMm": 22,
+                  "role": "shelf",
+                  "label": "22mm薄层板",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-shelf-1-1800",
+                  "x": -403.5,
+                  "y": -116.75,
+                  "w": 392.5,
+                  "d": 246,
+                  "elevationMm": 1800,
+                  "heightMm": 22,
+                  "role": "shelf",
+                  "label": "22mm薄层板",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-shelf-1-2140",
+                  "x": -403.5,
+                  "y": -116.75,
+                  "w": 392.5,
+                  "d": 246,
+                  "elevationMm": 2140,
+                  "heightMm": 22,
+                  "role": "shelf",
+                  "label": "22mm薄层板",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-shelf-1-2478",
+                  "x": -403.5,
+                  "y": -116.75,
+                  "w": 392.5,
+                  "d": 246,
+                  "elevationMm": 2478,
+                  "heightMm": 22,
+                  "role": "shelf",
+                  "label": "22mm薄层板",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-door-1",
+                  "x": -402,
+                  "y": -138.75,
+                  "w": 389.5,
+                  "d": 18,
+                  "elevationMm": 2163.5,
+                  "heightMm": 313,
+                  "role": "door",
+                  "label": "高位封闭门",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "north",
+                  "doorStyle": "hinged",
+                  "panelIndex": 1
+                },
+                {
+                  "id": "fit-study_bookwall-pull-1",
+                  "x": -237.25,
+                  "y": -141.25,
+                  "w": 60,
+                  "d": 2.5,
+                  "elevationMm": 2170,
+                  "heightMm": 7,
+                  "role": "pull",
+                  "label": "内嵌浅原木扣手",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-1-0-0",
+                  "x": -378.5,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1482,
+                  "heightMm": 210,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#EEE8DC",
+                  "material": "WhiteLinen",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-1-0-1",
+                  "x": -338.5,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1482,
+                  "heightMm": 230,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#7C9485",
+                  "material": "Sage",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-1-0-2",
+                  "x": -298.5,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1482,
+                  "heightMm": 250,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-1-1-0",
+                  "x": -378.5,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1822,
+                  "heightMm": 210,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#7C9485",
+                  "material": "Sage",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-1-1-1",
+                  "x": -338.5,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1822,
+                  "heightMm": 230,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-1-1-2",
+                  "x": -298.5,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1822,
+                  "heightMm": 250,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#EEE8DC",
+                  "material": "WhiteLinen",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-shelf-2-1460",
+                  "x": 11,
+                  "y": -116.75,
+                  "w": 392.5,
+                  "d": 246,
+                  "elevationMm": 1460,
+                  "heightMm": 22,
+                  "role": "shelf",
+                  "label": "22mm薄层板",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-shelf-2-1800",
+                  "x": 11,
+                  "y": -116.75,
+                  "w": 392.5,
+                  "d": 246,
+                  "elevationMm": 1800,
+                  "heightMm": 22,
+                  "role": "shelf",
+                  "label": "22mm薄层板",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-shelf-2-2140",
+                  "x": 11,
+                  "y": -116.75,
+                  "w": 392.5,
+                  "d": 246,
+                  "elevationMm": 2140,
+                  "heightMm": 22,
+                  "role": "shelf",
+                  "label": "22mm薄层板",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-shelf-2-2478",
+                  "x": 11,
+                  "y": -116.75,
+                  "w": 392.5,
+                  "d": 246,
+                  "elevationMm": 2478,
+                  "heightMm": 22,
+                  "role": "shelf",
+                  "label": "22mm薄层板",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-door-2",
+                  "x": 12.5,
+                  "y": -138.75,
+                  "w": 389.5,
+                  "d": 18,
+                  "elevationMm": 2163.5,
+                  "heightMm": 313,
+                  "role": "door",
+                  "label": "高位封闭门",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "north",
+                  "doorStyle": "hinged",
+                  "panelIndex": 2
+                },
+                {
+                  "id": "fit-study_bookwall-pull-2",
+                  "x": 177.25,
+                  "y": -141.25,
+                  "w": 60,
+                  "d": 2.5,
+                  "elevationMm": 2170,
+                  "heightMm": 7,
+                  "role": "pull",
+                  "label": "内嵌浅原木扣手",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-2-0-0",
+                  "x": 36,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1482,
+                  "heightMm": 210,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#7C9485",
+                  "material": "Sage",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-2-0-1",
+                  "x": 76,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1482,
+                  "heightMm": 230,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-2-0-2",
+                  "x": 116,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1482,
+                  "heightMm": 250,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#EEE8DC",
+                  "material": "WhiteLinen",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-2-1-0",
+                  "x": 36,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1822,
+                  "heightMm": 210,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-2-1-1",
+                  "x": 76,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1822,
+                  "heightMm": 230,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#EEE8DC",
+                  "material": "WhiteLinen",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-2-1-2",
+                  "x": 116,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1822,
+                  "heightMm": 250,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#7C9485",
+                  "material": "Sage",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-shelf-3-1460",
+                  "x": 425.5,
+                  "y": -116.75,
+                  "w": 392.5,
+                  "d": 246,
+                  "elevationMm": 1460,
+                  "heightMm": 22,
+                  "role": "shelf",
+                  "label": "22mm薄层板",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-shelf-3-1800",
+                  "x": 425.5,
+                  "y": -116.75,
+                  "w": 392.5,
+                  "d": 246,
+                  "elevationMm": 1800,
+                  "heightMm": 22,
+                  "role": "shelf",
+                  "label": "22mm薄层板",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-shelf-3-2140",
+                  "x": 425.5,
+                  "y": -116.75,
+                  "w": 392.5,
+                  "d": 246,
+                  "elevationMm": 2140,
+                  "heightMm": 22,
+                  "role": "shelf",
+                  "label": "22mm薄层板",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-shelf-3-2478",
+                  "x": 425.5,
+                  "y": -116.75,
+                  "w": 392.5,
+                  "d": 246,
+                  "elevationMm": 2478,
+                  "heightMm": 22,
+                  "role": "shelf",
+                  "label": "22mm薄层板",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-door-3",
+                  "x": 427,
+                  "y": -138.75,
+                  "w": 389.5,
+                  "d": 18,
+                  "elevationMm": 2163.5,
+                  "heightMm": 313,
+                  "role": "door",
+                  "label": "高位封闭门",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "north",
+                  "doorStyle": "hinged",
+                  "panelIndex": 3
+                },
+                {
+                  "id": "fit-study_bookwall-pull-3",
+                  "x": 591.75,
+                  "y": -141.25,
+                  "w": 60,
+                  "d": 2.5,
+                  "elevationMm": 2170,
+                  "heightMm": 7,
+                  "role": "pull",
+                  "label": "内嵌浅原木扣手",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-3-0-0",
+                  "x": 450.5,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1482,
+                  "heightMm": 210,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-3-0-1",
+                  "x": 490.5,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1482,
+                  "heightMm": 230,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#EEE8DC",
+                  "material": "WhiteLinen",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-3-0-2",
+                  "x": 530.5,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1482,
+                  "heightMm": 250,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#7C9485",
+                  "material": "Sage",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-3-1-0",
+                  "x": 450.5,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1822,
+                  "heightMm": 210,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#EEE8DC",
+                  "material": "WhiteLinen",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-3-1-1",
+                  "x": 490.5,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1822,
+                  "heightMm": 230,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#7C9485",
+                  "material": "Sage",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-book-3-1-2",
+                  "x": 530.5,
+                  "y": -108.75,
+                  "w": 31,
+                  "d": 210,
+                  "elevationMm": 1822,
+                  "heightMm": 250,
+                  "role": "book",
+                  "label": "常用书占位",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-diffuser",
+                  "x": -780,
+                  "y": -118.75,
+                  "w": 1560,
+                  "d": 16,
+                  "elevationMm": 1452,
+                  "heightMm": 8,
+                  "role": "light-diffuser",
+                  "label": "原书墙下部灯罩",
+                  "color": "#CDB594",
+                  "material": "Lamp",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-light",
+                  "x": -816,
+                  "y": -111.25,
+                  "w": 1632,
+                  "d": 8,
+                  "elevationMm": 1448,
+                  "heightMm": 4,
+                  "role": "led-strip",
+                  "label": "书架下板底面工作灯带",
+                  "color": "#FFF1CF",
+                  "material": "Light",
+                  "face": "north",
+                  "anchor": "shelf-underside"
+                }
+              ],
+              "sourceId": "fit-study_bookwall",
+              "dimensionStatus": "design-pending",
+              "roomId": "room_c",
+              "notes": "已确认随南桌收短1680，四格原木开放书架与上层奶白柜门；22mm板及12mm背板不缩放，下方工作灯带保留。东端与桌齐，不延伸到西窗。",
+              "conditions": [
+                "1680mm外包、四格、每格净跨392.5mm；22mm竖板与层板、12mm背板、18mm上柜门沿用原构造尺寸，锚固承重需厂家核验。",
+                "开放格下口1460mm、顶2500mm为设计值；工作灯带底1448mm，不把高处书格当儿童自助书架。",
+                "书架独立吊挂，不支在桌面或西窗玻璃上；基层、窗帘和电源待现场深化。"
+              ],
+              "cabinetRevision": "cream-oak-functional-v1",
+              "baseHeightMm": 2500,
+              "cabinetDesign": {
+                "revision": "cream-oak-functional-v1",
+                "title": "书房1680四格浅书墙",
+                "status": "concept-pending-detail",
+                "previousColor": "#F3EFE6",
+                "boardThicknessMm": 22,
+                "doorGapMm": 3,
+                "palette": {
+                  "door": "#F4F1E9",
+                  "wood": "#CDB594",
+                  "counter": "#CDB594",
+                  "metal": "#9D9386",
+                  "light": "#FFF1CF"
+                },
+                "faces": [
+                  {
+                    "face": "north",
+                    "label": "书房南墙书架 · 朝北",
+                    "lengthMm": 1680,
+                    "depthMm": 282.5
+                  }
+                ],
+                "features": [
+                  "四格两排开放书位与顶部奶白封闭柜门。",
+                  "原22mm板件、12mm背板和独立吊挂，不等比例缩板。",
+                  "下板底面工作灯带；玻璃前只有返桌，不增挡窗高柜。"
+                ],
+                "dimensions": [
+                  "1680×282.5mm外包，书格净跨392.5mm；下口1460、顶2500、薄灯带底1448mm。",
+                  "门缝、拉手、照明眩光、基层锚固和荷载仍需现场深化。"
+                ],
+                "backThicknessMm": 12,
+                "layoutRevision": "family-study-laundry-confirmed-20261011"
+              },
+              "layoutRevision": "family-study-laundry-confirmed-20261011",
+              "sourceFootprintMm": {
+                "x": 120,
+                "y": 5917.5,
+                "w": 1680,
+                "d": 282.5
+              }
+            }
+          ],
+          "previousFurnitureOrder": [
+            "bed_b",
+            "family-f1",
+            "bed_a",
+            "family-f3",
+            "study_full_desk",
+            "family-f5",
+            "family-living-rug",
+            "family-f6",
+            "family-f7",
+            "family-f8",
+            "vanity_main",
+            "family-f11",
+            "family-f12",
+            "vanity_guest",
+            "family-f14",
+            "family-f15",
+            "study_north_sofa",
+            "family-f23",
+            "family-f24",
+            "family-f25",
+            "family-f26",
+            "family-f27",
+            "fit-bay_b_tea",
+            "fit-bay_living_family",
+            "fit-entry_shoe_station",
+            "fit-dining_sideboard_wall",
+            "fit-sofa_back_storage",
+            "fit-study_bookwall",
+            "laundry_washer",
+            "laundry_dryer",
+            "fit-kitchen-20261005",
+            "kitchen_fridge",
+            "kitchen_dishwasher",
+            "kitchen_double_sink",
+            "kitchen_hob",
+            "kitchen_hood",
+            "kitchen_heater",
+            "kitchen_tap",
+            "living-floorlamp",
+            "living-east-art",
+            "draft-desk-b",
+            "draft-chair-b",
+            "draft-night-b",
+            "draft-desk-a",
+            "draft-chair-a",
+            "draft-night-a",
+            "study_window_return"
+          ],
+          "previousMetadataFields": {
+            "designCorrections": [
+              {
+                "id": "bath-south-hinge-20261008",
+                "sourceId": "door_bath_1",
+                "description": "主卫北铰改南铰，仍向卫内开；门洞和全部家具位置不变。",
+                "openingUnchanged": true,
+                "hingeMm": [
+                  4450,
+                  4430
+                ],
+                "closedDirection": [
+                  0,
+                  -1
+                ],
+                "openDirection": [
+                  1,
+                  0
+                ],
+                "usageNote": "门扇转到入口南侧而非贴南墙。两门板间距不是通行净宽；旧源快照550mm门间带说明不再适用。",
+                "status": "superseded-for-family",
+                "supersededBy": "family-master-bath-confirmed-20261011"
+              },
+              {
+                "id": "entry-family-layout-20261011",
+                "sourceId": "entry_door",
+                "description": "2026-10-11用户修订：入户门参照方案4向室外开启，保持本方案原洞口、宽高及门叶长度；合页从本方案洞口东端内退60mm作示意。公共走廊、邻户门、门套、闭门器及允许开启角度尚待现场核对，不构成外开施工批准。",
+                "openingUnchanged": true,
+                "hingeMm": [
+                  4840,
+                  13950
+                ],
+                "closedDirection": [
+                  -1,
+                  0
+                ],
+                "openDirection": [
+                  0,
+                  1
+                ],
+                "leafLengthMm": 890
+              },
+              {
+                "id": "family-master-bath-confirmed-20261011",
+                "date": "2026-10-11",
+                "sourceIds": [
+                  "door_a",
+                  "door_bath_1",
+                  "vanity_main",
+                  "family-f11"
+                ],
+                "description": "方案2主卧门南移300mm；主卫门北移300mm、北铰内开；南墙盆厕及镜面朝北，淋浴和房间边界不动。",
+                "openingWidthsUnchanged": true,
+                "sourceSnapshotsUnchanged": true,
+                "usageNote": "门侧墙段随新洞口补齐，未改变墙体轴线或主卫北墙；门位移是已确认设计参数而非新增实测，排水与五金仍待核。"
+              },
+              {
+                "id": "family-study-laundry-confirmed-20261011",
+                "date": "2026-10-11",
+                "sourceIds": [
+                  "door_c",
+                  "study_full_desk",
+                  "family-f5",
+                  "fit-study_bookwall",
+                  "vanity_guest",
+                  "laundry_washer",
+                  "laundry_dryer",
+                  "study_window_return",
+                  "fit-laundry_wall",
+                  "fit-laundry_basin",
+                  "balcony_door"
+                ],
+                "description": "方案2确认书房门南移500及7字窗边桌；洗衣机入客卫左机右盆台，阳台只留单干机且退回原门轴。",
+                "sourceSnapshotsUnchanged": true,
+                "usageNote": "当前保留书房沙发，1500×2000未来床只作替换校核，不与沙发同时新增；客卫门和主卫、双卧本轮不动。"
+              },
+              {
+                "id": "family-door-refinement-20261011",
+                "date": "2026-10-11",
+                "sourceIds": [
+                  "balcony_door",
+                  "door_kitchen"
+                ],
+                "description": "方案2厨房及生活阳台玻璃推拉门由三扇三轨改双扇双轨，保持原洞口和堆叠方向。",
+                "sourceSnapshotsUnchanged": true,
+                "openingWidthsUnchanged": true,
+                "wallIndexesUnchanged": true,
+                "furnitureUnchanged": true,
+                "usageNote": "没有默认采纳尚待确认的书房反向开门及桌棚收短；此层只变两个推拉门。"
+              }
+            ],
+            "conditions": [
+              "墙体、房间多边形和面积沿用既有方案；部分复尺已应用，全屋墙线和共同基准未闭合。",
+              "编辑器中的尺寸以模型坐标为准；已购家具保持机身外廓，安装、门套及五金余量待核。",
+              "入户门参照方案4向外开启，模型内不再扫过鞋柜正面；门外公共通行、相邻门、门套、闭门器及限位仍须现场确认，模型不构成外开施工批准。",
+              "方案2本轮主卧门南移300mm、主卫门北移300mm并改北铰内开；盆厕贴南墙面北。门位为确认设计参数，非新增实测；马桶侧至淋浴仅60mm，排水移位与门套、通行条件仍须现场深化。",
+              "方案2书房900门洞南移500，7字桌与1680浅书墙；与主卧门洞纵向间隔230mm，历史270mm投影重叠说明已由本轮替代。未来完整床须替换沙发并收椅。客卫台前610mm偏紧，机门/取衣须实物试摆。阳台取消借厅外凸但全屋净宽与复尺差180mm尚未闭合。",
+              "方案2厨房1700、生活阳台1500mm原门洞保持，仅改双扇双轨玻璃推拉门；厨房向北、阳台向南堆叠不变。开门后的可用通行宽度约为洞宽一半，实际门框/搭接/五金再扣，须核对搬运、操作和防水高差。"
+            ],
+            "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs"
+          },
+          "changedDoorIds": [
+            "door_c"
+          ],
+          "notesOnlyDoorIds": [
+            "door_a"
+          ],
+          "changedFurnitureIds": [
+            "study_full_desk",
+            "fit-study_bookwall"
+          ],
+          "newFurnitureIds": [],
+          "removedFurnitureIds": [],
+          "replacedFurnitureIds": [],
+          "preserveCustomSizeIds": [
+            "study_full_desk",
+            "fit-study_bookwall"
+          ],
+          "migrationFields": {
+            "study_full_desk": [
+              "cx",
+              "layoutRevision",
+              "name",
+              "notes",
+              "sourceFootprintMm",
+              "w"
+            ],
+            "fit-study_bookwall": [
+              "baseWidthMm",
+              "cabinetDesign",
+              "conditions",
+              "cx",
+              "layoutRevision",
+              "name",
+              "notes",
+              "parts",
+              "sourceFootprintMm",
+              "w"
+            ]
+          },
+          "wallIndicesUnchanged": true,
+          "study": {
+            "openingWidthMm": 900,
+            "openingY": [
+              5280,
+              6180
+            ],
+            "southShiftFromPreviousMm": 300,
+            "cumulativeSouthShiftMm": 800,
+            "hingeMm": [
+              2400,
+              6120
+            ],
+            "hingeSide": "south",
+            "closedDirection": [
+              0,
+              -1
+            ],
+            "openDirection": [
+              -1,
+              0
+            ],
+            "leafMm": [
+              780,
+              40
+            ],
+            "doorHeightMm": 2150,
+            "deskMm": [
+              1450,
+              550,
+              740
+            ],
+            "shelfMm": [
+              1450,
+              282.5,
+              2500
+            ],
+            "shelfBays": 4,
+            "shelfClearSpanMm": 335,
+            "returnDeskUnchanged": true,
+            "chairUnchanged": true,
+            "chairCenterMm": [
+              960,
+              5350
+            ],
+            "sofaRetained": true
+          },
+          "clearancesMm": {
+            "mainStudyDoorLongitudinalGap": 530,
+            "southOpeningJambInside": 20,
+            "fullyOpenLeafToSouthWall": 60,
+            "chairToWestReturnStaticSideGap": 100,
+            "doorContinuousSweepToDesktop": 49.743631874753646,
+            "doorContinuousSweepEastOfBookcaseOuterEdge": 49.743631874753646,
+            "futureBedSouthToDeskFront": 710,
+            "futureBedFootEast": 120,
+            "futureBedToReturn": 100,
+            "futureBedToDoorSweepByY": 399.7436318747532
+          },
+          "futureBed": {
+            "mattressMm": [
+              1500,
+              2000
+            ],
+            "assumedFrameMm": [
+              1600,
+              2100
+            ],
+            "sourceFootprintMm": {
+              "x": 120,
+              "y": 3340,
+              "w": 2100,
+              "d": 1600
+            },
+            "head": "west",
+            "replacesFurnitureId": "study_north_sofa",
+            "notSameTime": true,
+            "addedToCurrentScene": false
+          },
+          "conditions": [
+            "书房房间轮廓2220×2860、返桌500×610、北墙沙发与未来床预留原样保持；床架2100×1600仅占位假设。",
+            "坐椅保持原中心960/5350，距西窗返桌侧边100mm；不强制移到新桌心845（否则其480mm占位会与返桌重叠15mm）。",
+            "床侧710mm同时承担上下床与坐椅使用，用床时应收椅或移开；床尾120mm不作为通道。",
+            "2150mm门高范围内的真实书架竖板/背板/层板及1448mm灯带必须避让40mm厚门叶全部角度扫掠，不能只看桌面或一张90度门板。",
+            "模型门扫掠至桌/书架外包约49.74mm，门全开离南墙60mm；均未计门把手、门套、墙面完成层、板件变形和安装误差。",
+            "900洞下室内墙垛仅20mm，门套收口、合页固定、开合限位与承重性尚未核实，不据模型直接施工或下单。",
+            "主卧/主卫门几何不动，厨房及阳台双扇双轨、客卫洗衣机和其他方案原样保持；历史北铰1680及230间隔条件由当前层替代。"
           ]
         }
       }

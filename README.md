@@ -132,7 +132,13 @@ python3 -m http.server 8000
 
 厨房与生活阳台由三扇三轨改成双扇双轨玻璃推拉门。原洞口1700/1500mm、门高2200/2400mm及厨房向北、阳台向南叠放均保持。叠放后的名义开口约850/750mm，门框和搭接还须扣减；不作为施工净宽。
 
-书房进一步南移、南铰内开会撞现有桌子和书架，需要将1680mm桌棚收短到约1450mm，待业主确认，暂未应用。新增生成层 `tools/family-door-refinement-20261011.cjs`；几何回归 `node tests/family-door-refinement-20261011.cjs`，实际SVG、3D与草稿回归 `node tests/family-door-refinement-browser.cjs`（默认本地4194端口）。其他三套方案与源快照不变。
+本节发布时，书房进一步南移、南铰内开及1680mm桌棚收短至1450mm尚待确认；2026-10-12已按下一节批准应用。双扇门生成层 `tools/family-door-refinement-20261011.cjs`；几何回归 `node tests/family-door-refinement-20261011.cjs`，实际SVG、3D与草稿回归 `node tests/family-door-refinement-browser.cjs`（默认本地4194端口）。其他三套方案与源快照不变。
+
+### 2026-10-12 · 方案2书房南铰门与1450mm桌架
+
+业主批准：900mm门洞再南移300mm至y5280–6180，南铰向室内开，打开后靠南墙。南桌和上方浅书架仅收短东端，西端仍x120，外宽1450mm；四格书架重新排板，保留22mm板、12mm背板、18mm门和工作灯带，不等比缩薄。西窗返桌、座椅、北墙沙发及未来双人床替换预留不变。打开门端至桌/架50mm、门南面至南墙60mm为模型余量，门套把手与施工可行性仍待现场核对。
+
+独立生成层 `tools/family-study-door-20261012.cjs`；几何回归 `node tests/family-study-door-20261012.cjs`，实际3D、SVG与旧草稿迁移回归 `node tests/family-study-door-browser.cjs`。保留自定义摆位、尺寸、颜色和删除操作，源快照、其他三套及双扇推拉门均不改。
 
 更新 house-design 快照：`node tools/convert-house-plans.cjs --source <原项目目录> --refresh-sources`。
 
