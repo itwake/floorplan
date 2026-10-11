@@ -35959,6 +35959,10697 @@ const plans = {
           }
         ]
       }
+    },
+    "screen": {
+      "id": "screen",
+      "name": "木光 · 屏风客餐厅",
+      "sourceName": "荟雅苑 · 亲子储物库",
+      "ROOMS": [
+        {
+          "id": "room_b",
+          "name": "次卧 B",
+          "poly": [
+            [
+              120,
+              120
+            ],
+            [
+              3375,
+              120
+            ],
+            [
+              3375,
+              3220
+            ],
+            [
+              120,
+              3220
+            ]
+          ],
+          "mat": "tile800",
+          "at": [
+            1410,
+            2220
+          ],
+          "heightMm": 2700,
+          "dimensionStatus": "design-pending"
+        },
+        {
+          "id": "room_a",
+          "name": "主卧",
+          "poly": [
+            [
+              3495,
+              120
+            ],
+            [
+              6750,
+              120
+            ],
+            [
+              6750,
+              3220
+            ],
+            [
+              4390,
+              3220
+            ],
+            [
+              4390,
+              4870
+            ],
+            [
+              3495,
+              4870
+            ]
+          ],
+          "mat": "tile800",
+          "at": [
+            5420,
+            2780
+          ],
+          "heightMm": 2790,
+          "dimensionStatus": "design-pending"
+        },
+        {
+          "id": "room_c",
+          "name": "书房 · 客卧",
+          "poly": [
+            [
+              120,
+              3340
+            ],
+            [
+              2340,
+              3340
+            ],
+            [
+              2340,
+              6200
+            ],
+            [
+              120,
+              6200
+            ]
+          ],
+          "mat": "tile800",
+          "at": [
+            1120,
+            4480
+          ],
+          "heightMm": 2700,
+          "dimensionStatus": "design-pending"
+        },
+        {
+          "id": "bath_1",
+          "name": "主卫",
+          "poly": [
+            [
+              4510,
+              3340
+            ],
+            [
+              6750,
+              3340
+            ],
+            [
+              6750,
+              4870
+            ],
+            [
+              4510,
+              4870
+            ]
+          ],
+          "mat": "antislip",
+          "at": [
+            5540,
+            4380
+          ],
+          "heightMm": 2700,
+          "dimensionStatus": "design-pending"
+        },
+        {
+          "id": "bath_2",
+          "name": "客卫",
+          "poly": [
+            [
+              3495,
+              4990
+            ],
+            [
+              6750,
+              4990
+            ],
+            [
+              6750,
+              6200
+            ],
+            [
+              3495,
+              6200
+            ]
+          ],
+          "mat": "antislip",
+          "at": [
+            4860,
+            5730
+          ],
+          "heightMm": 2700,
+          "dimensionStatus": "design-pending"
+        },
+        {
+          "id": "living",
+          "name": "客餐厅 / 过道",
+          "poly": [
+            [
+              2460,
+              3340
+            ],
+            [
+              3375,
+              3340
+            ],
+            [
+              3375,
+              6320
+            ],
+            [
+              6750,
+              6320
+            ],
+            [
+              6750,
+              9540
+            ],
+            [
+              6360,
+              9540
+            ],
+            [
+              6360,
+              11150
+            ],
+            [
+              6360,
+              11150
+            ],
+            [
+              6360,
+              12340
+            ],
+            [
+              5300,
+              12340
+            ],
+            [
+              5300,
+              13890
+            ],
+            [
+              2120,
+              13890
+            ],
+            [
+              2120,
+              6320
+            ],
+            [
+              2960,
+              6320
+            ],
+            [
+              2460,
+              6320
+            ]
+          ],
+          "mat": "tile800",
+          "at": null,
+          "heightMm": 2700,
+          "dimensionStatus": "design-pending"
+        },
+        {
+          "id": "balcony",
+          "name": "生活阳台",
+          "poly": [
+            [
+              6480,
+              9660
+            ],
+            [
+              8290,
+              9660
+            ],
+            [
+              8290,
+              11150
+            ],
+            [
+              6480,
+              11150
+            ]
+          ],
+          "mat": "antislip",
+          "at": [
+            7450,
+            9980
+          ],
+          "heightMm": 2700,
+          "notes": "原方案内侧再西移102.5mm，增加约0.153㎡操作空间，取自客厅；不扩大外轮廓。洗烘、浅盆和两面外窗原位保留。",
+          "dimensionStatus": "design-pending"
+        },
+        {
+          "id": "kitchen",
+          "name": "厨房",
+          "poly": [
+            [
+              6480,
+              11270
+            ],
+            [
+              8290,
+              11270
+            ],
+            [
+              8290,
+              13890
+            ],
+            [
+              5420,
+              13890
+            ],
+            [
+              5420,
+              12460
+            ],
+            [
+              6480,
+              12460
+            ]
+          ],
+          "mat": "tile800",
+          "at": [
+            6890,
+            12800
+          ],
+          "heightMm": 2700,
+          "dimensionStatus": "design-pending"
+        },
+        {
+          "id": "bay_window_b",
+          "name": "次卧北飘窗（复尺400mm台面，软垫为条件设计）",
+          "poly": [
+            [
+              990,
+              60
+            ],
+            [
+              2750,
+              60
+            ],
+            [
+              2750,
+              -600
+            ],
+            [
+              990,
+              -600
+            ]
+          ],
+          "mat": "marble",
+          "counted": false,
+          "sillMm": 400,
+          "heightMm": 1670,
+          "bay": true
+        },
+        {
+          "id": "bay_window_a",
+          "name": "主卧北飘窗（存在确认，尺寸待复尺）",
+          "poly": [
+            [
+              4110,
+              60
+            ],
+            [
+              5870,
+              60
+            ],
+            [
+              5870,
+              -600
+            ],
+            [
+              4110,
+              -600
+            ]
+          ],
+          "mat": "marble",
+          "counted": false,
+          "sillMm": 410,
+          "heightMm": 1660,
+          "bay": true
+        },
+        {
+          "id": "bay_window_living_west",
+          "name": "客厅西低飘窗（400台高暂估，非实测）",
+          "poly": [
+            [
+              2060,
+              6410
+            ],
+            [
+              2060,
+              8530
+            ],
+            [
+              1400,
+              8530
+            ],
+            [
+              1400,
+              6410
+            ]
+          ],
+          "mat": "marble",
+          "counted": false,
+          "sillMm": 400,
+          "heightMm": 2210,
+          "bay": true
+        }
+      ],
+      "WALLS": [
+        [
+          60,
+          0,
+          990,
+          120,
+          "e"
+        ],
+        [
+          2750,
+          0,
+          3435,
+          120,
+          "e"
+        ],
+        [
+          3435,
+          0,
+          4110,
+          120,
+          "e"
+        ],
+        [
+          5870,
+          0,
+          6810,
+          120,
+          "e"
+        ],
+        [
+          0,
+          60,
+          120,
+          4150,
+          "e"
+        ],
+        [
+          0,
+          5250,
+          120,
+          6260,
+          "e"
+        ],
+        [
+          60,
+          6200,
+          2060,
+          6320,
+          "e"
+        ],
+        [
+          2000,
+          6260,
+          2120,
+          6410,
+          "e"
+        ],
+        [
+          2000,
+          8530,
+          2120,
+          13950,
+          "e"
+        ],
+        [
+          2060,
+          13890,
+          3900,
+          14010,
+          "e"
+        ],
+        [
+          4900,
+          13890,
+          8350,
+          14010,
+          "e"
+        ],
+        [
+          8290,
+          9600,
+          8410,
+          9660,
+          "e"
+        ],
+        [
+          8290,
+          11150,
+          8410,
+          13950,
+          "e"
+        ],
+        [
+          6810,
+          9540,
+          6870,
+          9660,
+          "e"
+        ],
+        [
+          8290,
+          9540,
+          8350,
+          9660,
+          "e"
+        ],
+        [
+          6750,
+          60,
+          6870,
+          3280,
+          "e"
+        ],
+        [
+          6750,
+          3280,
+          6870,
+          3750,
+          "e"
+        ],
+        [
+          6750,
+          4250,
+          6870,
+          5300,
+          "e"
+        ],
+        [
+          6750,
+          5900,
+          6870,
+          9600,
+          "e"
+        ],
+        [
+          6360,
+          11100,
+          6480,
+          11210,
+          "u"
+        ],
+        [
+          6810,
+          11150,
+          6980,
+          11270,
+          "u"
+        ],
+        [
+          8180,
+          11150,
+          8350,
+          11270,
+          "u"
+        ],
+        [
+          3375,
+          60,
+          3495,
+          3550,
+          "u"
+        ],
+        [
+          3375,
+          4450,
+          3495,
+          4930,
+          "u"
+        ],
+        [
+          60,
+          3220,
+          2467.5,
+          3340,
+          "u"
+        ],
+        [
+          3367.5,
+          3220,
+          3435,
+          3340,
+          "u"
+        ],
+        [
+          2340,
+          3280,
+          2460,
+          4480,
+          "u"
+        ],
+        [
+          2340,
+          5380,
+          2460,
+          6260,
+          "u"
+        ],
+        [
+          2060,
+          6200,
+          2400,
+          6320,
+          "u"
+        ],
+        [
+          4390,
+          3280,
+          4510,
+          3740,
+          "u"
+        ],
+        [
+          4390,
+          4490,
+          4510,
+          4930,
+          "u"
+        ],
+        [
+          4450,
+          3220,
+          6810,
+          3340,
+          "u"
+        ],
+        [
+          3435,
+          4870,
+          4450,
+          4990,
+          "u"
+        ],
+        [
+          4450,
+          4870,
+          6810,
+          4990,
+          "u"
+        ],
+        [
+          3375,
+          4930,
+          3495,
+          5010,
+          "u"
+        ],
+        [
+          3375,
+          5760,
+          3495,
+          6260,
+          "u"
+        ],
+        [
+          3435,
+          6200,
+          6810,
+          6320,
+          "u"
+        ],
+        [
+          6420,
+          9540,
+          6810,
+          9660,
+          "u"
+        ],
+        [
+          5420,
+          13290,
+          6020,
+          13890,
+          "shaft"
+        ],
+        [
+          6420,
+          11150,
+          6810,
+          11270,
+          "u"
+        ],
+        [
+          6360,
+          11210,
+          6480,
+          12400,
+          "u"
+        ],
+        [
+          5360,
+          12340,
+          5440,
+          12460,
+          "u"
+        ],
+        [
+          6340,
+          12340,
+          6420,
+          12460,
+          "u"
+        ],
+        [
+          5300,
+          12400,
+          5420,
+          13950,
+          "u"
+        ]
+      ],
+      "WALL_META": [
+        {
+          "sourceId": "suite_r4b_wall_0",
+          "sourceWallIndex": 0,
+          "sourceAxisMm": [
+            60,
+            60,
+            6810,
+            60
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_0",
+          "sourceWallIndex": 0,
+          "sourceAxisMm": [
+            60,
+            60,
+            6810,
+            60
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_0",
+          "sourceWallIndex": 0,
+          "sourceAxisMm": [
+            60,
+            60,
+            6810,
+            60
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2790,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_0",
+          "sourceWallIndex": 0,
+          "sourceAxisMm": [
+            60,
+            60,
+            6810,
+            60
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2790,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_1",
+          "sourceWallIndex": 1,
+          "sourceAxisMm": [
+            60,
+            60,
+            60,
+            6260
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_1",
+          "sourceWallIndex": 1,
+          "sourceAxisMm": [
+            60,
+            60,
+            60,
+            6260
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_2",
+          "sourceWallIndex": 2,
+          "sourceAxisMm": [
+            60,
+            6260,
+            2060,
+            6260
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_3",
+          "sourceWallIndex": 3,
+          "sourceAxisMm": [
+            2060,
+            6260,
+            2060,
+            13950
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_3",
+          "sourceWallIndex": 3,
+          "sourceAxisMm": [
+            2060,
+            6260,
+            2060,
+            13950
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_4",
+          "sourceWallIndex": 4,
+          "sourceAxisMm": [
+            2060,
+            13950,
+            8350,
+            13950
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_4",
+          "sourceWallIndex": 4,
+          "sourceAxisMm": [
+            2060,
+            13950,
+            8350,
+            13950
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_5",
+          "sourceWallIndex": 5,
+          "sourceAxisMm": [
+            8350,
+            9600,
+            8350,
+            13950
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_5",
+          "sourceWallIndex": 5,
+          "sourceAxisMm": [
+            8350,
+            9600,
+            8350,
+            13950
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_6",
+          "sourceWallIndex": 6,
+          "sourceAxisMm": [
+            6810,
+            9600,
+            8350,
+            9600
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_6",
+          "sourceWallIndex": 6,
+          "sourceAxisMm": [
+            6810,
+            9600,
+            8350,
+            9600
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_7",
+          "sourceWallIndex": 7,
+          "sourceAxisMm": [
+            6810,
+            60,
+            6810,
+            9600
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2790,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_7",
+          "sourceWallIndex": 7,
+          "sourceAxisMm": [
+            6810,
+            60,
+            6810,
+            9600
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_7",
+          "sourceWallIndex": 7,
+          "sourceAxisMm": [
+            6810,
+            60,
+            6810,
+            9600
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_7",
+          "sourceWallIndex": 7,
+          "sourceAxisMm": [
+            6810,
+            60,
+            6810,
+            9600
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_8",
+          "sourceWallIndex": 8,
+          "sourceAxisMm": [
+            6420,
+            9600,
+            6420,
+            11210
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "C",
+          "notes": "R4阳台内侧隔断轴线6420，西面6360与厨房西墙同线；外轮廓不变，现场门垛及结构待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_9",
+          "sourceWallIndex": 9,
+          "sourceAxisMm": [
+            6810,
+            11210,
+            8350,
+            11210
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "suite_r4b_wall_9",
+          "sourceWallIndex": 9,
+          "sourceAxisMm": [
+            6810,
+            11210,
+            8350,
+            11210
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "baseline",
+          "notes": "沿用方案墙线；承重性及全屋共同基准待核。"
+        },
+        {
+          "sourceId": "family_r3_wall_12",
+          "sourceWallIndex": 12,
+          "sourceAxisMm": [
+            3435,
+            60,
+            3435,
+            4930
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2790,
+          "bearingStatus": "unverified",
+          "grade": "C",
+          "notes": "R3确认设计墙线，非实测或可拆性结论"
+        },
+        {
+          "sourceId": "family_r3_wall_12",
+          "sourceWallIndex": 12,
+          "sourceAxisMm": [
+            3435,
+            60,
+            3435,
+            4930
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2790,
+          "bearingStatus": "unverified",
+          "grade": "C",
+          "notes": "R3确认设计墙线，非实测或可拆性结论"
+        },
+        {
+          "sourceId": "family_r3_wall_13",
+          "sourceWallIndex": 13,
+          "sourceAxisMm": [
+            60,
+            3280,
+            3435,
+            3280
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "C",
+          "notes": "R3确认设计墙线，非实测或可拆性结论"
+        },
+        {
+          "sourceId": "family_r3_wall_13",
+          "sourceWallIndex": 13,
+          "sourceAxisMm": [
+            60,
+            3280,
+            3435,
+            3280
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "C",
+          "notes": "R3确认设计墙线，非实测或可拆性结论"
+        },
+        {
+          "sourceId": "family_r3_wall_14",
+          "sourceWallIndex": 14,
+          "sourceAxisMm": [
+            2400,
+            3280,
+            2400,
+            6260
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "C",
+          "notes": "R3确认设计墙线，非实测或可拆性结论"
+        },
+        {
+          "sourceId": "family_r3_wall_14",
+          "sourceWallIndex": 14,
+          "sourceAxisMm": [
+            2400,
+            3280,
+            2400,
+            6260
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "C",
+          "notes": "R3确认设计墙线，非实测或可拆性结论"
+        },
+        {
+          "sourceId": "family_r3_wall_15",
+          "sourceWallIndex": 15,
+          "sourceAxisMm": [
+            2060,
+            6260,
+            2400,
+            6260
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "C",
+          "notes": "R3确认设计墙线，非实测或可拆性结论"
+        },
+        {
+          "sourceId": "family_r3_wall_16",
+          "sourceWallIndex": 16,
+          "sourceAxisMm": [
+            4450,
+            3280,
+            4450,
+            4930
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2790,
+          "bearingStatus": "unverified",
+          "grade": "C",
+          "notes": "R3确认设计墙线，非实测或可拆性结论"
+        },
+        {
+          "sourceId": "family_r3_wall_16",
+          "sourceWallIndex": 16,
+          "sourceAxisMm": [
+            4450,
+            3280,
+            4450,
+            4930
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2790,
+          "bearingStatus": "unverified",
+          "grade": "C",
+          "notes": "R3确认设计墙线，非实测或可拆性结论"
+        },
+        {
+          "sourceId": "family_r3_wall_17",
+          "sourceWallIndex": 17,
+          "sourceAxisMm": [
+            4450,
+            3280,
+            6810,
+            3280
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2790,
+          "bearingStatus": "unverified",
+          "grade": "C",
+          "notes": "R3确认设计墙线，非实测或可拆性结论"
+        },
+        {
+          "sourceId": "family_r3_wall_18",
+          "sourceWallIndex": 18,
+          "sourceAxisMm": [
+            3435,
+            4930,
+            6810,
+            4930
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2790,
+          "bearingStatus": "unverified",
+          "grade": "C",
+          "notes": "R3确认设计墙线，非实测或可拆性结论"
+        },
+        {
+          "sourceId": "family_r3_wall_18",
+          "sourceWallIndex": 18,
+          "sourceAxisMm": [
+            3435,
+            4930,
+            6810,
+            4930
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "C",
+          "notes": "R3确认设计墙线，非实测或可拆性结论"
+        },
+        {
+          "sourceId": "family_r3_wall_19",
+          "sourceWallIndex": 19,
+          "sourceAxisMm": [
+            3435,
+            4930,
+            3435,
+            6260
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "C",
+          "notes": "R3确认设计墙线，非实测或可拆性结论"
+        },
+        {
+          "sourceId": "family_r3_wall_19",
+          "sourceWallIndex": 19,
+          "sourceAxisMm": [
+            3435,
+            4930,
+            3435,
+            6260
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "C",
+          "notes": "R3确认设计墙线，非实测或可拆性结论"
+        },
+        {
+          "sourceId": "family_r3_wall_20",
+          "sourceWallIndex": 20,
+          "sourceAxisMm": [
+            3435,
+            6260,
+            6810,
+            6260
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "C",
+          "notes": "R3确认设计墙线，非实测或可拆性结论"
+        },
+        {
+          "sourceId": "laundry_north_return",
+          "sourceWallIndex": 21,
+          "sourceAxisMm": [
+            6420,
+            9600,
+            6810,
+            9600
+          ],
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "C",
+          "notes": "随阳台三轨门向西延长的北侧内封口；不改变北面外窗。"
+        },
+        {
+          "sourceId": "shaft",
+          "sourceWallIndex": -1,
+          "thicknessMm": 600,
+          "heightMm": 2700,
+          "bearingStatus": "service-shaft",
+          "nonDemolishable": true,
+          "grade": "provisional",
+          "notes": "西南烟道不可利用；外包600×600mm仍暂估，检修与排烟接口待核。"
+        },
+        {
+          "sourceId": "scheme4-kitchen-notch-0",
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "draft",
+          "notes": "方案4拟建凹角墙；非可拆性鉴定或施工尺寸。"
+        },
+        {
+          "sourceId": "scheme4-kitchen-notch-1",
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "draft",
+          "notes": "方案4拟建凹角墙；非可拆性鉴定或施工尺寸。"
+        },
+        {
+          "sourceId": "scheme4-kitchen-notch-2",
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "draft",
+          "notes": "方案4拟建凹角墙；非可拆性鉴定或施工尺寸。"
+        },
+        {
+          "sourceId": "scheme4-kitchen-notch-3",
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "draft",
+          "notes": "方案4拟建凹角墙；非可拆性鉴定或施工尺寸。"
+        },
+        {
+          "sourceId": "scheme4-kitchen-notch-4",
+          "thicknessMm": 120,
+          "heightMm": 2700,
+          "bearingStatus": "unverified",
+          "grade": "draft",
+          "notes": "方案4拟建凹角墙；非可拆性鉴定或施工尺寸。"
+        }
+      ],
+      "WINS": [
+        [
+          990,
+          0,
+          2750,
+          120
+        ],
+        [
+          990,
+          -650,
+          2750,
+          -550
+        ],
+        [
+          4110,
+          0,
+          5870,
+          120
+        ],
+        [
+          4110,
+          -650,
+          5870,
+          -550
+        ],
+        [
+          0,
+          4150,
+          120,
+          5250
+        ],
+        [
+          2000,
+          6410,
+          2120,
+          8530
+        ],
+        [
+          1350,
+          6410,
+          1450,
+          8530
+        ],
+        [
+          6750,
+          3750,
+          6870,
+          4250
+        ],
+        [
+          6750,
+          5300,
+          6870,
+          5900
+        ],
+        [
+          6980,
+          11150,
+          8180,
+          11270
+        ],
+        [
+          6870,
+          9540,
+          8290,
+          9660
+        ],
+        [
+          8290,
+          9660,
+          8410,
+          11150
+        ]
+      ],
+      "WIN_META": [
+        {
+          "id": "window_b",
+          "name": "次卧北飘窗（复尺400mm台面，软垫为条件设计）",
+          "grade": "局部复尺",
+          "source": "B2_WINDOW_*：宽1760、高1670、台400mm；西墙段870定位，东墙段待全屋闭合；外凸600仍旧占位。",
+          "measurementStatus": {
+            "date": "2026-10-04",
+            "reference": "models/measurements-20261004-r2.json",
+            "scope": "B2_WINDOW_*：宽1760、高1670、台400mm；西墙段870定位，东墙段待全屋闭合；外凸600仍旧占位。",
+            "fullyLocated": false
+          },
+          "designScenario": "复尺台面400mm、窗高1670mm；设计软垫完成面450mm。窗侧定位和框内净深、结构承载、防坠仍须核验；不代表允许拆改窗台。",
+          "sourceId": "window_b",
+          "sourceAxisMm": [
+            990,
+            60,
+            2750,
+            60
+          ],
+          "openingWidthMm": 1760,
+          "sillMm": 400,
+          "heightMm": 1670,
+          "headMm": 2070,
+          "dimensionStatus": "partial-measured",
+          "placementStatus": "unresolved",
+          "type": "bay-aperture",
+          "noGlass": true,
+          "noFrame": true
+        },
+        {
+          "id": "window_b-front",
+          "name": "次卧北飘窗（复尺400mm台面，软垫为条件设计）",
+          "grade": "局部复尺",
+          "source": "B2_WINDOW_*：宽1760、高1670、台400mm；西墙段870定位，东墙段待全屋闭合；外凸600仍旧占位。",
+          "measurementStatus": {
+            "date": "2026-10-04",
+            "reference": "models/measurements-20261004-r2.json",
+            "scope": "B2_WINDOW_*：宽1760、高1670、台400mm；西墙段870定位，东墙段待全屋闭合；外凸600仍旧占位。",
+            "fullyLocated": false
+          },
+          "designScenario": "复尺台面400mm、窗高1670mm；设计软垫完成面450mm。窗侧定位和框内净深、结构承载、防坠仍须核验；不代表允许拆改窗台。",
+          "sourceId": "window_b",
+          "sourceAxisMm": [
+            990,
+            -600,
+            2750,
+            -600
+          ],
+          "openingWidthMm": 1760,
+          "sillMm": 400,
+          "heightMm": 1670,
+          "headMm": 2070,
+          "dimensionStatus": "partial-measured",
+          "placementStatus": "unresolved",
+          "type": "bay-front"
+        },
+        {
+          "id": "window_a",
+          "name": "主卧北飘窗（存在确认，尺寸待复尺）",
+          "grade": "局部复尺",
+          "source": "R2 B3_WINDOW_LENGTH/UPPER_OFFSET/LOWER_OFFSET：窗宽1760mm，按西墙段860mm条件定位；860＋1760＋870＝3490比净跨3500少10mm，模型东段暂880mm。台410／高1660，外凸600仍旧占位。",
+          "measurementStatus": {
+            "date": "2026-10-04",
+            "reference": "models/measurements-20261004-r2.json",
+            "scope": "R2 B3_WINDOW_LENGTH/UPPER_OFFSET/LOWER_OFFSET：窗宽1760mm，按西墙段860mm条件定位；860＋1760＋870＝3490比净跨3500少10mm，模型东段暂880mm。台410／高1660，外凸600仍旧占位。",
+            "fullyLocated": false
+          },
+          "designScenario": "窗宽1760mm已修正；西段860mm定位仍受全屋共同基准限制，东段暂880mm而实测870mm，保留10mm差值待核。窗台410、高1660、房高2790mm；外凸与框内净深未测。",
+          "sourceId": "window_a",
+          "sourceAxisMm": [
+            4110,
+            60,
+            5870,
+            60
+          ],
+          "openingWidthMm": 1760,
+          "sillMm": 410,
+          "heightMm": 1660,
+          "headMm": 2070,
+          "dimensionStatus": "partial-measured",
+          "placementStatus": "unresolved",
+          "type": "bay-aperture",
+          "noGlass": true,
+          "noFrame": true
+        },
+        {
+          "id": "window_a-front",
+          "name": "主卧北飘窗（存在确认，尺寸待复尺）",
+          "grade": "局部复尺",
+          "source": "R2 B3_WINDOW_LENGTH/UPPER_OFFSET/LOWER_OFFSET：窗宽1760mm，按西墙段860mm条件定位；860＋1760＋870＝3490比净跨3500少10mm，模型东段暂880mm。台410／高1660，外凸600仍旧占位。",
+          "measurementStatus": {
+            "date": "2026-10-04",
+            "reference": "models/measurements-20261004-r2.json",
+            "scope": "R2 B3_WINDOW_LENGTH/UPPER_OFFSET/LOWER_OFFSET：窗宽1760mm，按西墙段860mm条件定位；860＋1760＋870＝3490比净跨3500少10mm，模型东段暂880mm。台410／高1660，外凸600仍旧占位。",
+            "fullyLocated": false
+          },
+          "designScenario": "窗宽1760mm已修正；西段860mm定位仍受全屋共同基准限制，东段暂880mm而实测870mm，保留10mm差值待核。窗台410、高1660、房高2790mm；外凸与框内净深未测。",
+          "sourceId": "window_a",
+          "sourceAxisMm": [
+            4110,
+            -600,
+            5870,
+            -600
+          ],
+          "openingWidthMm": 1760,
+          "sillMm": 410,
+          "heightMm": 1660,
+          "headMm": 2070,
+          "dimensionStatus": "partial-measured",
+          "placementStatus": "unresolved",
+          "type": "bay-front"
+        },
+        {
+          "id": "window_c",
+          "name": "小卧西窗（待复尺）",
+          "grade": "C",
+          "sourceId": "window_c",
+          "sourceAxisMm": [
+            60,
+            4150,
+            60,
+            5250
+          ],
+          "openingWidthMm": 1100,
+          "sillMm": 900,
+          "heightMm": 1400,
+          "headMm": 2300,
+          "dimensionStatus": "design-pending",
+          "placementStatus": "unresolved",
+          "type": "window",
+          "noGlass": false,
+          "guard": false
+        },
+        {
+          "id": "window_living_west",
+          "name": "客厅西低飘窗（400台高暂估，非实测）",
+          "grade": "局部复尺",
+          "source": "L02/L03/L04/L05：宽2120、高2210、台400、外凸600mm；中心位置暂留旧模型，净框基准待核。",
+          "measurementStatus": {
+            "date": "2026-10-04",
+            "reference": "models/measurements-20261004-r2.json",
+            "scope": "L02/L03/L04/L05：宽2120、高2210、台400、外凸600mm；中心位置暂留旧模型，净框基准待核。",
+            "fullyLocated": false
+          },
+          "designScenario": "复尺台面400mm、窗高2210mm，窗顶2610mm；设计可拆软垫50mm，完成坐面约450mm。窗中心仍沿旧模型，框内净空、承载和防坠需现场核验，不是拆改结构许可。",
+          "sourceId": "window_living_west",
+          "sourceAxisMm": [
+            2060,
+            6410,
+            2060,
+            8530
+          ],
+          "openingWidthMm": 2120,
+          "sillMm": 400,
+          "heightMm": 2210,
+          "headMm": 2610,
+          "dimensionStatus": "partial-measured",
+          "placementStatus": "unresolved",
+          "type": "bay-aperture",
+          "noGlass": true,
+          "noFrame": true
+        },
+        {
+          "id": "window_living_west-front",
+          "name": "客厅西低飘窗（400台高暂估，非实测）",
+          "grade": "局部复尺",
+          "source": "L02/L03/L04/L05：宽2120、高2210、台400、外凸600mm；中心位置暂留旧模型，净框基准待核。",
+          "measurementStatus": {
+            "date": "2026-10-04",
+            "reference": "models/measurements-20261004-r2.json",
+            "scope": "L02/L03/L04/L05：宽2120、高2210、台400、外凸600mm；中心位置暂留旧模型，净框基准待核。",
+            "fullyLocated": false
+          },
+          "designScenario": "复尺台面400mm、窗高2210mm，窗顶2610mm；设计可拆软垫50mm，完成坐面约450mm。窗中心仍沿旧模型，框内净空、承载和防坠需现场核验，不是拆改结构许可。",
+          "sourceId": "window_living_west",
+          "sourceAxisMm": [
+            1400,
+            6410,
+            1400,
+            8530
+          ],
+          "openingWidthMm": 2120,
+          "sillMm": 400,
+          "heightMm": 2210,
+          "headMm": 2610,
+          "dimensionStatus": "partial-measured",
+          "placementStatus": "unresolved",
+          "type": "bay-front"
+        },
+        {
+          "id": "window_bath_1_east",
+          "name": "主卫东窗（原图有窗，尺寸待复尺）",
+          "grade": "局部复尺",
+          "source": "R2 S05/S06：实测记录窗宽500、窗高1400mm；经用户确认保留旧位置及台1500／高800mm示意，不将1400叠加旧窗台；窗台、窗中心、净高及框内/框外参考面待核。",
+          "measurementStatus": {
+            "date": "2026-10-04",
+            "reference": "models/measurements-20261004-r2.json",
+            "scope": "R2 S05/S06：实测记录窗宽500、窗高1400mm；经用户确认保留旧位置及台1500／高800mm示意，不将1400叠加旧窗台；窗台、窗中心、净高及框内/框外参考面待核。",
+            "fullyLocated": false
+          },
+          "designScenario": "主卫实测窗宽500、窗高1400mm；模型保留台1500／高800mm旧示意，窗台、定位及测量参考面待核。",
+          "sourceId": "window_bath_1_east",
+          "sourceAxisMm": [
+            6810,
+            3750,
+            6810,
+            4250
+          ],
+          "openingWidthMm": 500,
+          "sillMm": 1500,
+          "heightMm": 800,
+          "headMm": 2300,
+          "dimensionStatus": "partial-measured",
+          "placementStatus": "unresolved",
+          "type": "window",
+          "noGlass": false,
+          "guard": false
+        },
+        {
+          "id": "window_bath_2_east",
+          "name": "客卫东窗（同户型图有窗，目标须复尺）",
+          "grade": "C",
+          "source": "assets/original-plan.webp 客卫东墙可见窄窗；目标房源该处缺少明确宽高标注，存在与尺寸均须现场确认",
+          "sourceId": "window_bath_2_east",
+          "sourceAxisMm": [
+            6810,
+            5300,
+            6810,
+            5900
+          ],
+          "openingWidthMm": 600,
+          "sillMm": 1500,
+          "heightMm": 800,
+          "headMm": 2300,
+          "dimensionStatus": "design-pending",
+          "placementStatus": "unresolved",
+          "type": "window",
+          "noGlass": false,
+          "guard": false
+        },
+        {
+          "id": "window_kitchen_balcony",
+          "name": "厨房与阳台共墙大窗（尺寸及窗型待复尺）",
+          "grade": "C",
+          "notes": "厨房与家政阳台之间的内窗，不是通往客厅的窗或阳台外窗。保留窗下墙、两边台下柜和现有门；阳台外侧采光通风条件另核。",
+          "source": "业主确认厨房与阳台之间应有大窗；共墙位置沿用模型，洞宽1200/高1300/台高1000及双扇推拉窗型均为暂定，不是实测。",
+          "sourceId": "window_kitchen_balcony",
+          "sourceAxisMm": [
+            6980,
+            11210,
+            8180,
+            11210
+          ],
+          "openingWidthMm": 1200,
+          "sillMm": 1000,
+          "heightMm": 1300,
+          "headMm": 2300,
+          "dimensionStatus": "design-pending",
+          "placementStatus": "unresolved",
+          "type": "window",
+          "noGlass": false,
+          "guard": false
+        },
+        {
+          "id": "balcony_north_opening",
+          "name": "生活阳台北向通透开口（矮墙及防护保留；尺寸暂估）",
+          "grade": "C",
+          "notes": "保留下方矮墙、边柱、顶梁及防护示意；无玻璃、无新增遮挡柜。不是拆改施工图。",
+          "source": "2026-10-05业主标注图与阳台实景确认北、东两面上部通透；开口尺寸和标高暂估，不是实测。",
+          "sourceId": "balcony_north_opening",
+          "sourceAxisMm": [
+            6870,
+            9600,
+            8290,
+            9600
+          ],
+          "openingWidthMm": 1420,
+          "sillMm": 1100,
+          "heightMm": 1350,
+          "headMm": 2450,
+          "dimensionStatus": "photo-estimate",
+          "placementStatus": "unresolved",
+          "type": "guarded-open-air",
+          "noGlass": true,
+          "guard": true
+        },
+        {
+          "id": "balcony_east_opening",
+          "name": "生活阳台东向通透开口（矮墙及防护保留；尺寸暂估）",
+          "grade": "C",
+          "notes": "保留下方矮墙、边柱、顶梁及防护示意；无玻璃、无新增遮挡柜。不是拆改施工图。",
+          "source": "2026-10-05业主标注图与阳台实景确认北、东两面上部通透；开口尺寸和标高暂估，不是实测。",
+          "sourceId": "balcony_east_opening",
+          "sourceAxisMm": [
+            8350,
+            9660,
+            8350,
+            11150
+          ],
+          "openingWidthMm": 1490,
+          "sillMm": 1100,
+          "heightMm": 1350,
+          "headMm": 2450,
+          "dimensionStatus": "photo-estimate",
+          "placementStatus": "unresolved",
+          "type": "guarded-open-air",
+          "noGlass": true,
+          "guard": true
+        }
+      ],
+      "DOORS": [
+        {
+          "id": "entry_door",
+          "name": "入户门 · 向室外开启（公区避让待核）",
+          "grade": "C",
+          "sourceId": "entry_door",
+          "sourceAxisMm": [
+            3900,
+            13950,
+            4900,
+            13950
+          ],
+          "openingWidthMm": 1000,
+          "sillMm": 0,
+          "heightMm": 2200,
+          "headMm": 2200,
+          "dimensionStatus": "design-pending",
+          "placementStatus": "unresolved",
+          "rect": [
+            3900,
+            13890,
+            4900,
+            14010
+          ],
+          "h": [
+            4840,
+            13950
+          ],
+          "c": [
+            -1,
+            0
+          ],
+          "o": [
+            0,
+            1
+          ],
+          "len": 890,
+          "entry": true,
+          "defaultOpen": true,
+          "directionStatus": "user-confirmed",
+          "swingRevision": "scheme4-outward-entry-door",
+          "notes": "按用户现状修订外开，原洞口1000与890门叶保留，合页从洞口端内退60mm作示意。公共走廊、邻户门、五金和允许开启角度尚无数据，不能据此扩占公区。"
+        },
+        {
+          "id": "door_a",
+          "name": "主卧900平开门洞 · 北移错开书房",
+          "grade": "C",
+          "notes": "主卧门洞和南铰套内开向不变，与书房门纵向相隔30mm。主卫门改南铰后，原“两门全开550mm”说明不再适用；两门无门板相撞，但门板间距离不是通行净宽，仍须现场核对。",
+          "sourceId": "door_a",
+          "sourceAxisMm": [
+            3435,
+            3550,
+            3435,
+            4450
+          ],
+          "openingWidthMm": 900,
+          "sillMm": 0,
+          "heightMm": 2150,
+          "headMm": 2150,
+          "dimensionStatus": "design-pending",
+          "placementStatus": "unresolved",
+          "rect": [
+            3375,
+            3550,
+            3495,
+            4450
+          ],
+          "h": [
+            3435,
+            4390
+          ],
+          "c": [
+            0,
+            -1
+          ],
+          "o": [
+            1,
+            0
+          ],
+          "len": 780,
+          "entry": false,
+          "defaultOpen": true,
+          "directionStatus": "source-design",
+          "operation": {
+            "type": "hinged",
+            "hingeCm": [
+              343.5,
+              439
+            ],
+            "swing": {
+              "dx": 0,
+              "dy": -1,
+              "ox": 1,
+              "oy": 0,
+              "sweep": 1
+            },
+            "openLeafCm": {
+              "x": 343.5,
+              "y": 437,
+              "w": 78,
+              "d": 4
+            }
+          }
+        },
+        {
+          "id": "door_b",
+          "name": "次卧900门洞 · 东铰内开靠东墙",
+          "grade": "C",
+          "notes": "东侧合页，90度开启后门扇沿东侧墙停靠，保留门套/把手空间；900洞口置于约915走廊宽中，转角收口需深化，900不是安装后净开。",
+          "sourceId": "door_b",
+          "sourceAxisMm": [
+            2467.5,
+            3280,
+            3367.5,
+            3280
+          ],
+          "openingWidthMm": 900,
+          "sillMm": 0,
+          "heightMm": 2150,
+          "headMm": 2150,
+          "dimensionStatus": "design-pending",
+          "placementStatus": "unresolved",
+          "rect": [
+            2467.5,
+            3220,
+            3367.5,
+            3340
+          ],
+          "h": [
+            3307.5,
+            3280
+          ],
+          "c": [
+            -1,
+            0
+          ],
+          "o": [
+            0,
+            -1
+          ],
+          "len": 780,
+          "entry": false,
+          "defaultOpen": true,
+          "directionStatus": "source-design",
+          "operation": {
+            "type": "hinged",
+            "hingeCm": [
+              330.75,
+              328
+            ],
+            "swing": {
+              "dx": -1,
+              "dy": 0,
+              "ox": 0,
+              "oy": -1,
+              "sweep": 1
+            },
+            "openLeafCm": {
+              "x": 328.75,
+              "y": 250,
+              "w": 4,
+              "d": 78
+            }
+          }
+        },
+        {
+          "id": "door_c",
+          "name": "书房900普通平开门 · 北铰向内开",
+          "grade": "C",
+          "notes": "将门板朝北理解为合页设门洞北端，门扇向书房内开；不是推拉门，也不额外移门洞到北墙。",
+          "sourceId": "door_c",
+          "sourceAxisMm": [
+            2400,
+            4480,
+            2400,
+            5380
+          ],
+          "openingWidthMm": 900,
+          "sillMm": 0,
+          "heightMm": 2150,
+          "headMm": 2150,
+          "dimensionStatus": "design-pending",
+          "placementStatus": "unresolved",
+          "rect": [
+            2340,
+            4480,
+            2460,
+            5380
+          ],
+          "h": [
+            2400,
+            4540
+          ],
+          "c": [
+            0,
+            1
+          ],
+          "o": [
+            -1,
+            0
+          ],
+          "len": 780,
+          "entry": false,
+          "defaultOpen": true,
+          "directionStatus": "source-design",
+          "operation": {
+            "type": "hinged",
+            "hingeCm": [
+              240,
+              454
+            ],
+            "swing": {
+              "dx": 0,
+              "dy": 1,
+              "ox": -1,
+              "oy": 0,
+              "sweep": 1
+            },
+            "openLeafCm": {
+              "x": 162,
+              "y": 452,
+              "w": 78,
+              "d": 4
+            }
+          }
+        },
+        {
+          "id": "door_bath_1",
+          "name": "主卫 · 南铰向卫内开",
+          "grade": "C",
+          "notes": "2026-10-08用户修订：改南侧合页，向主卫内开启，避开北侧洗手台；门洞、门扇宽高及位置不变。开合与五金净空仍须现场深化。",
+          "sourceId": "door_bath_1",
+          "sourceAxisMm": [
+            4450,
+            3740,
+            4450,
+            4490
+          ],
+          "openingWidthMm": 750,
+          "sillMm": 0,
+          "heightMm": 2100,
+          "headMm": 2100,
+          "dimensionStatus": "design-pending",
+          "placementStatus": "unresolved",
+          "rect": [
+            4390,
+            3740,
+            4510,
+            4490
+          ],
+          "h": [
+            4450,
+            4430
+          ],
+          "c": [
+            0,
+            -1
+          ],
+          "o": [
+            1,
+            0
+          ],
+          "len": 630,
+          "entry": false,
+          "defaultOpen": true,
+          "directionStatus": "user-design-correction",
+          "operation": {
+            "type": "hinged",
+            "hingeCm": [
+              445,
+              443
+            ],
+            "swing": {
+              "dx": 0,
+              "dy": -1,
+              "ox": 1,
+              "oy": 0,
+              "sweep": 1
+            },
+            "openLeafCm": {
+              "x": 445,
+              "y": 441,
+              "w": 63,
+              "d": 4
+            }
+          },
+          "swingRevision": "bath-south-hinge-20261008"
+        },
+        {
+          "id": "door_bath_2",
+          "name": "客卫 · 北铰向卫内开",
+          "grade": "C",
+          "notes": "按R3确认的门洞及开启方向；门套、五金与净空仍待现场深化。",
+          "sourceId": "door_bath_2",
+          "sourceAxisMm": [
+            3435,
+            5010,
+            3435,
+            5760
+          ],
+          "openingWidthMm": 750,
+          "sillMm": 0,
+          "heightMm": 2100,
+          "headMm": 2100,
+          "dimensionStatus": "design-pending",
+          "placementStatus": "unresolved",
+          "rect": [
+            3375,
+            5010,
+            3495,
+            5760
+          ],
+          "h": [
+            3435,
+            5070
+          ],
+          "c": [
+            0,
+            1
+          ],
+          "o": [
+            1,
+            0
+          ],
+          "len": 630,
+          "entry": false,
+          "defaultOpen": true,
+          "directionStatus": "source-design",
+          "operation": {
+            "type": "hinged",
+            "hingeCm": [
+              343.5,
+              507
+            ],
+            "swing": {
+              "dx": 0,
+              "dy": 1,
+              "ox": 1,
+              "oy": 0,
+              "sweep": 0
+            },
+            "openLeafCm": {
+              "x": 343.5,
+              "y": 505,
+              "w": 63,
+              "d": 4
+            }
+          }
+        },
+        {
+          "id": "door_kitchen_scheme4",
+          "name": "厨房900普通平开门洞 · 草案",
+          "sourceId": "door_kitchen_scheme4",
+          "sourceAxisMm": [
+            5440,
+            12400,
+            6340,
+            12400
+          ],
+          "openingWidthMm": 900,
+          "heightMm": 2200,
+          "sillMm": 0,
+          "headMm": 2200,
+          "rect": [
+            5440,
+            12340,
+            6340,
+            12460
+          ],
+          "h": [
+            5500,
+            12400
+          ],
+          "c": [
+            1,
+            0
+          ],
+          "o": [
+            0,
+            1
+          ],
+          "len": 780,
+          "entry": false,
+          "defaultOpen": true,
+          "swingRevision": "scheme4-provisional-centred-leaf",
+          "dimensionStatus": "design-pending",
+          "placementStatus": "unresolved",
+          "notes": "按900结构洞口、780门叶示意，西侧合页向厨房内开；全开停在西侧，不切断进入东侧操作区的路线。门套和五金净口需深化。"
+        }
+      ],
+      "SLIDES": [
+        {
+          "id": "balcony_door",
+          "name": "生活阳台三轨门 · 门框西沿齐厨房墙面",
+          "grade": "C",
+          "notes": "原方案内隔断再向西移102.5mm，120mm门框带与厨房西墙两面同线；1500mm门洞及三轨南侧叠收保留。门扇所在轨道不等于框面。拆改、防水高差及现场承载待核，不改外窗。",
+          "sourceId": "balcony_door",
+          "sourceAxisMm": [
+            6420,
+            9600,
+            6420,
+            11100
+          ],
+          "openingWidthMm": 1500,
+          "sillMm": 0,
+          "heightMm": 2400,
+          "headMm": 2400,
+          "dimensionStatus": "design-pending",
+          "placementStatus": "unresolved",
+          "rect": [
+            6360,
+            9600,
+            6480,
+            11100
+          ],
+          "v": true,
+          "panelCount": 3,
+          "trackCount": 3,
+          "stackTo": "south",
+          "surface": false,
+          "defaultOpen": true,
+          "glass": true,
+          "frameDetail": true
+        }
+      ],
+      "BAYS": [
+        {
+          "id": "window_b",
+          "name": "次卧北飘窗（复尺400mm台面，软垫为条件设计）",
+          "grade": "局部复尺",
+          "source": "B2_WINDOW_*：宽1760、高1670、台400mm；西墙段870定位，东墙段待全屋闭合；外凸600仍旧占位。",
+          "measurementStatus": {
+            "date": "2026-10-04",
+            "reference": "models/measurements-20261004-r2.json",
+            "scope": "B2_WINDOW_*：宽1760、高1670、台400mm；西墙段870定位，东墙段待全屋闭合；外凸600仍旧占位。",
+            "fullyLocated": false
+          },
+          "designScenario": "复尺台面400mm、窗高1670mm；设计软垫完成面450mm。窗侧定位和框内净深、结构承载、防坠仍须核验；不代表允许拆改窗台。",
+          "sourceId": "window_b",
+          "sourceAxisMm": [
+            990,
+            60,
+            2750,
+            60
+          ],
+          "openingWidthMm": 1760,
+          "sillMm": 400,
+          "heightMm": 1670,
+          "headMm": 2070,
+          "dimensionStatus": "partial-measured",
+          "placementStatus": "unresolved",
+          "rect": [
+            990,
+            0,
+            2750,
+            120
+          ],
+          "frontRect": [
+            990,
+            -650,
+            2750,
+            -550
+          ],
+          "poly": [
+            [
+              990,
+              60
+            ],
+            [
+              2750,
+              60
+            ],
+            [
+              2750,
+              -600
+            ],
+            [
+              990,
+              -600
+            ]
+          ],
+          "outward": [
+            0,
+            -1
+          ],
+          "projectionMm": 600,
+          "returnThicknessMm": 100,
+          "slabThicknessMm": 100,
+          "sideRects": [
+            [
+              890,
+              -650,
+              990,
+              0
+            ],
+            [
+              2750,
+              -650,
+              2850,
+              0
+            ]
+          ],
+          "returnBottomMm": 380,
+          "returnHeightMm": 1690
+        },
+        {
+          "id": "window_a",
+          "name": "主卧北飘窗（存在确认，尺寸待复尺）",
+          "grade": "局部复尺",
+          "source": "R2 B3_WINDOW_LENGTH/UPPER_OFFSET/LOWER_OFFSET：窗宽1760mm，按西墙段860mm条件定位；860＋1760＋870＝3490比净跨3500少10mm，模型东段暂880mm。台410／高1660，外凸600仍旧占位。",
+          "measurementStatus": {
+            "date": "2026-10-04",
+            "reference": "models/measurements-20261004-r2.json",
+            "scope": "R2 B3_WINDOW_LENGTH/UPPER_OFFSET/LOWER_OFFSET：窗宽1760mm，按西墙段860mm条件定位；860＋1760＋870＝3490比净跨3500少10mm，模型东段暂880mm。台410／高1660，外凸600仍旧占位。",
+            "fullyLocated": false
+          },
+          "designScenario": "窗宽1760mm已修正；西段860mm定位仍受全屋共同基准限制，东段暂880mm而实测870mm，保留10mm差值待核。窗台410、高1660、房高2790mm；外凸与框内净深未测。",
+          "sourceId": "window_a",
+          "sourceAxisMm": [
+            4110,
+            60,
+            5870,
+            60
+          ],
+          "openingWidthMm": 1760,
+          "sillMm": 410,
+          "heightMm": 1660,
+          "headMm": 2070,
+          "dimensionStatus": "partial-measured",
+          "placementStatus": "unresolved",
+          "rect": [
+            4110,
+            0,
+            5870,
+            120
+          ],
+          "frontRect": [
+            4110,
+            -650,
+            5870,
+            -550
+          ],
+          "poly": [
+            [
+              4110,
+              60
+            ],
+            [
+              5870,
+              60
+            ],
+            [
+              5870,
+              -600
+            ],
+            [
+              4110,
+              -600
+            ]
+          ],
+          "outward": [
+            0,
+            -1
+          ],
+          "projectionMm": 600,
+          "returnThicknessMm": 100,
+          "slabThicknessMm": 100,
+          "sideRects": [
+            [
+              4010,
+              -650,
+              4110,
+              0
+            ],
+            [
+              5870,
+              -650,
+              5970,
+              0
+            ]
+          ],
+          "returnBottomMm": 390,
+          "returnHeightMm": 1680
+        },
+        {
+          "id": "window_living_west",
+          "name": "客厅西低飘窗（400台高暂估，非实测）",
+          "grade": "局部复尺",
+          "source": "L02/L03/L04/L05：宽2120、高2210、台400、外凸600mm；中心位置暂留旧模型，净框基准待核。",
+          "measurementStatus": {
+            "date": "2026-10-04",
+            "reference": "models/measurements-20261004-r2.json",
+            "scope": "L02/L03/L04/L05：宽2120、高2210、台400、外凸600mm；中心位置暂留旧模型，净框基准待核。",
+            "fullyLocated": false
+          },
+          "designScenario": "复尺台面400mm、窗高2210mm，窗顶2610mm；设计可拆软垫50mm，完成坐面约450mm。窗中心仍沿旧模型，框内净空、承载和防坠需现场核验，不是拆改结构许可。",
+          "sourceId": "window_living_west",
+          "sourceAxisMm": [
+            2060,
+            6410,
+            2060,
+            8530
+          ],
+          "openingWidthMm": 2120,
+          "sillMm": 400,
+          "heightMm": 2210,
+          "headMm": 2610,
+          "dimensionStatus": "partial-measured",
+          "placementStatus": "unresolved",
+          "rect": [
+            2000,
+            6410,
+            2120,
+            8530
+          ],
+          "frontRect": [
+            1350,
+            6410,
+            1450,
+            8530
+          ],
+          "poly": [
+            [
+              2060,
+              6410
+            ],
+            [
+              2060,
+              8530
+            ],
+            [
+              1400,
+              8530
+            ],
+            [
+              1400,
+              6410
+            ]
+          ],
+          "outward": [
+            -1,
+            0
+          ],
+          "projectionMm": 600,
+          "returnThicknessMm": 100,
+          "slabThicknessMm": 100,
+          "sideRects": [
+            [
+              1350,
+              6310,
+              2000,
+              6410
+            ],
+            [
+              1350,
+              8530,
+              2000,
+              8630
+            ]
+          ],
+          "returnBottomMm": 380,
+          "returnHeightMm": 2230
+        }
+      ],
+      "BIFOLDS": [],
+      "defaultFurniture": [
+        {
+          "id": "bed_b",
+          "type": "bed",
+          "name": "次卧1350床",
+          "cx": 1170,
+          "cy": 1275,
+          "w": 1450,
+          "d": 2100,
+          "rot": 270,
+          "color": "#D7D1C6",
+          "heightMm": 1080,
+          "elevationMm": 0,
+          "sourceId": "bed_b",
+          "sourceFootprintMm": {
+            "x": 119.99999999999977,
+            "y": 549.9999999999998,
+            "w": 2100.0000000000005,
+            "d": 1450.0000000000005
+          },
+          "headDirection": "west",
+          "notes": "床头贴西墙，床架长2100mm；R3床尾至浅台715mm。踢脚线、软包及把手收口待复尺。",
+          "dimensionStatus": "design-pending",
+          "originalSourceFootprintMm": {
+            "x": 120,
+            "y": 550,
+            "w": 2100,
+            "d": 1450
+          }
+        },
+        {
+          "id": "family-f1",
+          "type": "fixture",
+          "name": "次卧衣柜",
+          "cx": 1020,
+          "cy": 2920,
+          "w": 1800,
+          "d": 600,
+          "rot": 180,
+          "color": "#F4F1E9",
+          "heightMm": 2400,
+          "elevationMm": 0,
+          "sourceId": "family-f1",
+          "sourceFootprintMm": {
+            "x": 120,
+            "y": 2620,
+            "w": 1800,
+            "d": 600.0000000000002
+          },
+          "face": "north",
+          "doorStyle": "sliding",
+          "notes": "南墙180×60cm移门柜，西端贴西墙；床侧至柜前62cm。",
+          "dimensionStatus": "design-pending",
+          "parts": [
+            {
+              "id": "family-f1-side-0",
+              "x": -900,
+              "y": -300,
+              "w": 18,
+              "d": 558,
+              "elevationMm": 0,
+              "heightMm": 2382,
+              "role": "cabinet-side",
+              "label": "侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f1-side-1",
+              "x": 882,
+              "y": -300,
+              "w": 18,
+              "d": 558,
+              "elevationMm": 0,
+              "heightMm": 2382,
+              "role": "cabinet-side",
+              "label": "侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f1-cabinet-bottom",
+              "x": -882,
+              "y": -282,
+              "w": 1764,
+              "d": 582,
+              "elevationMm": 0,
+              "heightMm": 18,
+              "role": "cabinet-bottom",
+              "label": "底板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f1-cabinet-back",
+              "x": -882,
+              "y": -300,
+              "w": 1764,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 2382,
+              "role": "cabinet-back",
+              "label": "柜内背板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f1-cabinet-top",
+              "x": -900,
+              "y": -300,
+              "w": 1800,
+              "d": 600,
+              "elevationMm": 2382,
+              "heightMm": 18,
+              "role": "cabinet-top",
+              "label": "顶板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f1-door-0",
+              "x": -898.5,
+              "y": 282,
+              "w": 596,
+              "d": 18,
+              "elevationMm": 19.5,
+              "heightMm": 1961,
+              "role": "door-sliding",
+              "label": "奶白滑门 · 不外开",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south",
+              "doorStyle": "sliding",
+              "panelIndex": 0
+            },
+            {
+              "id": "family-f1-pull-0",
+              "x": -315.5,
+              "y": 282,
+              "w": 7,
+              "d": 2,
+              "elevationMm": 1100,
+              "heightMm": 120,
+              "role": "handle-recess",
+              "label": "内嵌扣手",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "south"
+            },
+            {
+              "id": "family-f1-door-1",
+              "x": -299.5,
+              "y": 262,
+              "w": 596,
+              "d": 18,
+              "elevationMm": 19.5,
+              "heightMm": 1961,
+              "role": "door-sliding",
+              "label": "奶白滑门 · 不外开",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south",
+              "doorStyle": "sliding",
+              "panelIndex": 1
+            },
+            {
+              "id": "family-f1-pull-1",
+              "x": 283.5,
+              "y": 262,
+              "w": 7,
+              "d": 2,
+              "elevationMm": 1100,
+              "heightMm": 120,
+              "role": "handle-recess",
+              "label": "内嵌扣手",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "south"
+            },
+            {
+              "id": "family-f1-door-2",
+              "x": 299.5,
+              "y": 282,
+              "w": 596,
+              "d": 18,
+              "elevationMm": 19.5,
+              "heightMm": 1961,
+              "role": "door-sliding",
+              "label": "奶白滑门 · 不外开",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south",
+              "doorStyle": "sliding",
+              "panelIndex": 2
+            },
+            {
+              "id": "family-f1-pull-2",
+              "x": 882.5,
+              "y": 282,
+              "w": 7,
+              "d": 2,
+              "elevationMm": 1100,
+              "heightMm": 120,
+              "role": "handle-recess",
+              "label": "内嵌扣手",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "south"
+            },
+            {
+              "id": "family-f1-upper-door-0",
+              "x": -898.5,
+              "y": 282,
+              "w": 596,
+              "d": 18,
+              "elevationMm": 2019.5,
+              "heightMm": 361,
+              "role": "door-hinged",
+              "label": "奶白封闭柜门",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south",
+              "doorStyle": "hinged",
+              "panelIndex": 0
+            },
+            {
+              "id": "family-f1-upper-pull-0",
+              "x": -315.5,
+              "y": 282,
+              "w": 7,
+              "d": 2,
+              "elevationMm": 2220,
+              "heightMm": 100,
+              "role": "handle-recess",
+              "label": "内嵌扣手",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "south"
+            },
+            {
+              "id": "family-f1-upper-door-1",
+              "x": -299.5,
+              "y": 282,
+              "w": 596,
+              "d": 18,
+              "elevationMm": 2019.5,
+              "heightMm": 361,
+              "role": "door-hinged",
+              "label": "奶白封闭柜门",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south",
+              "doorStyle": "hinged",
+              "panelIndex": 1
+            },
+            {
+              "id": "family-f1-upper-pull-1",
+              "x": 283.5,
+              "y": 282,
+              "w": 7,
+              "d": 2,
+              "elevationMm": 2220,
+              "heightMm": 100,
+              "role": "handle-recess",
+              "label": "内嵌扣手",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "south"
+            },
+            {
+              "id": "family-f1-upper-door-2",
+              "x": 299.5,
+              "y": 282,
+              "w": 596,
+              "d": 18,
+              "elevationMm": 2019.5,
+              "heightMm": 361,
+              "role": "door-hinged",
+              "label": "奶白封闭柜门",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south",
+              "doorStyle": "hinged",
+              "panelIndex": 2
+            },
+            {
+              "id": "family-f1-upper-pull-2",
+              "x": 882.5,
+              "y": 282,
+              "w": 7,
+              "d": 2,
+              "elevationMm": 2220,
+              "heightMm": 100,
+              "role": "handle-recess",
+              "label": "内嵌扣手",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "south"
+            },
+            {
+              "id": "family-f1-divider-1",
+              "x": -294,
+              "y": -282,
+              "w": 18,
+              "d": 540,
+              "elevationMm": 18,
+              "heightMm": 1964,
+              "role": "cabinet-divider",
+              "label": "内部分区板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f1-divider-2",
+              "x": 294,
+              "y": -282,
+              "w": 18,
+              "d": 540,
+              "elevationMm": 18,
+              "heightMm": 1964,
+              "role": "cabinet-divider",
+              "label": "内部分区板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f1-seasonal-shelf",
+              "x": -882,
+              "y": -282,
+              "w": 1764,
+              "d": 540,
+              "elevationMm": 2000,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "上层被褥分区",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f1-rail-0",
+              "x": -862,
+              "y": -16,
+              "w": 548,
+              "d": 16,
+              "elevationMm": 1880,
+              "heightMm": 16,
+              "role": "hanging-rail",
+              "label": "600mm柜深挂衣杆示意",
+              "color": "#9D9386",
+              "material": "WarmGrayMetal",
+              "face": "south"
+            },
+            {
+              "id": "family-f1-rail-1",
+              "x": -274,
+              "y": -16,
+              "w": 548,
+              "d": 16,
+              "elevationMm": 1880,
+              "heightMm": 16,
+              "role": "hanging-rail",
+              "label": "600mm柜深挂衣杆示意",
+              "color": "#9D9386",
+              "material": "WarmGrayMetal",
+              "face": "south"
+            },
+            {
+              "id": "family-f1-fold-2-350",
+              "x": 294,
+              "y": -282,
+              "w": 570,
+              "d": 540,
+              "elevationMm": 350,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "叠衣分类层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f1-fold-2-700",
+              "x": 294,
+              "y": -282,
+              "w": 570,
+              "d": 540,
+              "elevationMm": 700,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "叠衣分类层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f1-fold-2-1050",
+              "x": 294,
+              "y": -282,
+              "w": 570,
+              "d": 540,
+              "elevationMm": 1050,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "叠衣分类层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f1-fold-2-1400",
+              "x": 294,
+              "y": -282,
+              "w": 570,
+              "d": 540,
+              "elevationMm": 1400,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "叠衣分类层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            }
+          ],
+          "nativeType": "wardrobe",
+          "cabinetRevision": "cream-oak-functional-v1",
+          "baseWidthMm": 1800,
+          "baseDepthMm": 600,
+          "baseHeightMm": 2400,
+          "cabinetDesign": {
+            "revision": "cream-oak-functional-v1",
+            "title": "衣柜 · 封闭分区",
+            "status": "concept-pending-detail",
+            "previousColor": "#C8A77E",
+            "boardThicknessMm": 18,
+            "doorGapMm": 3,
+            "palette": {
+              "door": "#F4F1E9",
+              "wood": "#CDB594",
+              "counter": "#CDB594",
+              "metal": "#9D9386",
+              "light": "#FFF1CF"
+            },
+            "faces": [
+              {
+                "face": "south",
+                "label": "衣柜正面（随原柜体旋转）",
+                "lengthMm": 1800,
+                "depthMm": 600
+              }
+            ],
+            "features": [
+              "600mm外深建议挂衣与叠衣分区，净深须扣双轨和背板再核。",
+              "奶白滑门与内嵌浅原木扣手；不增加过道外伸把手。",
+              "上400mm低频被褥层；内部为概念分区，不改变床尾通路。"
+            ],
+            "dimensions": [
+              "1800×600×2400mm沿用模型；柜高不是现场定制下单确认值。",
+              "便捷分区与板件为概念建议；柜体高度、门轨、承重、安装与下单尺寸仍待厂家现场深化。"
+            ]
+          },
+          "originalSourceFootprintMm": {
+            "x": 120,
+            "y": 2620,
+            "w": 1800,
+            "d": 600
+          }
+        },
+        {
+          "id": "bed_a",
+          "type": "bed",
+          "name": "主卧1500床",
+          "cx": 5700,
+          "cy": 1620,
+          "w": 1600,
+          "d": 2100,
+          "rot": 90,
+          "color": "#D7D1C6",
+          "heightMm": 1080,
+          "elevationMm": 0,
+          "sourceId": "bed_a",
+          "sourceFootprintMm": {
+            "x": 4650,
+            "y": 819.9999999999999,
+            "w": 2100,
+            "d": 1600.0000000000002
+          },
+          "headDirection": "east",
+          "dimensionStatus": "design-pending",
+          "originalSourceFootprintMm": {
+            "x": 4650,
+            "y": 820,
+            "w": 2100,
+            "d": 1600
+          }
+        },
+        {
+          "id": "family-f3",
+          "type": "fixture",
+          "name": "主卧衣柜",
+          "cx": 3795,
+          "cy": 1240,
+          "w": 2240,
+          "d": 600,
+          "rot": 270,
+          "color": "#F4F1E9",
+          "heightMm": 2400,
+          "elevationMm": 0,
+          "sourceId": "family-f3",
+          "sourceFootprintMm": {
+            "x": 3495,
+            "y": 120,
+            "w": 600.0000000000005,
+            "d": 2240
+          },
+          "face": "east",
+          "doorStyle": "sliding",
+          "notes": "西侧2240×600mm衣柜随R3等分隔墙东移，北端贴墙；床尾至柜面555mm，仍偏紧。",
+          "dimensionStatus": "design-pending",
+          "parts": [
+            {
+              "id": "family-f3-side-0",
+              "x": -1120,
+              "y": -300,
+              "w": 18,
+              "d": 558,
+              "elevationMm": 0,
+              "heightMm": 2382,
+              "role": "cabinet-side",
+              "label": "侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f3-side-1",
+              "x": 1102,
+              "y": -300,
+              "w": 18,
+              "d": 558,
+              "elevationMm": 0,
+              "heightMm": 2382,
+              "role": "cabinet-side",
+              "label": "侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f3-cabinet-bottom",
+              "x": -1102,
+              "y": -282,
+              "w": 2204,
+              "d": 582,
+              "elevationMm": 0,
+              "heightMm": 18,
+              "role": "cabinet-bottom",
+              "label": "底板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f3-cabinet-back",
+              "x": -1102,
+              "y": -300,
+              "w": 2204,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 2382,
+              "role": "cabinet-back",
+              "label": "柜内背板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f3-cabinet-top",
+              "x": -1120,
+              "y": -300,
+              "w": 2240,
+              "d": 600,
+              "elevationMm": 2382,
+              "heightMm": 18,
+              "role": "cabinet-top",
+              "label": "顶板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f3-door-0",
+              "x": -1118.5,
+              "y": 282,
+              "w": 742.667,
+              "d": 18,
+              "elevationMm": 19.5,
+              "heightMm": 1961,
+              "role": "door-sliding",
+              "label": "奶白滑门 · 不外开",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south",
+              "doorStyle": "sliding",
+              "panelIndex": 0
+            },
+            {
+              "id": "family-f3-pull-0",
+              "x": -388.833,
+              "y": 282,
+              "w": 7,
+              "d": 2,
+              "elevationMm": 1100,
+              "heightMm": 120,
+              "role": "handle-recess",
+              "label": "内嵌扣手",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "south"
+            },
+            {
+              "id": "family-f3-door-1",
+              "x": -372.833,
+              "y": 262,
+              "w": 742.667,
+              "d": 18,
+              "elevationMm": 19.5,
+              "heightMm": 1961,
+              "role": "door-sliding",
+              "label": "奶白滑门 · 不外开",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south",
+              "doorStyle": "sliding",
+              "panelIndex": 1
+            },
+            {
+              "id": "family-f3-pull-1",
+              "x": 356.833,
+              "y": 262,
+              "w": 7,
+              "d": 2,
+              "elevationMm": 1100,
+              "heightMm": 120,
+              "role": "handle-recess",
+              "label": "内嵌扣手",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "south"
+            },
+            {
+              "id": "family-f3-door-2",
+              "x": 372.833,
+              "y": 282,
+              "w": 742.667,
+              "d": 18,
+              "elevationMm": 19.5,
+              "heightMm": 1961,
+              "role": "door-sliding",
+              "label": "奶白滑门 · 不外开",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south",
+              "doorStyle": "sliding",
+              "panelIndex": 2
+            },
+            {
+              "id": "family-f3-pull-2",
+              "x": 1102.5,
+              "y": 282,
+              "w": 7,
+              "d": 2,
+              "elevationMm": 1100,
+              "heightMm": 120,
+              "role": "handle-recess",
+              "label": "内嵌扣手",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "south"
+            },
+            {
+              "id": "family-f3-upper-door-0",
+              "x": -1118.5,
+              "y": 282,
+              "w": 742.667,
+              "d": 18,
+              "elevationMm": 2019.5,
+              "heightMm": 361,
+              "role": "door-hinged",
+              "label": "奶白封闭柜门",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south",
+              "doorStyle": "hinged",
+              "panelIndex": 0
+            },
+            {
+              "id": "family-f3-upper-pull-0",
+              "x": -388.833,
+              "y": 282,
+              "w": 7,
+              "d": 2,
+              "elevationMm": 2220,
+              "heightMm": 100,
+              "role": "handle-recess",
+              "label": "内嵌扣手",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "south"
+            },
+            {
+              "id": "family-f3-upper-door-1",
+              "x": -372.833,
+              "y": 282,
+              "w": 742.667,
+              "d": 18,
+              "elevationMm": 2019.5,
+              "heightMm": 361,
+              "role": "door-hinged",
+              "label": "奶白封闭柜门",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south",
+              "doorStyle": "hinged",
+              "panelIndex": 1
+            },
+            {
+              "id": "family-f3-upper-pull-1",
+              "x": 356.833,
+              "y": 282,
+              "w": 7,
+              "d": 2,
+              "elevationMm": 2220,
+              "heightMm": 100,
+              "role": "handle-recess",
+              "label": "内嵌扣手",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "south"
+            },
+            {
+              "id": "family-f3-upper-door-2",
+              "x": 372.833,
+              "y": 282,
+              "w": 742.667,
+              "d": 18,
+              "elevationMm": 2019.5,
+              "heightMm": 361,
+              "role": "door-hinged",
+              "label": "奶白封闭柜门",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south",
+              "doorStyle": "hinged",
+              "panelIndex": 2
+            },
+            {
+              "id": "family-f3-upper-pull-2",
+              "x": 1102.5,
+              "y": 282,
+              "w": 7,
+              "d": 2,
+              "elevationMm": 2220,
+              "heightMm": 100,
+              "role": "handle-recess",
+              "label": "内嵌扣手",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "south"
+            },
+            {
+              "id": "family-f3-divider-1",
+              "x": -367.333,
+              "y": -282,
+              "w": 18,
+              "d": 540,
+              "elevationMm": 18,
+              "heightMm": 1964,
+              "role": "cabinet-divider",
+              "label": "内部分区板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f3-divider-2",
+              "x": 367.333,
+              "y": -282,
+              "w": 18,
+              "d": 540,
+              "elevationMm": 18,
+              "heightMm": 1964,
+              "role": "cabinet-divider",
+              "label": "内部分区板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f3-seasonal-shelf",
+              "x": -1102,
+              "y": -282,
+              "w": 2204,
+              "d": 540,
+              "elevationMm": 2000,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "上层被褥分区",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f3-rail-0",
+              "x": -1082,
+              "y": -16,
+              "w": 694.667,
+              "d": 16,
+              "elevationMm": 1880,
+              "heightMm": 16,
+              "role": "hanging-rail",
+              "label": "600mm柜深挂衣杆示意",
+              "color": "#9D9386",
+              "material": "WarmGrayMetal",
+              "face": "south"
+            },
+            {
+              "id": "family-f3-rail-1",
+              "x": -347.333,
+              "y": -16,
+              "w": 694.667,
+              "d": 16,
+              "elevationMm": 1880,
+              "heightMm": 16,
+              "role": "hanging-rail",
+              "label": "600mm柜深挂衣杆示意",
+              "color": "#9D9386",
+              "material": "WarmGrayMetal",
+              "face": "south"
+            },
+            {
+              "id": "family-f3-fold-2-350",
+              "x": 367.333,
+              "y": -282,
+              "w": 716.667,
+              "d": 540,
+              "elevationMm": 350,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "叠衣分类层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f3-fold-2-700",
+              "x": 367.333,
+              "y": -282,
+              "w": 716.667,
+              "d": 540,
+              "elevationMm": 700,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "叠衣分类层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f3-fold-2-1050",
+              "x": 367.333,
+              "y": -282,
+              "w": 716.667,
+              "d": 540,
+              "elevationMm": 1050,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "叠衣分类层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f3-fold-2-1400",
+              "x": 367.333,
+              "y": -282,
+              "w": 716.667,
+              "d": 540,
+              "elevationMm": 1400,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "叠衣分类层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            }
+          ],
+          "nativeType": "wardrobe",
+          "cabinetRevision": "cream-oak-functional-v1",
+          "baseWidthMm": 2240,
+          "baseDepthMm": 600,
+          "baseHeightMm": 2400,
+          "cabinetDesign": {
+            "revision": "cream-oak-functional-v1",
+            "title": "衣柜 · 封闭分区",
+            "status": "concept-pending-detail",
+            "previousColor": "#C8A77E",
+            "boardThicknessMm": 18,
+            "doorGapMm": 3,
+            "palette": {
+              "door": "#F4F1E9",
+              "wood": "#CDB594",
+              "counter": "#CDB594",
+              "metal": "#9D9386",
+              "light": "#FFF1CF"
+            },
+            "faces": [
+              {
+                "face": "south",
+                "label": "衣柜正面（随原柜体旋转）",
+                "lengthMm": 2240,
+                "depthMm": 600
+              }
+            ],
+            "features": [
+              "600mm外深建议挂衣与叠衣分区，净深须扣双轨和背板再核。",
+              "奶白滑门与内嵌浅原木扣手；不增加过道外伸把手。",
+              "上400mm低频被褥层；内部为概念分区，不改变床尾通路。"
+            ],
+            "dimensions": [
+              "2240×600×2400mm沿用模型；柜高不是现场定制下单确认值。",
+              "便捷分区与板件为概念建议；柜体高度、门轨、承重、安装与下单尺寸仍待厂家现场深化。"
+            ]
+          },
+          "originalSourceFootprintMm": {
+            "x": 3495,
+            "y": 120,
+            "w": 600,
+            "d": 2240
+          }
+        },
+        {
+          "id": "study_full_desk",
+          "type": "desk",
+          "name": "书房通长桌",
+          "cx": 1230,
+          "cy": 5925,
+          "w": 2220,
+          "d": 550,
+          "rot": 0,
+          "color": "#C8A77E",
+          "heightMm": 740,
+          "elevationMm": 0,
+          "sourceId": "study_full_desk",
+          "sourceFootprintMm": {
+            "x": 120,
+            "y": 5650,
+            "w": 2220,
+            "d": 550
+          },
+          "face": "north",
+          "notes": "R3南墙2220×550mm通长桌，保持端板、钢架和中间支承；承载和收口待深化。",
+          "dimensionStatus": "design-pending",
+          "originalSourceFootprintMm": {
+            "x": 120,
+            "y": 5650,
+            "w": 2220,
+            "d": 550
+          }
+        },
+        {
+          "id": "family-f5",
+          "type": "officechair",
+          "name": "书房办公椅",
+          "cx": 1230,
+          "cy": 5350,
+          "w": 480,
+          "d": 500,
+          "rot": 0,
+          "color": "#D7D1C6",
+          "heightMm": 900,
+          "elevationMm": 0,
+          "sourceId": "family-f5",
+          "sourceFootprintMm": {
+            "x": 990,
+            "y": 5100,
+            "w": 480,
+            "d": 500
+          },
+          "face": "south",
+          "notes": "东墙西移后的紧凑配椅；保留书桌，避免椅背占据门口。",
+          "dimensionStatus": "design-pending",
+          "originalSourceFootprintMm": {
+            "x": 990,
+            "y": 5100,
+            "w": 480,
+            "d": 500
+          }
+        },
+        {
+          "id": "family-living-rug",
+          "type": "rug",
+          "name": "客厅大地毯 · 3200×2600，覆盖主沙发前脚",
+          "cx": 5050,
+          "cy": 8000,
+          "w": 3200,
+          "d": 2600,
+          "rot": 0,
+          "color": "#D7D1C6",
+          "heightMm": 12,
+          "elevationMm": 0,
+          "sourceId": "family-living-rug",
+          "sourceFootprintMm": {
+            "x": 3450,
+            "y": 6700,
+            "w": 3200,
+            "d": 2600
+          },
+          "dimensionStatus": "design-pending",
+          "originalSourceFootprintMm": {
+            "x": 3955,
+            "y": 6740,
+            "w": 2240,
+            "d": 1780
+          }
+        },
+        {
+          "id": "family-f6",
+          "type": "sofa",
+          "name": "VIMLE 沙发 · 东墙背靠，面向西侧",
+          "cx": 6260,
+          "cy": 8000,
+          "w": 2410,
+          "d": 980,
+          "rot": 90,
+          "color": "#D7D1C6",
+          "heightMm": 830,
+          "elevationMm": 0,
+          "sourceId": "family-f6",
+          "sourceFootprintMm": {
+            "x": 5770,
+            "y": 6795,
+            "w": 980.0000000000001,
+            "d": 2410
+          },
+          "face": "west",
+          "productKey": "sofa",
+          "purchasedProductId": "ikea-vimle-39635114",
+          "dimensionStatus": "purchased-product-body",
+          "originalSourceFootprintMm": {
+            "x": 3870,
+            "y": 8590,
+            "w": 2410,
+            "d": 980
+          }
+        },
+        {
+          "id": "family-f7",
+          "type": "tvstand",
+          "name": "电视薄柜",
+          "cx": 5050,
+          "cy": 6500,
+          "w": 2200,
+          "d": 340,
+          "rot": 0,
+          "color": "#F4F1E9",
+          "heightMm": 430,
+          "elevationMm": 0,
+          "sourceId": "family-f7",
+          "sourceFootprintMm": {
+            "x": 3950,
+            "y": 6330,
+            "w": 2200,
+            "d": 340
+          },
+          "dimensionStatus": "design-pending",
+          "parts": [
+            {
+              "id": "family-f7-side-0",
+              "x": -1100,
+              "y": -170,
+              "w": 18,
+              "d": 298,
+              "elevationMm": 0,
+              "heightMm": 412,
+              "role": "cabinet-side",
+              "label": "侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f7-side-1",
+              "x": 1082,
+              "y": -170,
+              "w": 18,
+              "d": 298,
+              "elevationMm": 0,
+              "heightMm": 412,
+              "role": "cabinet-side",
+              "label": "侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f7-cabinet-bottom",
+              "x": -1082,
+              "y": -152,
+              "w": 2164,
+              "d": 322,
+              "elevationMm": 0,
+              "heightMm": 18,
+              "role": "cabinet-bottom",
+              "label": "底板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f7-wood-countertop",
+              "x": -1100,
+              "y": -170,
+              "w": 2200,
+              "d": 340,
+              "elevationMm": 412,
+              "heightMm": 18,
+              "role": "wood-countertop",
+              "label": "顶板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "south"
+            },
+            {
+              "id": "family-f7-left-door-0",
+              "x": -1098.5,
+              "y": 152,
+              "w": 742,
+              "d": 18,
+              "elevationMm": 19.5,
+              "heightMm": 391,
+              "role": "door-sliding",
+              "label": "奶白滑门 · 不外开",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south",
+              "doorStyle": "sliding",
+              "panelIndex": 0
+            },
+            {
+              "id": "family-f7-left-pull-0",
+              "x": -369.5,
+              "y": 152,
+              "w": 7,
+              "d": 2,
+              "elevationMm": 236.5,
+              "heightMm": 107.5,
+              "role": "handle-recess",
+              "label": "内嵌扣手",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "south"
+            },
+            {
+              "id": "family-f7-right-door-0",
+              "x": 353.5,
+              "y": 152,
+              "w": 742,
+              "d": 18,
+              "elevationMm": 19.5,
+              "heightMm": 391,
+              "role": "door-sliding",
+              "label": "奶白滑门 · 不外开",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south",
+              "doorStyle": "sliding",
+              "panelIndex": 0
+            },
+            {
+              "id": "family-f7-right-pull-0",
+              "x": 1082.5,
+              "y": 152,
+              "w": 7,
+              "d": 2,
+              "elevationMm": 236.5,
+              "heightMm": 107.5,
+              "role": "handle-recess",
+              "label": "内嵌扣手",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "south"
+            },
+            {
+              "id": "family-f7-left-cabinet-back",
+              "x": -1082,
+              "y": -170,
+              "w": 730,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 412,
+              "role": "cabinet-back",
+              "label": "左侧闭柜奶白背板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f7-right-cabinet-back",
+              "x": 352,
+              "y": -170,
+              "w": 730,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 412,
+              "role": "cabinet-back",
+              "label": "右侧闭柜奶白背板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "south"
+            },
+            {
+              "id": "family-f7-AV-niche-back",
+              "x": -352,
+              "y": -170,
+              "w": 704,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 412,
+              "role": "niche-back",
+              "label": "影音设备独立原木背板 · 与左右背板不重叠",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "south"
+            },
+            {
+              "id": "family-f7-AV-cabinet-shelf",
+              "x": -352,
+              "y": -152,
+              "w": 704,
+              "d": 280,
+              "elevationMm": 215,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "影音设备开放层",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "south"
+            }
+          ],
+          "cabinetRevision": "cream-oak-functional-v1",
+          "baseWidthMm": 2200,
+          "baseDepthMm": 340,
+          "baseHeightMm": 430,
+          "cabinetDesign": {
+            "revision": "cream-oak-functional-v1",
+            "title": "电视薄柜 · 影音与杂物分区",
+            "status": "concept-pending-detail",
+            "previousColor": "#C8A77E",
+            "boardThicknessMm": 18,
+            "doorGapMm": 3,
+            "palette": {
+              "door": "#F4F1E9",
+              "wood": "#CDB594",
+              "counter": "#CDB594",
+              "metal": "#9D9386",
+              "light": "#FFF1CF"
+            },
+            "faces": [
+              {
+                "face": "south",
+                "label": "电视薄柜正面",
+                "lengthMm": 2200,
+                "depthMm": 340
+              }
+            ],
+            "features": [
+              "保留电视及2200mm薄柜，不增加遮窗或挡走廊的高柜。",
+              "两侧奶白滑门封闭杂物，中间影音开放层；走线散热现场深化。"
+            ],
+            "dimensions": [
+              "2200×340×430mm；柜高沿用编辑器暂定值，非复尺确认。",
+              "便捷分区与板件为概念建议；柜体高度、门轨、承重、安装与下单尺寸仍待厂家现场深化。"
+            ]
+          },
+          "originalSourceFootprintMm": {
+            "x": 3950,
+            "y": 6330,
+            "w": 2200,
+            "d": 340
+          }
+        },
+        {
+          "id": "family-f8",
+          "type": "coffeetable",
+          "name": "茶几",
+          "cx": 4660,
+          "cy": 7850,
+          "w": 1200,
+          "d": 620,
+          "rot": 0,
+          "color": "#C8A77E",
+          "heightMm": 400,
+          "elevationMm": 0,
+          "sourceId": "family-f8",
+          "sourceFootprintMm": {
+            "x": 4060,
+            "y": 7540,
+            "w": 1200,
+            "d": 620
+          },
+          "dimensionStatus": "design-pending",
+          "originalSourceFootprintMm": {
+            "x": 4475,
+            "y": 7320,
+            "w": 1200,
+            "d": 620
+          }
+        },
+        {
+          "id": "vanity_main",
+          "type": "vanity",
+          "name": "主卫600浴室柜",
+          "cx": 4830,
+          "cy": 3550,
+          "w": 600,
+          "d": 360,
+          "rot": 0,
+          "color": "#F5F4EF",
+          "heightMm": 850,
+          "elevationMm": 0,
+          "sourceId": "vanity_main",
+          "sourceFootprintMm": {
+            "x": 4530,
+            "y": 3370,
+            "w": 600,
+            "d": 360
+          },
+          "face": "south",
+          "notes": "600×360mm盆柜位置不变；主卫门改南铰内开后不再横挡盆前。门套、把手与使用净空仍须现场核对。",
+          "dimensionStatus": "design-pending",
+          "originalSourceFootprintMm": {
+            "x": 4530,
+            "y": 3370,
+            "w": 600,
+            "d": 360
+          }
+        },
+        {
+          "id": "family-f11",
+          "type": "toilet",
+          "name": "主卫壁挂马桶",
+          "cx": 5570,
+          "cy": 3660,
+          "w": 360,
+          "d": 580,
+          "rot": 0,
+          "color": "#F5F4EF",
+          "heightMm": 800,
+          "elevationMm": 0,
+          "sourceId": "family-f11",
+          "sourceFootprintMm": {
+            "x": 5390,
+            "y": 3370,
+            "w": 360,
+            "d": 580
+          },
+          "face": "south",
+          "notes": "R4B占位东移60mm，排水立管及是否能移待核验。",
+          "dimensionStatus": "design-pending",
+          "originalSourceFootprintMm": {
+            "x": 5390,
+            "y": 3370,
+            "w": 360,
+            "d": 580
+          }
+        },
+        {
+          "id": "family-f12",
+          "type": "shower",
+          "name": "主卫淋浴区",
+          "cx": 6260,
+          "cy": 4105,
+          "w": 900,
+          "d": 1410,
+          "rot": 0,
+          "color": "#D4E1DF",
+          "heightMm": 2100,
+          "elevationMm": 0,
+          "sourceId": "family-f12",
+          "sourceFootprintMm": {
+            "x": 5810,
+            "y": 3400,
+            "w": 900,
+            "d": 1410
+          },
+          "notes": "R3北墙保留原位，900×1410mm淋浴占位；管线、屏风和出入口另深化。",
+          "dimensionStatus": "design-pending",
+          "originalSourceFootprintMm": {
+            "x": 5810,
+            "y": 3400,
+            "w": 900,
+            "d": 1410
+          }
+        },
+        {
+          "id": "vanity_guest",
+          "type": "vanity",
+          "name": "客卫600浴室柜",
+          "cx": 4800,
+          "cy": 5200,
+          "w": 600,
+          "d": 380,
+          "rot": 0,
+          "color": "#F5F4EF",
+          "heightMm": 850,
+          "elevationMm": 0,
+          "sourceId": "vanity_guest",
+          "sourceFootprintMm": {
+            "x": 4500,
+            "y": 5010,
+            "w": 600,
+            "d": 380
+          },
+          "face": "south",
+          "notes": "北墙600×380mm占位，避免与入口门板相碰。",
+          "dimensionStatus": "design-pending",
+          "originalSourceFootprintMm": {
+            "x": 4500,
+            "y": 5010,
+            "w": 600,
+            "d": 380
+          }
+        },
+        {
+          "id": "family-f14",
+          "type": "toilet",
+          "name": "客卫壁挂马桶",
+          "cx": 5460,
+          "cy": 5310,
+          "w": 360,
+          "d": 580,
+          "rot": 0,
+          "color": "#F5F4EF",
+          "heightMm": 800,
+          "elevationMm": 0,
+          "sourceId": "family-f14",
+          "sourceFootprintMm": {
+            "x": 5280,
+            "y": 5020,
+            "w": 360,
+            "d": 580
+          },
+          "face": "south",
+          "dimensionStatus": "design-pending",
+          "originalSourceFootprintMm": {
+            "x": 5280,
+            "y": 5020,
+            "w": 360,
+            "d": 580
+          }
+        },
+        {
+          "id": "family-f15",
+          "type": "shower",
+          "name": "客卫淋浴区",
+          "cx": 6260,
+          "cy": 5595,
+          "w": 880,
+          "d": 1110,
+          "rot": 0,
+          "color": "#D4E1DF",
+          "heightMm": 2100,
+          "elevationMm": 0,
+          "sourceId": "family-f15",
+          "sourceFootprintMm": {
+            "x": 5820,
+            "y": 5040,
+            "w": 880,
+            "d": 1110
+          },
+          "dimensionStatus": "design-pending",
+          "originalSourceFootprintMm": {
+            "x": 5820,
+            "y": 5040,
+            "w": 880,
+            "d": 1110
+          }
+        },
+        {
+          "id": "bed_b_niche_console",
+          "type": "desk",
+          "name": "次卧补齐退台的连续浅台",
+          "cx": 3155,
+          "cy": 1240,
+          "w": 2240,
+          "d": 440,
+          "rot": 270,
+          "color": "#C8A77E",
+          "heightMm": 740,
+          "elevationMm": 0,
+          "sourceId": "bed_b_niche_console",
+          "sourceFootprintMm": {
+            "x": 2935,
+            "y": 120,
+            "w": 440.0000000000004,
+            "d": 2240
+          },
+          "face": "west",
+          "notes": "R3东墙2240×440mm连续浅台，床尾715mm，不配椅；南端距全开门叶140mm，不是舒适办公位。",
+          "dimensionStatus": "design-pending",
+          "originalSourceFootprintMm": {
+            "x": 2935,
+            "y": 120,
+            "w": 440,
+            "d": 2240
+          }
+        },
+        {
+          "id": "study_north_sofa",
+          "type": "sofa",
+          "name": "书房北墙沙发",
+          "cx": 1170,
+          "cy": 3765,
+          "w": 1900,
+          "d": 850,
+          "rot": 0,
+          "color": "#D7D1C6",
+          "heightMm": 830,
+          "elevationMm": 0,
+          "sourceId": "study_north_sofa",
+          "sourceFootprintMm": {
+            "x": 220,
+            "y": 3340,
+            "w": 1900,
+            "d": 850
+          },
+          "face": "south",
+          "notes": "1900×850mm沙发占位，背靠北墙；不是选定产品或展开沙发床，门扇扫掠已避让。",
+          "dimensionStatus": "design-pending",
+          "originalSourceFootprintMm": {
+            "x": 220,
+            "y": 3340,
+            "w": 1900,
+            "d": 850
+          }
+        },
+        {
+          "id": "family-f23",
+          "type": "table",
+          "name": "LISABO 利萨伯 固定四人餐桌 · 白蜡木贴面",
+          "cx": 4600,
+          "cy": 10650,
+          "w": 1400,
+          "d": 780,
+          "rot": 0,
+          "color": "#C8A77E",
+          "heightMm": 740,
+          "elevationMm": 0,
+          "sourceId": "family-f23",
+          "sourceFootprintMm": {
+            "x": 3900,
+            "y": 10260,
+            "w": 1400,
+            "d": 780
+          },
+          "face": "south",
+          "productKey": "table",
+          "purchasedProductId": "ikea-lisabo-80365717",
+          "dimensionStatus": "purchased-product-body",
+          "originalSourceFootprintMm": {
+            "x": 2565,
+            "y": 10300,
+            "w": 780,
+            "d": 1400
+          }
+        },
+        {
+          "id": "family-f24",
+          "type": "chair",
+          "name": "LISABO 利萨伯 餐椅 · 白蜡木",
+          "cx": 4200,
+          "cy": 9880,
+          "w": 460,
+          "d": 510,
+          "rot": 0,
+          "color": "#C8A77E",
+          "heightMm": 800,
+          "elevationMm": 0,
+          "sourceId": "family-f24",
+          "sourceFootprintMm": {
+            "x": 3970,
+            "y": 9625,
+            "w": 460,
+            "d": 510
+          },
+          "face": "south",
+          "productKey": "chair",
+          "purchasedProductId": "ikea-lisabo-80457236",
+          "dimensionStatus": "purchased-product-body",
+          "originalSourceFootprintMm": {
+            "x": 2725,
+            "y": 9665,
+            "w": 460,
+            "d": 510
+          }
+        },
+        {
+          "id": "family-f25",
+          "type": "chair",
+          "name": "LISABO 利萨伯 餐椅 · 白蜡木",
+          "cx": 4900,
+          "cy": 9880,
+          "w": 460,
+          "d": 510,
+          "rot": 0,
+          "color": "#C8A77E",
+          "heightMm": 800,
+          "elevationMm": 0,
+          "sourceId": "family-f25",
+          "sourceFootprintMm": {
+            "x": 4670,
+            "y": 9625,
+            "w": 460,
+            "d": 510
+          },
+          "face": "west",
+          "productKey": "chair",
+          "purchasedProductId": "ikea-lisabo-80457236",
+          "dimensionStatus": "purchased-product-body",
+          "originalSourceFootprintMm": {
+            "x": 3470,
+            "y": 10470,
+            "w": 510,
+            "d": 460
+          }
+        },
+        {
+          "id": "family-f26",
+          "type": "chair",
+          "name": "LISABO 利萨伯 餐椅 · 白蜡木",
+          "cx": 4200,
+          "cy": 11420,
+          "w": 460,
+          "d": 510,
+          "rot": 180,
+          "color": "#C8A77E",
+          "heightMm": 800,
+          "elevationMm": 0,
+          "sourceId": "family-f26",
+          "sourceFootprintMm": {
+            "x": 3970,
+            "y": 11165,
+            "w": 460.00000000000006,
+            "d": 510.00000000000006
+          },
+          "face": "west",
+          "productKey": "chair",
+          "purchasedProductId": "ikea-lisabo-80457236",
+          "dimensionStatus": "purchased-product-body",
+          "originalSourceFootprintMm": {
+            "x": 3470,
+            "y": 11170,
+            "w": 510,
+            "d": 460
+          }
+        },
+        {
+          "id": "family-f27",
+          "type": "chair",
+          "name": "LISABO 利萨伯 餐椅 · 白蜡木",
+          "cx": 4900,
+          "cy": 11420,
+          "w": 460,
+          "d": 510,
+          "rot": 180,
+          "color": "#C8A77E",
+          "heightMm": 800,
+          "elevationMm": 0,
+          "sourceId": "family-f27",
+          "sourceFootprintMm": {
+            "x": 4670,
+            "y": 11165,
+            "w": 460.00000000000006,
+            "d": 510.00000000000006
+          },
+          "face": "north",
+          "productKey": "chair",
+          "purchasedProductId": "ikea-lisabo-80457236",
+          "dimensionStatus": "purchased-product-body",
+          "originalSourceFootprintMm": {
+            "x": 2725,
+            "y": 11825,
+            "w": 460,
+            "d": 510
+          }
+        },
+        {
+          "id": "fit-bay_b_tea",
+          "type": "fixture",
+          "name": "次卧 · 一人的窗边茶座",
+          "cx": 1630,
+          "cy": -225,
+          "w": 1180,
+          "d": 550,
+          "rot": 0,
+          "color": "#F3EFE6",
+          "baseWidthMm": 1180,
+          "baseDepthMm": 550,
+          "heightMm": 710,
+          "elevationMm": 0,
+          "parts": [
+            {
+              "x": -590,
+              "y": -275,
+              "w": 850,
+              "d": 550,
+              "elevationMm": 402,
+              "heightMm": 48,
+              "color": "#D9D1C3",
+              "id": "b_cushion",
+              "role": "seat_cushion"
+            },
+            {
+              "x": 310,
+              "y": -225,
+              "w": 280,
+              "d": 320,
+              "elevationMm": 402,
+              "heightMm": 163,
+              "color": "#C8A77E",
+              "id": "b_tea_tray",
+              "role": "tea_tray"
+            },
+            {
+              "x": -570,
+              "y": -265,
+              "w": 430,
+              "d": 120,
+              "elevationMm": 450,
+              "heightMm": 260,
+              "color": "#D9D1C3",
+              "id": "b_back_cushion",
+              "role": "back_cushion"
+            }
+          ],
+          "sourceId": "fit-bay_b_tea",
+          "dimensionStatus": "design-pending",
+          "roomId": "room_b",
+          "notes": "次卧无独立桌椅。复尺窗宽1760mm、窗高1670mm、台面400mm；茶座坐垫完成面450mm。窗位按西内墙留870mm定位，东侧旧墙仍多10mm，待全屋墙线闭合。",
+          "conditions": [
+            "台高已按复尺更新，不表示窗框净深、结构承载和防护已核准。",
+            "保留软垫可拆洗和茶盘可移；不虚构台下抽屉；不放电热壶。",
+            "28楼防坠和开启限位须先专业核验，纱窗不代替防坠；不设计为儿童攀爬区。"
+          ],
+          "sourceFootprintMm": {
+            "x": 1040,
+            "y": -500,
+            "w": 1180,
+            "d": 550
+          }
+        },
+        {
+          "id": "fit-bay_living_family",
+          "type": "fixture",
+          "name": "加深低飘窗 · 室内前沿齐走廊",
+          "cx": 1970,
+          "cy": 7470,
+          "w": 980,
+          "d": 1940,
+          "rot": 0,
+          "color": "#F3EFE6",
+          "baseWidthMm": 980,
+          "baseDepthMm": 1940,
+          "heightMm": 450,
+          "elevationMm": 0,
+          "parts": [
+            {
+              "id": "indoor-bay-platform",
+              "role": "indoor-added-plinth",
+              "x": 60,
+              "y": -970,
+              "w": 430,
+              "d": 1940,
+              "elevationMm": 0,
+              "heightMm": 400,
+              "color": "#E9E5DC"
+            },
+            {
+              "x": -490,
+              "y": -970,
+              "w": 980,
+              "d": 960,
+              "elevationMm": 400,
+              "heightMm": 50,
+              "color": "#D9D1C3",
+              "id": "l_seat_pad_north",
+              "role": "seat_cushion"
+            },
+            {
+              "x": -490,
+              "y": 10,
+              "w": 980,
+              "d": 960,
+              "elevationMm": 400,
+              "heightMm": 50,
+              "color": "#D9D1C3",
+              "id": "l_seat_pad_south",
+              "role": "seat_cushion"
+            }
+          ],
+          "sourceId": "fit-bay_living_family",
+          "dimensionStatus": "design-pending",
+          "roomId": "living",
+          "notes": "保留外窗及原结构台，在室内加深低台430mm；垫深暂980mm，坐面450mm。承载、防坠、窗框排水须另核。",
+          "conditions": [
+            "台面400mm、窗高2210mm来自本次核对表，不是允许降低或拆改结构的施工指令。",
+            "软垫分两片可取下、可拆洗；先查渗水、返潮及排水口，不封死窗框排水与检修。",
+            "28楼且家有幼童：先由专业人员核验防坠、开窗限位和无绳窗帘；软垫不等于安全措施，纱窗不能替代防坠。",
+            "按成人短时休憩展示，不布置儿童攀玩设施；不加靠玻璃受力的靠背，不默认台下可挖空收纳。"
+          ],
+          "sourceFootprintMm": {
+            "x": 1480,
+            "y": 6500,
+            "w": 980,
+            "d": 1940
+          }
+        },
+        {
+          "id": "fit-entry_shoe_station",
+          "type": "fixture",
+          "name": "鞋柜拉满 · 沿墙1430×深340",
+          "cx": 5120,
+          "cy": 13175,
+          "w": 340,
+          "d": 1430,
+          "baseWidthMm": 340,
+          "baseDepthMm": 1430,
+          "rot": 0,
+          "color": "#E8E4DC",
+          "heightMm": 2500,
+          "elevationMm": 0,
+          "parts": [
+            {
+              "id": "e_shoe_lower-side-0",
+              "x": -128,
+              "y": 65,
+              "w": 298,
+              "d": 18,
+              "elevationMm": 200,
+              "heightMm": 782,
+              "role": "cabinet-side",
+              "label": "侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "id": "e_shoe_lower-side-1",
+              "x": -128,
+              "y": 697,
+              "w": 298,
+              "d": 18,
+              "elevationMm": 200,
+              "heightMm": 782,
+              "role": "cabinet-side",
+              "label": "侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "id": "e_shoe_lower-cabinet-bottom",
+              "x": -170,
+              "y": 83,
+              "w": 322,
+              "d": 614,
+              "elevationMm": 200,
+              "heightMm": 18,
+              "role": "cabinet-bottom",
+              "label": "底板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "id": "e_shoe_lower-cabinet-back",
+              "x": 152,
+              "y": 83,
+              "w": 18,
+              "d": 614,
+              "elevationMm": 200,
+              "heightMm": 782,
+              "role": "cabinet-back",
+              "label": "柜内背板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "id": "e_shoe_lower-shelf-0",
+              "x": -128,
+              "y": 83,
+              "w": 280,
+              "d": 614,
+              "elevationMm": 460,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "可调层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "id": "e_shoe_lower-shelf-1",
+              "x": -128,
+              "y": 83,
+              "w": 280,
+              "d": 614,
+              "elevationMm": 720,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "可调层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "id": "e_shoe_lower-door-0",
+              "x": -170,
+              "y": 66.5,
+              "w": 18,
+              "d": 320.5,
+              "elevationMm": 219.5,
+              "heightMm": 761,
+              "role": "door-sliding",
+              "label": "奶白滑门 · 不外开",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "west",
+              "doorStyle": "sliding",
+              "panelIndex": 0
+            },
+            {
+              "id": "e_shoe_lower-pull-0",
+              "x": -154,
+              "y": 374,
+              "w": 2,
+              "d": 7,
+              "elevationMm": 640,
+              "heightMm": 120,
+              "role": "handle-recess",
+              "label": "内嵌扣手",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "west"
+            },
+            {
+              "id": "e_shoe_lower-door-1",
+              "x": -150,
+              "y": 390,
+              "w": 18,
+              "d": 320.5,
+              "elevationMm": 219.5,
+              "heightMm": 761,
+              "role": "door-sliding",
+              "label": "奶白滑门 · 不外开",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "west",
+              "doorStyle": "sliding",
+              "panelIndex": 1
+            },
+            {
+              "id": "e_shoe_lower-pull-1",
+              "x": -134,
+              "y": 697.5,
+              "w": 2,
+              "d": 7,
+              "elevationMm": 640,
+              "heightMm": 120,
+              "role": "handle-recess",
+              "label": "内嵌扣手",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "west"
+            },
+            {
+              "id": "e_shoe_lower-common-back",
+              "x": 152,
+              "y": 65,
+              "w": 18,
+              "d": 650,
+              "elevationMm": 0,
+              "heightMm": 200,
+              "role": "cabinet-back",
+              "label": "常鞋位背板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "west"
+            },
+            {
+              "id": "e_shoe_lower-common-floor",
+              "x": -170,
+              "y": 65,
+              "w": 340,
+              "d": 650,
+              "elevationMm": 0,
+              "heightMm": 18,
+              "role": "common-shoe-shelf",
+              "label": "200mm常鞋开放位",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "west"
+            },
+            {
+              "id": "e_shoe_lower-common-side-0",
+              "x": -170,
+              "y": 65,
+              "w": 340,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 200,
+              "role": "cabinet-side",
+              "label": "常鞋位侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "id": "e_shoe_lower-common-side-1",
+              "x": -170,
+              "y": 697,
+              "w": 340,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 200,
+              "role": "cabinet-side",
+              "label": "常鞋位侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "id": "e_key_niche-niche-back",
+              "x": 152,
+              "y": 65,
+              "w": 18,
+              "d": 650,
+              "elevationMm": 1000,
+              "heightMm": 500,
+              "role": "niche-back",
+              "label": "浅原木中空背板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "west"
+            },
+            {
+              "id": "e_key_niche-niche-countertop",
+              "x": -170,
+              "y": 65,
+              "w": 340,
+              "d": 650,
+              "elevationMm": 982,
+              "heightMm": 18,
+              "role": "wood-countertop",
+              "label": "1000mm完成面 · 单层原木置物台面",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "west"
+            },
+            {
+              "id": "e_key_niche-led-strip",
+              "x": -75,
+              "y": 89,
+              "w": 8,
+              "d": 602,
+              "elevationMm": 1496,
+              "heightMm": 4,
+              "role": "led-strip",
+              "label": "浅吊柜底面暖光灯带 · 前沿内退35mm",
+              "color": "#FFF1CF",
+              "material": "Light",
+              "face": "west",
+              "anchorSourceId": "e_shoe_upper",
+              "anchor": "upper-underside",
+              "insetMm": 35
+            },
+            {
+              "id": "e_key_niche-key-drawer-front-0",
+              "x": -170,
+              "y": 66.5,
+              "w": 18,
+              "d": 647,
+              "elevationMm": 1001.5,
+              "heightMm": 69,
+              "role": "drawer-front",
+              "label": "钥匙/餐具浅抽屉",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "west",
+              "maxExtensionMm": 160
+            },
+            {
+              "id": "e_key_niche-key-drawer-0-floor",
+              "x": -128,
+              "y": 83,
+              "w": 252,
+              "d": 614,
+              "elevationMm": 1015,
+              "heightMm": 18,
+              "role": "drawer-box",
+              "label": "抽屉底板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "west"
+            },
+            {
+              "id": "e_key_niche-key-drawer-0-back",
+              "x": 124,
+              "y": 83,
+              "w": 18,
+              "d": 614,
+              "elevationMm": 1015,
+              "heightMm": 42,
+              "role": "drawer-box",
+              "label": "抽屉背板 · 柜背前留10mm",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "west"
+            },
+            {
+              "id": "e_key_niche-key-drawer-0-side-0",
+              "x": -128,
+              "y": 83,
+              "w": 252,
+              "d": 18,
+              "elevationMm": 1015,
+              "heightMm": 42,
+              "role": "drawer-box",
+              "label": "抽屉侧板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "west"
+            },
+            {
+              "id": "e_key_niche-key-drawer-0-side-1",
+              "x": -128,
+              "y": 679,
+              "w": 252,
+              "d": 18,
+              "elevationMm": 1015,
+              "heightMm": 42,
+              "role": "drawer-box",
+              "label": "抽屉侧板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "west"
+            },
+            {
+              "id": "e_key_niche-key-drawer-top",
+              "x": -170,
+              "y": 65,
+              "w": 322,
+              "d": 650,
+              "elevationMm": 1072,
+              "heightMm": 18,
+              "role": "wood-countertop",
+              "label": "钥匙浅抽盖顶 · 随手小置物面",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "west"
+            },
+            {
+              "id": "e_key_niche-hook-0",
+              "x": 130,
+              "y": 175,
+              "w": 22,
+              "d": 16,
+              "elevationMm": 1320,
+              "heightMm": 32,
+              "role": "coat-hook",
+              "label": "钥匙/轻便包挂钩 · 不代替长衣挂区",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "west"
+            },
+            {
+              "id": "e_key_niche-hook-1",
+              "x": 130,
+              "y": 345,
+              "w": 22,
+              "d": 16,
+              "elevationMm": 1320,
+              "heightMm": 32,
+              "role": "coat-hook",
+              "label": "钥匙/轻便包挂钩 · 不代替长衣挂区",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "west"
+            },
+            {
+              "id": "e_key_niche-hook-2",
+              "x": 130,
+              "y": 515,
+              "w": 22,
+              "d": 16,
+              "elevationMm": 1320,
+              "heightMm": 32,
+              "role": "coat-hook",
+              "label": "钥匙/轻便包挂钩 · 不代替长衣挂区",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "west"
+            },
+            {
+              "id": "e_key_niche-socket-plate",
+              "x": 147,
+              "y": 605,
+              "w": 5,
+              "d": 70,
+              "elevationMm": 1180,
+              "heightMm": 70,
+              "role": "socket-plate",
+              "label": "手机充电预留 · 电路待核",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "id": "e_shoe_upper-side-0",
+              "x": -68,
+              "y": 65,
+              "w": 238,
+              "d": 18,
+              "elevationMm": 1500,
+              "heightMm": 982,
+              "role": "cabinet-side",
+              "label": "侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "id": "e_shoe_upper-side-1",
+              "x": -68,
+              "y": 697,
+              "w": 238,
+              "d": 18,
+              "elevationMm": 1500,
+              "heightMm": 982,
+              "role": "cabinet-side",
+              "label": "侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "id": "e_shoe_upper-cabinet-bottom",
+              "x": -110,
+              "y": 83,
+              "w": 262,
+              "d": 614,
+              "elevationMm": 1500,
+              "heightMm": 18,
+              "role": "cabinet-bottom",
+              "label": "底板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "id": "e_shoe_upper-cabinet-back",
+              "x": 152,
+              "y": 83,
+              "w": 18,
+              "d": 614,
+              "elevationMm": 1500,
+              "heightMm": 982,
+              "role": "cabinet-back",
+              "label": "柜内背板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "id": "e_shoe_upper-cabinet-top",
+              "x": -110,
+              "y": 65,
+              "w": 280,
+              "d": 650,
+              "elevationMm": 2482,
+              "heightMm": 18,
+              "role": "cabinet-top",
+              "label": "顶板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "id": "e_shoe_upper-shelf-0",
+              "x": -68,
+              "y": 83,
+              "w": 220,
+              "d": 614,
+              "elevationMm": 2000,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "可调层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "id": "e_shoe_upper-door-0",
+              "x": -110,
+              "y": 66.5,
+              "w": 18,
+              "d": 320.5,
+              "elevationMm": 1519.5,
+              "heightMm": 961,
+              "role": "door-hinged",
+              "label": "奶白封闭柜门",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "west",
+              "doorStyle": "hinged",
+              "panelIndex": 0
+            },
+            {
+              "id": "e_shoe_upper-pull-0",
+              "x": -94,
+              "y": 374,
+              "w": 2,
+              "d": 7,
+              "elevationMm": 2050,
+              "heightMm": 120,
+              "role": "handle-recess",
+              "label": "内嵌扣手",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "west"
+            },
+            {
+              "id": "e_shoe_upper-door-1",
+              "x": -110,
+              "y": 390,
+              "w": 18,
+              "d": 320.5,
+              "elevationMm": 1519.5,
+              "heightMm": 961,
+              "role": "door-hinged",
+              "label": "奶白封闭柜门",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "west",
+              "doorStyle": "hinged",
+              "panelIndex": 1
+            },
+            {
+              "id": "e_shoe_upper-pull-1",
+              "x": -94,
+              "y": 697.5,
+              "w": 2,
+              "d": 7,
+              "elevationMm": 2050,
+              "heightMm": 120,
+              "role": "handle-recess",
+              "label": "内嵌扣手",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "west"
+            },
+            {
+              "id": "s4-shoe-37",
+              "role": "common-shoe-shelf",
+              "x": -170,
+              "y": -715,
+              "w": 340,
+              "d": 780,
+              "elevationMm": 0,
+              "heightMm": 18,
+              "color": "#CDB594",
+              "face": "west"
+            },
+            {
+              "id": "s4-shoe-38",
+              "role": "common-shoe-back",
+              "x": 152,
+              "y": -715,
+              "w": 18,
+              "d": 780,
+              "elevationMm": 0,
+              "heightMm": 200,
+              "color": "#CDB594",
+              "face": "west"
+            },
+            {
+              "id": "s4-shoe-39",
+              "role": "cabinet-side",
+              "x": -170,
+              "y": -715,
+              "w": 340,
+              "d": 18,
+              "elevationMm": 200,
+              "heightMm": 2300,
+              "color": "#F4F1E9",
+              "face": "west"
+            },
+            {
+              "id": "s4-shoe-40",
+              "role": "cabinet-side",
+              "x": -170,
+              "y": 47,
+              "w": 340,
+              "d": 18,
+              "elevationMm": 200,
+              "heightMm": 2300,
+              "color": "#F4F1E9",
+              "face": "west"
+            },
+            {
+              "id": "s4-shoe-41",
+              "role": "cabinet-back",
+              "x": 152,
+              "y": -697,
+              "w": 18,
+              "d": 744,
+              "elevationMm": 200,
+              "heightMm": 2300,
+              "color": "#F4F1E9",
+              "face": "west"
+            },
+            {
+              "id": "s4-shoe-42",
+              "role": "cabinet-shelf",
+              "x": -170,
+              "y": -697,
+              "w": 322,
+              "d": 744,
+              "elevationMm": 200,
+              "heightMm": 18,
+              "color": "#F4F1E9",
+              "face": "west"
+            },
+            {
+              "id": "s4-shoe-43",
+              "role": "cabinet-shelf",
+              "x": -170,
+              "y": -697,
+              "w": 322,
+              "d": 744,
+              "elevationMm": 460,
+              "heightMm": 18,
+              "color": "#F4F1E9",
+              "face": "west"
+            },
+            {
+              "id": "s4-shoe-44",
+              "role": "cabinet-shelf",
+              "x": -170,
+              "y": -697,
+              "w": 322,
+              "d": 744,
+              "elevationMm": 720,
+              "heightMm": 18,
+              "color": "#F4F1E9",
+              "face": "west"
+            },
+            {
+              "id": "s4-shoe-45",
+              "role": "wood-countertop",
+              "x": -170,
+              "y": -697,
+              "w": 322,
+              "d": 744,
+              "elevationMm": 982,
+              "heightMm": 18,
+              "color": "#CDB594",
+              "face": "west"
+            },
+            {
+              "id": "s4-shoe-46",
+              "role": "cabinet-shelf",
+              "x": -170,
+              "y": -697,
+              "w": 322,
+              "d": 744,
+              "elevationMm": 1500,
+              "heightMm": 18,
+              "color": "#F4F1E9",
+              "face": "west"
+            },
+            {
+              "id": "s4-shoe-47",
+              "role": "cabinet-shelf",
+              "x": -170,
+              "y": -697,
+              "w": 322,
+              "d": 744,
+              "elevationMm": 2000,
+              "heightMm": 18,
+              "color": "#F4F1E9",
+              "face": "west"
+            },
+            {
+              "id": "s4-shoe-48",
+              "role": "cabinet-shelf",
+              "x": -170,
+              "y": -697,
+              "w": 322,
+              "d": 744,
+              "elevationMm": 2482,
+              "heightMm": 18,
+              "color": "#F4F1E9",
+              "face": "west"
+            },
+            {
+              "id": "s4-shoe-49",
+              "role": "door-sliding",
+              "x": -170,
+              "y": -713.5,
+              "w": 18,
+              "d": 385.5,
+              "elevationMm": 219.5,
+              "heightMm": 761,
+              "color": "#F4F1E9",
+              "face": "west"
+            },
+            {
+              "id": "s4-shoe-50",
+              "role": "door-sliding",
+              "x": -170,
+              "y": -713.5,
+              "w": 18,
+              "d": 385.5,
+              "elevationMm": 1001.5,
+              "heightMm": 1497,
+              "color": "#F4F1E9",
+              "face": "west"
+            },
+            {
+              "id": "s4-shoe-51",
+              "role": "door-sliding",
+              "x": -150,
+              "y": -325,
+              "w": 18,
+              "d": 385.5,
+              "elevationMm": 219.5,
+              "heightMm": 761,
+              "color": "#F4F1E9",
+              "face": "west"
+            },
+            {
+              "id": "s4-shoe-52",
+              "role": "door-sliding",
+              "x": -150,
+              "y": -325,
+              "w": 18,
+              "d": 385.5,
+              "elevationMm": 1001.5,
+              "heightMm": 1497,
+              "color": "#F4F1E9",
+              "face": "west"
+            }
+          ],
+          "dimensionStatus": "design-pending",
+          "notes": "从入户南墙到屏风下方，沿墙1430mm、深340mm；南段650mm保留常鞋位、钥匙中空和灯带，北段780mm补鞋盒储物；下部门片滑动不向玄关伸出。柜高沿用2500mm示意，电箱、门套、散热和厂家分区待核。",
+          "sourceFootprintMm": {
+            "x": 4950,
+            "y": 12460,
+            "w": 340,
+            "d": 1430
+          }
+        },
+        {
+          "id": "fit-dining_sideboard_wall",
+          "type": "fixture",
+          "name": "餐边 · 左手整墙7字收纳",
+          "cx": 2937.5,
+          "cy": 11245,
+          "w": 1625,
+          "d": 5290,
+          "rot": 0,
+          "color": "#F4F1E9",
+          "baseWidthMm": 1625,
+          "baseDepthMm": 5290,
+          "heightMm": 2700,
+          "elevationMm": 0,
+          "parts": [
+            {
+              "id": "reference-west-round-skin",
+              "x": -812.5,
+              "y": -2645,
+              "w": 400,
+              "d": 160,
+              "elevationMm": 18,
+              "heightMm": 2664,
+              "role": "rounded-end-shell",
+              "label": "奶白圆弧收口端柜 · 18mm薄壁概念",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east",
+              "shape": "rounded-shell",
+              "radiusMm": 60,
+              "wallThicknessMm": 18,
+              "usableStorage": false
+            },
+            {
+              "id": "reference-west-round-bottom",
+              "x": -812.5,
+              "y": -2645,
+              "w": 400,
+              "d": 160,
+              "elevationMm": 0,
+              "heightMm": 18,
+              "role": "cabinet-bottom",
+              "label": "圆弧端柜18mm底板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east",
+              "shape": "rounded-plan-board",
+              "radiusMm": 60
+            },
+            {
+              "id": "reference-west-round-top",
+              "x": -812.5,
+              "y": -2645,
+              "w": 400,
+              "d": 160,
+              "elevationMm": 2682,
+              "heightMm": 18,
+              "role": "cabinet-top",
+              "label": "圆弧端柜18mm通顶盖板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east",
+              "shape": "rounded-plan-board",
+              "radiusMm": 60
+            },
+            {
+              "id": "reference-west-display-side-0",
+              "x": -812.5,
+              "y": -2485,
+              "w": 400,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-display-side-1",
+              "x": -812.5,
+              "y": -2263,
+              "w": 400,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-display-back",
+              "x": -812.5,
+              "y": -2467,
+              "w": 18,
+              "d": 204,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "cabinet-back",
+              "label": "独立18mm柜背板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-display-bottom",
+              "x": -794.5,
+              "y": -2467,
+              "w": 382,
+              "d": 204,
+              "elevationMm": 0,
+              "heightMm": 18,
+              "role": "cabinet-bottom",
+              "label": "18mm柜底板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-display-top",
+              "x": -794.5,
+              "y": -2467,
+              "w": 382,
+              "d": 204,
+              "elevationMm": 2682,
+              "heightMm": 18,
+              "role": "cabinet-top",
+              "label": "18mm柜顶板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-display-display-shelf-0",
+              "x": -794.5,
+              "y": -2467,
+              "w": 382,
+              "d": 204,
+              "elevationMm": 540,
+              "heightMm": 18,
+              "role": "display-shelf",
+              "label": "原木竖向展示层板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-display-display-shelf-1",
+              "x": -794.5,
+              "y": -2467,
+              "w": 382,
+              "d": 204,
+              "elevationMm": 1080,
+              "heightMm": 18,
+              "role": "display-shelf",
+              "label": "原木竖向展示层板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-display-display-shelf-2",
+              "x": -794.5,
+              "y": -2467,
+              "w": 382,
+              "d": 204,
+              "elevationMm": 1620,
+              "heightMm": 18,
+              "role": "display-shelf",
+              "label": "原木竖向展示层板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-display-display-shelf-3",
+              "x": -794.5,
+              "y": -2467,
+              "w": 382,
+              "d": 204,
+              "elevationMm": 2160,
+              "heightMm": 18,
+              "role": "display-shelf",
+              "label": "原木竖向展示层板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-display-display-light-0",
+              "x": -455.5,
+              "y": -2459,
+              "w": 8,
+              "d": 188,
+              "elevationMm": 536,
+              "heightMm": 4,
+              "role": "led-strip",
+              "label": "嵌入式暖光灯带 · 固定在层板底面",
+              "color": "#FFF1CF",
+              "material": "Light",
+              "face": "east",
+              "anchorPartId": "reference-west-display-display-shelf-0",
+              "anchor": "panel-underside",
+              "insetMm": 35,
+              "lightWash": false,
+              "ledGroup": "display"
+            },
+            {
+              "id": "reference-west-display-display-light-1",
+              "x": -455.5,
+              "y": -2459,
+              "w": 8,
+              "d": 188,
+              "elevationMm": 1076,
+              "heightMm": 4,
+              "role": "led-strip",
+              "label": "嵌入式暖光灯带 · 固定在层板底面",
+              "color": "#FFF1CF",
+              "material": "Light",
+              "face": "east",
+              "anchorPartId": "reference-west-display-display-shelf-1",
+              "anchor": "panel-underside",
+              "insetMm": 35,
+              "lightWash": false,
+              "ledGroup": "display"
+            },
+            {
+              "id": "reference-west-display-display-light-2",
+              "x": -455.5,
+              "y": -2459,
+              "w": 8,
+              "d": 188,
+              "elevationMm": 1616,
+              "heightMm": 4,
+              "role": "led-strip",
+              "label": "嵌入式暖光灯带 · 固定在层板底面",
+              "color": "#FFF1CF",
+              "material": "Light",
+              "face": "east",
+              "anchorPartId": "reference-west-display-display-shelf-2",
+              "anchor": "panel-underside",
+              "insetMm": 35,
+              "lightWash": false,
+              "ledGroup": "display"
+            },
+            {
+              "id": "reference-west-display-display-light-3",
+              "x": -455.5,
+              "y": -2459,
+              "w": 8,
+              "d": 188,
+              "elevationMm": 2156,
+              "heightMm": 4,
+              "role": "led-strip",
+              "label": "嵌入式暖光灯带 · 固定在层板底面",
+              "color": "#FFF1CF",
+              "material": "Light",
+              "face": "east",
+              "anchorPartId": "reference-west-display-display-shelf-3",
+              "anchor": "panel-underside",
+              "insetMm": 35,
+              "lightWash": false,
+              "ledGroup": "display"
+            },
+            {
+              "id": "reference-west-display-display-light-4",
+              "x": -455.5,
+              "y": -2459,
+              "w": 8,
+              "d": 188,
+              "elevationMm": 2678,
+              "heightMm": 4,
+              "role": "led-strip",
+              "label": "嵌入式暖光灯带 · 固定在层板底面",
+              "color": "#FFF1CF",
+              "material": "Light",
+              "face": "east",
+              "anchorPartId": "reference-west-display-top",
+              "anchor": "panel-underside",
+              "insetMm": 35,
+              "lightWash": false,
+              "ledGroup": "display"
+            },
+            {
+              "id": "reference-west-display-book-0",
+              "x": -794.5,
+              "y": -2447,
+              "w": 145,
+              "d": 22,
+              "elevationMm": 18,
+              "heightMm": 210,
+              "role": "display-book",
+              "label": "小型书册示意 · 非承重校核",
+              "color": "#CDB594",
+              "material": "BookPaper",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-display-book-1",
+              "x": -794.5,
+              "y": -2421,
+              "w": 145,
+              "d": 22,
+              "elevationMm": 18,
+              "heightMm": 219,
+              "role": "display-book",
+              "label": "小型书册示意 · 非承重校核",
+              "color": "#F4F1E9",
+              "material": "BookPaper",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-display-book-2",
+              "x": -794.5,
+              "y": -2395,
+              "w": 145,
+              "d": 22,
+              "elevationMm": 18,
+              "heightMm": 228,
+              "role": "display-book",
+              "label": "小型书册示意 · 非承重校核",
+              "color": "#CDB594",
+              "material": "BookPaper",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-display-book-3",
+              "x": -794.5,
+              "y": -2369,
+              "w": 145,
+              "d": 22,
+              "elevationMm": 18,
+              "heightMm": 237,
+              "role": "display-book",
+              "label": "小型书册示意 · 非承重校核",
+              "color": "#F4F1E9",
+              "material": "BookPaper",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-narrow-tall-side-0",
+              "x": -812.5,
+              "y": -2245,
+              "w": 380,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-narrow-tall-side-1",
+              "x": -812.5,
+              "y": -2063,
+              "w": 380,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-narrow-tall-back",
+              "x": -812.5,
+              "y": -2227,
+              "w": 18,
+              "d": 164,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "cabinet-back",
+              "label": "独立18mm柜背板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-narrow-tall-bottom",
+              "x": -794.5,
+              "y": -2227,
+              "w": 362,
+              "d": 164,
+              "elevationMm": 0,
+              "heightMm": 18,
+              "role": "cabinet-bottom",
+              "label": "18mm柜底板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-narrow-tall-top",
+              "x": -794.5,
+              "y": -2227,
+              "w": 362,
+              "d": 164,
+              "elevationMm": 2682,
+              "heightMm": 18,
+              "role": "cabinet-top",
+              "label": "18mm柜顶板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-narrow-tall-shelf-0",
+              "x": -794.5,
+              "y": -2227,
+              "w": 362,
+              "d": 164,
+              "elevationMm": 500,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "可调储物层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-narrow-tall-shelf-1",
+              "x": -794.5,
+              "y": -2227,
+              "w": 362,
+              "d": 164,
+              "elevationMm": 1000,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "可调储物层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-narrow-tall-shelf-2",
+              "x": -794.5,
+              "y": -2227,
+              "w": 362,
+              "d": 164,
+              "elevationMm": 1500,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "可调储物层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-narrow-tall-shelf-3",
+              "x": -794.5,
+              "y": -2227,
+              "w": 362,
+              "d": 164,
+              "elevationMm": 2000,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "可调储物层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-narrow-tall-front-0",
+              "x": -430.5,
+              "y": -2243.5,
+              "w": 18,
+              "d": 197,
+              "elevationMm": 1.5,
+              "heightMm": 2697,
+              "role": "door-hinged",
+              "label": "奶白通顶高柜门",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east",
+              "doorStyle": "hinged",
+              "panelIndex": 0,
+              "handle": "recessed-edge"
+            },
+            {
+              "id": "reference-west-central-side-0",
+              "x": -812.5,
+              "y": -2045,
+              "w": 358,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 832,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-side-1",
+              "x": -812.5,
+              "y": 1467,
+              "w": 358,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 832,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-back",
+              "x": -812.5,
+              "y": -2027,
+              "w": 18,
+              "d": 3494,
+              "elevationMm": 0,
+              "heightMm": 832,
+              "role": "cabinet-back",
+              "label": "独立18mm柜背板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-bottom",
+              "x": -794.5,
+              "y": -2027,
+              "w": 340,
+              "d": 3494,
+              "elevationMm": 0,
+              "heightMm": 18,
+              "role": "cabinet-bottom",
+              "label": "18mm柜底板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-safe-drawers-drawer-front-0",
+              "x": -430.5,
+              "y": -2043.5,
+              "w": 18,
+              "d": 597,
+              "elevationMm": 1.5,
+              "heightMm": 274.333,
+              "role": "drawer-front",
+              "label": "奶白三层餐具抽屉 · 最大拉出250mm",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east",
+              "maxExtensionMm": 250,
+              "drawerLayer": 1,
+              "placement": "north-safe-zone"
+            },
+            {
+              "id": "reference-west-central-safe-drawers-drawer-floor-0",
+              "x": -766.5,
+              "y": -2027,
+              "w": 312,
+              "d": 564,
+              "elevationMm": 20,
+              "heightMm": 18,
+              "role": "drawer-box",
+              "label": "18mm原木抽屉底板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-safe-drawers-drawer-side0-0",
+              "x": -766.5,
+              "y": -2027,
+              "w": 312,
+              "d": 18,
+              "elevationMm": 38,
+              "heightMm": 219.333,
+              "role": "drawer-box",
+              "label": "18mm抽屉左侧板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-safe-drawers-drawer-side1-0",
+              "x": -766.5,
+              "y": -1481,
+              "w": 312,
+              "d": 18,
+              "elevationMm": 38,
+              "heightMm": 219.333,
+              "role": "drawer-box",
+              "label": "18mm抽屉右侧板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-safe-drawers-drawer-back-0",
+              "x": -784.5,
+              "y": -2027,
+              "w": 18,
+              "d": 564,
+              "elevationMm": 20,
+              "heightMm": 237.333,
+              "role": "drawer-box",
+              "label": "抽屉背板 · 柜背前预留10mm",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-safe-drawers-drawer-front-1",
+              "x": -430.5,
+              "y": -2043.5,
+              "w": 18,
+              "d": 597,
+              "elevationMm": 278.833,
+              "heightMm": 274.333,
+              "role": "drawer-front",
+              "label": "奶白三层餐具抽屉 · 最大拉出250mm",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east",
+              "maxExtensionMm": 250,
+              "drawerLayer": 2,
+              "placement": "north-safe-zone"
+            },
+            {
+              "id": "reference-west-central-safe-drawers-drawer-floor-1",
+              "x": -766.5,
+              "y": -2027,
+              "w": 312,
+              "d": 564,
+              "elevationMm": 297.333,
+              "heightMm": 18,
+              "role": "drawer-box",
+              "label": "18mm原木抽屉底板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-safe-drawers-drawer-side0-1",
+              "x": -766.5,
+              "y": -2027,
+              "w": 312,
+              "d": 18,
+              "elevationMm": 315.333,
+              "heightMm": 219.333,
+              "role": "drawer-box",
+              "label": "18mm抽屉左侧板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-safe-drawers-drawer-side1-1",
+              "x": -766.5,
+              "y": -1481,
+              "w": 312,
+              "d": 18,
+              "elevationMm": 315.333,
+              "heightMm": 219.333,
+              "role": "drawer-box",
+              "label": "18mm抽屉右侧板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-safe-drawers-drawer-back-1",
+              "x": -784.5,
+              "y": -2027,
+              "w": 18,
+              "d": 564,
+              "elevationMm": 297.333,
+              "heightMm": 237.333,
+              "role": "drawer-box",
+              "label": "抽屉背板 · 柜背前预留10mm",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-safe-drawers-drawer-front-2",
+              "x": -430.5,
+              "y": -2043.5,
+              "w": 18,
+              "d": 597,
+              "elevationMm": 556.167,
+              "heightMm": 274.333,
+              "role": "drawer-front",
+              "label": "奶白三层餐具抽屉 · 最大拉出250mm",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east",
+              "maxExtensionMm": 250,
+              "drawerLayer": 3,
+              "placement": "north-safe-zone"
+            },
+            {
+              "id": "reference-west-central-safe-drawers-drawer-floor-2",
+              "x": -766.5,
+              "y": -2027,
+              "w": 312,
+              "d": 564,
+              "elevationMm": 574.667,
+              "heightMm": 18,
+              "role": "drawer-box",
+              "label": "18mm原木抽屉底板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-safe-drawers-drawer-side0-2",
+              "x": -766.5,
+              "y": -2027,
+              "w": 312,
+              "d": 18,
+              "elevationMm": 592.667,
+              "heightMm": 219.333,
+              "role": "drawer-box",
+              "label": "18mm抽屉左侧板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-safe-drawers-drawer-side1-2",
+              "x": -766.5,
+              "y": -1481,
+              "w": 312,
+              "d": 18,
+              "elevationMm": 592.667,
+              "heightMm": 219.333,
+              "role": "drawer-box",
+              "label": "18mm抽屉右侧板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-safe-drawers-drawer-back-2",
+              "x": -784.5,
+              "y": -2027,
+              "w": 18,
+              "d": 564,
+              "elevationMm": 574.667,
+              "heightMm": 237.333,
+              "role": "drawer-box",
+              "label": "抽屉背板 · 柜背前预留10mm",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-closed-base-front-0",
+              "x": -430.5,
+              "y": -1443.5,
+              "w": 18,
+              "d": 583,
+              "elevationMm": 1.5,
+              "heightMm": 829,
+              "role": "door-sliding",
+              "label": "奶白滑门 · 不外占餐区",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east",
+              "doorStyle": "sliding",
+              "panelIndex": 0,
+              "handle": "recessed-edge"
+            },
+            {
+              "id": "reference-west-central-closed-base-front-1",
+              "x": -450.5,
+              "y": -857.5,
+              "w": 18,
+              "d": 583,
+              "elevationMm": 1.5,
+              "heightMm": 829,
+              "role": "door-sliding",
+              "label": "奶白滑门 · 不外占餐区",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east",
+              "doorStyle": "sliding",
+              "panelIndex": 1,
+              "handle": "recessed-edge"
+            },
+            {
+              "id": "reference-west-central-closed-base-front-2",
+              "x": -430.5,
+              "y": -271.5,
+              "w": 18,
+              "d": 583,
+              "elevationMm": 1.5,
+              "heightMm": 829,
+              "role": "door-sliding",
+              "label": "奶白滑门 · 不外占餐区",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east",
+              "doorStyle": "sliding",
+              "panelIndex": 2,
+              "handle": "recessed-edge"
+            },
+            {
+              "id": "reference-west-central-closed-base-front-3",
+              "x": -450.5,
+              "y": 314.5,
+              "w": 18,
+              "d": 583,
+              "elevationMm": 1.5,
+              "heightMm": 829,
+              "role": "door-sliding",
+              "label": "奶白滑门 · 不外占餐区",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east",
+              "doorStyle": "sliding",
+              "panelIndex": 3,
+              "handle": "recessed-edge"
+            },
+            {
+              "id": "reference-west-central-closed-base-front-4",
+              "x": -430.5,
+              "y": 900.5,
+              "w": 18,
+              "d": 583,
+              "elevationMm": 1.5,
+              "heightMm": 829,
+              "role": "door-sliding",
+              "label": "奶白滑门 · 不外占餐区",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east",
+              "doorStyle": "sliding",
+              "panelIndex": 4,
+              "handle": "recessed-edge"
+            },
+            {
+              "id": "reference-west-central-base-divider",
+              "x": -794.5,
+              "y": -1454,
+              "w": 340,
+              "d": 18,
+              "elevationMm": 18,
+              "heightMm": 814,
+              "role": "cabinet-divider",
+              "label": "三抽列与滑门列分区 · 底板承托",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-base-shelf-0",
+              "x": -794.5,
+              "y": -1436,
+              "w": 340,
+              "d": 2903,
+              "elevationMm": 290,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "滑门区杯盘分类层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-base-shelf-1",
+              "x": -794.5,
+              "y": -1436,
+              "w": 340,
+              "d": 2903,
+              "elevationMm": 560,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "滑门区杯盘分类层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-countertop",
+              "x": -812.5,
+              "y": -2045,
+              "w": 400,
+              "d": 3530,
+              "elevationMm": 832,
+              "heightMm": 18,
+              "role": "wood-countertop",
+              "label": "850mm完成面 · 单层18mm原木细台面",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-niche-back",
+              "x": -812.5,
+              "y": -2045,
+              "w": 18,
+              "d": 3530,
+              "elevationMm": 850,
+              "heightMm": 650,
+              "role": "niche-back",
+              "label": "连续奶白中空背板 · 不填满开放区",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-socket-rail",
+              "x": -794.5,
+              "y": -986,
+              "w": 10,
+              "d": 800,
+              "elevationMm": 1170,
+              "heightMm": 40,
+              "role": "socket-rail",
+              "label": "原木色插座轨道 · 三圆形插口概念",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east",
+              "socketCount": 3,
+              "installation": "power-circuit-pending"
+            },
+            {
+              "id": "reference-west-central-upper-shared-bottom",
+              "x": -812.5,
+              "y": -2045,
+              "w": 280,
+              "d": 3530,
+              "elevationMm": 1500,
+              "heightMm": 18,
+              "role": "cabinet-bottom",
+              "label": "通长原木吊柜底板 · 连续灯带锚固",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-upper-oak-closed-side-0",
+              "x": -812.5,
+              "y": -350.6,
+              "w": 260,
+              "d": 18,
+              "elevationMm": 1518,
+              "heightMm": 1182,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-upper-oak-closed-side-1",
+              "x": -812.5,
+              "y": 1467,
+              "w": 260,
+              "d": 18,
+              "elevationMm": 1518,
+              "heightMm": 1182,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-upper-oak-closed-back",
+              "x": -812.5,
+              "y": -332.6,
+              "w": 18,
+              "d": 1799.6,
+              "elevationMm": 1518,
+              "heightMm": 1182,
+              "role": "cabinet-back",
+              "label": "独立18mm柜背板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-upper-oak-closed-top",
+              "x": -794.5,
+              "y": -332.6,
+              "w": 242,
+              "d": 1799.6,
+              "elevationMm": 2682,
+              "heightMm": 18,
+              "role": "cabinet-top",
+              "label": "18mm柜顶板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-upper-oak-closed-shelf-0",
+              "x": -794.5,
+              "y": -332.6,
+              "w": 242,
+              "d": 1799.6,
+              "elevationMm": 2100,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "可调储物层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-upper-oak-closed-front-0",
+              "x": -550.5,
+              "y": -349.1,
+              "w": 18,
+              "d": 608.867,
+              "elevationMm": 1519.5,
+              "heightMm": 1179,
+              "role": "door-hinged",
+              "label": "原木无明把手吊柜门",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east",
+              "doorStyle": "hinged",
+              "panelIndex": 0,
+              "handle": "recessed-edge"
+            },
+            {
+              "id": "reference-west-central-upper-oak-closed-front-1",
+              "x": -550.5,
+              "y": 262.767,
+              "w": 18,
+              "d": 608.867,
+              "elevationMm": 1519.5,
+              "heightMm": 1179,
+              "role": "door-hinged",
+              "label": "原木无明把手吊柜门",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east",
+              "doorStyle": "hinged",
+              "panelIndex": 1,
+              "handle": "recessed-edge"
+            },
+            {
+              "id": "reference-west-central-upper-oak-closed-front-2",
+              "x": -550.5,
+              "y": 874.633,
+              "w": 18,
+              "d": 608.867,
+              "elevationMm": 1519.5,
+              "heightMm": 1179,
+              "role": "door-hinged",
+              "label": "原木无明把手吊柜门",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east",
+              "doorStyle": "hinged",
+              "panelIndex": 2,
+              "handle": "recessed-edge"
+            },
+            {
+              "id": "reference-west-central-upper-two-open-side-0",
+              "x": -812.5,
+              "y": -2045,
+              "w": 280,
+              "d": 18,
+              "elevationMm": 1518,
+              "heightMm": 1182,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-upper-two-open-side-1",
+              "x": -812.5,
+              "y": -368.6,
+              "w": 280,
+              "d": 18,
+              "elevationMm": 1518,
+              "heightMm": 1182,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-upper-two-open-back",
+              "x": -812.5,
+              "y": -2027,
+              "w": 18,
+              "d": 1658.4,
+              "elevationMm": 1518,
+              "heightMm": 1182,
+              "role": "cabinet-back",
+              "label": "独立18mm柜背板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-upper-two-open-top",
+              "x": -794.5,
+              "y": -2027,
+              "w": 262,
+              "d": 1658.4,
+              "elevationMm": 2682,
+              "heightMm": 18,
+              "role": "cabinet-top",
+              "label": "18mm柜顶板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-upper-two-open-open-middle",
+              "x": -794.5,
+              "y": -2027,
+              "w": 262,
+              "d": 1658.4,
+              "elevationMm": 2100,
+              "heightMm": 18,
+              "role": "display-shelf",
+              "label": "原木两层开放书格的中层板",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-upper-two-open-open-mid-light",
+              "x": -575.5,
+              "y": -2019,
+              "w": 8,
+              "d": 1642.4,
+              "elevationMm": 2096,
+              "heightMm": 4,
+              "role": "led-strip",
+              "label": "嵌入式暖光灯带 · 固定在层板底面",
+              "color": "#FFF1CF",
+              "material": "Light",
+              "face": "east",
+              "anchorPartId": "reference-west-central-upper-two-open-open-middle",
+              "anchor": "panel-underside",
+              "insetMm": 35,
+              "lightWash": false,
+              "ledGroup": "display"
+            },
+            {
+              "id": "reference-west-central-upper-two-open-open-top-light",
+              "x": -575.5,
+              "y": -2019,
+              "w": 8,
+              "d": 1642.4,
+              "elevationMm": 2678,
+              "heightMm": 4,
+              "role": "led-strip",
+              "label": "嵌入式暖光灯带 · 固定在层板底面",
+              "color": "#FFF1CF",
+              "material": "Light",
+              "face": "east",
+              "anchorPartId": "reference-west-central-upper-two-open-top",
+              "anchor": "panel-underside",
+              "insetMm": 35,
+              "lightWash": false,
+              "ledGroup": "display"
+            },
+            {
+              "id": "reference-west-central-upper-niche-continuous-light",
+              "x": -575.5,
+              "y": -2021,
+              "w": 8,
+              "d": 3482,
+              "elevationMm": 1496,
+              "heightMm": 4,
+              "role": "led-strip",
+              "label": "连续中空暖光灯带 · 固定于通长吊柜底板",
+              "color": "#FFF1CF",
+              "material": "Light",
+              "face": "east",
+              "anchorPartId": "reference-west-central-upper-shared-bottom",
+              "anchor": "panel-underside",
+              "insetMm": 35,
+              "lightWash": true,
+              "ledGroup": "main-niche"
+            },
+            {
+              "id": "reference-west-central-upper-two-open-upper-book-0",
+              "x": -794.5,
+              "y": -1992,
+              "w": 160,
+              "d": 24,
+              "elevationMm": 1518,
+              "heightMm": 225,
+              "role": "display-book",
+              "label": "两层开放格少量书册",
+              "color": "#CDB594",
+              "material": "BookPaper",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-upper-two-open-upper-book-1",
+              "x": -794.5,
+              "y": -1962,
+              "w": 160,
+              "d": 24,
+              "elevationMm": 1518,
+              "heightMm": 230,
+              "role": "display-book",
+              "label": "两层开放格少量书册",
+              "color": "#F4F1E9",
+              "material": "BookPaper",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-upper-two-open-upper-book-2",
+              "x": -794.5,
+              "y": -1932,
+              "w": 160,
+              "d": 24,
+              "elevationMm": 1518,
+              "heightMm": 235,
+              "role": "display-book",
+              "label": "两层开放格少量书册",
+              "color": "#CDB594",
+              "material": "BookPaper",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-upper-two-open-upper-book-3",
+              "x": -794.5,
+              "y": -1902,
+              "w": 160,
+              "d": 24,
+              "elevationMm": 1518,
+              "heightMm": 240,
+              "role": "display-book",
+              "label": "两层开放格少量书册",
+              "color": "#F4F1E9",
+              "material": "BookPaper",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-central-upper-two-open-upper-book-4",
+              "x": -794.5,
+              "y": -1872,
+              "w": 160,
+              "d": 24,
+              "elevationMm": 1518,
+              "heightMm": 245,
+              "role": "display-book",
+              "label": "两层开放格少量书册",
+              "color": "#CDB594",
+              "material": "BookPaper",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-tall-side-0",
+              "x": -812.5,
+              "y": 1485,
+              "w": 358,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-tall-side-1",
+              "x": -812.5,
+              "y": 2027,
+              "w": 358,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-tall-back",
+              "x": -812.5,
+              "y": 1503,
+              "w": 18,
+              "d": 524,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "cabinet-back",
+              "label": "独立18mm柜背板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-tall-bottom",
+              "x": -794.5,
+              "y": 1503,
+              "w": 340,
+              "d": 524,
+              "elevationMm": 0,
+              "heightMm": 18,
+              "role": "cabinet-bottom",
+              "label": "18mm柜底板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-tall-top",
+              "x": -794.5,
+              "y": 1503,
+              "w": 340,
+              "d": 524,
+              "elevationMm": 2682,
+              "heightMm": 18,
+              "role": "cabinet-top",
+              "label": "18mm柜顶板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-tall-shelf-0",
+              "x": -794.5,
+              "y": 1503,
+              "w": 340,
+              "d": 524,
+              "elevationMm": 500,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "可调储物层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-tall-shelf-1",
+              "x": -794.5,
+              "y": 1503,
+              "w": 340,
+              "d": 524,
+              "elevationMm": 1000,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "可调储物层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-tall-shelf-2",
+              "x": -794.5,
+              "y": 1503,
+              "w": 340,
+              "d": 524,
+              "elevationMm": 1500,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "可调储物层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-tall-shelf-3",
+              "x": -794.5,
+              "y": 1503,
+              "w": 340,
+              "d": 524,
+              "elevationMm": 2000,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "可调储物层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-tall-front-0",
+              "x": -430.5,
+              "y": 1486.5,
+              "w": 18,
+              "d": 277,
+              "elevationMm": 1.5,
+              "heightMm": 2697,
+              "role": "door-sliding",
+              "label": "奶白滑门 · 不外占餐区",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east",
+              "doorStyle": "sliding",
+              "panelIndex": 0,
+              "handle": "recessed-edge"
+            },
+            {
+              "id": "reference-west-left-tall-front-1",
+              "x": -450.5,
+              "y": 1766.5,
+              "w": 18,
+              "d": 277,
+              "elevationMm": 1.5,
+              "heightMm": 2697,
+              "role": "door-sliding",
+              "label": "奶白滑门 · 不外占餐区",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east",
+              "doorStyle": "sliding",
+              "panelIndex": 1,
+              "handle": "recessed-edge"
+            },
+            {
+              "id": "reference-west-left-grille-back",
+              "x": -439.5,
+              "y": 2045,
+              "w": 6,
+              "d": 200,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "grille-back",
+              "label": "竖木格栅背衬 · 不超出柜面",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-grille-slat-0",
+              "x": -433.5,
+              "y": 2059.5,
+              "w": 21,
+              "d": 9,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "wood-slat",
+              "label": "9mm竖向原木格栅 · 间隔9mm",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-grille-slat-1",
+              "x": -433.5,
+              "y": 2077.5,
+              "w": 21,
+              "d": 9,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "wood-slat",
+              "label": "9mm竖向原木格栅 · 间隔9mm",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-grille-slat-2",
+              "x": -433.5,
+              "y": 2095.5,
+              "w": 21,
+              "d": 9,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "wood-slat",
+              "label": "9mm竖向原木格栅 · 间隔9mm",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-grille-slat-3",
+              "x": -433.5,
+              "y": 2113.5,
+              "w": 21,
+              "d": 9,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "wood-slat",
+              "label": "9mm竖向原木格栅 · 间隔9mm",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-grille-slat-4",
+              "x": -433.5,
+              "y": 2131.5,
+              "w": 21,
+              "d": 9,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "wood-slat",
+              "label": "9mm竖向原木格栅 · 间隔9mm",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-grille-slat-5",
+              "x": -433.5,
+              "y": 2149.5,
+              "w": 21,
+              "d": 9,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "wood-slat",
+              "label": "9mm竖向原木格栅 · 间隔9mm",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-grille-slat-6",
+              "x": -433.5,
+              "y": 2167.5,
+              "w": 21,
+              "d": 9,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "wood-slat",
+              "label": "9mm竖向原木格栅 · 间隔9mm",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-grille-slat-7",
+              "x": -433.5,
+              "y": 2185.5,
+              "w": 21,
+              "d": 9,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "wood-slat",
+              "label": "9mm竖向原木格栅 · 间隔9mm",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-grille-slat-8",
+              "x": -433.5,
+              "y": 2203.5,
+              "w": 21,
+              "d": 9,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "wood-slat",
+              "label": "9mm竖向原木格栅 · 间隔9mm",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-grille-slat-9",
+              "x": -433.5,
+              "y": 2221.5,
+              "w": 21,
+              "d": 9,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "wood-slat",
+              "label": "9mm竖向原木格栅 · 间隔9mm",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "east"
+            },
+            {
+              "id": "reference-west-left-grille-rear",
+              "x": -812.5,
+              "y": 2045,
+              "w": 18,
+              "d": 200,
+              "elevationMm": 0,
+              "heightMm": 2700,
+              "role": "cabinet-back",
+              "label": "格栅端部封闭背板 · 不计可用容量",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east"
+            },
+            {
+              "id": "d_return_base-side-0",
+              "x": -412.5,
+              "y": 2287,
+              "w": 18,
+              "d": 358,
+              "elevationMm": 0,
+              "heightMm": 832,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "id": "d_return_base-side-1",
+              "x": 794.5,
+              "y": 2287,
+              "w": 18,
+              "d": 358,
+              "elevationMm": 0,
+              "heightMm": 832,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "id": "d_return_base-back",
+              "x": -394.5,
+              "y": 2627,
+              "w": 1189,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 832,
+              "role": "cabinet-back",
+              "label": "独立18mm柜背板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "id": "d_return_base-bottom",
+              "x": -394.5,
+              "y": 2287,
+              "w": 1189,
+              "d": 340,
+              "elevationMm": 0,
+              "heightMm": 18,
+              "role": "cabinet-bottom",
+              "label": "18mm柜底板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "id": "d_return_base-shelf-0",
+              "x": -394.5,
+              "y": 2287,
+              "w": 1189,
+              "d": 340,
+              "elevationMm": 290,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "可调储物层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "id": "d_return_base-shelf-1",
+              "x": -394.5,
+              "y": 2287,
+              "w": 1189,
+              "d": 340,
+              "elevationMm": 560,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "可调储物层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "id": "d_return_base-front-0",
+              "x": -411,
+              "y": 2245,
+              "w": 609.5,
+              "d": 18,
+              "elevationMm": 1.5,
+              "heightMm": 829,
+              "role": "door-sliding",
+              "label": "奶白滑门 · 不外占餐区",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north",
+              "doorStyle": "sliding",
+              "panelIndex": 0,
+              "handle": "recessed-edge"
+            },
+            {
+              "id": "d_return_base-front-1",
+              "x": 201.5,
+              "y": 2265,
+              "w": 609.5,
+              "d": 18,
+              "elevationMm": 1.5,
+              "heightMm": 829,
+              "role": "door-sliding",
+              "label": "奶白滑门 · 不外占餐区",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north",
+              "doorStyle": "sliding",
+              "panelIndex": 1,
+              "handle": "recessed-edge"
+            },
+            {
+              "id": "d_return_base-return-counter",
+              "x": -412.5,
+              "y": 2245,
+              "w": 1225,
+              "d": 400,
+              "elevationMm": 832,
+              "heightMm": 18,
+              "role": "wood-countertop",
+              "label": "南向返柜850mm连续原木细台面",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "id": "d_return_base-return-niche-back",
+              "x": -412.5,
+              "y": 2627,
+              "w": 1225,
+              "d": 18,
+              "elevationMm": 850,
+              "heightMm": 650,
+              "role": "niche-back",
+              "label": "返柜奶白中空背板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "id": "d_return_upper-side-0",
+              "x": -532.5,
+              "y": 2385,
+              "w": 18,
+              "d": 260,
+              "elevationMm": 1500,
+              "heightMm": 1200,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "id": "d_return_upper-side-1",
+              "x": 794.5,
+              "y": 2385,
+              "w": 18,
+              "d": 260,
+              "elevationMm": 1500,
+              "heightMm": 1200,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "id": "d_return_upper-back",
+              "x": -514.5,
+              "y": 2627,
+              "w": 1309,
+              "d": 18,
+              "elevationMm": 1500,
+              "heightMm": 1200,
+              "role": "cabinet-back",
+              "label": "独立18mm柜背板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "id": "d_return_upper-bottom",
+              "x": -514.5,
+              "y": 2385,
+              "w": 1309,
+              "d": 242,
+              "elevationMm": 1500,
+              "heightMm": 18,
+              "role": "cabinet-bottom",
+              "label": "18mm柜底板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "id": "d_return_upper-top",
+              "x": -514.5,
+              "y": 2385,
+              "w": 1309,
+              "d": 242,
+              "elevationMm": 2682,
+              "heightMm": 18,
+              "role": "cabinet-top",
+              "label": "18mm柜顶板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "id": "d_return_upper-shelf-0",
+              "x": -514.5,
+              "y": 2385,
+              "w": 1309,
+              "d": 242,
+              "elevationMm": 2100,
+              "heightMm": 18,
+              "role": "cabinet-shelf",
+              "label": "可调储物层板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "id": "d_return_upper-front-0",
+              "x": -531,
+              "y": 2365,
+              "w": 669.5,
+              "d": 18,
+              "elevationMm": 1501.5,
+              "heightMm": 1197,
+              "role": "door-hinged",
+              "label": "原木无明把手吊柜门",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "north",
+              "doorStyle": "hinged",
+              "panelIndex": 0,
+              "handle": "recessed-edge"
+            },
+            {
+              "id": "d_return_upper-front-1",
+              "x": 141.5,
+              "y": 2365,
+              "w": 669.5,
+              "d": 18,
+              "elevationMm": 1501.5,
+              "heightMm": 1197,
+              "role": "door-hinged",
+              "label": "原木无明把手吊柜门",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "north",
+              "doorStyle": "hinged",
+              "panelIndex": 1,
+              "handle": "recessed-edge"
+            },
+            {
+              "id": "d_return_upper-return-niche-light",
+              "x": -506.5,
+              "y": 2400,
+              "w": 1293,
+              "d": 8,
+              "elevationMm": 1496,
+              "heightMm": 4,
+              "role": "led-strip",
+              "label": "7字返柜吊柜底面暖光",
+              "color": "#FFF1CF",
+              "material": "Light",
+              "face": "north",
+              "anchorPartId": "d_return_upper-bottom",
+              "anchor": "panel-underside",
+              "insetMm": 35,
+              "lightWash": false,
+              "ledGroup": "display"
+            },
+            {
+              "id": "d_corner_base-side-0",
+              "x": -812.5,
+              "y": 2265,
+              "w": 18,
+              "d": 380,
+              "elevationMm": 0,
+              "heightMm": 832,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north",
+              "usableStorage": false
+            },
+            {
+              "id": "d_corner_base-side-1",
+              "x": -430.5,
+              "y": 2265,
+              "w": 18,
+              "d": 380,
+              "elevationMm": 0,
+              "heightMm": 832,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north",
+              "usableStorage": false
+            },
+            {
+              "id": "d_corner_base-back",
+              "x": -794.5,
+              "y": 2627,
+              "w": 364,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 832,
+              "role": "cabinet-back",
+              "label": "独立18mm柜背板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north",
+              "usableStorage": false
+            },
+            {
+              "id": "d_corner_base-bottom",
+              "x": -794.5,
+              "y": 2265,
+              "w": 364,
+              "d": 362,
+              "elevationMm": 0,
+              "heightMm": 18,
+              "role": "cabinet-bottom",
+              "label": "18mm柜底板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north",
+              "usableStorage": false
+            },
+            {
+              "id": "d_corner_base-blind-front",
+              "x": -812.5,
+              "y": 2245,
+              "w": 400,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 832,
+              "role": "blind-corner-front",
+              "label": "原盲角封闭饰面 · 无门无抽，不计储物",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north",
+              "usableStorage": false
+            },
+            {
+              "id": "d_corner_base-corner-counter",
+              "x": -812.5,
+              "y": 2245,
+              "w": 400,
+              "d": 400,
+              "elevationMm": 832,
+              "heightMm": 18,
+              "role": "wood-countertop",
+              "label": "400mm原盲角连接台面 · 不计储物",
+              "color": "#CDB594",
+              "material": "OakLight",
+              "face": "north",
+              "usableStorage": false
+            },
+            {
+              "id": "d_corner_base-corner-niche-back",
+              "x": -812.5,
+              "y": 2627,
+              "w": 400,
+              "d": 18,
+              "elevationMm": 850,
+              "heightMm": 650,
+              "role": "niche-back",
+              "label": "盲角奶白中空背板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north",
+              "usableStorage": false
+            },
+            {
+              "id": "reference-upper-blind-bridge-side-0",
+              "x": -812.5,
+              "y": 2245,
+              "w": 260,
+              "d": 18,
+              "elevationMm": 1500,
+              "heightMm": 1200,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east",
+              "usableStorage": false
+            },
+            {
+              "id": "reference-upper-blind-bridge-side-1",
+              "x": -812.5,
+              "y": 2347,
+              "w": 260,
+              "d": 18,
+              "elevationMm": 1500,
+              "heightMm": 1200,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east",
+              "usableStorage": false
+            },
+            {
+              "id": "reference-upper-blind-bridge-back",
+              "x": -812.5,
+              "y": 2263,
+              "w": 18,
+              "d": 84,
+              "elevationMm": 1500,
+              "heightMm": 1200,
+              "role": "cabinet-back",
+              "label": "独立18mm柜背板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east",
+              "usableStorage": false
+            },
+            {
+              "id": "reference-upper-blind-bridge-bottom",
+              "x": -794.5,
+              "y": 2263,
+              "w": 242,
+              "d": 84,
+              "elevationMm": 1500,
+              "heightMm": 18,
+              "role": "cabinet-bottom",
+              "label": "18mm柜底板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east",
+              "usableStorage": false
+            },
+            {
+              "id": "reference-upper-blind-bridge-top",
+              "x": -794.5,
+              "y": 2263,
+              "w": 242,
+              "d": 84,
+              "elevationMm": 2682,
+              "heightMm": 18,
+              "role": "cabinet-top",
+              "label": "18mm柜顶板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east",
+              "usableStorage": false
+            },
+            {
+              "id": "reference-upper-blind-bridge-blind-front",
+              "x": -550.5,
+              "y": 2245,
+              "w": 18,
+              "d": 120,
+              "elevationMm": 1500,
+              "heightMm": 1200,
+              "role": "blind-corner-front",
+              "label": "原120mm退进上盲角连接饰面 · 无门无抽",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "east",
+              "usableStorage": false
+            },
+            {
+              "id": "d_corner_upper-side-0",
+              "x": -812.5,
+              "y": 2385,
+              "w": 18,
+              "d": 260,
+              "elevationMm": 1500,
+              "heightMm": 1200,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north",
+              "usableStorage": false
+            },
+            {
+              "id": "d_corner_upper-side-1",
+              "x": -550.5,
+              "y": 2385,
+              "w": 18,
+              "d": 260,
+              "elevationMm": 1500,
+              "heightMm": 1200,
+              "role": "cabinet-side",
+              "label": "18mm柜侧板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north",
+              "usableStorage": false
+            },
+            {
+              "id": "d_corner_upper-back",
+              "x": -794.5,
+              "y": 2627,
+              "w": 244,
+              "d": 18,
+              "elevationMm": 1500,
+              "heightMm": 1200,
+              "role": "cabinet-back",
+              "label": "独立18mm柜背板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north",
+              "usableStorage": false
+            },
+            {
+              "id": "d_corner_upper-bottom",
+              "x": -794.5,
+              "y": 2385,
+              "w": 244,
+              "d": 242,
+              "elevationMm": 1500,
+              "heightMm": 18,
+              "role": "cabinet-bottom",
+              "label": "18mm柜底板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north",
+              "usableStorage": false
+            },
+            {
+              "id": "d_corner_upper-top",
+              "x": -794.5,
+              "y": 2385,
+              "w": 244,
+              "d": 242,
+              "elevationMm": 2682,
+              "heightMm": 18,
+              "role": "cabinet-top",
+              "label": "18mm柜顶板",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north",
+              "usableStorage": false
+            },
+            {
+              "id": "d_corner_upper-blind-front",
+              "x": -812.5,
+              "y": 2365,
+              "w": 280,
+              "d": 18,
+              "elevationMm": 1500,
+              "heightMm": 1200,
+              "role": "blind-corner-front",
+              "label": "封闭上盲角饰面 · 无门无抽，不计储物",
+              "color": "#F4F1E9",
+              "material": "Cream",
+              "face": "north",
+              "usableStorage": false
+            }
+          ],
+          "sourceId": "fit-dining_sideboard_wall",
+          "dimensionStatus": "design-pending",
+          "roomId": "living",
+          "notes": "从大门进入的左侧，沿西墙做整排奶白柜与木色中空，再沿南墙转折成为7字。参考业主图3连续台面与上、下柜的关系；以本户尺寸分模块，替代原来分散的矮柜、鞋柜和换鞋凳。",
+          "conditions": [
+            "400×400mm下盲角和退进上盲角封闭不用，不画假门、假抽屉或重复计算容量；转角台面及中空连通，实际拼缝/固定需深化。",
+            "西柜北端离现模型窗返边仅约30mm，不可凭概念净距下单；先量窗套、帘盒、电箱、踢脚线与墙面垂直度。",
+            "桌旁和南短臂下柜均为移门，没有向过道拉出的抽屉；北段250mm抽屉加取物站位期间，柜前不同时作绕行通道。",
+            "南上柜延续7字造型，会增加入口围合感；闭门及开启时的头部活动、可达性、转角门扇与高柜防倾倒须专业深化。",
+            "采用已购1400×780mm固定四人桌及460×510mm餐椅，已重新核对椅位；退椅300mm只是一种校核情景，进出时收椅，不能当作多人或无障碍通行认证。",
+            "台面仅放杯盘、保温壶等小件，不默认400mm深可装咖啡机、净饮机或蒸烤箱；须核对插头、散热、蒸汽、开盖高度和电气回路。"
+          ],
+          "cabinetRevision": "sideboard-reference-v2",
+          "baseHeightMm": 2700,
+          "cabinetDesign": {
+            "revision": "sideboard-reference-v2",
+            "title": "通顶餐边柜 · 参考图原木中空与展示分区",
+            "status": "concept-pending-detail",
+            "previousColor": "#F4F1E9",
+            "previousColors": [
+              "#F3EFE6",
+              "#F4F1E9"
+            ],
+            "previousHeightMm": 2500,
+            "boardThicknessMm": 18,
+            "doorGapMm": 3,
+            "palette": {
+              "door": "#F4F1E9",
+              "wood": "#CDB594",
+              "counter": "#CDB594",
+              "metal": "#9D9386",
+              "light": "#FFF1CF"
+            },
+            "materialColorRespect": true,
+            "ceilingHeightMm": 2700,
+            "ceilingStatus": "model-only-pending-site-check",
+            "sourceReference": "用户提供小红书餐边柜参考图 · 2026-10-08",
+            "faces": [
+              {
+                "face": "east",
+                "label": "西墙餐边柜 · 左南右北（面朝柜体）",
+                "lengthMm": 4890,
+                "depthMm": 400
+              },
+              {
+                "face": "north",
+                "label": "7字南向返柜 · 保留原盲角占地",
+                "lengthMm": 1625,
+                "depthMm": 400
+              }
+            ],
+            "features": [
+              "奶白通顶高柜＋左侧竖原木格栅，右侧窄高柜、竖向原木展示格与60mm圆弧端柜。",
+              "中间上柜按正面视角：左侧原木封闭门，右侧两层开放书格；每层均有贴板底暖光灯带。",
+              "850–1500mm保持连续奶白中空，18mm原木细台面、三圆形插座轨道与连续嵌入暖光。",
+              "下柜保留奶白封闭滑门，三层抽屉按本户动线调序到北侧600mm安全列，不外伸到餐桌接触段。",
+              "南端奶白高柜保留两片滑门，避免向餐椅区外开；200mm北侧高柜仅作窄物分类，净宽不超过164mm；圆弧端部不虚计储物容量。",
+              "保留7字返柜、原400mm盲角及其旧占地；不移动入口或任何家具。"
+            ],
+            "dimensions": [
+              "柜高2700mm贴合当前模型屋顶；现场净高/吊顶/找平仍待复核，不是下单确认值。",
+              "直柜长4890mm，下柜外深400mm，上柜深280mm；台面完成面850mm，中空650mm高。",
+              "三抽列y9200–9800mm，外宽600mm、最多拉出250mm；五金、取物站位待核。",
+              "每道灯带厚4mm、贴真实上柜/层板底面；色温约3000K概念，电源与检修设计待核。",
+              "18mm板件、3mm门缝与R60圆弧为概念参数，厂家须深化净尺寸、轨道、抽屉承重及圆弧工艺。"
+            ],
+            "layoutAdaptations": {
+              "facadeLeft": "south",
+              "facadeRight": "north",
+              "drawerColumn": {
+                "yStartMm": 9200,
+                "yEndMm": 9800,
+                "widthMm": 600,
+                "maxExtensionMm": 250
+              },
+              "drawerReason": "参考右侧三抽按本户餐桌及餐椅位置调序到北段，防止抽屉与座位/通路冲突。",
+              "returnPreserved": true
+            }
+          },
+          "sourceFootprintMm": {
+            "x": 2125,
+            "y": 8600,
+            "w": 1625,
+            "d": 5290
+          }
+        },
+        {
+          "id": "fit-study_bookwall",
+          "type": "fixture",
+          "name": "桌面留空，书往墙上收",
+          "cx": 1230,
+          "cy": 6058.75,
+          "w": 2220,
+          "d": 282.5,
+          "rot": 0,
+          "color": "#F4F1E9",
+          "baseWidthMm": 2220,
+          "baseDepthMm": 282.5,
+          "heightMm": 2500,
+          "elevationMm": 0,
+          "parts": [
+            {
+              "x": -1110,
+              "y": 129.25,
+              "w": 2220,
+              "d": 12,
+              "elevationMm": 1460,
+              "heightMm": 1040,
+              "color": "#CDB594",
+              "id": "back",
+              "role": "back",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -1110,
+              "y": -138.75,
+              "w": 22,
+              "d": 268,
+              "elevationMm": 1460,
+              "heightMm": 1040,
+              "color": "#F4F1E9",
+              "id": "upright_0",
+              "role": "upright",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": -743.667,
+              "y": -138.75,
+              "w": 22,
+              "d": 268,
+              "elevationMm": 1460,
+              "heightMm": 1040,
+              "color": "#F4F1E9",
+              "id": "upright_1",
+              "role": "upright",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": -377.333,
+              "y": -138.75,
+              "w": 22,
+              "d": 268,
+              "elevationMm": 1460,
+              "heightMm": 1040,
+              "color": "#F4F1E9",
+              "id": "upright_2",
+              "role": "upright",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": -11,
+              "y": -138.75,
+              "w": 22,
+              "d": 268,
+              "elevationMm": 1460,
+              "heightMm": 1040,
+              "color": "#F4F1E9",
+              "id": "upright_3",
+              "role": "upright",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": 355.333,
+              "y": -138.75,
+              "w": 22,
+              "d": 268,
+              "elevationMm": 1460,
+              "heightMm": 1040,
+              "color": "#F4F1E9",
+              "id": "upright_4",
+              "role": "upright",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": 721.667,
+              "y": -138.75,
+              "w": 22,
+              "d": 268,
+              "elevationMm": 1460,
+              "heightMm": 1040,
+              "color": "#F4F1E9",
+              "id": "upright_5",
+              "role": "upright",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": 1088,
+              "y": -138.75,
+              "w": 22,
+              "d": 268,
+              "elevationMm": 1460,
+              "heightMm": 1040,
+              "color": "#F4F1E9",
+              "id": "upright_6",
+              "role": "upright",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": -1088,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 1460,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_0_146",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -1088,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 1800,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_0_180",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -1088,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 2140,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_0_214",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -1088,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 2478,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_0_247.8",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -1086.5,
+              "y": -138.75,
+              "w": 341.333,
+              "d": 18,
+              "elevationMm": 2163.5,
+              "heightMm": 313,
+              "color": "#F4F1E9",
+              "id": "door_0",
+              "role": "door",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": -945.833,
+              "y": -141.25,
+              "w": 60,
+              "d": 2.5,
+              "elevationMm": 2170,
+              "heightMm": 7,
+              "color": "#CDB594",
+              "id": "pull_0",
+              "role": "pull",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -1058,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 210,
+              "color": "#EEE8DC",
+              "id": "book_0_0_0",
+              "role": "book",
+              "material": "WhiteLinen",
+              "face": "north"
+            },
+            {
+              "x": -1019,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 230,
+              "color": "#7C9485",
+              "id": "book_0_0_1",
+              "role": "book",
+              "material": "Sage",
+              "face": "north"
+            },
+            {
+              "x": -980,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 250,
+              "color": "#C8A77E",
+              "id": "book_0_0_2",
+              "role": "book",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -1058,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 230,
+              "color": "#7C9485",
+              "id": "book_0_1_0",
+              "role": "book",
+              "material": "Sage",
+              "face": "north"
+            },
+            {
+              "x": -1019,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 250,
+              "color": "#C8A77E",
+              "id": "book_0_1_1",
+              "role": "book",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -980,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 270,
+              "color": "#F3EFE6",
+              "id": "book_0_1_2",
+              "role": "book",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": -941,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 210,
+              "color": "#EEE8DC",
+              "id": "book_0_1_3",
+              "role": "book",
+              "material": "WhiteLinen",
+              "face": "north"
+            },
+            {
+              "x": -721.667,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 1460,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_1_146",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -721.667,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 1800,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_1_180",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -721.667,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 2140,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_1_214",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -721.667,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 2478,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_1_247.8",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -720.167,
+              "y": -138.75,
+              "w": 341.333,
+              "d": 18,
+              "elevationMm": 2163.5,
+              "heightMm": 313,
+              "color": "#F4F1E9",
+              "id": "door_1",
+              "role": "door",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": -579.5,
+              "y": -141.25,
+              "w": 60,
+              "d": 2.5,
+              "elevationMm": 2170,
+              "heightMm": 7,
+              "color": "#CDB594",
+              "id": "pull_1",
+              "role": "pull",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -605.583,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 230,
+              "color": "#7C9485",
+              "id": "book_1_0_0",
+              "role": "book",
+              "material": "Sage",
+              "face": "north"
+            },
+            {
+              "x": -566.583,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 250,
+              "color": "#C8A77E",
+              "id": "book_1_0_1",
+              "role": "book",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -527.583,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 270,
+              "color": "#F3EFE6",
+              "id": "book_1_0_2",
+              "role": "book",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": -488.583,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 210,
+              "color": "#EEE8DC",
+              "id": "book_1_0_3",
+              "role": "book",
+              "material": "WhiteLinen",
+              "face": "north"
+            },
+            {
+              "x": -605.583,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 250,
+              "color": "#C8A77E",
+              "id": "book_1_1_0",
+              "role": "book",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -566.583,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 270,
+              "color": "#F3EFE6",
+              "id": "book_1_1_1",
+              "role": "book",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": -527.583,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 210,
+              "color": "#EEE8DC",
+              "id": "book_1_1_2",
+              "role": "book",
+              "material": "WhiteLinen",
+              "face": "north"
+            },
+            {
+              "x": -488.583,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 230,
+              "color": "#7C9485",
+              "id": "book_1_1_3",
+              "role": "book",
+              "material": "Sage",
+              "face": "north"
+            },
+            {
+              "x": -449.583,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 250,
+              "color": "#C8A77E",
+              "id": "book_1_1_4",
+              "role": "book",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -355.333,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 1460,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_2_146",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -355.333,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 1800,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_2_180",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -355.333,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 2140,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_2_214",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -355.333,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 2478,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_2_247.8",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -353.833,
+              "y": -138.75,
+              "w": 341.333,
+              "d": 18,
+              "elevationMm": 2163.5,
+              "heightMm": 313,
+              "color": "#F4F1E9",
+              "id": "door_2",
+              "role": "door",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": -213.167,
+              "y": -141.25,
+              "w": 60,
+              "d": 2.5,
+              "elevationMm": 2170,
+              "heightMm": 7,
+              "color": "#CDB594",
+              "id": "pull_2",
+              "role": "pull",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -325.333,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 250,
+              "color": "#C8A77E",
+              "id": "book_2_0_0",
+              "role": "book",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -286.333,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 270,
+              "color": "#F3EFE6",
+              "id": "book_2_0_1",
+              "role": "book",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": -247.333,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 210,
+              "color": "#EEE8DC",
+              "id": "book_2_0_2",
+              "role": "book",
+              "material": "WhiteLinen",
+              "face": "north"
+            },
+            {
+              "x": -208.333,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 230,
+              "color": "#7C9485",
+              "id": "book_2_0_3",
+              "role": "book",
+              "material": "Sage",
+              "face": "north"
+            },
+            {
+              "x": -169.333,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 250,
+              "color": "#C8A77E",
+              "id": "book_2_0_4",
+              "role": "book",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": -325.333,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 270,
+              "color": "#F3EFE6",
+              "id": "book_2_1_0",
+              "role": "book",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": -286.333,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 210,
+              "color": "#EEE8DC",
+              "id": "book_2_1_1",
+              "role": "book",
+              "material": "WhiteLinen",
+              "face": "north"
+            },
+            {
+              "x": -247.333,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 230,
+              "color": "#7C9485",
+              "id": "book_2_1_2",
+              "role": "book",
+              "material": "Sage",
+              "face": "north"
+            },
+            {
+              "x": 11,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 1460,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_3_146",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": 11,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 1800,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_3_180",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": 11,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 2140,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_3_214",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": 11,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 2478,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_3_247.8",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": 12.5,
+              "y": -138.75,
+              "w": 341.333,
+              "d": 18,
+              "elevationMm": 2163.5,
+              "heightMm": 313,
+              "color": "#F4F1E9",
+              "id": "door_3",
+              "role": "door",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": 153.167,
+              "y": -141.25,
+              "w": 60,
+              "d": 2.5,
+              "elevationMm": 2170,
+              "heightMm": 7,
+              "color": "#CDB594",
+              "id": "pull_3",
+              "role": "pull",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": 127.083,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 270,
+              "color": "#F3EFE6",
+              "id": "book_3_0_0",
+              "role": "book",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": 166.083,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 210,
+              "color": "#EEE8DC",
+              "id": "book_3_0_1",
+              "role": "book",
+              "material": "WhiteLinen",
+              "face": "north"
+            },
+            {
+              "x": 205.083,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 230,
+              "color": "#7C9485",
+              "id": "book_3_0_2",
+              "role": "book",
+              "material": "Sage",
+              "face": "north"
+            },
+            {
+              "x": 127.083,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 210,
+              "color": "#EEE8DC",
+              "id": "book_3_1_0",
+              "role": "book",
+              "material": "WhiteLinen",
+              "face": "north"
+            },
+            {
+              "x": 166.083,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 230,
+              "color": "#7C9485",
+              "id": "book_3_1_1",
+              "role": "book",
+              "material": "Sage",
+              "face": "north"
+            },
+            {
+              "x": 205.083,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 250,
+              "color": "#C8A77E",
+              "id": "book_3_1_2",
+              "role": "book",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": 244.083,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 270,
+              "color": "#F3EFE6",
+              "id": "book_3_1_3",
+              "role": "book",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": 377.333,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 1460,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_4_146",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": 377.333,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 1800,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_4_180",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": 377.333,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 2140,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_4_214",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": 377.333,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 2478,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_4_247.8",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": 378.833,
+              "y": -138.75,
+              "w": 341.333,
+              "d": 18,
+              "elevationMm": 2163.5,
+              "heightMm": 313,
+              "color": "#F4F1E9",
+              "id": "door_4",
+              "role": "door",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": 519.5,
+              "y": -141.25,
+              "w": 60,
+              "d": 2.5,
+              "elevationMm": 2170,
+              "heightMm": 7,
+              "color": "#CDB594",
+              "id": "pull_4",
+              "role": "pull",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": 407.333,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 210,
+              "color": "#EEE8DC",
+              "id": "book_4_0_0",
+              "role": "book",
+              "material": "WhiteLinen",
+              "face": "north"
+            },
+            {
+              "x": 446.333,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 230,
+              "color": "#7C9485",
+              "id": "book_4_0_1",
+              "role": "book",
+              "material": "Sage",
+              "face": "north"
+            },
+            {
+              "x": 485.333,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 250,
+              "color": "#C8A77E",
+              "id": "book_4_0_2",
+              "role": "book",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": 524.333,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 270,
+              "color": "#F3EFE6",
+              "id": "book_4_0_3",
+              "role": "book",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": 407.333,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 230,
+              "color": "#7C9485",
+              "id": "book_4_1_0",
+              "role": "book",
+              "material": "Sage",
+              "face": "north"
+            },
+            {
+              "x": 446.333,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 250,
+              "color": "#C8A77E",
+              "id": "book_4_1_1",
+              "role": "book",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": 485.333,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 270,
+              "color": "#F3EFE6",
+              "id": "book_4_1_2",
+              "role": "book",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": 524.333,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 210,
+              "color": "#EEE8DC",
+              "id": "book_4_1_3",
+              "role": "book",
+              "material": "WhiteLinen",
+              "face": "north"
+            },
+            {
+              "x": 563.333,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 230,
+              "color": "#7C9485",
+              "id": "book_4_1_4",
+              "role": "book",
+              "material": "Sage",
+              "face": "north"
+            },
+            {
+              "x": 743.667,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 1460,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_5_146",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": 743.667,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 1800,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_5_180",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": 743.667,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 2140,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_5_214",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": 743.667,
+              "y": -116.75,
+              "w": 344.333,
+              "d": 246,
+              "elevationMm": 2478,
+              "heightMm": 22,
+              "color": "#CDB594",
+              "id": "shelf_5_247.8",
+              "role": "shelf",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": 745.167,
+              "y": -138.75,
+              "w": 341.333,
+              "d": 18,
+              "elevationMm": 2163.5,
+              "heightMm": 313,
+              "color": "#F4F1E9",
+              "id": "door_5",
+              "role": "door",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": 885.833,
+              "y": -141.25,
+              "w": 60,
+              "d": 2.5,
+              "elevationMm": 2170,
+              "heightMm": 7,
+              "color": "#CDB594",
+              "id": "pull_5",
+              "role": "pull",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": 859.75,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 230,
+              "color": "#7C9485",
+              "id": "book_5_0_0",
+              "role": "book",
+              "material": "Sage",
+              "face": "north"
+            },
+            {
+              "x": 898.75,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 250,
+              "color": "#C8A77E",
+              "id": "book_5_0_1",
+              "role": "book",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": 937.75,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 270,
+              "color": "#F3EFE6",
+              "id": "book_5_0_2",
+              "role": "book",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": 976.75,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 210,
+              "color": "#EEE8DC",
+              "id": "book_5_0_3",
+              "role": "book",
+              "material": "WhiteLinen",
+              "face": "north"
+            },
+            {
+              "x": 1015.75,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1482,
+              "heightMm": 230,
+              "color": "#7C9485",
+              "id": "book_5_0_4",
+              "role": "book",
+              "material": "Sage",
+              "face": "north"
+            },
+            {
+              "x": 859.75,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 250,
+              "color": "#C8A77E",
+              "id": "book_5_1_0",
+              "role": "book",
+              "material": "OakLight",
+              "face": "north"
+            },
+            {
+              "x": 898.75,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 270,
+              "color": "#F3EFE6",
+              "id": "book_5_1_1",
+              "role": "book",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": 937.75,
+              "y": -108.75,
+              "w": 31,
+              "d": 210,
+              "elevationMm": 1822,
+              "heightMm": 210,
+              "color": "#EEE8DC",
+              "id": "book_5_1_2",
+              "role": "book",
+              "material": "WhiteLinen",
+              "face": "north"
+            },
+            {
+              "x": -1050,
+              "y": -118.75,
+              "w": 2100,
+              "d": 16,
+              "elevationMm": 1452,
+              "heightMm": 8,
+              "color": "#C8A77E",
+              "id": "under_light",
+              "role": "light-diffuser",
+              "material": "Lamp",
+              "face": "north"
+            },
+            {
+              "id": "fit-study_bookwall-light",
+              "x": -1086,
+              "y": -111.25,
+              "w": 2172,
+              "d": 8,
+              "elevationMm": 1448,
+              "heightMm": 4,
+              "color": "#FFF1CF",
+              "material": "Light",
+              "role": "led-strip",
+              "label": "书架下板底面工作灯带",
+              "face": "north"
+            }
+          ],
+          "sourceId": "fit-study_bookwall",
+          "dimensionStatus": "design-pending",
+          "roomId": "room_c",
+          "notes": "R3南墙2220mm通长浅书架，保留两排开放格与顶部暖白柜门；配下方通长桌和北墙沙发，书房已改900mm普通平开门。",
+          "conditions": [
+            "总宽2220mm含收口、主体深280mm、书格底1460mm、顶2500mm为设计值，待复尺。",
+            "六格，每格净跨约344mm，两排净高318mm、板厚22mm；承载、支撑及锚固须定制方核验。",
+            "顶部为低频收纳，不能站上桌面取物；儿童常读书应放桌面或较低可及处，不将高处书格当儿童自助书架。",
+            "上方柜门为关闭示意；高位开门与拿书操作、照明眩光、插座、空调管线和检修空间需现场试用深化。",
+            "书架不支在桌面上；基层与墙体不满足吊挂条件时须重新设计支撑，不能直接将示意图交木工固定。"
+          ],
+          "cabinetRevision": "cream-oak-functional-v1",
+          "baseHeightMm": 2500,
+          "cabinetDesign": {
+            "revision": "cream-oak-functional-v1",
+            "title": "书房通长书墙",
+            "status": "concept-pending-detail",
+            "previousColor": "#F3EFE6",
+            "boardThicknessMm": 18,
+            "doorGapMm": 3,
+            "palette": {
+              "door": "#F4F1E9",
+              "wood": "#CDB594",
+              "counter": "#CDB594",
+              "metal": "#9D9386",
+              "light": "#FFF1CF"
+            },
+            "faces": [
+              {
+                "face": "north",
+                "label": "书房书墙 · 朝书桌",
+                "lengthMm": 2220,
+                "depthMm": 282.5
+              }
+            ],
+            "features": [
+              "保留现有6格书架、通长书桌及上下层；只优化奶白门板、浅原木背板与内嵌灯带。",
+              "上层封闭放低频文件，开放格放常用书；安装承重与电源现场深化。"
+            ],
+            "dimensions": [
+              "2220mm通长，外深282.5mm；书架本体下口1452mm，薄灯带底1448mm，上口2500mm沿用既有设计。",
+              "便捷分区与板件为概念建议；柜体高度、门轨、承重、安装与下单尺寸仍待厂家现场深化。"
+            ]
+          },
+          "sourceFootprintMm": {
+            "x": 120,
+            "y": 5917.5,
+            "w": 2220,
+            "d": 282.5
+          }
+        },
+        {
+          "id": "fit-laundry_wall",
+          "type": "fixture",
+          "name": "家政阳台 · 并排洗烘与浅盆 / 客厅改挂画",
+          "cx": 7450,
+          "cy": 10750,
+          "w": 1680,
+          "d": 800,
+          "rot": 0,
+          "color": "#F3EFE6",
+          "baseWidthMm": 1680,
+          "baseDepthMm": 800,
+          "heightMm": 980,
+          "elevationMm": 0,
+          "parts": [
+            {
+              "x": -840,
+              "y": -400,
+              "w": 20,
+              "d": 800,
+              "elevationMm": 0,
+              "heightMm": 950,
+              "color": "#F3EFE6",
+              "id": "laundry_left_gable",
+              "role": "support",
+              "material": "Cream"
+            },
+            {
+              "x": -140,
+              "y": -400,
+              "w": 20,
+              "d": 800,
+              "elevationMm": 0,
+              "heightMm": 950,
+              "color": "#F3EFE6",
+              "id": "laundry_middle_gable",
+              "role": "support",
+              "material": "Cream"
+            },
+            {
+              "x": 820,
+              "y": -400,
+              "w": 20,
+              "d": 800,
+              "elevationMm": 0,
+              "heightMm": 950,
+              "color": "#F3EFE6",
+              "id": "laundry_right_gable",
+              "role": "support",
+              "material": "Cream"
+            },
+            {
+              "x": -820,
+              "y": 380,
+              "w": 1640,
+              "d": 20,
+              "elevationMm": 850,
+              "heightMm": 100,
+              "color": "#F3EFE6",
+              "id": "laundry_rear_rail",
+              "role": "support",
+              "material": "Cream"
+            },
+            {
+              "x": -840,
+              "y": -400,
+              "w": 120,
+              "d": 800,
+              "elevationMm": 950,
+              "heightMm": 30,
+              "color": "#ECE8DF",
+              "id": "counter_left",
+              "role": "counter",
+              "material": "Stone"
+            },
+            {
+              "x": -200,
+              "y": -400,
+              "w": 1040,
+              "d": 800,
+              "elevationMm": 950,
+              "heightMm": 30,
+              "color": "#ECE8DF",
+              "id": "counter_right",
+              "role": "counter",
+              "material": "Stone"
+            },
+            {
+              "x": -720,
+              "y": -400,
+              "w": 520,
+              "d": 30,
+              "elevationMm": 950,
+              "heightMm": 30,
+              "color": "#ECE8DF",
+              "id": "counter_front",
+              "role": "counter",
+              "material": "Stone"
+            },
+            {
+              "x": -720,
+              "y": 370,
+              "w": 520,
+              "d": 30,
+              "elevationMm": 950,
+              "heightMm": 30,
+              "color": "#ECE8DF",
+              "id": "counter_back",
+              "role": "counter",
+              "material": "Stone"
+            },
+            {
+              "x": 550,
+              "y": -400,
+              "w": 20,
+              "d": 800,
+              "elevationMm": 0,
+              "heightMm": 950,
+              "color": "#F3EFE6",
+              "id": "service_side",
+              "role": "service",
+              "material": "Cream"
+            },
+            {
+              "x": 570,
+              "y": -400,
+              "w": 250,
+              "d": 20,
+              "elevationMm": 80,
+              "heightMm": 860,
+              "color": "#F3EFE6",
+              "id": "service_door",
+              "role": "service",
+              "material": "Cream"
+            }
+          ],
+          "sourceId": "fit-laundry_wall",
+          "dimensionStatus": "design-pending",
+          "roomId": "balcony",
+          "conditions": [
+            "所有尺寸为现有模型中的条件推演，不是量房成果或施工图。",
+            "上方是真台盆，但必须是专用浅盆/后置排水定制，不能直接用普通深台下盆；980mm盆沿偏高，不是儿童独立洗手位。",
+            "机器顶面与盆底仅30mm，需厂家确认震动、检修和散热；台盆与台面由独立支架承重，不能压在机器上。",
+            "厨房内窗保持1200×1300mm、台高1000mm；980mm台面仅低20mm，收口、窗框和龙头必须复尺。龙头偏左布置，避开窗洞。",
+            "阳台前后仅1490mm，两机开门时过道紧张，一次操作一台，从侧面取衣；未选定机门铰链和实际开门包络。",
+            "外移的是室内隔断，不是外立面扩建；原窗下墙、梁柱、门垛可拆性和湿区防水须专业核查。",
+            "客厅东侧3180×300mm书架取消，改两幅600×800mm薄框挂画示意，不加落地柜；沙发至实墙470mm仅为侧缝，主要通行走西侧约1305mm。",
+            "阳台并排洗烘、上方浅盆、三轨门及厨房保留原位；取消书架后不再以门框与柜面齐平描述。690mm阳台操作带、980mm浅盆台高及设备安装条件仍待核。"
+          ],
+          "sourceFootprintMm": {
+            "x": 6610,
+            "y": 10350,
+            "w": 1680,
+            "d": 800
+          }
+        },
+        {
+          "id": "laundry_washer",
+          "type": "washer",
+          "name": "A · 洗衣机",
+          "cx": 6980,
+          "cy": 10725,
+          "w": 600,
+          "d": 650,
+          "rot": 180,
+          "color": "#D9DDDB",
+          "heightMm": 850,
+          "elevationMm": 0,
+          "sourceId": "laundry_washer",
+          "sourceFootprintMm": {
+            "x": 6680,
+            "y": 10400,
+            "w": 600.0000000000001,
+            "d": 650.0000000000001
+          },
+          "face": "north",
+          "dimensionStatus": "design-pending",
+          "originalSourceFootprintMm": {
+            "x": 6680,
+            "y": 10400,
+            "w": 600,
+            "d": 650
+          }
+        },
+        {
+          "id": "laundry_dryer",
+          "type": "dryer",
+          "name": "A · 烘干机",
+          "cx": 7650,
+          "cy": 10725,
+          "w": 600,
+          "d": 650,
+          "rot": 180,
+          "color": "#D9DDDB",
+          "heightMm": 850,
+          "elevationMm": 0,
+          "sourceId": "laundry_dryer",
+          "sourceFootprintMm": {
+            "x": 7350,
+            "y": 10400,
+            "w": 600.0000000000001,
+            "d": 650.0000000000001
+          },
+          "face": "north",
+          "dimensionStatus": "design-pending",
+          "originalSourceFootprintMm": {
+            "x": 7350,
+            "y": 10400,
+            "w": 600,
+            "d": 650
+          }
+        },
+        {
+          "id": "fit-laundry_basin",
+          "type": "fixture",
+          "name": "洗烘上方独立浅盆",
+          "cx": 6990,
+          "cy": 10750,
+          "w": 520,
+          "d": 740,
+          "rot": 0,
+          "color": "#F3EFE6",
+          "baseWidthMm": 520,
+          "baseDepthMm": 740,
+          "heightMm": 980,
+          "elevationMm": 0,
+          "parts": [
+            {
+              "x": -260,
+              "y": -370,
+              "w": 520,
+              "d": 740,
+              "elevationMm": 880,
+              "heightMm": 12,
+              "color": "#F4F3EF",
+              "role": "basin-bottom"
+            },
+            {
+              "x": -260,
+              "y": -370,
+              "w": 520,
+              "d": 12,
+              "elevationMm": 880,
+              "heightMm": 100,
+              "color": "#F4F3EF",
+              "role": "basin-side"
+            },
+            {
+              "x": -260,
+              "y": 358,
+              "w": 520,
+              "d": 12,
+              "elevationMm": 880,
+              "heightMm": 100,
+              "color": "#F4F3EF",
+              "role": "basin-side"
+            },
+            {
+              "x": -260,
+              "y": -370,
+              "w": 12,
+              "d": 740,
+              "elevationMm": 880,
+              "heightMm": 100,
+              "color": "#F4F3EF",
+              "role": "basin-side"
+            },
+            {
+              "x": 248,
+              "y": -370,
+              "w": 12,
+              "d": 740,
+              "elevationMm": 880,
+              "heightMm": 100,
+              "color": "#F4F3EF",
+              "role": "basin-side"
+            }
+          ],
+          "sourceId": "fit-laundry_basin",
+          "dimensionStatus": "design-pending",
+          "roomId": "balcony",
+          "sourceFootprintMm": {
+            "x": 6730,
+            "y": 10380,
+            "w": 520,
+            "d": 740
+          }
+        },
+        {
+          "id": "fit-kitchen-20261005",
+          "type": "fixture",
+          "name": "方案4厨房 · 薄板地柜、台面与吊柜",
+          "cx": 7155,
+          "cy": 12580,
+          "w": 2270,
+          "d": 2620,
+          "baseWidthMm": 2270,
+          "baseDepthMm": 2620,
+          "rot": 0,
+          "color": "#E8E4DC",
+          "heightMm": 2350,
+          "elevationMm": 0,
+          "parts": [
+            {
+              "id": "screen-k-0",
+              "role": "base-bottom-panel",
+              "x": -25,
+              "y": -1310,
+              "w": 1160,
+              "d": 650,
+              "elevationMm": 100,
+              "heightMm": 18,
+              "face": "south",
+              "color": "#F3EFE6",
+              "material": "Cream"
+            },
+            {
+              "id": "screen-k-1",
+              "role": "base-back-panel",
+              "x": -25,
+              "y": -1310,
+              "w": 1160,
+              "d": 18,
+              "elevationMm": 100,
+              "heightMm": 750,
+              "face": "south",
+              "color": "#F3EFE6",
+              "material": "Cream"
+            },
+            {
+              "id": "screen-k-2",
+              "role": "base-end-panel",
+              "x": -25,
+              "y": -1310,
+              "w": 18,
+              "d": 650,
+              "elevationMm": 100,
+              "heightMm": 750,
+              "face": "south",
+              "color": "#F3EFE6",
+              "material": "Cream"
+            },
+            {
+              "id": "screen-k-3",
+              "role": "base-end-panel",
+              "x": 1117,
+              "y": -1310,
+              "w": 18,
+              "d": 650,
+              "elevationMm": 100,
+              "heightMm": 750,
+              "face": "south",
+              "color": "#F3EFE6",
+              "material": "Cream"
+            },
+            {
+              "id": "screen-k-4",
+              "role": "base-toe-panel",
+              "x": -25,
+              "y": -708,
+              "w": 1160,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 100,
+              "face": "south",
+              "color": "#D7C6AE",
+              "material": "Oak"
+            },
+            {
+              "id": "screen-k-5",
+              "role": "base-front-door",
+              "x": -23,
+              "y": -678,
+              "w": 576,
+              "d": 18,
+              "elevationMm": 110,
+              "heightMm": 732,
+              "face": "south",
+              "color": "#D7C6AE",
+              "material": "Oak"
+            },
+            {
+              "id": "screen-k-6",
+              "role": "base-front-door",
+              "x": 557,
+              "y": -678,
+              "w": 576,
+              "d": 18,
+              "elevationMm": 110,
+              "heightMm": 732,
+              "face": "south",
+              "color": "#D7C6AE",
+              "material": "Oak"
+            },
+            {
+              "id": "screen-k-7",
+              "role": "base-divider-panel",
+              "x": 546,
+              "y": -1310,
+              "w": 18,
+              "d": 650,
+              "elevationMm": 100,
+              "heightMm": 750,
+              "face": "south",
+              "color": "#F3EFE6",
+              "material": "Cream"
+            },
+            {
+              "id": "screen-k-8",
+              "role": "base-bottom-panel",
+              "x": 485,
+              "y": -660,
+              "w": 650,
+              "d": 1370,
+              "elevationMm": 100,
+              "heightMm": 18,
+              "face": "west",
+              "color": "#F3EFE6",
+              "material": "Cream"
+            },
+            {
+              "id": "screen-k-9",
+              "role": "base-back-panel",
+              "x": 1117,
+              "y": -660,
+              "w": 18,
+              "d": 1370,
+              "elevationMm": 100,
+              "heightMm": 750,
+              "face": "west",
+              "color": "#F3EFE6",
+              "material": "Cream"
+            },
+            {
+              "id": "screen-k-10",
+              "role": "base-end-panel",
+              "x": 485,
+              "y": -660,
+              "w": 650,
+              "d": 18,
+              "elevationMm": 100,
+              "heightMm": 750,
+              "face": "west",
+              "color": "#F3EFE6",
+              "material": "Cream"
+            },
+            {
+              "id": "screen-k-11",
+              "role": "base-end-panel",
+              "x": 485,
+              "y": 692,
+              "w": 650,
+              "d": 18,
+              "elevationMm": 100,
+              "heightMm": 750,
+              "face": "west",
+              "color": "#F3EFE6",
+              "material": "Cream"
+            },
+            {
+              "id": "screen-k-12",
+              "role": "base-toe-panel",
+              "x": 515,
+              "y": -660,
+              "w": 18,
+              "d": 1370,
+              "elevationMm": 0,
+              "heightMm": 100,
+              "face": "west",
+              "color": "#D7C6AE",
+              "material": "Oak"
+            },
+            {
+              "id": "screen-k-13",
+              "role": "base-front-door",
+              "x": 485,
+              "y": -658,
+              "w": 18,
+              "d": 681,
+              "elevationMm": 110,
+              "heightMm": 732,
+              "face": "west",
+              "color": "#D7C6AE",
+              "material": "Oak"
+            },
+            {
+              "id": "screen-k-14",
+              "role": "base-front-door",
+              "x": 485,
+              "y": 27,
+              "w": 18,
+              "d": 681,
+              "elevationMm": 110,
+              "heightMm": 732,
+              "face": "west",
+              "color": "#D7C6AE",
+              "material": "Oak"
+            },
+            {
+              "id": "screen-k-15",
+              "role": "base-divider-panel",
+              "x": 485,
+              "y": 16,
+              "w": 650,
+              "d": 18,
+              "elevationMm": 100,
+              "heightMm": 540,
+              "face": "west",
+              "color": "#F3EFE6",
+              "material": "Cream"
+            },
+            {
+              "id": "screen-k-16",
+              "role": "base-bottom-panel",
+              "x": -1135,
+              "y": 710,
+              "w": 1060,
+              "d": 600,
+              "elevationMm": 100,
+              "heightMm": 18,
+              "face": "north",
+              "color": "#F3EFE6",
+              "material": "Cream"
+            },
+            {
+              "id": "screen-k-17",
+              "role": "base-back-panel",
+              "x": -1135,
+              "y": 1292,
+              "w": 1060,
+              "d": 18,
+              "elevationMm": 100,
+              "heightMm": 750,
+              "face": "north",
+              "color": "#F3EFE6",
+              "material": "Cream"
+            },
+            {
+              "id": "screen-k-18",
+              "role": "base-end-panel",
+              "x": -1135,
+              "y": 710,
+              "w": 18,
+              "d": 600,
+              "elevationMm": 100,
+              "heightMm": 750,
+              "face": "north",
+              "color": "#F3EFE6",
+              "material": "Cream"
+            },
+            {
+              "id": "screen-k-19",
+              "role": "base-end-panel",
+              "x": -93,
+              "y": 710,
+              "w": 18,
+              "d": 600,
+              "elevationMm": 100,
+              "heightMm": 750,
+              "face": "north",
+              "color": "#F3EFE6",
+              "material": "Cream"
+            },
+            {
+              "id": "screen-k-20",
+              "role": "base-toe-panel",
+              "x": -1135,
+              "y": 740,
+              "w": 1060,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 100,
+              "face": "north",
+              "color": "#D7C6AE",
+              "material": "Oak"
+            },
+            {
+              "id": "screen-k-21",
+              "role": "base-front-door",
+              "x": -1133,
+              "y": 710,
+              "w": 526,
+              "d": 18,
+              "elevationMm": 110,
+              "heightMm": 732,
+              "face": "north",
+              "color": "#D7C6AE",
+              "material": "Oak"
+            },
+            {
+              "id": "screen-k-22",
+              "role": "base-front-door",
+              "x": -603,
+              "y": 710,
+              "w": 526,
+              "d": 18,
+              "elevationMm": 110,
+              "heightMm": 732,
+              "face": "north",
+              "color": "#D7C6AE",
+              "material": "Oak"
+            },
+            {
+              "id": "screen-k-23",
+              "role": "base-divider-panel",
+              "x": -614,
+              "y": 710,
+              "w": 18,
+              "d": 600,
+              "elevationMm": 100,
+              "heightMm": 750,
+              "face": "north",
+              "color": "#F3EFE6",
+              "material": "Cream"
+            },
+            {
+              "id": "screen-k-24",
+              "role": "base-bottom-panel",
+              "x": 525,
+              "y": 710,
+              "w": 610,
+              "d": 600,
+              "elevationMm": 100,
+              "heightMm": 18,
+              "face": "north",
+              "color": "#F3EFE6",
+              "material": "Cream"
+            },
+            {
+              "id": "screen-k-25",
+              "role": "base-back-panel",
+              "x": 525,
+              "y": 1292,
+              "w": 610,
+              "d": 18,
+              "elevationMm": 100,
+              "heightMm": 750,
+              "face": "north",
+              "color": "#F3EFE6",
+              "material": "Cream"
+            },
+            {
+              "id": "screen-k-26",
+              "role": "base-end-panel",
+              "x": 525,
+              "y": 710,
+              "w": 18,
+              "d": 600,
+              "elevationMm": 100,
+              "heightMm": 750,
+              "face": "north",
+              "color": "#F3EFE6",
+              "material": "Cream"
+            },
+            {
+              "id": "screen-k-27",
+              "role": "base-end-panel",
+              "x": 1117,
+              "y": 710,
+              "w": 18,
+              "d": 600,
+              "elevationMm": 100,
+              "heightMm": 750,
+              "face": "north",
+              "color": "#F3EFE6",
+              "material": "Cream"
+            },
+            {
+              "id": "screen-k-28",
+              "role": "base-toe-panel",
+              "x": 525,
+              "y": 740,
+              "w": 610,
+              "d": 18,
+              "elevationMm": 0,
+              "heightMm": 100,
+              "face": "north",
+              "color": "#D7C6AE",
+              "material": "Oak"
+            },
+            {
+              "id": "screen-k-29",
+              "role": "base-front-door",
+              "x": 527,
+              "y": 710,
+              "w": 606,
+              "d": 18,
+              "elevationMm": 110,
+              "heightMm": 732,
+              "face": "north",
+              "color": "#D7C6AE",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-1",
+              "role": "worktop-cut",
+              "x": -25,
+              "y": -1310,
+              "w": 1160,
+              "d": 650,
+              "elevationMm": 850,
+              "heightMm": 40,
+              "color": "#F3F0E9"
+            },
+            {
+              "id": "s4-k-3",
+              "role": "worktop-cut",
+              "x": 485,
+              "y": -660,
+              "w": 650,
+              "d": 240,
+              "elevationMm": 850,
+              "heightMm": 40,
+              "color": "#F3F0E9"
+            },
+            {
+              "id": "s4-k-4",
+              "role": "worktop-cut",
+              "x": 485,
+              "y": 360,
+              "w": 650,
+              "d": 350,
+              "elevationMm": 850,
+              "heightMm": 40,
+              "color": "#F3F0E9"
+            },
+            {
+              "id": "s4-k-5",
+              "role": "worktop-cut",
+              "x": 485,
+              "y": -420,
+              "w": 100,
+              "d": 780,
+              "elevationMm": 850,
+              "heightMm": 40,
+              "color": "#F3F0E9"
+            },
+            {
+              "id": "s4-k-6",
+              "role": "worktop-cut",
+              "x": 1035,
+              "y": -420,
+              "w": 100,
+              "d": 780,
+              "elevationMm": 850,
+              "heightMm": 40,
+              "color": "#F3F0E9"
+            },
+            {
+              "id": "s4-k-8",
+              "role": "worktop-cut",
+              "x": -1135,
+              "y": 710,
+              "w": 1060,
+              "d": 60,
+              "elevationMm": 850,
+              "heightMm": 40,
+              "color": "#F3F0E9"
+            },
+            {
+              "id": "s4-k-9",
+              "role": "worktop-cut",
+              "x": -1135,
+              "y": 1220,
+              "w": 1060,
+              "d": 90,
+              "elevationMm": 850,
+              "heightMm": 40,
+              "color": "#F3F0E9"
+            },
+            {
+              "id": "s4-k-10",
+              "role": "worktop-cut",
+              "x": -1135,
+              "y": 770,
+              "w": 100,
+              "d": 450,
+              "elevationMm": 850,
+              "heightMm": 40,
+              "color": "#F3F0E9"
+            },
+            {
+              "id": "s4-k-11",
+              "role": "worktop-cut",
+              "x": -285,
+              "y": 770,
+              "w": 210,
+              "d": 450,
+              "elevationMm": 850,
+              "heightMm": 40,
+              "color": "#F3F0E9"
+            },
+            {
+              "id": "s4-k-13",
+              "role": "worktop-cut",
+              "x": 525,
+              "y": 710,
+              "w": 610,
+              "d": 600,
+              "elevationMm": 850,
+              "heightMm": 40,
+              "color": "#F3F0E9"
+            },
+            {
+              "id": "s4-k-14",
+              "role": "dishwasher-overhead-worktop",
+              "x": -75,
+              "y": 710,
+              "w": 600,
+              "d": 600,
+              "elevationMm": 850,
+              "heightMm": 40,
+              "color": "#F3F0E9"
+            },
+            {
+              "x": 815,
+              "y": -510,
+              "w": 320,
+              "d": 1500,
+              "elevationMm": 1500,
+              "heightMm": 18,
+              "color": "#F3EFE6",
+              "id": "east_upper_floor",
+              "role": "upper-panel",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "x": 815,
+              "y": -510,
+              "w": 320,
+              "d": 1500,
+              "elevationMm": 2332,
+              "heightMm": 18,
+              "color": "#F3EFE6",
+              "id": "east_upper_top",
+              "role": "upper-panel",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "x": 1117,
+              "y": -510,
+              "w": 18,
+              "d": 1500,
+              "elevationMm": 1500,
+              "heightMm": 850,
+              "color": "#F3EFE6",
+              "id": "east_upper_back",
+              "role": "upper-panel",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "x": 815,
+              "y": -510,
+              "w": 320,
+              "d": 18,
+              "elevationMm": 1500,
+              "heightMm": 850,
+              "color": "#F3EFE6",
+              "id": "east_upper_n",
+              "role": "upper-panel",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "x": 815,
+              "y": 972,
+              "w": 320,
+              "d": 18,
+              "elevationMm": 1500,
+              "heightMm": 850,
+              "color": "#F3EFE6",
+              "id": "east_upper_s",
+              "role": "upper-panel",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "x": 815,
+              "y": -508,
+              "w": 18,
+              "d": 371,
+              "elevationMm": 1510,
+              "heightMm": 836,
+              "color": "#F4F1E9",
+              "id": "east_upper_door_0",
+              "role": "upper-front",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "x": 815,
+              "y": -133,
+              "w": 18,
+              "d": 371,
+              "elevationMm": 1510,
+              "heightMm": 836,
+              "color": "#F4F1E9",
+              "id": "east_upper_door_1",
+              "role": "upper-front",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "x": 815,
+              "y": 242,
+              "w": 18,
+              "d": 371,
+              "elevationMm": 1510,
+              "heightMm": 836,
+              "color": "#F4F1E9",
+              "id": "east_upper_door_2",
+              "role": "upper-front",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "x": 815,
+              "y": 617,
+              "w": 18,
+              "d": 371,
+              "elevationMm": 1510,
+              "heightMm": 836,
+              "color": "#F4F1E9",
+              "id": "east_upper_door_3",
+              "role": "upper-front",
+              "material": "Cream",
+              "face": "west"
+            },
+            {
+              "x": 235,
+              "y": 990,
+              "w": 580,
+              "d": 320,
+              "elevationMm": 1500,
+              "heightMm": 18,
+              "color": "#F3EFE6",
+              "id": "south_upper_floor",
+              "role": "upper-panel",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": 235,
+              "y": 990,
+              "w": 580,
+              "d": 320,
+              "elevationMm": 2332,
+              "heightMm": 18,
+              "color": "#F3EFE6",
+              "id": "south_upper_top",
+              "role": "upper-panel",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": 235,
+              "y": 1292,
+              "w": 580,
+              "d": 18,
+              "elevationMm": 1500,
+              "heightMm": 850,
+              "color": "#F3EFE6",
+              "id": "south_upper_back",
+              "role": "upper-panel",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": 235,
+              "y": 990,
+              "w": 18,
+              "d": 320,
+              "elevationMm": 1500,
+              "heightMm": 850,
+              "color": "#F3EFE6",
+              "id": "south_upper_w",
+              "role": "upper-panel",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": 797,
+              "y": 990,
+              "w": 18,
+              "d": 320,
+              "elevationMm": 1500,
+              "heightMm": 850,
+              "color": "#F3EFE6",
+              "id": "south_upper_e",
+              "role": "upper-panel",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": 237,
+              "y": 990,
+              "w": 286,
+              "d": 18,
+              "elevationMm": 1510,
+              "heightMm": 836,
+              "color": "#F4F1E9",
+              "id": "south_upper_door_0",
+              "role": "upper-front",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "x": 527,
+              "y": 990,
+              "w": 286,
+              "d": 18,
+              "elevationMm": 1510,
+              "heightMm": 836,
+              "color": "#F4F1E9",
+              "id": "south_upper_door_1",
+              "role": "upper-front",
+              "material": "Cream",
+              "face": "north"
+            },
+            {
+              "id": "east_upper_floor-led-strip",
+              "x": 843,
+              "y": -486,
+              "w": 8,
+              "d": 1452,
+              "elevationMm": 1496,
+              "heightMm": 4,
+              "role": "led-strip",
+              "label": "吊柜下板底面灯带 · 电路待核",
+              "color": "#FFF1CF",
+              "material": "Light",
+              "face": "west"
+            },
+            {
+              "id": "south_upper_floor-led-strip",
+              "x": 259,
+              "y": 1018,
+              "w": 532,
+              "d": 8,
+              "elevationMm": 1496,
+              "heightMm": 4,
+              "role": "led-strip",
+              "label": "吊柜下板底面灯带 · 电路待核",
+              "color": "#FFF1CF",
+              "material": "Light",
+              "face": "north"
+            }
+          ],
+          "dimensionStatus": "design-pending",
+          "baseHeightMm": 2350,
+          "roomId": "kitchen",
+          "notes": "与确认R4相同的地面外包；18mm空心板壳与柜门，水槽向下嵌入台面，盆下不填实芯。吊柜复用原安全分区，底1500/顶2350mm，窗与热水器留空；仅示意，非加工或安装批准。",
+          "sourceFootprintMm": {
+            "x": 6020,
+            "y": 11270,
+            "w": 2270,
+            "d": 2620
+          }
+        },
+        {
+          "id": "kitchen_fridge",
+          "type": "fridge",
+          "name": "厨房冰箱",
+          "cx": 6805,
+          "cy": 11620,
+          "w": 650,
+          "d": 600,
+          "rot": 0,
+          "color": "#D9DDDB",
+          "heightMm": 1900,
+          "elevationMm": 0,
+          "sourceId": "kitchen_fridge",
+          "sourceFootprintMm": {
+            "x": 6480,
+            "y": 11320,
+            "w": 650,
+            "d": 600
+          },
+          "face": "south",
+          "dimensionStatus": "user-confirmed-body",
+          "sourceType": "fridge",
+          "originalSourceFootprintMm": {
+            "x": 5500,
+            "y": 11320,
+            "w": 650,
+            "d": 600
+          }
+        },
+        {
+          "id": "kitchen_dishwasher",
+          "type": "dishwasher",
+          "name": "厨房洗碗机",
+          "cx": 7380,
+          "cy": 13590,
+          "w": 600,
+          "d": 600,
+          "rot": 180,
+          "color": "#D9DDDB",
+          "heightMm": 805,
+          "elevationMm": 0,
+          "sourceId": "kitchen_dishwasher",
+          "sourceFootprintMm": {
+            "x": 7080,
+            "y": 13290,
+            "w": 600.0000000000001,
+            "d": 600.0000000000001
+          },
+          "face": "south",
+          "dimensionStatus": "user-confirmed-body",
+          "sourceType": "dishwasher",
+          "originalSourceFootprintMm": {
+            "x": 6270,
+            "y": 11320,
+            "w": 600,
+            "d": 600
+          }
+        },
+        {
+          "id": "kitchen_double_sink",
+          "type": "ksink",
+          "name": "厨房双槽水槽",
+          "cx": 7965,
+          "cy": 12550,
+          "w": 780,
+          "d": 450,
+          "rot": 90,
+          "color": "#D9DDDB",
+          "heightMm": 200,
+          "elevationMm": 690,
+          "sourceId": "kitchen_double_sink",
+          "sourceFootprintMm": {
+            "x": 7740,
+            "y": 12160,
+            "w": 450.00000000000006,
+            "d": 780
+          },
+          "face": "west",
+          "dimensionStatus": "reference-only",
+          "sourceType": "doubleSink",
+          "modelVariant": "recessed-double-bowl",
+          "originalSourceFootprintMm": {
+            "x": 7740,
+            "y": 12160,
+            "w": 450,
+            "d": 780
+          }
+        },
+        {
+          "id": "kitchen_hob",
+          "type": "stove",
+          "name": "燃气灶",
+          "cx": 6495,
+          "cy": 13575,
+          "w": 750,
+          "d": 450,
+          "rot": 180,
+          "color": "#D9DDDB",
+          "heightMm": 50,
+          "elevationMm": 890,
+          "sourceId": "kitchen_hob",
+          "sourceFootprintMm": {
+            "x": 6120,
+            "y": 13350,
+            "w": 750,
+            "d": 450.0000000000001
+          },
+          "face": "north",
+          "dimensionStatus": "provisional",
+          "sourceType": "gasHob",
+          "modelVariant": "hob-only",
+          "originalSourceFootprintMm": {
+            "x": 6120,
+            "y": 13350,
+            "w": 750,
+            "d": 450
+          }
+        },
+        {
+          "id": "kitchen_hood",
+          "type": "hood",
+          "name": "抽油烟机",
+          "cx": 6495,
+          "cy": 13690,
+          "w": 800,
+          "d": 400,
+          "rot": 180,
+          "color": "#D9DDDB",
+          "heightMm": 450,
+          "elevationMm": 1550,
+          "sourceId": "kitchen_hood",
+          "sourceFootprintMm": {
+            "x": 6095,
+            "y": 13490,
+            "w": 800,
+            "d": 400.0000000000001
+          },
+          "face": "north",
+          "dimensionStatus": "provisional",
+          "sourceType": "hood",
+          "originalSourceFootprintMm": {
+            "x": 6095,
+            "y": 13490,
+            "w": 800,
+            "d": 400
+          }
+        },
+        {
+          "id": "kitchen_heater",
+          "type": "waterheater",
+          "name": "壁挂热水器",
+          "cx": 8187.5,
+          "cy": 11535,
+          "w": 330,
+          "d": 205,
+          "rot": 90,
+          "color": "#D9DDDB",
+          "heightMm": 530,
+          "elevationMm": 1320,
+          "sourceId": "kitchen_heater",
+          "sourceFootprintMm": {
+            "x": 8085,
+            "y": 11370,
+            "w": 205.00000000000003,
+            "d": 330
+          },
+          "face": "west",
+          "dimensionStatus": "reference-only",
+          "sourceType": "waterHeater",
+          "originalSourceFootprintMm": {
+            "x": 8085,
+            "y": 11370,
+            "w": 205,
+            "d": 330
+          }
+        },
+        {
+          "id": "kitchen_tap",
+          "type": "faucet",
+          "name": "水槽龙头",
+          "cx": 8195,
+          "cy": 12550,
+          "w": 60,
+          "d": 150,
+          "rot": 90,
+          "color": "#D9DDDB",
+          "heightMm": 320,
+          "elevationMm": 890,
+          "sourceId": "kitchen_tap",
+          "sourceFootprintMm": {
+            "x": 8120,
+            "y": 12520,
+            "w": 150,
+            "d": 60.00000000000001
+          },
+          "face": "west",
+          "dimensionStatus": "provisional",
+          "sourceType": "faucet",
+          "originalSourceFootprintMm": {
+            "x": 8120,
+            "y": 12520,
+            "w": 150,
+            "d": 60
+          }
+        },
+        {
+          "id": "living-floorlamp",
+          "type": "floorlamp",
+          "name": "客厅落地灯",
+          "cx": 6110,
+          "cy": 9460,
+          "w": 400,
+          "d": 400,
+          "rot": 0,
+          "color": "#B29769",
+          "heightMm": 1600,
+          "sourceFootprintMm": {
+            "x": 5910,
+            "y": 9260,
+            "w": 400,
+            "d": 400
+          }
+        },
+        {
+          "id": "living-east-art",
+          "type": "fixture",
+          "name": "沙发东侧装饰画",
+          "cx": 6735,
+          "cy": 7975,
+          "w": 30,
+          "d": 1450,
+          "rot": 0,
+          "color": "#F3EFE6",
+          "baseWidthMm": 30,
+          "baseDepthMm": 1450,
+          "heightMm": 1900,
+          "elevationMm": 0,
+          "parts": [
+            {
+              "x": -15,
+              "y": -725,
+              "w": 30,
+              "d": 600,
+              "elevationMm": 1100,
+              "heightMm": 800,
+              "color": "#C8A77E",
+              "role": "wall-art",
+              "material": "OakLight"
+            },
+            {
+              "x": -15,
+              "y": 125,
+              "w": 30,
+              "d": 600,
+              "elevationMm": 1100,
+              "heightMm": 800,
+              "color": "#C8A77E",
+              "role": "wall-art",
+              "material": "OakLight"
+            }
+          ],
+          "sourceId": "living-east-art",
+          "dimensionStatus": "design-pending",
+          "roomId": "living",
+          "sourceFootprintMm": {
+            "x": 6720,
+            "y": 7250,
+            "w": 30,
+            "d": 1450
+          }
+        },
+        {
+          "id": "scheme4-entry-screen",
+          "type": "fixture",
+          "name": "入户屏风 · 1500×80×2000（暂定）",
+          "cx": 4550,
+          "cy": 12400,
+          "w": 1500,
+          "d": 80,
+          "baseWidthMm": 1500,
+          "baseDepthMm": 80,
+          "rot": 0,
+          "color": "#E8E4DC",
+          "heightMm": 2000,
+          "elevationMm": 0,
+          "parts": [
+            {
+              "id": "screen-bottom-beam",
+              "role": "screen-beam",
+              "x": -750,
+              "y": -40,
+              "w": 1500,
+              "d": 80,
+              "elevationMm": 0,
+              "heightMm": 40,
+              "color": "#C8B08C",
+              "material": "Oak"
+            },
+            {
+              "id": "screen-top-beam",
+              "role": "screen-beam",
+              "x": -750,
+              "y": -40,
+              "w": 1500,
+              "d": 80,
+              "elevationMm": 1960,
+              "heightMm": 40,
+              "color": "#C8B08C",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-1",
+              "role": "screen-vertical-slat",
+              "x": -735,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-2",
+              "role": "screen-vertical-slat",
+              "x": -675,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-3",
+              "role": "screen-vertical-slat",
+              "x": -615,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-4",
+              "role": "screen-vertical-slat",
+              "x": -555,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-5",
+              "role": "screen-vertical-slat",
+              "x": -495,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-6",
+              "role": "screen-vertical-slat",
+              "x": -435,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-7",
+              "role": "screen-vertical-slat",
+              "x": -375,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-8",
+              "role": "screen-vertical-slat",
+              "x": -315,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-9",
+              "role": "screen-vertical-slat",
+              "x": -255,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-10",
+              "role": "screen-vertical-slat",
+              "x": -195,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-11",
+              "role": "screen-vertical-slat",
+              "x": -135,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-12",
+              "role": "screen-vertical-slat",
+              "x": -75,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-13",
+              "role": "screen-vertical-slat",
+              "x": -15,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-14",
+              "role": "screen-vertical-slat",
+              "x": 45,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-15",
+              "role": "screen-vertical-slat",
+              "x": 105,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-16",
+              "role": "screen-vertical-slat",
+              "x": 165,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-17",
+              "role": "screen-vertical-slat",
+              "x": 225,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-18",
+              "role": "screen-vertical-slat",
+              "x": 285,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-19",
+              "role": "screen-vertical-slat",
+              "x": 345,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-20",
+              "role": "screen-vertical-slat",
+              "x": 405,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-21",
+              "role": "screen-vertical-slat",
+              "x": 465,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-22",
+              "role": "screen-vertical-slat",
+              "x": 525,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-23",
+              "role": "screen-vertical-slat",
+              "x": 585,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-24",
+              "role": "screen-vertical-slat",
+              "x": 645,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            },
+            {
+              "id": "s4-k-25",
+              "role": "screen-vertical-slat",
+              "x": 705,
+              "y": -35,
+              "w": 18,
+              "d": 70,
+              "elevationMm": 40,
+              "heightMm": 1920,
+              "color": "#B9A080",
+              "material": "Oak"
+            }
+          ],
+          "dimensionStatus": "design-pending",
+          "baseHeightMm": 2000,
+          "notes": "R4确认占地1500×80mm、高2000mm。真实18mm木格栅、上下40mm细梁；不把平面投影建成实心墙。板件、安装与现场层高待核。",
+          "sourceFootprintMm": {
+            "x": 3800,
+            "y": 12360,
+            "w": 1500,
+            "d": 80
+          }
+        },
+        {
+          "id": "scheme4-living-armchair",
+          "type": "armchair",
+          "name": "客厅单人沙发 · 尺寸占位，面向主沙发",
+          "cx": 3985,
+          "cy": 8830,
+          "w": 850,
+          "d": 850,
+          "rot": 270,
+          "color": "#DCCDB8",
+          "heightMm": 820,
+          "elevationMm": 0,
+          "dimensionStatus": "design-pending",
+          "notes": "暂定850×850mm单人沙发，置于大地毯西南角、朝东面向主沙发。茶几在其北侧，并非前方；通行走西侧。尚未选定商品，实物扶手及脚部包络待核。",
+          "face": "east",
+          "sourceFootprintMm": {
+            "x": 3560,
+            "y": 8405,
+            "w": 850.0000000000001,
+            "d": 850.0000000000001
+          }
+        }
+      ],
+      "HEIGHT_MM": 2700,
+      "PLAN_BOUNDS": {
+        "x": 0,
+        "y": -650,
+        "w": 8410,
+        "h": 15490
+      },
+      "BOUNDS": {
+        "x": -1000,
+        "y": -1650,
+        "w": 10410,
+        "h": 17490
+      },
+      "CENTER": {
+        "x": 4205,
+        "y": 7095
+      },
+      "metadata": {
+        "sourceUnit": "cm",
+        "unit": "mm",
+        "sourceVersion": "3.12.0",
+        "source": {
+          "repository": "owner-confirmed-design",
+          "path": "data/source/screen-confirmed-20261010.json",
+          "sha256": "7708f6184494daf0188a1d5e74e4ed62806a85876a7c24432a29538b24588bbb",
+          "importDate": "2026-10-10",
+          "basedOn": "family"
+        },
+        "coordinateSystem": {
+          "x": "向东（图右）",
+          "y": "向南（图下）"
+        },
+        "measurements": {
+          "date": "2026-10-04",
+          "version": "3.6.1",
+          "stage": "partial-confirmed",
+          "source": "models/measurements-20261004-r2.json",
+          "summary": "补充复尺已录入：主卧窗宽1760mm并按西墙段860mm条件定位；主卫实测局部轮廓独立展示。主卫窗高1400mm已确认，但模型保留旧窗占位等待定位；全屋墙线、面积及家具通道仍为旧设计参考。",
+          "orientation": "九张分房图逆时针旋转90°对应网站北向；原分房图上下不代表实地正北。",
+          "oldEnvelope": true,
+          "baseline": "3cd0096513a5baaae15ba5db167d3dc3015f5f13",
+          "applied": [
+            {
+              "label": "客厅飘窗",
+              "value": "宽2120 × 高2210；台400；外凸600mm",
+              "scope": "三套方案2D/3D",
+              "note": "L02/L03/L04/L05；绝对位置沿旧中心，坐垫50mm为设计值。"
+            },
+            {
+              "label": "次卧飘窗",
+              "value": "宽1760 × 高1670；台400；西墙段870mm",
+              "scope": "三套方案2D/3D及茶座",
+              "note": "B2_WINDOW_*；坐垫与茶托随窗平移90mm、降低30mm，完成坐面450mm。东墙段仍差10mm。"
+            },
+            {
+              "label": "主卧窗立面与净高",
+              "value": "台410＋窗1660＋距顶720＝房高2790mm",
+              "scope": "三套方案3D分区立面",
+              "note": "B3_WINDOW_* / B3_ROOM_HEIGHT；只升主卧边界对应墙段及顶面，不把次卧、卫生间一并升高。"
+            },
+            {
+              "label": "客厅净高",
+              "value": "2700mm",
+              "scope": "维持当前客厅顶面",
+              "note": "L12已确认；不推广为其他未测房间的净高。"
+            },
+            {
+              "label": "主卧窗宽与条件定位",
+              "value": "1760mm；西段860mm",
+              "scope": "三套方案2D/3D及同源效果图",
+              "note": "R2确认窗宽1760；三段合计3490对净跨3500差10mm，不取平均。东段模型暂880对记录870。"
+            },
+            {
+              "label": "主卫现状局部轮廓",
+              "value": "1010×1320＋1390×1530mm；总宽2400、退台210为推算",
+              "scope": "复尺核对明细独立局部图；不替换改造墙线",
+              "note": "S01–S04与O_S_DEPTH／D_SUITE_STEP。全屋共同基准未闭合，不取消已设计的套内玄关。"
+            },
+            {
+              "label": "主卫窗明确尺寸",
+              "value": "实测记录500×1400mm；定位待核",
+              "scope": "核对数据与醒目占位提醒；不修改本轮3D窗高",
+              "note": "主卫实测窗宽500、窗高1400mm；模型保留台1500／高800mm旧示意，窗台、定位及测量参考面待核。 用户已选择保留旧示意，未授权猜测新窗台。"
+            },
+            {
+              "label": "其他补充复核",
+              "value": "书房左下990、两卧现门820mm；客餐厅30／次卧20mm偏差已接受",
+              "scope": "现状数据记录；不覆盖拟建门及扩大书房",
+              "note": "现门量取面仍需分清；厨房↔阳台1000原记录已撤销采用，不能当已确认尺寸。"
+            }
+          ],
+          "pending": [
+            {
+              "room": "全屋",
+              "label": "墙厚与总轮廓闭合",
+              "measured": "厨房净2420×2610；原阳台净1240×1490；餐区宽条件值3330mm",
+              "model": "统一墙厚120mm、旧总轮廓暂留",
+              "reason": "图纸旋转到网站坐标后，假定厨房/阳台东墙共线，会相差150mm。尚无法区分墙厚、墙面错位或量尺基准；不擅自加厚墙或移动外墙。"
+            },
+            {
+              "room": "客餐厅",
+              "label": "整体净尺寸与窗定位",
+              "measured": "东西4660；南北7570（5450＋2120条件合成），另一侧合计7600mm",
+              "model": "原房间多边形/面积保留，客厅高度2700mm已确认",
+              "reason": "两条南北链差30mm已由用户接受，原读数分别保留，不将3300改写为3270。全屋共同定位、墙厚及入户开口仍不足，窗中心仍沿用旧模型。"
+            },
+            {
+              "room": "次卧B",
+              "label": "主体及入口凹位",
+              "measured": "东西3000×南北3080；原入口860×1200mm",
+              "model": "主体东西3010mm，入口为当前改造布局",
+              "reason": "4300对3080＋1200＝4280的20mm偏差已接受；不等于所有墙线已闭合。当前主体3010对实测3000仍差10mm，窗东段380对370多10mm；现状入口不能覆盖拟建入口。"
+            },
+            {
+              "room": "主卧",
+              "label": "净跨与窗位闭合差",
+              "measured": "东西3500、南北3090；西860＋窗1760＋东870＝3490mm",
+              "model": "东西3500、南北3100仍为原主体；窗宽1760、西段860，模型东段880mm",
+              "reason": "旧2620窗宽已更正，不再保留850mm冲突。新水平链剩10mm待核，主体南北仍差10mm；不平均分摊、不擅自移动卧室隔墙。"
+            },
+            {
+              "room": "书房",
+              "label": "现状净尺寸与改造扩大区分",
+              "measured": "南北2730；左下990；东西2000＋990＝2990，与旧3030差40mm",
+              "model": "各方案原书房墙线/推拉门、家具暂留",
+              "reason": "左下990已确认，底段2730＋130－1200＝1660为推算；3030/2990的40mm仍未结案。扩大书房和推拉门属拟改造，不用现状一个矩形覆盖。"
+            },
+            {
+              "room": "主卫",
+              "label": "现状轮廓已明确；窗台与改造定位待核",
+              "measured": "西段1010×1320、东段1390×1530；窗记录500×1400mm",
+              "model": "现状局部图独立展示；全屋两卫及套内玄关墙线暂留，主卫窗台1500／高800mm为旧示意",
+              "reason": "总宽2400与退台210为推算，不能直接覆盖缩入套内玄关后的改造卫生间。窗高1400已确认；窗台、绝对定位、净高及框内/框外基准仍待核。经用户选择，不按猜测窗台900建模。"
+            },
+            {
+              "room": "客卫",
+              "label": "局部宽不能代替总净宽",
+              "measured": "深段净宽980；两段720＋1630＝2350为推算；门右短墙510mm",
+              "model": "原两卫边界/台盆和洁具位置暂留",
+              "reason": "980仅为深段，不代表入口段总宽；左侧短墙未测，门600/520量取面未统一，完整退台轮廓仍不能确定。不得用510直接替代总宽。"
+            },
+            {
+              "room": "家政阳台",
+              "label": "现状与借厅扩展方案",
+              "measured": "原净1240×1490mm，局部凸出50×150mm位置待补",
+              "model": "原版现状占位；亲子/整墙保留借厅扩展设计与并排洗烘",
+              "reason": "已记录原净尺寸，但借厅后尺寸不可直接回退到原阳台；设备净空、窗框及与厨房的共同基准须随全屋闭合复核。水龙头迁移与换表未办结。"
+            },
+            {
+              "room": "门与走廊",
+              "label": "保留拟建门，不混同现状门",
+              "measured": "原走廊940；书房、次卧现门820；主卫洞750/内650/高1950；主卧门830与走廊侧820/920mm",
+              "model": "主卧平开门、书房推拉门、厨房1700推拉门等设计参数未改",
+              "reason": "须分清门扇、框内与结构洞口；末端130与门区950为条件推算，不是新实测。厨房↔阳台1000原记录本轮撤销采用，性质待核；不等同拟建1200大窗，设计1700推拉门保持。"
+            },
+            {
+              "room": "窗边安全",
+              "label": "净深、承载和防坠",
+              "measured": "仅客厅外凸600确认；两卧外凸仍未测",
+              "model": "两卧外凸600mm旧占位；软垫和防护均是设计意图",
+              "reason": "宽高数据不等于窗框系统净空或结构承载认证；28楼防坠、开启限位、台面承载、排水及墙体可拆性需专业核验。"
+            }
+          ],
+          "roomDescriptions": {
+            "living": "复尺记录客厅窗宽2120mm、窗高2210mm、台面离地400mm、外凸600mm，窗顶2610mm。两片960×550mm可拆洗软垫各厚50mm，完成坐面约450mm；不加桌椅，不向厅内外扩。窗在整墙上的定位暂留旧中心，框内净深、排水和高层防坠仍须核验。",
+            "room_b": "次卧无独立桌椅。复尺窗宽1760mm、窗高1670mm、台面400mm；茶座坐垫完成面450mm。窗位按西内墙留870mm定位，东侧旧墙仍多10mm，待全屋墙线闭合。",
+            "room_a": "主卧取消桌椅，仅保留飘窗。窗宽1760mm，按西墙段860mm条件定位，模型东段880比实测870多10mm待核；台面410mm、窗高1660mm、净高2790mm。外凸600mm仍是旧占位。",
+            "bath_1": {
+              "title": "主卫 · 实测尺寸与旧窗占位",
+              "description": "主卫实测窗宽500、窗高1400mm；模型保留台1500／高800mm旧示意，窗台、定位及测量参考面待核。 主卫现状为西段1010×1320、东段1390×1530mm，总宽2400与南侧退台210mm由分段推算。局部现状图仅供复核，不直接替换套内玄关和拟建卫生间墙线；需取得共同基准、墙厚和窗台实测后再调整整体模型，不能据旧窗示意下单。",
+              "notice": "主卫实测窗宽500、窗高1400mm；模型保留台1500／高800mm旧示意，窗台、定位及测量参考面待核。",
+              "features": [
+                "实测窗高1400mm",
+                "旧窗示意未改",
+                "窗台及定位待核"
+              ]
+            }
+          },
+          "revision": "r2",
+          "previousVersion": "3.6.0",
+          "sourceSummary": {
+            "已解决": 12,
+            "用户接受偏差": 2,
+            "未完成": 8
+          },
+          "localExistingPlans": [
+            {
+              "id": "suite-bath-existing",
+              "title": "主卫现状局部轮廓",
+              "pointsMm": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  2400,
+                  0
+                ],
+                [
+                  2400,
+                  1530
+                ],
+                [
+                  1010,
+                  1530
+                ],
+                [
+                  1010,
+                  1320
+                ],
+                [
+                  0,
+                  1320
+                ]
+              ],
+              "basis": "分段实测S01/S02/S03/S04；总宽2400＝1010＋1390、退台210＝1530－1320为推算。分房图逆时针90°转为网站北向。",
+              "notes": [
+                "此图仅定位在局部坐标，不代表已与全屋墙线闭合；不覆盖套内玄关及拟建主卫墙线。",
+                "窗记录宽500、高1400mm，窗台与定位待核；本局部图不猜测门窗位置。",
+                "模型仍保留主卫窗台1500／窗高800mm旧示意。尺寸需按完成面及门窗参考面复核后才能施工。"
+              ]
+            }
+          ]
+        },
+        "anchors": [
+          {
+            "id": "top",
+            "label": "北侧总宽",
+            "valueMm": 6870,
+            "grade": "旧设计参考",
+            "source": "旧模型尺寸；本次复尺未完成全屋闭合，不是已确认现状总尺。"
+          },
+          {
+            "id": "height",
+            "label": "主体墙身总长（不含外凸飘窗）",
+            "valueMm": 14010,
+            "grade": "旧设计参考",
+            "source": "旧模型尺寸；本次复尺未完成全屋闭合，不是已确认现状总尺。"
+          },
+          {
+            "id": "bottom",
+            "label": "南侧下部总宽",
+            "valueMm": 6410,
+            "grade": "旧设计参考",
+            "source": "旧模型尺寸；本次复尺未完成全屋闭合，不是已确认现状总尺。"
+          },
+          {
+            "id": "topRooms",
+            "label": "北侧卧室净跨",
+            "valueMm": "3010 / 3500",
+            "grade": "旧设计参考",
+            "source": "旧模型尺寸；本次复尺未完成全屋闭合，不是已确认现状总尺。"
+          },
+          {
+            "id": "bottomRooms",
+            "label": "下部两跨",
+            "valueMm": "3180 / 2870",
+            "grade": "旧设计参考",
+            "source": "旧模型尺寸；本次复尺未完成全屋闭合，不是已确认现状总尺。"
+          },
+          {
+            "id": "wall",
+            "label": "统一墙厚",
+            "valueMm": 120,
+            "grade": "旧设计参考",
+            "source": "旧模型尺寸；本次复尺未完成全屋闭合，不是已确认现状总尺。"
+          },
+          {
+            "id": "offset",
+            "label": "下部向东偏移",
+            "valueMm": 2000,
+            "grade": "旧设计参考",
+            "source": "旧模型尺寸；本次复尺未完成全屋闭合，不是已确认现状总尺。"
+          },
+          {
+            "id": "livingWindow",
+            "label": "客厅窗水平记录宽",
+            "valueMm": 2120,
+            "grade": "局部复尺",
+            "source": "L02/L03/L04/L05：宽2120、高2210、台400、外凸600mm；中心位置暂留旧模型，净框基准待核。"
+          },
+          {
+            "id": "bcVestibule",
+            "label": "B东南门厅 / C东北凹口",
+            "valueMm": "净900×1000",
+            "grade": "旧设计参考",
+            "source": "旧模型尺寸；本次复尺未完成全屋闭合，不是已确认现状总尺。"
+          },
+          {
+            "id": "hallWidth",
+            "label": "北部走廊暂定净宽",
+            "valueMm": 850,
+            "grade": "旧设计参考",
+            "source": "旧模型尺寸；本次复尺未完成全屋闭合，不是已确认现状总尺。"
+          },
+          {
+            "id": "wallHeight",
+            "label": "已录入房间高度",
+            "valueMm": "客厅2700 / 主卧2790",
+            "grade": "局部复尺",
+            "source": "L12、B3_ROOM_HEIGHT；其他房间2700仍暂定。"
+          },
+          {
+            "id": "bathWindows",
+            "label": "两卫东向窄窗",
+            "valueMm": "主卫500 / 客卫600旧占位",
+            "grade": "旧设计参考",
+            "source": "R2 S05/S06：实测记录窗宽500、窗高1400mm；经用户确认保留旧位置及台1500／高800mm示意，不将1400叠加旧窗台；窗台、窗中心、净高及框内/框外参考面待核。"
+          }
+        ],
+        "products": [
+          {
+            "id": "ikea-vimle-39635114",
+            "name": "VIMLE 维姆勒 三人沙发 · 科耐贝克浅米色",
+            "articleNumber": "396.351.14",
+            "url": "https://www.ikea.cn/cn/zh/p/vimle-wei-mu-le-san-ren-sha-fa-ke-nai-bei-ke-qian-mi-se-s39635114/",
+            "verificationUrl": "https://www.ikea.com/sg/en/p/vimle-3-seat-sofa-knaebaeck-light-beige-s39635114/",
+            "dimensionsMm": {
+              "width": 2410,
+              "depth": 980,
+              "height": 830
+            },
+            "seatMm": {
+              "width": 2110,
+              "depth": 550,
+              "height": 480
+            },
+            "armWidthMm": 150,
+            "modelType": "parametric-approximation"
+          },
+          {
+            "id": "ikea-lisabo-80365717",
+            "name": "LISABO 利萨伯 固定四人餐桌 · 白蜡木贴面",
+            "articleNumber": "803.657.17",
+            "url": "https://www.ikea.cn/cn/zh/p/lisabo-li-sa-bo-zhuo-zi-bai-zha-mu-tie-mian-80365717/",
+            "dimensionsMm": {
+              "width": 1400,
+              "depth": 780,
+              "height": 740
+            },
+            "extendable": false,
+            "modelType": "parametric-approximation"
+          },
+          {
+            "id": "ikea-lisabo-80457236",
+            "name": "LISABO 利萨伯 餐椅 · 白蜡木",
+            "articleNumber": "804.572.36",
+            "url": "https://www.ikea.cn/cn/zh/p/lisabo-li-sa-bo-yi-zi-bai-zha-mu-80457236/",
+            "dimensionsMm": {
+              "width": 460,
+              "depth": 510,
+              "height": 800
+            },
+            "seatMm": {
+              "width": 440,
+              "depth": 390,
+              "height": 450
+            },
+            "modelType": "parametric-approximation"
+          }
+        ],
+        "conditions": [
+          "墙体、房间多边形和面积沿用既有方案；部分复尺已应用，全屋墙线和共同基准未闭合。",
+          "编辑器中的尺寸以模型坐标为准；已购家具保持机身外廓，安装、门套及五金余量待核。"
+        ],
+        "balconyOpenness": {
+          "id": "balcony-two-sided-open-20261005",
+          "version": "3.12.0",
+          "baselineCommit": "f9f4cb94ecf2bbdc39ab6e6ba086956081457c27",
+          "topologyConfirmedByOwner": true,
+          "dimensionsVerified": false,
+          "constructionApproved": false,
+          "evidenceFiles": [
+            "188e6af399cb806e2e2453d96a983d86.png",
+            "33082a0817245f15ae9db5cb51f6cde4.jpg"
+          ],
+          "openingIds": [
+            "balcony_north_opening",
+            "balcony_east_opening"
+          ],
+          "northWall": [
+            681,
+            960,
+            835,
+            960
+          ],
+          "eastWall": [
+            835,
+            960,
+            835,
+            1395
+          ],
+          "estimatedSillCm": 110,
+          "estimatedOpeningHeightCm": 135,
+          "estimatedOpeningTopCm": 245,
+          "originalWallHeightCm": 270,
+          "conditions": [
+            "本次纠正阳台北、东两面被画成整面实墙的错误：按业主照片表达下部矮墙、上部通透防护开口，保留边柱及顶梁；不是新拆墙或拆护栏方案。",
+            "矮墙高1100mm、开口高1350mm、上口2450mm均暂按照片估算；总高2700mm沿用旧模型。开口水平范围沿旧模型端点，不是实测净宽。",
+            "防护框、竖杆和间距仅为存在性示意，不作为防坠、承重、安装或规范验收依据；梁柱、矮墙、防护及排水管不得据模型擅改。",
+            "北侧借厅短墙仍保留；东面仅阳台段通透，厨房东墙、厨房与阳台内窗、生活阳台门及洗烘设备位置均不变。",
+            "未增加封窗玻璃、柜体或背景景观。窗外楼栋、管线及实际遮挡以现场为准，不承诺无遮拦远景。"
+          ],
+          "roomDescriptions": {
+            "balcony": {
+              "title": "北东通透，洗烘如旧",
+              "description": "阳台并排洗烘、上方浅盆、三轨门及厨房保留原位；取消书架后不再以门框与柜面齐平描述。690mm阳台操作带、980mm浅盆台高及设备安装条件仍待核。 取消的是客厅书架，不扩大阳台、不移动外墙。 北、东两面改正为矮墙上通透开口，保留防护、边柱和顶梁，不增封窗玻璃；标高及宽度暂估待复尺。",
+              "features": [
+                "北、东双面通透",
+                "保留矮墙与防护",
+                "开口标高暂估"
+              ]
+            }
+          }
+        },
+        "garageMovement": {
+          "status": "pending",
+          "straightHorizontalPullOut": false,
+          "reason": "980mm frontage between continuous cabinet and parked folding door versus 1100mm child-bike envelope. A zero-tolerance ideal rectangle route is not a practical clearance validation.",
+          "southChairMustMove": true,
+          "assumedBikeSizeMm": [
+            1100,
+            500
+          ],
+          "previousP1PathInvalidated": true
+        },
+        "converter": "tools/convert-house-plans.cjs + tools/screen-plan.cjs",
+        "wallStatus": "承重性未鉴定；原源数据未授权将未知内墙标记为可拆非承重墙。",
+        "cabinetRevision": {
+          "revision": "cream-oak-functional-v1",
+          "title": "奶白 + 浅原木便捷分区",
+          "status": "concept-pending-detail",
+          "geometryPolicy": "保留所有柜体原外包、位置与800库北开口；只替换柜内/门板细节。"
+        },
+        "sideboardReference": {
+          "revision": "sideboard-reference-v2",
+          "title": "三套同步通顶餐边柜参考",
+          "heightPolicy": "2700mm仅按模型屋顶；现场待核",
+          "geometryPolicy": "仅餐边柜高度/内部细节变更，平面占地及800库折叠门保留"
+        },
+        "designCorrections": [
+          {
+            "id": "bath-south-hinge-20261008",
+            "sourceId": "door_bath_1",
+            "description": "主卫北铰改南铰，仍向卫内开；门洞和全部家具位置不变。",
+            "openingUnchanged": true,
+            "hingeMm": [
+              4450,
+              4430
+            ],
+            "closedDirection": [
+              0,
+              -1
+            ],
+            "openDirection": [
+              1,
+              0
+            ],
+            "usageNote": "门扇转到入口南侧而非贴南墙。两门板间距不是通行净宽；旧源快照550mm门间带说明不再适用。"
+          }
+        ],
+        "draft": {
+          "date": "2026-10-10",
+          "basedOn": "family",
+          "status": "3d-preview",
+          "notForConstruction": true,
+          "confirmed": [
+            "厨房保留R3恢复后的普通平开门与设备柜体",
+            "电视仍保留北墙",
+            "保留入户门外开及鞋柜拉满",
+            "阳台门西移与厨房墙面齐平",
+            "餐桌靠近屏风",
+            "地毯扩大居中并覆盖沙发前脚",
+            "地毯左下新增单人沙发"
+          ],
+          "provisional": [
+            "厨房凹角尺寸1060×1190mm",
+            "900mm厨房结构门洞、780mm门叶",
+            "低台室内加深430mm",
+            "屏风1500×80×2000mm",
+            "阳台门西移102.5mm",
+            "桌椅南移250mm",
+            "地毯3200×2600mm",
+            "单人沙发850×850mm，仅尺寸占位"
+          ],
+          "warnings": [
+            "总轮廓和改墙可行性未完成现场复核",
+            "飘窗只在室内加深低台，不扩大外窗或外墙",
+            "东墙沙发与北墙电视为斜向观看，不是正对电视",
+            "厨房已生成薄板柜体3D，五金、净深和水电仍需现场深化",
+            "入户外开门的公区及相邻门避让尚未核实"
+          ]
+        },
+        "threeDRevision": {
+          "id": "screen-r4-3d-20261010",
+          "confirmedPlan": "R4",
+          "unit": "mm",
+          "provisional": true,
+          "description": "确认平面应用3D；仅深化厨房薄板/吊柜和屏风格栅，不改变家具位置、尺寸或墙洞。",
+          "pending": [
+            "墙体拆改与门套净口待核",
+            "厨房冰箱高1900mm，其北窗左缘约150mm在当前示意中可能被遮挡；设备原位保留",
+            "家政浅盆、洗烘承载及排水仍待深化",
+            "入户外开门公区与邻门避让待核"
+          ]
+        }
+      }
     }
   }
 };

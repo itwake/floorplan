@@ -92,14 +92,16 @@ const timeout = 60000;
 
     // Changing another scheme cannot pick up the family draft.
     await page.locator('#schemeSelect').selectOption('wood');
-    await page.waitForFunction(() => state.schemeId === 'wood');
+    // Scheme changes navigate to a new document: the old page may disappear
+    // before its replacement has created the editor's lexical state.
+    await page.waitForFunction(() => typeof state !== 'undefined' && state.schemeId === 'wood');
     assert.deepEqual(await page.evaluate(() => state.furniture.map(f => [f.id,f.w,f.d,f.color])), plans.schemes.wood.defaultFurniture.map(f => [f.id,f.w,f.d,f.color]));
     const before = await page.evaluate(() => JSON.stringify(state));
     await page.locator('#fileIn').setInputFiles({name:'wrong-scheme.json', mimeType:'application/json', buffer:Buffer.from(JSON.stringify(exported))});
     await page.waitForFunction(() => document.querySelector('#toast').classList.contains('show'));
     assert.equal(await page.evaluate(() => JSON.stringify(state)), before, 'cross-scheme import cannot replace current design');
     await page.locator('#schemeSelect').selectOption('family');
-    await page.waitForFunction(() => state.schemeId === 'family');
+    await page.waitForFunction(() => typeof state !== 'undefined' && state.schemeId === 'family');
     assert.equal(await page.evaluate(id => getF(id).color, chair.id), '#668899', 'scheme switch keeps independent family draft');
     await menuAction('#reset');
     assert.equal(await page.evaluate(id => getF(id).w, chair.id), chair.w);

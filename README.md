@@ -2,13 +2,13 @@
 
 中文 | [English](README.en.md)
 
-基于原 floorplan 编辑器，导入 [house-design](https://github.com/itwake/house-design) 中我们现有的三套户型方案。打开网站即进入自己的户型编辑，不再显示原示例户型。无需构建。
+基于原 floorplan 编辑器，导入 [house-design](https://github.com/itwake/house-design) 中的三套户型方案，并新增业主确认的方案4。打开网站即进入自己的户型编辑，不再显示原示例户型。无需构建。
 
 [在线编辑](https://itwake.github.io/floorplan/) · [原设计展示网站](https://itwake.github.io/house-design/)
 
 ## 我们的方案
 
-默认打开方案二「木光 · 亲子储物」。顶部选择器可切换方案一「木光原境」和方案三「木光 · 家政整墙」。`?scheme=wood`、`?scheme=family`、`?scheme=laundry` 可直接定位方案。
+默认打开方案二「木光 · 亲子储物」。顶部选择器可切换方案一「木光原境」、方案三「木光 · 家政整墙」和方案四「木光 · 屏风客餐厅」。`?scheme=wood`、`?scheme=family`、`?scheme=laundry`、`?scheme=screen` 可直接定位方案。加上 `&view=3d` 直接进入3D，普通链接仍进入2D。
 
 墙洞、开门方向、三个外凸飘窗、阳台北东开阔防护、厨房设备、定制柜体、已购 IKEA 家具均按源方案导入。2D/3D 共用毫米坐标；柜体部件按原离地高度构建，800 库折叠门默认关闭。
 
@@ -23,6 +23,12 @@
 方案1参考方案2新增1500×1000mm暂估800库，北向四扇内折门默认关闭，两辆车分层收纳；原南侧返柜取消，西墙餐边柜改为4260mm通顶直柜，保留最新格栅、开放格、圆弧端与灯带。已购餐桌竖放贴柜，四椅与方案2同位置。电视、沙发、茶几及地毯向东对齐模型电视墙中心；地毯居中于电视柜与沙发之间，沙发背后增加1900×250×650mm滑门低柜（参考方案2并微调宽度避开阳台门框）。方案2/3和所有墙洞、卧室、厨卫布局不变。
 
 旧方案1草稿按字段升级仍为旧默认值的家具，保留已自定义尺寸、摆位、颜色与删除操作，并在有保留项时显示提醒。无须重置；若希望查看完整新默认布局，先导出备份再重置当前方案。800库车型、承重与取车动作仍待现场排演，不宣称实际取车净空已获验证。
+
+### 2026-10-10 · 方案4 R4 3D预览
+
+方案4独立保留确认平面：东墙主沙发、北墙电视、3200×2600mm居中地毯、左下单椅、加深低飘窗、入户格栅屏风、靠近屏风的已购餐桌、外开入户门与加长鞋柜。生活阳台门框西面与厨房墙齐平；厨房保留凹角及普通门，不应用已撤销的厨房移门和设备调位。屏风由真实格栅组成，厨房以18mm薄板、开槽台面、嵌入双槽、独立双灶与抽油烟机建模，吊柜避开窗和热水器。未改变方案1–3或其浏览器草稿。
+
+本版本已按业主确认加入线上编辑器，可直接打开[方案4的3D预览](https://itwake.github.io/floorplan/?scheme=screen&view=3d&v=screen-r4-20261011)。厨房冰箱与北窗左缘约150mm遮挡、餐椅后退与屏风的距离、阳台门净口、浅盆承载排水及外开入户门公区避让仍需现场复核；模型验证不是施工批准。
 
 ## 功能
 
@@ -90,7 +96,7 @@ python3 -m http.server 8000
 
 ## 自定义户型
 
-户型数据位于 `data/house-plans.js`，由 `tools/convert-house-plans.cjs` 从三套 `data/source/*.json` 快照生成。来源提交和待核项保存在数据中。详见 [导入数据说明](data/README.md)。
+户型数据位于 `data/house-plans.js`，由 `tools/convert-house-plans.cjs` 从三套原源快照和方案4的R4确认快照生成。来源提交和待核项保存在数据中。详见 [导入数据说明](data/README.md)。
 
 - `ROOMS`：房间多边形、名称、默认地面材料
 - `WALLS` / `WINS`：墙体与窗洞
@@ -109,6 +115,8 @@ python3 -m http.server 8000
 发布后运行 `node tests/verify-published.cjs`，逐项检查线上 HTML、户型数据和 3D 模块与当前提交的 SHA-256 完全一致。
 
 公共区修订验证：`node tests/wood-public-area.cjs` 校验授权物件、墙体不变、电视/沙发轴线、静态物件避碰及储物库限制；`node tests/wood-public-area-browser.cjs` 校验旧草稿升级、重置与实际3D。
+
+方案4验证：`node tests/screen-plan.cjs` 核对R4坐标、真实格栅、薄板柜、动线及三套原方案完全不变；`node tests/screen-plan-browser.cjs` 检查实际3D及截图（同样支持 `FLOORPLAN_BASE_URL`）。
 
 GitHub Pages 发布 `master` 分支根目录。原编辑器 MIT 许可与作者署名保留。
 

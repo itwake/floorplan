@@ -3,6 +3,9 @@
 // clearance approval. Historical cm source files remain immutable.
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),plans=require(path.join(root,'data/house-plans.js'));
+// The reference cabinet layer and source-union comparisons belong only to
+// the three original cm imports; screen is independently checked in mm.
+const legacySchemes=['wood','family','laundry'].map(id=>{assert.ok(plans.schemes[id],id+': original imported scheme missing');return [id,plans.schemes[id]];});
 const revision='sideboard-reference-v2',target='fit-dining_sideboard_wall',T=18,tol=.01;
 const mm=n=>n*10,eq=(a,b,label)=>assert.ok(Math.abs(a-b)<tol,`${label}: ${a} != ${b}`);
 const rect=p=>({x:mm(p.x),y:mm(p.y),w:mm(p.w),d:mm(p.d)});
@@ -22,7 +25,7 @@ function withinUnion(p,regions){
   return true;
 }
 const report=[];
-for(const [id,scheme]of Object.entries(plans.schemes)){
+for(const [id,scheme]of legacySchemes){
   const referenceId=id==='wood'&&scheme.metadata.layoutUpdate?'family':id;
   const source=JSON.parse(fs.readFileSync(path.join(root,'data/source',referenceId+'.json'),'utf8'));
   const fit=source.storageFitouts.find(q=>q.id==='dining_sideboard_wall'),f=scheme.defaultFurniture.find(q=>q.id===target);

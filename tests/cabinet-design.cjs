@@ -2,6 +2,9 @@
 const assert=require('node:assert/strict'),crypto=require('node:crypto'),path=require('node:path');
 const plans=require(path.join(__dirname,'..','data','house-plans.js'));
 const {previousPlan}=require('./wood-public-area-helpers.cjs');
+// These historical baselines belong to the three original cm imports only.
+// The independently measured mm screen scheme is checked by screen-plan.cjs.
+const legacySchemes=['wood','family','laundry'].map(id=>{assert.ok(plans.schemes[id],id+': original imported scheme missing');return [id,plans.schemes[id]];});
 const revision='cream-oak-functional-v1',sideboardRevision='sideboard-reference-v2';
 // Recorded before the functional cabinet-detail pass. Deliberately includes
 // windows, doors and the 800-library bifold so styling cannot change layout.
@@ -21,11 +24,11 @@ const intersects=(a,b)=>Math.min(a.x+a.w,b.x+b.w)-Math.max(a.x,b.x)>.01&&Math.mi
 function layout(s){return {rooms:s.ROOMS.map(r=>({id:r.id,poly:r.poly,at:r.at,heightMm:r.heightMm,counted:r.counted,mat:r.mat})),walls:s.WALLS,wallMeta:s.WALL_META,wins:s.WINS,winMeta:s.WIN_META,doors:s.DOORS,slides:s.SLIDES,bays:s.BAYS,bifolds:s.BIFOLDS};}
 function envelopes(s){return s.defaultFurniture.map(f=>Object.fromEntries(['id','cx','cy','w','d','rot','heightMm','elevationMm','sourceFootprintMm'].filter(k=>f[k]!==undefined).map(k=>[k,k==='heightMm'&&f.id==='fit-dining_sideboard_wall'&&f.cabinetRevision===sideboardRevision?2500:f[k]]))).sort((a,b)=>a.id.localeCompare(b.id));}
 if(process.argv.includes('--record-baseline')){
-  console.log(JSON.stringify(Object.fromEntries(Object.entries(plans.schemes).map(([id,s])=>[id,{layout:hash(layout(s)),envelopes:hash(envelopes(s))}])),null,2));
+  console.log(JSON.stringify(Object.fromEntries(legacySchemes.map(([id,s])=>[id,{layout:hash(layout(s)),envelopes:hash(envelopes(s))}])),null,2));
   process.exit(0);
 }
 const report=[];
-for(const [id,s] of Object.entries(plans.schemes)){
+for(const [id,s] of legacySchemes){
   assert.ok(baseline[id],id+': missing immutable pre-design baseline');
   const prior=previousPlan(s);
   assert.equal(hash(layout(prior)),baseline[id].layout,id+': historical walls/openings/rooms/bays/800 door changed');

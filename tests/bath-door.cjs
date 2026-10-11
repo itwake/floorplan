@@ -9,6 +9,9 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const plans = require(path.join(root, 'data/house-plans.js'));
 const {previousPlan}=require('./wood-public-area-helpers.cjs');
+// Only the original three cm source imports use these retained baselines.
+// The standalone mm screen scheme has independent screen-plan.cjs coverage.
+const legacySchemes = ['wood','family','laundry'].map(id => {assert.ok(plans.schemes[id], `${id}: original imported scheme missing`);return [id, plans.schemes[id]];});
 const revision = 'bath-south-hinge-20261008';
 const stable = value => Array.isArray(value) ? value.map(stable) : value && typeof value === 'object' ? Object.fromEntries(Object.keys(value).sort().map(key => [key, stable(value[key])])) : value;
 const hash = value => crypto.createHash('sha256').update(value).digest('hex');
@@ -69,10 +72,10 @@ function sweptLeafHits(door, fixture, thicknessMm) {
 
 const report = [];
 if(process.argv.includes('--record-baseline')){
-  console.log(JSON.stringify(Object.fromEntries(Object.entries(plans.schemes).map(([id,scheme])=>[id,hashObject(beforeCorrection(scheme,JSON.parse(fs.readFileSync(path.join(root,'data/source',`${id}.json`),'utf8'))))])),null,2));
+  console.log(JSON.stringify(Object.fromEntries(legacySchemes.map(([id,scheme])=>[id,hashObject(beforeCorrection(scheme,JSON.parse(fs.readFileSync(path.join(root,'data/source',`${id}.json`),'utf8'))))])),null,2));
   process.exit(0);
 }
-for (const [id, scheme] of Object.entries(plans.schemes)) {
+for (const [id, scheme] of legacySchemes) {
   const sourceBytes = fs.readFileSync(path.join(root, 'data/source', `${id}.json`));
   // Git may check out CRLF on Windows; line endings do not change the source
   // content. Normalize only CRLF so substantive edits remain detectable.

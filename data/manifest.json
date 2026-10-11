@@ -55,6 +55,23 @@
         "importDate": "2026-10-07",
         "lastViewerVersion": "3.13.3"
       }
+    },
+    {
+      "id": "screen",
+      "name": "木光 · 屏风客餐厅",
+      "rooms": 8,
+      "walls": 44,
+      "windows": 12,
+      "doors": 7,
+      "slidingDoors": 1,
+      "furniture": 44,
+      "source": {
+        "repository": "owner-confirmed-design",
+        "path": "data/source/screen-confirmed-20261010.json",
+        "sha256": "7708f6184494daf0188a1d5e74e4ed62806a85876a7c24432a29538b24588bbb",
+        "importDate": "2026-10-10",
+        "basedOn": "family"
+      }
     }
   ]
 }

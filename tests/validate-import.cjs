@@ -25,10 +25,15 @@ for (const match of html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)) {
 assert.ok(scripts >= 2, 'Main editor and 3D scripts must both be syntax checked');
 assert.equal(plans.defaultScheme, 'family');
 assert.equal(plans.unit, 'mm');
-assert.deepEqual(Object.keys(plans.schemes).sort(), ['family', 'laundry', 'wood']);
+assert.deepEqual(Object.keys(plans.schemes).sort(), ['family', 'laundry', 'screen', 'wood']);
+// The independent mm-based R4 scheme is checked against its confirmation
+// snapshot by screen-plan.cjs, rather than these three historical cm sources.
+const screenChecked = spawnSync(process.execPath, [path.join(__dirname, 'screen-plan.cjs')], {encoding:'utf8'});
+assert.equal(screenChecked.status, 0, `R4 scheme: ${screenChecked.stderr || screenChecked.stdout}`);
 const report = [];
 
-for (const [id, p] of Object.entries(plans.schemes)) {
+for (const id of ['wood', 'family', 'laundry']) {
+  const p = plans.schemes[id];
   const source = JSON.parse(fs.readFileSync(path.join(root, 'data/source', id + '.json'), 'utf8'));
   assert.equal(source.unit, 'cm');
   assert.equal(p.WALLS.length, p.WALL_META.length);

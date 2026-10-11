@@ -2,13 +2,15 @@
 
 [中文](README.md) | English
 
-The floorplan editor now opens our apartment designs from [house-design](https://github.com/itwake/house-design), instead of the original example home. [Open the editor](https://itwake.github.io/floorplan/). Default: `family`; use the top selector for `wood` and `laundry`. No build step is required.
+The floorplan editor now opens our apartment designs from [house-design](https://github.com/itwake/house-design), instead of the original example home. [Open the editor](https://itwake.github.io/floorplan/). Default: `family`; use the top selector for `wood`, `laundry`, and the independently confirmed R4 scheme `screen`. Add `&view=3d` to a scheme URL to enter 3D directly. No build step is required.
 
 The import preserves millimetre coordinates, door openings and actual leaf lengths, three projecting bay windows, unglazed balcony guards, detailed cabinetry and purchased furniture dimensions. Furniture uses parametric visual approximations, not exact branded product meshes. Three.js and required addons are bundled locally in `vendor/three/`.
 
 Edits auto-save separately for each scheme in this browser. Use JSON export/import to back up or transfer drafts. Geometry is versioned source data, not an interactive CAD wall-drawing system; wall removal only creates a reversible draft. Full survey closure and wall structural status are still unverified. Do not use this model as construction approval or certified floor area.
 
 See [data documentation](data/README.md) for conversion, provenance and unresolved measurements. Run `node tests/validate-import.cjs` for geometry/script checks. Serve the project over HTTP for ES Modules; deployment uses the `master` branch root on GitHub Pages. Original MIT license and author credit remain intact.
+
+Scheme 4 uses the owner-confirmed 2026-10-10 R4 plan, with actual screen slats, thin-board kitchen cabinets, a recessed double bowl and a separate hob/hood. Its positions and openings match R4; existing schemes and their drafts are unchanged. [Open its 3D preview](https://itwake.github.io/floorplan/?scheme=screen&view=3d&v=screen-r4-20261011). The model is not construction approval. Run `node tests/screen-plan.cjs` and `node tests/screen-plan-browser.cjs` for its dedicated checks.
 
 ## Features
 
