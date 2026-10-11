@@ -6,6 +6,7 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
 const root=path.resolve(__dirname,'..'),plans=require('../data/house-plans.js');
 const {beforeFamilyStudyLaundry}=require('../tools/family-study-laundry-20261011.cjs');
+const {beforeFamilyDoorRefinement}=require('../tools/family-door-refinement-20261011.cjs');
 const runtime=process.env.FLOORPLAN_NODE_MODULES||'C:/Users/dvnuo/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules';
 let chromium;try{({chromium}=require('playwright'));}catch{({chromium}=createRequire(path.join(runtime,'_floorplan-qa.cjs'))('playwright'));}
 const base=(process.env.FLOORPLAN_BASE_URL||'http://127.0.0.1:4194').replace(/\/$/,''),out=path.resolve(process.env.FLOORPLAN_STUDY_LAUNDRY_SHOTS||path.join(root,'..','output','family-study-laundry-publish-20261011-qa'));
@@ -65,14 +66,14 @@ const closeRect=(mesh,rect,label)=>{eq(mesh.min[0],rect[0],label+' min x');eq(me
  const errors=[],networkFailures=[],screenshots=[],report={revision:revisionId,migration:null,unchangedOtherSchemes:[],doorClicks:[],geometry:{}};page.setDefaultTimeout(90000);page.on('pageerror',e=>errors.push(e.message));page.on('requestfailed',r=>networkFailures.push({url:r.url(),error:r.failure()?.errorText}));page.on('dialog',d=>d.accept());
  await context.route('**/favicon.ico',r=>r.fulfill({status:204,body:''}));
  await context.route(base+'/**',async route=>{if(route.request().resourceType()!=='document')return route.fallback();try{const response=await route.fetch({timeout:90000}),html=await response.text();assert.ok(html.includes('window.View3D ='),'3D hook anchor missing');return await route.fulfill({response,body:html.replace('window.View3D =',hook+'window.View3D =')});}catch(error){networkFailures.push({url:route.request().url(),error:'QA document interception: '+error.message});await route.abort('failed').catch(()=>{});}});
- const open=async(id,three=false)=>{await page.goto(`${base}/?scheme=${id}${three?'&view=3d':''}`,{waitUntil:'networkidle'});await page.waitForFunction(()=>window.HOUSE_PLANS&&window.View3D&&Array.isArray(state.furniture));assert.equal(await page.locator('#schemeSelect').inputValue(),id);};
- const reload=async()=>{await page.reload({waitUntil:'networkidle'});await page.waitForFunction(()=>window.HOUSE_PLANS&&window.View3D);};
+ const open=async(id,three=false)=>{await page.goto(`${base}/?scheme=${id}${three?'&view=3d':''}`,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>window.HOUSE_PLANS&&window.View3D&&Array.isArray(state.furniture));assert.equal(await page.locator('#schemeSelect').inputValue(),id);};
+ const reload=async()=>{await page.reload({waitUntil:'domcontentloaded'});await page.waitForFunction(()=>window.HOUSE_PLANS&&window.View3D);};
  const reset=async()=>{if(!await page.locator('details.menu').evaluate(e=>e.open))await page.locator('details.menu > summary').click();await page.locator('#reset').click();await page.locator('details.menu').evaluate(e=>e.open=false);};
  const shot=async name=>{const file=path.join(out,name+'.png');await page.screenshot({path:file});screenshots.push(file);};
  try{
   const family=plans.schemes.family,u=family.metadata.familyStudyLaundryUpdate;assert.equal(u?.id,revisionId,'bundle lacks confirmed study/laundry layer');
   assert.deepEqual(u.newFurnitureIds,['study_window_return']);assert.deepEqual(u.removedFurnitureIds.slice().sort(),['fit-laundry_basin','fit-laundry_wall']);
-  const baseline=beforeFamilyStudyLaundry(family);assert.equal(baseline.metadata.familyStudyLaundryUpdate,undefined,'baseline helper failed to remove new layer');
+  const baseline=beforeFamilyStudyLaundry(beforeFamilyDoorRefinement(family));assert.equal(baseline.metadata.familyStudyLaundryUpdate,undefined,'baseline helper failed to remove new layer');
   for(const id of ['wood','laundry','screen']){
    await open(id);const current=await page.evaluate(()=>({plan:structuredClone(HOUSE_PLAN),key:STORE}));
    assert.deepEqual(current.plan,plans.schemes[id],id+': runtime model differs from bundle');assert.equal(current.plan.metadata.familyStudyLaundryUpdate,undefined,id+': unauthorized study/laundry layer');report.unchangedOtherSchemes.push(id);
@@ -137,9 +138,9 @@ const closeRect=(mesh,rect,label)=>{eq(mesh.min[0],rect[0],label+' min x');eq(me
   const mirrorFace=vanity.meshes.find(m=>m.role==='mirror-face');assert.ok(mirrorFace,'actual right-basin mirror face missing');assert.ok(mirrorFace.materials.some(m=>m.metalness===.55&&m.roughness===.06),'new guest mirror accidentally uses rough cabinet material');assert.ok(mirrorFace.min[0]>washer.max[0],'new mirror overlaps washer bay rather than right basin');
   report.geometry.washer={boundsMm:{min:washer.min,max:washer.max},topGapMm:50};report.geometry.dryer={boundsMm:{min:dryer.min,max:dryer.max}};report.geometry.guestCounter={boundsMm:counter,rightOnlyBasinMeshes:sinkMeshes.length};
   assert.deepEqual(family.SLIDES.find(s=>s.id==='balcony_door').rect,[6750,9600,6870,11100]);
-  const slideLeaves=actual.sliding.filter(s=>s.role==='sliding-leaf');assert.equal(slideLeaves.length,3,'retreated actual balcony must have three glass leaves');
-  eq(slideLeaves.reduce((sum,s)=>sum+(s.min[0]+s.max[0])/2,0)/3,6810,'retreated actual sliding leaf axis');for(const leaf of slideLeaves){eq(leaf.min[2],10580,'south-stacked leaf north edge');eq(leaf.max[2],11100,'south-stacked leaf south edge');}
-  assert.ok(actual.sills.length,'retreated actual balcony sill missing');closeRect(actual.sills[0],[6750,9600,6870,11100],'retreated actual balcony door sill');report.geometry.balconyFrame={sillBoundsMm:actual.sills[0],threeLeafBoundsMm:slideLeaves};
+  const balconySlide=family.SLIDES.find(s=>s.id==='balcony_door'),slideLeaves=actual.sliding.filter(s=>s.role==='sliding-leaf');assert.equal(slideLeaves.length,balconySlide.panelCount,'actual balcony glass count must follow the latest authorized layer');
+  eq(slideLeaves.reduce((sum,s)=>sum+(s.min[0]+s.max[0])/2,0)/balconySlide.panelCount,6810,'retreated actual sliding leaf axis');for(const leaf of slideLeaves){eq(leaf.min[2],11100-(1500/balconySlide.panelCount+20),'south-stacked leaf north edge');eq(leaf.max[2],11100,'south-stacked leaf south edge');}
+  assert.ok(actual.sills.length,'retreated actual balcony sill missing');closeRect(actual.sills[0],[6750,9600,6870,11100],'retreated actual balcony door sill');report.geometry.balconyFrame={sillBoundsMm:actual.sills[0],leafBoundsMm:slideLeaves};
   const source=family.DOORS.find(d=>d.id==='door_c');assert.deepEqual(source.h,[2400,5040]);assert.equal(source.openingWidthMm,900);eq(actual.doors.door_c.lengthMm,780,'study actual door leaf');
   for(let i=0;i<2;i++){eq(actual.doors.door_c.start[i],source.h[i],'study actual hinge');eq(actual.doors.door_c.end[i],source.h[i]+source.o[i]*source.len,'study initially parked endpoint');}
   const aim=async(position,target)=>{await page.evaluate(({position,target})=>window.__familyStudyLaundryQA.camera(position,target),{position,target});await page.waitForFunction(painted);};

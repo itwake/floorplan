@@ -366,7 +366,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=study-laundry-20261011"></script>
+<script src="data/house-plans.js?v=door-refinement-20261011"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -466,7 +466,7 @@ const uid = () => 'f' + Date.now().toString(36) + (_n++);
 const F = (type,name,cx,cy,w,d,rot=0,color) => ({id:uid(),type,name,cx,cy,w,d,rot,color:color||typeColor(type)});
 
 function defaultFurniture(){ return structuredClone(HOUSE_PLAN.defaultFurniture); }
-function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate].filter(Boolean);}
+function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement].filter(Boolean);}
 function defaultState(){
   const rooms = {}; ROOMS.forEach(r => rooms[r.id] = {name:r.name, mat:r.mat});
   return {schemaVersion:2,projectId:'house-design',schemeId:SCHEME_ID,sourceVersion:PLAN_LIBRARY.version,
@@ -536,7 +536,7 @@ function upgradeConfirmedLayouts(s){
   // for defaults. New objects are inserted once; deleted objects stay deleted.
   const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
   const placementKeys=['cx','cy','w','d','rot','heightMm','elevationMm','name','color'];
-  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate].filter(Boolean)){
+  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement].filter(Boolean)){
     if(s.appliedLayoutRevisions?.includes(revision.id))continue;
     const kept=new Set(s.layoutMigrationKeptIds||[]);
     const beforeObjects=[...(revision.previousFurniture||[]),...(revision.previousEntryCabinet?[revision.previousEntryCabinet]:[])];
@@ -983,6 +983,7 @@ function overviewPanel(){
   <section class="project-note"><b>${esc(HOUSE_PLAN.name)}</b>${layoutRevisions().map(r=>`<br>${esc(r.title)}`).join('')}${HOUSE_PLAN.metadata.bedroomUpdate?`<p data-bedroom-clearance>${tr('两卧床尾至衣柜约555mm，偏紧；下部采用滑门。桌椅、床架及门套尺寸仍需现场核对。','Both bed-foot gaps are about 555 mm and tight. Lower wardrobe doors slide; furniture and door trim dimensions need verification.')}</p>`:''}${HOUSE_PLAN.metadata.familyBathUpdate?`<p data-family-bath-clearance>${tr('主卫门已北移并改北铰内开，盆厕背靠南墙。马桶侧至淋浴仅60mm，排水移位、门套及绕门通行仍待核；主卫窗保留旧定位示意，实测500×1400mm，窗台及定位待核。','The bathroom door moves north and is north-hinged inward, with the vanity and toilet against the south wall. The toilet/shower side gap is only 60 mm; drainage, trim and routes around doors need verification. The bath window retains its old illustrative placement: measured 500 × 1400 mm, sill and positioning pending.')}</p>`:''}${state.layoutMigrationKeptIds?.length?`<p data-layout-migration-warning>${tr('保留了你的自定义摆位或尺寸；已移除的旧布局物件另存于JSON备份记录。请核对重叠与动线；查看完整新默认布局前，可先导出备份再重置当前方案。','Your custom placement or dimensions were preserved; removed objects are archived in JSON. Check collisions and routes; export a backup before resetting to see the complete new default layout.')}</p>`:''}<br>${tr('原网站方案已导入；局部复尺值已应用，待核尺寸保留原示意。墙体承重性未鉴定，草案改墙不是施工许可。','Original schemes imported; partial surveys applied, unresolved values remain illustrative. Wall structure is unverified.')}<br><small>${tr('编辑自动保存于当前浏览器，各方案独立。换设备请导出 JSON。','Edits auto-save in this browser per scheme. Export JSON to change devices.')}</small></section>
   ${cabinetOverview()}
   ${HOUSE_PLAN.metadata.familyStudyLaundryUpdate?`<section class="project-note" data-family-study-laundry-warning>${tr('书房当前保留沙发；将来1500×2000床垫按2100×1600床架替换沙发校核，床侧710mm与桌椅共用、床尾120mm不是通道。客卫台前610mm偏紧；机门、管线与检修须实物核对。阳台已取消借厅外凸，模型净宽1420与复尺1240mm仍差180mm，定位待核。','The study keeps its sofa now. A future 1500 × 2000 mattress is checked with an assumed 2100 × 1600 frame replacing it: the shared desk/bed-side strip is 710 mm; the 120 mm foot gap is not a passage. The guest bath has only 610 mm in front of the counter; appliance doors, hoses and servicing need on-site checks. The balcony no longer protrudes into the living room; the model width 1420 versus surveyed 1240 mm remains unresolved.')}</section>`:''}
+  ${HOUSE_PLAN.metadata.familyDoorRefinement?`<section class="project-note" data-family-door-refinement-warning>${tr('厨房与生活阳台已改双扇双轨玻璃推拉门，原洞口1700/1500mm不变。叠放后的名义开口约850/750mm，实际门框与搭接还需扣减；不是施工净宽。','The kitchen and laundry balcony now have two-leaf, two-track glass sliders. The original 1700/1500 mm apertures remain; nominal stacked openings are about 850/750 mm before frame and overlap deductions, not certified clear widths.')}</section>`:''}
   <section><h3>${tr('房间面积','Room Areas')} <small>${tr('点击查看 / 更换地面','Click to view / change flooring')}</small></h3>
     <table>${rows}</table>
     <div class="total"><span>${tr('模型使用面积','Model floor area')}</span><b>${fmt(tot)} m²</b></div>

@@ -16174,9 +16174,9 @@ const plans = {
       "SLIDES": [
         {
           "id": "balcony_door",
-          "name": "生活阳台三轨推拉门 · 回退原门轴",
+          "name": "生活阳台双扇双轨玻璃推拉门 · 原门轴保持",
           "grade": "C",
-          "notes": "取消借厅外凸，沿记录原门轴向东287.5mm恢复；窗、外墙和原1500门洞不动。模型净宽1420与复尺1240差180，门套、防水高差、整体定位及50×150凸处待核。",
+          "notes": "取消借厅外凸，沿记录原门轴向东287.5mm恢复；窗、外墙和原1500门洞不动。模型净宽1420与复尺1240差180，门套、防水高差、整体定位及50×150凸处待核。 本轮仅改双扇双轨；原洞口、宽高、原堆叠方向及玻璃不变。两扇叠放的可用通行宽度约为洞宽一半，扣门框/搭接后更小，门套、轨道与五金仍须实物深化。",
           "sourceId": "balcony_door",
           "sourceAxisMm": [
             6810,
@@ -16197,19 +16197,19 @@ const plans = {
             11100
           ],
           "v": true,
-          "panelCount": 3,
-          "trackCount": 3,
+          "panelCount": 2,
+          "trackCount": 2,
           "stackTo": "south",
           "surface": false,
           "defaultOpen": true,
           "glass": true,
-          "layoutRevision": "family-study-laundry-confirmed-20261011"
+          "layoutRevision": "family-door-refinement-20261011"
         },
         {
           "id": "door_kitchen",
-          "name": "厨房1700三扇三轨玻璃推拉门（扩洞条件方案，待复尺）",
+          "name": "厨房1700双扇双轨玻璃推拉门（扩洞条件方案，待复尺）",
           "grade": "C",
-          "notes": "原900mm门洞向北300mm、向南500mm拓宽；北端墙中心线剩240mm、南端800mm。南端距鞋柜起点50mm、南柜140mm，门套与承重/管线须现场核验，不能据图直接扩洞。",
+          "notes": "原900mm门洞向北300mm、向南500mm拓宽；北端墙中心线剩240mm、南端800mm。南端距鞋柜起点50mm、南柜140mm，门套与承重/管线须现场核验，不能据图直接扩洞。 本轮仅改双扇双轨；原洞口、宽高、原堆叠方向及玻璃不变。两扇叠放的可用通行宽度约为洞宽一半，扣门框/搭接后更小，门套、轨道与五金仍须实物深化。",
           "sourceId": "door_kitchen",
           "sourceAxisMm": [
             5360,
@@ -16230,12 +16230,13 @@ const plans = {
             13150
           ],
           "v": true,
-          "panelCount": 3,
-          "trackCount": 3,
+          "panelCount": 2,
+          "trackCount": 2,
           "stackTo": "north",
           "surface": false,
           "defaultOpen": true,
-          "glass": true
+          "glass": true,
+          "layoutRevision": "family-door-refinement-20261011"
         }
       ],
       "BAYS": [
@@ -24618,7 +24619,8 @@ const plans = {
           "编辑器中的尺寸以模型坐标为准；已购家具保持机身外廓，安装、门套及五金余量待核。",
           "入户门参照方案4向外开启，模型内不再扫过鞋柜正面；门外公共通行、相邻门、门套、闭门器及限位仍须现场确认，模型不构成外开施工批准。",
           "方案2本轮主卧门南移300mm、主卫门北移300mm并改北铰内开；盆厕贴南墙面北。门位为确认设计参数，非新增实测；马桶侧至淋浴仅60mm，排水移位与门套、通行条件仍须现场深化。",
-          "方案2书房900门洞南移500，7字桌与1680浅书墙；与主卧门洞纵向间隔230mm，历史270mm投影重叠说明已由本轮替代。未来完整床须替换沙发并收椅。客卫台前610mm偏紧，机门/取衣须实物试摆。阳台取消借厅外凸但全屋净宽与复尺差180mm尚未闭合。"
+          "方案2书房900门洞南移500，7字桌与1680浅书墙；与主卧门洞纵向间隔230mm，历史270mm投影重叠说明已由本轮替代。未来完整床须替换沙发并收椅。客卫台前610mm偏紧，机门/取衣须实物试摆。阳台取消借厅外凸但全屋净宽与复尺差180mm尚未闭合。",
+          "方案2厨房1700、生活阳台1500mm原门洞保持，仅改双扇双轨玻璃推拉门；厨房向北、阳台向南堆叠不变。开门后的可用通行宽度约为洞宽一半，实际门框/搭接/五金再扣，须核对搬运、操作和防水高差。"
         ],
         "balconyOpenness": {
           "id": "balcony-two-sided-open-20261005",
@@ -24670,7 +24672,7 @@ const plans = {
             }
           }
         },
-        "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs",
+        "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs",
         "wallStatus": "承重性未鉴定；原源数据未授权将未知内墙标记为可拆非承重墙。",
         "cabinetRevision": {
           "revision": "cream-oak-functional-v1",
@@ -24758,6 +24760,20 @@ const plans = {
             "description": "方案2确认书房门南移500及7字窗边桌；洗衣机入客卫左机右盆台，阳台只留单干机且退回原门轴。",
             "sourceSnapshotsUnchanged": true,
             "usageNote": "当前保留书房沙发，1500×2000未来床只作替换校核，不与沙发同时新增；客卫门和主卫、双卧本轮不动。"
+          },
+          {
+            "id": "family-door-refinement-20261011",
+            "date": "2026-10-11",
+            "sourceIds": [
+              "balcony_door",
+              "door_kitchen"
+            ],
+            "description": "方案2厨房及生活阳台玻璃推拉门由三扇三轨改双扇双轨，保持原洞口和堆叠方向。",
+            "sourceSnapshotsUnchanged": true,
+            "openingWidthsUnchanged": true,
+            "wallIndexesUnchanged": true,
+            "furnitureUnchanged": true,
+            "usageNote": "没有默认采纳尚待确认的书房反向开门及桌棚收短；此层只变两个推拉门。"
           }
         ],
         "entryFamilyUpdate": {
@@ -35899,6 +35915,191 @@ const plans = {
             "客卫门保持北铰内开，台前610mm仍狭窄；机门开启、取衣、管线防水用电与承重检修须现场深化。",
             "阳台模型1420×1490与复尺1240×1490仍差180mm，50×150凸处定位待补；此图非施工、下单或舒适通行认证。",
             "原主卫门/南墙盆厕、双卧布局及其余方案全部保持；已存自定义尺寸/摆位/颜色和删除应按字段迁移而非强制恢复。"
+          ]
+        },
+        "familyDoorRefinement": {
+          "id": "family-door-refinement-20261011",
+          "date": "2026-10-11",
+          "title": "方案2 · 双扇双轨厨房与生活阳台门",
+          "status": "applied-owner-confirmed",
+          "sourceReference": "2026-10-11业主要求方案2厨房及生活阳台推拉门改为两扇；书房反向与桌棚收短另待确认",
+          "sourceSnapshotsUnchanged": true,
+          "previousPlanFields": {
+            "SLIDES": [
+              {
+                "id": "balcony_door",
+                "name": "生活阳台三轨推拉门 · 回退原门轴",
+                "grade": "C",
+                "notes": "取消借厅外凸，沿记录原门轴向东287.5mm恢复；窗、外墙和原1500门洞不动。模型净宽1420与复尺1240差180，门套、防水高差、整体定位及50×150凸处待核。",
+                "sourceId": "balcony_door",
+                "sourceAxisMm": [
+                  6810,
+                  9600,
+                  6810,
+                  11100
+                ],
+                "openingWidthMm": 1500,
+                "sillMm": 0,
+                "heightMm": 2400,
+                "headMm": 2400,
+                "dimensionStatus": "design-pending",
+                "placementStatus": "unresolved",
+                "rect": [
+                  6750,
+                  9600,
+                  6870,
+                  11100
+                ],
+                "v": true,
+                "panelCount": 3,
+                "trackCount": 3,
+                "stackTo": "south",
+                "surface": false,
+                "defaultOpen": true,
+                "glass": true,
+                "layoutRevision": "family-study-laundry-confirmed-20261011"
+              },
+              {
+                "id": "door_kitchen",
+                "name": "厨房1700三扇三轨玻璃推拉门（扩洞条件方案，待复尺）",
+                "grade": "C",
+                "notes": "原900mm门洞向北300mm、向南500mm拓宽；北端墙中心线剩240mm、南端800mm。南端距鞋柜起点50mm、南柜140mm，门套与承重/管线须现场核验，不能据图直接扩洞。",
+                "sourceId": "door_kitchen",
+                "sourceAxisMm": [
+                  5360,
+                  11450,
+                  5360,
+                  13150
+                ],
+                "openingWidthMm": 1700,
+                "sillMm": 0,
+                "heightMm": 2200,
+                "headMm": 2200,
+                "dimensionStatus": "design-pending",
+                "placementStatus": "unresolved",
+                "rect": [
+                  5300,
+                  11450,
+                  5420,
+                  13150
+                ],
+                "v": true,
+                "panelCount": 3,
+                "trackCount": 3,
+                "stackTo": "north",
+                "surface": false,
+                "defaultOpen": true,
+                "glass": true
+              }
+            ]
+          },
+          "previousMetadataFields": {
+            "designCorrections": [
+              {
+                "id": "bath-south-hinge-20261008",
+                "sourceId": "door_bath_1",
+                "description": "主卫北铰改南铰，仍向卫内开；门洞和全部家具位置不变。",
+                "openingUnchanged": true,
+                "hingeMm": [
+                  4450,
+                  4430
+                ],
+                "closedDirection": [
+                  0,
+                  -1
+                ],
+                "openDirection": [
+                  1,
+                  0
+                ],
+                "usageNote": "门扇转到入口南侧而非贴南墙。两门板间距不是通行净宽；旧源快照550mm门间带说明不再适用。",
+                "status": "superseded-for-family",
+                "supersededBy": "family-master-bath-confirmed-20261011"
+              },
+              {
+                "id": "entry-family-layout-20261011",
+                "sourceId": "entry_door",
+                "description": "2026-10-11用户修订：入户门参照方案4向室外开启，保持本方案原洞口、宽高及门叶长度；合页从本方案洞口东端内退60mm作示意。公共走廊、邻户门、门套、闭门器及允许开启角度尚待现场核对，不构成外开施工批准。",
+                "openingUnchanged": true,
+                "hingeMm": [
+                  4840,
+                  13950
+                ],
+                "closedDirection": [
+                  -1,
+                  0
+                ],
+                "openDirection": [
+                  0,
+                  1
+                ],
+                "leafLengthMm": 890
+              },
+              {
+                "id": "family-master-bath-confirmed-20261011",
+                "date": "2026-10-11",
+                "sourceIds": [
+                  "door_a",
+                  "door_bath_1",
+                  "vanity_main",
+                  "family-f11"
+                ],
+                "description": "方案2主卧门南移300mm；主卫门北移300mm、北铰内开；南墙盆厕及镜面朝北，淋浴和房间边界不动。",
+                "openingWidthsUnchanged": true,
+                "sourceSnapshotsUnchanged": true,
+                "usageNote": "门侧墙段随新洞口补齐，未改变墙体轴线或主卫北墙；门位移是已确认设计参数而非新增实测，排水与五金仍待核。"
+              },
+              {
+                "id": "family-study-laundry-confirmed-20261011",
+                "date": "2026-10-11",
+                "sourceIds": [
+                  "door_c",
+                  "study_full_desk",
+                  "family-f5",
+                  "fit-study_bookwall",
+                  "vanity_guest",
+                  "laundry_washer",
+                  "laundry_dryer",
+                  "study_window_return",
+                  "fit-laundry_wall",
+                  "fit-laundry_basin",
+                  "balcony_door"
+                ],
+                "description": "方案2确认书房门南移500及7字窗边桌；洗衣机入客卫左机右盆台，阳台只留单干机且退回原门轴。",
+                "sourceSnapshotsUnchanged": true,
+                "usageNote": "当前保留书房沙发，1500×2000未来床只作替换校核，不与沙发同时新增；客卫门和主卫、双卧本轮不动。"
+              }
+            ],
+            "conditions": [
+              "墙体、房间多边形和面积沿用既有方案；部分复尺已应用，全屋墙线和共同基准未闭合。",
+              "编辑器中的尺寸以模型坐标为准；已购家具保持机身外廓，安装、门套及五金余量待核。",
+              "入户门参照方案4向外开启，模型内不再扫过鞋柜正面；门外公共通行、相邻门、门套、闭门器及限位仍须现场确认，模型不构成外开施工批准。",
+              "方案2本轮主卧门南移300mm、主卫门北移300mm并改北铰内开；盆厕贴南墙面北。门位为确认设计参数，非新增实测；马桶侧至淋浴仅60mm，排水移位与门套、通行条件仍须现场深化。",
+              "方案2书房900门洞南移500，7字桌与1680浅书墙；与主卧门洞纵向间隔230mm，历史270mm投影重叠说明已由本轮替代。未来完整床须替换沙发并收椅。客卫台前610mm偏紧，机门/取衣须实物试摆。阳台取消借厅外凸但全屋净宽与复尺差180mm尚未闭合。"
+            ],
+            "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs"
+          },
+          "changedSlidingDoorIds": [
+            "balcony_door",
+            "door_kitchen"
+          ],
+          "openingWidthsUnchanged": true,
+          "glassUnchanged": true,
+          "stackingDirectionsUnchanged": true,
+          "furnitureUnchanged": true,
+          "wallIndicesUnchanged": true,
+          "changedFurnitureIds": [],
+          "newFurnitureIds": [],
+          "removedFurnitureIds": [],
+          "migrationFields": {},
+          "approximationsMm": {
+            "kitchenHalfOpeningBeforeFrame": 850,
+            "balconyHalfOpeningBeforeFrame": 750
+          },
+          "conditions": [
+            "洞宽1700/1500mm不是新复尺；保留旧扩洞条件与未闭合定位，不据此直接施工。",
+            "双扇双轨不是单轨移门：模型保留两片玻璃的独立轨道；堆叠后开口名义约850/750mm，门框与搭接会继续减小。",
+            "原书房900mm北铰门与1680书桌、浅书架未变；南移反向会涉及桌棚收短，应在业主确认后另行应用。"
           ]
         }
       }

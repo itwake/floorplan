@@ -4,10 +4,11 @@ const plans=require(path.join(__dirname,'..','data','house-plans.js'));
 const {previousPlan}=require('./wood-public-area-helpers.cjs');
 const {verifyLayout}=require('./layout-20261011.cjs');
 const {beforeFamilyStudyLaundry}=require('../tools/family-study-laundry-20261011.cjs');
+const {beforeFamilyDoorRefinement}=require('../tools/family-door-refinement-20261011.cjs');
 if(plans.schemes.family.metadata.entryFamilyUpdate)verifyLayout(plans);
 // These historical baselines belong to the three original cm imports only.
 // The independently measured mm screen scheme is checked by screen-plan.cjs.
-const legacySchemes=['wood','family','laundry'].map(id=>{assert.ok(plans.schemes[id],id+': original imported scheme missing');return [id,beforeFamilyStudyLaundry(plans.schemes[id])];});
+const legacySchemes=['wood','family','laundry'].map(id=>{assert.ok(plans.schemes[id],id+': original imported scheme missing');return [id,beforeFamilyStudyLaundry(beforeFamilyDoorRefinement(plans.schemes[id]))];});
 const revision='cream-oak-functional-v1',sideboardRevision='sideboard-reference-v2';
 // Recorded before the functional cabinet-detail pass. Deliberately includes
 // windows, doors and the 800-library bifold so styling cannot change layout.

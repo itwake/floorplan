@@ -128,6 +128,12 @@ python3 -m http.server 8000
 
 已有快照重新生成：`node tools/convert-house-plans.cjs`。
 
+### 2026-10-11 · 方案2双扇推拉门
+
+厨房与生活阳台由三扇三轨改成双扇双轨玻璃推拉门。原洞口1700/1500mm、门高2200/2400mm及厨房向北、阳台向南叠放均保持。叠放后的名义开口约850/750mm，门框和搭接还须扣减；不作为施工净宽。
+
+书房进一步南移、南铰内开会撞现有桌子和书架，需要将1680mm桌棚收短到约1450mm，待业主确认，暂未应用。新增生成层 `tools/family-door-refinement-20261011.cjs`；几何回归 `node tests/family-door-refinement-20261011.cjs`，实际SVG、3D与草稿回归 `node tests/family-door-refinement-browser.cjs`（默认本地4194端口）。其他三套方案与源快照不变。
+
 更新 house-design 快照：`node tools/convert-house-plans.cjs --source <原项目目录> --refresh-sources`。
 
 验证几何与脚本：`node tests/validate-import.cjs`。浏览器测试：先开启 4190 端口静态服务器，再运行 `node tests/integration.cjs`（需 Playwright；支持 `FLOORPLAN_NODE_MODULES`、`FLOORPLAN_CHROME`、`FLOORPLAN_BASE_URL` 环境变量）。
