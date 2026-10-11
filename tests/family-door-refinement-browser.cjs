@@ -41,7 +41,7 @@ const hook=`window.__familyDoorRefinementQA={
   for(const x of [.2,.4,.6,.8])for(const y of [.4,.7,1])for(const z of [-.021,.021]){
    const p=d.pivot.localToWorld(new THREE.Vector3(d.L*x,y,z)).project(camera),clientX=r.left+(p.x+1)*r.width/2,clientY=r.top+(1-p.y)*r.height/2;
    if(clientX<r.left||clientX>r.right||clientY<r.top||clientY>r.bottom)continue;
-   const hit=pick({clientX,clientY});if(debug)probes.push({clientX,clientY,hit:hit?.door?.sourceId||hit?.fid||hit?.room||null});if(hit?.door?.sourceId===id)return{clientX,clientY};
+   const hit=pick({clientX,clientY}),surface=document.elementFromPoint(clientX,clientY)===renderer.domElement;if(debug)probes.push({clientX,clientY,surface,hit:hit?.door?.sourceId||hit?.fid||hit?.room||null});if(surface&&hit?.door?.sourceId===id)return{clientX,clientY};
   }
   return debug?{sourceId:d.sourceId,open:d.open,camera:[camera.position.x*1000+OX,camera.position.y*1000,camera.position.z*1000+OY],probes}:null;
  },
@@ -122,8 +122,8 @@ const sameDefaultFurniture=(current,fresh)=>{assert.equal(current.length,fresh.l
   for(const id of u.changedFurnitureIds||[]){const f=family.defaultFurniture.find(f=>f.id===id),mesh=actual.furniture[id];assert.ok(mesh,id+': revised furniture missing');eq(mesh.center[0],f.cx,id+' actual revised center x');eq(mesh.center[1],f.cy,id+' actual revised center y');eq(mesh.rotation,-f.rot*Math.PI/180,id+' actual revised rotation');}
   const study=family.DOORS.find(d=>d.id==='door_c');assert.ok(study,'study ordinary door missing');assert.equal(study.openingWidthMm,900,'ordinary study opening must remain900');
   const aim=async(position,target)=>{await page.evaluate(({position,target})=>window.__familyDoorRefinementQA.camera(position,target),{position,target});await page.waitForFunction(painted);};
-  const point=async(openDoor)=>{const [hx,hy]=study.h,vector=openDoor?study.o:study.c,target=[hx+vector[0]*study.len/2,700,hy+vector[1]*study.len/2];
-   for(const position of [[hx-1250,1900,hy-750],[hx-1100,2400,hy+850],[hx+900,2400,hy-500]]){await aim(position,target);const hit=await page.evaluate(()=>window.__familyDoorRefinementQA.doorClickPoint('door_c'));if(hit)return hit;}
+  const point=async(openDoor)=>{const [hx,hy]=study.h,views=[[[hx-1250,1700,hy+380],[hx-400,700,openDoor?hy:hy+260]],[[hx-700,2400,hy+870],[hx-200,700,hy+260]],[[hx+900,2200,hy+700],[hx,700,hy+260]]];
+   for(const [position,target]of views){await aim(position,target);const hit=await page.evaluate(()=>window.__familyDoorRefinementQA.doorClickPoint('door_c'));if(hit)return hit;}
    await shot('study-pointer-failure');fs.writeFileSync(path.join(out,'study-pointer-failure.json'),JSON.stringify(await page.evaluate(()=>window.__familyDoorRefinementQA.doorClickPoint('door_c',true)),null,2));throw Error('No visible actual study door surface for pointer operation');
   };
   for(const openDoor of [false,true]){const hit=await point(!openDoor);console.log('Study actual pointer:',openDoor?'open':'close');await page.mouse.click(hit.clientX,hit.clientY);await page.waitForFunction(({id,open})=>window.__familyDoorRefinementQA.doorSettled(id,open),{id:'door_c',open:openDoor},{polling:100});actual=await page.evaluate(()=>window.__familyDoorRefinementQA.inspect());const d=actual.doors.door_c,vector=openDoor?study.o:study.c;eq(d.lengthMm,study.len,'actual study leaf length');for(let i=0;i<2;i++){eq(d.start[i],study.h[i],'actual study hinge');eq(d.end[i],study.h[i]+vector[i]*study.len,'actual operated study endpoint');}report.studyDoorClicks.push({open:openDoor,actualHingeMm:d.start,actualEndpointMm:d.end});}
