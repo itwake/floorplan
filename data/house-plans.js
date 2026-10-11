@@ -14697,12 +14697,12 @@ const plans = {
           3375,
           60,
           3495,
-          3550,
+          3850,
           "u"
         ],
         [
           3375,
-          4450,
+          4750,
           3495,
           4930,
           "u"
@@ -14746,12 +14746,12 @@ const plans = {
           4390,
           3280,
           4510,
-          3740,
+          3440,
           "u"
         ],
         [
           4390,
-          4490,
+          4190,
           4510,
           4930,
           "u"
@@ -15893,15 +15893,15 @@ const plans = {
         },
         {
           "id": "door_a",
-          "name": "主卧900平开门洞 · 北移错开书房",
+          "name": "主卧900平开门 · 南移300mm",
           "grade": "C",
-          "notes": "主卧门洞和南铰套内开向不变，与书房门纵向相隔30mm。主卫门改南铰后，原“两门全开550mm”说明不再适用；两门无门板相撞，但门板间距离不是通行净宽，仍须现场核对。",
+          "notes": "2026-10-11确认：900mm门洞向南300mm，仍南侧合页向套内开；南墙垛模型120mm。与书房门洞纵向重叠270mm，但各向自身室内开启；主卧门全开横占套内入口，需绕门通过。门套、五金及通行仍需现场深化，不把门板间距当作连续通行净宽。",
           "sourceId": "door_a",
           "sourceAxisMm": [
             3435,
-            3550,
+            3850,
             3435,
-            4450
+            4750
           ],
           "openingWidthMm": 900,
           "sillMm": 0,
@@ -15911,13 +15911,13 @@ const plans = {
           "placementStatus": "unresolved",
           "rect": [
             3375,
-            3550,
+            3850,
             3495,
-            4450
+            4750
           ],
           "h": [
             3435,
-            4390
+            4690
           ],
           "c": [
             0,
@@ -15930,12 +15930,12 @@ const plans = {
           "len": 780,
           "entry": false,
           "defaultOpen": true,
-          "directionStatus": "source-design",
+          "directionStatus": "user-design-correction",
           "operation": {
             "type": "hinged",
             "hingeCm": [
               343.5,
-              439
+              469
             ],
             "swing": {
               "dx": 0,
@@ -15946,11 +15946,12 @@ const plans = {
             },
             "openLeafCm": {
               "x": 343.5,
-              "y": 437,
+              "y": 467,
               "w": 78,
               "d": 4
             }
-          }
+          },
+          "swingRevision": "family-master-bath-confirmed-20261011"
         },
         {
           "id": "door_b",
@@ -16076,15 +16077,15 @@ const plans = {
         },
         {
           "id": "door_bath_1",
-          "name": "主卫 · 南铰向卫内开",
+          "name": "主卫750平开门 · 北移300mm、北铰内开",
           "grade": "C",
-          "notes": "2026-10-08用户修订：改南侧合页，向主卫内开启，避开北侧洗手台；门洞、门扇宽高及位置不变。开合与五金净空仍须现场深化。",
+          "notes": "2026-10-11确认：750mm门洞向北300mm，改北側合页向卫内开，北墙垛模型100mm；盆柜与马桶改背靠南墙、面北，淋浴与主卫北墙不动。应先把门开启到位再使用盆柜；排水改位、壁挂水箱、门套及五金净空仍须现场核对。",
           "sourceId": "door_bath_1",
           "sourceAxisMm": [
             4450,
-            3740,
+            3440,
             4450,
-            4490
+            4190
           ],
           "openingWidthMm": 750,
           "sillMm": 0,
@@ -16094,17 +16095,17 @@ const plans = {
           "placementStatus": "unresolved",
           "rect": [
             4390,
-            3740,
+            3440,
             4510,
-            4490
+            4190
           ],
           "h": [
             4450,
-            4430
+            3500
           ],
           "c": [
             0,
-            -1
+            1
           ],
           "o": [
             1,
@@ -16118,23 +16119,23 @@ const plans = {
             "type": "hinged",
             "hingeCm": [
               445,
-              443
+              350
             ],
             "swing": {
               "dx": 0,
-              "dy": -1,
+              "dy": 1,
               "ox": 1,
               "oy": 0,
-              "sweep": 1
+              "sweep": 0
             },
             "openLeafCm": {
               "x": 445,
-              "y": 441,
+              "y": 348,
               "w": 63,
               "d": 4
             }
           },
-          "swingRevision": "bath-south-hinge-20261008"
+          "swingRevision": "family-master-bath-confirmed-20261011"
         },
         {
           "id": "door_bath_2",
@@ -17482,7 +17483,7 @@ const plans = {
             "2240×600mm外包与2400mm柜高为模型设计参数；板材、墙面完成面、净高及安装尺寸仍待厂家现场深化。",
             "床尾至柜前555mm偏紧；下部滑门不外伸，但不据此认定柜前站位或多人通行舒适。",
             "保留18mm板件、内嵌扣手和上400mm低频被褥分区；上柜门为高位平开，五金及开启条件另核。",
-            "衣柜南端以南到床尾的西侧进房带模型宽1155mm；主卧900mm门洞与其原位置不移动。"
+            "衣柜南端以南到床尾的西侧进房带模型宽1155mm；主卧900mm门洞已按本轮向南300mm；柜体位置与板件不变，入口门套和动线仍需核验。"
           ]
         },
         {
@@ -17830,48 +17831,62 @@ const plans = {
         {
           "id": "vanity_main",
           "type": "vanity",
-          "name": "主卫600浴室柜",
+          "name": "主卫南墙600浴室柜 · 镜面朝北",
           "cx": 4830,
-          "cy": 3550,
+          "cy": 4690,
           "w": 600,
           "d": 360,
-          "rot": 0,
+          "rot": 180,
           "color": "#F5F4EF",
           "heightMm": 850,
           "elevationMm": 0,
           "sourceId": "vanity_main",
           "sourceFootprintMm": {
             "x": 4530,
-            "y": 3370,
+            "y": 4510,
             "w": 600,
             "d": 360
           },
-          "face": "south",
-          "notes": "600×360mm盆柜位置不变；主卫门改南铰内开后不再横挡盆前。门套、把手与使用净空仍须现场核对。",
-          "dimensionStatus": "design-pending"
+          "face": "north",
+          "notes": "2026-10-11确认：600×360mm盆柜背部贴南墙，镜子随柜放南墙、面向北；主卫门改北铰内开。给排水、镜柜开合和门套待现场核对；模型几何无相交不等于使用舒适度或施工可行性认证。",
+          "dimensionStatus": "design-pending",
+          "layoutRevision": "family-master-bath-confirmed-20261011",
+          "originalSourceFootprintMm": {
+            "x": 4530,
+            "y": 3370,
+            "w": 600,
+            "d": 360
+          }
         },
         {
           "id": "family-f11",
           "type": "toilet",
           "name": "主卫壁挂马桶",
           "cx": 5570,
-          "cy": 3660,
+          "cy": 4580,
           "w": 360,
           "d": 580,
-          "rot": 0,
+          "rot": 180,
           "color": "#F5F4EF",
           "heightMm": 800,
           "elevationMm": 0,
           "sourceId": "family-f11",
           "sourceFootprintMm": {
             "x": 5390,
-            "y": 3370,
+            "y": 4290,
             "w": 360,
             "d": 580
           },
-          "face": "south",
-          "notes": "R4B占位东移60mm，排水立管及是否能移待核验。",
-          "dimensionStatus": "design-pending"
+          "face": "north",
+          "notes": "2026-10-11确认：马桶背部贴南墙、面向北，排水能否移位及壁挂水箱待核。东侧外缘至淋浴外缘仅60mm、轴心至玻璃240mm，属于紧凑占位，不宣称使用舒适度或施工已核实。",
+          "dimensionStatus": "design-pending",
+          "layoutRevision": "family-master-bath-confirmed-20261011",
+          "originalSourceFootprintMm": {
+            "x": 5390,
+            "y": 3370,
+            "w": 360,
+            "d": 580
+          }
         },
         {
           "id": "family-f12",
@@ -24865,7 +24880,8 @@ const plans = {
         "conditions": [
           "墙体、房间多边形和面积沿用既有方案；部分复尺已应用，全屋墙线和共同基准未闭合。",
           "编辑器中的尺寸以模型坐标为准；已购家具保持机身外廓，安装、门套及五金余量待核。",
-          "入户门参照方案4向外开启，模型内不再扫过鞋柜正面；门外公共通行、相邻门、门套、闭门器及限位仍须现场确认，模型不构成外开施工批准。"
+          "入户门参照方案4向外开启，模型内不再扫过鞋柜正面；门外公共通行、相邻门、门套、闭门器及限位仍须现场确认，模型不构成外开施工批准。",
+          "方案2本轮主卧门南移300mm、主卫门北移300mm并改北铰内开；盆厕贴南墙面北。门位为确认设计参数，非新增实测；马桶侧至淋浴仅60mm，排水移位与门套、通行条件仍须现场深化。"
         ],
         "balconyOpenness": {
           "id": "balcony-two-sided-open-20261005",
@@ -24917,7 +24933,7 @@ const plans = {
             }
           }
         },
-        "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs",
+        "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs",
         "wallStatus": "承重性未鉴定；原源数据未授权将未知内墙标记为可拆非承重墙。",
         "cabinetRevision": {
           "revision": "cream-oak-functional-v1",
@@ -24949,7 +24965,9 @@ const plans = {
               1,
               0
             ],
-            "usageNote": "门扇转到入口南侧而非贴南墙。两门板间距不是通行净宽；旧源快照550mm门间带说明不再适用。"
+            "usageNote": "门扇转到入口南侧而非贴南墙。两门板间距不是通行净宽；旧源快照550mm门间带说明不再适用。",
+            "status": "superseded-for-family",
+            "supersededBy": "family-master-bath-confirmed-20261011"
           },
           {
             "id": "entry-family-layout-20261011",
@@ -24969,6 +24987,20 @@ const plans = {
               1
             ],
             "leafLengthMm": 890
+          },
+          {
+            "id": "family-master-bath-confirmed-20261011",
+            "date": "2026-10-11",
+            "sourceIds": [
+              "door_a",
+              "door_bath_1",
+              "vanity_main",
+              "family-f11"
+            ],
+            "description": "方案2主卧门南移300mm；主卫门北移300mm、北铰内开；南墙盆厕及镜面朝北，淋浴和房间边界不动。",
+            "openingWidthsUnchanged": true,
+            "sourceSnapshotsUnchanged": true,
+            "usageNote": "门侧墙段随新洞口补齐，未改变墙体轴线或主卫北墙；门位移是已确认设计参数而非新增实测，排水与五金仍待核。"
           }
         ],
         "entryFamilyUpdate": {
@@ -29867,6 +29899,785 @@ const plans = {
             "次卧原900mm门洞东余垛仅7.5mm；门套、门把手、柜末端及全屋墙体闭合仍需现场复核。",
             "保留次卧飘窗茶座全部几何和防坠条件；此次增加室内独立桌椅，移除原“无独立桌椅”说明。",
             "浏览器草稿只按字段升级仍等于旧默认值的内容；已有自定义摆位、尺寸、颜色或删除不应被强行恢复。"
+          ]
+        },
+        "familyBathUpdate": {
+          "id": "family-master-bath-confirmed-20261011",
+          "date": "2026-10-11",
+          "title": "方案2 · 主卧门南移、主卫北铰及南墙盆厕",
+          "status": "applied-owner-confirmed",
+          "sourceReference": "2026-10-11方案2主卧入口主卫确认稿及A4尺寸图，经用户确认应用3D并发布",
+          "sourceSnapshotsUnchanged": true,
+          "previousDoors": [
+            {
+              "id": "door_a",
+              "name": "主卧900平开门洞 · 北移错开书房",
+              "grade": "C",
+              "notes": "主卧门洞和南铰套内开向不变，与书房门纵向相隔30mm。主卫门改南铰后，原“两门全开550mm”说明不再适用；两门无门板相撞，但门板间距离不是通行净宽，仍须现场核对。",
+              "sourceId": "door_a",
+              "sourceAxisMm": [
+                3435,
+                3550,
+                3435,
+                4450
+              ],
+              "openingWidthMm": 900,
+              "sillMm": 0,
+              "heightMm": 2150,
+              "headMm": 2150,
+              "dimensionStatus": "design-pending",
+              "placementStatus": "unresolved",
+              "rect": [
+                3375,
+                3550,
+                3495,
+                4450
+              ],
+              "h": [
+                3435,
+                4390
+              ],
+              "c": [
+                0,
+                -1
+              ],
+              "o": [
+                1,
+                0
+              ],
+              "len": 780,
+              "entry": false,
+              "defaultOpen": true,
+              "directionStatus": "source-design",
+              "operation": {
+                "type": "hinged",
+                "hingeCm": [
+                  343.5,
+                  439
+                ],
+                "swing": {
+                  "dx": 0,
+                  "dy": -1,
+                  "ox": 1,
+                  "oy": 0,
+                  "sweep": 1
+                },
+                "openLeafCm": {
+                  "x": 343.5,
+                  "y": 437,
+                  "w": 78,
+                  "d": 4
+                }
+              }
+            },
+            {
+              "id": "door_bath_1",
+              "name": "主卫 · 南铰向卫内开",
+              "grade": "C",
+              "notes": "2026-10-08用户修订：改南侧合页，向主卫内开启，避开北侧洗手台；门洞、门扇宽高及位置不变。开合与五金净空仍须现场深化。",
+              "sourceId": "door_bath_1",
+              "sourceAxisMm": [
+                4450,
+                3740,
+                4450,
+                4490
+              ],
+              "openingWidthMm": 750,
+              "sillMm": 0,
+              "heightMm": 2100,
+              "headMm": 2100,
+              "dimensionStatus": "design-pending",
+              "placementStatus": "unresolved",
+              "rect": [
+                4390,
+                3740,
+                4510,
+                4490
+              ],
+              "h": [
+                4450,
+                4430
+              ],
+              "c": [
+                0,
+                -1
+              ],
+              "o": [
+                1,
+                0
+              ],
+              "len": 630,
+              "entry": false,
+              "defaultOpen": true,
+              "directionStatus": "user-design-correction",
+              "operation": {
+                "type": "hinged",
+                "hingeCm": [
+                  445,
+                  443
+                ],
+                "swing": {
+                  "dx": 0,
+                  "dy": -1,
+                  "ox": 1,
+                  "oy": 0,
+                  "sweep": 1
+                },
+                "openLeafCm": {
+                  "x": 445,
+                  "y": 441,
+                  "w": 63,
+                  "d": 4
+                }
+              },
+              "swingRevision": "bath-south-hinge-20261008"
+            }
+          ],
+          "previousWalls": [
+            {
+              "index": 25,
+              "wall": [
+                3375,
+                60,
+                3495,
+                3550,
+                "u"
+              ]
+            },
+            {
+              "index": 26,
+              "wall": [
+                3375,
+                4450,
+                3495,
+                4930,
+                "u"
+              ]
+            },
+            {
+              "index": 32,
+              "wall": [
+                4390,
+                3280,
+                4510,
+                3740,
+                "u"
+              ]
+            },
+            {
+              "index": 33,
+              "wall": [
+                4390,
+                4490,
+                4510,
+                4930,
+                "u"
+              ]
+            }
+          ],
+          "previousFurniture": [
+            {
+              "id": "vanity_main",
+              "type": "vanity",
+              "name": "主卫600浴室柜",
+              "cx": 4830,
+              "cy": 3550,
+              "w": 600,
+              "d": 360,
+              "rot": 0,
+              "color": "#F5F4EF",
+              "heightMm": 850,
+              "elevationMm": 0,
+              "sourceId": "vanity_main",
+              "sourceFootprintMm": {
+                "x": 4530,
+                "y": 3370,
+                "w": 600,
+                "d": 360
+              },
+              "face": "south",
+              "notes": "600×360mm盆柜位置不变；主卫门改南铰内开后不再横挡盆前。门套、把手与使用净空仍须现场核对。",
+              "dimensionStatus": "design-pending"
+            },
+            {
+              "id": "family-f11",
+              "type": "toilet",
+              "name": "主卫壁挂马桶",
+              "cx": 5570,
+              "cy": 3660,
+              "w": 360,
+              "d": 580,
+              "rot": 0,
+              "color": "#F5F4EF",
+              "heightMm": 800,
+              "elevationMm": 0,
+              "sourceId": "family-f11",
+              "sourceFootprintMm": {
+                "x": 5390,
+                "y": 3370,
+                "w": 360,
+                "d": 580
+              },
+              "face": "south",
+              "notes": "R4B占位东移60mm，排水立管及是否能移待核验。",
+              "dimensionStatus": "design-pending"
+            },
+            {
+              "id": "family-f3",
+              "type": "fixture",
+              "name": "主卧西墙衣柜 · 与次卧镜像",
+              "cx": 3795,
+              "cy": 1240,
+              "w": 2240,
+              "d": 600,
+              "rot": 270,
+              "color": "#F4F1E9",
+              "heightMm": 2400,
+              "elevationMm": 0,
+              "sourceId": "family-f3",
+              "sourceFootprintMm": {
+                "x": 3495,
+                "y": 120,
+                "w": 600,
+                "d": 2240
+              },
+              "roomId": "room_a",
+              "face": "east",
+              "doorStyle": "sliding",
+              "notes": "主卧西墙2240×600mm衣柜，北端贴北墙、背板贴两卧共用墙；床尾柜前模型净距555mm，偏紧。下部使用滑门，柜内五金净深及固定仍待现场深化。",
+              "dimensionStatus": "design-pending",
+              "parts": [
+                {
+                  "id": "family-f3-side-0",
+                  "x": -1120,
+                  "y": -300,
+                  "w": 18,
+                  "d": 558,
+                  "elevationMm": 0,
+                  "heightMm": 2382,
+                  "role": "cabinet-side",
+                  "label": "侧板",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-f3-side-1",
+                  "x": 1102,
+                  "y": -300,
+                  "w": 18,
+                  "d": 558,
+                  "elevationMm": 0,
+                  "heightMm": 2382,
+                  "role": "cabinet-side",
+                  "label": "侧板",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-f3-cabinet-bottom",
+                  "x": -1102,
+                  "y": -282,
+                  "w": 2204,
+                  "d": 582,
+                  "elevationMm": 0,
+                  "heightMm": 18,
+                  "role": "cabinet-bottom",
+                  "label": "底板",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-f3-cabinet-back",
+                  "x": -1102,
+                  "y": -300,
+                  "w": 2204,
+                  "d": 18,
+                  "elevationMm": 0,
+                  "heightMm": 2382,
+                  "role": "cabinet-back",
+                  "label": "柜内背板",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-f3-cabinet-top",
+                  "x": -1120,
+                  "y": -300,
+                  "w": 2240,
+                  "d": 600,
+                  "elevationMm": 2382,
+                  "heightMm": 18,
+                  "role": "cabinet-top",
+                  "label": "顶板",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-f3-door-0",
+                  "x": -1118.5,
+                  "y": 282,
+                  "w": 742.667,
+                  "d": 18,
+                  "elevationMm": 19.5,
+                  "heightMm": 1961,
+                  "role": "door-sliding",
+                  "label": "奶白滑门 · 不外开",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "south",
+                  "doorStyle": "sliding",
+                  "panelIndex": 0
+                },
+                {
+                  "id": "family-f3-pull-0",
+                  "x": -388.833,
+                  "y": 282,
+                  "w": 7,
+                  "d": 2,
+                  "elevationMm": 1100,
+                  "heightMm": 120,
+                  "role": "handle-recess",
+                  "label": "内嵌扣手",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "south"
+                },
+                {
+                  "id": "family-f3-door-1",
+                  "x": -372.833,
+                  "y": 262,
+                  "w": 742.667,
+                  "d": 18,
+                  "elevationMm": 19.5,
+                  "heightMm": 1961,
+                  "role": "door-sliding",
+                  "label": "奶白滑门 · 不外开",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "south",
+                  "doorStyle": "sliding",
+                  "panelIndex": 1
+                },
+                {
+                  "id": "family-f3-pull-1",
+                  "x": 356.833,
+                  "y": 262,
+                  "w": 7,
+                  "d": 2,
+                  "elevationMm": 1100,
+                  "heightMm": 120,
+                  "role": "handle-recess",
+                  "label": "内嵌扣手",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "south"
+                },
+                {
+                  "id": "family-f3-door-2",
+                  "x": 372.833,
+                  "y": 282,
+                  "w": 742.667,
+                  "d": 18,
+                  "elevationMm": 19.5,
+                  "heightMm": 1961,
+                  "role": "door-sliding",
+                  "label": "奶白滑门 · 不外开",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "south",
+                  "doorStyle": "sliding",
+                  "panelIndex": 2
+                },
+                {
+                  "id": "family-f3-pull-2",
+                  "x": 1102.5,
+                  "y": 282,
+                  "w": 7,
+                  "d": 2,
+                  "elevationMm": 1100,
+                  "heightMm": 120,
+                  "role": "handle-recess",
+                  "label": "内嵌扣手",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "south"
+                },
+                {
+                  "id": "family-f3-upper-door-0",
+                  "x": -1118.5,
+                  "y": 282,
+                  "w": 742.667,
+                  "d": 18,
+                  "elevationMm": 2019.5,
+                  "heightMm": 361,
+                  "role": "door-hinged",
+                  "label": "奶白封闭柜门",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "south",
+                  "doorStyle": "hinged",
+                  "panelIndex": 0
+                },
+                {
+                  "id": "family-f3-upper-pull-0",
+                  "x": -388.833,
+                  "y": 282,
+                  "w": 7,
+                  "d": 2,
+                  "elevationMm": 2220,
+                  "heightMm": 100,
+                  "role": "handle-recess",
+                  "label": "内嵌扣手",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "south"
+                },
+                {
+                  "id": "family-f3-upper-door-1",
+                  "x": -372.833,
+                  "y": 282,
+                  "w": 742.667,
+                  "d": 18,
+                  "elevationMm": 2019.5,
+                  "heightMm": 361,
+                  "role": "door-hinged",
+                  "label": "奶白封闭柜门",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "south",
+                  "doorStyle": "hinged",
+                  "panelIndex": 1
+                },
+                {
+                  "id": "family-f3-upper-pull-1",
+                  "x": 356.833,
+                  "y": 282,
+                  "w": 7,
+                  "d": 2,
+                  "elevationMm": 2220,
+                  "heightMm": 100,
+                  "role": "handle-recess",
+                  "label": "内嵌扣手",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "south"
+                },
+                {
+                  "id": "family-f3-upper-door-2",
+                  "x": 372.833,
+                  "y": 282,
+                  "w": 742.667,
+                  "d": 18,
+                  "elevationMm": 2019.5,
+                  "heightMm": 361,
+                  "role": "door-hinged",
+                  "label": "奶白封闭柜门",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "south",
+                  "doorStyle": "hinged",
+                  "panelIndex": 2
+                },
+                {
+                  "id": "family-f3-upper-pull-2",
+                  "x": 1102.5,
+                  "y": 282,
+                  "w": 7,
+                  "d": 2,
+                  "elevationMm": 2220,
+                  "heightMm": 100,
+                  "role": "handle-recess",
+                  "label": "内嵌扣手",
+                  "color": "#CDB594",
+                  "material": "OakLight",
+                  "face": "south"
+                },
+                {
+                  "id": "family-f3-divider-1",
+                  "x": -367.333,
+                  "y": -282,
+                  "w": 18,
+                  "d": 540,
+                  "elevationMm": 18,
+                  "heightMm": 1964,
+                  "role": "cabinet-divider",
+                  "label": "内部分区板",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-f3-divider-2",
+                  "x": 367.333,
+                  "y": -282,
+                  "w": 18,
+                  "d": 540,
+                  "elevationMm": 18,
+                  "heightMm": 1964,
+                  "role": "cabinet-divider",
+                  "label": "内部分区板",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-f3-seasonal-shelf",
+                  "x": -1102,
+                  "y": -282,
+                  "w": 2204,
+                  "d": 540,
+                  "elevationMm": 2000,
+                  "heightMm": 18,
+                  "role": "cabinet-shelf",
+                  "label": "上层被褥分区",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-f3-rail-0",
+                  "x": -1082,
+                  "y": -16,
+                  "w": 694.667,
+                  "d": 16,
+                  "elevationMm": 1880,
+                  "heightMm": 16,
+                  "role": "hanging-rail",
+                  "label": "600mm柜深挂衣杆示意",
+                  "color": "#9D9386",
+                  "material": "WarmGrayMetal",
+                  "face": "south"
+                },
+                {
+                  "id": "family-f3-rail-1",
+                  "x": -347.333,
+                  "y": -16,
+                  "w": 694.667,
+                  "d": 16,
+                  "elevationMm": 1880,
+                  "heightMm": 16,
+                  "role": "hanging-rail",
+                  "label": "600mm柜深挂衣杆示意",
+                  "color": "#9D9386",
+                  "material": "WarmGrayMetal",
+                  "face": "south"
+                },
+                {
+                  "id": "family-f3-fold-2-350",
+                  "x": 367.333,
+                  "y": -282,
+                  "w": 716.667,
+                  "d": 540,
+                  "elevationMm": 350,
+                  "heightMm": 18,
+                  "role": "cabinet-shelf",
+                  "label": "叠衣分类层板",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-f3-fold-2-700",
+                  "x": 367.333,
+                  "y": -282,
+                  "w": 716.667,
+                  "d": 540,
+                  "elevationMm": 700,
+                  "heightMm": 18,
+                  "role": "cabinet-shelf",
+                  "label": "叠衣分类层板",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-f3-fold-2-1050",
+                  "x": 367.333,
+                  "y": -282,
+                  "w": 716.667,
+                  "d": 540,
+                  "elevationMm": 1050,
+                  "heightMm": 18,
+                  "role": "cabinet-shelf",
+                  "label": "叠衣分类层板",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-f3-fold-2-1400",
+                  "x": 367.333,
+                  "y": -282,
+                  "w": 716.667,
+                  "d": 540,
+                  "elevationMm": 1400,
+                  "heightMm": 18,
+                  "role": "cabinet-shelf",
+                  "label": "叠衣分类层板",
+                  "color": "#F4F1E9",
+                  "material": "Cream",
+                  "face": "south"
+                }
+              ],
+              "nativeType": "wardrobe",
+              "cabinetRevision": "cream-oak-functional-v1",
+              "baseWidthMm": 2240,
+              "baseDepthMm": 600,
+              "baseHeightMm": 2400,
+              "cabinetDesign": {
+                "revision": "cream-oak-functional-v1",
+                "title": "主卧西墙衣柜 · 555mm床尾带",
+                "status": "concept-pending-detail",
+                "previousColor": "#C8A77E",
+                "boardThicknessMm": 18,
+                "doorGapMm": 3,
+                "palette": {
+                  "door": "#F4F1E9",
+                  "wood": "#CDB594",
+                  "counter": "#CDB594",
+                  "metal": "#9D9386",
+                  "light": "#FFF1CF"
+                },
+                "faces": [
+                  {
+                    "face": "south",
+                    "label": "主卧柜正面 · 朝东（随柜体旋转）",
+                    "lengthMm": 2240,
+                    "depthMm": 600
+                  }
+                ],
+                "features": [
+                  "600mm外深用于挂衣及叠衣分区，净深仍须扣除双轨和背板核验。",
+                  "奶白下部滑门及内嵌浅原木扣手；不向555mm床尾带拉出抽屉或门扇。",
+                  "保留上400mm低频被褥层及高位平开门；此层不扩张衣柜占地。"
+                ],
+                "dimensions": [
+                  "2240×600×2400mm模型外包；柜高与柜内净尺寸仍待现场定制复核。",
+                  "床尾柜前555mm偏紧，下门采用滑门；该净距不等于舒适操作及通行认证。",
+                  "18mm板件保持原2240mm主柜组件尺寸，不缩放板厚，轨道与承重待厂家深化。"
+                ],
+                "bedroomRevision": "bedroom-confirmed-20261011"
+              },
+              "layoutRevision": "bedroom-confirmed-20261011",
+              "originalSourceFootprintMm": {
+                "x": 3495,
+                "y": 120,
+                "w": 600,
+                "d": 2240
+              },
+              "conditions": [
+                "2240×600mm外包与2400mm柜高为模型设计参数；板材、墙面完成面、净高及安装尺寸仍待厂家现场深化。",
+                "床尾至柜前555mm偏紧；下部滑门不外伸，但不据此认定柜前站位或多人通行舒适。",
+                "保留18mm板件、内嵌扣手和上400mm低频被褥分区；上柜门为高位平开，五金及开启条件另核。",
+                "衣柜南端以南到床尾的西侧进房带模型宽1155mm；主卧900mm门洞与其原位置不移动。"
+              ]
+            }
+          ],
+          "previousDesignCorrections": [
+            {
+              "id": "bath-south-hinge-20261008",
+              "sourceId": "door_bath_1",
+              "description": "主卫北铰改南铰，仍向卫内开；门洞和全部家具位置不变。",
+              "openingUnchanged": true,
+              "hingeMm": [
+                4450,
+                4430
+              ],
+              "closedDirection": [
+                0,
+                -1
+              ],
+              "openDirection": [
+                1,
+                0
+              ],
+              "usageNote": "门扇转到入口南侧而非贴南墙。两门板间距不是通行净宽；旧源快照550mm门间带说明不再适用。"
+            },
+            {
+              "id": "entry-family-layout-20261011",
+              "sourceId": "entry_door",
+              "description": "2026-10-11用户修订：入户门参照方案4向室外开启，保持本方案原洞口、宽高及门叶长度；合页从本方案洞口东端内退60mm作示意。公共走廊、邻户门、门套、闭门器及允许开启角度尚待现场核对，不构成外开施工批准。",
+              "openingUnchanged": true,
+              "hingeMm": [
+                4840,
+                13950
+              ],
+              "closedDirection": [
+                -1,
+                0
+              ],
+              "openDirection": [
+                0,
+                1
+              ],
+              "leafLengthMm": 890
+            }
+          ],
+          "previousConditions": [
+            "墙体、房间多边形和面积沿用既有方案；部分复尺已应用，全屋墙线和共同基准未闭合。",
+            "编辑器中的尺寸以模型坐标为准；已购家具保持机身外廓，安装、门套及五金余量待核。",
+            "入户门参照方案4向外开启，模型内不再扫过鞋柜正面；门外公共通行、相邻门、门套、闭门器及限位仍须现场确认，模型不构成外开施工批准。"
+          ],
+          "previousConverter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs",
+          "changedFurnitureIds": [
+            "vanity_main",
+            "family-f11",
+            "family-f3"
+          ],
+          "notesOnlyFurnitureIds": [
+            "family-f3"
+          ],
+          "newFurnitureIds": [],
+          "removedFurnitureIds": [],
+          "migrationFields": {
+            "vanity_main": [
+              "name",
+              "cy",
+              "rot",
+              "sourceFootprintMm",
+              "face",
+              "notes",
+              "layoutRevision",
+              "originalSourceFootprintMm"
+            ],
+            "family-f11": [
+              "cy",
+              "rot",
+              "sourceFootprintMm",
+              "face",
+              "notes",
+              "layoutRevision",
+              "originalSourceFootprintMm"
+            ],
+            "family-f3": [
+              "conditions"
+            ]
+          },
+          "openingWidthsUnchanged": true,
+          "roomBoundariesUnchanged": true,
+          "windowsUnchanged": true,
+          "showerUnchanged": true,
+          "clearancesMm": {
+            "mainSouthJamb": 120,
+            "bathNorthJamb": 100,
+            "studyMainDoorProjectedOverlap": 270,
+            "vanityFrontToNorthWall": 1170,
+            "vanityFrontToFullyOpenLeaf": 990,
+            "toiletFrontToNorthWall": 950,
+            "toiletEastEdgeToShower": 60
+          },
+          "conditions": [
+            "两门位移各300mm是确认设计值，不是新增实测；洞宽900/750、门叶780/630及高度保持。",
+            "40mm门板扫掠未见墙体/家具/互相碰撞，但主卧门全开横占套内入口，必须核验绕门动线。",
+            "马桶东侧到淋浴仅60mm偏紧，轴心到玻璃240mm；图面无相交不代表舒适、无障碍或施工可行性认证。",
+            "主卫北墙、南墙轴线、淋浴和窗均原位；窗复尺500×1400mm仍保留旧定位示意，台高及定位待核。",
+            "给排水改位、壁挂水箱、镜柜开启和门套五金需现场核对；所有承重性未鉴定，不据模型施工。",
+            "已有浏览器草稿按字段升级默认值，保留自定义尺寸、摆位、颜色和删除；墙侧拆除标记仍保留，需核对新门洞。"
           ]
         }
       }

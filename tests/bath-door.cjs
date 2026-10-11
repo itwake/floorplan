@@ -10,12 +10,14 @@ const root = path.resolve(__dirname, '..');
 const plans = require(path.join(root, 'data/house-plans.js'));
 const {previousPlan}=require('./wood-public-area-helpers.cjs');
 const {verifyLayout}=require('./layout-20261011.cjs');
-// Only the exact-tested later authorization is reversed by previousPlan;
-// the bath's own immutable baseline and continuous sweep stay unchanged.
+const {beforeFamilyBathReview}=require('./family-bath-review-20261011.cjs');
+// Validate current data first, then reverse only the separately exact-tested
+// later authorization. These are the original October 8 south-hinge assertions;
+// the current family north-hinge/south-fixture geometry has its own full audit.
 if(plans.schemes.family.metadata.entryFamilyUpdate)verifyLayout(plans);
 // Only the original three cm source imports use these retained baselines.
 // The standalone mm screen scheme has independent screen-plan.cjs coverage.
-const legacySchemes = ['wood','family','laundry'].map(id => {assert.ok(plans.schemes[id], `${id}: original imported scheme missing`);return [id, plans.schemes[id]];});
+const legacySchemes = ['wood','family','laundry'].map(id => {assert.ok(plans.schemes[id], `${id}: original imported scheme missing`);return [id, beforeFamilyBathReview(plans.schemes[id])];});
 const revision = 'bath-south-hinge-20261008';
 const stable = value => Array.isArray(value) ? value.map(stable) : value && typeof value === 'object' ? Object.fromEntries(Object.keys(value).sort().map(key => [key, stable(value[key])])) : value;
 const hash = value => crypto.createHash('sha256').update(value).digest('hex');

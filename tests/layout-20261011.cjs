@@ -3,6 +3,7 @@
 // Owner-confirmed October 11 layout. All gaps below are model arithmetic,
 // not a measurement certificate, accessible-route or construction approval.
 const assert=require('node:assert/strict'),crypto=require('node:crypto'),fs=require('node:fs'),path=require('node:path');
+const {beforeFamilyBathReview,verifyFamilyBathReview}=require('./family-bath-review-20261011.cjs');
 const root=path.resolve(__dirname,'..');
 const stable=v=>Array.isArray(v)?v.map(stable):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,stable(v[k])])):v;
 const hash=v=>crypto.createHash('sha256').update(JSON.stringify(stable(v))).digest('hex');
@@ -35,7 +36,9 @@ function restoreFurniture(p,u){
 }
 function restoreMetadata(p,key,value){if(value===undefined)delete p.metadata[key];else p.metadata[key]=clone(value);}
 function beforeLayout20261011(plan){
-  const p=clone(plan),b=p.metadata.bedroomUpdate;
+  // Reverse the separately exact-tested later bath authorization first.
+  // The October 11 entry/bedroom historical hashes remain frozen.
+  const p=beforeFamilyBathReview(plan),b=p.metadata.bedroomUpdate;
   // Reverse in generator order: bedroom was applied after entry/family.
   if(b){assert.equal(b.id,BEDROOM);restoreFurniture(p,b);delete p.metadata.bedroomUpdate;}
   const e=p.metadata.entryFamilyUpdate;
@@ -65,13 +68,17 @@ function assertFinite(v,at){
 
 function verifyLayout(plans){
   assert.equal(plans.defaultScheme,'family');assert.deepEqual(Object.keys(plans.schemes).sort(),['family','laundry','screen','wood']);
-  const prior=Object.fromEntries(Object.entries(plans.schemes).map(([id,p])=>[id,beforeLayout20261011(p)]));
+  // Validate actual current data before deriving the historical entry/bedroom
+  // view; this must never turn a new geometry change into a blanket exemption.
+  const bathReview=plans.schemes.family.metadata.familyBathUpdate?verifyFamilyBathReview(plans):null;
+  const layoutSchemes=Object.fromEntries(Object.entries(plans.schemes).map(([id,p])=>[id,beforeFamilyBathReview(p)]));
+  const prior=Object.fromEntries(Object.entries(layoutSchemes).map(([id,p])=>[id,beforeLayout20261011(p)]));
   for(const[id,p]of Object.entries(prior))assert.equal(hash(p),baseline[id],id+': changed outside precisely restored October 11 targets, or modified historical layer');
   for(const[id,digest]of Object.entries(sourceBaseline))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'data/source',id+'.json'),'utf8').replace(/\r\n/g,'\n')).digest('hex'),digest,id+': original source snapshot changed');
   assert.equal(hash(JSON.parse(fs.readFileSync(path.join(root,'data/source/screen-confirmed-20261010.json'),'utf8'))),'d3f2941bedc0b05c9f67843ef091f3b2a3ab25cf47ca980ce14f44e56bd53015','screen R4 confirmation snapshot changed');
   const report=[];
   for(const id of ['wood','family','laundry']){
-    const p=plans.schemes[id],old=prior[id],u=p.metadata.entryFamilyUpdate;
+    const p=layoutSchemes[id],old=prior[id],u=p.metadata.entryFamilyUpdate;
     assert.equal(u.id,ENTRY);assert.equal(u.date,'2026-10-11');assert.equal(u.sourceSnapshotsUnchanged,true);
     assert.equal(u.openingUnchanged,true);assert.equal(u.entryCabinetGeometryUnchanged,true);
     assert.deepEqual(u.newFurnitureIds,[]);
@@ -118,7 +125,7 @@ function verifyLayout(plans){
       const warning=[f.notes,f.conditions[2],f.conditions[4],design.features[3],design.dimensions[2],design.layoutAdaptations.drawerReason].join(' ');
       assert.match(warning,/先收\/移|收\/移/);assert.match(warning,/现场/);assert.match(warning,/50×133\.5/);assert.match(warning,/180mm/);assert.match(warning,/20mm/);
       assert.ok(!/已重新核对椅位/.test(f.conditions.join(' ')),'family must not retain reference-only verified-chair claim');
-      assert.deepEqual(f.parts,get(plans.schemes.screen,f.id).parts,'family/screen full L-sideboard shape mismatch');
+      assert.deepEqual(f.parts,get(layoutSchemes.screen,f.id).parts,'family/screen full L-sideboard shape mismatch');
       assert.ok(f.parts.some(t=>t.id.startsWith('d_return_'))&&f.parts.some(t=>t.id.startsWith('d_corner_')),'family L return and blind corner missing');
       const people=['family-f23','family-f24','family-f25','family-f26','family-f27'].map(id=>get(p,id)),drawers=f.parts.filter(t=>t.role==='drawer-front');assert.equal(drawers.length,3);
       const known=[];
@@ -138,10 +145,10 @@ function verifyLayout(plans){
     }else assert.deepEqual(p.BIFOLDS,old.BIFOLDS,id+': storage folding door changed without authorization');
     report.push({id,entryOpeningUnchanged:true,outwardInteriorSweepClear:true,publicSwingNotApproved:true,entryCabinetShapeUnchanged:true,familyLibraryRemoved:id==='family'});
   }
-  assert.equal(plans.schemes.screen.metadata.entryFamilyUpdate,undefined,'entry generator must not rewrite screen');
+  assert.equal(layoutSchemes.screen.metadata.entryFamilyUpdate,undefined,'entry generator must not rewrite screen');
 
   for(const id of ['family','screen']){
-    const p=plans.schemes[id],old=prior[id],u=p.metadata.bedroomUpdate;
+    const p=layoutSchemes[id],old=prior[id],u=p.metadata.bedroomUpdate;
     assert.equal(u.id,BEDROOM);assert.equal(u.date,'2026-10-11');
     assert.deepEqual(u.newFurnitureIds.slice().sort(),bedroomNewIds.slice().sort());
     assert.deepEqual(u.removedFurnitureIds,['bed_b_niche_console']);
@@ -208,9 +215,9 @@ function verifyLayout(plans){
     }
     report.push({id,bedroomConfirmed:true,bedMattressB:[1500,2000],bedMattressA:[1800,2000],bedFramesProvisional:true,staticBedTailGapMm:555,wardrobeSliding:true,chairRetreatScenarioMm:600,southBedSideGapMm:{B:400,A:300},notComfortOrAccessCertification:true});
   }
-  for(const id of ['wood','laundry'])assert.equal(plans.schemes[id].metadata.bedroomUpdate,undefined,id+': unauthorized bedroom revision');
+  for(const id of ['wood','laundry'])assert.equal(layoutSchemes[id].metadata.bedroomUpdate,undefined,id+': unauthorized bedroom revision');
   for(const[id,p]of Object.entries(plans.schemes)){assertFinite(p,id);assert.equal(new Set(p.defaultFurniture.map(f=>f.id)).size,p.defaultFurniture.length,id+': duplicate furniture ID');}
-  return{status:'PASS',revisions:[ENTRY,BEDROOM],sourceSnapshotsUnchanged:true,allNonTargetFieldsHistoricalHashExact:true,modelOnly:true,schemes:report};
+  return{status:'PASS',revisions:[ENTRY,BEDROOM],sourceSnapshotsUnchanged:true,allNonTargetFieldsHistoricalHashExact:true,modelOnly:true,laterFamilyBathReview:bathReview,schemes:report};
 }
 
 module.exports={beforeLayout20261011,verifyLayout,baseline,hash};

@@ -8,6 +8,7 @@ const path = require('node:path');
 const {spawnSync} = require('node:child_process');
 const root = path.resolve(__dirname, '..');
 const plans = require(path.join(root, 'data/house-plans.js'));
+const {beforeFamilyBathReview}=require('./family-bath-review-20261011.cjs');
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const eq = (actual, expected, label, tolerance = .02) => assert.ok(Math.abs(actual - expected) <= tolerance, `${label}: ${actual} != ${expected}`);
 const m = n => Number(n) * 10;
@@ -37,7 +38,10 @@ assert.equal(layoutChecked.status, 0, `October 11 authorized layout: ${layoutChe
 const report = [];
 
 for (const id of ['wood', 'family', 'laundry']) {
-  const p = plans.schemes[id];
+  // The current bath authorization is already checked by layoutChecked.
+  // Rewind exactly that layer for source-import assertions, retaining all
+  // frozen source dimensions and historical south-hinge requirements.
+  const p = beforeFamilyBathReview(plans.schemes[id]);
   const source = JSON.parse(fs.readFileSync(path.join(root, 'data/source', id + '.json'), 'utf8'));
   assert.equal(source.unit, 'cm');
   assert.equal(p.WALLS.length, p.WALL_META.length);
