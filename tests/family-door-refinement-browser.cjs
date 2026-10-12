@@ -82,7 +82,7 @@ const sameDefaultFurniture=(current,fresh)=>{assert.equal(current.length,fresh.l
    const changed=(u.changedFurnitureIds||[]).filter(id=>baseline.defaultFurniture.some(f=>f.id===id));
    const customIds=[...new Set([...changed,'study_full_desk','fit-study_bookwall','study_window_return'])].filter(id=>baseline.defaultFurniture.some(f=>f.id===id));
    const oldDraft=async(mode='default')=>page.evaluate(({old,revisionId,mode,customIds,changed})=>{
-    const s=defaultState();s.furniture=structuredClone(old.defaultFurniture);s.appliedLayoutRevisions=s.appliedLayoutRevisions.filter(id=>![revisionId,'family-study-door-20261012','family-appliances-20261012'].includes(id));
+    const s=defaultState();s.furniture=structuredClone(old.defaultFurniture);s.appliedLayoutRevisions=s.appliedLayoutRevisions.filter(id=>![revisionId,'family-study-door-20261012','family-appliances-20261012','family-ac-window-20261012','family-living-clear-20261012'].includes(id));
     if(mode==='custom'){
      for(const id of customIds){const f=s.furniture.find(f=>f.id===id);f.cx+=37;f.cy+=49;f.w+=20;f.d+=30;f.rot=(f.rot+90)%360;f.color='#668899';f.name='QA '+id;f.heightMm+=11;}
      s.furniture=s.furniture.filter(f=>f.id!=='study_north_sofa');s.measures=[{a:{x:1,y:2},b:{x:1001,y:2}}];s.rooms.room_c.mat='terrazzo';s.demolished=['w1'];

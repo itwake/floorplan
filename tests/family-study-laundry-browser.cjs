@@ -83,7 +83,7 @@ const closeRect=(mesh,rect,label)=>{eq(mesh.min[0],rect[0],label+' min x');eq(me
   await open('family');const expectedKey=`floorplan:house-design:family:${plans.version}:${baseline.metadata.source.sha256.slice(0,12)}`;assert.equal(await page.evaluate(()=>STORE),expectedKey,'upgrade changed draft storage key');
   if(!process.argv.includes('--published-smoke')){
    const oldDraft=async(mode='default')=>page.evaluate(({old,revisionId,mode,removed})=>{
-    const s=defaultState();s.furniture=structuredClone(old.defaultFurniture);s.appliedLayoutRevisions=s.appliedLayoutRevisions.filter(id=>![revisionId,'family-door-refinement-20261011','family-study-door-20261012','family-appliances-20261012'].includes(id));
+    const s=defaultState();s.furniture=structuredClone(old.defaultFurniture);s.appliedLayoutRevisions=s.appliedLayoutRevisions.filter(id=>![revisionId,'family-door-refinement-20261011','family-study-door-20261012','family-appliances-20261012','family-ac-window-20261012','family-living-clear-20261012'].includes(id));
     if(mode==='custom'){
      for(const id of ['study_full_desk','fit-study_bookwall','vanity_guest','laundry_washer','laundry_dryer']){
       const f=s.furniture.find(f=>f.id===id);f.cx+=37;f.cy+=49;f.w+=20;f.d+=30;f.rot=(f.rot+90)%360;f.color='#668899';f.name='QA '+id;f.heightMm+=11;

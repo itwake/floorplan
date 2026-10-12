@@ -154,6 +154,10 @@ python3 -m http.server 8000
 
 保留其他56件家具、电器、柜板和全部墙门窗及其他方案。外机机位、可穿墙点、冷媒管、冷凝水排水、墙梁/基层、窗帘和供电仍待真实机型及现场核验，本模型未新增外机、孔或管线。独立层 `tools/family-ac-window-20261012.cjs`，回归 `node tests/family-ac-window-20261012.cjs` 与 `node tests/family-ac-window-browser.cjs --self-host`。默认旧机位自动升级一次，自定义摆位、尺寸和删除操作保持；旧电器层可通过先回退本层精确验证。
 
+### 2026-10-12 · 方案2移除茶几与落地灯
+
+仅移除电视前茶几 `family-f8` 和客厅落地灯 `living-floorlamp`，方案2共59→57件；地毯、沙发、电视柜、LISABO餐桌及其余摆设、结构和其他方案不变。独立层 `tools/family-living-clear-20261012.cjs`，旧默认或自定义同ID物品在浏览器更新时移出场景、原值精确保存在 `state.layoutMigrationArchive` 中供JSON导出，不重复归档；已经删除及空草稿保持。回归 `node tests/family-living-clear-20261012.cjs` 与 `node tests/family-living-clear-browser.cjs --self-host`。
+
 更新 house-design 快照：`node tools/convert-house-plans.cjs --source <原项目目录> --refresh-sources`。
 
 验证几何与脚本：`node tests/validate-import.cjs`。浏览器测试：先开启 4190 端口静态服务器，再运行 `node tests/integration.cjs`（需 Playwright；支持 `FLOORPLAN_NODE_MODULES`、`FLOORPLAN_CHROME`、`FLOORPLAN_BASE_URL` 环境变量）。

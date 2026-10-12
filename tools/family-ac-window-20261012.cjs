@@ -5,6 +5,7 @@
 // penetration, drainage connection or outdoor-unit installation.
 const assert=require('node:assert/strict');
 const {isDeepStrictEqual}=require('node:util');
+const {beforeFamilyLivingClear}=require('./family-living-clear-20261012.cjs');
 const REVISION='family-ac-window-20261012';
 const DATE='2026-10-12';
 const clone=structuredClone;
@@ -109,7 +110,7 @@ function applyFamilyAcWindow(bundle){
   return bundle;
 }
 function beforeFamilyAcWindow(value){
-  const out=clone(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyAcWindowUpdate;
+  const out=beforeFamilyLivingClear(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyAcWindowUpdate;
   if(!m)return out;
   const originals=new Map(m.previousFurniture.map(f=>[f.id,f])),current=new Map(p.defaultFurniture.map(f=>[f.id,f]));
   p.defaultFurniture=m.previousFurnitureOrder.map(id=>clone(originals.get(id)||current.get(id)));

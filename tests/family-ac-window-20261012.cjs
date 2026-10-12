@@ -9,6 +9,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const {isDeepStrictEqual}=require('node:util');
 const {applyFamilyAcWindow,beforeFamilyAcWindow,REVISION}=require('../tools/family-ac-window-20261012.cjs');
+const {beforeFamilyLivingClear}=require('../tools/family-living-clear-20261012.cjs');
 const {sweptLeafHits}=require('./family-bath-review-20261011.cjs');
 const root=path.resolve(__dirname,'..'),clone=structuredClone,tol=.02;
 const stable=v=>Array.isArray(v)?v.map(stable):v&&typeof v==='object'
@@ -108,6 +109,7 @@ function validateGeometry(plan){
 }
 
 function verifyFamilyAcWindow(bundle){
+  bundle=beforeFamilyLivingClear(bundle);
   assert.equal(REVISION,'family-ac-window-20261012');
   assert.equal(bundle.defaultScheme,'family');assert.equal(bundle.unit,'mm');
   const plan=bundle.schemes.family,u=plan.metadata.familyAcWindowUpdate;

@@ -366,7 +366,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=ac-window-20261012"></script>
+<script src="data/house-plans.js?v=living-clear-20261012"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -474,7 +474,7 @@ const uid = () => 'f' + Date.now().toString(36) + (_n++);
 const F = (type,name,cx,cy,w,d,rot=0,color) => ({id:uid(),type,name,cx,cy,w,d,rot,color:color||typeColor(type)});
 
 function defaultFurniture(){ return structuredClone(HOUSE_PLAN.defaultFurniture); }
-function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate].filter(Boolean);}
+function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate].filter(Boolean);}
 function defaultState(){
   const rooms = {}; ROOMS.forEach(r => rooms[r.id] = {name:r.name, mat:r.mat});
   return {schemaVersion:2,projectId:'house-design',schemeId:SCHEME_ID,sourceVersion:PLAN_LIBRARY.version,
@@ -545,7 +545,7 @@ function upgradeConfirmedLayouts(s){
   // for defaults. New objects are inserted once; deleted objects stay deleted.
   const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
   const placementKeys=['cx','cy','w','d','rot','heightMm','elevationMm','name','color'];
-  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate].filter(Boolean)){
+  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate].filter(Boolean)){
     if(s.appliedLayoutRevisions?.includes(revision.id))continue;
     const kept=new Set(s.layoutMigrationKeptIds||[]);
     const beforeObjects=[...(revision.previousFurniture||[]),...(revision.previousEntryCabinet?[revision.previousEntryCabinet]:[])];
