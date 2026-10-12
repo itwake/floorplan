@@ -4,6 +4,7 @@
 // endpoint alone does not identify the direction of a 180-degree sweep.
 const assert=require('node:assert/strict'),crypto=require('node:crypto'),fs=require('node:fs'),path=require('node:path');
 const {applyFamilyCornerDoor180,beforeFamilyCornerDoor180,REVISION}=require('../tools/family-corner-door-180-20261012.cjs');
+const {beforeFamilyBalconyRecess}=require('../tools/family-balcony-recess-20261012.cjs');
 const root=path.resolve(__dirname,'..'),cabinetId='fit-dining_sideboard_wall',clone=structuredClone;
 const stable=v=>Array.isArray(v)?v.map(stable):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,stable(v[k])])):v;
 const hash=v=>crypto.createHash('sha256').update(JSON.stringify(stable(v))).digest('hex');
@@ -83,6 +84,7 @@ function auditCorner180Sweeps(plan,cabinet){
 }
 
 function verifyFamilyCornerDoor180(bundle){
+ bundle=beforeFamilyBalconyRecess(bundle);
  assert.equal(REVISION,'family-corner-door-180-20261012');const originalHash=hash(bundle),p=bundle.schemes.family,u=p.metadata.familyCornerDoor180Update,oldBundle=beforeFamilyCornerDoor180(bundle),old=oldBundle.schemes.family;
  assert.equal(u?.id,REVISION);assert.equal(u.date,'2026-10-12');assert.equal(hash(old),baseline.family,'exact full frozen published plan rollback');
  assert.equal(hash(beforeFamilyCornerDoor180(p)),baseline.family,'plan-only rollback');assert.equal(hash(beforeFamilyCornerDoor180(old)),baseline.family,'absent layer inert');

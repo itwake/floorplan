@@ -198,6 +198,16 @@ python3 -m http.server 8000
 
 可逆层 `tools/family-corner-door-180-20261012.cjs`；回归 `node tests/family-corner-door-180-20261012.cjs` 与 `node tests/family-corner-door-180-browser.cjs --self-host`。完整原用餐位的碰撞是必须检出的负控，临时操作位则逐角度核对门板、扣手、门轴、固定板、其他物品与墙体；不能忽略餐椅障碍。自定义整柜尺寸保留并更新门轴参数；私自改过的组件则整套保留并提示，不挂错误180°标签。历史层回滚及源快照保持。
 
+### 2026-10-12 · 方案2阳台设备凹入厨房侧，取消盆台
+
+仅将原阳台600×600×840烘干机和380×450×500紧凑基站占位朝南推进，正面向阳台；客卫洗衣机不动。原阳台1200×700洗手盆/台面全部取消，西侧窗垛保留单独壁装接桶/洗地龙头，出水口750mm为暂估。接桶后须移走水桶，不能占用基站出入/回充路径；模型没有确认实际地漏或坡度。
+
+条件机位外包1114×770，机器人净420、烘干净640，三块18板；内部净深752、台底950/完成980，机器上方110mm仅几何量。厨房侧封闭、阳台正面落地开放，无底板/柜门/低背板；厨房原890台面两側保留，90mm高差收口及承重待深化。旧北柜在凹位范围真实裁切，洗碗机、双槽、南柜、吊柜及其他58件家具保持。
+
+原上窗台1000/高1300、窗口矩形、侧墙垛及地面面积不改。只在窗口下方显示1114×980的未批准服务开口，保留20mm上收口；低洞不是人行门，漫游仍阻挡人员穿过。厨房450mm待核段、阳台180mm宽差没有被视为实测富余：结构是否可拆、窗支承、楼板连续/高差、防水、地漏、供水防回流、散热及基站维护净空都待核，不能据此施工或下单。600mm外挑铁皮仍非踩踏、不放设备。
+
+可逆层 `tools/family-balcony-recess-20261012.cjs`，回归 `node tests/family-balcony-recess-20261012.cjs`、`node tests/family-balcony-recess-browser.cjs --self-host`。旧盆台从草稿移除但原值留JSON迁移归档；已删除设备及空布局不复活，自定义厨房组件/整柜尺寸不被强行更新。查看完整默认概念前先导出备份再重置。
+
 更新 house-design 快照：`node tools/convert-house-plans.cjs --source <原项目目录> --refresh-sources`。
 
 验证几何与脚本：`node tests/validate-import.cjs`。浏览器测试：先开启 4190 端口静态服务器，再运行 `node tests/integration.cjs`（需 Playwright；支持 `FLOORPLAN_NODE_MODULES`、`FLOORPLAN_CHROME`、`FLOORPLAN_BASE_URL` 环境变量）。

@@ -366,7 +366,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=corner-door-180-20261012"></script>
+<script src="data/house-plans.js?v=balcony-recess-20261012"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -476,7 +476,7 @@ const uid = () => 'f' + Date.now().toString(36) + (_n++);
 const F = (type,name,cx,cy,w,d,rot=0,color) => ({id:uid(),type,name,cx,cy,w,d,rot,color:color||typeColor(type)});
 
 function defaultFurniture(){ return structuredClone(HOUSE_PLAN.defaultFurniture); }
-function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update].filter(Boolean);}
+function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update,HOUSE_PLAN.metadata.familyBalconyRecessUpdate].filter(Boolean);}
 function defaultState(){
   const rooms = {}; ROOMS.forEach(r => rooms[r.id] = {name:r.name, mat:r.mat});
   return {schemaVersion:2,projectId:'house-design',schemeId:SCHEME_ID,sourceVersion:PLAN_LIBRARY.version,
@@ -495,8 +495,21 @@ function load(){
   } catch(e){}
   return null;
 }
+function balconyRecessNotice(f){
+  const revision=HOUSE_PLAN.metadata.familyBalconyRecessUpdate;
+  if(!revision)return '';
+  if(f&&!['laundry_dryer','balcony_robot','balcony_recess_housing','balcony_bucket_tap','fit-kitchen-20261005'].includes(f.id))return '';
+  const custom=f&&(f.layoutCustomPartsRevision===revision.id||f.layoutCustomSizeRevision===revision.id);
+  return `<section class="project-note" data-family-balcony-recess-warning><b>${tr('阳台机位凹入厨房 · 概念待核','Balcony equipment recessed into kitchen · concept pending')}</b><p>${tr('仅将阳台烘干机和扫地机推进厨房柜内，客卫洗衣机不动；原阳台盆和台面移除，西侧仅留接水桶/洗地龙头。机位暂外包1114mm、净深752mm，台底950/台高980mm；设备仍朝阳台操作。','Only the balcony dryer and robot dock move into the kitchen run; the guest-bath washer stays. The old basin and balcony counter are removed; a bucket/floor-cleaning tap stays on the west pier. Proposed envelope 1114 mm wide, clear depth 752 mm, underside 950/top 980 mm, operated from the balcony.')}</p><p>${tr('厨房450mm待核段、阳台模型与复尺180mm差值尚未闭合；窗下结构是否可开洞、楼板高差、防水、地漏、散热、软管及基站维护净空均未核。当前3D不是施工或可拆墙许可。','The kitchen’s unresolved 450 mm segment and balcony’s 180 mm model/survey difference remain open. Structure, floor levels, waterproofing, drain, ventilation, hoses and dock service clearances are unverified. This 3D concept does not authorize construction or wall removal.')}</p>${custom?`<p data-custom-recess-cabinet-warning>${tr('保留了你自定义的厨房柜组件或尺寸，未强行覆盖。请核对其与新机位重叠；导出备份后可重置查看完整默认概念。','Your custom kitchen components or dimensions were preserved. Check for overlaps with the new bays; back up before resetting to the complete default concept.')}</p>`:''}<button class="btn" id="viewBalconyRecess3d">${tr('查看阳台机位3D','View recessed balcony bays in 3D')}</button></section>`;
+}
+function bindBalconyRecessView(){
+  const button=$('#viewBalconyRecess3d');if(!button)return;
+  button.onclick=async()=>{if(viewMode!=='3d')await setView('3d');if(viewMode==='3d')window.View3D?.focusBalconyRecess();closeDrawers();};
+}
 function refreshCabinetDesign(f){
   if(f.layoutCustomSizeRevision&&f.layoutCustomSizeRevision===HOUSE_PLAN.metadata.familyStudyDoorUpdate?.id)return;
+  const recessRevision=HOUSE_PLAN.metadata.familyBalconyRecessUpdate?.id;
+  if(recessRevision&&(f.layoutCustomPartsRevision===recessRevision||f.layoutCustomSizeRevision===recessRevision))return;
   const fresh=HOUSE_PLAN.defaultFurniture.find(q=>q.id===f.id);
   if(!fresh?.cabinetRevision || f.cabinetRevision===fresh.cabinetRevision) return;
   // Keep placement, custom dimensions/colours, names and deletions. Only an
@@ -547,7 +560,7 @@ function upgradeConfirmedLayouts(s){
   // for defaults. New objects are inserted once; deleted objects stay deleted.
   const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
   const placementKeys=['cx','cy','w','d','rot','heightMm','elevationMm','name','color'];
-  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update].filter(Boolean)){
+  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update,HOUSE_PLAN.metadata.familyBalconyRecessUpdate].filter(Boolean)){
     if(s.appliedLayoutRevisions?.includes(revision.id))continue;
     const kept=new Set(s.layoutMigrationKeptIds||[]);
     const beforeObjects=[...(revision.previousFurniture||[]),...(revision.previousEntryCabinet?[revision.previousEntryCabinet]:[])];
@@ -1041,7 +1054,7 @@ function cornerCabinetDoorSVG(f,original){
 function fixtureSVG(f){
   if(f.type!=='fixture') return furnSVG(f.type,f.w,f.d,f.color,f.modelVariant);
   const sx=f.w/f.baseWidthMm,sy=f.d/f.baseDepthMm, original=HOUSE_PLAN.defaultFurniture.find(p=>p.id===f.id)?.color||f.cabinetDesign?.palette?.door;
-  const service=f.modelVariant==='balcony-service-counter';
+  const service=['balcony-service-counter','balcony-recess-housing'].includes(f.modelVariant);
   const parts=(f.parts||[]).filter(p=>!p.cabinetDoor).slice().sort((a,b)=>a.elevationMm-b.elevationMm).map(p=>{
     const c=f.color!==original?f.color:p.color;
     const radius=p.shape?.startsWith('rounded-')?(p.radiusMm||60):8;
@@ -1067,6 +1080,7 @@ function renderFurn(){
     const limit=Math.max(3,Math.floor(aabb(f).hw*2/fs*.9)),shortName=compact.length>limit?compact.slice(0,limit-1)+'…':compact;
     let label = Math.min(f.w,f.d) >= 380 && !NOLABEL.includes(f.type)
       ? `<text transform="rotate(${-f.rot})" font-size="${fs}" text-anchor="middle" dominant-baseline="central" fill="#4a443c" opacity=".8" pointer-events="none">${esc(shortName)}</text>` : '';
+    if(f.modelVariant==='balcony-recess-housing')label=''; // Keep the two actual appliance labels readable beneath the upper worktop projection.
     if(f.modelVariant==='balcony-exterior-projection'){
       const sx=f.w/f.baseWidthMm,sy=f.d/f.baseDepthMm,tx=x=>x*sx,ty=y=>y*sy;
       const north=Math.round(600*sy),east=Math.round(600*sx),line=(x1,y1,x2,y2,dash=false)=>`<line x1="${tx(x1)}" y1="${ty(y1)}" x2="${tx(x2)}" y2="${ty(y2)}" stroke="#718986" stroke-width="1" ${dash?'stroke-dasharray="5 4"':''} vector-effect="non-scaling-stroke"/>`;
@@ -1105,6 +1119,10 @@ function renderOpenings(){
     s += `<g><title>${esc(WIN_META[i]?.name||"窗")} · ${Math.round(Math.max(w,h))}×${WIN_META[i]?.heightMm||0} mm · 台高 ${WIN_META[i]?.sillMm||0} mm · ${WIN_META[i]?.placementStatus==="unresolved"?"定位待核":"方案尺寸"}</title><rect x="${x0}" y="${y0}" width="${w}" height="${h}" fill="${WIN_META[i]?.noGlass?"#e3ebdf":"#f7fbfd"}" ${WS}/></g>`;
     if (w >= h) [1/3,2/3].forEach(t => s += `<line x1="${x0}" y1="${y0+h*t}" x2="${x1}" y2="${y0+h*t}" ${WS}/>`);
     else [1/3,2/3].forEach(t => s += `<line x1="${x0+w*t}" y1="${y0}" x2="${x0+w*t}" y2="${y1}" ${WS}/>`);
+    const lower=WIN_META[i]?.lowerServiceOpeningMm;
+    if(lower&&w>=h){
+      s+=`<g data-balcony-recess-concept><title>${tr('窗下设备通口概念','Under-window equipment aperture concept')} · ${lower.x2-lower.x1}×${lower.top-lower.bottom} mm · ${tr('结构与复尺待核，不是施工图','Structure and survey pending; not construction drawings')}</title><rect x="${lower.x1}" y="${y0}" width="${lower.x2-lower.x1}" height="${h}" fill="none" stroke="#b5653a" stroke-width="2" stroke-dasharray="5 3" vector-effect="non-scaling-stroke"/><text x="${(lower.x1+lower.x2)/2}" y="${y0-65}" font-size="100" text-anchor="middle" fill="#b5653a">${tr('窗下凹入机位 · 待核','Recessed equipment bays · pending')}</text></g>`;
+    }
   });
   const DS = 'stroke="#3d3a34" stroke-width="1" vector-effect="non-scaling-stroke"';
   DOORS.forEach(d => {
@@ -1229,9 +1247,9 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':
 function renderPanel(){
   renderFab();
   const p = $('#panel');
-  if (ui.sel?.kind === 'furn'){ const f = getF(ui.sel.id); if (f){ p.innerHTML = furnPanel(f); bindFurnPanel(f); return; } }
-  if (ui.sel?.kind === 'room'){ p.innerHTML = roomPanel(ROOMS.find(r => r.id === ui.sel.id)); bindRoomPanel(); return; }
-  p.innerHTML = overviewPanel(); bindOverview();
+  if (ui.sel?.kind === 'furn'){ const f = getF(ui.sel.id); if (f){ p.innerHTML = furnPanel(f); bindFurnPanel(f); bindBalconyRecessView(); return; } }
+  if (ui.sel?.kind === 'room'){ const r=ROOMS.find(r => r.id === ui.sel.id);p.innerHTML = (['balcony','kitchen'].includes(r.id)?balconyRecessNotice():'')+roomPanel(r); bindRoomPanel();bindBalconyRecessView(); return; }
+  p.innerHTML = balconyRecessNotice()+overviewPanel(); bindOverview();bindBalconyRecessView();
 }
 
 function overviewPanel(){
@@ -1433,6 +1451,7 @@ function furnPanel(f){
       <button class="btn" id="aTop">${tr('置于顶层','Bring to front')}</button><button class="btn" id="aBot">${tr('置于底层','Send to back')}</button>
       <button class="btn danger" id="aDel">${tr('删除','Delete')}</button><button class="btn" id="back">${tr('← 返回','← Back')}</button>
     </div></section>
+  ${balconyRecessNotice(f)}
   ${cornerStorageControls(f)}
   ${cabinetDesignPanel(f)}
   ${f.layoutCustomPartsRevision===HOUSE_PLAN.metadata.familyCornerDoor180Update?.id?`<section class="project-note" data-custom-corner-parts-warning>${tr('保留了你修改过的柜板/柜门组件，未强行套用180°默认结构。当前开角请以实际门板为准；备份后可重置查看新默认方案。','Your custom cabinet/door assembly is retained, not overwritten with the default 180° construction. Check its actual leaves; back up before resetting to view the latest default.')}</section>`:''}
@@ -3146,6 +3165,7 @@ function wallBox([x0, y0, x1, y1], yb, yt, m){
     const p = o.geometry.parameters, sh = Math.min(.12, yt), sk = new THREE.Mesh(new THREE.BoxGeometry(p.width + .02, sh, p.depth + .02), skirtMat);
     sk.position.set(o.position.x, sh/2, o.position.z); sk.userData.walkOnly = true; sk.visible = opt.mode === 'walk'; archUp.add(sk);
   }
+  return o;
 }
 const edgeMat = new THREE.LineBasicMaterial({color:0x6f675b}), skirtMat = new THREE.MeshStandardMaterial({color:'#8b7f6e', roughness:.6});
 function shapeOf(poly, flip){ const s = new THREE.Shape(); poly.forEach(([x, y], i) => s[i ? 'lineTo' : 'moveTo'](wx(x), flip ? wz(y) : -wz(y))); return s; }
@@ -3193,12 +3213,27 @@ function buildArch(){
   });
   WINS.forEach((r,i)=>{
     const meta=WIN_META[i],sill=M(meta.sillMm),head=M(meta.headMm);
-    wallBox(r,0,Math.min(sill,top));if(top>head && meta.type!=='bay-front')wallBox(r,head,Math.min(top,openingWallTop(r)));
+    const lower=meta.lowerServiceOpeningMm;
+    if(lower&&r[2]-r[0]>=r[3]-r[1]){
+      // A separately labelled, unverified under-window equipment aperture.
+      // Original upper glazing, sill height and both structural side piers
+      // remain. This low passage is not a pedestrian doorway.
+      const x0=Math.max(r[0],lower.x1),x1=Math.min(r[2],lower.x2),bottom=M(Math.max(0,lower.bottom)),ceiling=Math.min(sill,M(lower.top));
+      const remainder=(rect,yb,yt)=>{if(rect[2]<=rect[0]||yt<=yb)return;const mesh=wallBox(rect,yb,yt);if(mesh)mesh.userData={windowSourceId:meta.id,role:'window-sill-remainder',structuralStatus:'concept-unverified'};};
+      remainder([r[0],r[1],x0,r[3]],0,Math.min(sill,top));
+      remainder([x1,r[1],r[2],r[3]],0,Math.min(sill,top));
+      remainder([x0,r[1],x1,r[3]],0,Math.min(bottom,top));
+      remainder([x0,r[1],x1,r[3]],ceiling,Math.min(sill,top));
+      const bridge=new THREE.Mesh(new THREE.PlaneGeometry(M(x1-x0),M(r[3]-r[1])),floorMat('antislip'));
+      bridge.rotation.x=-Math.PI/2;bridge.position.set(wx((x0+x1)/2),0,wz((r[1]+r[3])/2));bridge.receiveShadow=true;
+      bridge.userData={windowSourceId:meta.id,role:'service-opening-floor',modelAssumption:true,notNewFloorArea:true};archFloor.add(bridge);
+    }else wallBox(r,0,Math.min(sill,top));
+    if(top>head && meta.type!=='bay-front')wallBox(r,head,Math.min(top,openingWallTop(r)));
     colliders.push([wx(r[0]),wz(r[1]),wx(r[2]),wz(r[3])]);
     if(meta.noFrame) return;
     const gTop=Math.min(head,top);if(gTop<=sill)return;
     const [x0,y0,x1,y1]=r,hz=x1-x0>=y1-y0,L=M(hz?x1-x0:y1-y0),gh=gTop-sill,cx=wx((x0+x1)/2),cz=wz((y0+y1)/2);
-    if(!meta.noGlass){const pane=new THREE.Mesh(new THREE.BoxGeometry(hz?L:.01,gh,hz?.01:L),glassMat);pane.position.set(cx,sill+gh/2,cz);archUp.add(pane);}
+    if(!meta.noGlass){const pane=new THREE.Mesh(new THREE.BoxGeometry(hz?L:.01,gh,hz?.01:L),glassMat);pane.position.set(cx,sill+gh/2,cz);pane.userData={windowSourceId:meta.id,role:'window-glass'};archUp.add(pane);}
     const n=meta.guard?Math.max(1,Math.ceil(L/.11)):Math.max(1,Math.round(L/.9));
     for(let k=0;k<=n;k++){const t=-L/2+k*L/n,mu=new THREE.Mesh(new THREE.BoxGeometry(hz?(meta.guard?.015:.04):.04,gh,hz?.04:(meta.guard?.015:.04)),frameMat);mu.position.set(cx+(hz?t:0),sill+gh/2,cz+(hz?0:t));archUp.add(mu);}
     [sill+.02,gTop-.02].forEach(y=>{const fr=new THREE.Mesh(new THREE.BoxGeometry(hz?L:.04,.04,hz?.04:L),frameMat);fr.position.set(cx,y,cz);archUp.add(fr);});
@@ -3453,6 +3488,18 @@ function flyToFurniture(id){
   // the usual 1.5 m orbit limit would push the camera into the opposite store
   // as soon as the flight ends. Normal room/whole-home flights restore it.
   flyTo(pose(t,new THREE.Vector3(wx(fx+dx*dist),targetY+.12,wz(fy+dy*dist))),1000,Math.max(.35,Math.min(1.5,M(dist)*.9)));
+}
+function focusBalconyRecess(){
+  const f=getF('balcony_recess_housing');if(!f||!active||anim)return false;
+  if(opt.mode==='walk')setMode('orbit');
+  const a=f.rot*Math.PI/180,sd=f.d/(f.baseDepthMm||f.d),front=-f.d/2;
+  const world=(x,y)=>[f.cx+x*Math.cos(a)-y*Math.sin(a),f.cy+x*Math.sin(a)+y*Math.cos(a)];
+  const [tx,ty]=world(0,front+200*sd),[ex,ey]=world(-70,front-1050*sd);
+  showLabels(false);opt.labels=false;document.querySelector('[data-t="labels"]')?.classList.remove('on');
+  // Inspect from the real balcony side, preserving cut height and appliance
+  // state. The camera does not grant construction approval for the aperture.
+  flyTo(pose(new THREE.Vector3(wx(tx),.48,wz(ty)),new THREE.Vector3(wx(ex),1.08,wz(ey))),1000,.35,60);
+  return true;
 }
 function focusCornerStorage(id){
   const f=getF(id);if(!f?.cornerDoorDesign||!active||anim)return false;
@@ -3739,7 +3786,7 @@ function shot(){ const a = document.createElement('a'); a.download = tr('户型�
 
 function relang(){ syncWalkTexts(); if (inited) buildLabels(); }
 
-window.View3D = {enter, exit, relang, sync:() => sync(), shot, groundAt, flyToRoom:id => active && !anim && flyToRoom(id), flyToFurniture, focusCornerStorage, focusCeilingLight, toggleCabinetDoors, cornerDoorsClosed:fid=>{const c=cabinetDoorControllers.get(fid);return !c||(!c.open&&c.progress<=.0001);}, walking:() => active && opt.mode === 'walk'};
+window.View3D = {enter, exit, relang, sync:() => sync(), shot, groundAt, flyToRoom:id => active && !anim && flyToRoom(id), flyToFurniture, focusBalconyRecess, focusCornerStorage, focusCeilingLight, toggleCabinetDoors, cornerDoorsClosed:fid=>{const c=cabinetDoorControllers.get(fid);return !c||(!c.open&&c.progress<=.0001);}, walking:() => active && opt.mode === 'walk'};
 // A shareable 3D entry point; ordinary editor links still start in 2D.
 if (new URLSearchParams(location.search).get('view') === '3d') requestAnimationFrame(() => setView('3d'));
 </script>

@@ -4,6 +4,7 @@
 // offset axes and the operating-chair pose remain cabinet-hardware concepts.
 const assert=require('node:assert/strict');
 const {isDeepStrictEqual}=require('node:util');
+const {beforeFamilyBalconyRecess}=require('./family-balcony-recess-20261012.cjs');
 const REVISION='family-corner-door-180-20261012',CABINET_ID='fit-dining_sideboard_wall';
 const META_KEYS=['conditions','designCorrections','converter'],clone=structuredClone;
 const OPERATING_CHAIR={id:'family-f27',cx:3420,cy:12080,relativeMm:[482.5,835],temporary:true,ownerConfirmed:true,
@@ -62,7 +63,7 @@ function applyFamilyCornerDoor180(bundle){
   return bundle;
 }
 function beforeFamilyCornerDoor180(value){
-  const out=clone(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyCornerDoor180Update;if(!m)return out;
+  const out=beforeFamilyBalconyRecess(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyCornerDoor180Update;if(!m)return out;
   const old=new Map(m.previousFurniture.map(q=>[q.id,q])),current=new Map(p.defaultFurniture.map(q=>[q.id,q]));
   p.defaultFurniture=m.previousFurnitureOrder.map(id=>clone(old.get(id)||current.get(id)));
   for(const[key,v]of Object.entries(m.previousPlanFields))p[key]=clone(v);
