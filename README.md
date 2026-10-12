@@ -158,6 +158,14 @@ python3 -m http.server 8000
 
 仅移除电视前茶几 `family-f8` 和客厅落地灯 `living-floorlamp`，方案2共59→57件；地毯、沙发、电视柜、LISABO餐桌及其余摆设、结构和其他方案不变。独立层 `tools/family-living-clear-20261012.cjs`，旧默认或自定义同ID物品在浏览器更新时移出场景、原值精确保存在 `state.layoutMigrationArchive` 中供JSON导出，不重复归档；已经删除及空草稿保持。回归 `node tests/family-living-clear-20261012.cjs` 与 `node tests/family-living-clear-browser.cjs --self-host`。
 
+### 2026-10-12 · 方案2阳台外挑概念与机器人服务台
+
+仅方案2：生活阳台北、东面铁皮与防盗网以原外墙外表面为基准各外挑600mm，北y9540→8940、东x8410→9010。原室内地面、面积、矮墙、梁柱、门轴与内窗全部保持；原窗面的旧网框仅隐藏，改画外挑边缘网框及侧向回框。铁皮底位于原矮墙标高（1080–1100mm）、上盖2450–2475mm，没有新增落地楼板，属于非踩踏、非设备承载概念，不能据此实施。高层外立面审批、锚固、抗风、防坠、防水及排水须专业现场核验。
+
+烘干机向东微移50mm，原600×600×840mm保持。门与机器之间新增业主确认的紧凑扫地机基站占位380×450×500mm，朝北开放驶出；上方独立支撑连续台1200×700、完成高980、台底950mm，西侧360×350浅盆不叠在烘干机上。没有基站柜门、底板或低背板；台前模型790mm。基站型号、水箱抽取/开盖、存水弯、机器散热及湿区用电未核，阳台模型1420与复尺1240仍差180，不按此概念尺寸直接下单。
+
+独立可逆生成层 `tools/family-balcony-service-20261012.cjs`；回归 `node tests/family-balcony-service-20261012.cjs` 与 `node tests/family-balcony-service-browser.cjs --self-host`。其余56件保留家具、电器及另外三套方案、原始源快照不变。旧草稿只在默认烘干机位置时跟随微移，用户自定义摆位、尺寸、颜色与删除保持；三个新物件首次更新加入一次。
+
 更新 house-design 快照：`node tools/convert-house-plans.cjs --source <原项目目录> --refresh-sources`。
 
 验证几何与脚本：`node tests/validate-import.cjs`。浏览器测试：先开启 4190 端口静态服务器，再运行 `node tests/integration.cjs`（需 Playwright；支持 `FLOORPLAN_NODE_MODULES`、`FLOORPLAN_CHROME`、`FLOORPLAN_BASE_URL` 环境变量）。

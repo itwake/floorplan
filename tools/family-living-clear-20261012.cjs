@@ -3,6 +3,7 @@
 // Remove only the two owner-selected living-room items from Scheme 2.
 // Keep exact prior objects for historical rollback and browser draft archives.
 const assert=require('node:assert/strict');
+const {beforeFamilyBalconyService}=require('./family-balcony-service-20261012.cjs');
 const REVISION='family-living-clear-20261012';
 const IDS=['family-f8','living-floorlamp'];
 const META_KEYS=['designCorrections','conditions','converter'];
@@ -38,7 +39,7 @@ function applyFamilyLivingClear(bundle){
 }
 
 function beforeFamilyLivingClear(value){
-  const out=clone(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyLivingClearUpdate;
+  const out=beforeFamilyBalconyService(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyLivingClearUpdate;
   if(!m)return out;
   const original=new Map(m.previousFurniture.map(f=>[f.id,f])),current=new Map(p.defaultFurniture.map(f=>[f.id,f]));
   p.defaultFurniture=m.previousFurnitureOrder.map(id=>clone(original.get(id)||current.get(id)));

@@ -7,6 +7,7 @@ const crypto=require('node:crypto');
 const fs=require('node:fs');
 const path=require('node:path');
 const {applyFamilyLivingClear,beforeFamilyLivingClear,REVISION}=require('../tools/family-living-clear-20261012.cjs');
+const {beforeFamilyBalconyService}=require('../tools/family-balcony-service-20261012.cjs');
 const root=path.resolve(__dirname,'..'),clone=structuredClone;
 const stable=v=>Array.isArray(v)?v.map(stable):v&&typeof v==='object'
   ?Object.fromEntries(Object.keys(v).sort().map(k=>[k,stable(v[k])])):v;
@@ -36,6 +37,7 @@ function assertOnlyRequestedRemovals(plan,old){
 }
 
 function verifyFamilyLivingClear(bundle){
+  bundle=beforeFamilyBalconyService(bundle);
   assert.equal(REVISION,'family-living-clear-20261012');
   assert.equal(typeof applyFamilyLivingClear,'function');
   assert.equal(typeof beforeFamilyLivingClear,'function');

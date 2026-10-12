@@ -366,7 +366,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=living-clear-20261012"></script>
+<script src="data/house-plans.js?v=balcony-service-20261012"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -455,6 +455,7 @@ const LIB = [
     ['tv','65 寸电视',1450,80,'#1d1d1f'],['tv','55 寸电视',1230,80,'#1d1d1f'],['fridge','对开门冰箱',910,700,'#c9ced3'],
     ['aircon','柜机空调',500,380,'#f6f7f8'],['acwall','挂机空调',900,250,'#f6f7f8'],['dishwasher','洗碗机',600,600,'#c9ced3'],
     ['ovencol','蒸烤箱高柜',600,600,'#efe6d8'],['dryer','烘干机',600,600,'#e6ebee'],['purifier','空气净化器',400,300,'#f4f4f2'],
+    ['robotvacuum','扫地机器人及小型基站（占位）',380,450,'#F4F1E9'],
     ['ceilingfan','厨房凉霸',300,300,'#f5f1e9'],['bathheater','风暖浴霸',300,600,'#f5f1e9'],
     ['blender','破壁机',220,240,'#f3efe6'],['temperaturekettle','恒温壶',220,220,'#f3efe6'],
     ['sterilizer','蒸汽奶瓶消毒柜',300,300,'#f3efe6'],['healthkettle','养生壶',220,220,'#f3efe6'],
@@ -467,14 +468,14 @@ const typeColor = t => { for (const c of LIB) for (const i of c.items) if (i[0]=
 // New appliance library entries are editable concept envelopes, not specified
 // products or installation clearances. Countertop equipment starts at the
 // current sideboard's 850-mm worktop; ceiling panel depth is only illustrative.
-const APPLIANCE_LIBRARY_HEIGHTS = {ceilingfan:80,bathheater:80,blender:460,temperaturekettle:300,sterilizer:420,healthkettle:280,waterdispenser:430};
+const APPLIANCE_LIBRARY_HEIGHTS = {ceilingfan:80,bathheater:80,blender:460,temperaturekettle:300,sterilizer:420,healthkettle:280,waterdispenser:430,robotvacuum:500};
 
 let _n = 1;
 const uid = () => 'f' + Date.now().toString(36) + (_n++);
 const F = (type,name,cx,cy,w,d,rot=0,color) => ({id:uid(),type,name,cx,cy,w,d,rot,color:color||typeColor(type)});
 
 function defaultFurniture(){ return structuredClone(HOUSE_PLAN.defaultFurniture); }
-function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate].filter(Boolean);}
+function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate].filter(Boolean);}
 function defaultState(){
   const rooms = {}; ROOMS.forEach(r => rooms[r.id] = {name:r.name, mat:r.mat});
   return {schemaVersion:2,projectId:'house-design',schemeId:SCHEME_ID,sourceVersion:PLAN_LIBRARY.version,
@@ -545,7 +546,7 @@ function upgradeConfirmedLayouts(s){
   // for defaults. New objects are inserted once; deleted objects stay deleted.
   const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
   const placementKeys=['cx','cy','w','d','rot','heightMm','elevationMm','name','color'];
-  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate].filter(Boolean)){
+  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate].filter(Boolean)){
     if(s.appliedLayoutRevisions?.includes(revision.id))continue;
     const kept=new Set(s.layoutMigrationKeptIds||[]);
     const beforeObjects=[...(revision.previousFurniture||[]),...(revision.previousEntryCabinet?[revision.previousEntryCabinet]:[])];
@@ -585,7 +586,10 @@ function upgradeConfirmedLayouts(s){
       f.layoutRevision=fresh.layoutRevision||revision.id;
       if(fresh.sourceFootprintMm){
         const a=f.rot*Math.PI/180,w=Math.abs(Math.cos(a))*f.w+Math.abs(Math.sin(a))*f.d,d=Math.abs(Math.sin(a))*f.w+Math.abs(Math.cos(a))*f.d;
-        f.sourceFootprintMm={x:f.cx-w/2,y:f.cy-d/2,w,d};
+        // Match converter precision, including cardinal rotations whose sine
+        // is not exactly zero in floating point (e.g. 180 degrees).
+        const clean=n=>Math.round(n*1000)/1000;
+        f.sourceFootprintMm={x:clean(f.cx-w/2),y:clean(f.cy-d/2),w:clean(w),d:clean(d)};
       }
     }
     if(s.furniture.length)for(const id of revision.newFurnitureIds){
@@ -760,6 +764,15 @@ function furnSVG(t,w,d,c,variant){
     case 'shower': return rc(x,y,w,d,c) + ln(x,y,x+w,y+d,DASH) + ln(x+w,y,x,y+d,DASH) + `<circle r="45" fill="#fff" ${ST}/>`;
     case 'bathtub': return rc(x,y,w,d,c,'rx="40"') + rc(x+80,y+80,w-160,d-160,'#fff',`rx="${m*.33}"`) + `<circle cx="${x+w-260}" cy="0" r="35" fill="#ccc" ${ST}/>`;
     case 'washer': case 'dryer': return rc(x,y,w,d,c,'rx="30"') + rc(x,y,w,d*.14,shade(c,.9)) + `<circle cy="${d*.06}" r="${m*.34}" fill="#fff" ${ST}/><circle cy="${d*.06}" r="${m*.24}" fill="${t==='dryer'?'#e9dccb':'#cfdde4'}" ${ST}/>`;
+    case 'robotvacuum': {
+      // A compact dock envelope, not the footprint of a confirmed product.
+      // Local front is +y, like the dryer: rot 180 faces the north aisle.
+      const r=Math.min(w*.445,d*.375),ry=d/2-r;
+      return rc(x,y,w,d,c,`rx="22" ${DASH} fill-opacity=".35"`)
+        +rc(x,y,w,d*.40,shade(c,.93),'rx="20"')+ln(x+w*.08,y+d*.19,x+w*.92,y+d*.19)
+        +ec(0,ry,r,r,'#f8f7f3')+ec(0,ry,r*.84,r*.84,'none')
+        +ec(0,ry-r*.15,r*.16,r*.16,'#8b918f')+ec(w*.15,ry-r*.26,r*.045,r*.045,'#b7b19f');
+    }
     case 'crib': {
       let s = rc(x,y,w,d,c,'rx="20"') + rc(x+45,y+45,w-90,d-90,'#fff','rx="20"');
       for (let sx = x+90; sx < x+w-60; sx += 90) s += ln(sx,y,sx,y+45,'opacity=".5"') + ln(sx,y+d-45,sx,y+d,'opacity=".5"');
@@ -844,11 +857,22 @@ function renderRooms(){
 function fixtureSVG(f){
   if(f.type!=='fixture') return furnSVG(f.type,f.w,f.d,f.color,f.modelVariant);
   const sx=f.w/f.baseWidthMm,sy=f.d/f.baseDepthMm, original=HOUSE_PLAN.defaultFurniture.find(p=>p.id===f.id)?.color||f.cabinetDesign?.palette?.door;
-  return (f.parts||[]).slice().sort((a,b)=>a.elevationMm-b.elevationMm).map(p=>{
+  const service=f.modelVariant==='balcony-service-counter';
+  const parts=(f.parts||[]).slice().sort((a,b)=>a.elevationMm-b.elevationMm).map(p=>{
     const c=f.color!==original?f.color:p.color;
     const radius=p.shape?.startsWith('rounded-')?(p.radiusMm||60):8;
-    return `<rect x="${p.x*sx}" y="${p.y*sy}" width="${p.w*sx}" height="${p.d*sy}" rx="${radius*sx}" ry="${radius*sy}" fill="${/^#[0-9a-f]{6}$/i.test(c)?c:'#eee'}" fill-opacity="${p.elevationMm>=1200?.35:1}" stroke="#a89d8c" stroke-width="1" vector-effect="non-scaling-stroke"><title>${esc(p.role||p.id)} · ${Math.round(p.w*sx)}×${Math.round(p.d*sy)}×${p.heightMm} mm · 离地 ${p.elevationMm} mm</title></rect>`;
+    const opacity=service?(/countertop|worktop|top/.test(p.role||'')?.40:/basin/.test(p.role||'')?.75:.85):p.elevationMm>=1200?.35:1;
+    return `<rect x="${p.x*sx}" y="${p.y*sy}" width="${p.w*sx}" height="${p.d*sy}" rx="${radius*sx}" ry="${radius*sy}" fill="${/^#[0-9a-f]{6}$/i.test(c)?c:'#eee'}" fill-opacity="${opacity}" stroke="#a89d8c" stroke-width="1" vector-effect="non-scaling-stroke"><title>${esc(p.role||p.id)} · ${Math.round(p.w*sx)}×${Math.round(p.d*sy)}×${p.heightMm} mm · 离地 ${p.elevationMm} mm</title></rect>`;
   }).join('');
+  if(!service)return parts;
+  // A worktop is an upper projection in plan: redraw dotted envelopes from the
+  // actual draft positions so neither dryer nor dock disappears beneath it.
+  const a=f.rot*Math.PI/180,co=Math.cos(a),si=Math.sin(a);
+  const under=(f.underCounterIds||[]).map(id=>state.furniture.find(q=>q.id===id)).filter(Boolean).map(q=>{
+    const dx=q.cx-f.cx,dy=q.cy-f.cy,x=co*dx+si*dy,y=-si*dx+co*dy;
+    return `<g data-under-counter="${esc(q.id)}" transform="translate(${x} ${y}) rotate(${q.rot-f.rot})" pointer-events="none"><title>${esc(nm(q.name))} · 台下投影 · ${q.w}×${q.d} mm</title><rect x="${-q.w/2}" y="${-q.d/2}" width="${q.w}" height="${q.d}" rx="12" fill="none" stroke="#7d8987" stroke-width="1" stroke-dasharray="5 4" vector-effect="non-scaling-stroke"/></g>`;
+  }).join('');
+  return parts+under;
 }
 function renderFurn(){
   const g = $('#gFurn');
@@ -857,8 +881,23 @@ function renderFurn(){
     const fs = Math.max(80, Math.min(170, Math.min(f.w,f.d)*.2));
     const longName=nm(f.name),compact=longName.includes('VIMLE')?'VIMLE 沙发':longName.includes('LISABO')?(f.type==='chair'?'LISABO 椅':'LISABO 餐桌'):longName;
     const limit=Math.max(3,Math.floor(aabb(f).hw*2/fs*.9)),shortName=compact.length>limit?compact.slice(0,limit-1)+'…':compact;
-    const label = Math.min(f.w,f.d) >= 380 && !NOLABEL.includes(f.type)
+    let label = Math.min(f.w,f.d) >= 380 && !NOLABEL.includes(f.type)
       ? `<text transform="rotate(${-f.rot})" font-size="${fs}" text-anchor="middle" dominant-baseline="central" fill="#4a443c" opacity=".8" pointer-events="none">${esc(shortName)}</text>` : '';
+    if(f.modelVariant==='balcony-exterior-projection'){
+      const sx=f.w/f.baseWidthMm,sy=f.d/f.baseDepthMm,tx=x=>x*sx,ty=y=>y*sy;
+      const north=Math.round(600*sy),east=Math.round(600*sx),line=(x1,y1,x2,y2,dash=false)=>`<line x1="${tx(x1)}" y1="${ty(y1)}" x2="${tx(x2)}" y2="${ty(y2)}" stroke="#718986" stroke-width="1" ${dash?'stroke-dasharray="5 4"':''} vector-effect="non-scaling-stroke"/>`;
+      // Keep the concept text outside the original floor and the working aisle.
+      // Tick marks use the current fixture scale, without creating persistent
+      // measuring-tool objects or treating the trays as room floor polygons.
+      label=`<g pointer-events="none" fill="#566f6b" font-size="115" text-anchor="middle" dominant-baseline="central">
+        <text x="0" y="${ty(-805)}">北外挑${north} · 非踩踏</text>
+        <text transform="translate(${tx(770)} ${ty(305)}) rotate(90)">东外挑${east} · 非踩踏</text>
+        ${line(-940,-1105,-940,-505,true)}${line(-965,-1105,-915,-1105)}${line(-965,-505,-915,-505)}
+        <text transform="translate(${tx(-1015)} ${ty(-805)}) rotate(-90)" font-size="100">${north}</text>
+        ${line(470,955,1070,955,true)}${line(470,930,470,980)}${line(1070,930,1070,980)}
+        <text x="${tx(770)}" y="${ty(1030)}" font-size="100">${east}</text>
+      </g>`;
+    }
     return `<g class="furn" data-fid="${f.id}" transform="translate(${f.cx} ${f.cy}) rotate(${f.rot})"><title>${esc(longName)} · ${f.w}×${f.d}×${f.heightMm||800} mm</title>${fixtureSVG(f)}${label}</g>`;
   }).join('');
 }
@@ -1275,8 +1314,9 @@ function addItem(it, x, y){
         if((a[1]>f.cy)!==(b[1]>f.cy)&&f.cx<(b[0]-a[0])*(f.cy-a[1])/(b[1]-a[1])+a[0])hit=!hit;
       }return hit;
     });
-    f.elevationMm=ceiling?Math.max(0,(room?.heightMm||HOUSE_PLAN.HEIGHT_MM)-f.heightMm):850;
-    f.notes=[ceiling?'吊顶面板为位置示意；机器嵌入体、吊顶净空及湿区适用性待选型核对':'台面电器尺寸及850mm离地为暂估；请核对实际型号、台面、散热与用电'];
+    f.elevationMm=ceiling?Math.max(0,(room?.heightMm||HOUSE_PLAN.HEIGHT_MM)-f.heightMm):type==='robotvacuum'?0:850;
+    f.notes=[type==='robotvacuum'?'机器人与小型基站380×450×500mm为临时占位；落地安装，实际型号、上下水、插座及前方通路待核':ceiling?'吊顶面板为位置示意；机器嵌入体、吊顶净空及湿区适用性待选型核对':'台面电器尺寸及850mm离地为暂估；请核对实际型号、台面、散热与用电'];
+    if(type==='robotvacuum')f.modelVariant='compact-robot-dock';
   }
   pushOut(f);
   ui.sel = {kind:'furn', id:f.id};
@@ -1731,6 +1771,9 @@ const wx = x => (x - OX) / 1000, wz = y => (y - OY) / 1000, M = v => v / 1000;
 const SW = () => stage.clientWidth, SH = () => stage.clientHeight;
 document.querySelector('[data-cut="2.8"]').dataset.cut=H;
 const opt = {cut:H, furn:true, labels:true, night:false, hour:10, mode:'orbit'};
+// Only the proposed exterior enclosure uses this plane. Original floors and
+// ordinary furniture do not gain clipping or an assumed extension slab.
+const balconyProjectionPlane=new THREE.Plane(new THREE.Vector3(0,-1,0),H);
 
 let inited = false, active = false, raf = 0, anim = null, fly = null;
 let renderer, labelRenderer, scene, camera, orbit, walkCtl, hemi, sun, ground, glassMat, wallMat, capMat, frameMat;
@@ -1742,6 +1785,7 @@ const doors = [], keys = {};
 function init(){
   if (inited) return; inited = true;
   renderer = new THREE.WebGLRenderer({antialias:true, preserveDrawingBuffer:true});
+  renderer.localClippingEnabled=true;
   renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
   renderer.setSize(SW(), SH());
   renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -2001,7 +2045,8 @@ function buildCabinetParts(g,f){
     const W=M(p.w*sx),D=M(p.d*sz),height=M(p.heightMm*sy),x=M((p.x+p.w/2)*sx),y=M(p.elevationMm*sy),z=M((p.y+p.d/2)*sz);
     const led=p.role==='led-strip',oak=/Oak|wood/i.test(p.material||'')||/oak|wood/.test(p.role||'');
     const reflective=f.cabinetRevision==='family-study-laundry-confirmed-20261011'&&p.role==='mirror-face';
-    const material=reflective?mirror():led?glowMat('#fff4d8','#ffe2ac',f.cabinetRevision==='sideboard-reference-v2'?1.6:.55):p.role?.includes('cushion')?fabric(pc):oak?cabinetWood(pc):mat(pc,{roughness:.7});
+    const projection=f.modelVariant==='balcony-exterior-projection',projectionMetal=projection&&/metal|guard|steel/i.test(p.material||p.role||'');
+    const material=projection?mat(pc,{metalness:projectionMetal?.65:0,roughness:projectionMetal?.48:.7,clippingPlanes:[balconyProjectionPlane],clipShadows:true}):reflective?mirror():led?glowMat('#fff4d8','#ffe2ac',f.cabinetRevision==='sideboard-reference-v2'?1.6:.55):p.role?.includes('cushion')?fabric(pc):oak?cabinetWood(pc):mat(pc,{roughness:.7});
     if(p.shape==='rounded-shell'){
       // Real 18-mm hollow shell: rounding a thin solid box would clamp its
       // radius to 9 mm and could not reproduce the reference's curved end.
@@ -2038,7 +2083,10 @@ function buildCabinetParts(g,f){
       }
     }
     for(const child of g.children.slice(childStart))child.traverse(o=>{
-      if(o.isMesh){o.userData.role=p.role;o.userData.cabinetPartId=p.id;}
+      if(o.isMesh){
+        o.userData.role=p.role;o.userData.cabinetPartId=p.id;if(f.modelVariant)o.userData.modelVariant=f.modelVariant;
+        if(projection){o.userData.balconyProjectionCutMin=M((f.elevationMm||0)+p.elevationMm*sy);o.visible=o.userData.balconyProjectionCutMin<opt.cut;}
+      }
     });
     // Downward light avoids the unshadowed point-light leak through the upper
     // cabinet bottom. At most two directed lights illuminate the long niche.
@@ -2611,6 +2659,25 @@ function buildFurniture(f){
       for (let i = 0; i < 6; i++) g.add(box(w - .12, .003, .008, '#d5d9dc', 0, 2.2 + h + .006, bz + .03 + i*.022));
       break;
     }
+    case 'robotvacuum': {
+      // Dock and circular robot are independent meshes with a clear docking
+      // mouth. The tray is at floor level; this is not a specified model or
+      // a promised fit for all auto-empty/wash stations.
+      const H=M(f.heightMm||500),am=mat(c,{roughness:.38}),dark=mat('#68716e',{roughness:.5});
+      const r=Math.min(w*.445,d*.375),rz=d/2-r,rh=Math.min(.095,H*.19),dockBottom=Math.min(.15,H*.30);
+      const part=(o,role)=>{o.userData={role,modelVariant:'compact-robot-dock',applianceType:'robotvacuum'};g.add(o);return o;};
+      part(rbox(w,.012,d,am,0,0,0,.014),'dock-floor-tray');
+      part(rbox(w,H-dockBottom,d*.40,am,0,dockBottom,bz+d*.20,.018),'dock-body');
+      [-1,1].forEach(s=>part(box(w*.055,dockBottom,d*.40,am,s*w*.4725,.012,bz+d*.20),'dock-side-foot'));
+      part(box(w*.70,.045,.006,dark,0,dockBottom+.025,bz+d*.40+.003),'dock-sensor-window');
+      part(cyl(r,r,rh,am,0,.014,rz,56),'robot-body');
+      part(cyl(r*.95,r*.95,.018,mat('#c3c7c3',{roughness:.45}),0,.032,rz,56),'robot-bumper');
+      part(cyl(r*.86,r*.86,.005,mat('#faf9f5',{roughness:.25}),0,.014+rh,rz,48),'robot-top');
+      part(cyl(r*.16,r*.16,.025,dark,0,.019+rh,rz-r*.15,28),'robot-lidar');
+      part(cyl(r*.045,r*.045,.003,'#b7b19f',w*.15,.022+rh,rz-r*.26,16),'robot-control-button');
+      [-1,1].forEach(s=>part(box(.020,.008,.045,mat('#bcb09a',{metalness:.5}),s*w*.16,.023,bz+d*.40+.013),'dock-charging-contact'));
+      g.userData.applianceType='robotvacuum';g.userData.modelVariant='compact-robot-dock';break;
+    }
     case 'ceilingfan': case 'bathheater': {
       // The visible underside is a protected ceiling cassette, not a bare
       // heating bulb. This illustrative face does not model its recess void.
@@ -2932,6 +2999,11 @@ function sync(force){
   if (force || a !== sigArch){ sigArch = a; buildArch(); }
   if (force || f !== sigFurn){ sigFurn = f; buildFurn(); }
   if (force || l !== sigLabels){ sigLabels = l; buildLabels(); }
+  syncProjectionCut();
+}
+function syncProjectionCut(){
+  balconyProjectionPlane.constant=opt.cut;
+  furnG.traverse(o=>{if(o.userData.balconyProjectionCutMin!==undefined)o.visible=o.userData.balconyProjectionCutMin<opt.cut;});
 }
 
 // CSS2DRenderer 只看标签自身的 visible，不继承父级，所以逐个设置
