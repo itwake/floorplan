@@ -166,6 +166,14 @@ python3 -m http.server 8000
 
 独立可逆生成层 `tools/family-balcony-service-20261012.cjs`；回归 `node tests/family-balcony-service-20261012.cjs` 与 `node tests/family-balcony-service-browser.cjs --self-host`。其余56件保留家具、电器及另外三套方案、原始源快照不变。旧草稿只在默认烘干机位置时跟随微移，用户自定义摆位、尺寸、颜色与删除保持；三个新物件首次更新加入一次。
 
+### 2026-10-12 · 方案2餐边柜转角800库
+
+只把入户左手餐边柜的西南转角改成参考照片的两面开门通顶柜，不恢复旧独立800库，不增加入户占地。西臂1160×400、南臂1200×400（包含共同400方角），连通L形毛占地0.784㎡；内角不设中立柱。底板完成高80、第一层板950，留870mm高件区；950/1350/1750/2100/2400mm为可调L形层板及暖光概念位置。现有北部83块柜板、餐桌椅、入户门、阳台改造及另外三套方案保持。
+
+转角两面各分长门/上门，共四块奶白18mm门板，默认关闭遮住内容；西门747mm、南门727mm，两外端收口10/70mm。门轴用外面角示意并明确板厚偏移，避免中心轴简化导致门板穿过收口/相邻台面；内嵌扣手不使用凸出旋钮。打开时先开西面，再开南面，关闭反向。连续361样本核对门板、固定板和其他家具的几何；错误同时开启与凸出旋钮均有碰撞负控。静态无碰撞和顺序动画不代表可施工：真实合页运动、门重、联动/限位、防夹、层板支撑、防倾倒与厂家净尺寸必须深化。约400mm浅柜不保证可步入或存入之前的两辆车。
+
+平面/3D属性有“打开转角柜门”，3D也可直接点门；开关随当前浏览器草稿保存、支持撤销。独立可逆生成层 `tools/family-corner-storage-20261012.cjs`；回归 `node tests/family-corner-storage-20261012.cjs` 与 `node tests/family-corner-storage-browser.cjs --self-host`。旧默认柜仅更新转角板件；自定义位置/颜色/名字和删除保留，自定义整柜尺寸则保留旧完整板件，不强行拼接新的转角组件。
+
 更新 house-design 快照：`node tools/convert-house-plans.cjs --source <原项目目录> --refresh-sources`。
 
 验证几何与脚本：`node tests/validate-import.cjs`。浏览器测试：先开启 4190 端口静态服务器，再运行 `node tests/integration.cjs`（需 Playwright；支持 `FLOORPLAN_NODE_MODULES`、`FLOORPLAN_CHROME`、`FLOORPLAN_BASE_URL` 环境变量）。

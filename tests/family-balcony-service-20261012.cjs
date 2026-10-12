@@ -4,6 +4,7 @@
 // generator. An outside guard concept must not silently enlarge the floor.
 const assert=require('node:assert/strict'),crypto=require('node:crypto'),fs=require('node:fs'),path=require('node:path');
 const {applyFamilyBalconyService,beforeFamilyBalconyService,REVISION}=require('../tools/family-balcony-service-20261012.cjs');
+const {beforeFamilyCornerStorage}=require('../tools/family-corner-storage-20261012.cjs');
 const root=path.resolve(__dirname,'..'),clone=structuredClone;
 const stable=v=>Array.isArray(v)?v.map(stable):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,stable(v[k])])):v;
 const hash=v=>crypto.createHash('sha256').update(JSON.stringify(stable(v))).digest('hex');
@@ -27,6 +28,7 @@ const partBox=(f,p)=>({x:f.cx+p.x,y:f.cy+p.y,z:(f.elevationMm||0)+p.elevationMm,
 const area=poly=>Math.abs(poly.reduce((s,p,i)=>s+p[0]*poly[(i+1)%poly.length][1]-poly[(i+1)%poly.length][0]*p[1],0))/2;
 
 function verifyFamilyBalconyService(bundle){
+ bundle=beforeFamilyCornerStorage(bundle);
  assert.equal(REVISION,'family-balcony-service-20261012');
  assert.equal(bundle.defaultScheme,'family');assert.equal(bundle.unit,'mm');
  const p=bundle.schemes.family,u=p.metadata.familyBalconyServiceUpdate;

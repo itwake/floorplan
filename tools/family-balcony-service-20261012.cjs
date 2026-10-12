@@ -3,6 +3,7 @@
 // Owner-requested Scheme 2 balcony concept. Exterior sheet-metal/guard
 // projections are NOT new floor slabs and do not increase the room area.
 const assert=require('node:assert/strict');
+const {beforeFamilyCornerStorage}=require('./family-corner-storage-20261012.cjs');
 const REVISION='family-balcony-service-20261012';
 const META_KEYS=['designCorrections','conditions','converter'];
 const ARCH_KEYS=['ROOMS','WIN_META'];
@@ -133,7 +134,7 @@ function applyFamilyBalconyService(bundle){
   return bundle;
 }
 function beforeFamilyBalconyService(value){
-  const out=clone(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyBalconyServiceUpdate;
+  const out=beforeFamilyCornerStorage(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyBalconyServiceUpdate;
   if(!m)return out;
   const original=new Map(m.previousFurniture.map(f=>[f.id,f])),current=new Map(p.defaultFurniture.map(f=>[f.id,f]));
   p.defaultFurniture=m.previousFurnitureOrder.map(id=>clone(original.get(id)||current.get(id)));
