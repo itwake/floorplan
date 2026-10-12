@@ -366,7 +366,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=corner-storage-20261012"></script>
+<script src="data/house-plans.js?v=ceiling-lighting-20261012"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -441,6 +441,7 @@ const LIB = [
     ['armchair','单人沙发',850,850,'#d6b99a'],['beanbag','懒人沙发',800,800,'#e0b98f'],['coffeetable','茶几',1300,650,'#e8dccb'],
     ['sidetable','边几',500,500,'#d9c3a3'],['tvstand','电视柜',2400,400,'#e2cfb4'],['rug','地毯',2400,1700,'#d9cbb8'],
     ['shoecab','鞋柜',1000,350,'#efe6d8'],['shoecab','玄关柜',1400,380,'#e6dccc'],['floorlamp','落地灯',450,450,'#3d3a34'],
+    ['ceilinglight','圆角长方吸顶灯907×577×110',907,577,'#F8F7F2'],
     ['plant','绿植',500,500,'#a9c39b'],['plant','大绿植',700,700,'#9dbb8c']]},
   {cat:'餐厨', items:[
     ['table','餐桌',1400,800,'#e2cfb4'],['table','六人餐桌',1800,900,'#d8c2a2'],['roundtable','圆桌',1000,1000,'#e2cfb4'],
@@ -468,14 +469,14 @@ const typeColor = t => { for (const c of LIB) for (const i of c.items) if (i[0]=
 // New appliance library entries are editable concept envelopes, not specified
 // products or installation clearances. Countertop equipment starts at the
 // current sideboard's 850-mm worktop; ceiling panel depth is only illustrative.
-const APPLIANCE_LIBRARY_HEIGHTS = {ceilingfan:80,bathheater:80,blender:460,temperaturekettle:300,sterilizer:420,healthkettle:280,waterdispenser:430,robotvacuum:500};
+const APPLIANCE_LIBRARY_HEIGHTS = {ceilingfan:80,bathheater:80,ceilinglight:110,blender:460,temperaturekettle:300,sterilizer:420,healthkettle:280,waterdispenser:430,robotvacuum:500};
 
 let _n = 1;
 const uid = () => 'f' + Date.now().toString(36) + (_n++);
 const F = (type,name,cx,cy,w,d,rot=0,color) => ({id:uid(),type,name,cx,cy,w,d,rot,color:color||typeColor(type)});
 
 function defaultFurniture(){ return structuredClone(HOUSE_PLAN.defaultFurniture); }
-function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate].filter(Boolean);}
+function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate].filter(Boolean);}
 function defaultState(){
   const rooms = {}; ROOMS.forEach(r => rooms[r.id] = {name:r.name, mat:r.mat});
   return {schemaVersion:2,projectId:'house-design',schemeId:SCHEME_ID,sourceVersion:PLAN_LIBRARY.version,
@@ -546,7 +547,7 @@ function upgradeConfirmedLayouts(s){
   // for defaults. New objects are inserted once; deleted objects stay deleted.
   const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
   const placementKeys=['cx','cy','w','d','rot','heightMm','elevationMm','name','color'];
-  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate].filter(Boolean)){
+  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate].filter(Boolean)){
     if(s.appliedLayoutRevisions?.includes(revision.id))continue;
     const kept=new Set(s.layoutMigrationKeptIds||[]);
     const beforeObjects=[...(revision.previousFurniture||[]),...(revision.previousEntryCabinet?[revision.previousEntryCabinet]:[])];
@@ -791,6 +792,19 @@ function furnSVG(t,w,d,c,variant){
       [.25,.5,.75].forEach(k => s += ln(x+w*k,y+d,x+w*k,y+d+200,`${DASH} opacity=".6"`));
       return s;
     }
+    case 'ceilinglight': {
+      // Dashed, transparent overhead projection remains selectable without
+      // capturing the whole table or rug beneath it. Only the outline and
+      // small centre cross have a screen-sized, stroke-only pointer target.
+      const r=Math.min(65,m*.12),cw=Math.min(w*.08,60),cd=Math.min(d*.08,45);
+      const hit='fill="none" stroke="#3d3a34" stroke-opacity="0" stroke-width="8" vector-effect="non-scaling-stroke" pointer-events="stroke"';
+      return `<g pointer-events="none">`
+        +rc(x,y,w,d,'#fff',`rx="${r}" ${DASH} fill-opacity=".12"`)
+        +rc(x+10,y+10,w-20,d-20,'none',`rx="${Math.max(1,r-10)}" ${DASH} opacity=".45"`)
+        +ln(-cw,0,cw,0,'opacity=".45"')+ln(0,-cd,0,cd,'opacity=".45"')
+        +`<rect data-ceilinglight-hit="outline" x="${x}" y="${y}" width="${w}" height="${d}" rx="${r}" ${hit}/>`
+        +`<path data-ceilinglight-hit="cross" d="M${-cw} 0H${cw}M0 ${-cd}V${cd}" ${hit}/></g>`;
+    }
     case 'ceilingfan': {
       let s=rc(x,y,w,d,c,`rx="18" ${DASH}`)+rc(x+w*.12,y+d*.12,w*.76,d*.76,'#d3d8d6','rx="12"');
       for(let k=0;k<7;k++)s+=ln(x+w*.2,y+d*(.2+k*.1),x+w*.8,y+d*(.2+k*.1));
@@ -845,7 +859,7 @@ function furnSVG(t,w,d,c,variant){
 }
 
 /* ======================= 渲染 ======================= */
-const NOLABEL = ['plant','floorlamp','sidetable','barstool','beanbag'];
+const NOLABEL = ['plant','floorlamp','sidetable','barstool','beanbag','ceilinglight'];
 function renderRooms(){
   let s = '';
   ROOMS.forEach(r => s += `<polygon class="room" data-room="${r.id}" points="${r.poly.map(p=>p.join(',')).join(' ')}" fill="url(#m-${state.rooms[r.id].mat})"/>`);
@@ -1267,6 +1281,7 @@ function furnPanel(f){
     </div></section>
   ${f.cornerDoorDesign?`<section class="project-note" data-corner-storage-control><b>${tr('转角800库 · 双面平开柜门','Corner pantry · paired hinged doors')}</b><p>${tr('关闭时遮住内部；打开时先开西侧，再开南侧，避免两面门板相碰。','Closed doors hide the storage. The west door opens before the south door to avoid leaf collision.')}</p><div class="actions"><button class="btn" id="toggleCornerDoors" aria-pressed="${Boolean(f.cornerDoorOpen)}">${f.cornerDoorOpen?tr('关闭转角柜门','Close corner doors'):tr('打开转角柜门','Open corner doors')}</button><button class="btn" id="viewCornerStorage3d">${tr('查看转角库3D','View corner pantry in 3D')}</button></div><small class="muted">${tr('开关状态随当前浏览器草稿保存，也可撤销；3D可直接点柜门。实际铰链、开角与安装间隙待定。','The door state is saved in this browser draft and supports undo; tap a door in 3D. Hardware, opening angles and fit clearances still require confirmation.')}</small></section>`:''}
   ${cabinetDesignPanel(f)}
+  ${f.type==='ceilinglight'?`<section class="project-note" data-ceilinglight-control><b>${tr('吸顶灯 · 顶部投影','Flush ceiling light · overhead projection')}</b><p>${tr('平面虚线为灯具投影，3D全高或室内仰视可见；剖切墙时隐藏高处灯体。灯光仅为效果示意，未校核照度。','The dashed plan shape is an overhead projection. View at full height or look up in 3D; low-wall cutaways hide the overhead body. Lighting is illustrative, not verified illuminance.')}</p><button class="btn" id="viewCeilingLight3d">${tr('全高仰视灯具3D','Look up in full-height 3D')}</button></section>`:''}
   ${f.applianceDesign?.revision?`<section class="project-note" data-appliance-placeholder><b>${tr('电器位置示意 · 型号待定','Appliance placeholder · model pending')}</b><br>${tr('当前外包与离地高度可编辑，不是已购型号或安装下单尺寸。请按实物说明书和现场条件复核。','Dimensions and elevation are editable placeholders, not purchased-product specifications or installation approval. Check the actual manual and site conditions.')}</section>`:''}
   <section class="muted" style="font-size:12px">${esc(f.notes||'')} ${f.conditions?f.conditions.map(esc).join('；'):''}</section>
   <section class="muted" style="font-size:12px">${tr('拖动家具移动；拖动上方圆点旋转；拖动右下角方块调整尺寸。开启「贴墙吸附」后靠近墙面会自动贴齐。', 'Drag to move; drag the top dot to rotate; drag the bottom-right square to resize. With "Wall snap" on, items snap flush to nearby walls.')}</section>`;
@@ -1305,6 +1320,11 @@ function bindFurnPanel(f){
     if(viewMode==='3d')window.View3D?.focusCornerStorage(f.id);
     closeDrawers();
   };
+  if($('#viewCeilingLight3d'))$('#viewCeilingLight3d').onclick=async()=>{
+    if(viewMode!=='3d')await setView('3d');
+    if(viewMode==='3d')window.View3D?.focusCeilingLight(f.id);
+    closeDrawers();
+  };
 }
 
 /* ======================= 操作 ======================= */
@@ -1334,7 +1354,7 @@ function addItem(it, x, y){
   const [type,name,w,d,color] = it, f = F(type,name,Math.round(x/10)*10,Math.round(y/10)*10,w,d,0,color);
   if(APPLIANCE_LIBRARY_HEIGHTS[type]){
     f.heightMm=APPLIANCE_LIBRARY_HEIGHTS[type];
-    const ceiling=['ceilingfan','bathheater'].includes(type),room=ROOMS.find(r=>{
+    const ceiling=['ceilingfan','bathheater','ceilinglight'].includes(type),room=ROOMS.find(r=>{
       if(r.counted===false)return false;
       let hit=false;for(let i=0,j=r.poly.length-1;i<r.poly.length;j=i++){
         const a=r.poly[i],b=r.poly[j];
@@ -1342,8 +1362,9 @@ function addItem(it, x, y){
       }return hit;
     });
     f.elevationMm=ceiling?Math.max(0,(room?.heightMm||HOUSE_PLAN.HEIGHT_MM)-f.heightMm):type==='robotvacuum'?0:850;
-    f.notes=[type==='robotvacuum'?'机器人与小型基站380×450×500mm为临时占位；落地安装，实际型号、上下水、插座及前方通路待核':ceiling?'吊顶面板为位置示意；机器嵌入体、吊顶净空及湿区适用性待选型核对':'台面电器尺寸及850mm离地为暂估；请核对实际型号、台面、散热与用电'];
+    f.notes=[type==='robotvacuum'?'机器人与小型基站380×450×500mm为临时占位；落地安装，实际型号、上下水、插座及前方通路待核':type==='ceilinglight'?'907×577×110mm为业主提供的客厅灯外包尺寸；离地按所在房间顶面减110mm示意。其他房间沿用造型和尺寸仅作占位，固定点、灯位、功率及照度待核':ceiling?'吊顶面板为位置示意；机器嵌入体、吊顶净空及湿区适用性待选型核对':'台面电器尺寸及850mm离地为暂估；请核对实际型号、台面、散热与用电'];
     if(type==='robotvacuum')f.modelVariant='compact-robot-dock';
+    if(type==='ceilinglight')f.modelVariant='rounded-rectangle-flush-light';
   }
   pushOut(f);
   ui.sel = {kind:'furn', id:f.id};
@@ -1801,12 +1822,18 @@ const opt = {cut:H, furn:true, labels:true, night:false, hour:10, mode:'orbit'};
 // Only the proposed exterior enclosure uses this plane. Original floors and
 // ordinary furniture do not gain clipping or an assumed extension slab.
 const balconyProjectionPlane=new THREE.Plane(new THREE.Vector3(0,-1,0),H);
+// This second plane belongs only to explicit ceiling-light meshes. Ordinary
+// furniture and the original architecture retain their existing cut rules.
+const ceilingLightingPlane=new THREE.Plane(new THREE.Vector3(0,-1,0),H);
 
 let inited = false, active = false, raf = 0, anim = null, fly = null;
 let renderer, labelRenderer, scene, camera, orbit, walkCtl, hemi, sun, ground, glassMat, wallMat, capMat, frameMat;
-let archFloor, archUp, furnG, labelG, lampG, colliders = [], selKey = null, selHelper = null;
+let archFloor, archUp, furnG, labelG, lampG, furnitureLampG, colliders = [], selKey = null, selHelper = null;
 let sigArch = '', sigFurn = '', sigLabels = '', grow = 1, furnGrow = 1;
 const doors = [], cabinetDoors = [], cabinetDoorControllers = new Map(), keys = {};
+// Separate from implicit room lamps so rebuilding cut walls does not discard
+// editable lamp emitters, and rebuilding furniture never duplicates them.
+const furnitureCeilingLights=[];
 
 /* ======================= 初始化 ======================= */
 function init(){
@@ -1844,8 +1871,8 @@ function init(){
   glassMat = new THREE.MeshPhysicalMaterial({color:0xcfe6ef, roughness:.05, transparent:true, opacity:.28, depthWrite:false, side:THREE.DoubleSide});
   wallMat = mat('#f4f1eb', {roughness:.92}); capMat = mat('#34312d', {roughness:.9}); frameMat = mat('#5d6166', {roughness:.5, metalness:.4});
 
-  archFloor = new THREE.Group(); archUp = new THREE.Group(); furnG = new THREE.Group(); labelG = new THREE.Group(); lampG = new THREE.Group();
-  scene.add(archFloor, archUp, furnG, labelG, lampG);
+  archFloor = new THREE.Group(); archUp = new THREE.Group(); furnG = new THREE.Group(); labelG = new THREE.Group(); lampG = new THREE.Group(); furnitureLampG = new THREE.Group();
+  scene.add(archFloor, archUp, furnG, labelG, lampG, furnitureLampG);
 
   const cv = renderer.domElement; let downAt = null, look = null;
   cv.addEventListener('pointerdown', e => {
@@ -2212,6 +2239,36 @@ function buildFurniture(f){
   switch (f.type){
     case 'fixture': {
       buildCabinetParts(g,f);
+      break;
+    }
+    case 'ceilinglight': {
+      // Photo-led flushmount, not a pendant or a rectangular box stretched
+      // into round corners. Every board is rounded in the horizontal plan;
+      // the chassis preserves the owner's complete W × D × H envelope.
+      const H=M(f.heightMm||110),radius=Math.min(.075,w*.20,d*.20),wall=Math.min(.007,w*.025,d*.025);
+      const innerW=w-2*wall,innerD=d-2*wall,innerRadius=Math.max(.001,radius-wall);
+      const owned=(parameters)=>{
+        const m=new THREE.MeshStandardMaterial({...parameters,clippingPlanes:[ceilingLightingPlane]});
+        m.userData.ceilingLightOwned=true;return m;
+      };
+      const frameMaterial=owned({color:f.lightingDesign?.frameColor||'#242424',metalness:.25,roughness:.38});
+      const diffuserMaterial=owned({color:c,roughness:.52});
+      const emitterMaterial=owned({color:'#fffdfa',emissive:'#fff1d8',emissiveIntensity:.25,roughness:.8,side:THREE.FrontSide});
+      const part=(o,role)=>{o.userData={role,modelVariant:'rounded-rectangle-flush-light',ceilingLightingCutMin:M(f.elevationMm||0)};g.add(o);return o;};
+      const solid=(W,D,height,material,y)=>{
+        const geo=new THREE.ExtrudeGeometry(rrect(W,D,radius-(w-W)/2),{depth:height,bevelEnabled:false,curveSegments:16});
+        geo.rotateX(-Math.PI/2);const o=mesh(geo,material);o.position.y=y;return o;
+      };
+      part(shell(w,d,H*.29,wall,radius,frameMaterial,0,H*.71,0),'ceilinglight-black-housing');
+      part(solid(w,d,H*.018,frameMaterial,H*.982),'ceilinglight-mount-backplate');
+      part(solid(innerW,innerD,H*.80- .002,diffuserMaterial,.002),'ceilinglight-white-diffuser');
+      // Keep the downward luminous face below the opal body's bottom cap:
+      // it is visible from the room, never an opaque lighting plane above it.
+      const faceGeometry=new THREE.ShapeGeometry(rrect(innerW,innerD,innerRadius),24);
+      faceGeometry.rotateX(Math.PI/2);
+      const face=part(mesh(faceGeometry,emitterMaterial),'ceilinglight-downward-face');
+      face.castShadow=false;
+      g.userData.ceilingLightingCutMin=M(f.elevationMm||0);
       break;
     }
     case 'hood': {
@@ -2897,7 +2954,11 @@ function buildFurniture(f){
 }
 
 /* ======================= 建筑 ======================= */
-function clearGroup(g){ g.traverse(o => { if (o.geometry) o.geometry.dispose(); }); g.clear(); }
+function clearGroup(g){
+  const ownedMaterials=new Set();
+  g.traverse(o => { if (o.geometry) o.geometry.dispose(); (Array.isArray(o.material)?o.material:[o.material]).filter(m=>m?.userData.ceilingLightOwned).forEach(m=>ownedMaterials.add(m)); });
+  ownedMaterials.forEach(m=>m.dispose());g.clear();
+}
 function wallBox([x0, y0, x1, y1], yb, yt, m){
   if (yt - yb <= .001) return;
   const o = new THREE.Mesh(new THREE.BoxGeometry(M(x1-x0), yt-yb, M(y1-y0)), m || [wallMat, wallMat, capMat, wallMat, wallMat, wallMat]);
@@ -2929,7 +2990,10 @@ function buildArch(){
     // 天花：法线朝下，只在室内仰视时可见
     const cg = new THREE.ShapeGeometry(shapeOf(r.poly, true)); cg.rotateX(Math.PI/2);
     const ceil = new THREE.Mesh(cg, mat('#fbfaf7', {roughness:1})); const roomTop=bay?M((r.sillMm||0)+r.heightMm):M(r.heightMm||HOUSE_PLAN.HEIGHT_MM); ceil.position.y=roomTop; ceil.visible=top>=roomTop; archUp.add(ceil);
-    if (r.at){
+    // The revision, rather than current editable lamp presence, suppresses
+    // the old implicit living lamp. Deleting a new lamp must not resurrect it.
+    const explicitLivingLighting=HOUSE_PLAN.metadata.familyCeilingLightingUpdate?.disabledImplicitRoomLampIds?.includes(r.id);
+    if (r.at&&!explicitLivingLighting){
       const lamp = new THREE.Mesh(new THREE.CylinderGeometry(.22, .22, .02, 32), new THREE.MeshStandardMaterial({color:'#fff', emissive:'#fff2d6', emissiveIntensity:.3}));
       lamp.position.set(wx(r.at[0]),roomTop-.012,wz(r.at[1]));lamp.visible=top>=roomTop; lampG.add(lamp);
       const pl = new THREE.PointLight(0xffd9a8, 0, 7, 1.6); pl.position.set(wx(r.at[0]),roomTop-.25,wz(r.at[1])); lampG.add(pl);
@@ -3023,9 +3087,25 @@ function buildFurn(){
   // Architecture cut-height rebuilds must not discard cabinet pivots. Only a
   // furniture rebuild replaces this independent registry and its controllers.
   cabinetDoors.length=0;cabinetDoorControllers.clear();
+  furnitureCeilingLights.length=0;clearGroup(furnitureLampG);
   clearGroup(furnG);
-  state.furniture.forEach(f => furnG.add(buildFurniture(f)));
-  furnG.visible = opt.furn; selKey = null; applyGrow();
+  state.furniture.forEach(f => {
+    const group=buildFurniture(f);furnG.add(group);
+    if(f.type==='ceilinglight'){
+      const face=group.children.find(o=>o.userData.role==='ceilinglight-downward-face');
+      furnitureCeilingLights.push({fid:f.id,group,face,light:null});
+    }
+  });
+  // Lights live outside cutaway furniture so low-wall/night views still have
+  // illumination. Their positions come from the actual edited fixture mesh.
+  furnG.updateMatrixWorld(true);
+  furnitureCeilingLights.forEach(entry=>{
+    const light=new THREE.PointLight(0xffedd2,0,7,1.6);
+    light.position.copy(entry.group.localToWorld(new THREE.Vector3(0,-.08,0)));
+    light.userData={role:'ceilinglight-illumination',fid:entry.fid,modelVariant:'rounded-rectangle-flush-light',lightingStatus:'illustrative-not-lux-verified'};
+    furnitureLampG.add(light);entry.light=light;
+  });
+  furnG.visible = opt.furn; selKey = null; applyGrow();applyLight();
 }
 
 function buildLabels(){
@@ -3072,7 +3152,11 @@ function toggleDoor(d){
 }
 function syncProjectionCut(){
   balconyProjectionPlane.constant=opt.cut;
-  furnG.traverse(o=>{if(o.userData.balconyProjectionCutMin!==undefined)o.visible=o.userData.balconyProjectionCutMin<opt.cut;});
+  ceilingLightingPlane.constant=opt.cut;
+  furnG.traverse(o=>{
+    if(o.userData.balconyProjectionCutMin!==undefined)o.visible=o.userData.balconyProjectionCutMin<opt.cut;
+    if(o.userData.ceilingLightingCutMin!==undefined)o.visible=o.userData.ceilingLightingCutMin<opt.cut;
+  });
 }
 
 // CSS2DRenderer 只看标签自身的 visible，不继承父级，所以逐个设置
@@ -3082,6 +3166,7 @@ function applyGrow(){
   archUp.scale.y = Math.max(grow, .001);
   furnG.scale.y = Math.max(furnGrow, .001);
   lampG.visible = grow > .99;
+  furnitureLampG.visible=grow>.99&&furnGrow>.99&&opt.furn;
 }
 
 /* ======================= 日照 / 夜景 ======================= */
@@ -3094,6 +3179,7 @@ function applyLight(){
   scene.background = new THREE.Color(opt.night ? 0x1c2130 : 0xf7f4ee);
   ground.material.color.set(opt.night ? 0x2a2e38 : 0xf2eee7);
   lampG.children.forEach(o => { if (o.isPointLight) o.intensity = opt.night ? 6 : 0; else o.material.emissiveIntensity = opt.night ? 2 : .3; });
+  furnitureCeilingLights.forEach(entry=>{entry.face.material.emissiveIntensity=opt.night?2:.25;entry.light.intensity=opt.night?6:0;});
   renderer.toneMappingExposure = opt.night ? 1.25 : 1.05;
   envK = opt.night ? .15 : 1; matCache.forEach(m => { if (m.envMap) m.envMapIntensity = m.userData.env*envK; });
   const h = Math.floor(opt.hour), m = Math.round((opt.hour - h)*60);
@@ -3133,11 +3219,12 @@ function setCameraFov(fov=FOV){
   const next=THREE.MathUtils.clamp(fov,30,100);
   if(camera.fov!==next){camera.fov=next;camera.updateProjectionMatrix();}
 }
-function flyTo(B, dur = 900, minDistance = 1.5, fov=FOV){
-  // Only the compact corner inspection uses a wide-angle lens. Ordinary
-  // room, cabinet and whole-home flights always restore the standard lens.
+function flyTo(B, dur = 900, minDistance = 1.5, fov=FOV, allowUpward=false){
+  // Corner/lamp inspections use their own lens. Ordinary room, cabinet
+  // and whole-home flights always restore the standard lens and orbit range.
   setCameraFov(fov);
   orbit.minDistance = minDistance;
+  orbit.maxPolarAngle=allowUpward?Math.PI*.97:Math.PI*.495;
   fly = {t0:performance.now(), dur, A:curPose(), B};
 }
 function flyToRoom(id){
@@ -3150,6 +3237,7 @@ function flyToRoom(id){
 }
 function flyToFurniture(id){
   const f=getF(id);if(!f || !active || anim)return;
+  if(f.type==='ceilinglight'){focusCeilingLight(id);return;}
   if(opt.mode==='walk')setMode('orbit');
   if(id==='fit-entry_shoe_station'){
     const entry=doors.find(door=>door.entry);
@@ -3202,6 +3290,33 @@ function focusCornerStorage(id){
   flyTo(pose(new THREE.Vector3(wx(fx),targetY,wz(fy)),new THREE.Vector3(wx(fx+dx),targetY+(f.cornerDoorOpen ? .05 : .35),wz(fy+dy))),1000,.6,f.cornerDoorOpen ? 95 : 55);
   return true;
 }
+function focusCeilingLight(id){
+  const f=getF(id);if(f?.type!=='ceilinglight'||!active||anim)return false;
+  if(opt.mode==='walk')setMode('orbit');
+  // The labelled inspection action restores full walls to show the actual
+  // ceiling mount. It never changes the saved lamp dimensions or elevation.
+  opt.cut=H;syncCutBtns();opt.furn=true;
+  document.querySelector('[data-t="furn"]')?.classList.add('on');sync();applyGrow();
+  showLabels(false);opt.labels=false;document.querySelector('[data-t="labels"]')?.classList.remove('on');
+  const inside=(r,x,y)=>{
+    let hit=false;for(let i=0,j=r.poly.length-1;i<r.poly.length;j=i++){
+      const a=r.poly[i],b=r.poly[j];if((a[1]>y)!==(b[1]>y)&&x<(b[0]-a[0])*(y-a[1])/(b[1]-a[1])+a[0])hit=!hit;
+    }return hit;
+  };
+  const room=ROOMS.find(r=>r.counted!==false&&inside(r,f.cx,f.cy)),bottom=M(f.elevationMm||0);
+  const target=new THREE.Vector3(wx(f.cx),bottom+.02,wz(f.cy)),eyeY=Math.max(.6,bottom-1.15);
+  const offsets=[[850,950],[-850,950],[850,-950],[-850,-950],[0,1000],[1000,0],[0,-1000],[-1000,0]];
+  const open=offsets.find(([dx,dy])=>{
+    const x=f.cx+dx,y=f.cy+dy;if(room&&!inside(room,x,y))return false;
+    if(blocked(wx(x),wz(y),.12))return false;
+    return !state.furniture.some(other=>{
+      if(other.id===id||M((other.elevationMm||0)+(other.heightMm||800))<eyeY)return false;
+      const b=aabb(other);return Math.abs(x-other.cx)<b.hw+100&&Math.abs(y-other.cy)<b.hh+100;
+    });
+  })||[0,500];
+  flyTo(pose(target,new THREE.Vector3(wx(f.cx+open[0]),eyeY,wz(f.cy+open[1]))),1000,.45,55,true);
+  return true;
+}
 
 /* ======================= 进入 / 退出 3D ======================= */
 async function enter(){
@@ -3209,7 +3324,7 @@ async function enter(){
   setCameraFov();
   renderer.setSize(SW(), SH()); labelRenderer.setSize(SW(), SH()); camera.aspect = SW()/SH(); camera.updateProjectionMatrix();
   sync(true);
-  opt.mode = 'orbit'; orbit.minDistance = 1.5; orbit.enabled = false; showLabels(false);
+  opt.mode = 'orbit'; orbit.minDistance = 1.5; orbit.maxPolarAngle=Math.PI*.495; orbit.enabled = false; showLabels(false);
   const A = planPose(), B = isoFrom(A);
   grow = 0; furnGrow = 0; applyGrow(); setPose(A);
   stage.classList.add('animating');
@@ -3294,7 +3409,11 @@ function updateSel(){
     const g = key && furnG.children.find(g => g.userData.fid === key);
     if (g){ selHelper = new THREE.BoxHelper(g, 0xb5653a); scene.add(selHelper); }
   }
-  if (selHelper) selHelper.update();
+  if (selHelper){
+    const selected=furnG.children.find(g=>g.userData.fid===key);
+    if(selected?.userData.ceilingLightingCutMin!==undefined)selHelper.visible=selected.visible&&opt.furn;
+    selHelper.update();
+  }
 }
 
 /* ======================= 漫游 ======================= */
@@ -3411,7 +3530,7 @@ function bindUI(){
   document.querySelectorAll('[data-cut]').forEach(b => b.onclick = () => { if (opt.mode === 'walk') return; opt.cut = +b.dataset.cut; syncCutBtns(); sync(); });
   document.querySelectorAll('#toggles3d .btn').forEach(b => b.onclick = () => {
     const k = b.dataset.t; opt[k] = !opt[k]; b.classList.toggle('on', opt[k]);
-    if (k === 'furn'){ furnG.visible = opt.furn; if (!opt.furn && ui.sel?.kind === 'furn') window.select(null); }
+    if (k === 'furn'){ furnG.visible = opt.furn;applyGrow(); if (!opt.furn && ui.sel?.kind === 'furn') window.select(null); }
     if (k === 'labels') showLabels(opt.labels && opt.mode === 'orbit' && !anim);
     if (k === 'night') applyLight();
   });
@@ -3440,7 +3559,7 @@ function shot(){ const a = document.createElement('a'); a.download = tr('户型�
 
 function relang(){ syncWalkTexts(); if (inited) buildLabels(); }
 
-window.View3D = {enter, exit, relang, sync:() => sync(), shot, groundAt, flyToRoom:id => active && !anim && flyToRoom(id), flyToFurniture, focusCornerStorage, toggleCabinetDoors, walking:() => active && opt.mode === 'walk'};
+window.View3D = {enter, exit, relang, sync:() => sync(), shot, groundAt, flyToRoom:id => active && !anim && flyToRoom(id), flyToFurniture, focusCornerStorage, focusCeilingLight, toggleCabinetDoors, walking:() => active && opt.mode === 'walk'};
 // A shareable 3D entry point; ordinary editor links still start in 2D.
 if (new URLSearchParams(location.search).get('view') === '3d') requestAnimationFrame(() => setView('3d'));
 </script>

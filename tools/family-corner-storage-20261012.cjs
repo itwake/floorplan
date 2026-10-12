@@ -3,6 +3,7 @@
 // Reuse the current shallow L footprint. "800库" is the owner's reference
 // style, not a new walk-in room or a claim that the former two vehicles fit.
 const assert=require('node:assert/strict');
+const {beforeFamilyCeilingLighting}=require('./family-ceiling-lighting-20261012.cjs');
 const REVISION='family-corner-storage-20261012';
 const CABINET_ID='fit-dining_sideboard_wall';
 const META_KEYS=['designCorrections','conditions','converter'];
@@ -132,7 +133,7 @@ function applyFamilyCornerStorage(bundle){
   return bundle;
 }
 function beforeFamilyCornerStorage(value){
-  const out=clone(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyCornerStorageUpdate;
+  const out=beforeFamilyCeilingLighting(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyCornerStorageUpdate;
   if(!m)return out;
   const original=new Map(m.previousFurniture.map(f=>[f.id,f])),current=new Map(p.defaultFurniture.map(f=>[f.id,f]));
   p.defaultFurniture=m.previousFurnitureOrder.map(id=>clone(original.get(id)||current.get(id)));

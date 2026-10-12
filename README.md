@@ -174,6 +174,14 @@ python3 -m http.server 8000
 
 平面/3D属性有“打开转角柜门”，3D也可直接点门；开关随当前浏览器草稿保存、支持撤销。独立可逆生成层 `tools/family-corner-storage-20261012.cjs`；回归 `node tests/family-corner-storage-20261012.cjs` 与 `node tests/family-corner-storage-browser.cjs --self-host`。旧默认柜仅更新转角板件；自定义位置/颜色/名字和删除保留，自定义整柜尺寸则保留旧完整板件，不强行拼接新的转角组件。
 
+### 2026-10-12 · 方案2客餐厅吸顶灯
+
+客厅改照片参考的黑色细边、白色圆角长方形吸顶灯，业主提供外包907×577×110mm，放在当前地毯中心(5075,7630)。餐厅独立增一盏同风格同尺寸暂定占位灯，居LISABO餐桌中心(2955,11000)，长边随桌旋转90°；没有推定餐厅型号或已购买。按当前模型层高2700贴顶、灯底2590mm。仅方案2增加两件可编辑灯具，原60件物品、房间墙门窗和另外三套方案完整保持。
+
+旧客餐厅圆形隐式灯及其光源停用，用户删除新灯也不会重生旧灯。平面有高位虚线灯符号，选中可改尺寸、位置、颜色；“全高仰视灯具3D”可看灯罩，普通低切墙视图隐藏高位灯以免遮挡户型。两灯有独立夜景示意光源，亮度、色温、光学和安装均非厂家规格或施工许可；真实吊顶完成面及电线点位待核。
+
+独立可逆层 `tools/family-ceiling-lighting-20261012.cjs`；回归 `node tests/family-ceiling-lighting-20261012.cjs` 和 `node tests/family-ceiling-lighting-browser.cjs --self-host`。旧草稿只加入新灯一次，现有自定义摆位、尺寸、删除和空草稿保持；重置才恢复当前默认。
+
 更新 house-design 快照：`node tools/convert-house-plans.cjs --source <原项目目录> --refresh-sources`。
 
 验证几何与脚本：`node tests/validate-import.cjs`。浏览器测试：先开启 4190 端口静态服务器，再运行 `node tests/integration.cjs`（需 Playwright；支持 `FLOORPLAN_NODE_MODULES`、`FLOORPLAN_CHROME`、`FLOORPLAN_BASE_URL` 环境变量）。

@@ -4,6 +4,7 @@
 // This is a local cabinet conversion, not a new room or a restored old store.
 const assert=require('node:assert/strict'),crypto=require('node:crypto'),fs=require('node:fs'),path=require('node:path');
 const {applyFamilyCornerStorage,beforeFamilyCornerStorage,REVISION}=require('../tools/family-corner-storage-20261012.cjs');
+const {beforeFamilyCeilingLighting}=require('../tools/family-ceiling-lighting-20261012.cjs');
 const root=path.resolve(__dirname,'..'),clone=structuredClone;
 const stable=v=>Array.isArray(v)?v.map(stable):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,stable(v[k])])):v;
 const hash=v=>crypto.createHash('sha256').update(JSON.stringify(stable(v))).digest('hex');
@@ -57,6 +58,7 @@ function auditCornerDoorSweeps(plan,cabinet){
 }
 
 function verifyFamilyCornerStorage(bundle){
+ bundle=beforeFamilyCeilingLighting(bundle);
  assert.equal(REVISION,'family-corner-storage-20261012');
  assert.equal(bundle.defaultScheme,'family');assert.equal(bundle.unit,'mm');
  const p=bundle.schemes.family,u=p.metadata.familyCornerStorageUpdate;
