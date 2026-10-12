@@ -4,6 +4,7 @@
 // New numbers for the unmeasured study window remain explicitly provisional.
 const assert=require('node:assert/strict'),crypto=require('node:crypto'),fs=require('node:fs'),path=require('node:path');
 const {applyFamilyLightingStudyRefinement,beforeFamilyLightingStudyRefinement,REVISION}=require('../tools/family-lighting-study-refinement-20261012.cjs');
+const {beforeFamilyCornerDoor180}=require('../tools/family-corner-door-180-20261012.cjs');
 const root=path.resolve(__dirname,'..'),clone=structuredClone;
 const stable=v=>Array.isArray(v)?v.map(stable):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,stable(v[k])])):v;
 const hash=v=>crypto.createHash('sha256').update(JSON.stringify(stable(v))).digest('hex');
@@ -22,6 +23,7 @@ const sourceSnapshotHashes=Object.freeze({
 const ids=['family-living-ceilinglight','family-dining-ceilinglight','family-acwall-room_c'];
 const architectureKeys=['ROOMS','WALLS','WALL_META','WINS','DOORS','SLIDES','BAYS'];
 function verifyFamilyLightingStudyRefinement(bundle){
+ bundle=beforeFamilyCornerDoor180(bundle);
  assert.equal(REVISION,'family-lighting-study-refinement-20261012');
  const p=bundle.schemes.family,m=p.metadata.familyLightingStudyRefinement,old=beforeFamilyLightingStudyRefinement(p),oldBundle=beforeFamilyLightingStudyRefinement(bundle);
  assert.equal(m?.id,REVISION);assert.equal(m.date,'2026-10-12');assert.equal(m.sourceSnapshotsUnchanged,true);

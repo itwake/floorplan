@@ -3,6 +3,7 @@
 // Scheme 2 owner corrections. The lower study window is a labelled estimate,
 // not a newly surveyed dimension or approved AC installation.
 const assert=require('node:assert/strict');
+const {beforeFamilyCornerDoor180}=require('./family-corner-door-180-20261012.cjs');
 const {isDeepStrictEqual}=require('node:util');
 const REVISION='family-lighting-study-refinement-20261012';
 const IDS=['family-living-ceilinglight','family-dining-ceilinglight','family-acwall-room_c'];
@@ -68,7 +69,7 @@ function applyFamilyLightingStudyRefinement(bundle){
   return bundle;
 }
 function beforeFamilyLightingStudyRefinement(value){
-  const out=clone(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyLightingStudyRefinement;
+  const out=beforeFamilyCornerDoor180(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyLightingStudyRefinement;
   if(!m)return out;
   const old=new Map(m.previousFurniture.map(f=>[f.id,f])),current=new Map(p.defaultFurniture.map(f=>[f.id,f]));
   p.defaultFurniture=m.previousFurnitureOrder.map(id=>clone(old.get(id)||current.get(id)));

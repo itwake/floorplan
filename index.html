@@ -366,7 +366,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=lighting-study-refinement-20261012"></script>
+<script src="data/house-plans.js?v=corner-door-180-20261012"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -476,7 +476,7 @@ const uid = () => 'f' + Date.now().toString(36) + (_n++);
 const F = (type,name,cx,cy,w,d,rot=0,color) => ({id:uid(),type,name,cx,cy,w,d,rot,color:color||typeColor(type)});
 
 function defaultFurniture(){ return structuredClone(HOUSE_PLAN.defaultFurniture); }
-function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement].filter(Boolean);}
+function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update].filter(Boolean);}
 function defaultState(){
   const rooms = {}; ROOMS.forEach(r => rooms[r.id] = {name:r.name, mat:r.mat});
   return {schemaVersion:2,projectId:'house-design',schemeId:SCHEME_ID,sourceVersion:PLAN_LIBRARY.version,
@@ -547,7 +547,7 @@ function upgradeConfirmedLayouts(s){
   // for defaults. New objects are inserted once; deleted objects stay deleted.
   const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
   const placementKeys=['cx','cy','w','d','rot','heightMm','elevationMm','name','color'];
-  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement].filter(Boolean)){
+  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update].filter(Boolean)){
     if(s.appliedLayoutRevisions?.includes(revision.id))continue;
     const kept=new Set(s.layoutMigrationKeptIds||[]);
     const beforeObjects=[...(revision.previousFurniture||[]),...(revision.previousEntryCabinet?[revision.previousEntryCabinet]:[])];
@@ -565,6 +565,12 @@ function upgradeConfirmedLayouts(s){
       }
       const fresh=HOUSE_PLAN.defaultFurniture.find(q=>q.id===f.id);
       if(!fresh)continue;
+      // Keep an intentionally edited private cabinet assembly intact rather
+      // than retaining old 90-degree doors under a new 180-degree design label.
+      // An edited envelope with original boards still receives the hinge update.
+      if(revision.preserveCustomPartsIds?.includes(f.id)&&!same(f.parts,before.parts)&&!same(f.parts,fresh.parts)){
+        kept.add(f.id);f.layoutCustomPartsRevision=revision.id;continue;
+      }
       // A custom-sized desk/bookwall remains an intact user assembly. Do not
       // replace its boards or move its centre while preserving only its width.
       if(revision.preserveCustomSizeIds?.includes(f.id)&&['w','d','heightMm'].some(key=>!same(f[key],before[key])&&!same(f[key],fresh[key]))){
@@ -667,6 +673,145 @@ function aabb(f){ const a = f.rot*Math.PI/180, c = Math.abs(Math.cos(a)), s = Ma
 const fmt = (n, d=2) => n.toFixed(d);
 const norm = a => ((Math.round(a) % 360) + 360) % 360;
 function snapRects(){ return WALLS.filter((w,i) => !state.demolished.includes('w'+i)).concat(WINS); }
+
+// The 180-degree corner doors share the dining chair's normal footprint.
+// These checks describe only the editable model, not certified hinge hardware
+// or an installation clearance. Keep the eating position until an explicit
+// temporary-parking action, and never resurrect a chair deleted from a draft.
+function cornerRect(cx,cy,w,d,rot=0){
+  const a=rot*Math.PI/180,c=Math.cos(a),s=Math.sin(a);
+  return [[-w/2,-d/2],[w/2,-d/2],[w/2,d/2],[-w/2,d/2]].map(([x,y])=>[cx+x*c-y*s,cy+x*s+y*c]);
+}
+function cornerPolysOverlap(a,b){
+  for(const poly of [a,b])for(let i=0;i<poly.length;i++){
+    const p=poly[i],q=poly[(i+1)%poly.length],ax=-(q[1]-p[1]),ay=q[0]-p[0];
+    let a0=Infinity,a1=-Infinity,b0=Infinity,b1=-Infinity;
+    for(const v of a){const t=v[0]*ax+v[1]*ay;a0=Math.min(a0,t);a1=Math.max(a1,t);}
+    for(const v of b){const t=v[0]*ax+v[1]*ay;b0=Math.min(b0,t);b1=Math.max(b1,t);}
+    if(a1<=b0+1e-6||b1<=a0+1e-6)return false;
+  }
+  return true;
+}
+function cornerFurnitureZ(f){return [f.elevationMm||0,(f.elevationMm||0)+(f.heightMm||f.h||800)];}
+function cornerZOverlap(a,b){return Math.min(a[1],b[1])-Math.max(a[0],b[0])>1e-6;}
+function cornerLocalToWorld(f,x,y){
+  const a=(f.rot||0)*Math.PI/180,c=Math.cos(a),s=Math.sin(a);
+  return [f.cx+x*c-y*s,f.cy+x*s+y*c];
+}
+function cornerChairBlocks(f,chair){
+  const spec=f?.cornerDoorDesign?.operatingChair;
+  if(!spec)return false;
+  chair=chair===undefined?getF(spec.id):chair;
+  if(!chair)return false;
+  const cp=cornerRect(chair.cx,chair.cy,chair.w,chair.d,chair.rot),cz=cornerFurnitureZ(chair);
+  const sx=f.w/(f.baseWidthMm||f.w),sd=f.d/(f.baseDepthMm||f.d),sh=f.heightMm/(f.baseHeightMm||f.heightMm);
+  for(const part of f.parts||[]){
+    const d=part.cabinetDoor;if(!d)continue;
+    const z=[(f.elevationMm||0)+part.elevationMm*sh,(f.elevationMm||0)+(part.elevationMm+part.heightMm)*sh];
+    if(!cornerZOverlap(z,cz))continue;
+    const cv=[d.closedDirection[0]*sx,d.closedDirection[1]*sd],ov=[d.openDirection[0]*sx,d.openDirection[1]*sd],a0=Math.atan2(cv[1],cv[0]);
+    let sweep=Number.isFinite(d.openingSweepDegrees)?d.openingSweepDegrees*Math.PI/180:Math.atan2(ov[1],ov[0])-a0;
+    if(!Number.isFinite(d.openingSweepDegrees)){while(sweep>Math.PI)sweep-=2*Math.PI;while(sweep<-Math.PI)sweep+=2*Math.PI;}
+    const length=d.lengthMm*Math.hypot(...cv),ns=Math.hypot(d.closedDirection[1]*sx,d.closedDirection[0]*sd),thick=(d.thicknessMm||18)*ns,offset=(d.normalOffsetMm||0)*ns,hx=d.hingeMm[0]*sx,hy=d.hingeMm[1]*sd;
+    // Half-degree samples plus a conservative half-step travel reserve avoid
+    // a narrow overlap falling between angular samples.
+    const steps=Math.max(1,Math.ceil(Math.abs(sweep)*180/Math.PI*2)),reserve=(length+Math.abs(offset)+thick)*Math.abs(sweep)/steps/2;
+    for(let i=0;i<=steps;i++){
+      const a=a0+sweep*i/steps,c=Math.cos(a),s=Math.sin(a);
+      const local=cornerRect(hx+length*c/2-offset*s,hy+length*s/2+offset*c,length+2*reserve,thick+2*reserve,a*180/Math.PI);
+      if(cornerPolysOverlap(local.map(([x,y])=>cornerLocalToWorld(f,x,y)),cp))return true;
+    }
+  }
+  return false;
+}
+function cornerChairPose(chair){
+  const pose={cx:chair.cx,cy:chair.cy,rot:chair.rot,w:chair.w,d:chair.d,hasSourceFootprintMm:Object.hasOwn(chair,'sourceFootprintMm')};
+  if(pose.hasSourceFootprintMm)pose.sourceFootprintMm=structuredClone(chair.sourceFootprintMm);
+  return pose;
+}
+function cornerChairAtPose(chair,pose){return Boolean(chair&&pose&&['cx','cy','rot'].every(k=>Math.abs(chair[k]-pose[k])<1e-6));}
+function cornerUpdateChairFootprint(chair){
+  if(!Object.hasOwn(chair,'sourceFootprintMm'))return;
+  const {hw,hh}=aabb(chair),clean=n=>Math.round(n*1000)/1000;
+  chair.sourceFootprintMm={x:clean(chair.cx-hw),y:clean(chair.cy-hh),w:clean(hw*2),d:clean(hh*2)};
+}
+function cornerParkingBlocked(f,chair){
+  const cp=cornerRect(chair.cx,chair.cy,chair.w,chair.d,chair.rot),cz=cornerFurnitureZ(chair);
+  for(const other of state.furniture){
+    if(other.id===chair.id||other.type==='rug')continue;
+    if(other.type==='fixture'&&Array.isArray(other.parts)){
+      const sx=other.w/(other.baseWidthMm||other.w),sd=other.d/(other.baseDepthMm||other.d),sh=other.heightMm/(other.baseHeightMm||other.heightMm);
+      for(const p of other.parts){
+        if(p.cabinetDoor&&other.id===f.id)continue; // checked over its full sweep above
+        const z=[(other.elevationMm||0)+p.elevationMm*sh,(other.elevationMm||0)+(p.elevationMm+p.heightMm)*sh];
+        if(!cornerZOverlap(cz,z))continue;
+        const center=cornerLocalToWorld(other,(p.x+p.w/2)*sx,(p.y+p.d/2)*sd);
+        if(cornerPolysOverlap(cp,cornerRect(center[0],center[1],p.w*sx,p.d*sd,other.rot)))return true;
+      }
+    }else if(cornerZOverlap(cz,cornerFurnitureZ(other))&&cornerPolysOverlap(cp,cornerRect(other.cx,other.cy,other.w,other.d,other.rot)))return true;
+  }
+  for(let i=0;i<WALLS.length;i++){
+    if(state.demolished.includes('w'+i))continue;
+    const w=WALLS[i],height=WALL_META[i]?.heightMm||HOUSE_PLAN.HEIGHT_MM;
+    if(cornerZOverlap(cz,[0,height])&&cornerPolysOverlap(cp,R(w[0],w[1],w[2],w[3])))return true;
+  }
+  return false;
+}
+function cornerBlockedToast(){toast(tr('先临时移开南侧餐椅，再开关180°柜门；用餐椅位不会自动改变。','Temporarily move the south dining chair before opening or closing the 180° doors. Its dining position stays unchanged until you choose to move it.'));}
+function toggleCornerCabinetDoors(fid){
+  const f=getF(fid);if(!f?.cornerDoorDesign)return false;
+  if(cornerChairBlocks(f)){cornerBlockedToast();return false;}
+  if(viewMode==='3d')return Boolean(window.View3D?.toggleCabinetDoors(fid));
+  mutate(()=>f.cornerDoorOpen=!f.cornerDoorOpen);return true;
+}
+function prepareCornerChair(fid){
+  const f=getF(fid),spec=f?.cornerDoorDesign?.operatingChair;
+  if(!spec)return false;
+  const wasOpen=Boolean(f.cornerDoorOpen);
+  if(wasOpen&&!cornerChairBlocks(f)){toast(tr('柜门已打开，餐椅也已让出开关空间。','The doors are already open and the chair is outside the sweep.'));return false;}
+  const chair=getF(spec.id);if(!chair)return toggleCornerCabinetDoors(fid);
+  const previous=f.cornerChairParking;
+  const sx=f.w/(f.baseWidthMm||f.w),sd=f.d/(f.baseDepthMm||f.d),relative=spec.relativeMm;
+  const target=Array.isArray(relative)?cornerLocalToWorld(f,relative[0]*sx,relative[1]*sd):[spec.cx,spec.cy];
+  const parked={...chair,cx:target[0],cy:target[1]};
+  if(cornerChairBlocks(f,parked)||cornerParkingBlocked(f,parked)){toast(tr('当前自定义尺寸或布置无法安全使用临时椅位，请先手动腾出位置。','The current custom dimensions or layout block the temporary chair position. Please clear a position manually.'));return false;}
+  // An explicit preparation may also move a chair that the user subsequently
+  // placed elsewhere. Record that current pose, rather than its stale origin.
+  const before=snap(),original=previous&&cornerChairAtPose(chair,previous.parked)?previous.original:cornerChairPose(chair);
+  chair.cx=parked.cx;chair.cy=parked.cy;cornerUpdateChairFootprint(chair);
+  f.cornerChairParking={chairId:chair.id,original,parked:cornerChairPose(chair)};
+  if(wasOpen){commit(before);renderAll();}
+  else if(viewMode==='3d'){
+    // Rebuild the relocated chair with the cabinet still closed, then animate
+    // the sequential opening. The move and opening share one undo snapshot.
+    renderAll();
+    if(!window.View3D?.toggleCabinetDoors(fid,before)){state=JSON.parse(before);renderAll();return false;}
+  }else{f.cornerDoorOpen=true;commit(before);renderAll();}
+  return true;
+}
+function restoreCornerChair(fid){
+  const f=getF(fid),parking=f?.cornerChairParking;if(!parking)return false;
+  if(f.cornerDoorOpen){toast(tr('请先关闭柜门，再恢复用餐椅位。','Close the cabinet doors before restoring the dining chair.'));return false;}
+  if(viewMode==='3d'&&window.View3D?.cornerDoorsClosed&&!window.View3D.cornerDoorsClosed(fid)){toast(tr('柜门正在关合，请等完全关闭后再恢复餐椅。','Wait until the doors have fully closed before restoring the chair.'));return false;}
+  const chair=getF(parking.chairId);
+  if(chair&&!cornerChairAtPose(chair,parking.parked)){toast(tr('餐椅已被手动移动，不会覆盖你的新位置。','The chair has been moved manually. Your new position will not be overwritten.'));return false;}
+  mutate(()=>{
+    if(chair){
+      for(const key of ['cx','cy','rot'])chair[key]=parking.original[key];
+      if(parking.original.hasSourceFootprintMm){
+        chair.sourceFootprintMm=structuredClone(parking.original.sourceFootprintMm);
+        if(chair.w!==parking.original.w||chair.d!==parking.original.d)cornerUpdateChairFootprint(chair);
+      }else delete chair.sourceFootprintMm;
+    }
+    delete f.cornerChairParking;
+  });
+  return true;
+}
+function cornerStorageControls(f){
+  if(!f.cornerDoorDesign)return '';
+  const is180=f.cornerDoorDesign.hingeOpeningDegrees===180,chair=f.cornerDoorDesign.operatingChair,blocked=cornerChairBlocks(f);
+  return `<section class="project-note" data-corner-storage-control><b>${is180?tr('转角800库 · 双面180°柜门','Corner pantry · paired 180° doors'):tr('转角800库 · 双面平开柜门','Corner pantry · paired hinged doors')}</b><p>${tr('关闭时遮住内部；先开西侧，再开南侧；关闭顺序相反。','Closed doors hide the storage. Open the west door before the south door; close them in reverse order.')}</p>${chair?`<p data-corner-chair-warning>${blocked?tr('南侧餐椅处于开关门扫掠区。请先临时移椅；完全关闭柜门后可单独恢复用餐椅位。','The south dining chair is in the opening and closing sweep. Move it temporarily first; restore its dining position after the doors have fully closed.'):tr('临时椅位仅用于柜门操作；关门后可恢复用餐位置。移椅与恢复均可撤销。','The temporary chair position is for cabinet access. Restore it after closing; both actions support undo.')}</p>`:''}<div class="actions"><button class="btn" id="toggleCornerDoors" aria-pressed="${Boolean(f.cornerDoorOpen)}">${f.cornerDoorOpen?tr('关闭转角柜门','Close corner doors'):tr('打开转角柜门','Open corner doors')}</button>${chair?`<button class="btn" id="prepareCornerChair">${f.cornerDoorOpen?tr('临时移开餐椅','Move chair temporarily'):tr('临时移椅并打开','Move chair temporarily and open')}</button>${f.cornerChairParking?`<button class="btn" id="restoreCornerChair">${tr('恢复用餐椅位','Restore dining chair position')}</button>`:''}`:''}<button class="btn" id="viewCornerStorage3d">${tr('查看转角库3D','View corner pantry in 3D')}</button></div><small class="muted">${tr('开关状态随当前浏览器草稿保存，也可撤销；3D可直接点柜门。','The door state is saved in this browser draft and supports undo; tap a door in 3D.')} ${is180?tr('模型示意开角180°；实际180°铰链型号、安装间隙及相邻柜板干涉仍需定制方复核。','The model shows a 180° sweep; the fabricator must confirm suitable hinges, fit clearances and adjacent-panel interference.'):tr('实际铰链、开角与安装间隙待定。','Hardware, opening angles and fit clearances still require confirmation.')}</small></section>`;
+}
 
 /* ======================= 颜色 / 材质图案 ======================= */
 function hex2rgb(h){ h = h.replace('#',''); if (h.length===3) h = h.split('').map(c=>c+c).join(''); const n = parseInt(h,16); return [(n>>16)&255,(n>>8)&255,n&255]; }
@@ -879,16 +1024,18 @@ function renderRooms(){
 function cornerCabinetDoorSVG(f,original){
   const sx=f.w/(f.baseWidthMm||f.w),sy=f.d/(f.baseDepthMm||f.d),seen=new Set();
   return (f.parts||[]).filter(p=>p.cabinetDoor).map(p=>{
-    const d=p.cabinetDoor,key=JSON.stringify([d.hingeMm,d.closedDirection,d.openDirection,d.lengthMm,d.normalOffsetMm||0]);
+    const d=p.cabinetDoor,key=JSON.stringify([d.hingeMm,d.closedDirection,d.openDirection,d.openingSweepDegrees,d.lengthMm,d.normalOffsetMm||0]);
     if(seen.has(key))return '';seen.add(key); // Upper and lower leaves share a plan projection.
     const [hx,hy]=d.hingeMm.map((v,i)=>v*(i?sy:sx)),cv=[d.closedDirection[0]*sx,d.closedDirection[1]*sy],ov=[d.openDirection[0]*sx,d.openDirection[1]*sy];
     const normalScale=Math.hypot(d.closedDirection[1]*sx,d.closedDirection[0]*sy),normalOffset=(d.normalOffsetMm||0)*normalScale;
-    const a0=Math.atan2(cv[1],cv[0]),a1=Math.atan2(ov[1],ov[0]),length=d.lengthMm*Math.hypot(...cv),thickness=(d.thicknessMm||18)*normalScale,a=f.cornerDoorOpen?a1:a0;
+    const a0=Math.atan2(cv[1],cv[0]),explicitSweep=Number.isFinite(d.openingSweepDegrees);
+    let sweep=explicitSweep?d.openingSweepDegrees*Math.PI/180:Math.atan2(ov[1],ov[0])-a0;
+    if(!explicitSweep){while(sweep>Math.PI)sweep-=2*Math.PI;while(sweep<-Math.PI)sweep+=2*Math.PI;}
+    const a1=a0+sweep,length=d.lengthMm*Math.hypot(...cv),thickness=(d.thicknessMm||18)*normalScale,a=f.cornerDoorOpen?a1:a0;
     const c=f.color!==original?f.color:p.color,color=/^#[0-9a-f]{6}$/i.test(c)?c:'#F4F1E9';
-    let sweep=a1-a0;while(sweep>Math.PI)sweep-=2*Math.PI;while(sweep<-Math.PI)sweep+=2*Math.PI;
     const x0=hx+Math.cos(a0)*length,y0=hy+Math.sin(a0)*length,x1=hx+Math.cos(a1)*length,y1=hy+Math.sin(a1)*length;
     const pull=d.handleStyle==='recessed'?`<line x1="${Math.max(0,length-45.5)}" x2="${Math.max(0,length-38.5)}" y1="${normalOffset+(d.frontSign||1)*(thickness/2+.15)}" y2="${normalOffset+(d.frontSign||1)*(thickness/2+.15)}" stroke="#786e61" stroke-width="1" vector-effect="non-scaling-stroke"/>`:`<circle cx="${Math.max(0,length-42)}" cy="${normalOffset+(d.frontSign||1)*thickness*.7}" r="9" fill="#a99b87"/>`;
-    return `<g class="cabinet-door-leaf" data-cabinet-door-part="${esc(p.id)}" data-cabinet-door-group="${esc(d.group||'')}" data-open="${Boolean(f.cornerDoorOpen)}"><title>${esc(p.label||p.role||p.id)} · ${f.cornerDoorOpen?tr('已打开','Open'):tr('已关闭','Closed')} · ${Math.round(length)} mm</title>${f.cornerDoorOpen?`<path d="M ${x0} ${y0} A ${length} ${length} 0 0 ${sweep>0?1:0} ${x1} ${y1}" fill="none" stroke="#9b8e7e" stroke-width="1" stroke-dasharray="4 3" vector-effect="non-scaling-stroke" pointer-events="none"/>`:''}<g transform="translate(${hx} ${hy}) rotate(${a*180/Math.PI})"><rect x="0" y="${normalOffset-thickness/2}" width="${length}" height="${thickness}" fill="${color}" stroke="#7e7468" stroke-width="1" vector-effect="non-scaling-stroke"/>${pull}</g><circle cx="${hx}" cy="${hy}" r="8" fill="#8e8171"/></g>`;
+    return `<g class="cabinet-door-leaf" data-cabinet-door-part="${esc(p.id)}" data-cabinet-door-group="${esc(d.group||'')}" data-opening-sweep-degrees="${sweep*180/Math.PI}" data-open="${Boolean(f.cornerDoorOpen)}"><title>${esc(p.label||p.role||p.id)} · ${f.cornerDoorOpen?tr('已打开','Open'):tr('已关闭','Closed')} · ${Math.round(length)} mm · ${Math.round(Math.abs(sweep)*180/Math.PI)}°</title>${f.cornerDoorOpen?`<path d="M ${x0} ${y0} A ${length} ${length} 0 ${Math.abs(sweep)>=Math.PI-1e-9?1:0} ${sweep>0?1:0} ${x1} ${y1}" fill="none" stroke="#9b8e7e" stroke-width="1" stroke-dasharray="4 3" vector-effect="non-scaling-stroke" pointer-events="none"/>`:''}<g transform="translate(${hx} ${hy}) rotate(${a*180/Math.PI})"><rect x="0" y="${normalOffset-thickness/2}" width="${length}" height="${thickness}" fill="${color}" stroke="#7e7468" stroke-width="1" vector-effect="non-scaling-stroke"/>${pull}</g><circle cx="${hx}" cy="${hy}" r="8" fill="#8e8171"/></g>`;
   }).join('');
 }
 function fixtureSVG(f){
@@ -1286,8 +1433,9 @@ function furnPanel(f){
       <button class="btn" id="aTop">${tr('置于顶层','Bring to front')}</button><button class="btn" id="aBot">${tr('置于底层','Send to back')}</button>
       <button class="btn danger" id="aDel">${tr('删除','Delete')}</button><button class="btn" id="back">${tr('← 返回','← Back')}</button>
     </div></section>
-  ${f.cornerDoorDesign?`<section class="project-note" data-corner-storage-control><b>${tr('转角800库 · 双面平开柜门','Corner pantry · paired hinged doors')}</b><p>${tr('关闭时遮住内部；打开时先开西侧，再开南侧，避免两面门板相碰。','Closed doors hide the storage. The west door opens before the south door to avoid leaf collision.')}</p><div class="actions"><button class="btn" id="toggleCornerDoors" aria-pressed="${Boolean(f.cornerDoorOpen)}">${f.cornerDoorOpen?tr('关闭转角柜门','Close corner doors'):tr('打开转角柜门','Open corner doors')}</button><button class="btn" id="viewCornerStorage3d">${tr('查看转角库3D','View corner pantry in 3D')}</button></div><small class="muted">${tr('开关状态随当前浏览器草稿保存，也可撤销；3D可直接点柜门。实际铰链、开角与安装间隙待定。','The door state is saved in this browser draft and supports undo; tap a door in 3D. Hardware, opening angles and fit clearances still require confirmation.')}</small></section>`:''}
+  ${cornerStorageControls(f)}
   ${cabinetDesignPanel(f)}
+  ${f.layoutCustomPartsRevision===HOUSE_PLAN.metadata.familyCornerDoor180Update?.id?`<section class="project-note" data-custom-corner-parts-warning>${tr('保留了你修改过的柜板/柜门组件，未强行套用180°默认结构。当前开角请以实际门板为准；备份后可重置查看新默认方案。','Your custom cabinet/door assembly is retained, not overwritten with the default 180° construction. Check its actual leaves; back up before resetting to view the latest default.')}</section>`:''}
   ${f.type==='ceilinglight'?`<section class="project-note" data-ceilinglight-control><b>${tr('吸顶灯 · 顶部投影','Flush ceiling light · overhead projection')}</b><p>${tr('平面虚线为灯具投影，3D全高或室内仰视可见；剖切墙时隐藏高处灯体。灯光仅为效果示意，未校核照度。','The dashed plan shape is an overhead projection. View at full height or look up in 3D; low-wall cutaways hide the overhead body. Lighting is illustrative, not verified illuminance.')}</p><button class="btn" id="viewCeilingLight3d">${tr('全高仰视灯具3D','Look up in full-height 3D')}</button></section>`:''}
   ${f.applianceDesign?.revision?`<section class="project-note" data-appliance-placeholder><b>${tr('电器位置示意 · 型号待定','Appliance placeholder · model pending')}</b><br>${tr('当前外包与离地高度可编辑，不是已购型号或安装下单尺寸。请按实物说明书和现场条件复核。','Dimensions and elevation are editable placeholders, not purchased-product specifications or installation approval. Check the actual manual and site conditions.')}</section>`:''}
   <section class="muted" style="font-size:12px">${esc(f.notes||'')} ${f.conditions?f.conditions.map(esc).join('；'):''}</section>
@@ -1318,10 +1466,9 @@ function bindFurnPanel(f){
     if(viewMode==='3d')window.View3D?.flyToFurniture(f.id);
     closeDrawers();
   };
-  if($('#toggleCornerDoors'))$('#toggleCornerDoors').onclick=()=>{
-    if(window.View3D?.toggleCabinetDoors(f.id))return;
-    upd(g=>g.cornerDoorOpen=!g.cornerDoorOpen);
-  };
+  if($('#toggleCornerDoors'))$('#toggleCornerDoors').onclick=()=>toggleCornerCabinetDoors(f.id);
+  if($('#prepareCornerChair'))$('#prepareCornerChair').onclick=()=>prepareCornerChair(f.id);
+  if($('#restoreCornerChair'))$('#restoreCornerChair').onclick=()=>restoreCornerChair(f.id);
   if($('#viewCornerStorage3d'))$('#viewCornerStorage3d').onclick=async()=>{
     if(viewMode!=='3d')await setView('3d');
     if(viewMode==='3d')window.View3D?.focusCornerStorage(f.id);
@@ -2113,8 +2260,12 @@ function buildCabinetParts(g,f){
       const pivot=new THREE.Group();pivot.position.set(M(d.hingeMm[0]*sx),y,M(d.hingeMm[1]*sz));
       let controller=cabinetDoorControllers.get(f.id);
       if(!controller){controller={fid:f.id,open:Boolean(f.cornerDoorOpen),progress:f.cornerDoorOpen?1:0};cabinetDoorControllers.set(f.id,controller);}
-      const ang=v=>Math.atan2(-v[1],v[0]),door={pivot,a0:ang(closed),a1:ang(opened),L,cabinetFid:f.id,cabinetDoorGroup:d.group,sequenceOrder:d.sequenceOrder||0,controller};
-      if(door.a1-door.a0>Math.PI)door.a1-=Math.PI*2;if(door.a0-door.a1>Math.PI)door.a1+=Math.PI*2;
+      const ang=v=>Math.atan2(-v[1],v[0]),explicitSweep=Number.isFinite(d.openingSweepDegrees),a0=ang(closed);
+      // Plan XY turns and Three.js Y-axis turns have opposite signs. The
+      // explicit sweep also disambiguates which side a 180-degree leaf passes.
+      const door={pivot,a0,a1:explicitSweep?a0-d.openingSweepDegrees*Math.PI/180:ang(opened),L,cabinetFid:f.id,cabinetDoorGroup:d.group,sequenceOrder:d.sequenceOrder||0,controller};
+      if(!explicitSweep){if(door.a1-door.a0>Math.PI)door.a1-=Math.PI*2;if(door.a0-door.a1>Math.PI)door.a1+=Math.PI*2;}
+      door.openingSweepDegrees=-(door.a1-door.a0)*180/Math.PI;
       const fraction=clamp01(controller.progress*2-door.sequenceOrder);door.cur=door.a0+(door.a1-door.a0)*fraction;pivot.rotation.y=door.cur;
       const leaf=box(L,height,T,material,L/2,0,normalOffset);leaf.userData.cabinetDoorLeaf=true;pivot.add(leaf);
       const sign=d.frontSign||1,handleY=M(Math.min(p.heightMm-45,Math.max(45,d.handleElevationMm||Math.min(1050,p.heightMm/2)))*sy),hardware=hwMat();
@@ -2127,7 +2278,7 @@ function buildCabinetParts(g,f){
       // Small hinge barrels remain at the real outer edge, not at the joint
       // between the two doors. Their axis follows the movable leaf group.
       const hingePositions=height>.9?[.12,height/2,height-.12]:[.09,height-.09];
-      hingePositions.forEach(h=>pivot.add(cyl(.005,.005,.055,hardware,0,h-.0275,normalOffset+sign*T/2,10)));
+      hingePositions.forEach(h=>pivot.add(cyl(.005,.005,.055,hardware,0,h-.0275,d.hingeBarrelAtPivot?0:normalOffset+sign*T/2,10)));
       pivot.userData={cabinetDoorPartId:p.id,cabinetFid:f.id,cabinetDoorGroup:d.group};
       pivot.traverse(o=>{if(o.isMesh){o.userData.door=door;o.userData.cabinetDoor=true;o.userData.cabinetFid=f.id;}});
       cabinetDoors.push(door);g.add(pivot);
@@ -3161,11 +3312,12 @@ function sync(force){
   syncProjectionCut();
 }
 
-function toggleCabinetDoors(fid){
+function toggleCabinetDoors(fid,beforeOverride){
   if(!active||anim)return false;
   const f=getF(fid),controller=cabinetDoorControllers.get(fid);
   if(!f?.cornerDoorDesign||!controller)return false;
-  const before=snap();f.cornerDoorOpen=!f.cornerDoorOpen;controller.open=f.cornerDoorOpen;
+  if(cornerChairBlocks(f)){cornerBlockedToast();return false;}
+  const before=beforeOverride||snap();f.cornerDoorOpen=!f.cornerDoorOpen;controller.open=f.cornerDoorOpen;
   commit(before);
   // Keep live pivots for the animation; update the common 2D drawing and
   // property panel without rebuilding all furniture at the target pose.
@@ -3574,7 +3726,9 @@ function loop(){
   else if (opt.mode === 'orbit') orbit.update();
   else stepWalk(dt);
   doors.forEach(d => { const tg = d.open ? d.a1 : d.a0; d.cur += (tg - d.cur) * Math.min(1, dt*6); d.pivot.rotation.y=d.cur;if(d.bifold)d.second.rotation.y+=( (d.open?Math.PI:0)-d.second.rotation.y )*Math.min(1,dt*6); });
-  cabinetDoorControllers.forEach(c=>c.progress+=(Number(c.open)-c.progress)*Math.min(1,dt*6));
+  // Keep the ordered west/south phases visible even on a slow render frame;
+  // one delayed frame must not jump from both closed to both fully open.
+  cabinetDoorControllers.forEach(c=>c.progress+=(Number(c.open)-c.progress)*Math.min(.18,dt*6));
   cabinetDoors.forEach(d=>{const fraction=clamp01(d.controller.progress*2-d.sequenceOrder);d.cur=d.a0+(d.a1-d.a0)*fraction;d.pivot.rotation.y=d.cur;});
   updateSel();
   renderer.render(scene, camera);
@@ -3585,7 +3739,7 @@ function shot(){ const a = document.createElement('a'); a.download = tr('户型�
 
 function relang(){ syncWalkTexts(); if (inited) buildLabels(); }
 
-window.View3D = {enter, exit, relang, sync:() => sync(), shot, groundAt, flyToRoom:id => active && !anim && flyToRoom(id), flyToFurniture, focusCornerStorage, focusCeilingLight, toggleCabinetDoors, walking:() => active && opt.mode === 'walk'};
+window.View3D = {enter, exit, relang, sync:() => sync(), shot, groundAt, flyToRoom:id => active && !anim && flyToRoom(id), flyToFurniture, focusCornerStorage, focusCeilingLight, toggleCabinetDoors, cornerDoorsClosed:fid=>{const c=cabinetDoorControllers.get(fid);return !c||(!c.open&&c.progress<=.0001);}, walking:() => active && opt.mode === 'walk'};
 // A shareable 3D entry point; ordinary editor links still start in 2D.
 if (new URLSearchParams(location.search).get('view') === '3d') requestAnimationFrame(() => setView('3d'));
 </script>

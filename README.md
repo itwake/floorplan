@@ -190,6 +190,14 @@ python3 -m http.server 8000
 
 独立可逆层 `tools/family-lighting-study-refinement-20261012.cjs`；仅改三件原有物件与书房窗的竖向示意，其余59件、其他窗墙门、三个方案及源快照保持。旧草稿按字段升级，用户自定义位置/大小/颜色及删除保持。回归 `node tests/family-lighting-study-refinement-20261012.cjs` 与 `node tests/family-lighting-study-refinement-browser.cjs --self-host`。
 
+### 2026-10-12 · 方案2转角库双面180°柜门
+
+业主确认两面柜门需开180°，并同意保留用餐布局、开柜时临时挪南餐椅。西门平面负180°、南门正180°，先西后南、关闭反序；上下门同步。固定柜板、内部L层板/灯带、整体占地、房屋结构和另61件物件默认完全不改。虚拟外端门轴向外移5mm，板厚偏移14/-14mm维持原闭门外包，全开至相邻柜面留10mm示意间隔；实际180°铰链、门重、挂接件、运动轨迹、限位与防夹仍需定制商核验，不是厂家五金安装图。
+
+原南餐椅(2955,12080)会落入西门约123–166°扫掠区；开合前须临时向东移465mm到(3420,12080)。界面提供“临时移椅并打开”和关闭后的“恢复用餐椅位”，动作可撤销、草稿可保存。普通开合遇餐椅干涉会提示；手动移过的椅位不会被恢复动作覆盖，删掉的椅子不会复活。保留旧打开状态也不悄悄移动椅子；若路径被餐椅占用，要先用临时移椅操作再开合。
+
+可逆层 `tools/family-corner-door-180-20261012.cjs`；回归 `node tests/family-corner-door-180-20261012.cjs` 与 `node tests/family-corner-door-180-browser.cjs --self-host`。完整原用餐位的碰撞是必须检出的负控，临时操作位则逐角度核对门板、扣手、门轴、固定板、其他物品与墙体；不能忽略餐椅障碍。自定义整柜尺寸保留并更新门轴参数；私自改过的组件则整套保留并提示，不挂错误180°标签。历史层回滚及源快照保持。
+
 更新 house-design 快照：`node tools/convert-house-plans.cjs --source <原项目目录> --refresh-sources`。
 
 验证几何与脚本：`node tests/validate-import.cjs`。浏览器测试：先开启 4190 端口静态服务器，再运行 `node tests/integration.cjs`（需 Playwright；支持 `FLOORPLAN_NODE_MODULES`、`FLOORPLAN_CHROME`、`FLOORPLAN_BASE_URL` 环境变量）。

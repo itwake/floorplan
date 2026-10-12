@@ -31,5 +31,6 @@ jobs:
       - run: node tests/family-corner-storage-20261012.cjs
       - run: node tests/family-ceiling-lighting-20261012.cjs
       - run: node tests/family-lighting-study-refinement-20261012.cjs
+      - run: node tests/family-corner-door-180-20261012.cjs
       - run: node tests/visible-raycast.cjs
       - run: git diff --exit-code -- data/house-plans.js data/manifest.json
