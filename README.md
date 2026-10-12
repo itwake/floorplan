@@ -208,6 +208,14 @@ python3 -m http.server 8000
 
 可逆层 `tools/family-balcony-recess-20261012.cjs`，回归 `node tests/family-balcony-recess-20261012.cjs`、`node tests/family-balcony-recess-browser.cjs --self-host`。旧盆台从草稿移除但原值留JSON迁移归档；已删除设备及空布局不复活，自定义厨房组件/整柜尺寸不被强行更新。查看完整默认概念前先导出备份再重置。
 
+### 2026-10-12 · 方案2五处可编辑地漏盖
+
+补充D1阳台接水区、D2主卫干区、D3主卫淋浴、D4客卫干区、D5客卫淋浴，均先按150×150mm方格栅占位。盖由四边框、暗槽面及10根格栅条组成，可选中、移动、改尺寸颜色、保存或删除；编号环只为平面视觉标记，不是量尺足迹。4mm只是显示厚度，实物应与完成地面齐平。两处淋浴源名义标高50mm，3D未手动改标高时精确贴合原盘缩放后的实际表面（约51.436mm），不改变旧盘；手动标高仍保留。旧中心圆/北线性装饰排水图例按修订禁用，删除新地漏不会使旧图例复活，另外三个方案不变。
+
+原63件、上窗及窗下凹位、门扇、所有地坪/淋浴盘和玻璃保持。暂避开柜机底、马桶、门完整扫掠、玻璃及基站当前直线路径，阳台地漏不放在非踩踏外挑。未绘制地下管、存水弯、管径、水封、找坡或新施工洞；定位、现有排水点、防水与清理净空必须现场深化。客卫洗衣机独立排水不自动接入新增地漏。
+
+可逆层 `tools/family-floor-drains-20261012.cjs`；回归 `node tests/family-floor-drains-20261012.cjs`、`node tests/family-floor-drains-browser.cjs --self-host`。旧草稿只新增一次，自定义及已删除旧物品/空布局保持；新增地漏被删后不重载复活。
+
 更新 house-design 快照：`node tools/convert-house-plans.cjs --source <原项目目录> --refresh-sources`。
 
 验证几何与脚本：`node tests/validate-import.cjs`。浏览器测试：先开启 4190 端口静态服务器，再运行 `node tests/integration.cjs`（需 Playwright；支持 `FLOORPLAN_NODE_MODULES`、`FLOORPLAN_CHROME`、`FLOORPLAN_BASE_URL` 环境变量）。

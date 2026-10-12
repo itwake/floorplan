@@ -5,6 +5,7 @@
 // or evidence that the unclosed measured kitchen width can accommodate it.
 const assert=require('node:assert/strict'),crypto=require('node:crypto'),fs=require('node:fs'),path=require('node:path');
 const {applyFamilyBalconyRecess,beforeFamilyBalconyRecess,REVISION}=require('../tools/family-balcony-recess-20261012.cjs');
+const {beforeFamilyFloorDrains}=require('../tools/family-floor-drains-20261012.cjs');
 const root=path.resolve(__dirname,'..'),clone=structuredClone;
 const stable=v=>Array.isArray(v)?v.map(stable):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,stable(v[k])])):v;
 const hash=v=>crypto.createHash('sha256').update(JSON.stringify(stable(v))).digest('hex');
@@ -30,6 +31,7 @@ const rectArea=poly=>Math.abs(poly.reduce((sum,p,i)=>sum+p[0]*poly[(i+1)%poly.le
 const worldParts=f=>(f.parts||[]).map(p=>({id:f.id+'/'+p.id,role:p.role,b:partBox(f,p)}));
 
 function verifyFamilyBalconyRecess(bundle){
+ bundle=beforeFamilyFloorDrains(bundle);
  assert.equal(REVISION,'family-balcony-recess-20261012');
  const originalHash=hash(bundle),p=bundle.schemes.family,u=p.metadata.familyBalconyRecessUpdate,oldBundle=beforeFamilyBalconyRecess(bundle),old=oldBundle.schemes.family;
  assert.equal(u?.id,REVISION);assert.equal(u.date,'2026-10-12');assert.equal(u.sourceSnapshotsUnchanged,true);

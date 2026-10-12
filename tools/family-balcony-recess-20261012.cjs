@@ -4,6 +4,7 @@
 // window-underwall concept, NOT an approved structural alteration or new slab.
 const assert=require('node:assert/strict');
 const {isDeepStrictEqual}=require('node:util');
+const {beforeFamilyFloorDrains}=require('./family-floor-drains-20261012.cjs');
 const REVISION='family-balcony-recess-20261012';
 const KITCHEN_ID='fit-kitchen-20261005',WINDOW_ID='window_kitchen_balcony';
 const META_KEYS=['conditions','designCorrections','converter'],ARCH_KEYS=['ROOMS','WIN_META'];
@@ -181,7 +182,7 @@ function applyFamilyBalconyRecess(bundle){
   return bundle;
 }
 function beforeFamilyBalconyRecess(value){
-  const out=clone(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyBalconyRecessUpdate;if(!m)return out;
+  const out=beforeFamilyFloorDrains(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyBalconyRecessUpdate;if(!m)return out;
   const old=new Map(m.previousFurniture.map(q=>[q.id,q])),current=new Map(p.defaultFurniture.map(q=>[q.id,q]));
   p.defaultFurniture=m.previousFurnitureOrder.map(id=>clone(old.get(id)||current.get(id)));
   for(const[key,v]of Object.entries(m.previousPlanFields))p[key]=clone(v);

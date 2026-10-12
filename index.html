@@ -366,7 +366,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=balcony-recess-20261012"></script>
+<script src="data/house-plans.js?v=floor-drains-20261012"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -476,7 +476,7 @@ const uid = () => 'f' + Date.now().toString(36) + (_n++);
 const F = (type,name,cx,cy,w,d,rot=0,color) => ({id:uid(),type,name,cx,cy,w,d,rot,color:color||typeColor(type)});
 
 function defaultFurniture(){ return structuredClone(HOUSE_PLAN.defaultFurniture); }
-function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update,HOUSE_PLAN.metadata.familyBalconyRecessUpdate].filter(Boolean);}
+function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update,HOUSE_PLAN.metadata.familyBalconyRecessUpdate,HOUSE_PLAN.metadata.familyFloorDrainsUpdate].filter(Boolean);}
 function defaultState(){
   const rooms = {}; ROOMS.forEach(r => rooms[r.id] = {name:r.name, mat:r.mat});
   return {schemaVersion:2,projectId:'house-design',schemeId:SCHEME_ID,sourceVersion:PLAN_LIBRARY.version,
@@ -505,6 +505,15 @@ function balconyRecessNotice(f){
 function bindBalconyRecessView(){
   const button=$('#viewBalconyRecess3d');if(!button)return;
   button.onclick=async()=>{if(viewMode!=='3d')await setView('3d');if(viewMode==='3d')window.View3D?.focusBalconyRecess();closeDrawers();};
+}
+function floorDrainNotice(f){
+  const revision=HOUSE_PLAN.metadata.familyFloorDrainsUpdate;if(!revision)return '';
+  if(f&&f.modelVariant!=='square-floor-drain')return '';
+  return `<section class="project-note" data-family-floor-drains-warning><b>${tr('5处地漏 · 位置暂估','Five floor drains · provisional positions')}</b><p>${tr('D1生活阳台接水区；D2主卫干区、D3主卫淋浴；D4客卫干区、D5客卫淋浴。地漏盖先按150×150mm示意，可选中编辑、移动或删除；实际格栅应与完成地面齐平，4mm仅为显示厚度，不是地面凸起。','D1 balcony bucket area; D2/D3 main-bath dry/shower zones; D4/D5 guest-bath dry/shower zones. The editable grates are 150 × 150 mm placeholders; actual covers sit flush with the finished floor. The 4 mm display thickness is not a proposed raised edge.')}</p><p>${tr('未绘制地下排水管、存水弯或地面找坡；现有排水口、接管条件、防水、坡向、地漏型号及清理净空须现场核验。洗衣机排水仍独立待核，不默认接入干区地漏。阳台接水时避免向电器溅水，水桶使用后移走。','No underground pipes, traps or floor falls are modeled. Existing outlets, connections, waterproofing, slopes, models and cleaning access require site checks. Washer drainage remains independently unresolved, not automatically connected to a dry-zone grate. Avoid splashing appliances and remove the bucket after use.')}</p>${f?`<button class="btn" id="viewFloorDrain3d">${tr('近看此地漏3D','Inspect this floor drain in 3D')}</button>`:''}</section>`;
+}
+function bindFloorDrainView(f){
+  const button=$('#viewFloorDrain3d');if(!button||!f)return;
+  button.onclick=async()=>{if(viewMode!=='3d')await setView('3d');if(viewMode==='3d')window.View3D?.focusFloorDrain(f.id);closeDrawers();};
 }
 function refreshCabinetDesign(f){
   if(f.layoutCustomSizeRevision&&f.layoutCustomSizeRevision===HOUSE_PLAN.metadata.familyStudyDoorUpdate?.id)return;
@@ -560,7 +569,7 @@ function upgradeConfirmedLayouts(s){
   // for defaults. New objects are inserted once; deleted objects stay deleted.
   const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
   const placementKeys=['cx','cy','w','d','rot','heightMm','elevationMm','name','color'];
-  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update,HOUSE_PLAN.metadata.familyBalconyRecessUpdate].filter(Boolean)){
+  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update,HOUSE_PLAN.metadata.familyBalconyRecessUpdate,HOUSE_PLAN.metadata.familyFloorDrainsUpdate].filter(Boolean)){
     if(s.appliedLayoutRevisions?.includes(revision.id))continue;
     const kept=new Set(s.layoutMigrationKeptIds||[]);
     const beforeObjects=[...(revision.previousFurniture||[]),...(revision.previousEntryCabinet?[revision.previousEntryCabinet]:[])];
@@ -920,7 +929,7 @@ function furnSVG(t,w,d,c,variant){
     case 'fridge': return rc(x,y,w,d,c,'rx="30"') + ln(x,y+d*.14,x+w,y+d*.14) + ln(0,y+d*.14,0,y+d) + rc(-70,y+d*.5,40,d*.25,'#aab') + rc(30,y+d*.5,40,d*.25,'#aab');
     case 'toilet': return rc(x+w*.04,y,w*.92,d*.27,c,'rx="30"') + ec(0,y+d*.27+d*.36,w*.47,d*.36,c) + ec(0,y+d*.27+d*.4,w*.3,d*.24,'#eef4f7');
     case 'vanity': return rc(x,y,w,d,c,'rx="20"') + ec(0,y+d*.57,Math.min(w*.32,260),d*.28,'#fff') + `<circle cx="0" cy="${y+d*.17}" r="26" fill="#999"/>`;
-    case 'shower': return rc(x,y,w,d,c) + ln(x,y,x+w,y+d,DASH) + ln(x+w,y,x,y+d,DASH) + `<circle r="45" fill="#fff" ${ST}/>`;
+    case 'shower': return rc(x,y,w,d,c) + ln(x,y,x+w,y+d,DASH) + ln(x+w,y,x,y+d,DASH) + (variant==='explicit-floor-drain'?'':`<circle data-implicit-shower-drain="true" r="45" fill="#fff" ${ST}/>`);
     case 'bathtub': return rc(x,y,w,d,c,'rx="40"') + rc(x+80,y+80,w-160,d-160,'#fff',`rx="${m*.33}"`) + `<circle cx="${x+w-260}" cy="0" r="35" fill="#ccc" ${ST}/>`;
     case 'washer': case 'dryer': return rc(x,y,w,d,c,'rx="30"') + rc(x,y,w,d*.14,shade(c,.9)) + `<circle cy="${d*.06}" r="${m*.34}" fill="#fff" ${ST}/><circle cy="${d*.06}" r="${m*.24}" fill="${t==='dryer'?'#e9dccb':'#cfdde4'}" ${ST}/>`;
     case 'robotvacuum': {
@@ -1052,7 +1061,7 @@ function cornerCabinetDoorSVG(f,original){
   }).join('');
 }
 function fixtureSVG(f){
-  if(f.type!=='fixture') return furnSVG(f.type,f.w,f.d,f.color,f.modelVariant);
+  if(f.type!=='fixture') return furnSVG(f.type,f.w,f.d,f.color,f.type==='shower'&&HOUSE_PLAN.metadata.familyFloorDrainsUpdate?.disabledImplicitShowerDrainIds?.includes(f.id)?'explicit-floor-drain':f.modelVariant);
   const sx=f.w/f.baseWidthMm,sy=f.d/f.baseDepthMm, original=HOUSE_PLAN.defaultFurniture.find(p=>p.id===f.id)?.color||f.cabinetDesign?.palette?.door;
   const service=['balcony-service-counter','balcony-recess-housing'].includes(f.modelVariant);
   const parts=(f.parts||[]).filter(p=>!p.cabinetDoor).slice().sort((a,b)=>a.elevationMm-b.elevationMm).map(p=>{
@@ -1081,6 +1090,12 @@ function renderFurn(){
     let label = Math.min(f.w,f.d) >= 380 && !NOLABEL.includes(f.type)
       ? `<text transform="rotate(${-f.rot})" font-size="${fs}" text-anchor="middle" dominant-baseline="central" fill="#4a443c" opacity=".8" pointer-events="none">${esc(shortName)}</text>` : '';
     if(f.modelVariant==='balcony-recess-housing')label=''; // Keep the two actual appliance labels readable beneath the upper worktop projection.
+    if(f.modelVariant==='square-floor-drain'){
+      const number=(HOUSE_PLAN.metadata.familyFloorDrainsUpdate?.newFurnitureIds||[]).indexOf(f.id)+1,k=1/view.s,r=Math.max(Math.max(f.w,f.d)/2+15,6*k);
+      // The numbered ring is a visual annotation only. Selection dimensions,
+      // grate solids and measuring coordinates retain the real 150-mm size.
+      label=`<g data-floor-drain="${esc(f.id)}" data-marker-only="true" pointer-events="none"><title>${tr('地漏盖暂估','Provisional drain cover')} ${f.w}×${f.d} mm</title><circle r="${r}" fill="none" stroke="#477a88" stroke-width="1" vector-effect="non-scaling-stroke"/><text x="${r+20}" y="${-r-20}" transform="rotate(${-f.rot})" font-size="135" fill="#366a79" stroke="#fbf9f4" stroke-width="20" paint-order="stroke">D${number>0?number:'·'}</text></g>`;
+    }
     if(f.modelVariant==='balcony-exterior-projection'){
       const sx=f.w/f.baseWidthMm,sy=f.d/f.baseDepthMm,tx=x=>x*sx,ty=y=>y*sy;
       const north=Math.round(600*sy),east=Math.round(600*sx),line=(x1,y1,x2,y2,dash=false)=>`<line x1="${tx(x1)}" y1="${ty(y1)}" x2="${tx(x2)}" y2="${ty(y2)}" stroke="#718986" stroke-width="1" ${dash?'stroke-dasharray="5 4"':''} vector-effect="non-scaling-stroke"/>`;
@@ -1247,9 +1262,9 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':
 function renderPanel(){
   renderFab();
   const p = $('#panel');
-  if (ui.sel?.kind === 'furn'){ const f = getF(ui.sel.id); if (f){ p.innerHTML = furnPanel(f); bindFurnPanel(f); bindBalconyRecessView(); return; } }
-  if (ui.sel?.kind === 'room'){ const r=ROOMS.find(r => r.id === ui.sel.id);p.innerHTML = (['balcony','kitchen'].includes(r.id)?balconyRecessNotice():'')+roomPanel(r); bindRoomPanel();bindBalconyRecessView(); return; }
-  p.innerHTML = balconyRecessNotice()+overviewPanel(); bindOverview();bindBalconyRecessView();
+  if (ui.sel?.kind === 'furn'){ const f = getF(ui.sel.id); if (f){ p.innerHTML = furnPanel(f); bindFurnPanel(f); bindBalconyRecessView();bindFloorDrainView(f); return; } }
+  if (ui.sel?.kind === 'room'){ const r=ROOMS.find(r => r.id === ui.sel.id);p.innerHTML = (['balcony','bath_1','bath_2'].includes(r.id)?floorDrainNotice():'')+(['balcony','kitchen'].includes(r.id)?balconyRecessNotice():'')+roomPanel(r); bindRoomPanel();bindBalconyRecessView(); return; }
+  p.innerHTML = floorDrainNotice()+balconyRecessNotice()+overviewPanel(); bindOverview();bindBalconyRecessView();
 }
 
 function overviewPanel(){
@@ -1451,6 +1466,7 @@ function furnPanel(f){
       <button class="btn" id="aTop">${tr('置于顶层','Bring to front')}</button><button class="btn" id="aBot">${tr('置于底层','Send to back')}</button>
       <button class="btn danger" id="aDel">${tr('删除','Delete')}</button><button class="btn" id="back">${tr('← 返回','← Back')}</button>
     </div></section>
+  ${floorDrainNotice(f)}
   ${balconyRecessNotice(f)}
   ${cornerStorageControls(f)}
   ${cabinetDesignPanel(f)}
@@ -2273,7 +2289,8 @@ function buildCabinetParts(g,f){
     const led=p.role==='led-strip',oak=/Oak|wood/i.test(p.material||'')||/oak|wood/.test(p.role||'');
     const reflective=f.cabinetRevision==='family-study-laundry-confirmed-20261011'&&p.role==='mirror-face';
     const projection=f.modelVariant==='balcony-exterior-projection',projectionMetal=projection&&/metal|guard|steel/i.test(p.material||p.role||'');
-    const material=projection?mat(pc,{metalness:projectionMetal?.65:0,roughness:projectionMetal?.48:.7,clippingPlanes:[balconyProjectionPlane],clipShadows:true}):reflective?mirror():led?glowMat('#fff4d8','#ffe2ac',f.cabinetRevision==='sideboard-reference-v2'?1.6:.55):p.role?.includes('cushion')?fabric(pc):oak?cabinetWood(pc):mat(pc,{roughness:.7});
+    const drainMetal=f.modelVariant==='square-floor-drain'&&!/slot-bed|recess/.test(p.role||'');
+    const material=projection?mat(pc,{metalness:projectionMetal?.65:0,roughness:projectionMetal?.48:.7,clippingPlanes:[balconyProjectionPlane],clipShadows:true}):drainMetal?mat(pc,{metalness:.7,roughness:.32}):reflective?mirror():led?glowMat('#fff4d8','#ffe2ac',f.cabinetRevision==='sideboard-reference-v2'?1.6:.55):p.role?.includes('cushion')?fabric(pc):oak?cabinetWood(pc):mat(pc,{roughness:.7});
     if(p.cabinetDoor){
       const d=p.cabinetDoor,closed=[d.closedDirection[0]*sx,d.closedDirection[1]*sz],opened=[d.openDirection[0]*sx,d.openDirection[1]*sz],normalScale=Math.hypot(d.closedDirection[1]*sx,d.closedDirection[0]*sz),L=M(d.lengthMm*Math.hypot(...closed)),T=M((d.thicknessMm||18)*normalScale),normalOffset=M((d.normalOffsetMm||0)*normalScale);
       const pivot=new THREE.Group();pivot.position.set(M(d.hingeMm[0]*sx),y,M(d.hingeMm[1]*sz));
@@ -2843,7 +2860,14 @@ function buildFurniture(f){
     }
     case 'shower': {
       const cm = chrome(), x = -w/4;
-      g.add(rbox(w, .05, d, mat('#f4f4f2', {roughness:.3}), 0, 0, 0, .01), box(w*.6, .003, .05, mat('#9aa1a8', {metalness:.8, roughness:.3}), 0, .05, bz + .08));
+      const tray=rbox(w,.05,d,mat('#f4f4f2',{roughness:.3}),0,0,0,.01);
+      tray.userData.role='shower-tray-surface';g.add(tray);
+      // This old decorative strip is suppressed by the source revision, not
+      // current drain presence: deleting a new grate must not resurrect it.
+      if(!HOUSE_PLAN.metadata.familyFloorDrainsUpdate?.disabledImplicitShowerDrainIds?.includes(f.id)){
+        const strip=box(w*.6,.003,.05,mat('#9aa1a8',{metalness:.8,roughness:.3}),0,.05,bz+.08);
+        strip.userData.role='implicit-shower-drain';g.add(strip);
+      }
       [[w, .01, 0, d/2 - .005], [.01, d, w/2 - .005, 0]].forEach(([gw, gd, px, pz]) => { const p = box(gw, 1.95, gd, glassMat, px, .05, pz); p.castShadow = false; g.add(p); });
       g.add(box(.02, 1.95, .02, frameMat, w/2 - .01, .05, d/2 - .01), box(.02, 1.95, .03, frameMat, -w/2 + .01, .05, d/2 - .005), box(.03, 1.95, .02, frameMat, w/2 - .005, .05, bz + .01));
       g.add(box(w, .015, .02, frameMat, 0, 1.985, d/2 - .005), box(.02, .015, d, frameMat, w/2 - .005, 1.985, 0));
@@ -3308,6 +3332,23 @@ function buildFurn(){
       furnitureCeilingLights.push({fid:f.id,group,face,light:null});
     }
   });
+  // Generic imported showers are scaled to their full physical envelope, so
+  // their nominal 50-mm tray becomes slightly taller in the existing render.
+  // Match an untouched new cover to that actual tray surface, never by burying
+  // it or changing the old shower. An explicitly edited elevation stays put.
+  for(const f of state.furniture.filter(f=>f.modelVariant==='square-floor-drain'&&f.assignedShowerId)){
+    const fresh=HOUSE_PLAN.defaultFurniture.find(q=>q.id===f.id),shower=getF(f.assignedShowerId);
+    if(!fresh||f.elevationMm!==fresh.elevationMm||!shower)continue;
+    const angle=-(shower.rot||0)*Math.PI/180,dx=f.cx-shower.cx,dy=f.cy-shower.cy;
+    const lx=dx*Math.cos(angle)-dy*Math.sin(angle),ly=dx*Math.sin(angle)+dy*Math.cos(angle);
+    if(Math.abs(lx)+f.w/2>shower.w/2||Math.abs(ly)+f.d/2>shower.d/2)continue;
+    const sg=furnG.children.find(g=>g.userData.fid===shower.id),dg=furnG.children.find(g=>g.userData.fid===f.id);
+    const tray=sg?.children.find(m=>m.userData.role==='shower-tray-surface');if(!tray||!dg)continue;
+    tray.geometry.computeBoundingBox();
+    const surface=sg.position.y+(tray.position.y+tray.geometry.boundingBox.max.y*tray.scale.y)*sg.scale.y;
+    dg.position.y=surface;
+    dg.userData.surfaceDatum={nominalMm:f.elevationMm,actualTrayMm:surface*1000,assignedShowerId:shower.id,displayOnly:true};
+  }
   // Lights live outside cutaway furniture so low-wall/night views still have
   // illumination. Their positions come from the actual edited fixture mesh.
   furnG.updateMatrixWorld(true);
@@ -3488,6 +3529,16 @@ function flyToFurniture(id){
   // the usual 1.5 m orbit limit would push the camera into the opposite store
   // as soon as the flight ends. Normal room/whole-home flights restore it.
   flyTo(pose(t,new THREE.Vector3(wx(fx+dx*dist),targetY+.12,wz(fy+dy*dist))),1000,Math.max(.35,Math.min(1.5,M(dist)*.9)));
+}
+function focusFloorDrain(id){
+  const f=getF(id);if(f?.modelVariant!=='square-floor-drain'||!active||anim)return false;
+  if(opt.mode==='walk')setMode('orbit');
+  const floor=M(f.elevationMm||0),room=ROOMS.find(r=>r.id===f.roomId),xs=room?.poly.map(p=>p[0]),ys=room?.poly.map(p=>p[1]);
+  const ex=xs?THREE.MathUtils.clamp(f.cx-240,Math.min(...xs)+150,Math.max(...xs)-150):f.cx-240;
+  const ey=ys?THREE.MathUtils.clamp(f.cy+400,Math.min(...ys)+150,Math.max(...ys)-150):f.cy+400;
+  showLabels(false);opt.labels=false;document.querySelector('[data-t="labels"]')?.classList.remove('on');
+  flyTo(pose(new THREE.Vector3(wx(f.cx),floor+.004,wz(f.cy)),new THREE.Vector3(wx(ex),floor+1.25,wz(ey))),1000,.35,45);
+  return true;
 }
 function focusBalconyRecess(){
   const f=getF('balcony_recess_housing');if(!f||!active||anim)return false;
@@ -3786,7 +3837,7 @@ function shot(){ const a = document.createElement('a'); a.download = tr('户型�
 
 function relang(){ syncWalkTexts(); if (inited) buildLabels(); }
 
-window.View3D = {enter, exit, relang, sync:() => sync(), shot, groundAt, flyToRoom:id => active && !anim && flyToRoom(id), flyToFurniture, focusBalconyRecess, focusCornerStorage, focusCeilingLight, toggleCabinetDoors, cornerDoorsClosed:fid=>{const c=cabinetDoorControllers.get(fid);return !c||(!c.open&&c.progress<=.0001);}, walking:() => active && opt.mode === 'walk'};
+window.View3D = {enter, exit, relang, sync:() => sync(), shot, groundAt, flyToRoom:id => active && !anim && flyToRoom(id), flyToFurniture, focusFloorDrain, focusBalconyRecess, focusCornerStorage, focusCeilingLight, toggleCabinetDoors, cornerDoorsClosed:fid=>{const c=cabinetDoorControllers.get(fid);return !c||(!c.open&&c.progress<=.0001);}, walking:() => active && opt.mode === 'walk'};
 // A shareable 3D entry point; ordinary editor links still start in 2D.
 if (new URLSearchParams(location.search).get('view') === '3d') requestAnimationFrame(() => setView('3d'));
 </script>
