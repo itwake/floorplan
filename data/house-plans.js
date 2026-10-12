@@ -15599,7 +15599,7 @@ const plans = {
         },
         {
           "id": "window_c",
-          "name": "小卧西窗（待复尺）",
+          "name": "书房西窗 · 暂估窗高1200／窗台900（待实测）",
           "grade": "C",
           "sourceId": "window_c",
           "sourceAxisMm": [
@@ -15610,13 +15610,15 @@ const plans = {
           ],
           "openingWidthMm": 1100,
           "sillMm": 900,
-          "heightMm": 1400,
-          "headMm": 2300,
-          "dimensionStatus": "design-pending",
+          "heightMm": 1200,
+          "headMm": 2100,
+          "dimensionStatus": "owner-request-lower-window-provisional",
           "placementStatus": "unresolved",
           "type": "window",
           "noGlass": false,
-          "guard": false
+          "guard": false,
+          "layoutRevision": "family-lighting-study-refinement-20261012",
+          "notes": "业主已确认先用窗洞高1200mm暂估、窗台900mm不变；复尺图仍未给窗高/窗台。仅窗洞高度1400→1200示意，原宽1100及平面位置保持，必须现场确认。"
         },
         {
           "id": "window_living_west",
@@ -24403,26 +24405,26 @@ const plans = {
           "type": "acwall",
           "name": "书房 · 壁挂空调（暂估）",
           "roomId": "room_c",
-          "cx": 620,
-          "cy": 3465,
+          "cx": 245,
+          "cy": 4700,
           "w": 900,
           "d": 250,
-          "rot": 0,
+          "rot": 270,
           "color": "#F4F1E9",
           "heightMm": 300,
           "elevationMm": 2250,
           "sourceId": "family-acwall-room_c",
           "modelVariant": "appliance-concept",
-          "layoutRevision": "family-ac-window-20261012",
+          "layoutRevision": "family-lighting-study-refinement-20261012",
           "dimensionStatus": "concept-pending-user-model",
           "sourceFootprintMm": {
-            "x": 170,
-            "y": 3340,
-            "w": 900,
-            "d": 250
+            "x": 120,
+            "y": 4250,
+            "w": 250,
+            "d": 900
           },
           "applianceDesign": {
-            "revision": "family-ac-window-20261012",
+            "revision": "family-lighting-study-refinement-20261012",
             "status": "concept-pending-user-model",
             "installation": "wall-high",
             "notPurchasedModel": true,
@@ -24435,32 +24437,34 @@ const plans = {
             "bottomMm": 2250,
             "topMm": 2550,
             "windowPlacement": {
-              "revision": "family-ac-window-20261012",
-              "status": "concept-location-installation-pending",
+              "revision": "family-lighting-study-refinement-20261012",
+              "status": "provisional-window-west-wall-installation-pending",
               "windowId": "window_c",
-              "mountingWall": "north",
-              "mountingDescription": "书房西北窗侧角的北墙",
+              "mountingWall": "west",
+              "mountingDescription": "书房西墙窗头上方 · 朝东",
               "bodyRectMm": [
-                170,
-                3340,
-                1070,
-                3590
+                120,
+                4250,
+                370,
+                5150
               ],
-              "windowHeadMm": 2300,
-              "bodyAboveWindowHeadMm": null,
+              "windowHeadMm": 2100,
+              "bodyAboveWindowHeadMm": 150,
               "topToRoomCeilingMm": 150,
               "exteriorConnectionStatus": "outdoor-position-wall-penetration-refrigerant-condensate-electricity-pending",
               "actualOutdoorUnitAdded": false,
-              "actualPipeOrHoleAdded": false
+              "actualPipeOrHoleAdded": false,
+              "windowHeightProvisional": true,
+              "windowSillMm": 900,
+              "windowHeightMm": 1200
             }
           },
-          "notes": "2026-10-12方案2窗侧挂机定位：书房西北窗侧角的北墙；保留900×250×300mm、底2250mm暂估机身。外机、穿墙与排水未核。",
+          "notes": "本次按业主要求真正移至书房西墙窗上方、朝东。暂估机身900×250×300，底2250/顶2550保持。窗上口按2100暂估，150mm上下间隔只是模型余量，窗高、墙梁、实机及安装条件待核。",
           "conditions": [
             "900×250×300mm为暂估机身；底高2250mm、上沿2550mm，挂机支架及实际安装高度、顶部进风检修空间须结合型号和现场确认。",
             "外机位置、制冷剂管、穿墙套管、冷凝水坡度与排水点、独立电源、墙体承载及送风方向均未核；不据概念模型施工或下单。",
-            "书房挂机留在北墙、移到西北窗侧角：机身x170..1070/y3340..3590，距西内墙50mm、顶棚150mm。它不是挂在西窗玻璃或西外墙上的已安装空调。",
-            "书房西窗头2300mm，900mm挂机不能完整放入窗北侧810mm西墙段；南侧950mm墙段被高书架占用。窗上方若底2330/顶2630仅有30mm窗头间隔和70mm顶棚余量，未验证厂家安装条件，因此不采用。",
-            "窗侧西北角可作为向西外墙短接的概念位置；外机机位、可穿墙点、冷媒管路、冷凝水坡度/排水及电源全部未定位，不渲染虚构外机、孔洞或管线。"
+            "西墙窗上方机身背面x120贴室内墙面，朝东；不挂在玻璃上。书房窗台900/高1200/上口2100均为未复尺示意，并非新确认的测量值。",
+            "窗头2100至机身底2250、机身顶2550至顶棚2700各150mm；实际进风、检修、支架、墙梁承载、窗帘和外机接管必须按厂家与现场核验，不据静态无相交确认可安装。"
           ]
         },
         {
@@ -26396,7 +26400,7 @@ const plans = {
           "elevationMm": 2590,
           "roomId": "living",
           "modelVariant": "rounded-rectangle-flush-light",
-          "layoutRevision": "family-ceiling-lighting-20261012",
+          "layoutRevision": "family-lighting-study-refinement-20261012",
           "dimensionStatus": "owner-provided",
           "sourceId": "family-living-ceilinglight",
           "sourceFootprintMm": {
@@ -26405,40 +26409,48 @@ const plans = {
             "w": 907,
             "d": 577
           },
-          "notes": "2026-10-12业主提供907×577×110mm及参考照片。按图做黑色细边、白色圆角面罩的薄型吸顶灯，居客厅地毯中心；未提供具体品牌型号。",
+          "notes": "2026-10-12业主提供907×577×110mm及参考照片。按图做黑色细边、白色圆角面罩的薄型吸顶灯，居客厅地毯中心；未提供具体品牌型号。 本次将上方背板改为白色，俯视不再黑成一整块；侧面保留黑色细边。",
           "conditions": [
             "按当前2700mm模型层高贴顶，灯底2590mm；真实吊顶完成面、底座安装及电线点位待现场确认。",
             "黑色细边、白色圆角灯罩为照片参考的参数化示意；发光仅用于模型展示，不代表功率、色温、照度或厂家光学参数。"
-          ]
+          ],
+          "lightingDesign": {
+            "frameColor": "#242424",
+            "backplateColor": "#F8F7F2"
+          }
         },
         {
           "id": "family-dining-ceilinglight",
           "type": "ceilinglight",
-          "name": "餐厅同风格吸顶灯 · 同尺寸暂定占位",
+          "name": "餐厅圆形吸顶灯 · 沿用原客厅圆灯",
           "cx": 2955,
           "cy": 11000,
-          "w": 907,
-          "d": 577,
-          "rot": 90,
-          "color": "#F8F7F2",
-          "heightMm": 110,
-          "elevationMm": 2590,
+          "w": 440,
+          "d": 440,
+          "rot": 0,
+          "color": "#FFFFFF",
+          "heightMm": 20,
+          "elevationMm": 2680,
           "roomId": "living",
-          "modelVariant": "rounded-rectangle-flush-light",
-          "layoutRevision": "family-ceiling-lighting-20261012",
-          "dimensionStatus": "design-pending",
+          "modelVariant": "round-flush-light",
+          "layoutRevision": "family-lighting-study-refinement-20261012",
+          "dimensionStatus": "reused-model-dimensions-pending",
           "sourceId": "family-dining-ceilinglight",
           "sourceFootprintMm": {
-            "x": 2666.5,
-            "y": 10546.5,
-            "w": 577,
-            "d": 907
+            "x": 2735,
+            "y": 10780,
+            "w": 440,
+            "d": 440
           },
-          "notes": "2026-10-12餐桌上方新增独立灯。尚未确认餐厅型号，暂用客厅同风格907×577×110mm占位，长边与餐桌长边平行；可独立改尺寸和位置。",
+          "notes": "按业主要求沿用原客厅圆形吸顶灯样式。440mm直径、20mm厚度来自此前模型的半径220/厚20圆柱示意，不是实物复尺；居餐桌正上方，按2700模型顶面贴顶。",
           "conditions": [
-            "按当前2700mm模型层高贴顶，灯底2590mm；真实吊顶完成面、底座安装及电线点位待现场确认。",
-            "黑色细边、白色圆角灯罩为照片参考的参数化示意；发光仅用于模型展示，不代表功率、色温、照度或厂家光学参数。"
-          ]
+            "沿用原客厅圆灯，不再使用907×577长方灯占位；实物型号、直径、厚度、安装底座和接线位置待核。",
+            "灯体白色，模型亮度与色温仅作视觉示意，不代表厂家性能或照度校核。"
+          ],
+          "lightingDesign": {
+            "frameColor": "#FFFFFF",
+            "backplateColor": "#FFFFFF"
+          }
         }
       ],
       "HEIGHT_MM": 2700,
@@ -26831,7 +26843,9 @@ const plans = {
           "模型开门范围不碰餐桌椅或室内入户门；距南餐椅约355mm只是门扫纵向间隔，不代表站位或能同时取物通行。",
           "18mm板、调节轨、L形拼接和层板灯带均为构造示意；承重、背板锚固、防倾倒、门缝/踢脚线、通顶收口与下单尺寸由定制方现场深化。",
           "2026-10-12仅方案2更新客餐厅两盏吸顶灯。客厅907×577×110mm为业主提供值；餐厅同尺寸为暂定占位，未推定已购买。两盏分别居地毯/餐桌中心，不能当作实际灯位施工图。",
-          "按当前模型2700层高贴顶，灯底2590；吊顶完成面、接线盒、安装固定、开关回路和实际灯具规格待现场核对。模型亮度/暖白外观仅为展示，不表示照度或厂家参数。"
+          "按当前模型2700层高贴顶，灯底2590；吊顶完成面、接线盒、安装固定、开关回路和实际灯具规格待现场核对。模型亮度/暖白外观仅为展示，不表示照度或厂家参数。",
+          "本次修订覆盖前版“餐厅同尺寸长方灯占位”及“书房挂机仍挂北墙”的现状说明：餐厅改原白圆灯，客厅长方灯背板白色，书房机移西窗墙上方朝东。此前文字属于历史方案，不是本版定位。",
+          "书房窗未新增复尺确认值：窗台900、窗洞高1200、窗顶2100及原宽1100/平面定位为暂估示意，不能为挤放空调当成实测或施工尺寸。实际窗口、顶部梁、墙体承载、机型及安装净空必须现场核验。"
         ],
         "balconyOpenness": {
           "id": "balcony-two-sided-open-20261005",
@@ -26883,7 +26897,7 @@ const plans = {
             }
           }
         },
-        "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs + tools/family-study-door-20261012.cjs + tools/family-appliances-20261012.cjs + tools/family-ac-window-20261012.cjs + tools/family-living-clear-20261012.cjs + tools/family-balcony-service-20261012.cjs + tools/family-corner-storage-20261012.cjs + tools/family-ceiling-lighting-20261012.cjs",
+        "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs + tools/family-study-door-20261012.cjs + tools/family-appliances-20261012.cjs + tools/family-ac-window-20261012.cjs + tools/family-living-clear-20261012.cjs + tools/family-balcony-service-20261012.cjs + tools/family-corner-storage-20261012.cjs + tools/family-ceiling-lighting-20261012.cjs + tools/family-lighting-study-refinement-20261012.cjs",
         "wallStatus": "承重性未鉴定；原源数据未授权将未知内墙标记为可拆非承重墙。",
         "cabinetRevision": {
           "revision": "cream-oak-functional-v1",
@@ -27075,6 +27089,18 @@ const plans = {
               "family-dining-ceilinglight"
             ],
             "description": "方案2客厅换业主参考的907×577×110圆角吸顶灯，置地毯中心；餐桌正上方新增同风格同尺寸暂定灯，取代客餐厅旧圆形占位灯。",
+            "sourceSnapshotsUnchanged": true
+          },
+          {
+            "id": "family-lighting-study-refinement-20261012",
+            "date": "2026-10-12",
+            "sourceIds": [
+              "family-living-ceilinglight",
+              "family-dining-ceilinglight",
+              "family-acwall-room_c",
+              "window_c"
+            ],
+            "description": "方案2餐厅沿用原客厅白色圆灯；客厅907×577灯顶背板白色、侧边黑色；书房挂机改西墙窗上方朝东，窗高暂估1200/窗台900且待实测。",
             "sourceSnapshotsUnchanged": true
           }
         ],
@@ -45921,6 +45947,823 @@ const plans = {
           "removedFurnitureIds": [],
           "replacedFurnitureIds": [],
           "migrationFields": {}
+        },
+        "familyLightingStudyRefinement": {
+          "id": "family-lighting-study-refinement-20261012",
+          "date": "2026-10-12",
+          "title": "方案2 · 圆餐灯、白灯背板与西窗墙空调",
+          "status": "owner-request-study-window-provisional",
+          "sourceSnapshotsUnchanged": true,
+          "notInstallationApproval": true,
+          "changedFurnitureIds": [
+            "family-living-ceilinglight",
+            "family-dining-ceilinglight",
+            "family-acwall-room_c"
+          ],
+          "newFurnitureIds": [],
+          "removedFurnitureIds": [],
+          "replacedFurnitureIds": [],
+          "previousFurniture": [
+            {
+              "id": "family-living-ceilinglight",
+              "type": "ceilinglight",
+              "name": "客厅黑色细边圆角吸顶灯 · 907×577×110",
+              "cx": 5075,
+              "cy": 7630,
+              "w": 907,
+              "d": 577,
+              "rot": 0,
+              "color": "#F8F7F2",
+              "heightMm": 110,
+              "elevationMm": 2590,
+              "roomId": "living",
+              "modelVariant": "rounded-rectangle-flush-light",
+              "layoutRevision": "family-ceiling-lighting-20261012",
+              "dimensionStatus": "owner-provided",
+              "sourceId": "family-living-ceilinglight",
+              "sourceFootprintMm": {
+                "x": 4621.5,
+                "y": 7341.5,
+                "w": 907,
+                "d": 577
+              },
+              "notes": "2026-10-12业主提供907×577×110mm及参考照片。按图做黑色细边、白色圆角面罩的薄型吸顶灯，居客厅地毯中心；未提供具体品牌型号。",
+              "conditions": [
+                "按当前2700mm模型层高贴顶，灯底2590mm；真实吊顶完成面、底座安装及电线点位待现场确认。",
+                "黑色细边、白色圆角灯罩为照片参考的参数化示意；发光仅用于模型展示，不代表功率、色温、照度或厂家光学参数。"
+              ]
+            },
+            {
+              "id": "family-dining-ceilinglight",
+              "type": "ceilinglight",
+              "name": "餐厅同风格吸顶灯 · 同尺寸暂定占位",
+              "cx": 2955,
+              "cy": 11000,
+              "w": 907,
+              "d": 577,
+              "rot": 90,
+              "color": "#F8F7F2",
+              "heightMm": 110,
+              "elevationMm": 2590,
+              "roomId": "living",
+              "modelVariant": "rounded-rectangle-flush-light",
+              "layoutRevision": "family-ceiling-lighting-20261012",
+              "dimensionStatus": "design-pending",
+              "sourceId": "family-dining-ceilinglight",
+              "sourceFootprintMm": {
+                "x": 2666.5,
+                "y": 10546.5,
+                "w": 577,
+                "d": 907
+              },
+              "notes": "2026-10-12餐桌上方新增独立灯。尚未确认餐厅型号，暂用客厅同风格907×577×110mm占位，长边与餐桌长边平行；可独立改尺寸和位置。",
+              "conditions": [
+                "按当前2700mm模型层高贴顶，灯底2590mm；真实吊顶完成面、底座安装及电线点位待现场确认。",
+                "黑色细边、白色圆角灯罩为照片参考的参数化示意；发光仅用于模型展示，不代表功率、色温、照度或厂家光学参数。"
+              ]
+            },
+            {
+              "id": "family-acwall-room_c",
+              "type": "acwall",
+              "name": "书房 · 壁挂空调（暂估）",
+              "roomId": "room_c",
+              "cx": 620,
+              "cy": 3465,
+              "w": 900,
+              "d": 250,
+              "rot": 0,
+              "color": "#F4F1E9",
+              "heightMm": 300,
+              "elevationMm": 2250,
+              "sourceId": "family-acwall-room_c",
+              "modelVariant": "appliance-concept",
+              "layoutRevision": "family-ac-window-20261012",
+              "dimensionStatus": "concept-pending-user-model",
+              "sourceFootprintMm": {
+                "x": 170,
+                "y": 3340,
+                "w": 900,
+                "d": 250
+              },
+              "applianceDesign": {
+                "revision": "family-ac-window-20261012",
+                "status": "concept-pending-user-model",
+                "installation": "wall-high",
+                "notPurchasedModel": true,
+                "notInstallationApproval": true,
+                "dimensionsMm": [
+                  900,
+                  250,
+                  300
+                ],
+                "bottomMm": 2250,
+                "topMm": 2550,
+                "windowPlacement": {
+                  "revision": "family-ac-window-20261012",
+                  "status": "concept-location-installation-pending",
+                  "windowId": "window_c",
+                  "mountingWall": "north",
+                  "mountingDescription": "书房西北窗侧角的北墙",
+                  "bodyRectMm": [
+                    170,
+                    3340,
+                    1070,
+                    3590
+                  ],
+                  "windowHeadMm": 2300,
+                  "bodyAboveWindowHeadMm": null,
+                  "topToRoomCeilingMm": 150,
+                  "exteriorConnectionStatus": "outdoor-position-wall-penetration-refrigerant-condensate-electricity-pending",
+                  "actualOutdoorUnitAdded": false,
+                  "actualPipeOrHoleAdded": false
+                }
+              },
+              "notes": "2026-10-12方案2窗侧挂机定位：书房西北窗侧角的北墙；保留900×250×300mm、底2250mm暂估机身。外机、穿墙与排水未核。",
+              "conditions": [
+                "900×250×300mm为暂估机身；底高2250mm、上沿2550mm，挂机支架及实际安装高度、顶部进风检修空间须结合型号和现场确认。",
+                "外机位置、制冷剂管、穿墙套管、冷凝水坡度与排水点、独立电源、墙体承载及送风方向均未核；不据概念模型施工或下单。",
+                "书房挂机留在北墙、移到西北窗侧角：机身x170..1070/y3340..3590，距西内墙50mm、顶棚150mm。它不是挂在西窗玻璃或西外墙上的已安装空调。",
+                "书房西窗头2300mm，900mm挂机不能完整放入窗北侧810mm西墙段；南侧950mm墙段被高书架占用。窗上方若底2330/顶2630仅有30mm窗头间隔和70mm顶棚余量，未验证厂家安装条件，因此不采用。",
+                "窗侧西北角可作为向西外墙短接的概念位置；外机机位、可穿墙点、冷媒管路、冷凝水坡度/排水及电源全部未定位，不渲染虚构外机、孔洞或管线。"
+              ]
+            }
+          ],
+          "previousFurnitureOrder": [
+            "bed_b",
+            "family-f1",
+            "bed_a",
+            "family-f3",
+            "study_full_desk",
+            "family-f5",
+            "family-living-rug",
+            "family-f6",
+            "family-f7",
+            "vanity_main",
+            "family-f11",
+            "family-f12",
+            "vanity_guest",
+            "family-f14",
+            "family-f15",
+            "study_north_sofa",
+            "family-f23",
+            "family-f24",
+            "family-f25",
+            "family-f26",
+            "family-f27",
+            "fit-bay_b_tea",
+            "fit-bay_living_family",
+            "fit-entry_shoe_station",
+            "fit-dining_sideboard_wall",
+            "fit-sofa_back_storage",
+            "fit-study_bookwall",
+            "laundry_washer",
+            "laundry_dryer",
+            "fit-kitchen-20261005",
+            "kitchen_fridge",
+            "kitchen_dishwasher",
+            "kitchen_double_sink",
+            "kitchen_hob",
+            "kitchen_hood",
+            "kitchen_heater",
+            "kitchen_tap",
+            "living-east-art",
+            "draft-desk-b",
+            "draft-chair-b",
+            "draft-night-b",
+            "draft-desk-a",
+            "draft-chair-a",
+            "draft-night-a",
+            "study_window_return",
+            "family-acwall-room_a",
+            "family-acwall-room_b",
+            "family-acwall-room_c",
+            "family-living-aircon",
+            "family-kitchen-ceilingfan",
+            "family-bathheater-bath_1",
+            "family-bathheater-bath_2",
+            "family-sideboard-blender",
+            "family-sideboard-temperaturekettle",
+            "family-sideboard-sterilizer",
+            "family-sideboard-healthkettle",
+            "family-sideboard-waterdispenser",
+            "balcony_service_counter",
+            "balcony_outer_projection",
+            "balcony_robot",
+            "family-living-ceilinglight",
+            "family-dining-ceilinglight"
+          ],
+          "previousMetadataFields": {
+            "designCorrections": [
+              {
+                "id": "bath-south-hinge-20261008",
+                "sourceId": "door_bath_1",
+                "description": "主卫北铰改南铰，仍向卫内开；门洞和全部家具位置不变。",
+                "openingUnchanged": true,
+                "hingeMm": [
+                  4450,
+                  4430
+                ],
+                "closedDirection": [
+                  0,
+                  -1
+                ],
+                "openDirection": [
+                  1,
+                  0
+                ],
+                "usageNote": "门扇转到入口南侧而非贴南墙。两门板间距不是通行净宽；旧源快照550mm门间带说明不再适用。",
+                "status": "superseded-for-family",
+                "supersededBy": "family-master-bath-confirmed-20261011"
+              },
+              {
+                "id": "entry-family-layout-20261011",
+                "sourceId": "entry_door",
+                "description": "2026-10-11用户修订：入户门参照方案4向室外开启，保持本方案原洞口、宽高及门叶长度；合页从本方案洞口东端内退60mm作示意。公共走廊、邻户门、门套、闭门器及允许开启角度尚待现场核对，不构成外开施工批准。",
+                "openingUnchanged": true,
+                "hingeMm": [
+                  4840,
+                  13950
+                ],
+                "closedDirection": [
+                  -1,
+                  0
+                ],
+                "openDirection": [
+                  0,
+                  1
+                ],
+                "leafLengthMm": 890
+              },
+              {
+                "id": "family-master-bath-confirmed-20261011",
+                "date": "2026-10-11",
+                "sourceIds": [
+                  "door_a",
+                  "door_bath_1",
+                  "vanity_main",
+                  "family-f11"
+                ],
+                "description": "方案2主卧门南移300mm；主卫门北移300mm、北铰内开；南墙盆厕及镜面朝北，淋浴和房间边界不动。",
+                "openingWidthsUnchanged": true,
+                "sourceSnapshotsUnchanged": true,
+                "usageNote": "门侧墙段随新洞口补齐，未改变墙体轴线或主卫北墙；门位移是已确认设计参数而非新增实测，排水与五金仍待核。"
+              },
+              {
+                "id": "family-study-laundry-confirmed-20261011",
+                "date": "2026-10-11",
+                "sourceIds": [
+                  "door_c",
+                  "study_full_desk",
+                  "family-f5",
+                  "fit-study_bookwall",
+                  "vanity_guest",
+                  "laundry_washer",
+                  "laundry_dryer",
+                  "study_window_return",
+                  "fit-laundry_wall",
+                  "fit-laundry_basin",
+                  "balcony_door"
+                ],
+                "description": "方案2确认书房门南移500及7字窗边桌；洗衣机入客卫左机右盆台，阳台只留单干机且退回原门轴。",
+                "sourceSnapshotsUnchanged": true,
+                "usageNote": "当前保留书房沙发，1500×2000未来床只作替换校核，不与沙发同时新增；客卫门和主卫、双卧本轮不动。"
+              },
+              {
+                "id": "family-door-refinement-20261011",
+                "date": "2026-10-11",
+                "sourceIds": [
+                  "balcony_door",
+                  "door_kitchen"
+                ],
+                "description": "方案2厨房及生活阳台玻璃推拉门由三扇三轨改双扇双轨，保持原洞口和堆叠方向。",
+                "sourceSnapshotsUnchanged": true,
+                "openingWidthsUnchanged": true,
+                "wallIndexesUnchanged": true,
+                "furnitureUnchanged": true,
+                "usageNote": "没有默认采纳尚待确认的书房反向开门及桌棚收短；此层只变两个推拉门。"
+              },
+              {
+                "id": "family-study-door-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "door_c",
+                  "door_a",
+                  "study_full_desk",
+                  "fit-study_bookwall"
+                ],
+                "description": "方案2书房900门洞再南移300并改南铰内开，南桌与浅书墙缩至1450；坐椅原位避让西窗返桌，主卧门仅纠正说明为530mm纵向间隔。",
+                "sourceSnapshotsUnchanged": true,
+                "openingWidthsUnchanged": true,
+                "wallAxesUnchanged": true,
+                "usageNote": "独立新层取代书房北铰1680旧状态；历史版本元数据不改。返桌、沙发、未来床外包、厨房/阳台双扇门全部保持。"
+              },
+              {
+                "id": "family-appliances-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "family-acwall-room_a",
+                  "family-acwall-room_b",
+                  "family-acwall-room_c",
+                  "family-living-aircon",
+                  "family-kitchen-ceilingfan",
+                  "family-bathheater-bath_1",
+                  "family-bathheater-bath_2",
+                  "family-sideboard-blender",
+                  "family-sideboard-temperaturekettle",
+                  "family-sideboard-sterilizer",
+                  "family-sideboard-healthkettle",
+                  "family-sideboard-waterdispenser"
+                ],
+                "description": "仅方案2增加主次卧及书房挂机、客厅电视东角柜机、厨房凉霸、两卫淋浴上方浴霸与餐边柜五台小家电；均暂估外包，原墙门窗、家具和定制柜板件不动。",
+                "sourceSnapshotsUnchanged": true,
+                "usageNote": "12件可编辑概念电器，不是已购型号、产品推荐或机电安装批准。"
+              },
+              {
+                "id": "family-ac-window-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "family-acwall-room_a",
+                  "family-acwall-room_b",
+                  "family-acwall-room_c"
+                ],
+                "description": "仅方案2三台已有挂机移到窗侧：主次卧室内北墙窗头上方，书房北墙西北窗侧角；尺寸与底2250标高保持，不改窗墙柜及其他九件电器。",
+                "sourceSnapshotsUnchanged": true,
+                "usageNote": "窗边位置为概念摆放，不代表外机、管路或穿墙安装已核定。"
+              },
+              {
+                "id": "family-living-clear-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "family-f8",
+                  "living-floorlamp"
+                ],
+                "description": "仅方案2移除电视前茶几及客厅落地灯，沙发、地毯、电视柜、餐桌与其他摆设原位保留。",
+                "sourceSnapshotsUnchanged": true
+              },
+              {
+                "id": "family-balcony-service-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "laundry_dryer",
+                  "balcony_service_counter",
+                  "balcony_outer_projection",
+                  "balcony_robot",
+                  "balcony_north_opening",
+                  "balcony_east_opening"
+                ],
+                "description": "仅方案2：北东铁皮/网框向外挑600概念，不扩地面；紧凑基站放门与烘干机之间，西盆东机连续独立台。",
+                "sourceSnapshotsUnchanged": true
+              },
+              {
+                "id": "family-corner-storage-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "fit-dining_sideboard_wall"
+                ],
+                "description": "方案2餐边柜西南转角参考照片做通顶连通浅型800库，两面柜门顺序开合、底部高件区和L形层板；不扩占地，不复原旧独立800库。",
+                "sourceSnapshotsUnchanged": true
+              },
+              {
+                "id": "family-ceiling-lighting-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "family-living-ceilinglight",
+                  "family-dining-ceilinglight"
+                ],
+                "description": "方案2客厅换业主参考的907×577×110圆角吸顶灯，置地毯中心；餐桌正上方新增同风格同尺寸暂定灯，取代客餐厅旧圆形占位灯。",
+                "sourceSnapshotsUnchanged": true
+              }
+            ],
+            "conditions": [
+              "墙体、房间多边形和面积沿用既有方案；部分复尺已应用，全屋墙线和共同基准未闭合。",
+              "编辑器中的尺寸以模型坐标为准；已购家具保持机身外廓，安装、门套及五金余量待核。",
+              "入户门参照方案4向外开启，模型内不再扫过鞋柜正面；门外公共通行、相邻门、门套、闭门器及限位仍须现场确认，模型不构成外开施工批准。",
+              "方案2本轮主卧门南移300mm、主卫门北移300mm并改北铰内开；盆厕贴南墙面北。门位为确认设计参数，非新增实测；马桶侧至淋浴仅60mm，排水移位与门套、通行条件仍须现场深化。",
+              "方案2书房900门洞累计南移800，本轮再南移300并改南铰内开；7字南桌与浅书墙1450，与主卧门洞纵向间隔530mm。未来完整床须替换沙发并收椅。客卫台前610mm偏紧，机门/取衣须实物试摆。阳台取消借厅外凸但全屋净宽与复尺差180mm尚未闭合。",
+              "方案2厨房1700、生活阳台1500mm原门洞保持，仅改双扇双轨玻璃推拉门；厨房向北、阳台向南堆叠不变。开门后的可用通行宽度约为洞宽一半，实际门框/搭接/五金再扣，须核对搬运、操作和防水高差。",
+              "2026-10-12方案2书房1450桌/真实书架东端至40mm门叶连续扫掠外包约49.74mm，余量有限，不含把手、门套和安装偏差；洞下室内墙垛仅20mm。未来床侧710mm与坐椅共用偏紧，床尾120mm不是通道。",
+              "2026-10-12方案2新增12件暂估电器；原有47件家具、墙/门/窗、1450书房桌架与南铰门、厨房及阳台双扇门、其他3方案保持。",
+              "三房挂机底2250/顶2550mm；柜机放TV东侧、静态距墙和电视柜50mm只是模型几何空隙。冷凝排水、外机/管路、进回风、供电与检修未核。",
+              "厨房凉霸和两卫浴霸可见面板底2620/顶2700mm，80mm仅显示壳体；吊顶腔内机身深度、风管、安装禁区、防护等级、排风、电气保护与检修定位待核。",
+              "五台餐边电器底850mm落在真实400mm深西柜台面；不改原插座和灯带，不遮高柜展示格，南段保留1550mm连续空白备餐台面。所有实物尺寸、插头、开盖、蒸汽、散热及实际运行位置待核；不默认柜下蒸汽运行或五台同时接同一插排。",
+              "2026-10-12方案2三房挂机改到窗侧：主次卧北窗上方室内墙带，窗头2070至机身底2250为180mm；不装入外凸飘窗顶棚或玻璃，不改变窗体。",
+              "书房挂机向西移550mm至北墙西北窗侧角，距西墙50mm、距房顶150mm；西窗头2300上方直接挂装只有70mm顶棚余量的候选不采用，不为挤放而改机宽、书架或窗高。",
+              "三挂机仍900×250×300mm、底2250/顶2550；主卧/次卧/书房顶棚余240/150/150mm仅模型几何量，非厂家进风检修要求。窗帘、基层、墙梁、实际机型、室外机位及穿孔冷媒管/排水/电源需专业现场核对，不构成安装批准。",
+              "2026-10-12方案2移除电视前1200×620茶几及客厅落地灯；其他57件家具电器、墙门窗及其他方案保持。旧浏览器草稿中的这两件物品移除时保留JSON归档。",
+              "1200×700台面只占原室内地面，台前模型790mm；台西侧距推拉门内缘20mm，原双扇门洞与轨道不动。",
+              "基站先按380×450×500占位，不代表任何实际型号；西侧净宽440，两侧20/40、后部70mm仅几何量，机器人先向北出柜，再经北半门口进厅。",
+              "盆在基站上方，不在烘干机上方；盆底780、基站顶500之间280mm仅静态高度差。排水管线示意不代表存水弯、取水箱、开盖及维修已兼容。",
+              "台面支架、盆开孔、排水、供水、湿区用电和烘干机散热必须按实际设备及现场深化。阳台模型1420与复尺1240仍差180，禁止按本图直接下单。",
+              "原矮墙、边柱、顶梁完整保留；只把原窗面的网框示意移至外挑边缘。北、东面无玻璃或新高柜。",
+              "非踩踏、非承载的新外挑概念：不得放机器、储物或站人。本模型未增地面楼板，未确认锚固、抗风、防坠、接缝排水或防水构造。",
+              "高层外立面外挑涉及物业/审批、结构与防护条件，必须由专业方现场核验；600仅为业主希望的设计值，不是施工许可。",
+              "转角库是400mm深两臂连通的浅型L柜，不是步入式储物间；不增加入户占地、不改墙门窗，也不保证容纳此前两辆车。",
+              "内转角无中立柱，合页在两外端；西门先开、南门后开，关闭反向。独立同时外开会互撞，需顺序联动/限位、门板重量与防夹设计，模型顺序动画不是五金安装批准。",
+              "模型开门范围不碰餐桌椅或室内入户门；距南餐椅约355mm只是门扫纵向间隔，不代表站位或能同时取物通行。",
+              "18mm板、调节轨、L形拼接和层板灯带均为构造示意；承重、背板锚固、防倾倒、门缝/踢脚线、通顶收口与下单尺寸由定制方现场深化。",
+              "2026-10-12仅方案2更新客餐厅两盏吸顶灯。客厅907×577×110mm为业主提供值；餐厅同尺寸为暂定占位，未推定已购买。两盏分别居地毯/餐桌中心，不能当作实际灯位施工图。",
+              "按当前模型2700层高贴顶，灯底2590；吊顶完成面、接线盒、安装固定、开关回路和实际灯具规格待现场核对。模型亮度/暖白外观仅为展示，不表示照度或厂家参数。"
+            ],
+            "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs + tools/family-study-door-20261012.cjs + tools/family-appliances-20261012.cjs + tools/family-ac-window-20261012.cjs + tools/family-living-clear-20261012.cjs + tools/family-balcony-service-20261012.cjs + tools/family-corner-storage-20261012.cjs + tools/family-ceiling-lighting-20261012.cjs"
+          },
+          "previousPlanFields": {
+            "WIN_META": [
+              {
+                "id": "window_b",
+                "name": "次卧北飘窗（复尺400mm台面，软垫为条件设计）",
+                "grade": "局部复尺",
+                "source": "B2_WINDOW_*：宽1760、高1670、台400mm；西墙段870定位，东墙段待全屋闭合；外凸600仍旧占位。",
+                "measurementStatus": {
+                  "date": "2026-10-04",
+                  "reference": "models/measurements-20261004-r2.json",
+                  "scope": "B2_WINDOW_*：宽1760、高1670、台400mm；西墙段870定位，东墙段待全屋闭合；外凸600仍旧占位。",
+                  "fullyLocated": false
+                },
+                "designScenario": "复尺台面400mm、窗高1670mm；设计软垫完成面450mm。窗侧定位和框内净深、结构承载、防坠仍须核验；不代表允许拆改窗台。",
+                "sourceId": "window_b",
+                "sourceAxisMm": [
+                  990,
+                  60,
+                  2750,
+                  60
+                ],
+                "openingWidthMm": 1760,
+                "sillMm": 400,
+                "heightMm": 1670,
+                "headMm": 2070,
+                "dimensionStatus": "partial-measured",
+                "placementStatus": "unresolved",
+                "type": "bay-aperture",
+                "noGlass": true,
+                "noFrame": true
+              },
+              {
+                "id": "window_b-front",
+                "name": "次卧北飘窗（复尺400mm台面，软垫为条件设计）",
+                "grade": "局部复尺",
+                "source": "B2_WINDOW_*：宽1760、高1670、台400mm；西墙段870定位，东墙段待全屋闭合；外凸600仍旧占位。",
+                "measurementStatus": {
+                  "date": "2026-10-04",
+                  "reference": "models/measurements-20261004-r2.json",
+                  "scope": "B2_WINDOW_*：宽1760、高1670、台400mm；西墙段870定位，东墙段待全屋闭合；外凸600仍旧占位。",
+                  "fullyLocated": false
+                },
+                "designScenario": "复尺台面400mm、窗高1670mm；设计软垫完成面450mm。窗侧定位和框内净深、结构承载、防坠仍须核验；不代表允许拆改窗台。",
+                "sourceId": "window_b",
+                "sourceAxisMm": [
+                  990,
+                  -600,
+                  2750,
+                  -600
+                ],
+                "openingWidthMm": 1760,
+                "sillMm": 400,
+                "heightMm": 1670,
+                "headMm": 2070,
+                "dimensionStatus": "partial-measured",
+                "placementStatus": "unresolved",
+                "type": "bay-front"
+              },
+              {
+                "id": "window_a",
+                "name": "主卧北飘窗（存在确认，尺寸待复尺）",
+                "grade": "局部复尺",
+                "source": "R2 B3_WINDOW_LENGTH/UPPER_OFFSET/LOWER_OFFSET：窗宽1760mm，按西墙段860mm条件定位；860＋1760＋870＝3490比净跨3500少10mm，模型东段暂880mm。台410／高1660，外凸600仍旧占位。",
+                "measurementStatus": {
+                  "date": "2026-10-04",
+                  "reference": "models/measurements-20261004-r2.json",
+                  "scope": "R2 B3_WINDOW_LENGTH/UPPER_OFFSET/LOWER_OFFSET：窗宽1760mm，按西墙段860mm条件定位；860＋1760＋870＝3490比净跨3500少10mm，模型东段暂880mm。台410／高1660，外凸600仍旧占位。",
+                  "fullyLocated": false
+                },
+                "designScenario": "窗宽1760mm已修正；西段860mm定位仍受全屋共同基准限制，东段暂880mm而实测870mm，保留10mm差值待核。窗台410、高1660、房高2790mm；外凸与框内净深未测。",
+                "sourceId": "window_a",
+                "sourceAxisMm": [
+                  4110,
+                  60,
+                  5870,
+                  60
+                ],
+                "openingWidthMm": 1760,
+                "sillMm": 410,
+                "heightMm": 1660,
+                "headMm": 2070,
+                "dimensionStatus": "partial-measured",
+                "placementStatus": "unresolved",
+                "type": "bay-aperture",
+                "noGlass": true,
+                "noFrame": true
+              },
+              {
+                "id": "window_a-front",
+                "name": "主卧北飘窗（存在确认，尺寸待复尺）",
+                "grade": "局部复尺",
+                "source": "R2 B3_WINDOW_LENGTH/UPPER_OFFSET/LOWER_OFFSET：窗宽1760mm，按西墙段860mm条件定位；860＋1760＋870＝3490比净跨3500少10mm，模型东段暂880mm。台410／高1660，外凸600仍旧占位。",
+                "measurementStatus": {
+                  "date": "2026-10-04",
+                  "reference": "models/measurements-20261004-r2.json",
+                  "scope": "R2 B3_WINDOW_LENGTH/UPPER_OFFSET/LOWER_OFFSET：窗宽1760mm，按西墙段860mm条件定位；860＋1760＋870＝3490比净跨3500少10mm，模型东段暂880mm。台410／高1660，外凸600仍旧占位。",
+                  "fullyLocated": false
+                },
+                "designScenario": "窗宽1760mm已修正；西段860mm定位仍受全屋共同基准限制，东段暂880mm而实测870mm，保留10mm差值待核。窗台410、高1660、房高2790mm；外凸与框内净深未测。",
+                "sourceId": "window_a",
+                "sourceAxisMm": [
+                  4110,
+                  -600,
+                  5870,
+                  -600
+                ],
+                "openingWidthMm": 1760,
+                "sillMm": 410,
+                "heightMm": 1660,
+                "headMm": 2070,
+                "dimensionStatus": "partial-measured",
+                "placementStatus": "unresolved",
+                "type": "bay-front"
+              },
+              {
+                "id": "window_c",
+                "name": "小卧西窗（待复尺）",
+                "grade": "C",
+                "sourceId": "window_c",
+                "sourceAxisMm": [
+                  60,
+                  4150,
+                  60,
+                  5250
+                ],
+                "openingWidthMm": 1100,
+                "sillMm": 900,
+                "heightMm": 1400,
+                "headMm": 2300,
+                "dimensionStatus": "design-pending",
+                "placementStatus": "unresolved",
+                "type": "window",
+                "noGlass": false,
+                "guard": false
+              },
+              {
+                "id": "window_living_west",
+                "name": "客厅西低飘窗（400台高暂估，非实测）",
+                "grade": "局部复尺",
+                "source": "L02/L03/L04/L05：宽2120、高2210、台400、外凸600mm；中心位置暂留旧模型，净框基准待核。",
+                "measurementStatus": {
+                  "date": "2026-10-04",
+                  "reference": "models/measurements-20261004-r2.json",
+                  "scope": "L02/L03/L04/L05：宽2120、高2210、台400、外凸600mm；中心位置暂留旧模型，净框基准待核。",
+                  "fullyLocated": false
+                },
+                "designScenario": "复尺台面400mm、窗高2210mm，窗顶2610mm；设计可拆软垫50mm，完成坐面约450mm。窗中心仍沿旧模型，框内净空、承载和防坠需现场核验，不是拆改结构许可。",
+                "sourceId": "window_living_west",
+                "sourceAxisMm": [
+                  2060,
+                  6410,
+                  2060,
+                  8530
+                ],
+                "openingWidthMm": 2120,
+                "sillMm": 400,
+                "heightMm": 2210,
+                "headMm": 2610,
+                "dimensionStatus": "partial-measured",
+                "placementStatus": "unresolved",
+                "type": "bay-aperture",
+                "noGlass": true,
+                "noFrame": true
+              },
+              {
+                "id": "window_living_west-front",
+                "name": "客厅西低飘窗（400台高暂估，非实测）",
+                "grade": "局部复尺",
+                "source": "L02/L03/L04/L05：宽2120、高2210、台400、外凸600mm；中心位置暂留旧模型，净框基准待核。",
+                "measurementStatus": {
+                  "date": "2026-10-04",
+                  "reference": "models/measurements-20261004-r2.json",
+                  "scope": "L02/L03/L04/L05：宽2120、高2210、台400、外凸600mm；中心位置暂留旧模型，净框基准待核。",
+                  "fullyLocated": false
+                },
+                "designScenario": "复尺台面400mm、窗高2210mm，窗顶2610mm；设计可拆软垫50mm，完成坐面约450mm。窗中心仍沿旧模型，框内净空、承载和防坠需现场核验，不是拆改结构许可。",
+                "sourceId": "window_living_west",
+                "sourceAxisMm": [
+                  1400,
+                  6410,
+                  1400,
+                  8530
+                ],
+                "openingWidthMm": 2120,
+                "sillMm": 400,
+                "heightMm": 2210,
+                "headMm": 2610,
+                "dimensionStatus": "partial-measured",
+                "placementStatus": "unresolved",
+                "type": "bay-front"
+              },
+              {
+                "id": "window_bath_1_east",
+                "name": "主卫东窗（原图有窗，尺寸待复尺）",
+                "grade": "局部复尺",
+                "source": "R2 S05/S06：实测记录窗宽500、窗高1400mm；经用户确认保留旧位置及台1500／高800mm示意，不将1400叠加旧窗台；窗台、窗中心、净高及框内/框外参考面待核。",
+                "measurementStatus": {
+                  "date": "2026-10-04",
+                  "reference": "models/measurements-20261004-r2.json",
+                  "scope": "R2 S05/S06：实测记录窗宽500、窗高1400mm；经用户确认保留旧位置及台1500／高800mm示意，不将1400叠加旧窗台；窗台、窗中心、净高及框内/框外参考面待核。",
+                  "fullyLocated": false
+                },
+                "designScenario": "主卫实测窗宽500、窗高1400mm；模型保留台1500／高800mm旧示意，窗台、定位及测量参考面待核。",
+                "sourceId": "window_bath_1_east",
+                "sourceAxisMm": [
+                  6810,
+                  3750,
+                  6810,
+                  4250
+                ],
+                "openingWidthMm": 500,
+                "sillMm": 1500,
+                "heightMm": 800,
+                "headMm": 2300,
+                "dimensionStatus": "partial-measured",
+                "placementStatus": "unresolved",
+                "type": "window",
+                "noGlass": false,
+                "guard": false
+              },
+              {
+                "id": "window_bath_2_east",
+                "name": "客卫东窗（同户型图有窗，目标须复尺）",
+                "grade": "C",
+                "source": "assets/original-plan.webp 客卫东墙可见窄窗；目标房源该处缺少明确宽高标注，存在与尺寸均须现场确认",
+                "sourceId": "window_bath_2_east",
+                "sourceAxisMm": [
+                  6810,
+                  5300,
+                  6810,
+                  5900
+                ],
+                "openingWidthMm": 600,
+                "sillMm": 1500,
+                "heightMm": 800,
+                "headMm": 2300,
+                "dimensionStatus": "design-pending",
+                "placementStatus": "unresolved",
+                "type": "window",
+                "noGlass": false,
+                "guard": false
+              },
+              {
+                "id": "window_kitchen_balcony",
+                "name": "厨房与阳台共墙大窗（尺寸及窗型待复尺）",
+                "grade": "C",
+                "notes": "厨房与家政阳台之间的内窗，不是通往客厅的窗或阳台外窗。保留窗下墙、两边台下柜和现有门；阳台外侧采光通风条件另核。",
+                "source": "业主确认厨房与阳台之间应有大窗；共墙位置沿用模型，洞宽1200/高1300/台高1000及双扇推拉窗型均为暂定，不是实测。",
+                "sourceId": "window_kitchen_balcony",
+                "sourceAxisMm": [
+                  6980,
+                  11210,
+                  8180,
+                  11210
+                ],
+                "openingWidthMm": 1200,
+                "sillMm": 1000,
+                "heightMm": 1300,
+                "headMm": 2300,
+                "dimensionStatus": "design-pending",
+                "placementStatus": "unresolved",
+                "type": "window",
+                "noGlass": false,
+                "guard": false
+              },
+              {
+                "id": "balcony_north_opening",
+                "name": "生活阳台北向通透开口（矮墙及防护保留；尺寸暂估）",
+                "grade": "C",
+                "notes": "原矮墙、顶梁及洞口几何保留；窗面旧网框隐藏，防盗网示意随铁皮向外挑600mm。无玻璃，承载、防坠、锚固、防水与外立面审批未核。",
+                "source": "2026-10-05业主标注图与阳台实景确认北、东两面上部通透；开口尺寸和标高暂估，不是实测。",
+                "sourceId": "balcony_north_opening",
+                "sourceAxisMm": [
+                  6870,
+                  9600,
+                  8290,
+                  9600
+                ],
+                "openingWidthMm": 1420,
+                "sillMm": 1100,
+                "heightMm": 1350,
+                "headMm": 2450,
+                "dimensionStatus": "photo-estimate",
+                "placementStatus": "unresolved",
+                "type": "guarded-open-air",
+                "noGlass": true,
+                "guard": true,
+                "noFrame": true,
+                "frameRelocatedTo": "balcony_outer_projection",
+                "exteriorProjectionMm": 600,
+                "layoutRevision": "family-balcony-service-20261012"
+              },
+              {
+                "id": "balcony_east_opening",
+                "name": "生活阳台东向通透开口（矮墙及防护保留；尺寸暂估）",
+                "grade": "C",
+                "notes": "原矮墙、顶梁及洞口几何保留；窗面旧网框隐藏，防盗网示意随铁皮向外挑600mm。无玻璃，承载、防坠、锚固、防水与外立面审批未核。",
+                "source": "2026-10-05业主标注图与阳台实景确认北、东两面上部通透；开口尺寸和标高暂估，不是实测。",
+                "sourceId": "balcony_east_opening",
+                "sourceAxisMm": [
+                  8350,
+                  9660,
+                  8350,
+                  11150
+                ],
+                "openingWidthMm": 1490,
+                "sillMm": 1100,
+                "heightMm": 1350,
+                "headMm": 2450,
+                "dimensionStatus": "photo-estimate",
+                "placementStatus": "unresolved",
+                "type": "guarded-open-air",
+                "noGlass": true,
+                "guard": true,
+                "noFrame": true,
+                "frameRelocatedTo": "balcony_outer_projection",
+                "exteriorProjectionMm": 600,
+                "layoutRevision": "family-balcony-service-20261012"
+              }
+            ]
+          },
+          "migrationFields": {
+            "family-living-ceilinglight": [
+              "layoutRevision",
+              "lightingDesign",
+              "notes"
+            ],
+            "family-dining-ceilinglight": [
+              "color",
+              "conditions",
+              "d",
+              "dimensionStatus",
+              "elevationMm",
+              "heightMm",
+              "layoutRevision",
+              "lightingDesign",
+              "modelVariant",
+              "name",
+              "notes",
+              "rot",
+              "sourceFootprintMm",
+              "w"
+            ],
+            "family-acwall-room_c": [
+              "applianceDesign",
+              "conditions",
+              "cx",
+              "cy",
+              "layoutRevision",
+              "notes",
+              "rot",
+              "sourceFootprintMm"
+            ]
+          },
+          "changedWindowIds": [
+            "window_c"
+          ],
+          "otherArchitectureUnchanged": true,
+          "remainingFurnitureUnchanged": true,
+          "diningRoundDimensionsFromOldModelMm": [
+            440,
+            440,
+            20
+          ],
+          "livingOwnerDimensionsUnchanged": true,
+          "livingBackplateColor": "#F8F7F2",
+          "studyWindow": {
+            "status": "provisional-not-surveyed",
+            "estimateOwnerConfirmed": true,
+            "openingWidthMm": 1100,
+            "sillMm": 900,
+            "heightMm": 1200,
+            "headMm": 2100,
+            "planarLocationUnchanged": true,
+            "unmeasuredSillAndHeight": true,
+            "source": "更新复尺资料仍写直窗宽度及位置未测；业主要求降低窗高，先用暂估示意。"
+          },
+          "studyAc": {
+            "id": "family-acwall-room_c",
+            "mountingWall": "west",
+            "faces": "east",
+            "bodyRectMm": [
+              120,
+              4250,
+              370,
+              5150
+            ],
+            "dimensionsMm": [
+              900,
+              250,
+              300
+            ],
+            "bottomMm": 2250,
+            "topMm": 2550,
+            "nominalGapAboveWindowMm": 150,
+            "nominalGapBelowCeilingMm": 150,
+            "notManufacturerClearance": true
+          }
         }
       }
     },

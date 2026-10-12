@@ -3,6 +3,7 @@
 // Owner-provided body dimensions, parametric photo-inspired styling. No SKU,
 // photometric performance or installation approval is inferred from the photo.
 const assert=require('node:assert/strict');
+const {beforeFamilyLightingStudyRefinement}=require('./family-lighting-study-refinement-20261012.cjs');
 const REVISION='family-ceiling-lighting-20261012';
 const IDS=['family-living-ceilinglight','family-dining-ceilinglight'];
 const META_KEYS=['designCorrections','conditions','converter'];
@@ -50,7 +51,7 @@ function applyFamilyCeilingLighting(bundle){
   return bundle;
 }
 function beforeFamilyCeilingLighting(value){
-  const out=clone(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyCeilingLightingUpdate;
+  const out=beforeFamilyLightingStudyRefinement(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyCeilingLightingUpdate;
   if(!m)return out;
   const originals=new Map(m.previousFurniture.map(f=>[f.id,f])),current=new Map(p.defaultFurniture.map(f=>[f.id,f]));
   p.defaultFurniture=m.previousFurnitureOrder.map(id=>clone(originals.get(id)||current.get(id)));

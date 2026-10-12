@@ -366,7 +366,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=ceiling-lighting-20261012"></script>
+<script src="data/house-plans.js?v=lighting-study-refinement-20261012"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -476,7 +476,7 @@ const uid = () => 'f' + Date.now().toString(36) + (_n++);
 const F = (type,name,cx,cy,w,d,rot=0,color) => ({id:uid(),type,name,cx,cy,w,d,rot,color:color||typeColor(type)});
 
 function defaultFurniture(){ return structuredClone(HOUSE_PLAN.defaultFurniture); }
-function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate].filter(Boolean);}
+function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement].filter(Boolean);}
 function defaultState(){
   const rooms = {}; ROOMS.forEach(r => rooms[r.id] = {name:r.name, mat:r.mat});
   return {schemaVersion:2,projectId:'house-design',schemeId:SCHEME_ID,sourceVersion:PLAN_LIBRARY.version,
@@ -547,7 +547,7 @@ function upgradeConfirmedLayouts(s){
   // for defaults. New objects are inserted once; deleted objects stay deleted.
   const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
   const placementKeys=['cx','cy','w','d','rot','heightMm','elevationMm','name','color'];
-  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate].filter(Boolean)){
+  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement].filter(Boolean)){
     if(s.appliedLayoutRevisions?.includes(revision.id))continue;
     const kept=new Set(s.layoutMigrationKeptIds||[]);
     const beforeObjects=[...(revision.previousFurniture||[]),...(revision.previousEntryCabinet?[revision.previousEntryCabinet]:[])];
@@ -798,6 +798,12 @@ function furnSVG(t,w,d,c,variant){
       // small centre cross have a screen-sized, stroke-only pointer target.
       const r=Math.min(65,m*.12),cw=Math.min(w*.08,60),cd=Math.min(d*.08,45);
       const hit='fill="none" stroke="#3d3a34" stroke-opacity="0" stroke-width="8" vector-effect="non-scaling-stroke" pointer-events="stroke"';
+      if(variant==='round-flush-light')return `<g pointer-events="none">`
+        +ec(0,0,w/2,d/2,'#fff',`${DASH} fill-opacity=".12"`)
+        +ec(0,0,Math.max(1,w/2-10),Math.max(1,d/2-10),'none',`${DASH} opacity=".45"`)
+        +ln(-cw,0,cw,0,'opacity=".45"')+ln(0,-cd,0,cd,'opacity=".45"')
+        +`<ellipse data-ceilinglight-hit="outline" cx="0" cy="0" rx="${w/2}" ry="${d/2}" ${hit}/>`
+        +`<path data-ceilinglight-hit="cross" d="M${-cw} 0H${cw}M0 ${-cd}V${cd}" ${hit}/></g>`;
       return `<g pointer-events="none">`
         +rc(x,y,w,d,'#fff',`rx="${r}" ${DASH} fill-opacity=".12"`)
         +rc(x+10,y+10,w-20,d-20,'none',`rx="${Math.max(1,r-10)}" ${DASH} opacity=".45"`)
@@ -1102,7 +1108,8 @@ function overviewPanel(){
   ${HOUSE_PLAN.metadata.familyDoorRefinement?`<section class="project-note" data-family-door-refinement-warning>${tr('厨房与生活阳台已改双扇双轨玻璃推拉门，原洞口1700/1500mm不变。叠放后的名义开口约850/750mm，实际门框与搭接还需扣减；不是施工净宽。','The kitchen and laundry balcony now have two-leaf, two-track glass sliders. The original 1700/1500 mm apertures remain; nominal stacked openings are about 850/750 mm before frame and overlap deductions, not certified clear widths.')}</section>`:''}
   ${HOUSE_PLAN.metadata.familyStudyDoorUpdate?`<section class="project-note" data-family-study-door-warning>${tr('书房900mm门洞在上一版本基础上再南移300mm，南铰内开，打开后靠南墙。南桌与上方书架收短至1450mm，西窗返桌、座椅和沙发保留。门扇端部至桌架50mm、至南墙60mm为模型余量；门套、把手、基层和实物家具仍须现场复核。','The study’s 900 mm opening moves another 300 mm south, with a south hinge opening inward against the south wall. The south desk and bookwall shorten to 1450 mm; the window return, chair and sofa remain. The modeled 50 mm tip-to-furniture and 60 mm leaf-to-wall gaps require checks against actual trim, handles, supports and furniture.')}</section>`:''}
   ${HOUSE_PLAN.metadata.familyAppliancesUpdate?`<section class="project-note" data-family-appliances-warning>${tr('方案2新增12件电器：三间卧室/书房壁挂空调、电视旁柜机、厨房凉霸、两卫淋浴区风暖浴霸，以及餐边柜五件台面电器。尺寸和型号均为概念占位；空调外机、冷凝排水、吊顶夹层、浴霸湿区适用性和用电回路待核。餐边柜中的蒸汽/加热电器需核对开盖及散热，模型摆得下不代表可在上柜下直接运行；不得据此把五台接到同一插排同时使用。','Scheme 2 adds twelve concept appliances: three wall AC units, a living-room floor AC, kitchen ceiling fan, two shower-area fan heaters and five sideboard appliances. Sizes/models are placeholders. Outdoor units, drainage, ceiling voids, wet-zone suitability and electrical circuits need verification. Lid access, steam and heat clearances must be checked; fitting in the niche does not approve operation below upper cabinets or simultaneous use on one power strip.')}</section>`:''}
-  ${HOUSE_PLAN.metadata.familyAcWindowUpdate?`<section class="project-note" data-family-ac-window-warning>${tr('三房挂机已移至窗侧：主次卧在北飘窗上方的室内北墙，书房在西北窗侧角，仍挂北墙。机身尺寸和底2250mm标高不变；书房西窗上方仅70mm顶棚余量的方案未采用。外机、穿墙点、冷媒管和冷凝水排水均待现场核定，不代表已接通室外机。','The bedroom AC units move to the indoor north wall above the bay openings; the study unit moves to its northwest window-side corner, still on the north wall. Sizes and 2250 mm bottom elevations remain unchanged. The study’s over-window option with only 70 mm ceiling space is not used. Outdoor-unit locations, wall penetrations, refrigerant pipes and condensate drains remain unverified.')}</section>`:''}
+  ${HOUSE_PLAN.metadata.familyLightingStudyRefinement?`<section class="project-note" data-family-lighting-study-warning>${tr('餐厅沿用原客厅白色圆灯，440×440×20mm是旧模型示意尺寸，实物待核。客厅907×577×110mm吸顶灯顶面白色、侧面黑色细边。书房挂机已移至西墙窗上方、朝东；主次卧挂机位置不变。书房窗台900、窗洞高1200、上口2100mm均待实测，1200为暂估而非复尺确认值。机底2250、机顶2550，上下各150mm仅为模型间隔；外机、窗帘、墙梁及厂家安装条件须现场核验。','The dining room reuses the old white round light; 440 × 440 × 20 mm is an old model placeholder, not measured hardware. The living fixture retains 907 × 577 × 110 mm with a white top and thin black side rim. The study AC is on the west wall above the window, facing east; bedroom units stay unchanged. Study sill 900, opening height 1200 and head 2100 mm remain unmeasured estimates. The 2250–2550 mm AC has modeled 150 mm upper/lower gaps, not approved installation clearances.')}</section>`:''}
+  ${HOUSE_PLAN.metadata.familyAcWindowUpdate&&!HOUSE_PLAN.metadata.familyLightingStudyRefinement?`<section class="project-note" data-family-ac-window-warning>${tr('三房挂机已移至窗侧：主次卧在北飘窗上方的室内北墙，书房在西北窗侧角，仍挂北墙。机身尺寸和底2250mm标高不变；书房西窗上方仅70mm顶棚余量的方案未采用。外机、穿墙点、冷媒管和冷凝水排水均待现场核定，不代表已接通室外机。','The bedroom AC units move to the indoor north wall above the bay openings; the study unit moves to its northwest window-side corner, still on the north wall. Sizes and 2250 mm bottom elevations remain unchanged. The study’s over-window option with only 70 mm ceiling space is not used. Outdoor-unit locations, wall penetrations, refrigerant pipes and condensate drains remain unverified.')}</section>`:''}
   <section><h3>${tr('房间面积','Room Areas')} <small>${tr('点击查看 / 更换地面','Click to view / change flooring')}</small></h3>
     <table>${rows}</table>
     <div class="total"><span>${tr('模型使用面积','Model floor area')}</span><b>${fmt(tot)} m²</b></div>
@@ -2245,29 +2252,48 @@ function buildFurniture(f){
       // Photo-led flushmount, not a pendant or a rectangular box stretched
       // into round corners. Every board is rounded in the horizontal plan;
       // the chassis preserves the owner's complete W × D × H envelope.
-      const H=M(f.heightMm||110),radius=Math.min(.075,w*.20,d*.20),wall=Math.min(.007,w*.025,d*.025);
+      const variant=f.modelVariant==='round-flush-light'?'round-flush-light':'rounded-rectangle-flush-light';
+      const round=variant==='round-flush-light';
+      const H=M(f.heightMm||(round?20:110)),radius=Math.min(.075,w*.20,d*.20),wall=Math.min(.007,w*.025,d*.025);
       const innerW=w-2*wall,innerD=d-2*wall,innerRadius=Math.max(.001,radius-wall);
       const owned=(parameters)=>{
         const m=new THREE.MeshStandardMaterial({...parameters,clippingPlanes:[ceilingLightingPlane]});
         m.userData.ceilingLightOwned=true;return m;
       };
-      const frameMaterial=owned({color:f.lightingDesign?.frameColor||'#242424',metalness:.25,roughness:.38});
+      const frameMaterial=owned({color:f.lightingDesign?.frameColor||(round?'#ffffff':'#242424'),metalness:round?0:.25,roughness:.38});
+      // The reference's black accent is a thin side rim, never a black roof
+      // silhouette. White backing also makes the top-down 3D view legible.
+      const backplateMaterial=owned({color:f.lightingDesign?.backplateColor||'#ffffff',roughness:.52});
       const diffuserMaterial=owned({color:c,roughness:.52});
       const emitterMaterial=owned({color:'#fffdfa',emissive:'#fff1d8',emissiveIntensity:.25,roughness:.8,side:THREE.FrontSide});
-      const part=(o,role)=>{o.userData={role,modelVariant:'rounded-rectangle-flush-light',ceilingLightingCutMin:M(f.elevationMm||0)};g.add(o);return o;};
+      const part=(o,role)=>{o.userData={role,modelVariant:variant,ceilingLightingCutMin:M(f.elevationMm||0)};g.add(o);return o;};
+      const outline=(W,D,hole=false)=>{
+        if(!round)return rrect(W,D,radius-(w-W)/2);
+        const shape=hole?new THREE.Path():new THREE.Shape();
+        shape.absellipse(0,0,W/2,D/2,0,Math.PI*2,hole);return shape;
+      };
       const solid=(W,D,height,material,y)=>{
-        const geo=new THREE.ExtrudeGeometry(rrect(W,D,radius-(w-W)/2),{depth:height,bevelEnabled:false,curveSegments:16});
+        if(round){const o=cyl(W/2,W/2,height,material,0,y,0,32);o.scale.z=D/W;return o;}
+        const geo=new THREE.ExtrudeGeometry(outline(W,D),{depth:height,bevelEnabled:false,curveSegments:16});
         geo.rotateX(-Math.PI/2);const o=mesh(geo,material);o.position.y=y;return o;
       };
-      part(shell(w,d,H*.29,wall,radius,frameMaterial,0,H*.71,0),'ceilinglight-black-housing');
-      part(solid(w,d,H*.018,frameMaterial,H*.982),'ceilinglight-mount-backplate');
-      part(solid(innerW,innerD,H*.80- .002,diffuserMaterial,.002),'ceilinglight-white-diffuser');
+      const frameOutline=outline(w,d);frameOutline.holes.push(outline(innerW,innerD,true));
+      const frameGeometry=new THREE.ExtrudeGeometry(frameOutline,{depth:H*.272,bevelEnabled:false,curveSegments:16});
+      frameGeometry.rotateX(-Math.PI/2);const housing=mesh(frameGeometry,frameMaterial);housing.position.y=H*.71;
+      // Keep existing mesh-role contracts; the reused circular lamp's housing
+      // is white. Housing ends below the cap to prevent coplanar z-fighting.
+      part(housing,'ceilinglight-black-housing');
+      part(solid(w,d,H*.018,backplateMaterial,H*.982),'ceilinglight-mount-backplate');
+      const faceGap=Math.min(.002,H*.08);
+      part(solid(innerW,innerD,H*.80-faceGap,diffuserMaterial,faceGap),'ceilinglight-white-diffuser');
       // Keep the downward luminous face below the opal body's bottom cap:
       // it is visible from the room, never an opaque lighting plane above it.
-      const faceGeometry=new THREE.ShapeGeometry(rrect(innerW,innerD,innerRadius),24);
+      const faceGeometry=round?new THREE.CircleGeometry(innerW/2,32):new THREE.ShapeGeometry(rrect(innerW,innerD,innerRadius),24);
+      if(round)faceGeometry.scale(1,innerD/innerW,1);
       faceGeometry.rotateX(Math.PI/2);
       const face=part(mesh(faceGeometry,emitterMaterial),'ceilinglight-downward-face');
       face.castShadow=false;
+      g.userData.modelVariant=variant;
       g.userData.ceilingLightingCutMin=M(f.elevationMm||0);
       break;
     }
@@ -3102,7 +3128,7 @@ function buildFurn(){
   furnitureCeilingLights.forEach(entry=>{
     const light=new THREE.PointLight(0xffedd2,0,7,1.6);
     light.position.copy(entry.group.localToWorld(new THREE.Vector3(0,-.08,0)));
-    light.userData={role:'ceilinglight-illumination',fid:entry.fid,modelVariant:'rounded-rectangle-flush-light',lightingStatus:'illustrative-not-lux-verified'};
+    light.userData={role:'ceilinglight-illumination',fid:entry.fid,modelVariant:entry.group.userData.modelVariant,lightingStatus:'illustrative-not-lux-verified'};
     furnitureLampG.add(light);entry.light=light;
   });
   furnG.visible = opt.furn; selKey = null; applyGrow();applyLight();

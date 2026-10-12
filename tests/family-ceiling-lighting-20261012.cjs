@@ -4,6 +4,7 @@
 // lighting generator. Only Scheme 2 gains the owner's two editable lights.
 const assert=require('node:assert/strict'),crypto=require('node:crypto'),fs=require('node:fs'),path=require('node:path');
 const {applyFamilyCeilingLighting,beforeFamilyCeilingLighting,REVISION}=require('../tools/family-ceiling-lighting-20261012.cjs');
+const {beforeFamilyLightingStudyRefinement}=require('../tools/family-lighting-study-refinement-20261012.cjs');
 const root=path.resolve(__dirname,'..'),clone=structuredClone;
 const stable=v=>Array.isArray(v)?v.map(stable):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(k=>[k,stable(v[k])])):v;
 const hash=v=>crypto.createHash('sha256').update(JSON.stringify(stable(v))).digest('hex');
@@ -23,6 +24,7 @@ const sourceSnapshotHashes=Object.freeze({
 const ids=['family-living-ceilinglight','family-dining-ceilinglight'];
 const architectureKeys=['ROOMS','WALLS','WALL_META','WINS','WIN_META','DOORS','SLIDES','BAYS'];
 function verifyFamilyCeilingLighting(bundle){
+ bundle=beforeFamilyLightingStudyRefinement(bundle);
  assert.equal(REVISION,'family-ceiling-lighting-20261012');
  assert.equal(bundle.defaultScheme,'family');assert.equal(bundle.unit,'mm');
  const p=bundle.schemes.family,u=p.metadata.familyCeilingLightingUpdate;

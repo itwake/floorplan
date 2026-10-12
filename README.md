@@ -182,6 +182,14 @@ python3 -m http.server 8000
 
 独立可逆层 `tools/family-ceiling-lighting-20261012.cjs`；回归 `node tests/family-ceiling-lighting-20261012.cjs` 和 `node tests/family-ceiling-lighting-browser.cjs --self-host`。旧草稿只加入新灯一次，现有自定义摆位、尺寸、删除和空草稿保持；重置才恢复当前默认。
 
+### 2026-10-12 · 方案2圆餐灯、白灯背板和西窗墙挂机
+
+餐厅灯按业主要求沿用原客厅白色圆灯，恢复旧模型直径440、厚20mm的示意尺寸，不代表实物尺寸已复尺；居餐桌中心，底2680、顶2700。客厅907×577×110尺寸和位置不变，白色背板盖住上方、侧面仍保留黑色细边，俯视不再显示整块黑色。
+
+书房挂机真正移至西窗所在的西墙，中心(245,4700)、旋转270°朝东，机背x120贴内墙。尺寸900×250×300、底2250/顶2550保持。复尺资料未给书房窗台/窗洞高，窗口仅按业主“实际较低”的说明暂把洞高1400改1200、保留900窗台及原宽1100/平面位置，上口2100；不是测量结果，也不是施工改窗。机身上下各150mm只是模型余量，窗头梁、墙体、窗帘、管线、室外机及实际机型安装条件待核，不虚构外机或管道。
+
+独立可逆层 `tools/family-lighting-study-refinement-20261012.cjs`；仅改三件原有物件与书房窗的竖向示意，其余59件、其他窗墙门、三个方案及源快照保持。旧草稿按字段升级，用户自定义位置/大小/颜色及删除保持。回归 `node tests/family-lighting-study-refinement-20261012.cjs` 与 `node tests/family-lighting-study-refinement-browser.cjs --self-host`。
+
 更新 house-design 快照：`node tools/convert-house-plans.cjs --source <原项目目录> --refresh-sources`。
 
 验证几何与脚本：`node tests/validate-import.cjs`。浏览器测试：先开启 4190 端口静态服务器，再运行 `node tests/integration.cjs`（需 Playwright；支持 `FLOORPLAN_NODE_MODULES`、`FLOORPLAN_CHROME`、`FLOORPLAN_BASE_URL` 环境变量）。
