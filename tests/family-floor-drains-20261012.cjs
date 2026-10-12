@@ -69,6 +69,7 @@ function showerBoundarySolids(s){
 }
 
 function verifyFamilyFloorDrains(bundle){
+  bundle=require('../tools/family-electrical-20261012.cjs').beforeFamilyElectrical(bundle);
  assert.equal(REVISION,'family-floor-drains-20261012');
  const originalHash=hash(bundle),p=bundle.schemes.family,u=p.metadata.familyFloorDrainsUpdate,oldBundle=beforeFamilyFloorDrains(bundle),old=oldBundle.schemes.family,ids=Object.keys(expected),idSet=new Set(ids);
  assert.equal(u?.id,REVISION);assert.equal(u.date,'2026-10-12');assert.equal(u.sourceSnapshotsUnchanged,true);

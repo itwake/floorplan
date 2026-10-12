@@ -164,7 +164,7 @@ function applyFamilyFloorDrains(bundle){
   return bundle;
 }
 function beforeFamilyFloorDrains(value){
-  const out=clone(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyFloorDrainsUpdate;
+  const out=require('./family-electrical-20261012.cjs').beforeFamilyElectrical(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyFloorDrainsUpdate;
   if(!m)return out;
   const current=new Map(p.defaultFurniture.map(f=>[f.id,f]));
   p.defaultFurniture=m.previousFurnitureOrder.map(id=>clone(current.get(id)));
