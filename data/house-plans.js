@@ -24256,26 +24256,26 @@ const plans = {
           "type": "acwall",
           "name": "主卧 · 壁挂空调（暂估）",
           "roomId": "room_a",
-          "cx": 5650,
-          "cy": 3095,
+          "cx": 4990,
+          "cy": 245,
           "w": 900,
           "d": 250,
-          "rot": 180,
+          "rot": 0,
           "color": "#F4F1E9",
           "heightMm": 300,
           "elevationMm": 2250,
           "sourceId": "family-acwall-room_a",
           "modelVariant": "appliance-concept",
-          "layoutRevision": "family-appliances-20261012",
+          "layoutRevision": "family-ac-window-20261012",
           "dimensionStatus": "concept-pending-user-model",
           "sourceFootprintMm": {
-            "x": 5200,
-            "y": 2970,
+            "x": 4540,
+            "y": 120,
             "w": 900,
             "d": 250
           },
           "applianceDesign": {
-            "revision": "family-appliances-20261012",
+            "revision": "family-ac-window-20261012",
             "status": "concept-pending-user-model",
             "installation": "wall-high",
             "notPurchasedModel": true,
@@ -24286,12 +24286,33 @@ const plans = {
               300
             ],
             "bottomMm": 2250,
-            "topMm": 2550
+            "topMm": 2550,
+            "windowPlacement": {
+              "revision": "family-ac-window-20261012",
+              "status": "concept-location-installation-pending",
+              "windowId": "window_a",
+              "mountingWall": "north",
+              "mountingDescription": "主卧北飘窗上方室内北墙",
+              "bodyRectMm": [
+                4540,
+                120,
+                5440,
+                370
+              ],
+              "windowHeadMm": 2070,
+              "bodyAboveWindowHeadMm": 180,
+              "topToRoomCeilingMm": 240,
+              "exteriorConnectionStatus": "outdoor-position-wall-penetration-refrigerant-condensate-electricity-pending",
+              "actualOutdoorUnitAdded": false,
+              "actualPipeOrHoleAdded": false
+            }
           },
-          "notes": "2026-10-12业主新增电器摆放示意；尺寸与安装定位暂估，需按实物和现场复核。",
+          "notes": "2026-10-12方案2窗侧挂机定位：主卧北飘窗上方室内北墙；保留900×250×300mm、底2250mm暂估机身。外机、穿墙与排水未核。",
           "conditions": [
             "900×250×300mm为暂估机身；底高2250mm、上沿2550mm，挂机支架及实际安装高度、顶部进风检修空间须结合型号和现场确认。",
-            "外机位置、制冷剂管、穿墙套管、冷凝水坡度与排水点、独立电源、墙体承载及送风方向均未核；不据概念模型施工或下单。"
+            "外机位置、制冷剂管、穿墙套管、冷凝水坡度与排水点、独立电源、墙体承载及送风方向均未核；不据概念模型施工或下单。",
+            "机身在房间内部北墙窗头上方，背面y120、前沿y370；不是装在外凸飘窗内或玻璃上。",
+            "窗头2070mm至机身底2250mm为180mm模型间隔，机身顶2550mm至房顶2790mm为240mm；实际顶部进风、安装检修及飘窗梁/窗帘位置待核。"
           ]
         },
         {
@@ -24299,26 +24320,26 @@ const plans = {
           "type": "acwall",
           "name": "次卧 · 壁挂空调（暂估）",
           "roomId": "room_b",
-          "cx": 1570,
-          "cy": 3095,
+          "cx": 1870,
+          "cy": 245,
           "w": 900,
           "d": 250,
-          "rot": 180,
+          "rot": 0,
           "color": "#F4F1E9",
           "heightMm": 300,
           "elevationMm": 2250,
           "sourceId": "family-acwall-room_b",
           "modelVariant": "appliance-concept",
-          "layoutRevision": "family-appliances-20261012",
+          "layoutRevision": "family-ac-window-20261012",
           "dimensionStatus": "concept-pending-user-model",
           "sourceFootprintMm": {
-            "x": 1120,
-            "y": 2970,
+            "x": 1420,
+            "y": 120,
             "w": 900,
             "d": 250
           },
           "applianceDesign": {
-            "revision": "family-appliances-20261012",
+            "revision": "family-ac-window-20261012",
             "status": "concept-pending-user-model",
             "installation": "wall-high",
             "notPurchasedModel": true,
@@ -24329,12 +24350,33 @@ const plans = {
               300
             ],
             "bottomMm": 2250,
-            "topMm": 2550
+            "topMm": 2550,
+            "windowPlacement": {
+              "revision": "family-ac-window-20261012",
+              "status": "concept-location-installation-pending",
+              "windowId": "window_b",
+              "mountingWall": "north",
+              "mountingDescription": "次卧北飘窗上方室内北墙",
+              "bodyRectMm": [
+                1420,
+                120,
+                2320,
+                370
+              ],
+              "windowHeadMm": 2070,
+              "bodyAboveWindowHeadMm": 180,
+              "topToRoomCeilingMm": 150,
+              "exteriorConnectionStatus": "outdoor-position-wall-penetration-refrigerant-condensate-electricity-pending",
+              "actualOutdoorUnitAdded": false,
+              "actualPipeOrHoleAdded": false
+            }
           },
-          "notes": "2026-10-12业主新增电器摆放示意；尺寸与安装定位暂估，需按实物和现场复核。",
+          "notes": "2026-10-12方案2窗侧挂机定位：次卧北飘窗上方室内北墙；保留900×250×300mm、底2250mm暂估机身。外机、穿墙与排水未核。",
           "conditions": [
             "900×250×300mm为暂估机身；底高2250mm、上沿2550mm，挂机支架及实际安装高度、顶部进风检修空间须结合型号和现场确认。",
-            "外机位置、制冷剂管、穿墙套管、冷凝水坡度与排水点、独立电源、墙体承载及送风方向均未核；不据概念模型施工或下单。"
+            "外机位置、制冷剂管、穿墙套管、冷凝水坡度与排水点、独立电源、墙体承载及送风方向均未核；不据概念模型施工或下单。",
+            "机身在房间内部北墙窗头上方，背面y120、前沿y370；不是装在外凸飘窗内或玻璃上。",
+            "窗头2070mm至机身底2250mm为180mm模型间隔，机身顶2550mm至房顶2700mm为150mm；实际顶部进风、安装检修及飘窗梁/窗帘位置待核。"
           ]
         },
         {
@@ -24342,7 +24384,7 @@ const plans = {
           "type": "acwall",
           "name": "书房 · 壁挂空调（暂估）",
           "roomId": "room_c",
-          "cx": 1170,
+          "cx": 620,
           "cy": 3465,
           "w": 900,
           "d": 250,
@@ -24352,16 +24394,16 @@ const plans = {
           "elevationMm": 2250,
           "sourceId": "family-acwall-room_c",
           "modelVariant": "appliance-concept",
-          "layoutRevision": "family-appliances-20261012",
+          "layoutRevision": "family-ac-window-20261012",
           "dimensionStatus": "concept-pending-user-model",
           "sourceFootprintMm": {
-            "x": 720,
+            "x": 170,
             "y": 3340,
             "w": 900,
             "d": 250
           },
           "applianceDesign": {
-            "revision": "family-appliances-20261012",
+            "revision": "family-ac-window-20261012",
             "status": "concept-pending-user-model",
             "installation": "wall-high",
             "notPurchasedModel": true,
@@ -24372,12 +24414,34 @@ const plans = {
               300
             ],
             "bottomMm": 2250,
-            "topMm": 2550
+            "topMm": 2550,
+            "windowPlacement": {
+              "revision": "family-ac-window-20261012",
+              "status": "concept-location-installation-pending",
+              "windowId": "window_c",
+              "mountingWall": "north",
+              "mountingDescription": "书房西北窗侧角的北墙",
+              "bodyRectMm": [
+                170,
+                3340,
+                1070,
+                3590
+              ],
+              "windowHeadMm": 2300,
+              "bodyAboveWindowHeadMm": null,
+              "topToRoomCeilingMm": 150,
+              "exteriorConnectionStatus": "outdoor-position-wall-penetration-refrigerant-condensate-electricity-pending",
+              "actualOutdoorUnitAdded": false,
+              "actualPipeOrHoleAdded": false
+            }
           },
-          "notes": "2026-10-12业主新增电器摆放示意；尺寸与安装定位暂估，需按实物和现场复核。",
+          "notes": "2026-10-12方案2窗侧挂机定位：书房西北窗侧角的北墙；保留900×250×300mm、底2250mm暂估机身。外机、穿墙与排水未核。",
           "conditions": [
             "900×250×300mm为暂估机身；底高2250mm、上沿2550mm，挂机支架及实际安装高度、顶部进风检修空间须结合型号和现场确认。",
-            "外机位置、制冷剂管、穿墙套管、冷凝水坡度与排水点、独立电源、墙体承载及送风方向均未核；不据概念模型施工或下单。"
+            "外机位置、制冷剂管、穿墙套管、冷凝水坡度与排水点、独立电源、墙体承载及送风方向均未核；不据概念模型施工或下单。",
+            "书房挂机留在北墙、移到西北窗侧角：机身x170..1070/y3340..3590，距西内墙50mm、顶棚150mm。它不是挂在西窗玻璃或西外墙上的已安装空调。",
+            "书房西窗头2300mm，900mm挂机不能完整放入窗北侧810mm西墙段；南侧950mm墙段被高书架占用。窗上方若底2330/顶2630仅有30mm窗头间隔和70mm顶棚余量，未验证厂家安装条件，因此不采用。",
+            "窗侧西北角可作为向西外墙短接的概念位置；外机机位、可穿墙点、冷媒管路、冷凝水坡度/排水及电源全部未定位，不渲染虚构外机、孔洞或管线。"
           ]
         },
         {
@@ -25247,7 +25311,10 @@ const plans = {
           "2026-10-12方案2新增12件暂估电器；原有47件家具、墙/门/窗、1450书房桌架与南铰门、厨房及阳台双扇门、其他3方案保持。",
           "三房挂机底2250/顶2550mm；柜机放TV东侧、静态距墙和电视柜50mm只是模型几何空隙。冷凝排水、外机/管路、进回风、供电与检修未核。",
           "厨房凉霸和两卫浴霸可见面板底2620/顶2700mm，80mm仅显示壳体；吊顶腔内机身深度、风管、安装禁区、防护等级、排风、电气保护与检修定位待核。",
-          "五台餐边电器底850mm落在真实400mm深西柜台面；不改原插座和灯带，不遮高柜展示格，南段保留1550mm连续空白备餐台面。所有实物尺寸、插头、开盖、蒸汽、散热及实际运行位置待核；不默认柜下蒸汽运行或五台同时接同一插排。"
+          "五台餐边电器底850mm落在真实400mm深西柜台面；不改原插座和灯带，不遮高柜展示格，南段保留1550mm连续空白备餐台面。所有实物尺寸、插头、开盖、蒸汽、散热及实际运行位置待核；不默认柜下蒸汽运行或五台同时接同一插排。",
+          "2026-10-12方案2三房挂机改到窗侧：主次卧北窗上方室内墙带，窗头2070至机身底2250为180mm；不装入外凸飘窗顶棚或玻璃，不改变窗体。",
+          "书房挂机向西移550mm至北墙西北窗侧角，距西墙50mm、距房顶150mm；西窗头2300上方直接挂装只有70mm顶棚余量的候选不采用，不为挤放而改机宽、书架或窗高。",
+          "三挂机仍900×250×300mm、底2250/顶2550；主卧/次卧/书房顶棚余240/150/150mm仅模型几何量，非厂家进风检修要求。窗帘、基层、墙梁、实际机型、室外机位及穿孔冷媒管/排水/电源需专业现场核对，不构成安装批准。"
         ],
         "balconyOpenness": {
           "id": "balcony-two-sided-open-20261005",
@@ -25299,7 +25366,7 @@ const plans = {
             }
           }
         },
-        "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs + tools/family-study-door-20261012.cjs + tools/family-appliances-20261012.cjs",
+        "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs + tools/family-study-door-20261012.cjs + tools/family-appliances-20261012.cjs + tools/family-ac-window-20261012.cjs",
         "wallStatus": "承重性未鉴定；原源数据未授权将未知内墙标记为可拆非承重墙。",
         "cabinetRevision": {
           "revision": "cream-oak-functional-v1",
@@ -25437,6 +25504,18 @@ const plans = {
             "description": "仅方案2增加主次卧及书房挂机、客厅电视东角柜机、厨房凉霸、两卫淋浴上方浴霸与餐边柜五台小家电；均暂估外包，原墙门窗、家具和定制柜板件不动。",
             "sourceSnapshotsUnchanged": true,
             "usageNote": "12件可编辑概念电器，不是已购型号、产品推荐或机电安装批准。"
+          },
+          {
+            "id": "family-ac-window-20261012",
+            "date": "2026-10-12",
+            "sourceIds": [
+              "family-acwall-room_a",
+              "family-acwall-room_b",
+              "family-acwall-room_c"
+            ],
+            "description": "仅方案2三台已有挂机移到窗侧：主次卧室内北墙窗头上方，书房北墙西北窗侧角；尺寸与底2250标高保持，不改窗墙柜及其他九件电器。",
+            "sourceSnapshotsUnchanged": true,
+            "usageNote": "窗边位置为概念摆放，不代表外机、管路或穿墙安装已核定。"
           }
         ],
         "entryFamilyUpdate": {
@@ -39553,6 +39632,506 @@ const plans = {
             "五台电器不默认同时运行，也不默认共用插排；插座数量、回路负荷、接地与涉水保护需专业核验，本层不提供电气施工方案。",
             "台式饮水机350mm暂估深度已用尽后沿32mm之后的台面，前沿齐柜边；这不是确定可安装的选型，需实测机脚、插头和倾倒稳定性，实物过深时不得默认可悬挑。",
             "破壁/恒温/消毒/养生/饮水机顶部至下灯带依次186/346/226/366/216mm，仅现有闭合机身几何空隙；开盖、补水、取奶瓶及蒸汽运行都未验证。"
+          ]
+        },
+        "familyAcWindowUpdate": {
+          "id": "family-ac-window-20261012",
+          "date": "2026-10-12",
+          "title": "方案2 · 三房挂机窗侧定位",
+          "status": "applied-owner-request-concept",
+          "sourceSnapshotsUnchanged": true,
+          "notInstallationApproval": true,
+          "architectureUnchanged": true,
+          "existingCabinetPartsUnchanged": true,
+          "previousPlanFields": {},
+          "previousFurniture": [
+            {
+              "id": "family-acwall-room_a",
+              "type": "acwall",
+              "name": "主卧 · 壁挂空调（暂估）",
+              "roomId": "room_a",
+              "cx": 5650,
+              "cy": 3095,
+              "w": 900,
+              "d": 250,
+              "rot": 180,
+              "color": "#F4F1E9",
+              "heightMm": 300,
+              "elevationMm": 2250,
+              "sourceId": "family-acwall-room_a",
+              "modelVariant": "appliance-concept",
+              "layoutRevision": "family-appliances-20261012",
+              "dimensionStatus": "concept-pending-user-model",
+              "sourceFootprintMm": {
+                "x": 5200,
+                "y": 2970,
+                "w": 900,
+                "d": 250
+              },
+              "applianceDesign": {
+                "revision": "family-appliances-20261012",
+                "status": "concept-pending-user-model",
+                "installation": "wall-high",
+                "notPurchasedModel": true,
+                "notInstallationApproval": true,
+                "dimensionsMm": [
+                  900,
+                  250,
+                  300
+                ],
+                "bottomMm": 2250,
+                "topMm": 2550
+              },
+              "notes": "2026-10-12业主新增电器摆放示意；尺寸与安装定位暂估，需按实物和现场复核。",
+              "conditions": [
+                "900×250×300mm为暂估机身；底高2250mm、上沿2550mm，挂机支架及实际安装高度、顶部进风检修空间须结合型号和现场确认。",
+                "外机位置、制冷剂管、穿墙套管、冷凝水坡度与排水点、独立电源、墙体承载及送风方向均未核；不据概念模型施工或下单。"
+              ]
+            },
+            {
+              "id": "family-acwall-room_b",
+              "type": "acwall",
+              "name": "次卧 · 壁挂空调（暂估）",
+              "roomId": "room_b",
+              "cx": 1570,
+              "cy": 3095,
+              "w": 900,
+              "d": 250,
+              "rot": 180,
+              "color": "#F4F1E9",
+              "heightMm": 300,
+              "elevationMm": 2250,
+              "sourceId": "family-acwall-room_b",
+              "modelVariant": "appliance-concept",
+              "layoutRevision": "family-appliances-20261012",
+              "dimensionStatus": "concept-pending-user-model",
+              "sourceFootprintMm": {
+                "x": 1120,
+                "y": 2970,
+                "w": 900,
+                "d": 250
+              },
+              "applianceDesign": {
+                "revision": "family-appliances-20261012",
+                "status": "concept-pending-user-model",
+                "installation": "wall-high",
+                "notPurchasedModel": true,
+                "notInstallationApproval": true,
+                "dimensionsMm": [
+                  900,
+                  250,
+                  300
+                ],
+                "bottomMm": 2250,
+                "topMm": 2550
+              },
+              "notes": "2026-10-12业主新增电器摆放示意；尺寸与安装定位暂估，需按实物和现场复核。",
+              "conditions": [
+                "900×250×300mm为暂估机身；底高2250mm、上沿2550mm，挂机支架及实际安装高度、顶部进风检修空间须结合型号和现场确认。",
+                "外机位置、制冷剂管、穿墙套管、冷凝水坡度与排水点、独立电源、墙体承载及送风方向均未核；不据概念模型施工或下单。"
+              ]
+            },
+            {
+              "id": "family-acwall-room_c",
+              "type": "acwall",
+              "name": "书房 · 壁挂空调（暂估）",
+              "roomId": "room_c",
+              "cx": 1170,
+              "cy": 3465,
+              "w": 900,
+              "d": 250,
+              "rot": 0,
+              "color": "#F4F1E9",
+              "heightMm": 300,
+              "elevationMm": 2250,
+              "sourceId": "family-acwall-room_c",
+              "modelVariant": "appliance-concept",
+              "layoutRevision": "family-appliances-20261012",
+              "dimensionStatus": "concept-pending-user-model",
+              "sourceFootprintMm": {
+                "x": 720,
+                "y": 3340,
+                "w": 900,
+                "d": 250
+              },
+              "applianceDesign": {
+                "revision": "family-appliances-20261012",
+                "status": "concept-pending-user-model",
+                "installation": "wall-high",
+                "notPurchasedModel": true,
+                "notInstallationApproval": true,
+                "dimensionsMm": [
+                  900,
+                  250,
+                  300
+                ],
+                "bottomMm": 2250,
+                "topMm": 2550
+              },
+              "notes": "2026-10-12业主新增电器摆放示意；尺寸与安装定位暂估，需按实物和现场复核。",
+              "conditions": [
+                "900×250×300mm为暂估机身；底高2250mm、上沿2550mm，挂机支架及实际安装高度、顶部进风检修空间须结合型号和现场确认。",
+                "外机位置、制冷剂管、穿墙套管、冷凝水坡度与排水点、独立电源、墙体承载及送风方向均未核；不据概念模型施工或下单。"
+              ]
+            }
+          ],
+          "previousFurnitureOrder": [
+            "bed_b",
+            "family-f1",
+            "bed_a",
+            "family-f3",
+            "study_full_desk",
+            "family-f5",
+            "family-living-rug",
+            "family-f6",
+            "family-f7",
+            "family-f8",
+            "vanity_main",
+            "family-f11",
+            "family-f12",
+            "vanity_guest",
+            "family-f14",
+            "family-f15",
+            "study_north_sofa",
+            "family-f23",
+            "family-f24",
+            "family-f25",
+            "family-f26",
+            "family-f27",
+            "fit-bay_b_tea",
+            "fit-bay_living_family",
+            "fit-entry_shoe_station",
+            "fit-dining_sideboard_wall",
+            "fit-sofa_back_storage",
+            "fit-study_bookwall",
+            "laundry_washer",
+            "laundry_dryer",
+            "fit-kitchen-20261005",
+            "kitchen_fridge",
+            "kitchen_dishwasher",
+            "kitchen_double_sink",
+            "kitchen_hob",
+            "kitchen_hood",
+            "kitchen_heater",
+            "kitchen_tap",
+            "living-floorlamp",
+            "living-east-art",
+            "draft-desk-b",
+            "draft-chair-b",
+            "draft-night-b",
+            "draft-desk-a",
+            "draft-chair-a",
+            "draft-night-a",
+            "study_window_return",
+            "family-acwall-room_a",
+            "family-acwall-room_b",
+            "family-acwall-room_c",
+            "family-living-aircon",
+            "family-kitchen-ceilingfan",
+            "family-bathheater-bath_1",
+            "family-bathheater-bath_2",
+            "family-sideboard-blender",
+            "family-sideboard-temperaturekettle",
+            "family-sideboard-sterilizer",
+            "family-sideboard-healthkettle",
+            "family-sideboard-waterdispenser"
+          ],
+          "previousMetadataFields": {
+            "designCorrections": [
+              {
+                "id": "bath-south-hinge-20261008",
+                "sourceId": "door_bath_1",
+                "description": "主卫北铰改南铰，仍向卫内开；门洞和全部家具位置不变。",
+                "openingUnchanged": true,
+                "hingeMm": [
+                  4450,
+                  4430
+                ],
+                "closedDirection": [
+                  0,
+                  -1
+                ],
+                "openDirection": [
+                  1,
+                  0
+                ],
+                "usageNote": "门扇转到入口南侧而非贴南墙。两门板间距不是通行净宽；旧源快照550mm门间带说明不再适用。",
+                "status": "superseded-for-family",
+                "supersededBy": "family-master-bath-confirmed-20261011"
+              },
+              {
+                "id": "entry-family-layout-20261011",
+                "sourceId": "entry_door",
+                "description": "2026-10-11用户修订：入户门参照方案4向室外开启，保持本方案原洞口、宽高及门叶长度；合页从本方案洞口东端内退60mm作示意。公共走廊、邻户门、门套、闭门器及允许开启角度尚待现场核对，不构成外开施工批准。",
+                "openingUnchanged": true,
+                "hingeMm": [
+                  4840,
+                  13950
+                ],
+                "closedDirection": [
+                  -1,
+                  0
+                ],
+                "openDirection": [
+                  0,
+                  1
+                ],
+                "leafLengthMm": 890
+              },
+              {
+                "id": "family-master-bath-confirmed-20261011",
+                "date": "2026-10-11",
+                "sourceIds": [
+                  "door_a",
+                  "door_bath_1",
+                  "vanity_main",
+                  "family-f11"
+                ],
+                "description": "方案2主卧门南移300mm；主卫门北移300mm、北铰内开；南墙盆厕及镜面朝北，淋浴和房间边界不动。",
+                "openingWidthsUnchanged": true,
+                "sourceSnapshotsUnchanged": true,
+                "usageNote": "门侧墙段随新洞口补齐，未改变墙体轴线或主卫北墙；门位移是已确认设计参数而非新增实测，排水与五金仍待核。"
+              },
+              {
+                "id": "family-study-laundry-confirmed-20261011",
+                "date": "2026-10-11",
+                "sourceIds": [
+                  "door_c",
+                  "study_full_desk",
+                  "family-f5",
+                  "fit-study_bookwall",
+                  "vanity_guest",
+                  "laundry_washer",
+                  "laundry_dryer",
+                  "study_window_return",
+                  "fit-laundry_wall",
+                  "fit-laundry_basin",
+                  "balcony_door"
+                ],
+                "description": "方案2确认书房门南移500及7字窗边桌；洗衣机入客卫左机右盆台，阳台只留单干机且退回原门轴。",
+                "sourceSnapshotsUnchanged": true,
+                "usageNote": "当前保留书房沙发，1500×2000未来床只作替换校核，不与沙发同时新增；客卫门和主卫、双卧本轮不动。"
+              },
+              {
+                "id": "family-door-refinement-20261011",
+                "date": "2026-10-11",
+                "sourceIds": [
+                  "balcony_door",
+                  "door_kitchen"
+                ],
+                "description": "方案2厨房及生活阳台玻璃推拉门由三扇三轨改双扇双轨，保持原洞口和堆叠方向。",
+                "sourceSnapshotsUnchanged": true,
+                "openingWidthsUnchanged": true,
+                "wallIndexesUnchanged": true,
+                "furnitureUnchanged": true,
+                "usageNote": "没有默认采纳尚待确认的书房反向开门及桌棚收短；此层只变两个推拉门。"
+              },
+              {
+                "id": "family-study-door-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "door_c",
+                  "door_a",
+                  "study_full_desk",
+                  "fit-study_bookwall"
+                ],
+                "description": "方案2书房900门洞再南移300并改南铰内开，南桌与浅书墙缩至1450；坐椅原位避让西窗返桌，主卧门仅纠正说明为530mm纵向间隔。",
+                "sourceSnapshotsUnchanged": true,
+                "openingWidthsUnchanged": true,
+                "wallAxesUnchanged": true,
+                "usageNote": "独立新层取代书房北铰1680旧状态；历史版本元数据不改。返桌、沙发、未来床外包、厨房/阳台双扇门全部保持。"
+              },
+              {
+                "id": "family-appliances-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "family-acwall-room_a",
+                  "family-acwall-room_b",
+                  "family-acwall-room_c",
+                  "family-living-aircon",
+                  "family-kitchen-ceilingfan",
+                  "family-bathheater-bath_1",
+                  "family-bathheater-bath_2",
+                  "family-sideboard-blender",
+                  "family-sideboard-temperaturekettle",
+                  "family-sideboard-sterilizer",
+                  "family-sideboard-healthkettle",
+                  "family-sideboard-waterdispenser"
+                ],
+                "description": "仅方案2增加主次卧及书房挂机、客厅电视东角柜机、厨房凉霸、两卫淋浴上方浴霸与餐边柜五台小家电；均暂估外包，原墙门窗、家具和定制柜板件不动。",
+                "sourceSnapshotsUnchanged": true,
+                "usageNote": "12件可编辑概念电器，不是已购型号、产品推荐或机电安装批准。"
+              }
+            ],
+            "conditions": [
+              "墙体、房间多边形和面积沿用既有方案；部分复尺已应用，全屋墙线和共同基准未闭合。",
+              "编辑器中的尺寸以模型坐标为准；已购家具保持机身外廓，安装、门套及五金余量待核。",
+              "入户门参照方案4向外开启，模型内不再扫过鞋柜正面；门外公共通行、相邻门、门套、闭门器及限位仍须现场确认，模型不构成外开施工批准。",
+              "方案2本轮主卧门南移300mm、主卫门北移300mm并改北铰内开；盆厕贴南墙面北。门位为确认设计参数，非新增实测；马桶侧至淋浴仅60mm，排水移位与门套、通行条件仍须现场深化。",
+              "方案2书房900门洞累计南移800，本轮再南移300并改南铰内开；7字南桌与浅书墙1450，与主卧门洞纵向间隔530mm。未来完整床须替换沙发并收椅。客卫台前610mm偏紧，机门/取衣须实物试摆。阳台取消借厅外凸但全屋净宽与复尺差180mm尚未闭合。",
+              "方案2厨房1700、生活阳台1500mm原门洞保持，仅改双扇双轨玻璃推拉门；厨房向北、阳台向南堆叠不变。开门后的可用通行宽度约为洞宽一半，实际门框/搭接/五金再扣，须核对搬运、操作和防水高差。",
+              "2026-10-12方案2书房1450桌/真实书架东端至40mm门叶连续扫掠外包约49.74mm，余量有限，不含把手、门套和安装偏差；洞下室内墙垛仅20mm。未来床侧710mm与坐椅共用偏紧，床尾120mm不是通道。",
+              "2026-10-12方案2新增12件暂估电器；原有47件家具、墙/门/窗、1450书房桌架与南铰门、厨房及阳台双扇门、其他3方案保持。",
+              "三房挂机底2250/顶2550mm；柜机放TV东侧、静态距墙和电视柜50mm只是模型几何空隙。冷凝排水、外机/管路、进回风、供电与检修未核。",
+              "厨房凉霸和两卫浴霸可见面板底2620/顶2700mm，80mm仅显示壳体；吊顶腔内机身深度、风管、安装禁区、防护等级、排风、电气保护与检修定位待核。",
+              "五台餐边电器底850mm落在真实400mm深西柜台面；不改原插座和灯带，不遮高柜展示格，南段保留1550mm连续空白备餐台面。所有实物尺寸、插头、开盖、蒸汽、散热及实际运行位置待核；不默认柜下蒸汽运行或五台同时接同一插排。"
+            ],
+            "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs + tools/family-study-door-20261012.cjs + tools/family-appliances-20261012.cjs"
+          },
+          "changedFurnitureIds": [
+            "family-acwall-room_a",
+            "family-acwall-room_b",
+            "family-acwall-room_c"
+          ],
+          "newFurnitureIds": [],
+          "removedFurnitureIds": [],
+          "replacedFurnitureIds": [],
+          "migrationFields": {
+            "family-acwall-room_a": [
+              "applianceDesign",
+              "conditions",
+              "cx",
+              "cy",
+              "layoutRevision",
+              "notes",
+              "rot",
+              "sourceFootprintMm"
+            ],
+            "family-acwall-room_b": [
+              "applianceDesign",
+              "conditions",
+              "cx",
+              "cy",
+              "layoutRevision",
+              "notes",
+              "rot",
+              "sourceFootprintMm"
+            ],
+            "family-acwall-room_c": [
+              "applianceDesign",
+              "conditions",
+              "cx",
+              "layoutRevision",
+              "notes",
+              "sourceFootprintMm"
+            ]
+          },
+          "dimensionsAndElevationUnchanged": true,
+          "otherNineAppliancesUnchanged": true,
+          "applianceHistoryUnchanged": true,
+          "placements": [
+            {
+              "id": "family-acwall-room_a",
+              "roomId": "room_a",
+              "windowId": "window_a",
+              "cx": 4990,
+              "cy": 245,
+              "rot": 0,
+              "wall": "north",
+              "title": "主卧北飘窗上方室内北墙",
+              "windowHeadMm": 2070,
+              "bodyAboveWindowHeadMm": 180,
+              "conditions": [
+                "机身在房间内部北墙窗头上方，背面y120、前沿y370；不是装在外凸飘窗内或玻璃上。",
+                "窗头2070mm至机身底2250mm为180mm模型间隔，机身顶2550mm至房顶2790mm为240mm；实际顶部进风、安装检修及飘窗梁/窗帘位置待核。"
+              ],
+              "sourceFootprintMm": {
+                "x": 4540,
+                "y": 120,
+                "w": 900,
+                "d": 250
+              },
+              "dimensionsMm": [
+                900,
+                250,
+                300
+              ],
+              "bottomMm": 2250,
+              "topMm": 2550,
+              "roomCeilingMm": 2790,
+              "topToRoomCeilingMm": 240
+            },
+            {
+              "id": "family-acwall-room_b",
+              "roomId": "room_b",
+              "windowId": "window_b",
+              "cx": 1870,
+              "cy": 245,
+              "rot": 0,
+              "wall": "north",
+              "title": "次卧北飘窗上方室内北墙",
+              "windowHeadMm": 2070,
+              "bodyAboveWindowHeadMm": 180,
+              "conditions": [
+                "机身在房间内部北墙窗头上方，背面y120、前沿y370；不是装在外凸飘窗内或玻璃上。",
+                "窗头2070mm至机身底2250mm为180mm模型间隔，机身顶2550mm至房顶2700mm为150mm；实际顶部进风、安装检修及飘窗梁/窗帘位置待核。"
+              ],
+              "sourceFootprintMm": {
+                "x": 1420,
+                "y": 120,
+                "w": 900,
+                "d": 250
+              },
+              "dimensionsMm": [
+                900,
+                250,
+                300
+              ],
+              "bottomMm": 2250,
+              "topMm": 2550,
+              "roomCeilingMm": 2700,
+              "topToRoomCeilingMm": 150
+            },
+            {
+              "id": "family-acwall-room_c",
+              "roomId": "room_c",
+              "windowId": "window_c",
+              "cx": 620,
+              "cy": 3465,
+              "rot": 0,
+              "wall": "north",
+              "title": "书房西北窗侧角的北墙",
+              "windowHeadMm": 2300,
+              "bodyAboveWindowHeadMm": null,
+              "conditions": [
+                "书房挂机留在北墙、移到西北窗侧角：机身x170..1070/y3340..3590，距西内墙50mm、顶棚150mm。它不是挂在西窗玻璃或西外墙上的已安装空调。",
+                "书房西窗头2300mm，900mm挂机不能完整放入窗北侧810mm西墙段；南侧950mm墙段被高书架占用。窗上方若底2330/顶2630仅有30mm窗头间隔和70mm顶棚余量，未验证厂家安装条件，因此不采用。",
+                "窗侧西北角可作为向西外墙短接的概念位置；外机机位、可穿墙点、冷媒管路、冷凝水坡度/排水及电源全部未定位，不渲染虚构外机、孔洞或管线。"
+              ],
+              "sourceFootprintMm": {
+                "x": 170,
+                "y": 3340,
+                "w": 900,
+                "d": 250
+              },
+              "dimensionsMm": [
+                900,
+                250,
+                300
+              ],
+              "bottomMm": 2250,
+              "topMm": 2550,
+              "roomCeilingMm": 2700,
+              "topToRoomCeilingMm": 150
+            }
+          ],
+          "rejectedStudyWestWindowCandidate": {
+            "reason": "顶部与窗头空隙未经安装条件核验，不采用",
+            "windowHeadMm": 2300,
+            "proposedBottomMm": 2330,
+            "proposedTopMm": 2630,
+            "bodyAboveWindowHeadMm": 30,
+            "topToRoomCeilingMm": 70,
+            "northWestWallSegmentMm": 810,
+            "unitWidthMm": 900,
+            "southWestWallSegmentMm": 950,
+            "southSegmentBookwallHeightMm": 2500,
+            "southSegmentBookwallDepthByYmm": 282.5,
+            "applied": false
+          },
+          "conditions": [
+            "仅三台已有挂机位置与窗侧说明更新，未新增外机、孔洞、管线或供电线路。",
+            "空调靠窗侧可缩短概念接管方向，但实际外机位置、结构允许穿孔处、管长、坡度和检修均未核；不得以模型静态无相交作为安装可行结论。"
           ]
         }
       }

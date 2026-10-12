@@ -9,6 +9,7 @@ const crypto=require('node:crypto');
 const fs=require('node:fs');
 const path=require('node:path');
 const {applyFamilyAppliances,beforeFamilyAppliances,REVISION}=require('../tools/family-appliances-20261012.cjs');
+const {beforeFamilyAcWindow}=require('../tools/family-ac-window-20261012.cjs');
 const {sweptLeafHits}=require('./family-bath-review-20261011.cjs');
 const root=path.resolve(__dirname,'..'),clone=structuredClone;
 const stable=value=>Array.isArray(value)?value.map(stable):value&&typeof value==='object'
@@ -75,6 +76,7 @@ function rectInPoly(q,poly,label){
 }
 const within=(a,b)=>a.x>=b.x-tol&&a.y>=b.y-tol&&a.x+a.w<=b.x+b.w+tol&&a.y+a.d<=b.y+b.d+tol;
 function verifyFamilyAppliances(bundle){
+  bundle=beforeFamilyAcWindow(bundle);
   assert.equal(REVISION,'family-appliances-20261012');
   assert.equal(bundle.defaultScheme,'family');assert.equal(bundle.unit,'mm');
   assert.deepEqual(Object.keys(bundle.schemes).sort(),['family','laundry','screen','wood']);

@@ -366,7 +366,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=appliances-20261012"></script>
+<script src="data/house-plans.js?v=ac-window-20261012"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -474,7 +474,7 @@ const uid = () => 'f' + Date.now().toString(36) + (_n++);
 const F = (type,name,cx,cy,w,d,rot=0,color) => ({id:uid(),type,name,cx,cy,w,d,rot,color:color||typeColor(type)});
 
 function defaultFurniture(){ return structuredClone(HOUSE_PLAN.defaultFurniture); }
-function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate].filter(Boolean);}
+function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate].filter(Boolean);}
 function defaultState(){
   const rooms = {}; ROOMS.forEach(r => rooms[r.id] = {name:r.name, mat:r.mat});
   return {schemaVersion:2,projectId:'house-design',schemeId:SCHEME_ID,sourceVersion:PLAN_LIBRARY.version,
@@ -545,7 +545,7 @@ function upgradeConfirmedLayouts(s){
   // for defaults. New objects are inserted once; deleted objects stay deleted.
   const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
   const placementKeys=['cx','cy','w','d','rot','heightMm','elevationMm','name','color'];
-  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate].filter(Boolean)){
+  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate].filter(Boolean)){
     if(s.appliedLayoutRevisions?.includes(revision.id))continue;
     const kept=new Set(s.layoutMigrationKeptIds||[]);
     const beforeObjects=[...(revision.previousFurniture||[]),...(revision.previousEntryCabinet?[revision.previousEntryCabinet]:[])];
@@ -1032,6 +1032,7 @@ function overviewPanel(){
   ${HOUSE_PLAN.metadata.familyDoorRefinement?`<section class="project-note" data-family-door-refinement-warning>${tr('厨房与生活阳台已改双扇双轨玻璃推拉门，原洞口1700/1500mm不变。叠放后的名义开口约850/750mm，实际门框与搭接还需扣减；不是施工净宽。','The kitchen and laundry balcony now have two-leaf, two-track glass sliders. The original 1700/1500 mm apertures remain; nominal stacked openings are about 850/750 mm before frame and overlap deductions, not certified clear widths.')}</section>`:''}
   ${HOUSE_PLAN.metadata.familyStudyDoorUpdate?`<section class="project-note" data-family-study-door-warning>${tr('书房900mm门洞在上一版本基础上再南移300mm，南铰内开，打开后靠南墙。南桌与上方书架收短至1450mm，西窗返桌、座椅和沙发保留。门扇端部至桌架50mm、至南墙60mm为模型余量；门套、把手、基层和实物家具仍须现场复核。','The study’s 900 mm opening moves another 300 mm south, with a south hinge opening inward against the south wall. The south desk and bookwall shorten to 1450 mm; the window return, chair and sofa remain. The modeled 50 mm tip-to-furniture and 60 mm leaf-to-wall gaps require checks against actual trim, handles, supports and furniture.')}</section>`:''}
   ${HOUSE_PLAN.metadata.familyAppliancesUpdate?`<section class="project-note" data-family-appliances-warning>${tr('方案2新增12件电器：三间卧室/书房壁挂空调、电视旁柜机、厨房凉霸、两卫淋浴区风暖浴霸，以及餐边柜五件台面电器。尺寸和型号均为概念占位；空调外机、冷凝排水、吊顶夹层、浴霸湿区适用性和用电回路待核。餐边柜中的蒸汽/加热电器需核对开盖及散热，模型摆得下不代表可在上柜下直接运行；不得据此把五台接到同一插排同时使用。','Scheme 2 adds twelve concept appliances: three wall AC units, a living-room floor AC, kitchen ceiling fan, two shower-area fan heaters and five sideboard appliances. Sizes/models are placeholders. Outdoor units, drainage, ceiling voids, wet-zone suitability and electrical circuits need verification. Lid access, steam and heat clearances must be checked; fitting in the niche does not approve operation below upper cabinets or simultaneous use on one power strip.')}</section>`:''}
+  ${HOUSE_PLAN.metadata.familyAcWindowUpdate?`<section class="project-note" data-family-ac-window-warning>${tr('三房挂机已移至窗侧：主次卧在北飘窗上方的室内北墙，书房在西北窗侧角，仍挂北墙。机身尺寸和底2250mm标高不变；书房西窗上方仅70mm顶棚余量的方案未采用。外机、穿墙点、冷媒管和冷凝水排水均待现场核定，不代表已接通室外机。','The bedroom AC units move to the indoor north wall above the bay openings; the study unit moves to its northwest window-side corner, still on the north wall. Sizes and 2250 mm bottom elevations remain unchanged. The study’s over-window option with only 70 mm ceiling space is not used. Outdoor-unit locations, wall penetrations, refrigerant pipes and condensate drains remain unverified.')}</section>`:''}
   <section><h3>${tr('房间面积','Room Areas')} <small>${tr('点击查看 / 更换地面','Click to view / change flooring')}</small></h3>
     <table>${rows}</table>
     <div class="total"><span>${tr('模型使用面积','Model floor area')}</span><b>${fmt(tot)} m²</b></div>

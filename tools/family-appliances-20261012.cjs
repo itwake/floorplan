@@ -4,6 +4,7 @@
 // these conservative editable envelopes are not purchased product models or
 // an electrical, refrigerant, ventilation, waterproofing or installation plan.
 const assert=require('node:assert/strict');
+const {beforeFamilyAcWindow}=require('./family-ac-window-20261012.cjs');
 const REVISION='family-appliances-20261012';
 const DATE='2026-10-12';
 const clone=structuredClone;
@@ -136,7 +137,7 @@ function applyFamilyAppliances(bundle){
   return bundle;
 }
 function beforeFamilyAppliances(value){
-  const out=clone(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyAppliancesUpdate;
+  const out=beforeFamilyAcWindow(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyAppliancesUpdate;
   if(!m)return out;
   const newIds=new Set(m.newFurnitureIds);p.defaultFurniture=p.defaultFurniture.filter(f=>!newIds.has(f.id));
   const current=new Map(p.defaultFurniture.map(f=>[f.id,f]));p.defaultFurniture=m.previousFurnitureOrder.map(id=>clone(current.get(id)));

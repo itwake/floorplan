@@ -148,6 +148,12 @@ python3 -m http.server 8000
 
 官方产品规格仅用于尺寸量级参考，来源保存在每件电器及 `metadata.familyAppliancesUpdate.references`，不表示这些品牌型号已经购买或完成选型。电气、冷凝排水、外机、湿区保护、排风、蒸汽散热和固定安装须由专业人员结合实物与现场深化。独立生成层 `tools/family-appliances-20261012.cjs`，回归 `node tests/family-appliances-20261012.cjs` 与 `node tests/family-appliances-browser.cjs --self-host`（隔离、只读、同进程临时本地预览，无需独立服务器）。旧草稿新增一次，后续自定义/删除及空草稿保持。
 
+### 2026-10-12 · 方案2三房挂机靠窗定位
+
+只移动三台已有挂机：主卧/次卧在北飘窗上方的室内北墙（中心4990/245、1870/245，均朝南），书房向西550mm至西北窗侧角的北墙（620/3465，朝南）。900×250×300mm外包和底2250、顶2550mm不变。两卧窗头2070，机身与窗头相隔180mm，留在房内y120..370而不是外凸飘窗低顶棚内；主卧/次卧顶棚余240/150mm。书房西窗头2300，900mm机体不能完整放入北侧810mm西墙段，南侧则被高书架占用；窗上方候选仅70mm顶棚余量未采用。当前西北角离西内墙50mm、顶棚余150mm，仅是几何示意，不是安装净空批准。
+
+保留其他56件家具、电器、柜板和全部墙门窗及其他方案。外机机位、可穿墙点、冷媒管、冷凝水排水、墙梁/基层、窗帘和供电仍待真实机型及现场核验，本模型未新增外机、孔或管线。独立层 `tools/family-ac-window-20261012.cjs`，回归 `node tests/family-ac-window-20261012.cjs` 与 `node tests/family-ac-window-browser.cjs --self-host`。默认旧机位自动升级一次，自定义摆位、尺寸和删除操作保持；旧电器层可通过先回退本层精确验证。
+
 更新 house-design 快照：`node tools/convert-house-plans.cjs --source <原项目目录> --refresh-sources`。
 
 验证几何与脚本：`node tests/validate-import.cjs`。浏览器测试：先开启 4190 端口静态服务器，再运行 `node tests/integration.cjs`（需 Playwright；支持 `FLOORPLAN_NODE_MODULES`、`FLOORPLAN_CHROME`、`FLOORPLAN_BASE_URL` 环境变量）。
