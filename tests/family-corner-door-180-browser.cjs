@@ -37,9 +37,10 @@ const painted=()=>{const c=document.querySelector('#view3d canvas');if(!c?.width
    server=http.createServer((req,res)=>{try{const url=new URL(req.url,'http://127.0.0.1'),name=decodeURIComponent(url.pathname)==='/'?'index.html':decodeURIComponent(url.pathname).replace(/^\/+/,''),file=path.resolve(root,name),relative=path.relative(root,file);if(relative.startsWith('..')||path.isAbsolute(relative)||!fs.statSync(file).isFile()){res.writeHead(404);return res.end();}const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.css':'text/css; charset=utf-8','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml'};res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream','Cache-Control':'no-store'});res.end(fs.readFileSync(file));}catch{res.writeHead(404);res.end();}});
    await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(0,'127.0.0.1',resolve);});base='http://127.0.0.1:'+server.address().port;console.log('Self-hosted read-only corner storage QA:',base);
   }
-  fs.mkdirSync(out,{recursive:true});browser=await chromium.launch({headless:true,executablePath,args:['--use-angle=swiftshader','--enable-unsafe-swiftshader']});context=await browser.newContext({viewport:{width:1440,height:1000}});page=await context.newPage();page.setDefaultTimeout(90000);page.on('pageerror',e=>errors.push(e.message));page.on('requestfailed',r=>networkFailures.push({url:r.url(),error:r.failure()?.errorText}));page.on('dialog',d=>d.accept());
+  fs.mkdirSync(out,{recursive:true});const proxy=process.argv.includes('--published-smoke')&&(process.env.HTTPS_PROXY||process.env.HTTP_PROXY);
+  browser=await chromium.launch({headless:true,executablePath,args:['--use-angle=swiftshader','--enable-unsafe-swiftshader'],...(proxy?{proxy:{server:proxy}}:{})});context=await browser.newContext({viewport:{width:1440,height:1000}});page=await context.newPage();page.setDefaultTimeout(90000);page.on('pageerror',e=>errors.push(e.message));page.on('requestfailed',r=>networkFailures.push({url:r.url(),error:r.failure()?.errorText}));page.on('dialog',d=>d.accept());
   await context.route('**/favicon.ico',r=>r.fulfill({status:204,body:''}));
-  await context.route(base+'/**',async route=>{if(route.request().resourceType()!=='document')return route.fallback();const response=await route.fetch({timeout:90000}),html=await response.text();assert.ok(html.includes('window.View3D ='));return route.fulfill({response,body:html.replace('window.View3D =',hook+'window.View3D =')});});
+  await context.route(base+'/**',async route=>{if(route.request().resourceType()!=='document')return route.fallback();try{const response=await route.fetch({timeout:90000}),html=await response.text();assert.ok(html.includes('window.View3D ='));await route.fulfill({response,body:html.replace('window.View3D =',hook+'window.View3D =')});}catch(e){networkFailures.push({url:route.request().url(),error:'QA document interception: '+e.message});await route.abort('failed').catch(()=>{});}});
   const ready=()=>page.waitForFunction(()=>window.HOUSE_PLANS&&window.View3D&&Array.isArray(state.furniture));
   const open=async id=>{await page.goto(base+'/?scheme='+id,{waitUntil:'domcontentloaded'});await ready();assert.equal(await page.locator('#schemeSelect').inputValue(),id);};
   const reload=async()=>{await page.reload({waitUntil:'domcontentloaded'});await ready();};
@@ -49,7 +50,18 @@ const painted=()=>{const c=document.querySelector('#view3d canvas');if(!c?.width
   // Software WebGL can take longer than an ordinary UI actionability timeout
   // to supply two stable animation frames. Verify the actual visible hit
   // target, then perform a real mouse click at that observed button centre.
-  const clickObservedButton=async selector=>{await page.locator(selector).scrollIntoViewIfNeeded({timeout:30000});await page.waitForFunction(selector=>{const b=document.querySelector(selector);if(!b||b.disabled)return false;const r=b.getBoundingClientRect(),x=r.x+r.width/2,y=r.y+r.height/2;return r.width>0&&r.height>0&&x>=0&&y>=0&&x<innerWidth&&y<innerHeight&&document.elementFromPoint(x,y)?.closest(selector)===b;},selector);const b=await page.locator(selector).boundingBox();assert.ok(b,'visible button has bounds: '+selector);await page.mouse.click(b.x+b.width/2,b.y+b.height/2);};
+  const clickObservedButton=async selector=>{
+    // DOM scrolling is positioning only, not an interaction bypass. Avoid
+    // Playwright's stable-frame precondition while software WebGL is drawing.
+    await page.locator(selector).evaluate(button=>button.scrollIntoView({block:'nearest',inline:'nearest',behavior:'instant'}));
+    await page.waitForFunction(selector=>{
+      const button=document.querySelector(selector);if(!button||button.disabled)return false;
+      const rect=button.getBoundingClientRect(),x=rect.x+rect.width/2,y=rect.y+rect.height/2;
+      return rect.width>0&&rect.height>0&&x>=0&&y>=0&&x<innerWidth&&y<innerHeight&&document.elementFromPoint(x,y)?.closest(selector)===button;
+    },selector);
+    const bounds=await page.locator(selector).boundingBox();assert.ok(bounds,'visible button has bounds: '+selector);
+    await page.mouse.click(bounds.x+bounds.width/2,bounds.y+bounds.height/2);
+  };
   for(const id of ['wood','laundry','screen']){await open(id);assert.deepEqual(await page.evaluate(()=>structuredClone(HOUSE_PLAN)),plans.schemes[id]);assert.deepEqual(await page.evaluate(()=>structuredClone(state.furniture)),plans.schemes[id].defaultFurniture);assert.equal(await page.evaluate(()=>HOUSE_PLAN.metadata.familyCornerDoor180Update),undefined);report.otherSchemes.push(id);}
   await open('family');assert.deepEqual(await page.evaluate(()=>structuredClone(HOUSE_PLAN)),family);assert.equal(await page.evaluate(()=>STORE),`floorplan:house-design:family:${plans.version}:${baseline.metadata.source.sha256.slice(0,12)}`);equalDefaults((await snapshot()).state.furniture);
   if(!process.argv.includes('--published-smoke')&&!process.argv.includes('--panel-only')){
