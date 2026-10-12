@@ -24250,6 +24250,628 @@ const plans = {
             "d": 610
           },
           "notes": "从南桌转到西窗下段；含南桌拐角后的西段总长1160。窗扇、窗台、窗帘待复核；玻璃前不加高柜。"
+        },
+        {
+          "id": "family-acwall-room_a",
+          "type": "acwall",
+          "name": "主卧 · 壁挂空调（暂估）",
+          "roomId": "room_a",
+          "cx": 5650,
+          "cy": 3095,
+          "w": 900,
+          "d": 250,
+          "rot": 180,
+          "color": "#F4F1E9",
+          "heightMm": 300,
+          "elevationMm": 2250,
+          "sourceId": "family-acwall-room_a",
+          "modelVariant": "appliance-concept",
+          "layoutRevision": "family-appliances-20261012",
+          "dimensionStatus": "concept-pending-user-model",
+          "sourceFootprintMm": {
+            "x": 5200,
+            "y": 2970,
+            "w": 900,
+            "d": 250
+          },
+          "applianceDesign": {
+            "revision": "family-appliances-20261012",
+            "status": "concept-pending-user-model",
+            "installation": "wall-high",
+            "notPurchasedModel": true,
+            "notInstallationApproval": true,
+            "dimensionsMm": [
+              900,
+              250,
+              300
+            ],
+            "bottomMm": 2250,
+            "topMm": 2550
+          },
+          "notes": "2026-10-12业主新增电器摆放示意；尺寸与安装定位暂估，需按实物和现场复核。",
+          "conditions": [
+            "900×250×300mm为暂估机身；底高2250mm、上沿2550mm，挂机支架及实际安装高度、顶部进风检修空间须结合型号和现场确认。",
+            "外机位置、制冷剂管、穿墙套管、冷凝水坡度与排水点、独立电源、墙体承载及送风方向均未核；不据概念模型施工或下单。"
+          ]
+        },
+        {
+          "id": "family-acwall-room_b",
+          "type": "acwall",
+          "name": "次卧 · 壁挂空调（暂估）",
+          "roomId": "room_b",
+          "cx": 1570,
+          "cy": 3095,
+          "w": 900,
+          "d": 250,
+          "rot": 180,
+          "color": "#F4F1E9",
+          "heightMm": 300,
+          "elevationMm": 2250,
+          "sourceId": "family-acwall-room_b",
+          "modelVariant": "appliance-concept",
+          "layoutRevision": "family-appliances-20261012",
+          "dimensionStatus": "concept-pending-user-model",
+          "sourceFootprintMm": {
+            "x": 1120,
+            "y": 2970,
+            "w": 900,
+            "d": 250
+          },
+          "applianceDesign": {
+            "revision": "family-appliances-20261012",
+            "status": "concept-pending-user-model",
+            "installation": "wall-high",
+            "notPurchasedModel": true,
+            "notInstallationApproval": true,
+            "dimensionsMm": [
+              900,
+              250,
+              300
+            ],
+            "bottomMm": 2250,
+            "topMm": 2550
+          },
+          "notes": "2026-10-12业主新增电器摆放示意；尺寸与安装定位暂估，需按实物和现场复核。",
+          "conditions": [
+            "900×250×300mm为暂估机身；底高2250mm、上沿2550mm，挂机支架及实际安装高度、顶部进风检修空间须结合型号和现场确认。",
+            "外机位置、制冷剂管、穿墙套管、冷凝水坡度与排水点、独立电源、墙体承载及送风方向均未核；不据概念模型施工或下单。"
+          ]
+        },
+        {
+          "id": "family-acwall-room_c",
+          "type": "acwall",
+          "name": "书房 · 壁挂空调（暂估）",
+          "roomId": "room_c",
+          "cx": 1170,
+          "cy": 3465,
+          "w": 900,
+          "d": 250,
+          "rot": 0,
+          "color": "#F4F1E9",
+          "heightMm": 300,
+          "elevationMm": 2250,
+          "sourceId": "family-acwall-room_c",
+          "modelVariant": "appliance-concept",
+          "layoutRevision": "family-appliances-20261012",
+          "dimensionStatus": "concept-pending-user-model",
+          "sourceFootprintMm": {
+            "x": 720,
+            "y": 3340,
+            "w": 900,
+            "d": 250
+          },
+          "applianceDesign": {
+            "revision": "family-appliances-20261012",
+            "status": "concept-pending-user-model",
+            "installation": "wall-high",
+            "notPurchasedModel": true,
+            "notInstallationApproval": true,
+            "dimensionsMm": [
+              900,
+              250,
+              300
+            ],
+            "bottomMm": 2250,
+            "topMm": 2550
+          },
+          "notes": "2026-10-12业主新增电器摆放示意；尺寸与安装定位暂估，需按实物和现场复核。",
+          "conditions": [
+            "900×250×300mm为暂估机身；底高2250mm、上沿2550mm，挂机支架及实际安装高度、顶部进风检修空间须结合型号和现场确认。",
+            "外机位置、制冷剂管、穿墙套管、冷凝水坡度与排水点、独立电源、墙体承载及送风方向均未核；不据概念模型施工或下单。"
+          ]
+        },
+        {
+          "id": "family-living-aircon",
+          "type": "aircon",
+          "name": "客厅电视旁 · 立柜空调（暂估）",
+          "roomId": "living",
+          "cx": 6450,
+          "cy": 6610,
+          "w": 500,
+          "d": 380,
+          "rot": 0,
+          "color": "#F4F1E9",
+          "heightMm": 1800,
+          "elevationMm": 0,
+          "sourceId": "family-living-aircon",
+          "modelVariant": "appliance-concept",
+          "layoutRevision": "family-appliances-20261012",
+          "dimensionStatus": "concept-pending-user-model",
+          "sourceFootprintMm": {
+            "x": 6200,
+            "y": 6420,
+            "w": 500,
+            "d": 380
+          },
+          "applianceDesign": {
+            "revision": "family-appliances-20261012",
+            "status": "concept-pending-user-model",
+            "installation": "floor-corner",
+            "notPurchasedModel": true,
+            "notInstallationApproval": true,
+            "dimensionsMm": [
+              500,
+              380,
+              1800
+            ],
+            "bottomMm": 0,
+            "topMm": 1800
+          },
+          "notes": "2026-10-12业主新增电器摆放示意；尺寸与安装定位暂估，需按实物和现场复核。",
+          "conditions": [
+            "500×380×1800mm立柜机为暂估外包，位于电视旁东侧角落，不占西侧走廊；模型与电视柜及东墙均只有50mm，非厂家要求的散热或检修余量。",
+            "外机、管线、冷凝排水、电源及回风/检修间距待核；实际机型不合适时应调整位置，不移动墙体来假定可安装。"
+          ]
+        },
+        {
+          "id": "family-kitchen-ceilingfan",
+          "type": "ceilingfan",
+          "name": "厨房顶部 · 凉霸面板（暂估）",
+          "roomId": "kitchen",
+          "cx": 7110,
+          "cy": 12500,
+          "w": 300,
+          "d": 300,
+          "rot": 0,
+          "color": "#F4F1E9",
+          "heightMm": 80,
+          "elevationMm": 2620,
+          "sourceId": "family-kitchen-ceilingfan",
+          "modelVariant": "appliance-concept",
+          "layoutRevision": "family-appliances-20261012",
+          "dimensionStatus": "concept-pending-user-model",
+          "sourceFootprintMm": {
+            "x": 6960,
+            "y": 12350,
+            "w": 300,
+            "d": 300
+          },
+          "applianceDesign": {
+            "revision": "family-appliances-20261012",
+            "status": "concept-pending-user-model",
+            "installation": "ceiling-panel",
+            "notPurchasedModel": true,
+            "notInstallationApproval": true,
+            "dimensionsMm": [
+              300,
+              300,
+              80
+            ],
+            "bottomMm": 2620,
+            "topMm": 2700
+          },
+          "notes": "2026-10-12业主新增电器摆放示意；尺寸与安装定位暂估，需按实物和现场复核。",
+          "conditions": [
+            "300×300×80mm为可见凉霸面板概念壳体，底2620mm、顶2700mm；吊顶腔、整机安装深度、风路与灯具/龙骨位置待核。",
+            "不以80mm壳体推断整机可塞入现吊顶；厨房油烟环境适用性、清洁检修和电源须按实际产品及现场深化。"
+          ]
+        },
+        {
+          "id": "family-bathheater-bath_1",
+          "type": "bathheater",
+          "name": "主卫淋浴上方 · 风暖浴霸面板（暂估）",
+          "roomId": "bath_1",
+          "cx": 6260,
+          "cy": 4105,
+          "w": 300,
+          "d": 600,
+          "rot": 0,
+          "color": "#F4F1E9",
+          "heightMm": 80,
+          "elevationMm": 2620,
+          "sourceId": "family-bathheater-bath_1",
+          "modelVariant": "appliance-concept",
+          "layoutRevision": "family-appliances-20261012",
+          "dimensionStatus": "concept-pending-user-model",
+          "sourceFootprintMm": {
+            "x": 6110,
+            "y": 3805,
+            "w": 300,
+            "d": 600
+          },
+          "applianceDesign": {
+            "revision": "family-appliances-20261012",
+            "status": "concept-pending-user-model",
+            "installation": "ceiling-panel",
+            "notPurchasedModel": true,
+            "notInstallationApproval": true,
+            "dimensionsMm": [
+              300,
+              600,
+              80
+            ],
+            "bottomMm": 2620,
+            "topMm": 2700
+          },
+          "notes": "2026-10-12业主新增电器摆放示意；尺寸与安装定位暂估，需按实物和现场复核。",
+          "conditions": [
+            "300×600×80mm为淋浴上方可见风暖浴霸概念壳体，底2620mm、顶2700mm；实际机深通常大于可见厚度，本模型未画吊顶腔内机体或风管。",
+            "淋浴区适用性、防护等级、安装禁区/高度、排风路径与吊顶龙骨、漏电保护及电源等必须由安装人员结合真实型号和现场确认；不构成安装批准。"
+          ]
+        },
+        {
+          "id": "family-bathheater-bath_2",
+          "type": "bathheater",
+          "name": "客卫淋浴上方 · 风暖浴霸面板（暂估）",
+          "roomId": "bath_2",
+          "cx": 6260,
+          "cy": 5595,
+          "w": 300,
+          "d": 600,
+          "rot": 0,
+          "color": "#F4F1E9",
+          "heightMm": 80,
+          "elevationMm": 2620,
+          "sourceId": "family-bathheater-bath_2",
+          "modelVariant": "appliance-concept",
+          "layoutRevision": "family-appliances-20261012",
+          "dimensionStatus": "concept-pending-user-model",
+          "sourceFootprintMm": {
+            "x": 6110,
+            "y": 5295,
+            "w": 300,
+            "d": 600
+          },
+          "applianceDesign": {
+            "revision": "family-appliances-20261012",
+            "status": "concept-pending-user-model",
+            "installation": "ceiling-panel",
+            "notPurchasedModel": true,
+            "notInstallationApproval": true,
+            "dimensionsMm": [
+              300,
+              600,
+              80
+            ],
+            "bottomMm": 2620,
+            "topMm": 2700
+          },
+          "notes": "2026-10-12业主新增电器摆放示意；尺寸与安装定位暂估，需按实物和现场复核。",
+          "conditions": [
+            "300×600×80mm为淋浴上方可见风暖浴霸概念壳体，底2620mm、顶2700mm；实际机深通常大于可见厚度，本模型未画吊顶腔内机体或风管。",
+            "淋浴区适用性、防护等级、安装禁区/高度、排风路径与吊顶龙骨、漏电保护及电源等必须由安装人员结合真实型号和现场确认；不构成安装批准。"
+          ]
+        },
+        {
+          "id": "family-sideboard-blender",
+          "type": "blender",
+          "name": "餐边柜 · 破壁机（暂估）",
+          "roomId": "living",
+          "cx": 2295,
+          "cy": 9450,
+          "w": 220,
+          "d": 240,
+          "rot": 270,
+          "color": "#F4F1E9",
+          "heightMm": 460,
+          "elevationMm": 850,
+          "sourceId": "family-sideboard-blender",
+          "modelVariant": "appliance-concept",
+          "layoutRevision": "family-appliances-20261012",
+          "dimensionStatus": "concept-pending-user-model",
+          "sourceFootprintMm": {
+            "x": 2175,
+            "y": 9340,
+            "w": 240,
+            "d": 220
+          },
+          "applianceDesign": {
+            "revision": "family-appliances-20261012",
+            "status": "concept-pending-user-model",
+            "installation": "countertop",
+            "notPurchasedModel": true,
+            "notInstallationApproval": true,
+            "dimensionsMm": [
+              220,
+              240,
+              460
+            ],
+            "bottomMm": 850,
+            "topMm": 1310,
+            "supportTopMm": 850,
+            "cabinetNicheTopMm": 1500,
+            "aboveBodyToLowestLedMm": 186,
+            "behindBodyToNicheBackMm": 32,
+            "behindBodyToSocketRailMm": 22,
+            "frontMarginToCounterEdgeMm": 110,
+            "openingAndSteamClearanceStatus": "pending-actual-product",
+            "reference": {
+              "kind": "blender",
+              "url": "https://www.mi.com/hk/product/xiaomi-smart-blender/specs/",
+              "sampleDimensionsMm": [
+                188,
+                222,
+                436
+              ],
+              "note": "官方破壁机样例，仅核对尺寸量级；当前220×240×460外包不是该产品模型或购买推荐。"
+            }
+          },
+          "notes": "2026-10-12业主新增电器摆放示意；尺寸与安装定位暂估，需按实物和现场复核。",
+          "conditions": [
+            "暂估外包放在真实850mm餐边柜台面上，使用面朝东；当前仅是摆放状态，不是已购电器或接通运行状态。",
+            "400mm台深与650mm中空有限：后部插头/电线、开盖加水、前开门、散热、蒸汽和防潮间距均待实际型号核对；不能从无实体相交推断可安全运行。",
+            "五台电器不默认同时运行，也不默认共用插排；插座数量、回路负荷、接地与涉水保护需专业核验，本层不提供电气施工方案。"
+          ],
+          "supportFurnitureId": "fit-dining_sideboard_wall",
+          "supportPartId": "reference-west-central-countertop",
+          "frontDirection": "east"
+        },
+        {
+          "id": "family-sideboard-temperaturekettle",
+          "type": "temperaturekettle",
+          "name": "餐边柜 · 恒温壶（暂估）",
+          "roomId": "living",
+          "cx": 2285,
+          "cy": 9790,
+          "w": 220,
+          "d": 220,
+          "rot": 270,
+          "color": "#F4F1E9",
+          "heightMm": 300,
+          "elevationMm": 850,
+          "sourceId": "family-sideboard-temperaturekettle",
+          "modelVariant": "appliance-concept",
+          "layoutRevision": "family-appliances-20261012",
+          "dimensionStatus": "concept-pending-user-model",
+          "sourceFootprintMm": {
+            "x": 2175,
+            "y": 9680,
+            "w": 220,
+            "d": 220
+          },
+          "applianceDesign": {
+            "revision": "family-appliances-20261012",
+            "status": "concept-pending-user-model",
+            "installation": "countertop",
+            "notPurchasedModel": true,
+            "notInstallationApproval": true,
+            "dimensionsMm": [
+              220,
+              220,
+              300
+            ],
+            "bottomMm": 850,
+            "topMm": 1150,
+            "supportTopMm": 850,
+            "cabinetNicheTopMm": 1500,
+            "aboveBodyToLowestLedMm": 346,
+            "behindBodyToNicheBackMm": 32,
+            "behindBodyToSocketRailMm": 22,
+            "frontMarginToCounterEdgeMm": 130,
+            "openingAndSteamClearanceStatus": "pending-actual-product",
+            "reference": {
+              "kind": "temperaturekettle",
+              "url": "https://www.midea.cn/187/10000000004007021228727.html",
+              "sampleDimensionsMm": [
+                220,
+                202,
+                274
+              ],
+              "note": "官方恒温调奶壶样例，仅尺寸量级；当前220×220×300外包不是已购型号。"
+            }
+          },
+          "notes": "2026-10-12业主新增电器摆放示意；尺寸与安装定位暂估，需按实物和现场复核。",
+          "conditions": [
+            "暂估外包放在真实850mm餐边柜台面上，使用面朝东；当前仅是摆放状态，不是已购电器或接通运行状态。",
+            "400mm台深与650mm中空有限：后部插头/电线、开盖加水、前开门、散热、蒸汽和防潮间距均待实际型号核对；不能从无实体相交推断可安全运行。",
+            "五台电器不默认同时运行，也不默认共用插排；插座数量、回路负荷、接地与涉水保护需专业核验，本层不提供电气施工方案。"
+          ],
+          "supportFurnitureId": "fit-dining_sideboard_wall",
+          "supportPartId": "reference-west-central-countertop",
+          "frontDirection": "east"
+        },
+        {
+          "id": "family-sideboard-sterilizer",
+          "type": "sterilizer",
+          "name": "餐边柜 · 蒸汽奶瓶消毒柜（暂估）",
+          "roomId": "living",
+          "cx": 2325,
+          "cy": 10230,
+          "w": 300,
+          "d": 300,
+          "rot": 270,
+          "color": "#F4F1E9",
+          "heightMm": 420,
+          "elevationMm": 850,
+          "sourceId": "family-sideboard-sterilizer",
+          "modelVariant": "appliance-concept",
+          "layoutRevision": "family-appliances-20261012",
+          "dimensionStatus": "concept-pending-user-model",
+          "sourceFootprintMm": {
+            "x": 2175,
+            "y": 10080,
+            "w": 300,
+            "d": 300
+          },
+          "applianceDesign": {
+            "revision": "family-appliances-20261012",
+            "status": "concept-pending-user-model",
+            "installation": "countertop",
+            "notPurchasedModel": true,
+            "notInstallationApproval": true,
+            "dimensionsMm": [
+              300,
+              300,
+              420
+            ],
+            "bottomMm": 850,
+            "topMm": 1270,
+            "supportTopMm": 850,
+            "cabinetNicheTopMm": 1500,
+            "aboveBodyToLowestLedMm": 226,
+            "behindBodyToNicheBackMm": 32,
+            "behindBodyToSocketRailMm": 22,
+            "frontMarginToCounterEdgeMm": 50,
+            "openingAndSteamClearanceStatus": "pending-actual-product",
+            "reference": {
+              "kind": "sterilizer",
+              "url": "https://www.philips.com.hk/c-p/SCF293_01/sterilizer",
+              "sampleDimensionsMm": [
+                304,
+                191,
+                378
+              ],
+              "note": "官方蒸汽消毒烘干器样例，不是业主所述柜式外观；本场景仍使用300×300×420柜式概念外包，型号、开门、蒸汽与散热待核。"
+            }
+          },
+          "notes": "2026-10-12业主新增电器摆放示意；尺寸与安装定位暂估，需按实物和现场复核。",
+          "conditions": [
+            "暂估外包放在真实850mm餐边柜台面上，使用面朝东；当前仅是摆放状态，不是已购电器或接通运行状态。",
+            "400mm台深与650mm中空有限：后部插头/电线、开盖加水、前开门、散热、蒸汽和防潮间距均待实际型号核对；不能从无实体相交推断可安全运行。",
+            "五台电器不默认同时运行，也不默认共用插排；插座数量、回路负荷、接地与涉水保护需专业核验，本层不提供电气施工方案。",
+            "消毒柜上方至灯带仅226mm模型净空；未模拟柜门/盖开启、蒸汽排放及运行散热。柜下蒸汽运行是否允许以及是否须移至开放备餐区，均需选定真实型号后核对，当前不作可运行结论。"
+          ],
+          "supportFurnitureId": "fit-dining_sideboard_wall",
+          "supportPartId": "reference-west-central-countertop",
+          "frontDirection": "east"
+        },
+        {
+          "id": "family-sideboard-healthkettle",
+          "type": "healthkettle",
+          "name": "餐边柜 · 养生壶（暂估）",
+          "roomId": "living",
+          "cx": 2285,
+          "cy": 10620,
+          "w": 220,
+          "d": 220,
+          "rot": 270,
+          "color": "#F4F1E9",
+          "heightMm": 280,
+          "elevationMm": 850,
+          "sourceId": "family-sideboard-healthkettle",
+          "modelVariant": "appliance-concept",
+          "layoutRevision": "family-appliances-20261012",
+          "dimensionStatus": "concept-pending-user-model",
+          "sourceFootprintMm": {
+            "x": 2175,
+            "y": 10510,
+            "w": 220,
+            "d": 220
+          },
+          "applianceDesign": {
+            "revision": "family-appliances-20261012",
+            "status": "concept-pending-user-model",
+            "installation": "countertop",
+            "notPurchasedModel": true,
+            "notInstallationApproval": true,
+            "dimensionsMm": [
+              220,
+              220,
+              280
+            ],
+            "bottomMm": 850,
+            "topMm": 1130,
+            "supportTopMm": 850,
+            "cabinetNicheTopMm": 1500,
+            "aboveBodyToLowestLedMm": 366,
+            "behindBodyToNicheBackMm": 32,
+            "behindBodyToSocketRailMm": 22,
+            "frontMarginToCounterEdgeMm": 130,
+            "openingAndSteamClearanceStatus": "pending-actual-product",
+            "reference": {
+              "kind": "healthkettle",
+              "url": "https://sale.midea.cn/detail/index?itemid=1000000000401094355918",
+              "sampleDimensionsMm": [
+                222,
+                170,
+                251
+              ],
+              "note": "官方养生壶样例，仅尺寸量级；当前220×220×280外包不代表实物匹配。"
+            }
+          },
+          "notes": "2026-10-12业主新增电器摆放示意；尺寸与安装定位暂估，需按实物和现场复核。",
+          "conditions": [
+            "暂估外包放在真实850mm餐边柜台面上，使用面朝东；当前仅是摆放状态，不是已购电器或接通运行状态。",
+            "400mm台深与650mm中空有限：后部插头/电线、开盖加水、前开门、散热、蒸汽和防潮间距均待实际型号核对；不能从无实体相交推断可安全运行。",
+            "五台电器不默认同时运行，也不默认共用插排；插座数量、回路负荷、接地与涉水保护需专业核验，本层不提供电气施工方案。"
+          ],
+          "supportFurnitureId": "fit-dining_sideboard_wall",
+          "supportPartId": "reference-west-central-countertop",
+          "frontDirection": "east"
+        },
+        {
+          "id": "family-sideboard-waterdispenser",
+          "type": "waterdispenser",
+          "name": "餐边柜 · 台式饮水机（暂估）",
+          "roomId": "living",
+          "cx": 2350,
+          "cy": 11050,
+          "w": 260,
+          "d": 350,
+          "rot": 270,
+          "color": "#F4F1E9",
+          "heightMm": 430,
+          "elevationMm": 850,
+          "sourceId": "family-sideboard-waterdispenser",
+          "modelVariant": "appliance-concept",
+          "layoutRevision": "family-appliances-20261012",
+          "dimensionStatus": "concept-pending-user-model",
+          "sourceFootprintMm": {
+            "x": 2175,
+            "y": 10920,
+            "w": 350,
+            "d": 260
+          },
+          "applianceDesign": {
+            "revision": "family-appliances-20261012",
+            "status": "concept-pending-user-model",
+            "installation": "countertop",
+            "notPurchasedModel": true,
+            "notInstallationApproval": true,
+            "dimensionsMm": [
+              260,
+              350,
+              430
+            ],
+            "bottomMm": 850,
+            "topMm": 1280,
+            "supportTopMm": 850,
+            "cabinetNicheTopMm": 1500,
+            "aboveBodyToLowestLedMm": 216,
+            "behindBodyToNicheBackMm": 32,
+            "behindBodyToSocketRailMm": 22,
+            "frontMarginToCounterEdgeMm": 0,
+            "openingAndSteamClearanceStatus": "pending-actual-product",
+            "reference": {
+              "kind": "waterdispenser",
+              "url": "https://www.mi.com/hk/product/xiaomi-instant-hot-water-dispenser/specs/",
+              "sampleDimensionsMm": [
+                312,
+                106,
+                280
+              ],
+              "note": "官方台式饮水机样例，仅尺寸量级，机身宽深方向须结合实物；当前260×350×430是可编辑概念外包。"
+            }
+          },
+          "notes": "2026-10-12业主新增电器摆放示意；尺寸与安装定位暂估，需按实物和现场复核。",
+          "conditions": [
+            "暂估外包放在真实850mm餐边柜台面上，使用面朝东；当前仅是摆放状态，不是已购电器或接通运行状态。",
+            "400mm台深与650mm中空有限：后部插头/电线、开盖加水、前开门、散热、蒸汽和防潮间距均待实际型号核对；不能从无实体相交推断可安全运行。",
+            "五台电器不默认同时运行，也不默认共用插排；插座数量、回路负荷、接地与涉水保护需专业核验，本层不提供电气施工方案。"
+          ],
+          "supportFurnitureId": "fit-dining_sideboard_wall",
+          "supportPartId": "reference-west-central-countertop",
+          "frontDirection": "east"
         }
       ],
       "HEIGHT_MM": 2700,
@@ -24621,7 +25243,11 @@ const plans = {
           "方案2本轮主卧门南移300mm、主卫门北移300mm并改北铰内开；盆厕贴南墙面北。门位为确认设计参数，非新增实测；马桶侧至淋浴仅60mm，排水移位与门套、通行条件仍须现场深化。",
           "方案2书房900门洞累计南移800，本轮再南移300并改南铰内开；7字南桌与浅书墙1450，与主卧门洞纵向间隔530mm。未来完整床须替换沙发并收椅。客卫台前610mm偏紧，机门/取衣须实物试摆。阳台取消借厅外凸但全屋净宽与复尺差180mm尚未闭合。",
           "方案2厨房1700、生活阳台1500mm原门洞保持，仅改双扇双轨玻璃推拉门；厨房向北、阳台向南堆叠不变。开门后的可用通行宽度约为洞宽一半，实际门框/搭接/五金再扣，须核对搬运、操作和防水高差。",
-          "2026-10-12方案2书房1450桌/真实书架东端至40mm门叶连续扫掠外包约49.74mm，余量有限，不含把手、门套和安装偏差；洞下室内墙垛仅20mm。未来床侧710mm与坐椅共用偏紧，床尾120mm不是通道。"
+          "2026-10-12方案2书房1450桌/真实书架东端至40mm门叶连续扫掠外包约49.74mm，余量有限，不含把手、门套和安装偏差；洞下室内墙垛仅20mm。未来床侧710mm与坐椅共用偏紧，床尾120mm不是通道。",
+          "2026-10-12方案2新增12件暂估电器；原有47件家具、墙/门/窗、1450书房桌架与南铰门、厨房及阳台双扇门、其他3方案保持。",
+          "三房挂机底2250/顶2550mm；柜机放TV东侧、静态距墙和电视柜50mm只是模型几何空隙。冷凝排水、外机/管路、进回风、供电与检修未核。",
+          "厨房凉霸和两卫浴霸可见面板底2620/顶2700mm，80mm仅显示壳体；吊顶腔内机身深度、风管、安装禁区、防护等级、排风、电气保护与检修定位待核。",
+          "五台餐边电器底850mm落在真实400mm深西柜台面；不改原插座和灯带，不遮高柜展示格，南段保留1550mm连续空白备餐台面。所有实物尺寸、插头、开盖、蒸汽、散热及实际运行位置待核；不默认柜下蒸汽运行或五台同时接同一插排。"
         ],
         "balconyOpenness": {
           "id": "balcony-two-sided-open-20261005",
@@ -24673,7 +25299,7 @@ const plans = {
             }
           }
         },
-        "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs + tools/family-study-door-20261012.cjs",
+        "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs + tools/family-study-door-20261012.cjs + tools/family-appliances-20261012.cjs",
         "wallStatus": "承重性未鉴定；原源数据未授权将未知内墙标记为可拆非承重墙。",
         "cabinetRevision": {
           "revision": "cream-oak-functional-v1",
@@ -24790,6 +25416,27 @@ const plans = {
             "openingWidthsUnchanged": true,
             "wallAxesUnchanged": true,
             "usageNote": "独立新层取代书房北铰1680旧状态；历史版本元数据不改。返桌、沙发、未来床外包、厨房/阳台双扇门全部保持。"
+          },
+          {
+            "id": "family-appliances-20261012",
+            "date": "2026-10-12",
+            "sourceIds": [
+              "family-acwall-room_a",
+              "family-acwall-room_b",
+              "family-acwall-room_c",
+              "family-living-aircon",
+              "family-kitchen-ceilingfan",
+              "family-bathheater-bath_1",
+              "family-bathheater-bath_2",
+              "family-sideboard-blender",
+              "family-sideboard-temperaturekettle",
+              "family-sideboard-sterilizer",
+              "family-sideboard-healthkettle",
+              "family-sideboard-waterdispenser"
+            ],
+            "description": "仅方案2增加主次卧及书房挂机、客厅电视东角柜机、厨房凉霸、两卫淋浴上方浴霸与餐边柜五台小家电；均暂估外包，原墙门窗、家具和定制柜板件不动。",
+            "sourceSnapshotsUnchanged": true,
+            "usageNote": "12件可编辑概念电器，不是已购型号、产品推荐或机电安装批准。"
           }
         ],
         "entryFamilyUpdate": {
@@ -38576,6 +39223,336 @@ const plans = {
             "模型门扫掠至桌/书架外包约49.74mm，门全开离南墙60mm；均未计门把手、门套、墙面完成层、板件变形和安装误差。",
             "900洞下室内墙垛仅20mm，门套收口、合页固定、开合限位与承重性尚未核实，不据模型直接施工或下单。",
             "主卧/主卫门几何不动，厨房及阳台双扇双轨、客卫洗衣机和其他方案原样保持；历史北铰1680及230间隔条件由当前层替代。"
+          ]
+        },
+        "familyAppliancesUpdate": {
+          "id": "family-appliances-20261012",
+          "date": "2026-10-12",
+          "title": "方案2 · 空调与厨房浴室及餐边电器",
+          "status": "applied-owner-request-concept",
+          "dimensionStatus": "concept-pending-user-model",
+          "sourceSnapshotsUnchanged": true,
+          "notPurchasedModels": true,
+          "notInstallationApproval": true,
+          "previousPlanFields": {},
+          "previousFurniture": [],
+          "previousFurnitureOrder": [
+            "bed_b",
+            "family-f1",
+            "bed_a",
+            "family-f3",
+            "study_full_desk",
+            "family-f5",
+            "family-living-rug",
+            "family-f6",
+            "family-f7",
+            "family-f8",
+            "vanity_main",
+            "family-f11",
+            "family-f12",
+            "vanity_guest",
+            "family-f14",
+            "family-f15",
+            "study_north_sofa",
+            "family-f23",
+            "family-f24",
+            "family-f25",
+            "family-f26",
+            "family-f27",
+            "fit-bay_b_tea",
+            "fit-bay_living_family",
+            "fit-entry_shoe_station",
+            "fit-dining_sideboard_wall",
+            "fit-sofa_back_storage",
+            "fit-study_bookwall",
+            "laundry_washer",
+            "laundry_dryer",
+            "fit-kitchen-20261005",
+            "kitchen_fridge",
+            "kitchen_dishwasher",
+            "kitchen_double_sink",
+            "kitchen_hob",
+            "kitchen_hood",
+            "kitchen_heater",
+            "kitchen_tap",
+            "living-floorlamp",
+            "living-east-art",
+            "draft-desk-b",
+            "draft-chair-b",
+            "draft-night-b",
+            "draft-desk-a",
+            "draft-chair-a",
+            "draft-night-a",
+            "study_window_return"
+          ],
+          "previousMetadataFields": {
+            "designCorrections": [
+              {
+                "id": "bath-south-hinge-20261008",
+                "sourceId": "door_bath_1",
+                "description": "主卫北铰改南铰，仍向卫内开；门洞和全部家具位置不变。",
+                "openingUnchanged": true,
+                "hingeMm": [
+                  4450,
+                  4430
+                ],
+                "closedDirection": [
+                  0,
+                  -1
+                ],
+                "openDirection": [
+                  1,
+                  0
+                ],
+                "usageNote": "门扇转到入口南侧而非贴南墙。两门板间距不是通行净宽；旧源快照550mm门间带说明不再适用。",
+                "status": "superseded-for-family",
+                "supersededBy": "family-master-bath-confirmed-20261011"
+              },
+              {
+                "id": "entry-family-layout-20261011",
+                "sourceId": "entry_door",
+                "description": "2026-10-11用户修订：入户门参照方案4向室外开启，保持本方案原洞口、宽高及门叶长度；合页从本方案洞口东端内退60mm作示意。公共走廊、邻户门、门套、闭门器及允许开启角度尚待现场核对，不构成外开施工批准。",
+                "openingUnchanged": true,
+                "hingeMm": [
+                  4840,
+                  13950
+                ],
+                "closedDirection": [
+                  -1,
+                  0
+                ],
+                "openDirection": [
+                  0,
+                  1
+                ],
+                "leafLengthMm": 890
+              },
+              {
+                "id": "family-master-bath-confirmed-20261011",
+                "date": "2026-10-11",
+                "sourceIds": [
+                  "door_a",
+                  "door_bath_1",
+                  "vanity_main",
+                  "family-f11"
+                ],
+                "description": "方案2主卧门南移300mm；主卫门北移300mm、北铰内开；南墙盆厕及镜面朝北，淋浴和房间边界不动。",
+                "openingWidthsUnchanged": true,
+                "sourceSnapshotsUnchanged": true,
+                "usageNote": "门侧墙段随新洞口补齐，未改变墙体轴线或主卫北墙；门位移是已确认设计参数而非新增实测，排水与五金仍待核。"
+              },
+              {
+                "id": "family-study-laundry-confirmed-20261011",
+                "date": "2026-10-11",
+                "sourceIds": [
+                  "door_c",
+                  "study_full_desk",
+                  "family-f5",
+                  "fit-study_bookwall",
+                  "vanity_guest",
+                  "laundry_washer",
+                  "laundry_dryer",
+                  "study_window_return",
+                  "fit-laundry_wall",
+                  "fit-laundry_basin",
+                  "balcony_door"
+                ],
+                "description": "方案2确认书房门南移500及7字窗边桌；洗衣机入客卫左机右盆台，阳台只留单干机且退回原门轴。",
+                "sourceSnapshotsUnchanged": true,
+                "usageNote": "当前保留书房沙发，1500×2000未来床只作替换校核，不与沙发同时新增；客卫门和主卫、双卧本轮不动。"
+              },
+              {
+                "id": "family-door-refinement-20261011",
+                "date": "2026-10-11",
+                "sourceIds": [
+                  "balcony_door",
+                  "door_kitchen"
+                ],
+                "description": "方案2厨房及生活阳台玻璃推拉门由三扇三轨改双扇双轨，保持原洞口和堆叠方向。",
+                "sourceSnapshotsUnchanged": true,
+                "openingWidthsUnchanged": true,
+                "wallIndexesUnchanged": true,
+                "furnitureUnchanged": true,
+                "usageNote": "没有默认采纳尚待确认的书房反向开门及桌棚收短；此层只变两个推拉门。"
+              },
+              {
+                "id": "family-study-door-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "door_c",
+                  "door_a",
+                  "study_full_desk",
+                  "fit-study_bookwall"
+                ],
+                "description": "方案2书房900门洞再南移300并改南铰内开，南桌与浅书墙缩至1450；坐椅原位避让西窗返桌，主卧门仅纠正说明为530mm纵向间隔。",
+                "sourceSnapshotsUnchanged": true,
+                "openingWidthsUnchanged": true,
+                "wallAxesUnchanged": true,
+                "usageNote": "独立新层取代书房北铰1680旧状态；历史版本元数据不改。返桌、沙发、未来床外包、厨房/阳台双扇门全部保持。"
+              }
+            ],
+            "conditions": [
+              "墙体、房间多边形和面积沿用既有方案；部分复尺已应用，全屋墙线和共同基准未闭合。",
+              "编辑器中的尺寸以模型坐标为准；已购家具保持机身外廓，安装、门套及五金余量待核。",
+              "入户门参照方案4向外开启，模型内不再扫过鞋柜正面；门外公共通行、相邻门、门套、闭门器及限位仍须现场确认，模型不构成外开施工批准。",
+              "方案2本轮主卧门南移300mm、主卫门北移300mm并改北铰内开；盆厕贴南墙面北。门位为确认设计参数，非新增实测；马桶侧至淋浴仅60mm，排水移位与门套、通行条件仍须现场深化。",
+              "方案2书房900门洞累计南移800，本轮再南移300并改南铰内开；7字南桌与浅书墙1450，与主卧门洞纵向间隔530mm。未来完整床须替换沙发并收椅。客卫台前610mm偏紧，机门/取衣须实物试摆。阳台取消借厅外凸但全屋净宽与复尺差180mm尚未闭合。",
+              "方案2厨房1700、生活阳台1500mm原门洞保持，仅改双扇双轨玻璃推拉门；厨房向北、阳台向南堆叠不变。开门后的可用通行宽度约为洞宽一半，实际门框/搭接/五金再扣，须核对搬运、操作和防水高差。",
+              "2026-10-12方案2书房1450桌/真实书架东端至40mm门叶连续扫掠外包约49.74mm，余量有限，不含把手、门套和安装偏差；洞下室内墙垛仅20mm。未来床侧710mm与坐椅共用偏紧，床尾120mm不是通道。"
+            ],
+            "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs + tools/family-study-door-20261012.cjs"
+          },
+          "changedFurnitureIds": [],
+          "newFurnitureIds": [
+            "family-acwall-room_a",
+            "family-acwall-room_b",
+            "family-acwall-room_c",
+            "family-living-aircon",
+            "family-kitchen-ceilingfan",
+            "family-bathheater-bath_1",
+            "family-bathheater-bath_2",
+            "family-sideboard-blender",
+            "family-sideboard-temperaturekettle",
+            "family-sideboard-sterilizer",
+            "family-sideboard-healthkettle",
+            "family-sideboard-waterdispenser"
+          ],
+          "removedFurnitureIds": [],
+          "replacedFurnitureIds": [],
+          "migrationFields": {},
+          "architectureUnchanged": true,
+          "existingFurnitureUnchanged": true,
+          "existingCabinetPartsUnchanged": true,
+          "sourceReference": "2026-10-12用户方案2新增家电请求",
+          "applianceIdsByRoom": {
+            "room_a": [
+              "family-acwall-room_a"
+            ],
+            "room_b": [
+              "family-acwall-room_b"
+            ],
+            "room_c": [
+              "family-acwall-room_c"
+            ],
+            "living": [
+              "family-living-aircon",
+              "family-sideboard-blender",
+              "family-sideboard-temperaturekettle",
+              "family-sideboard-sterilizer",
+              "family-sideboard-healthkettle",
+              "family-sideboard-waterdispenser"
+            ],
+            "kitchen": [
+              "family-kitchen-ceilingfan"
+            ],
+            "bath_1": [
+              "family-bathheater-bath_1"
+            ],
+            "bath_2": [
+              "family-bathheater-bath_2"
+            ]
+          },
+          "references": [
+            {
+              "kind": "blender",
+              "url": "https://www.mi.com/hk/product/xiaomi-smart-blender/specs/",
+              "sampleDimensionsMm": [
+                188,
+                222,
+                436
+              ],
+              "note": "官方破壁机样例，仅核对尺寸量级；当前220×240×460外包不是该产品模型或购买推荐。"
+            },
+            {
+              "kind": "temperaturekettle",
+              "url": "https://www.midea.cn/187/10000000004007021228727.html",
+              "sampleDimensionsMm": [
+                220,
+                202,
+                274
+              ],
+              "note": "官方恒温调奶壶样例，仅尺寸量级；当前220×220×300外包不是已购型号。"
+            },
+            {
+              "kind": "sterilizer",
+              "url": "https://www.philips.com.hk/c-p/SCF293_01/sterilizer",
+              "sampleDimensionsMm": [
+                304,
+                191,
+                378
+              ],
+              "note": "官方蒸汽消毒烘干器样例，不是业主所述柜式外观；本场景仍使用300×300×420柜式概念外包，型号、开门、蒸汽与散热待核。"
+            },
+            {
+              "kind": "healthkettle",
+              "url": "https://sale.midea.cn/detail/index?itemid=1000000000401094355918",
+              "sampleDimensionsMm": [
+                222,
+                170,
+                251
+              ],
+              "note": "官方养生壶样例，仅尺寸量级；当前220×220×280外包不代表实物匹配。"
+            },
+            {
+              "kind": "waterdispenser",
+              "url": "https://www.mi.com/hk/product/xiaomi-instant-hot-water-dispenser/specs/",
+              "sampleDimensionsMm": [
+                312,
+                106,
+                280
+              ],
+              "note": "官方台式饮水机样例，仅尺寸量级，机身宽深方向须结合实物；当前260×350×430是可编辑概念外包。"
+            },
+            {
+              "kind": "bathheater",
+              "url": "https://m.midea.cn/detail/index?itemid=1000000000400751841673",
+              "samplePanelMm": [
+                300,
+                600
+              ],
+              "sampleBodyDepthMm": 95,
+              "note": "官方风暖浴霸面板量级参考；模型只画300×600×80可见概念壳体，不能把80mm当实际吊顶安装深度。"
+            }
+          ],
+          "counter": {
+            "furnitureId": "fit-dining_sideboard_wall",
+            "finishedHeightMm": 850,
+            "straightCounterRectMm": [
+              2125,
+              9200,
+              2525,
+              12730
+            ],
+            "allFronts": "east",
+            "applianceBackMm": 2175,
+            "machineBandY": [
+              9340,
+              11180
+            ],
+            "unoccupiedSouthLengthMm": 1550,
+            "upperBottomMm": 1500,
+            "lowestLedMm": 1496,
+            "bodyToNicheBackMm": 32,
+            "bodyToSocketRailMm": 22,
+            "minimumFrontMarginMm": 0,
+            "physicalEnvelopeOnly": true,
+            "openingAndSteamClearancesPending": true,
+            "existingPartsRemoved": []
+          },
+          "conditions": [
+            "900×250×300mm为暂估机身；底高2250mm、上沿2550mm，挂机支架及实际安装高度、顶部进风检修空间须结合型号和现场确认。",
+            "外机位置、制冷剂管、穿墙套管、冷凝水坡度与排水点、独立电源、墙体承载及送风方向均未核；不据概念模型施工或下单。",
+            "500×380×1800mm立柜机为暂估外包，位于电视旁东侧角落，不占西侧走廊；模型与电视柜及东墙均只有50mm，非厂家要求的散热或检修余量。",
+            "外机、管线、冷凝排水、电源及回风/检修间距待核；实际机型不合适时应调整位置，不移动墙体来假定可安装。",
+            "300×300×80mm为可见凉霸面板概念壳体，底2620mm、顶2700mm；吊顶腔、整机安装深度、风路与灯具/龙骨位置待核。",
+            "不以80mm壳体推断整机可塞入现吊顶；厨房油烟环境适用性、清洁检修和电源须按实际产品及现场深化。",
+            "300×600×80mm为淋浴上方可见风暖浴霸概念壳体，底2620mm、顶2700mm；实际机深通常大于可见厚度，本模型未画吊顶腔内机体或风管。",
+            "淋浴区适用性、防护等级、安装禁区/高度、排风路径与吊顶龙骨、漏电保护及电源等必须由安装人员结合真实型号和现场确认；不构成安装批准。",
+            "暂估外包放在真实850mm餐边柜台面上，使用面朝东；当前仅是摆放状态，不是已购电器或接通运行状态。",
+            "400mm台深与650mm中空有限：后部插头/电线、开盖加水、前开门、散热、蒸汽和防潮间距均待实际型号核对；不能从无实体相交推断可安全运行。",
+            "五台电器不默认同时运行，也不默认共用插排；插座数量、回路负荷、接地与涉水保护需专业核验，本层不提供电气施工方案。",
+            "台式饮水机350mm暂估深度已用尽后沿32mm之后的台面，前沿齐柜边；这不是确定可安装的选型，需实测机脚、插头和倾倒稳定性，实物过深时不得默认可悬挑。",
+            "破壁/恒温/消毒/养生/饮水机顶部至下灯带依次186/346/226/366/216mm，仅现有闭合机身几何空隙；开盖、补水、取奶瓶及蒸汽运行都未验证。"
           ]
         }
       }

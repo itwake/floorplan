@@ -140,6 +140,14 @@ python3 -m http.server 8000
 
 独立生成层 `tools/family-study-door-20261012.cjs`；几何回归 `node tests/family-study-door-20261012.cjs`，实际3D、SVG与旧草稿迁移回归 `node tests/family-study-door-browser.cjs`。保留自定义摆位、尺寸、颜色和删除操作，源快照、其他三套及双扇推拉门均不改。
 
+### 2026-10-12 · 方案2电器摆位细化
+
+仅方案2增加12件可单独选中、修改尺寸/离地、移动和删除的概念电器：主卧、次卧、书房各一台壁挂空调，电视柜东角一台立柜空调，厨房凉霸，两卫淋浴区风暖浴霸，以及餐边柜的破壁机、恒温壶、蒸汽奶瓶消毒柜、养生壶和台式饮水机。原47件家具、柜体144块实体部件、门窗墙体、1450书房桌架、双扇推拉门和其他三套方案不改。
+
+挂机暂估900×250×300mm、底2250；柜机500×380×1800mm，东墙及电视柜静态间隔各50mm。吊顶电器只画80mm可见概念壳体，底2620、顶2700，整机嵌入深度/吊顶腔未建模，浴霸淋浴位置的型号适用性及安装条件必须复核。五台餐边电器底850mm、朝东使用，放在真实400mm深台面，南段留下1550mm备餐面；饮水机暂估350mm深已齐前缘，无机脚、插头及开盖/蒸汽运行验证，不默认为柜下可运行或共用插排同时工作。
+
+官方产品规格仅用于尺寸量级参考，来源保存在每件电器及 `metadata.familyAppliancesUpdate.references`，不表示这些品牌型号已经购买或完成选型。电气、冷凝排水、外机、湿区保护、排风、蒸汽散热和固定安装须由专业人员结合实物与现场深化。独立生成层 `tools/family-appliances-20261012.cjs`，回归 `node tests/family-appliances-20261012.cjs` 与 `node tests/family-appliances-browser.cjs --self-host`（隔离、只读、同进程临时本地预览，无需独立服务器）。旧草稿新增一次，后续自定义/删除及空草稿保持。
+
 更新 house-design 快照：`node tools/convert-house-plans.cjs --source <原项目目录> --refresh-sources`。
 
 验证几何与脚本：`node tests/validate-import.cjs`。浏览器测试：先开启 4190 端口静态服务器，再运行 `node tests/integration.cjs`（需 Playwright；支持 `FLOORPLAN_NODE_MODULES`、`FLOORPLAN_CHROME`、`FLOORPLAN_BASE_URL` 环境变量）。

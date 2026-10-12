@@ -4,10 +4,11 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const root=path.resolve(__dirname,'..'),plans=require(path.join(root,'data/house-plans.js'));
 const {verifyLayout}=require('./layout-20261011.cjs');
+const {beforeFamilyAppliances}=require('../tools/family-appliances-20261012.cjs');
 if(plans.schemes.family.metadata.entryFamilyUpdate)verifyLayout(plans);
 // The reference cabinet layer and source-union comparisons belong only to
 // the three original cm imports; screen is independently checked in mm.
-const legacySchemes=['wood','family','laundry'].map(id=>{assert.ok(plans.schemes[id],id+': original imported scheme missing');return [id,plans.schemes[id]];});
+const legacySchemes=['wood','family','laundry'].map(id=>{assert.ok(plans.schemes[id],id+': original imported scheme missing');return [id,beforeFamilyAppliances(plans.schemes[id])];});
 const revision='sideboard-reference-v2',target='fit-dining_sideboard_wall',T=18,tol=.01;
 const mm=n=>n*10,eq=(a,b,label)=>assert.ok(Math.abs(a-b)<tol,`${label}: ${a} != ${b}`);
 const rect=p=>({x:mm(p.x),y:mm(p.y),w:mm(p.w),d:mm(p.d)});

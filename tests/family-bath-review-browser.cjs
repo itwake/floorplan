@@ -75,7 +75,7 @@ const painted=()=>{const c=document.querySelector('#view3d canvas');if(!c?.width
   assert.equal(await page.evaluate(()=>STORE),expectedKey,'bath upgrade changed draft storage key');
   if(!process.argv.includes('--published-smoke')){
    const oldDraft=async(mode='default')=>page.evaluate(({old,revisionId,mode})=>{
-    const s=defaultState();s.furniture=structuredClone(old.defaultFurniture);s.appliedLayoutRevisions=s.appliedLayoutRevisions.filter(id=>id!==revisionId);
+    const s=defaultState();s.furniture=structuredClone(old.defaultFurniture);s.appliedLayoutRevisions=s.appliedLayoutRevisions.filter(id=>![revisionId,'family-study-laundry-confirmed-20261011','family-door-refinement-20261011','family-study-door-20261012','family-appliances-20261012'].includes(id));
     if(mode==='custom'){
      for(const id of ['vanity_main','family-f11']){
       const f=s.furniture.find(f=>f.id===id);f.cx+=37;f.cy+=49;f.w+=20;f.d+=30;f.rot=90;f.color='#668899';f.name='QA '+id;f.heightMm+=11;

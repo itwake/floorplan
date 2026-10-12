@@ -8,6 +8,7 @@ const crypto=require('node:crypto');
 const path=require('node:path');
 const {applyFamilyDoorRefinement,beforeFamilyDoorRefinement,REVISION}=require('../tools/family-door-refinement-20261011.cjs');
 const {beforeFamilyStudyDoor}=require('../tools/family-study-door-20261012.cjs');
+const {beforeFamilyAppliances}=require('../tools/family-appliances-20261012.cjs');
 const root=path.resolve(__dirname,'..');
 const clone=structuredClone;
 const stable=value=>Array.isArray(value)?value.map(stable):value&&typeof value==='object'
@@ -30,7 +31,7 @@ const getSlide=(plan,id)=>{
 };
 
 function verifyFamilyDoorRefinement(bundle){
-  bundle=beforeFamilyStudyDoor(bundle);
+  bundle=beforeFamilyStudyDoor(beforeFamilyAppliances(bundle));
   assert.equal(REVISION,'family-door-refinement-20261011');
   assert.equal(bundle.defaultScheme,'family');
   assert.deepEqual(Object.keys(bundle.schemes).sort(),['family','laundry','screen','wood']);

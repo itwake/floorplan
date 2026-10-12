@@ -366,7 +366,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=study-door-20261012"></script>
+<script src="data/house-plans.js?v=appliances-20261012"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -454,19 +454,27 @@ const LIB = [
   {cat:'家电', items:[
     ['tv','65 寸电视',1450,80,'#1d1d1f'],['tv','55 寸电视',1230,80,'#1d1d1f'],['fridge','对开门冰箱',910,700,'#c9ced3'],
     ['aircon','柜机空调',500,380,'#f6f7f8'],['acwall','挂机空调',900,250,'#f6f7f8'],['dishwasher','洗碗机',600,600,'#c9ced3'],
-    ['ovencol','蒸烤箱高柜',600,600,'#efe6d8'],['dryer','烘干机',600,600,'#e6ebee'],['purifier','空气净化器',400,300,'#f4f4f2']]},
+    ['ovencol','蒸烤箱高柜',600,600,'#efe6d8'],['dryer','烘干机',600,600,'#e6ebee'],['purifier','空气净化器',400,300,'#f4f4f2'],
+    ['ceilingfan','厨房凉霸',300,300,'#f5f1e9'],['bathheater','风暖浴霸',300,600,'#f5f1e9'],
+    ['blender','破壁机',220,240,'#f3efe6'],['temperaturekettle','恒温壶',220,220,'#f3efe6'],
+    ['sterilizer','蒸汽奶瓶消毒柜',300,300,'#f3efe6'],['healthkettle','养生壶',220,220,'#f3efe6'],
+    ['waterdispenser','台式饮水机',260,350,'#f3efe6']]},
   {cat:'书房 · 休闲', items:[
     ['desk','长书桌',1600,700,'#d8c2a2'],['officechair','办公椅',620,620,'#4a4f55'],['bookshelf','大书架',1600,350,'#e2cfb4'],
     ['piano','立式钢琴',1500,600,'#1f1d1b'],['treadmill','跑步机',800,1800,'#3a3a3c'],['armchair','阅读椅',750,800,'#c9a98a']]},
 ];
 const typeColor = t => { for (const c of LIB) for (const i of c.items) if (i[0]===t) return i[4]; return '#eee'; };
+// New appliance library entries are editable concept envelopes, not specified
+// products or installation clearances. Countertop equipment starts at the
+// current sideboard's 850-mm worktop; ceiling panel depth is only illustrative.
+const APPLIANCE_LIBRARY_HEIGHTS = {ceilingfan:80,bathheater:80,blender:460,temperaturekettle:300,sterilizer:420,healthkettle:280,waterdispenser:430};
 
 let _n = 1;
 const uid = () => 'f' + Date.now().toString(36) + (_n++);
 const F = (type,name,cx,cy,w,d,rot=0,color) => ({id:uid(),type,name,cx,cy,w,d,rot,color:color||typeColor(type)});
 
 function defaultFurniture(){ return structuredClone(HOUSE_PLAN.defaultFurniture); }
-function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate].filter(Boolean);}
+function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate].filter(Boolean);}
 function defaultState(){
   const rooms = {}; ROOMS.forEach(r => rooms[r.id] = {name:r.name, mat:r.mat});
   return {schemaVersion:2,projectId:'house-design',schemeId:SCHEME_ID,sourceVersion:PLAN_LIBRARY.version,
@@ -537,7 +545,7 @@ function upgradeConfirmedLayouts(s){
   // for defaults. New objects are inserted once; deleted objects stay deleted.
   const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
   const placementKeys=['cx','cy','w','d','rot','heightMm','elevationMm','name','color'];
-  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate].filter(Boolean)){
+  for(const revision of [HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate].filter(Boolean)){
     if(s.appliedLayoutRevisions?.includes(revision.id))continue;
     const kept=new Set(s.layoutMigrationKeptIds||[]);
     const beforeObjects=[...(revision.previousFurniture||[]),...(revision.previousEntryCabinet?[revision.previousEntryCabinet]:[])];
@@ -770,6 +778,38 @@ function furnSVG(t,w,d,c,variant){
       [.25,.5,.75].forEach(k => s += ln(x+w*k,y+d,x+w*k,y+d+200,`${DASH} opacity=".6"`));
       return s;
     }
+    case 'ceilingfan': {
+      let s=rc(x,y,w,d,c,`rx="18" ${DASH}`)+rc(x+w*.12,y+d*.12,w*.76,d*.76,'#d3d8d6','rx="12"');
+      for(let k=0;k<7;k++)s+=ln(x+w*.2,y+d*(.2+k*.1),x+w*.8,y+d*(.2+k*.1));
+      return s+ec(0,0,m*.1,m*.1,'#f9f8f3');
+    }
+    case 'bathheater': {
+      let s=rc(x,y,w,d,c,`rx="18" ${DASH}`)+rc(x+w*.08,y+d*.15,w*.44,d*.7,'#fff0c9','rx="10"')+rc(x+w*.61,y+d*.15,w*.31,d*.7,'#d3d8d6','rx="10"');
+      for(let k=0;k<5;k++)s+=ln(x+w*.65,y+d*(.24+k*.13),x+w*.88,y+d*(.24+k*.13));
+      return s;
+    }
+    case 'blender': {
+      const r=m*.31;
+      return rc(x,y,w,d,c,'rx="22"')+ec(-w*.08,0,r,r,'#dcebee','fill-opacity=".65"')+ec(-w*.08,0,r*.54,r*.54,'#f5f3ed')
+        +pa(`M${w*.18} ${-d*.2}Q${w*.48} ${-d*.25} ${w*.42} 0Q${w*.48} ${d*.25} ${w*.18} ${d*.2}`,'none')+rc(-w*.18,y+d*.83,w*.36,d*.1,'#454c50','rx="5"');
+    }
+    case 'temperaturekettle': case 'healthkettle': {
+      const r=m*.32,cc=t==='healthkettle'?'#f0d7a3':'#dcebee';
+      return rc(x,y,w,d,c,'rx="24"')+ec(-w*.08,0,r,r,cc,'fill-opacity=".65"')+ec(-w*.08,0,r*.5,r*.5,'#f5f3ed')
+        +pa(`M${w*.19} ${-d*.22}Q${w*.49} ${-d*.24} ${w*.44} 0Q${w*.49} ${d*.24} ${w*.19} ${d*.22}`,'none')
+        +pa(`M${-w*.3} ${-d*.14}L${x+w*.035} 0L${-w*.3} ${d*.12}`,'#dcebee')
+        +(t==='temperaturekettle'?rc(-w*.19,y+d*.82,w*.38,d*.12,'#454c50','rx="5"'):ec(w*.27,y+d*.84,m*.05,m*.05,'#cbb596'));
+    }
+    case 'sterilizer': {
+      let s=rc(x,y,w,d,c,'rx="20"')+rc(x+w*.09,y+d*.1,w*.82,d*.68,'#dcebee','rx="10" fill-opacity=".6"');
+      [-.23,0,.23].forEach(k=>s+=ec(w*k,-d*.08,w*.08,d*.16,'#f8fbfb'));
+      return s+ln(x+w*.12,y+d*.8,x+w*.88,y+d*.8)+rc(-w*.16,y+d*.87,w*.32,d*.06,'#454c50','rx="5"');
+    }
+    case 'waterdispenser': {
+      return rc(x,y,w,d,c,'rx="20"')+rc(x+w*.08,y+d*.06,w*.84,d*.4,'#dcebee','rx="14" fill-opacity=".65"')
+        +rc(x+w*.16,y+d*.53,w*.68,d*.36,'#5b6465','rx="8"')+rc(-w*.13,y+d*.49,w*.26,d*.16,'#cbb596','rx="6"')
+        +ln(x+w*.2,y+d*.81,x+w*.8,y+d*.81)+ln(x+w*.2,y+d*.86,x+w*.8,y+d*.86);
+    }
     case 'dishwasher': return rc(x,y,w,d,c,'rx="15"') + ln(x,y+d-70,x+w,y+d-70) + rc(x+w*.3,y+d-45,w*.4,25,'#888');
     case 'ovencol': return rc(x,y,w,d,c) + ln(x,y,x+w,y+d) + ln(x+w,y,x,y+d);
     case 'purifier': return rc(x,y,w,d,c,'rx="60"') + rc(x+45,y+45,w-90,d-90,'none',`rx="40" ${DASH}`);
@@ -991,6 +1031,7 @@ function overviewPanel(){
   ${HOUSE_PLAN.metadata.familyStudyLaundryUpdate?`<section class="project-note" data-family-study-laundry-warning>${tr('书房当前保留沙发；将来1500×2000床垫按2100×1600床架替换沙发校核，床侧710mm与桌椅共用、床尾120mm不是通道。客卫台前610mm偏紧；机门、管线与检修须实物核对。阳台已取消借厅外凸，模型净宽1420与复尺1240mm仍差180mm，定位待核。','The study keeps its sofa now. A future 1500 × 2000 mattress is checked with an assumed 2100 × 1600 frame replacing it: the shared desk/bed-side strip is 710 mm; the 120 mm foot gap is not a passage. The guest bath has only 610 mm in front of the counter; appliance doors, hoses and servicing need on-site checks. The balcony no longer protrudes into the living room; the model width 1420 versus surveyed 1240 mm remains unresolved.')}</section>`:''}
   ${HOUSE_PLAN.metadata.familyDoorRefinement?`<section class="project-note" data-family-door-refinement-warning>${tr('厨房与生活阳台已改双扇双轨玻璃推拉门，原洞口1700/1500mm不变。叠放后的名义开口约850/750mm，实际门框与搭接还需扣减；不是施工净宽。','The kitchen and laundry balcony now have two-leaf, two-track glass sliders. The original 1700/1500 mm apertures remain; nominal stacked openings are about 850/750 mm before frame and overlap deductions, not certified clear widths.')}</section>`:''}
   ${HOUSE_PLAN.metadata.familyStudyDoorUpdate?`<section class="project-note" data-family-study-door-warning>${tr('书房900mm门洞在上一版本基础上再南移300mm，南铰内开，打开后靠南墙。南桌与上方书架收短至1450mm，西窗返桌、座椅和沙发保留。门扇端部至桌架50mm、至南墙60mm为模型余量；门套、把手、基层和实物家具仍须现场复核。','The study’s 900 mm opening moves another 300 mm south, with a south hinge opening inward against the south wall. The south desk and bookwall shorten to 1450 mm; the window return, chair and sofa remain. The modeled 50 mm tip-to-furniture and 60 mm leaf-to-wall gaps require checks against actual trim, handles, supports and furniture.')}</section>`:''}
+  ${HOUSE_PLAN.metadata.familyAppliancesUpdate?`<section class="project-note" data-family-appliances-warning>${tr('方案2新增12件电器：三间卧室/书房壁挂空调、电视旁柜机、厨房凉霸、两卫淋浴区风暖浴霸，以及餐边柜五件台面电器。尺寸和型号均为概念占位；空调外机、冷凝排水、吊顶夹层、浴霸湿区适用性和用电回路待核。餐边柜中的蒸汽/加热电器需核对开盖及散热，模型摆得下不代表可在上柜下直接运行；不得据此把五台接到同一插排同时使用。','Scheme 2 adds twelve concept appliances: three wall AC units, a living-room floor AC, kitchen ceiling fan, two shower-area fan heaters and five sideboard appliances. Sizes/models are placeholders. Outdoor units, drainage, ceiling voids, wet-zone suitability and electrical circuits need verification. Lid access, steam and heat clearances must be checked; fitting in the niche does not approve operation below upper cabinets or simultaneous use on one power strip.')}</section>`:''}
   <section><h3>${tr('房间面积','Room Areas')} <small>${tr('点击查看 / 更换地面','Click to view / change flooring')}</small></h3>
     <table>${rows}</table>
     <div class="total"><span>${tr('模型使用面积','Model floor area')}</span><b>${fmt(tot)} m²</b></div>
@@ -1168,6 +1209,7 @@ function furnPanel(f){
       <button class="btn danger" id="aDel">${tr('删除','Delete')}</button><button class="btn" id="back">${tr('← 返回','← Back')}</button>
     </div></section>
   ${cabinetDesignPanel(f)}
+  ${f.applianceDesign?.revision?`<section class="project-note" data-appliance-placeholder><b>${tr('电器位置示意 · 型号待定','Appliance placeholder · model pending')}</b><br>${tr('当前外包与离地高度可编辑，不是已购型号或安装下单尺寸。请按实物说明书和现场条件复核。','Dimensions and elevation are editable placeholders, not purchased-product specifications or installation approval. Check the actual manual and site conditions.')}</section>`:''}
   <section class="muted" style="font-size:12px">${esc(f.notes||'')} ${f.conditions?f.conditions.map(esc).join('；'):''}</section>
   <section class="muted" style="font-size:12px">${tr('拖动家具移动；拖动上方圆点旋转；拖动右下角方块调整尺寸。开启「贴墙吸附」后靠近墙面会自动贴齐。', 'Drag to move; drag the top dot to rotate; drag the bottom-right square to resize. With "Wall snap" on, items snap flush to nearby walls.')}</section>`;
 }
@@ -1223,6 +1265,18 @@ function pushOut(f){
 }
 function addItem(it, x, y){
   const [type,name,w,d,color] = it, f = F(type,name,Math.round(x/10)*10,Math.round(y/10)*10,w,d,0,color);
+  if(APPLIANCE_LIBRARY_HEIGHTS[type]){
+    f.heightMm=APPLIANCE_LIBRARY_HEIGHTS[type];
+    const ceiling=['ceilingfan','bathheater'].includes(type),room=ROOMS.find(r=>{
+      if(r.counted===false)return false;
+      let hit=false;for(let i=0,j=r.poly.length-1;i<r.poly.length;j=i++){
+        const a=r.poly[i],b=r.poly[j];
+        if((a[1]>f.cy)!==(b[1]>f.cy)&&f.cx<(b[0]-a[0])*(f.cy-a[1])/(b[1]-a[1])+a[0])hit=!hit;
+      }return hit;
+    });
+    f.elevationMm=ceiling?Math.max(0,(room?.heightMm||HOUSE_PLAN.HEIGHT_MM)-f.heightMm):850;
+    f.notes=[ceiling?'吊顶面板为位置示意；机器嵌入体、吊顶净空及湿区适用性待选型核对':'台面电器尺寸及850mm离地为暂估；请核对实际型号、台面、散热与用电'];
+  }
   pushOut(f);
   ui.sel = {kind:'furn', id:f.id};
   mutate(() => type==='rug' ? state.furniture.unshift(f) : state.furniture.push(f));
@@ -2555,6 +2609,82 @@ function buildFurniture(f){
       g.add(box(.06, .018, .002, mat('#101214', {emissive:'#4fb3a5', emissiveIntensity:.7}), w*.3, 2.2 + h*.5, bz + d + .007));
       for (let i = 0; i < 6; i++) g.add(box(w - .12, .003, .008, '#d5d9dc', 0, 2.2 + h + .006, bz + .03 + i*.022));
       break;
+    }
+    case 'ceilingfan': case 'bathheater': {
+      // The visible underside is a protected ceiling cassette, not a bare
+      // heating bulb. This illustrative face does not model its recess void.
+      const H=M(f.heightMm||80),isBath=f.type==='bathheater',am=mat(c,{roughness:.45});
+      const part=(o,role)=>{o.userData.role=role;g.add(o);return o;};
+      part(rbox(w,H*.875,d,am,0,H*.125,0,.008),'ceiling-cassette');
+      const ventW=w*(isBath?.30:.76),ventX=isBath?w*.265:0,ventD=d*.74;
+      part(box(ventW,.003,ventD,'#667371',ventX,.006,0),'downward-air-inlet');
+      for(let k=0;k<8;k++)part(box(ventW,.004,d*.035,am,ventX,.002,-ventD/2+d*.027+k*(ventD-d*.054)/7),'protected-air-grille');
+      if(isBath)part(box(w*.44,.005,d*.74,glowMat('#fff7e5','#ffe9bb',.7),-w*.21,0,0),'sealed-led-diffuser');
+      else part(cyl(Math.min(w,d)*.075,Math.min(w,d)*.075,.004,'#f5f4ee',0,0,0,24),'fan-grille-hub');
+      g.userData.applianceType=f.type;break;
+    }
+    case 'blender': {
+      const H=M(f.heightMm||430),r=Math.min(w*.31,d*.31),am=mat(c,{roughness:.38}),gl=mat('#d7e8eb',{roughness:.07,transparent:true,opacity:.42,depthWrite:false,side:THREE.DoubleSide}),cx=-w*.055;
+      const part=(o,role)=>{o.userData.role=role;g.add(o);return o;};
+      part(rbox(w,H*.29,d,am,0,0,0,.025),'motor-base');
+      part(box(w*.48,H*.075,.006,screenMat('#314e54'),0,H*.105,d/2-.003),'blender-display');
+      part(lathe([[r*.72,0],[r*.72,H*.02],[r*.98,H*.50],[r,H*.55]],gl,cx,H*.29,0,36),'transparent-blending-cup');
+      part(cyl(r*.64,r*.64,H*.12,mat('#f1d7ba',{transparent:true,opacity:.65,roughness:.4}),cx,H*.32,0,28),'cup-content');
+      part(cyl(r,r,H*.055,am,cx,H*.84,0,32),'cup-lid');
+      part(cyl(r*.31,r*.31,H*.05,'#ddd9d0',cx,H*.895,0,24),'lid-measuring-cap');
+      part(tube([[w*.22,H*.37,0],[w*.42,H*.40,0],[w*.43,H*.71,0],[w*.21,H*.75,0]],Math.min(w,d)*.035,am,24),'cup-handle');
+      part(rod([cx-r*.25,H*.31,0],[cx+r*.25,H*.31,0],r*.045,metal()),'blending-blade');
+      g.userData.applianceType=f.type;break;
+    }
+    case 'temperaturekettle': case 'healthkettle': {
+      const H=M(f.heightMm||300),r=Math.min(w*.31,d*.33),cx=-w*.05,am=mat(c,{roughness:.38}),gl=mat('#d7e8eb',{roughness:.07,transparent:true,opacity:.42,depthWrite:false,side:THREE.DoubleSide}),health=f.type==='healthkettle';
+      const part=(o,role)=>{o.userData.role=role;g.add(o);return o;};
+      part(rbox(w,H*.16,d,am,0,0,0,.024),'kettle-base');
+      part(lathe([[r*.72,0],[r*.96,H*.07],[r,H*.45],[r*.8,H*.61]],gl,cx,H*.16,0,36),'glass-kettle');
+      part(cyl(r*.84,r*.84,H*.20,mat(health?'#dca85c':'#c9e6e8',{roughness:.1,transparent:true,opacity:.55,depthWrite:false}),cx,H*.23,0,32),health?'herbal-tea-content':'water-content');
+      part(cyl(r*.85,r*.85,H*.05,am,cx,H*.77,0,32),'kettle-lid');
+      part(cyl(r*.22,r*.22,H*.10,'#c5af8e',cx,H*.82,0,24),'lid-knob');
+      part(tube([[w*.19,H*.28,0],[w*.43,H*.31,0],[w*.43,H*.65,0],[w*.17,H*.68,0]],Math.min(w,d)*.035,am,24),'kettle-handle');
+      part(tube([[cx-r*.76,H*.47,0],[-w*.42,H*.52,0],[-w*.46,H*.66,0]],Math.min(w,d)*.05,gl,20),'pouring-spout');
+      if(health)part(cyl(Math.min(w,d)*.05,Math.min(w,d)*.05,H*.025,'#c5af8e',w*.29,H*.15,d*.22,20),'tea-control-button');
+      else part(box(w*.38,H*.065,.006,screenMat('#2e6e74'),0,H*.05,d/2-.003),'temperature-display');
+      g.userData.applianceType=f.type;break;
+    }
+    case 'sterilizer': {
+      const H=M(f.heightMm||480),am=mat(c,{roughness:.4}),gl=mat('#c9e0e5',{roughness:.05,transparent:true,opacity:.35,depthWrite:false,side:THREE.DoubleSide}),th=Math.min(w,d)*.05,fz=d/2-th/2;
+      const part=(o,role)=>{o.userData.role=role;g.add(o);return o;};
+      part(rbox(w,H*.13,d,am,0,0,0,.012),'sterilizer-base');
+      part(box(w,H*.87,th,am,0,H*.13,bz+th/2),'sterilizer-back');
+      [-1,1].forEach(s=>part(box(th,H*.84,d,am,s*(w/2-th/2),H*.13,0),'sterilizer-side'));
+      part(rbox(w,H*.04,d,am,0,H*.96,0,.008),'sterilizer-top');
+      [H*.18,H*.54].forEach((yy,level)=>{
+        part(box(w*.86,H*.018,d*.78,'#b8c0bc',0,yy,0),'bottle-rack');
+        [-1,0,1].forEach(k=>{
+          const rr=Math.min(w,d)*.065,bx=k*w*.235,by=yy+H*.018;
+          part(cyl(rr,rr,H*.22,mat('#edf7f8',{roughness:.1,transparent:true,opacity:.8}),bx,by,-d*.03,24),'feeding-bottle');
+          part(cyl(rr*.7,rr*.7,H*.045,'#e6d8bd',bx,by+H*.22,-d*.03,20),'bottle-collar');
+          part(blob(rr*.36,H*.03,rr*.36,'#efe5d3',bx,by+H*.285,-d*.03,16),'bottle-teat');
+        });
+      });
+      part(box(w*.90,H*.78,.007,gl,0,H*.15,fz),'transparent-sterilizer-door');
+      part(rbox(w*.035,H*.23,.012,'#c5af8e',w*.35,H*.43,d/2-.006,.004),'sterilizer-door-pull');
+      part(box(w*.35,H*.05,.004,screenMat('#2c5960'),0,H*.045,d/2-.002),'sterilizer-display');
+      g.userData.applianceType=f.type;break;
+    }
+    case 'waterdispenser': {
+      const H=M(f.heightMm||440),am=mat(c,{roughness:.4}),gl=mat('#d2e7e9',{roughness:.1,transparent:true,opacity:.55,depthWrite:false}),front=d/2;
+      const part=(o,role)=>{o.userData.role=role;g.add(o);return o;};
+      part(rbox(w,H*.10,d,am,0,0,0,.016),'dispenser-base');
+      part(rbox(w,H*.86,d*.64,am,0,H*.10,-d*.18,.018),'dispenser-body');
+      part(rbox(w*.80,H*.42,d*.40,gl,0,H*.57,-d*.26,.018),'water-reservoir');
+      part(box(w*.70,H*.48,.006,'#667575',0,H*.12,d*.15),'dispensing-recess');
+      [-1,1].forEach(s=>part(box(w*.08,H*.84,d*.36,am,s*w*.46,H*.10,d*.32),'dispensing-side'));
+      part(rbox(w,H*.25,d*.36,am,0,H*.71,d*.32,.012),'control-head');
+      part(box(w*.45,H*.06,.004,screenMat('#2d666b'),0,H*.82,front-.002),'dispenser-display');
+      part(box(w*.18,H*.06,d*.17,'#bda98d',0,H*.64,d*.33),'water-spout');
+      part(rbox(w*.72,H*.03,d*.29,'#b9c2c1',0,H*.10,d*.32,.007),'drip-tray');
+      for(let k=0;k<5;k++)part(box(w*.65,.002,d*.012,'#657170',0,H*.13,d*(.21+k*.05)),'drip-tray-grille');
+      g.userData.applianceType=f.type;break;
     }
     case 'dishwasher': {
       const dm = mat(c, {metalness:.55, roughness:.28}), fz = d/2 - .02;

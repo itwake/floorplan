@@ -7,6 +7,7 @@ const assert=require('node:assert/strict');
 const crypto=require('node:crypto');
 const path=require('node:path');
 const {applyFamilyStudyDoor,beforeFamilyStudyDoor,REVISION}=require('../tools/family-study-door-20261012.cjs');
+const {beforeFamilyAppliances}=require('../tools/family-appliances-20261012.cjs');
 const {sweptLeafHits}=require('./family-bath-review-20261011.cjs');
 const root=path.resolve(__dirname,'..');
 const clone=structuredClone;
@@ -54,6 +55,7 @@ const changedFields=(before,after)=>[...new Set([...Object.keys(before),...Objec
   .filter(key=>key!=='id'&&JSON.stringify(before[key])!==JSON.stringify(after[key])).sort();
 
 function verifyFamilyStudyDoor(bundle){
+  bundle=beforeFamilyAppliances(bundle);
   assert.equal(typeof applyFamilyStudyDoor,'function');
   assert.equal(typeof beforeFamilyStudyDoor,'function');
   assert.equal(REVISION,'family-study-door-20261012');

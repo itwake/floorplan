@@ -24,5 +24,6 @@ jobs:
       - run: node tests/family-study-laundry-20261011.cjs
       - run: node tests/family-door-refinement-20261011.cjs
       - run: node tests/family-study-door-20261012.cjs
+      - run: node tests/family-appliances-20261012.cjs
       - run: node tests/visible-raycast.cjs
       - run: git diff --exit-code -- data/house-plans.js data/manifest.json

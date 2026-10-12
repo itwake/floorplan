@@ -10,6 +10,7 @@ const path = require('node:path');
 const {beforeFamilyStudyLaundry} = require('../tools/family-study-laundry-20261011.cjs');
 const {beforeFamilyDoorRefinement} = require('../tools/family-door-refinement-20261011.cjs');
 const {beforeFamilyStudyDoor} = require('../tools/family-study-door-20261012.cjs');
+const {beforeFamilyAppliances} = require('../tools/family-appliances-20261012.cjs');
 const root = path.resolve(__dirname, '..');
 const REVISION = 'family-master-bath-confirmed-20261011';
 const clone = value => structuredClone(value);
@@ -35,7 +36,7 @@ const eqRect = (actual, expected, label) => {for (const key of ['x','y','w','d']
 const overlaps = (a, b) => Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x) > tol && Math.min(a.y + a.d, b.y + b.d) - Math.max(a.y, b.y) > tol;
 
 function beforeFamilyBathReview(plan) {
-  const previous = beforeFamilyStudyLaundry(beforeFamilyDoorRefinement(beforeFamilyStudyDoor(plan))), revision = previous.metadata.familyBathUpdate;
+  const previous = beforeFamilyStudyLaundry(beforeFamilyDoorRefinement(beforeFamilyStudyDoor(beforeFamilyAppliances(plan)))), revision = previous.metadata.familyBathUpdate;
   if (!revision) return previous;
   assert.equal(previous.id, 'family', 'bath confirmation layer must only occur in family');
   assert.equal(revision.id, REVISION);
@@ -98,7 +99,7 @@ function checkOperation(door, expected) {
 }
 
 function verifyFamilyBathReview(plans) {
-  plans = beforeFamilyStudyLaundry(beforeFamilyDoorRefinement(beforeFamilyStudyDoor(plans)));
+  plans = beforeFamilyStudyLaundry(beforeFamilyDoorRefinement(beforeFamilyStudyDoor(beforeFamilyAppliances(plans))));
   assert.equal(plans.defaultScheme, 'family');
   assert.deepEqual(Object.keys(plans.schemes).sort(), ['family','laundry','screen','wood']);
   const plan = plans.schemes.family, revision = plan.metadata.familyBathUpdate;
