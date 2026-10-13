@@ -2530,24 +2530,26 @@ function buildKitchenGasHeater(g,f){
   // Extruding a front-shaped rounded rectangle retains proper upright corner
   // radii; a thin RoundedBox would clamp its radius to half the face thickness.
   const faceGeo=new THREE.ExtrudeGeometry(rrect(W,H,.016),{depth:.008,bevelEnabled:false,curveSegments:12});
-  const face=mesh(faceGeo,cream);face.position.set(0,H/2,front-.008);
+  // Offset the cream face just beyond the gray case's coplanar front. Two
+  // overlapping surfaces previously produced false horizontal/diagonal bands.
+  const face=mesh(faceGeo,cream);face.position.set(0,H/2,front-.0076);
   part(face,'gas-heater-front');
   const topGeo=new THREE.ExtrudeGeometry(rrect(W-.010,D-.010,.012),{depth:.002,bevelEnabled:false,curveSegments:10});
   topGeo.rotateX(-Math.PI/2);const top=mesh(topGeo,cream);top.position.y=H-.002;
   part(top,'gas-heater-white-top');
   const split=W*.15,left=-W/2+.015,right=split-.008;
-  part(box(.0009,H-.012,.0006,seam,split,.006,front+.0003),'gas-heater-front-seam');
+  part(box(.0009,H-.012,.0006,seam,split,.006,front+.0007),'gas-heater-front-seam');
   for(let k=0;k<31;k++){
     const x=left+(right-left)*k/30;
-    part(box(.00055,H-.025,.0004,groove,x,.0125,front+.0002),'gas-heater-front-groove');
+    part(box(.00055,H-.025,.0004,groove,x,.0125,front+.0006),'gas-heater-front-groove');
   }
   // The control column is deliberately quiet and unpowered. A small standby
   // dash and four separate buttons resemble the reference, not a lit display.
   const controlX=W*.337;
-  part(box(.009,.0012,.0006,'#969e9e',controlX,H*.337,front+.0003),'gas-heater-standby-indicator');
+  part(box(.009,.0012,.0006,'#969e9e',controlX,H*.337,front+.0007),'gas-heater-standby-indicator');
   for(let k=0;k<4;k++){
     const button=mesh(new THREE.CylinderGeometry(.0037,.0037,.0008,18),mat('#d4d8d6',{roughness:.55}));
-    button.rotation.x=Math.PI/2;button.position.set(controlX,H*(.273-k*.047),front+.0005);
+    button.rotation.x=Math.PI/2;button.position.set(controlX,H*(.273-k*.047),front+.0008);
     part(button,'gas-heater-control-button');
   }
   // The 60-mm diameter is given in the photo. This is only a short vertical
