@@ -226,6 +226,14 @@ python3 -m http.server 8000
 
 可逆层 `tools/family-electrical-20261012.cjs`；回归 `node tests/family-electrical-20261012.cjs`、`node tests/family-electrical-browser.cjs --self-host`。原68物件、建筑、三套其他方案及实测快照精确不变，源明文不虚构额定值。联合浏览器验证覆盖实际面板正面射线、支持面、图层/双控关系和既有5处地漏的真实表面。
 
+### 2026-10-13 · 方案2厨房热水器参考机身
+
+按业主上传的IMG_0315、IMG_0316，将原厨房水平筒形占位改成万家乐JSLQ27-16U10 ULTRA(F)参考外观：奶白圆角竖式机身、左侧细竖纹、右侧未点亮的控制区、灰色侧背及白色顶部、60mm烟口短接和冷热水/燃气三个短接口。仅改方案2的kitchen_heater，其他120物品（含P27插座）、建筑、其余三套方案和源快照保持。参考不等于已购或安装确认。
+
+机身宽340×深190×高525mm，后侧仍贴东墙，中心X因深度变化从8187.5到8195，Y11535与原机身底高1320暂不变。数字高度和3D选框只量机身；未用接口的30/31mm造型投影把机身压缩成525mm。短接只为识别，完整排烟、水气连接管、墙孔和通风方案均未建模。原图542.2/571.5/598.5三项高度单独记录，未推断已安装总外包；水口间距223.9与233.9冲突待核，不能据此配管。当前北侧模型间隙约95，不能当厂家净空已满足；安装高度、挂板、检修及P27电气接线均需厂家安装商现场核验，不能按此图施工。
+
+可逆层 `tools/family-kitchen-heater-20261013.cjs`；回归 `node tests/family-kitchen-heater-20261013.cjs`、`node tests/family-kitchen-heater-browser.cjs --self-host`。旧默认机身迁移到参考尺寸，用户已有自定义摆位、尺寸、颜色和删除仍保留。最新热水器浏览器回归覆盖当前121物件及实际机身/附件的分别测量；电位浏览器回归为上一层历史版本，电位静态回归通过撤销新热水器层保留独立冻结基线。
+
 更新 house-design 快照：`node tools/convert-house-plans.cjs --source <原项目目录> --refresh-sources`。
 
 验证几何与脚本：`node tests/validate-import.cjs`。浏览器测试：先开启 4190 端口静态服务器，再运行 `node tests/integration.cjs`（需 Playwright；支持 `FLOORPLAN_NODE_MODULES`、`FLOORPLAN_CHROME`、`FLOORPLAN_BASE_URL` 环境变量）。

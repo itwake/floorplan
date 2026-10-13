@@ -371,7 +371,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=electrical-20261012"></script>
+<script src="data/house-plans.js?v=kitchen-heater-20261013"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -481,7 +481,7 @@ const uid = () => 'f' + Date.now().toString(36) + (_n++);
 const F = (type,name,cx,cy,w,d,rot=0,color) => ({id:uid(),type,name,cx,cy,w,d,rot,color:color||typeColor(type)});
 
 function defaultFurniture(){ return structuredClone(HOUSE_PLAN.defaultFurniture); }
-function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update,HOUSE_PLAN.metadata.familyBalconyRecessUpdate,HOUSE_PLAN.metadata.familyFloorDrainsUpdate,HOUSE_PLAN.metadata.familyElectricalUpdate].filter(Boolean);}
+function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update,HOUSE_PLAN.metadata.familyBalconyRecessUpdate,HOUSE_PLAN.metadata.familyFloorDrainsUpdate,HOUSE_PLAN.metadata.familyElectricalUpdate,HOUSE_PLAN.metadata.familyKitchenHeaterUpdate].filter(Boolean);}
 function defaultState(){
   const rooms = {}; ROOMS.forEach(r => rooms[r.id] = {name:r.name, mat:r.mat});
   return {schemaVersion:2,projectId:'house-design',schemeId:SCHEME_ID,sourceVersion:PLAN_LIBRARY.version,
@@ -1129,6 +1129,7 @@ function renderElectrical(){
   }).join('');
 }
 function fixtureSVG(f){
+  if(f.modelVariant==='macro-gas-waterheater')return `<g data-gas-heater-plan="${esc(f.id)}"><title>${tr('燃气热水器机身投影；烟管未绘制','Gas heater casing projection; exhaust routing not modeled')} · ${f.w}×${f.d} mm</title><rect x="${-f.w/2}" y="${-f.d/2}" width="${f.w}" height="${f.d}" rx="${12*f.w/340}" fill="${esc(f.color)}" fill-opacity=".65" stroke="#a89d8c" stroke-width="1" stroke-dasharray="4 3" vector-effect="non-scaling-stroke"/><line x1="${-f.w/2+12}" x2="${f.w/2-12}" y1="${f.d/2-9}" y2="${f.d/2-9}" stroke="#a89d8c" stroke-width="1" vector-effect="non-scaling-stroke"/><circle cx="0" cy="${-f.d*.20}" r="30" fill="#dee2e1" fill-opacity=".7" stroke="#89928f" stroke-width="1" vector-effect="non-scaling-stroke" pointer-events="none"><title>${tr('顶部烟口60毫米参考投影，仅短接口示意','60 mm reference top collar projection, illustrative short connection only')}</title></circle></g>`;
   if(f.type!=='fixture') return furnSVG(f.type,f.w,f.d,f.color,f.type==='shower'&&HOUSE_PLAN.metadata.familyFloorDrainsUpdate?.disabledImplicitShowerDrainIds?.includes(f.id)?'explicit-floor-drain':f.modelVariant);
   const sx=f.w/f.baseWidthMm,sy=f.d/f.baseDepthMm, original=HOUSE_PLAN.defaultFurniture.find(p=>p.id===f.id)?.color||f.cabinetDesign?.palette?.door;
   const service=['balcony-service-counter','balcony-recess-housing'].includes(f.modelVariant);
@@ -1328,12 +1329,20 @@ function updateHeader(){
 /* ======================= 右侧面板 ======================= */
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
+function kitchenHeaterNotice(f){
+  const m=HOUSE_PLAN.metadata.familyKitchenHeaterUpdate;if(!m||f&&f.modelVariant!=='macro-gas-waterheater')return '';
+  return `<section class="project-note" data-family-kitchen-heater-warning><b>${tr('薄型壁挂燃气热水器 · 商品图参考','Slim wall-mounted gas heater · product-image reference')}</b><p>${tr('按两张参考图的万家乐JSLQ27-16U10 ULTRA(F)造型，奶白竖纹面板、右侧控制区、顶部60mm烟口及底部三个短接口。参考机身宽340×深190×高525mm，不是含接口、挂板和烟管的完整安装外包，也不视为已购确认。','Macro JSLQ27-16U10 ULTRA(F) appearance from the two supplied images: cream fluted front, right controls, 60 mm top collar and three short bottom ports. Reference casing W340 × D190 × H525 mm excludes projections, brackets and exhaust routing and does not confirm purchase.')}</p>${f?`<p data-heater-body-dimensions>${tr('当前机身','Current casing')} ${f.w}×${f.d}×${f.heightMm} mm · ${tr('机身底高暂沿用','Illustrative casing bottom remains')} ${f.elevationMm||0} mm</p><button class="btn" id="viewKitchenHeater3d">${tr('全高近看热水器3D','Inspect heater in full-height 3D')}</button>`:''}<p>${tr('本轮只改方案2的造型与机身尺寸，背面仍贴原东墙；安装高度暂沿用旧1320mm，未据商品图改成施工尺寸。北侧模型间隙约95mm，净空、挂板、烟管路径、通风、水/气接口及P27电源仍待厂家安装商现场核验；未绘制完整排烟、水气管路或新墙孔。','Only Scheme 2 appearance and casing dimensions change, maintaining the east-wall datum. The old illustrative 1320 mm bottom remains, not an installation instruction. The modeled north gap is about 95 mm. Clearances, bracket, exhaust, ventilation, water/gas connections and P27 require the manufacturer installer’s site review. No complete exhaust, supply pipes or new wall penetrations are modeled.')}</p><p>${tr('两图的进出水口间距分别标223.9与233.9mm，存在冲突；短接口仅供识别，不按此配管。原图542.2／571.5／598.5mm等标注单独保存，未擅自解释为完整安装高度。','The supplied water-port pitches conflict (223.9 vs 233.9 mm); short ports are identification-only, not plumbing coordinates. The 542.2 / 571.5 / 598.5 mm diagram annotations are retained separately without interpreting a full installed height.')}</p></section>`;
+}
+function bindKitchenHeaterView(f){
+  const button=$('#viewKitchenHeater3d');if(!button||!f)return;
+  button.onclick=async()=>{if(viewMode!=='3d')await setView('3d');if(viewMode==='3d')window.View3D?.focusKitchenHeater(f.id);closeDrawers();};
+}
 function renderPanel(){
   renderFab();
   const p = $('#panel');
-  if (ui.sel?.kind === 'furn'){ const f = getF(ui.sel.id); if (f){ p.innerHTML = furnPanel(f); bindFurnPanel(f); bindBalconyRecessView();bindFloorDrainView(f);bindElectricalControls(f); return; } }
-  if (ui.sel?.kind === 'room'){ const r=ROOMS.find(r => r.id === ui.sel.id);p.innerHTML = electricalNotice()+(['balcony','bath_1','bath_2'].includes(r.id)?floorDrainNotice():'')+(['balcony','kitchen'].includes(r.id)?balconyRecessNotice():'')+roomPanel(r); bindRoomPanel();bindBalconyRecessView();bindElectricalControls(); return; }
-  p.innerHTML = electricalNotice()+floorDrainNotice()+balconyRecessNotice()+overviewPanel(); bindOverview();bindBalconyRecessView();bindElectricalControls();
+  if (ui.sel?.kind === 'furn'){ const f = getF(ui.sel.id); if (f){ p.innerHTML = furnPanel(f); bindFurnPanel(f); bindBalconyRecessView();bindFloorDrainView(f);bindElectricalControls(f);bindKitchenHeaterView(f); return; } }
+  if (ui.sel?.kind === 'room'){ const r=ROOMS.find(r => r.id === ui.sel.id);p.innerHTML = electricalNotice()+(r.id==='kitchen'?kitchenHeaterNotice():'')+(['balcony','bath_1','bath_2'].includes(r.id)?floorDrainNotice():'')+(['balcony','kitchen'].includes(r.id)?balconyRecessNotice():'')+roomPanel(r); bindRoomPanel();bindBalconyRecessView();bindElectricalControls(); return; }
+  p.innerHTML = electricalNotice()+kitchenHeaterNotice()+floorDrainNotice()+balconyRecessNotice()+overviewPanel(); bindOverview();bindBalconyRecessView();bindElectricalControls();
 }
 
 function overviewPanel(){
@@ -1522,7 +1531,7 @@ function furnPanel(f){
       <label class="full">${tr('名称','Name')}<input id="fName" value="${esc(nm(f.name))}"></label>
       <label>${tr('宽','Width')} (mm)<input type="number" id="fW" value="${f.w}" min="50" step="10"></label>
       <label>${tr('深','Depth')} (mm)<input type="number" id="fD" value="${f.d}" min="${f.electricalDesign?1:50}" step="${f.electricalDesign?1:10}"></label>
-      <label>${tr('高','Height')} (mm)<input type="number" id="fH" value="${f.heightMm||800}" min="10" max="10000" step="10"></label>
+      <label>${f.modelVariant==='macro-gas-waterheater'?tr('机身高','Casing height'):tr('高','Height')} (mm)<input type="number" id="fH" value="${f.heightMm||800}" min="10" max="10000" step="10"></label>
       <label>${tr('离地','Elevation')} (mm)<input type="number" id="fZ" value="${f.elevationMm||0}" min="0" max="10000" step="10"></label>
       <label>${tr('中心','Center')} X (mm)<input type="number" id="fX" value="${Math.round(f.cx)}" step="10"></label>
       <label>${tr('中心','Center')} Y (mm)<input type="number" id="fY" value="${Math.round(f.cy)}" step="10"></label>
@@ -1535,6 +1544,7 @@ function furnPanel(f){
       <button class="btn" id="aTop">${tr('置于顶层','Bring to front')}</button><button class="btn" id="aBot">${tr('置于底层','Send to back')}</button>
       <button class="btn danger" id="aDel">${tr('删除','Delete')}</button><button class="btn" id="back">${tr('← 返回','← Back')}</button>
     </div></section>
+  ${kitchenHeaterNotice(f)}
   ${electricalNotice(f)}
   ${floorDrainNotice(f)}
   ${balconyRecessNotice(f)}
@@ -2504,6 +2514,61 @@ function tableLamp(g, x, y, z, s = 1){
 const plate = (g, r, x, y, z) => g.add(lathe([[0, 0], [r*.6, 0], [r*.72, .008], [r, .02]], ceramic({side:THREE.DoubleSide}), x, y, z, 32));
 
 /* ======================= 家具模型（局部坐标：背面朝 -z） ======================= */
+function buildKitchenGasHeater(g,f){
+  // The owner's reference specifies the casing, not a horizontal storage
+  // tank. Its 340 × 190 × 525-mm body is modelled directly; the collar and
+  // short connection stubs below are separate illustrative attachments.
+  const W=M(f.w),D=M(f.d),H=M(f.heightMm||525),front=D/2;
+  const cream=mat(f.color||'#f8f8f5',{roughness:.36}),side=mat('#b8bcbf',{metalness:.22,roughness:.48});
+  const seam=mat('#c7c9c8',{roughness:.72}),groove=mat('#e1e3df',{roughness:.82}),steel=metal();
+  const part=(o,role,attachment=false)=>{
+    o.userData={role,modelVariant:'macro-gas-waterheater',applianceType:'waterheater',
+      bodyOnly:!attachment,illustrativeAttachment:attachment,installedConnection:false};
+    g.add(o);return o;
+  };
+  part(rbox(W,H,D,side,0,0,0,.013),'gas-heater-body');
+  // Extruding a front-shaped rounded rectangle retains proper upright corner
+  // radii; a thin RoundedBox would clamp its radius to half the face thickness.
+  const faceGeo=new THREE.ExtrudeGeometry(rrect(W,H,.016),{depth:.008,bevelEnabled:false,curveSegments:12});
+  const face=mesh(faceGeo,cream);face.position.set(0,H/2,front-.008);
+  part(face,'gas-heater-front');
+  const topGeo=new THREE.ExtrudeGeometry(rrect(W-.010,D-.010,.012),{depth:.002,bevelEnabled:false,curveSegments:10});
+  topGeo.rotateX(-Math.PI/2);const top=mesh(topGeo,cream);top.position.y=H-.002;
+  part(top,'gas-heater-white-top');
+  const split=W*.15,left=-W/2+.015,right=split-.008;
+  part(box(.0009,H-.012,.0006,seam,split,.006,front+.0003),'gas-heater-front-seam');
+  for(let k=0;k<31;k++){
+    const x=left+(right-left)*k/30;
+    part(box(.00055,H-.025,.0004,groove,x,.0125,front+.0002),'gas-heater-front-groove');
+  }
+  // The control column is deliberately quiet and unpowered. A small standby
+  // dash and four separate buttons resemble the reference, not a lit display.
+  const controlX=W*.337;
+  part(box(.009,.0012,.0006,'#969e9e',controlX,H*.337,front+.0003),'gas-heater-standby-indicator');
+  for(let k=0;k<4;k++){
+    const button=mesh(new THREE.CylinderGeometry(.0037,.0037,.0008,18),mat('#d4d8d6',{roughness:.55}));
+    button.rotation.x=Math.PI/2;button.position.set(controlX,H*(.273-k*.047),front+.0005);
+    part(button,'gas-heater-control-button');
+  }
+  // The 60-mm diameter is given in the photo. This is only a short vertical
+  // outlet stub: no elbow, wall penetration, flue fall or discharge route is
+  // guessed, and no gas or water supply line is drawn as installed.
+  const flueZ=-D*.20;
+  part(cyl(.032,.032,.006,steel,0,H-.002,flueZ,40),'gas-heater-flue-collar',true);
+  const flue=shell(.060,.060,.030,.002,.0295,steel,0,H,flueZ);
+  part(flue,'gas-heater-flue-stub',true);
+  const brass=mat('#b49a63',{metalness:.74,roughness:.36});
+  [['hot',-W*.29,'#b75d4e'],['gas',W*.12,'#c3a55d'],['cold',W*.34,'#5c95ae']].forEach(([kind,x,tint])=>{
+    const z=D*.32; // Identification-only stubs near the front remain legible in a frontal inspection; not installed port coordinates.
+    part(cyl(.010,.010,.010,brass,x,-.010,z,20),`gas-heater-${kind}-port`,true);
+    const stub=part(cyl(.0075,.0075,.021,steel,x,-.031,z,20),`gas-heater-${kind}-stub`,true);
+    stub.userData.portPlacement='illustrative-not-port-center-survey';
+    part(cyl(.008,.008,.003,tint,x,-.021,z,20),`gas-heater-${kind}-identification`,true);
+  });
+  g.userData.applianceType='waterheater';g.userData.modelVariant='macro-gas-waterheater';
+  g.userData.heaterBodyEnvelopeMm={width:f.w,depth:f.d,height:f.heightMm||525};
+  g.userData.heaterAttachmentsIllustrative=true;g.userData.installedConnectionsModeled=false;
+}
 function buildFurniture(f){
   const g = new THREE.Group(), w = M(f.w), d = M(f.d), c = f.color || '#ddd', bz = -d/2, R = rng(Math.round(f.w*7 + f.d*13 + f.cx + f.cy));
   switch (f.type){
@@ -3030,6 +3095,7 @@ function buildFurniture(f){
       break;
     }
     case 'waterheater': {
+      if(f.modelVariant==='macro-gas-waterheater'){buildKitchenGasHeater(g,f);break;}
       const r = Math.min(d/2, .23), L = w - .06, yc = 1.95, zc = bz + r + .02, tm = mat(c, {roughness:.35}), cp = mat('#cfd4d8', {roughness:.4});
       const tank = mesh(new THREE.CylinderGeometry(r, r, L, 40), tm); tank.rotation.z = Math.PI/2; tank.position.set(0, yc, zc); g.add(tank);
       [-1, 1].forEach(s => g.add(blob(.035, r*.99, r*.99, cp, s*L/2, yc, zc, 32), box(.05, r*1.1, .02, '#9a9ea3', s*L*.3, yc - r*.55, bz + .01)));
@@ -3233,7 +3299,7 @@ function buildFurniture(f){
     const workstation=new THREE.Group();workstation.add(...g.children.slice());
     workstation.rotation.y=Math.PI;g.add(workstation);
   }
-  if(f.type!=='fixture' && !(f.cabinetRevision && f.parts?.length) && f.heightMm){
+  if(f.type!=='fixture' && f.modelVariant!=='macro-gas-waterheater' && !(f.cabinetRevision && f.parts?.length) && f.heightMm){
     // Match the imported physical envelope, not generic library template dimensions.
     const b=new THREE.Box3().setFromObject(g),sz=b.getSize(new THREE.Vector3());
     if(sz.x>0 && sz.y>0 && sz.z>0){
@@ -3568,6 +3634,7 @@ function flyToRoom(id){
 }
 function flyToFurniture(id){
   const f=getF(id);if(!f || !active || anim)return;
+  if(f.modelVariant==='macro-gas-waterheater'){focusKitchenHeater(id);return;}
   if(f.type==='ceilinglight'){focusCeilingLight(id);return;}
   if(opt.mode==='walk')setMode('orbit');
   if(id==='fit-entry_shoe_station'){
@@ -3606,6 +3673,16 @@ function flyToFurniture(id){
   // the usual 1.5 m orbit limit would push the camera into the opposite store
   // as soon as the flight ends. Normal room/whole-home flights restore it.
   flyTo(pose(t,new THREE.Vector3(wx(fx+dx*dist),targetY+.12,wz(fy+dy*dist))),1000,Math.max(.35,Math.min(1.5,M(dist)*.9)));
+}
+function focusKitchenHeater(id){
+  const f=getF(id);if(f?.modelVariant!=='macro-gas-waterheater'||!active||anim)return false;
+  if(opt.mode==='walk')setMode('orbit');
+  opt.cut=H;syncCutBtns();sync();
+  const a=f.rot*Math.PI/180,dx=-Math.sin(a),dy=Math.cos(a),h=M((f.elevationMm||0)+f.heightMm/2);
+  const t=new THREE.Vector3(wx(f.cx+dx*f.d/2),h,wz(f.cy+dy*f.d/2));
+  showLabels(false);opt.labels=false;document.querySelector('[data-t="labels"]')?.classList.remove('on');
+  flyTo(pose(t,new THREE.Vector3(wx(f.cx+dx*1500),h+.02,wz(f.cy+dy*1500))),1000,.35,45);
+  return true;
 }
 function focusElectrical(id){
   const p=currentElectricalPoints().find(q=>q.id===id);if(!p||!active||anim)return false;
@@ -3780,7 +3857,7 @@ function updateSel(){
     selKey = key;
     if (selHelper){ scene.remove(selHelper); selHelper.geometry.dispose(); selHelper = null; }
     const g = key && furnG.children.find(g => g.userData.fid === key);
-    if (g){ selHelper = new THREE.BoxHelper(g, 0xb5653a); scene.add(selHelper); }
+    if (g){const body=g.userData.modelVariant==='macro-gas-waterheater'?g.children.find(o=>o.userData.role==='gas-heater-body'):null;selHelper = new THREE.BoxHelper(body||g, 0xb5653a);scene.add(selHelper);}
   }
   if (selHelper){
     const selected=furnG.children.find(g=>g.userData.fid===key);
@@ -3934,7 +4011,7 @@ function shot(){ const a = document.createElement('a'); a.download = tr('户型�
 
 function relang(){ syncWalkTexts(); if (inited) buildLabels(); }
 
-window.View3D = {enter, exit, relang, sync:() => sync(), shot, groundAt, flyToRoom:id => active && !anim && flyToRoom(id), flyToFurniture, focusElectrical, focusFloorDrain, focusBalconyRecess, focusCornerStorage, focusCeilingLight, toggleCabinetDoors, cornerDoorsClosed:fid=>{const c=cabinetDoorControllers.get(fid);return !c||(!c.open&&c.progress<=.0001);}, walking:() => active && opt.mode === 'walk'};
+window.View3D = {enter, exit, relang, sync:() => sync(), shot, groundAt, flyToRoom:id => active && !anim && flyToRoom(id), flyToFurniture, focusKitchenHeater, focusElectrical, focusFloorDrain, focusBalconyRecess, focusCornerStorage, focusCeilingLight, toggleCabinetDoors, cornerDoorsClosed:fid=>{const c=cabinetDoorControllers.get(fid);return !c||(!c.open&&c.progress<=.0001);}, walking:() => active && opt.mode === 'walk'};
 // A shareable 3D entry point; ordinary editor links still start in 2D.
 if (new URLSearchParams(location.search).get('view') === '3d') requestAnimationFrame(() => setView('3d'));
 </script>

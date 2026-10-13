@@ -24025,25 +24025,141 @@ const plans = {
         {
           "id": "kitchen_heater",
           "type": "waterheater",
-          "name": "壁挂热水器",
-          "cx": 8187.5,
+          "name": "万家乐参考燃气热水器 · JSLQ27-16U10ULTRA(F)（购买待确认）",
+          "cx": 8195,
           "cy": 11535,
-          "w": 330,
-          "d": 205,
+          "w": 340,
+          "d": 190,
           "rot": 90,
-          "color": "#D9DDDB",
-          "heightMm": 530,
+          "color": "#F7F4EC",
+          "heightMm": 525,
           "elevationMm": 1320,
           "sourceId": "kitchen_heater",
           "sourceFootprintMm": {
-            "x": 8085,
-            "y": 11370,
-            "w": 205,
-            "d": 330
+            "x": 8100,
+            "y": 11365,
+            "w": 190,
+            "d": 340
           },
+          "roomId": "kitchen",
           "face": "west",
-          "dimensionStatus": "reference-only",
-          "sourceType": "waterHeater"
+          "dimensionStatus": "reference-image-body-size-installation-unverified",
+          "sourceType": "waterHeater",
+          "baseWidthMm": 340,
+          "baseDepthMm": 190,
+          "baseHeightMm": 525,
+          "modelVariant": "macro-gas-waterheater",
+          "layoutRevision": "family-kitchen-heater-20261013",
+          "installationApproved": false,
+          "notConstructionApproval": true,
+          "notes": "本版仅方案2厨房热水器按业主提供参考图改为万家乐 JSLQ27-16U10ULTRA(F) 外观及机身340×190×525mm；购买/现场已安装均未确认，参考不是施工批准。 340×190×525mm仅机身外壳尺寸；参考图598.5、542.2、571.5mm原始标注各保留，不将其当作已验证安装总高、接管净空或替代机身高度。烟管、阀件、软硬管、插头、挂架和检修另需核验。 机身背面仍贴厨房东墙x8290，朝西，中心y11535、底高1320保持；深度190对应中心x8195。机身北边11365至厨房/阳台共墙室内边11270仅95mm模型间隔，不能据此判定满足厂家边距、散热或安装要求。 参考图排烟接口直径60mm只作为可见短接口环参考；短环高度、底部三接口位置/尺寸为视觉示意，不画实际烟管、进排水/燃气管、外墙孔或连接到原设施。 资料底部接口间距存在223.9与233.9mm冲突，保留待核，不用任何一值落地配管。挂架、机身与接口尺寸应由厂家正式安装图/实物核对，实际接管必须由具备相应资质的安装人员完成。 厨房P27电源用途点及其他120物件不改；参考热水器不自动确认插座额定电流、防护等级、接地、漏电保护、线径或独立回路。厂家安装条件、排烟/通风、燃气、电气及涉水安全审查均未完成。",
+          "conditions": [
+            "本版仅方案2厨房热水器按业主提供参考图改为万家乐 JSLQ27-16U10ULTRA(F) 外观及机身340×190×525mm；购买/现场已安装均未确认，参考不是施工批准。",
+            "340×190×525mm仅机身外壳尺寸；参考图598.5、542.2、571.5mm原始标注各保留，不将其当作已验证安装总高、接管净空或替代机身高度。烟管、阀件、软硬管、插头、挂架和检修另需核验。",
+            "机身背面仍贴厨房东墙x8290，朝西，中心y11535、底高1320保持；深度190对应中心x8195。机身北边11365至厨房/阳台共墙室内边11270仅95mm模型间隔，不能据此判定满足厂家边距、散热或安装要求。",
+            "参考图排烟接口直径60mm只作为可见短接口环参考；短环高度、底部三接口位置/尺寸为视觉示意，不画实际烟管、进排水/燃气管、外墙孔或连接到原设施。",
+            "资料底部接口间距存在223.9与233.9mm冲突，保留待核，不用任何一值落地配管。挂架、机身与接口尺寸应由厂家正式安装图/实物核对，实际接管必须由具备相应资质的安装人员完成。",
+            "厨房P27电源用途点及其他120物件不改；参考热水器不自动确认插座额定电流、防护等级、接地、漏电保护、线径或独立回路。厂家安装条件、排烟/通风、燃气、电气及涉水安全审查均未完成。"
+          ],
+          "heaterDesign": {
+            "revision": "family-kitchen-heater-20261013",
+            "brand": "Macro / 万家乐",
+            "referenceModel": "JSLQ27-16U10ULTRA(F)",
+            "referenceImages": [
+              "IMG_0315",
+              "IMG_0316"
+            ],
+            "purchaseConfirmed": false,
+            "installedConfirmed": false,
+            "bodyDimensionsMm": {
+              "width": 340,
+              "depth": 190,
+              "height": 525
+            },
+            "dimensionsApplyTo": "body-only",
+            "bodyDimensionSource": "owner-provided-reference-image",
+            "referenceNotMeasurement": true,
+            "rawReferenceDiagramDimensionsMm": {
+              "overallHeight": 598.5,
+              "frontHeight": 542.2,
+              "bracketHeight": 571.5
+            },
+            "rawDiagramDimensionsUninterpreted": true,
+            "installedOverallHeightMm": null,
+            "installedEnvelopeConfirmed": false,
+            "appearance": {
+              "bodyColor": "#F7F4EC",
+              "frontDisplayColor": "#252B2B",
+              "displayVisualOnly": true,
+              "brandVisualOnly": true
+            },
+            "flueCollar": {
+              "diameterMm": 60,
+              "diameterStatus": "reference-diagram",
+              "stubHeightMm": null,
+              "visualStubOnly": true,
+              "connectionConfirmed": false,
+              "fullFlueModeled": false,
+              "wallHoleModeled": false
+            },
+            "bottomPorts": {
+              "count": 3,
+              "visualOnly": true,
+              "spacingConflictMm": [
+                223.9,
+                233.9
+              ],
+              "spacingStatus": "unresolved-reference-conflict",
+              "spacingUsedForPlumbing": false,
+              "connectionSizesConfirmed": false,
+              "connectionPositionsConfirmed": false
+            },
+            "visualAttachmentsOutsideBody": true,
+            "attachmentProjectionException": "visual-collar-and-port-stubs-only-not-installed-envelope",
+            "actualPipesModeled": false,
+            "connectionsConfirmed": false,
+            "installationApproved": false,
+            "manufacturerClearancesConfirmed": false,
+            "gasConnectionsConfirmed": false,
+            "waterConnectionsConfirmed": false,
+            "flueConnectionsConfirmed": false,
+            "wiringModeled": false,
+            "wiringInstalled": false,
+            "mounting": {
+              "wall": "east",
+              "face": "west",
+              "rearPlaneMm": 8290,
+              "bodyBottomMm": 1320,
+              "bodyTopMm": 1845,
+              "bodyPlanRectMm": [
+                8100,
+                11365,
+                8290,
+                11705
+              ],
+              "northSideNominalGapMm": 95,
+              "originalPositionHeightRetained": true,
+              "manufacturerClearancesConfirmed": false,
+              "mountingBracketConfirmed": false,
+              "installationApproved": false
+            },
+            "electricity": {
+              "existingPointId": "family-elec-p27",
+              "pointUnchanged": true,
+              "ratingAmps": null,
+              "ipRating": null,
+              "groundingConfirmed": false,
+              "protectiveMeasuresConfirmed": false,
+              "circuitConfirmed": false
+            },
+            "safety": {
+              "requiresManufacturerAndQualifiedInstallerReview": true,
+              "installationApproved": false,
+              "combustionAirConfirmed": false,
+              "flueRouteConfirmed": false,
+              "gasSuitabilityConfirmed": false
+            }
+          }
         },
         {
           "id": "kitchen_tap",
@@ -37755,7 +37871,13 @@ const plans = {
           "电流额定值、线径、负荷、回路容量、插座制式、安全门、接地、漏电保护、等电位、防溅/防护等级及涉水区分区均未确定，须由合格电工结合实测、设备厂家和适用规范审查。不得按示意点位直接施工。",
           "两卫开关放卫外干侧；盆机、台面及马桶用途插座只表达备选位置，并不保证符合涉水区安全距离。洗衣机、烘干机、厨房电器、空调及热水器的独立回路与检修空间须电工和安装商深化。",
           "烘干机和扫地基站电源暂放凹位厨房侧封板，面朝厨房供检修，不藏在机器背后；从封板穿线/开孔、暗盒、护线、独立断电、通风及涉水隔离尚未深化。柜板挂面不等于已批准嵌入可燃板安装。",
-          "餐边柜五台电器分别预留用途点，不承诺同时使用不超负荷；各设备带线、排汽、散热、抬盖和柜灯电源布置待选型后复核。强弱电这里只列独立面板，不暗示间距、管线隔离或网络施工已验证。"
+          "餐边柜五台电器分别预留用途点，不承诺同时使用不超负荷；各设备带线、排汽、散热、抬盖和柜灯电源布置待选型后复核。强弱电这里只列独立面板，不暗示间距、管线隔离或网络施工已验证。",
+          "本版仅方案2厨房热水器按业主提供参考图改为万家乐 JSLQ27-16U10ULTRA(F) 外观及机身340×190×525mm；购买/现场已安装均未确认，参考不是施工批准。",
+          "340×190×525mm仅机身外壳尺寸；参考图598.5、542.2、571.5mm原始标注各保留，不将其当作已验证安装总高、接管净空或替代机身高度。烟管、阀件、软硬管、插头、挂架和检修另需核验。",
+          "机身背面仍贴厨房东墙x8290，朝西，中心y11535、底高1320保持；深度190对应中心x8195。机身北边11365至厨房/阳台共墙室内边11270仅95mm模型间隔，不能据此判定满足厂家边距、散热或安装要求。",
+          "参考图排烟接口直径60mm只作为可见短接口环参考；短环高度、底部三接口位置/尺寸为视觉示意，不画实际烟管、进排水/燃气管、外墙孔或连接到原设施。",
+          "资料底部接口间距存在223.9与233.9mm冲突，保留待核，不用任何一值落地配管。挂架、机身与接口尺寸应由厂家正式安装图/实物核对，实际接管必须由具备相应资质的安装人员完成。",
+          "厨房P27电源用途点及其他120物件不改；参考热水器不自动确认插座额定电流、防护等级、接地、漏电保护、线径或独立回路。厂家安装条件、排烟/通风、燃气、电气及涉水安全审查均未完成。"
         ],
         "balconyOpenness": {
           "id": "balcony-two-sided-open-20261005",
@@ -37807,7 +37929,7 @@ const plans = {
             }
           }
         },
-        "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs + tools/family-study-door-20261012.cjs + tools/family-appliances-20261012.cjs + tools/family-ac-window-20261012.cjs + tools/family-living-clear-20261012.cjs + tools/family-balcony-service-20261012.cjs + tools/family-corner-storage-20261012.cjs + tools/family-ceiling-lighting-20261012.cjs + tools/family-lighting-study-refinement-20261012.cjs + tools/family-corner-door-180-20261012.cjs + tools/family-balcony-recess-20261012.cjs + tools/family-floor-drains-20261012.cjs + tools/family-electrical-20261012.cjs",
+        "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs + tools/family-study-door-20261012.cjs + tools/family-appliances-20261012.cjs + tools/family-ac-window-20261012.cjs + tools/family-living-clear-20261012.cjs + tools/family-balcony-service-20261012.cjs + tools/family-corner-storage-20261012.cjs + tools/family-ceiling-lighting-20261012.cjs + tools/family-lighting-study-refinement-20261012.cjs + tools/family-corner-door-180-20261012.cjs + tools/family-balcony-recess-20261012.cjs + tools/family-floor-drains-20261012.cjs + tools/family-electrical-20261012.cjs + tools/family-kitchen-heater-20261013.cjs",
         "wallStatus": "承重性未鉴定；原源数据未授权将未知内墙标记为可拆非承重墙。",
         "cabinetRevision": {
           "revision": "cream-oak-functional-v1",
@@ -38110,6 +38232,15 @@ const plans = {
             ],
             "sourceSnapshotsUnchanged": true,
             "description": "仅方案2补充54个逻辑电位：14开关、36电源、4弱电；鞋柜P16复用原面板，其余53新增。三房及客厅四组双控；不改原68家具、建筑、实测来源，不模拟真实接线或批准施工。"
+          },
+          {
+            "id": "family-kitchen-heater-20261013",
+            "date": "2026-10-13",
+            "sourceIds": [
+              "kitchen_heater"
+            ],
+            "sourceSnapshotsUnchanged": true,
+            "description": "仅方案2厨房热水器按业主参考更新机身340×190×525mm和万家乐外观，保持东墙西向及原底高；接口间距冲突、烟管/接管与安装条件待核，其他120物件及P27不改。"
           }
         ],
         "entryFamilyUpdate": {
@@ -66421,6 +66552,571 @@ const plans = {
           "removedFurnitureIds": [],
           "replacedFurnitureIds": [],
           "migrationFields": {}
+        },
+        "familyKitchenHeaterUpdate": {
+          "id": "family-kitchen-heater-20261013",
+          "date": "2026-10-13",
+          "title": "方案2 · 万家乐参考热水器机身及外观",
+          "status": "reference-images-body-only-installation-pending",
+          "sourceSnapshotsUnchanged": true,
+          "architectureUnchanged": true,
+          "other120FurnitureUnchanged": true,
+          "referenceModel": "JSLQ27-16U10ULTRA(F)",
+          "purchaseConfirmed": false,
+          "installedConfirmed": false,
+          "bodyDimensionsMm": [
+            340,
+            190,
+            525
+          ],
+          "dimensionsApplyTo": "body-only",
+          "rawReferenceDiagramDimensionsMm": {
+            "overallHeight": 598.5,
+            "frontHeight": 542.2,
+            "bracketHeight": 571.5
+          },
+          "rawDiagramDimensionsUninterpreted": true,
+          "portSpacingConflictMm": [
+            223.9,
+            233.9
+          ],
+          "portSpacingStatus": "unresolved-reference-conflict",
+          "flueNeckDiameterMm": 60,
+          "flueStubHeightMm": null,
+          "visualAttachmentsOnly": true,
+          "visualAttachmentProjectionException": "body-only-selection-excludes-concept-collar-and-port-stubs",
+          "actualPipesModeled": false,
+          "fullFlueModeled": false,
+          "wallHolesModeled": false,
+          "wiringModeled": false,
+          "wiringInstalled": false,
+          "installationApproved": false,
+          "connectionsConfirmed": false,
+          "manufacturerClearancesConfirmed": false,
+          "northSideNominalGapMm": 95,
+          "existingElectricalPointId": "family-elec-p27",
+          "existingElectricalPointUnchanged": true,
+          "previousFurniture": [
+            {
+              "id": "kitchen_heater",
+              "type": "waterheater",
+              "name": "壁挂热水器",
+              "cx": 8187.5,
+              "cy": 11535,
+              "w": 330,
+              "d": 205,
+              "rot": 90,
+              "color": "#D9DDDB",
+              "heightMm": 530,
+              "elevationMm": 1320,
+              "sourceId": "kitchen_heater",
+              "sourceFootprintMm": {
+                "x": 8085,
+                "y": 11370,
+                "w": 205,
+                "d": 330
+              },
+              "face": "west",
+              "dimensionStatus": "reference-only",
+              "sourceType": "waterHeater"
+            }
+          ],
+          "previousFurnitureOrder": [
+            "bed_b",
+            "family-f1",
+            "bed_a",
+            "family-f3",
+            "study_full_desk",
+            "family-f5",
+            "family-living-rug",
+            "family-f6",
+            "family-f7",
+            "vanity_main",
+            "family-f11",
+            "family-f12",
+            "vanity_guest",
+            "family-f14",
+            "family-f15",
+            "study_north_sofa",
+            "family-f23",
+            "family-f24",
+            "family-f25",
+            "family-f26",
+            "family-f27",
+            "fit-bay_b_tea",
+            "fit-bay_living_family",
+            "fit-entry_shoe_station",
+            "fit-dining_sideboard_wall",
+            "fit-sofa_back_storage",
+            "fit-study_bookwall",
+            "laundry_washer",
+            "laundry_dryer",
+            "fit-kitchen-20261005",
+            "kitchen_fridge",
+            "kitchen_dishwasher",
+            "kitchen_double_sink",
+            "kitchen_hob",
+            "kitchen_hood",
+            "kitchen_heater",
+            "kitchen_tap",
+            "living-east-art",
+            "draft-desk-b",
+            "draft-chair-b",
+            "draft-night-b",
+            "draft-desk-a",
+            "draft-chair-a",
+            "draft-night-a",
+            "study_window_return",
+            "family-acwall-room_a",
+            "family-acwall-room_b",
+            "family-acwall-room_c",
+            "family-living-aircon",
+            "family-kitchen-ceilingfan",
+            "family-bathheater-bath_1",
+            "family-bathheater-bath_2",
+            "family-sideboard-blender",
+            "family-sideboard-temperaturekettle",
+            "family-sideboard-sterilizer",
+            "family-sideboard-healthkettle",
+            "family-sideboard-waterdispenser",
+            "balcony_outer_projection",
+            "balcony_robot",
+            "family-living-ceilinglight",
+            "family-dining-ceilinglight",
+            "balcony_recess_housing",
+            "balcony_bucket_tap",
+            "family-drain-balcony",
+            "family-drain-bath1-dry",
+            "family-drain-bath1-shower",
+            "family-drain-bath2-dry",
+            "family-drain-bath2-shower",
+            "family-elec-s01",
+            "family-elec-s02",
+            "family-elec-s03",
+            "family-elec-s04",
+            "family-elec-s05",
+            "family-elec-s06",
+            "family-elec-s07",
+            "family-elec-s08",
+            "family-elec-s09",
+            "family-elec-s10",
+            "family-elec-s11",
+            "family-elec-s12",
+            "family-elec-s13",
+            "family-elec-s14",
+            "family-elec-p01",
+            "family-elec-p02",
+            "family-elec-p03",
+            "family-elec-p04",
+            "family-elec-p05",
+            "family-elec-p06",
+            "family-elec-p07",
+            "family-elec-p08",
+            "family-elec-p09",
+            "family-elec-p10",
+            "family-elec-p11",
+            "family-elec-p12",
+            "family-elec-p13",
+            "family-elec-p14",
+            "family-elec-p15",
+            "family-elec-p17",
+            "family-elec-p18",
+            "family-elec-p19",
+            "family-elec-p20",
+            "family-elec-p21",
+            "family-elec-p22",
+            "family-elec-p23",
+            "family-elec-p24",
+            "family-elec-p25",
+            "family-elec-p26",
+            "family-elec-p27",
+            "family-elec-p28",
+            "family-elec-p29",
+            "family-elec-p30",
+            "family-elec-p31",
+            "family-elec-p32",
+            "family-elec-p33",
+            "family-elec-p34",
+            "family-elec-p35",
+            "family-elec-p36",
+            "family-elec-n01",
+            "family-elec-n02",
+            "family-elec-n03",
+            "family-elec-n04"
+          ],
+          "previousMetadataFields": {
+            "conditions": [
+              "墙体、房间多边形和面积沿用既有方案；部分复尺已应用，全屋墙线和共同基准未闭合。",
+              "编辑器中的尺寸以模型坐标为准；已购家具保持机身外廓，安装、门套及五金余量待核。",
+              "入户门参照方案4向外开启，模型内不再扫过鞋柜正面；门外公共通行、相邻门、门套、闭门器及限位仍须现场确认，模型不构成外开施工批准。",
+              "方案2本轮主卧门南移300mm、主卫门北移300mm并改北铰内开；盆厕贴南墙面北。门位为确认设计参数，非新增实测；马桶侧至淋浴仅60mm，排水移位与门套、通行条件仍须现场深化。",
+              "方案2书房900门洞累计南移800，本轮再南移300并改南铰内开；7字南桌与浅书墙1450，与主卧门洞纵向间隔530mm。未来完整床须替换沙发并收椅。客卫台前610mm偏紧，机门/取衣须实物试摆。阳台取消借厅外凸但全屋净宽与复尺差180mm尚未闭合。",
+              "方案2厨房1700、生活阳台1500mm原门洞保持，仅改双扇双轨玻璃推拉门；厨房向北、阳台向南堆叠不变。开门后的可用通行宽度约为洞宽一半，实际门框/搭接/五金再扣，须核对搬运、操作和防水高差。",
+              "2026-10-12方案2书房1450桌/真实书架东端至40mm门叶连续扫掠外包约49.74mm，余量有限，不含把手、门套和安装偏差；洞下室内墙垛仅20mm。未来床侧710mm与坐椅共用偏紧，床尾120mm不是通道。",
+              "2026-10-12方案2新增12件暂估电器；原有47件家具、墙/门/窗、1450书房桌架与南铰门、厨房及阳台双扇门、其他3方案保持。",
+              "三房挂机底2250/顶2550mm；柜机放TV东侧、静态距墙和电视柜50mm只是模型几何空隙。冷凝排水、外机/管路、进回风、供电与检修未核。",
+              "厨房凉霸和两卫浴霸可见面板底2620/顶2700mm，80mm仅显示壳体；吊顶腔内机身深度、风管、安装禁区、防护等级、排风、电气保护与检修定位待核。",
+              "五台餐边电器底850mm落在真实400mm深西柜台面；不改原插座和灯带，不遮高柜展示格，南段保留1550mm连续空白备餐台面。所有实物尺寸、插头、开盖、蒸汽、散热及实际运行位置待核；不默认柜下蒸汽运行或五台同时接同一插排。",
+              "2026-10-12方案2三房挂机改到窗侧：主次卧北窗上方室内墙带，窗头2070至机身底2250为180mm；不装入外凸飘窗顶棚或玻璃，不改变窗体。",
+              "书房挂机向西移550mm至北墙西北窗侧角，距西墙50mm、距房顶150mm；西窗头2300上方直接挂装只有70mm顶棚余量的候选不采用，不为挤放而改机宽、书架或窗高。",
+              "三挂机仍900×250×300mm、底2250/顶2550；主卧/次卧/书房顶棚余240/150/150mm仅模型几何量，非厂家进风检修要求。窗帘、基层、墙梁、实际机型、室外机位及穿孔冷媒管/排水/电源需专业现场核对，不构成安装批准。",
+              "2026-10-12方案2移除电视前1200×620茶几及客厅落地灯；其他57件家具电器、墙门窗及其他方案保持。旧浏览器草稿中的这两件物品移除时保留JSON归档。",
+              "原矮墙、边柱、顶梁完整保留；只把原窗面的网框示意移至外挑边缘。北、东面无玻璃或新高柜。",
+              "非踩踏、非承载的新外挑概念：不得放机器、储物或站人。本模型未增地面楼板，未确认锚固、抗风、防坠、接缝排水或防水构造。",
+              "高层外立面外挑涉及物业/审批、结构与防护条件，必须由专业方现场核验；600仅为业主希望的设计值，不是施工许可。",
+              "转角库是400mm深两臂连通的浅型L柜，不是步入式储物间；不增加入户占地、不改墙门窗，也不保证容纳此前两辆车。",
+              "内转角无中立柱，合页在两外端；西门先开、南门后开，关闭反向。独立同时外开会互撞，需顺序联动/限位、门板重量与防夹设计，模型顺序动画不是五金安装批准。",
+              "模型开门范围不碰餐桌椅或室内入户门；距南餐椅约355mm只是门扫纵向间隔，不代表站位或能同时取物通行。",
+              "18mm板、调节轨、L形拼接和层板灯带均为构造示意；承重、背板锚固、防倾倒、门缝/踢脚线、通顶收口与下单尺寸由定制方现场深化。",
+              "2026-10-12仅方案2更新客餐厅两盏吸顶灯。客厅907×577×110mm为业主提供值；餐厅同尺寸为暂定占位，未推定已购买。两盏分别居地毯/餐桌中心，不能当作实际灯位施工图。",
+              "按当前模型2700层高贴顶，灯底2590；吊顶完成面、接线盒、安装固定、开关回路和实际灯具规格待现场核对。模型亮度/暖白外观仅为展示，不表示照度或厂家参数。",
+              "本次修订覆盖前版“餐厅同尺寸长方灯占位”及“书房挂机仍挂北墙”的现状说明：餐厅改原白圆灯，客厅长方灯背板白色，书房机移西窗墙上方朝东。此前文字属于历史方案，不是本版定位。",
+              "书房窗未新增复尺确认值：窗台900、窗洞高1200、窗顶2100及原宽1100/平面定位为暂估示意，不能为挤放空调当成实测或施工尺寸。实际窗口、顶部梁、墙体承载、机型及安装净空必须现场核验。",
+              "本版最大开角180°，西门先开、南门后开；关闭反序。原用餐位的南餐椅会在西门约123–166°扫掠中干涉，必须先移椅再开门。",
+              "保留南餐椅默认(2955,12080)，业主确认开柜时临时向东移至(3420,12080)，关门后再恢复；可撤销，不能把本版动画看成不挪椅也能开足。",
+              "虚拟轴外移5mm仅用于模型闭合对齐及全开10mm柜面间隙；实际180°铰链、挂接件、门重/挠度、联动限位、防夹与承重需定制商选型和现场确认。",
+              "条件外包1114=420+640+3×18；开口1200两侧各43。机位净深752=770−18，净高950。以上均旧模型试排，不是复尺确定值。",
+              "原台面完成890；本版机位上方独立台完成980，上升90。必须确认台面/隔板承重和冷热/防水接缝，不把台面荷载压在机器上。",
+              "窗下实体墙是否可拆、上方原窗支承、连续楼板/梁及机位防水先鉴定；该下穿开口是未批准概念，不调整原WALLS/WINS或房间地面面积。",
+              "阳台模型净宽1420与复尺1240差180；厨房模型净宽2870与复尺2420差450。凹位跨待核厨房段，不能以1114已放下推断现场可施工。",
+              "龙头在基站西侧墙垛，不与基站共用洗手台；水桶仅临时接水，使用后移走，不能挡住基站出入/回充。",
+              "出水口750仅本次展示暂估，非实测或施工高度。实际龙头/软管、防回流、排水坡度、湿区保护与检修净空待选型。",
+              "本版仅方案2新增五个可选中地漏盖示意：阳台洗地1、主卫干区1/淋浴1、客卫干区1/淋浴1。150×150mm是暂估格栅占位，非已购产品或实测地漏规格。",
+              "地漏点位、下方排水管/存水弯、管径、水封/防臭、检修、实际地坪高差及找坡均未核验；可见4mm仅格栅模型厚度，不代表完成地面应凸起或可据本图施工。",
+              "阳台地漏仅放在原室内楼板地面，不放在600mm非踩踏外挑。水龙头用于接桶/软管洗地，禁止直接冲电器；需由现场确认排水落点、防水及通往地漏的坡向。",
+              "两处淋浴地漏沿用原50mm模型盘面作为显示标高，未修改原盘、玻璃、门扇或地面坡度；原北侧装饰线性排水图例关闭，不重复表达两个实际排水口。",
+              "客卫洗衣机及盆柜位置和独立排水方案保持；洗衣机排水不能自动当作接到干区/淋浴/阳台新增地漏，实际接管与防溢流须单独深化。",
+              "本版只补充方案2电位概念：14处开关、36处电源用途点、4处弱电，共54个逻辑点；鞋柜原充电面板P16复用原实体，其余新增53个可选中面板。原68物件、建筑及其余方案保持。",
+              "86×86×8mm是新面板暂估外形，仅显示墙/柜面安装面；高度为完成地面到面板中心的暂估值，非暗盒尺寸、开槽深度或施工放线批准。P16沿用既有70×70×5mm柜内面板，不重新覆盖。",
+              "主卧、次卧、书房、客厅各一组双控，表示两处共同控制同一盏灯的功能意图，不代表实际接线拓扑、真实供电开关模拟、智能设备互通或已批准的控制系统。",
+              "电流额定值、线径、负荷、回路容量、插座制式、安全门、接地、漏电保护、等电位、防溅/防护等级及涉水区分区均未确定，须由合格电工结合实测、设备厂家和适用规范审查。不得按示意点位直接施工。",
+              "两卫开关放卫外干侧；盆机、台面及马桶用途插座只表达备选位置，并不保证符合涉水区安全距离。洗衣机、烘干机、厨房电器、空调及热水器的独立回路与检修空间须电工和安装商深化。",
+              "烘干机和扫地基站电源暂放凹位厨房侧封板，面朝厨房供检修，不藏在机器背后；从封板穿线/开孔、暗盒、护线、独立断电、通风及涉水隔离尚未深化。柜板挂面不等于已批准嵌入可燃板安装。",
+              "餐边柜五台电器分别预留用途点，不承诺同时使用不超负荷；各设备带线、排汽、散热、抬盖和柜灯电源布置待选型后复核。强弱电这里只列独立面板，不暗示间距、管线隔离或网络施工已验证。"
+            ],
+            "designCorrections": [
+              {
+                "id": "bath-south-hinge-20261008",
+                "sourceId": "door_bath_1",
+                "description": "主卫北铰改南铰，仍向卫内开；门洞和全部家具位置不变。",
+                "openingUnchanged": true,
+                "hingeMm": [
+                  4450,
+                  4430
+                ],
+                "closedDirection": [
+                  0,
+                  -1
+                ],
+                "openDirection": [
+                  1,
+                  0
+                ],
+                "usageNote": "门扇转到入口南侧而非贴南墙。两门板间距不是通行净宽；旧源快照550mm门间带说明不再适用。",
+                "status": "superseded-for-family",
+                "supersededBy": "family-master-bath-confirmed-20261011"
+              },
+              {
+                "id": "entry-family-layout-20261011",
+                "sourceId": "entry_door",
+                "description": "2026-10-11用户修订：入户门参照方案4向室外开启，保持本方案原洞口、宽高及门叶长度；合页从本方案洞口东端内退60mm作示意。公共走廊、邻户门、门套、闭门器及允许开启角度尚待现场核对，不构成外开施工批准。",
+                "openingUnchanged": true,
+                "hingeMm": [
+                  4840,
+                  13950
+                ],
+                "closedDirection": [
+                  -1,
+                  0
+                ],
+                "openDirection": [
+                  0,
+                  1
+                ],
+                "leafLengthMm": 890
+              },
+              {
+                "id": "family-master-bath-confirmed-20261011",
+                "date": "2026-10-11",
+                "sourceIds": [
+                  "door_a",
+                  "door_bath_1",
+                  "vanity_main",
+                  "family-f11"
+                ],
+                "description": "方案2主卧门南移300mm；主卫门北移300mm、北铰内开；南墙盆厕及镜面朝北，淋浴和房间边界不动。",
+                "openingWidthsUnchanged": true,
+                "sourceSnapshotsUnchanged": true,
+                "usageNote": "门侧墙段随新洞口补齐，未改变墙体轴线或主卫北墙；门位移是已确认设计参数而非新增实测，排水与五金仍待核。"
+              },
+              {
+                "id": "family-study-laundry-confirmed-20261011",
+                "date": "2026-10-11",
+                "sourceIds": [
+                  "door_c",
+                  "study_full_desk",
+                  "family-f5",
+                  "fit-study_bookwall",
+                  "vanity_guest",
+                  "laundry_washer",
+                  "laundry_dryer",
+                  "study_window_return",
+                  "fit-laundry_wall",
+                  "fit-laundry_basin",
+                  "balcony_door"
+                ],
+                "description": "方案2确认书房门南移500及7字窗边桌；洗衣机入客卫左机右盆台，阳台只留单干机且退回原门轴。",
+                "sourceSnapshotsUnchanged": true,
+                "usageNote": "当前保留书房沙发，1500×2000未来床只作替换校核，不与沙发同时新增；客卫门和主卫、双卧本轮不动。"
+              },
+              {
+                "id": "family-door-refinement-20261011",
+                "date": "2026-10-11",
+                "sourceIds": [
+                  "balcony_door",
+                  "door_kitchen"
+                ],
+                "description": "方案2厨房及生活阳台玻璃推拉门由三扇三轨改双扇双轨，保持原洞口和堆叠方向。",
+                "sourceSnapshotsUnchanged": true,
+                "openingWidthsUnchanged": true,
+                "wallIndexesUnchanged": true,
+                "furnitureUnchanged": true,
+                "usageNote": "没有默认采纳尚待确认的书房反向开门及桌棚收短；此层只变两个推拉门。"
+              },
+              {
+                "id": "family-study-door-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "door_c",
+                  "door_a",
+                  "study_full_desk",
+                  "fit-study_bookwall"
+                ],
+                "description": "方案2书房900门洞再南移300并改南铰内开，南桌与浅书墙缩至1450；坐椅原位避让西窗返桌，主卧门仅纠正说明为530mm纵向间隔。",
+                "sourceSnapshotsUnchanged": true,
+                "openingWidthsUnchanged": true,
+                "wallAxesUnchanged": true,
+                "usageNote": "独立新层取代书房北铰1680旧状态；历史版本元数据不改。返桌、沙发、未来床外包、厨房/阳台双扇门全部保持。"
+              },
+              {
+                "id": "family-appliances-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "family-acwall-room_a",
+                  "family-acwall-room_b",
+                  "family-acwall-room_c",
+                  "family-living-aircon",
+                  "family-kitchen-ceilingfan",
+                  "family-bathheater-bath_1",
+                  "family-bathheater-bath_2",
+                  "family-sideboard-blender",
+                  "family-sideboard-temperaturekettle",
+                  "family-sideboard-sterilizer",
+                  "family-sideboard-healthkettle",
+                  "family-sideboard-waterdispenser"
+                ],
+                "description": "仅方案2增加主次卧及书房挂机、客厅电视东角柜机、厨房凉霸、两卫淋浴上方浴霸与餐边柜五台小家电；均暂估外包，原墙门窗、家具和定制柜板件不动。",
+                "sourceSnapshotsUnchanged": true,
+                "usageNote": "12件可编辑概念电器，不是已购型号、产品推荐或机电安装批准。"
+              },
+              {
+                "id": "family-ac-window-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "family-acwall-room_a",
+                  "family-acwall-room_b",
+                  "family-acwall-room_c"
+                ],
+                "description": "仅方案2三台已有挂机移到窗侧：主次卧室内北墙窗头上方，书房北墙西北窗侧角；尺寸与底2250标高保持，不改窗墙柜及其他九件电器。",
+                "sourceSnapshotsUnchanged": true,
+                "usageNote": "窗边位置为概念摆放，不代表外机、管路或穿墙安装已核定。"
+              },
+              {
+                "id": "family-living-clear-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "family-f8",
+                  "living-floorlamp"
+                ],
+                "description": "仅方案2移除电视前茶几及客厅落地灯，沙发、地毯、电视柜、餐桌与其他摆设原位保留。",
+                "sourceSnapshotsUnchanged": true
+              },
+              {
+                "id": "family-balcony-service-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "laundry_dryer",
+                  "balcony_service_counter",
+                  "balcony_outer_projection",
+                  "balcony_robot",
+                  "balcony_north_opening",
+                  "balcony_east_opening"
+                ],
+                "description": "仅方案2：北东铁皮/网框向外挑600概念，不扩地面；紧凑基站放门与烘干机之间，西盆东机连续独立台。",
+                "sourceSnapshotsUnchanged": true
+              },
+              {
+                "id": "family-corner-storage-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "fit-dining_sideboard_wall"
+                ],
+                "description": "方案2餐边柜西南转角参考照片做通顶连通浅型800库，两面柜门顺序开合、底部高件区和L形层板；不扩占地，不复原旧独立800库。",
+                "sourceSnapshotsUnchanged": true
+              },
+              {
+                "id": "family-ceiling-lighting-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "family-living-ceilinglight",
+                  "family-dining-ceilinglight"
+                ],
+                "description": "方案2客厅换业主参考的907×577×110圆角吸顶灯，置地毯中心；餐桌正上方新增同风格同尺寸暂定灯，取代客餐厅旧圆形占位灯。",
+                "sourceSnapshotsUnchanged": true
+              },
+              {
+                "id": "family-lighting-study-refinement-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "family-living-ceilinglight",
+                  "family-dining-ceilinglight",
+                  "family-acwall-room_c",
+                  "window_c"
+                ],
+                "description": "方案2餐厅沿用原客厅白色圆灯；客厅907×577灯顶背板白色、侧边黑色；书房挂机改西墙窗上方朝东，窗高暂估1200/窗台900且待实测。",
+                "sourceSnapshotsUnchanged": true
+              },
+              {
+                "id": "family-corner-door-180-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "fit-dining_sideboard_wall"
+                ],
+                "description": "方案2转角库两面柜门改显式180°顺序开合；保留用餐布局，开柜前临时移南餐椅并可恢复。柜内层板/灯带、整体占地、其他家具及房屋结构不改。",
+                "sourceSnapshotsUnchanged": true
+              },
+              {
+                "id": "family-balcony-recess-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "laundry_dryer",
+                  "balcony_robot",
+                  "fit-kitchen-20261005",
+                  "balcony_service_counter",
+                  "balcony_recess_housing",
+                  "balcony_bucket_tap",
+                  "window_kitchen_balcony"
+                ],
+                "sourceSnapshotsUnchanged": true,
+                "description": "方案2阳台烘干机与基站推进厨房侧条件凹位；取消原阳台洗手盆/台面，保留独立接桶洗地龙头。客卫洗衣机不变。窗下下穿/机柜/局部台高仍为结构待核概念。"
+              },
+              {
+                "id": "family-floor-drains-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "family-drain-balcony",
+                  "family-drain-bath1-dry",
+                  "family-drain-bath1-shower",
+                  "family-drain-bath2-dry",
+                  "family-drain-bath2-shower"
+                ],
+                "sourceSnapshotsUnchanged": true,
+                "description": "仅方案2补充阳台及主客卫干区/淋浴共5个暂估方形地漏盖；不改原地面、机器、洗衣机排水、柜体、门窗、淋浴盘或玻璃。地下接管、水封和找坡仍待核。"
+              },
+              {
+                "id": "family-electrical-20261012",
+                "date": "2026-10-12",
+                "sourceIds": [
+                  "family-elec-s01",
+                  "family-elec-s02",
+                  "family-elec-s03",
+                  "family-elec-s04",
+                  "family-elec-s05",
+                  "family-elec-s06",
+                  "family-elec-s07",
+                  "family-elec-s08",
+                  "family-elec-s09",
+                  "family-elec-s10",
+                  "family-elec-s11",
+                  "family-elec-s12",
+                  "family-elec-s13",
+                  "family-elec-s14",
+                  "family-elec-p01",
+                  "family-elec-p02",
+                  "family-elec-p03",
+                  "family-elec-p04",
+                  "family-elec-p05",
+                  "family-elec-p06",
+                  "family-elec-p07",
+                  "family-elec-p08",
+                  "family-elec-p09",
+                  "family-elec-p10",
+                  "family-elec-p11",
+                  "family-elec-p12",
+                  "family-elec-p13",
+                  "family-elec-p14",
+                  "family-elec-p15",
+                  "family-elec-p17",
+                  "family-elec-p18",
+                  "family-elec-p19",
+                  "family-elec-p20",
+                  "family-elec-p21",
+                  "family-elec-p22",
+                  "family-elec-p23",
+                  "family-elec-p24",
+                  "family-elec-p25",
+                  "family-elec-p26",
+                  "family-elec-p27",
+                  "family-elec-p28",
+                  "family-elec-p29",
+                  "family-elec-p30",
+                  "family-elec-p31",
+                  "family-elec-p32",
+                  "family-elec-p33",
+                  "family-elec-p34",
+                  "family-elec-p35",
+                  "family-elec-p36",
+                  "family-elec-n01",
+                  "family-elec-n02",
+                  "family-elec-n03",
+                  "family-elec-n04"
+                ],
+                "sourceSnapshotsUnchanged": true,
+                "description": "仅方案2补充54个逻辑电位：14开关、36电源、4弱电；鞋柜P16复用原面板，其余53新增。三房及客厅四组双控；不改原68家具、建筑、实测来源，不模拟真实接线或批准施工。"
+              }
+            ],
+            "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs + tools/family-study-door-20261012.cjs + tools/family-appliances-20261012.cjs + tools/family-ac-window-20261012.cjs + tools/family-living-clear-20261012.cjs + tools/family-balcony-service-20261012.cjs + tools/family-corner-storage-20261012.cjs + tools/family-ceiling-lighting-20261012.cjs + tools/family-lighting-study-refinement-20261012.cjs + tools/family-corner-door-180-20261012.cjs + tools/family-balcony-recess-20261012.cjs + tools/family-floor-drains-20261012.cjs + tools/family-electrical-20261012.cjs"
+          },
+          "previousPlanFields": {},
+          "changedFurnitureIds": [
+            "kitchen_heater"
+          ],
+          "newFurnitureIds": [],
+          "removedFurnitureIds": [],
+          "replacedFurnitureIds": [],
+          "migrationFields": {
+            "kitchen_heater": [
+              "baseDepthMm",
+              "baseHeightMm",
+              "baseWidthMm",
+              "color",
+              "conditions",
+              "cx",
+              "d",
+              "dimensionStatus",
+              "heaterDesign",
+              "heightMm",
+              "installationApproved",
+              "layoutRevision",
+              "modelVariant",
+              "name",
+              "notConstructionApproval",
+              "notes",
+              "roomId",
+              "sourceFootprintMm",
+              "w"
+            ]
+          }
         }
       }
     },

@@ -305,7 +305,7 @@ function applyFamilyElectrical(bundle){
   return bundle;
 }
 function beforeFamilyElectrical(value){
-  const out=clone(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyElectricalUpdate;
+  const out=require('./family-kitchen-heater-20261013.cjs').beforeFamilyKitchenHeater(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyElectricalUpdate;
   if(!m)return out;
   const current=new Map(p.defaultFurniture.map(f=>[f.id,f]));
   p.defaultFurniture=m.previousFurnitureOrder.map(id=>clone(current.get(id)));

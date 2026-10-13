@@ -134,6 +134,7 @@ function checkMount(p,f){
 }
 
 function verifyFamilyElectrical(bundle){
+ bundle=require('../tools/family-kitchen-heater-20261013.cjs').beforeFamilyKitchenHeater(bundle);
  const originalHash=hash(bundle),p=bundle.schemes.family,u=p.metadata.familyElectricalUpdate,oldBundle=beforeFamilyElectrical(bundle),old=oldBundle.schemes.family;
  assert.equal(REVISION,'family-electrical-20261012');assert.equal(u?.id,REVISION);
  assert.equal(hash(old),baseline.family,'frozen, independent 68-object before-image');
