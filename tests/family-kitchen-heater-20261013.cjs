@@ -37,6 +37,7 @@ function solidOverlap(a,b){return Math.min(a.z+a.h,b.z+b.h)-Math.max(a.z,b.z)>.0
 const approx=(a,b,label)=>assert.ok(Math.abs(a-b)<.001,label+': '+a+' vs '+b);
 
 function verifyFamilyKitchenHeater(bundle){
+ bundle=require('../tools/family-living-east-20261018.cjs').beforeFamilyLivingEast(bundle);
  const originalHash=hash(bundle),p=bundle.schemes.family,u=p.metadata.familyKitchenHeaterUpdate,oldBundle=beforeFamilyKitchenHeater(bundle),old=oldBundle.schemes.family;
  assert.equal(REVISION,'family-kitchen-heater-20261013');assert.equal(u?.id,REVISION);
  assert.equal(hash(old),baseline.family,'exact independently frozen 121-object published electrical model');

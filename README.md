@@ -248,6 +248,12 @@ python3 -m http.server 8000
 
 GitHub Pages 发布 `master` 分支根目录。原编辑器 MIT 许可与作者署名保留。
 
+### 2026-10-18 · 方案2东墙沙发与短餐边柜
+
+沙发参考方案4靠东墙，电视仍留北墙；移除原中部沙发背柜。餐边柜只从北侧飘台端缩短1000mm，西直段4890→3890mm，南转角180°库门与425mm返柜的世界位置不变。五台台面电器及P19–P23随短中空南移，P17避开新沙发；其他方案、墙门窗、桌椅、地毯、灯和原导入快照保持。400mm三抽改至台面南端，开抽或开转角库仍需临时移开南餐椅；安装、散热、电气和通行条件未获施工批准。
+
+独立可逆层：`tools/family-living-east-20261018.cjs`；静态验证：`node tests/family-living-east-20261018.cjs`。浏览器验证：`node tests/family-living-east-browser.cjs --self-host`；线上验证使用 `FLOORPLAN_BASE_URL` 加 `--published-smoke`。截图目录可通过 `FLOORPLAN_LIVING_EAST_SHOTS` 指定。旧草稿仅升级未改默认字段，自定义柜体尺寸/组件保持并提示复核，移除的背柜保留JSON归档。
+
 ## 社交媒体
 
 - X（Twitter）：[@akokoi1](https://x.com/akokoi1)

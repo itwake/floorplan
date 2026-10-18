@@ -123,7 +123,7 @@ function applyFamilyKitchenHeater(bundle){
   return bundle;
 }
 function beforeFamilyKitchenHeater(value){
-  const out=clone(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyKitchenHeaterUpdate;
+  const out=require('./family-living-east-20261018.cjs').beforeFamilyLivingEast(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyKitchenHeaterUpdate;
   if(!m)return out;
   const old=new Map(m.previousFurniture.map(q=>[q.id,q])),current=new Map(p.defaultFurniture.map(q=>[q.id,q]));
   p.defaultFurniture=m.previousFurnitureOrder.map(id=>clone(old.get(id)||current.get(id)));
