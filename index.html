@@ -4010,7 +4010,12 @@ function loop(){
   doors.forEach(d => { const tg = d.open ? d.a1 : d.a0; d.cur += (tg - d.cur) * Math.min(1, dt*6); d.pivot.rotation.y=d.cur;if(d.bifold)d.second.rotation.y+=( (d.open?Math.PI:0)-d.second.rotation.y )*Math.min(1,dt*6); });
   // Keep the ordered west/south phases visible even on a slow render frame;
   // one delayed frame must not jump from both closed to both fully open.
-  cabinetDoorControllers.forEach(c=>c.progress+=(Number(c.open)-c.progress)*Math.min(.18,dt*6));
+  cabinetDoorControllers.forEach(c=>{
+    const target=Number(c.open);c.progress+=(target-c.progress)*Math.min(.18,dt*6);
+    // Finish at the same tolerance used by cornerDoorsClosed rather than
+    // converging forever. The final pose is exactly the 180-degree endpoint.
+    if(Math.abs(target-c.progress)<=.0001)c.progress=target;
+  });
   cabinetDoors.forEach(d=>{const fraction=clamp01(d.controller.progress*2-d.sequenceOrder);d.cur=d.a0+(d.a1-d.a0)*fraction;d.pivot.rotation.y=d.cur;});
   updateSel();
   renderer.render(scene, camera);
