@@ -42,7 +42,14 @@ const painted=()=>{const c=document.querySelector('#view3d canvas');if(!c?.width
   browser=await chromium.launch({headless:true,executablePath,args:['--use-angle=swiftshader','--enable-unsafe-swiftshader'],...(proxy?{proxy:{server:proxy}}:{})});
   context=await browser.newContext({viewport:{width:1100,height:800},deviceScaleFactor:1});page=await context.newPage();page.setDefaultTimeout(90000);
   page.on('pageerror',e=>errors.push(e.message));page.on('requestfailed',r=>networkFailures.push({url:r.url(),error:r.failure()?.errorText}));page.on('dialog',d=>d.accept());await context.route('**/favicon.ico',r=>r.fulfill({status:204,body:''}));
-  await context.route(base+'/**',async route=>{if(route.request().resourceType()!=='document')return route.fallback();try{const response=await route.fetch({timeout:90000}),html=await response.text();assert.ok(html.includes('window.View3D ='),'hook only observes the actual published renderer');await route.fulfill({response,body:html.replace('window.View3D =',hook+'window.View3D =')});}catch(e){networkFailures.push({url:route.request().url(),error:'QA document interception: '+e.message});await route.abort('failed').catch(()=>{});}});
+  await context.route(base+'/**',async route=>{
+   if(route.request().resourceType()!=='document')return route.fallback();
+   try{
+    let response;for(let attempt=0;attempt<3;attempt++)try{response=await route.fetch({timeout:90000});break;}catch(error){if(attempt===2)throw error;}
+    const html=await response.text();assert.ok(html.includes('window.View3D ='),'hook only observes the actual published renderer');
+    await route.fulfill({response,body:html.replace('window.View3D =',hook+'window.View3D =')});
+   }catch(e){networkFailures.push({url:route.request().url(),error:'QA document interception: '+e.message});await route.abort('failed').catch(()=>{});}
+  });
   const ready=()=>page.waitForFunction(()=>window.HOUSE_PLANS&&window.View3D&&Array.isArray(state.furniture)&&!switching);
   const open=async id=>{await page.goto(base+'/?scheme='+id,{waitUntil:'domcontentloaded'});await ready();assert.equal(await page.locator('#schemeSelect').inputValue(),id);};
   const reload=async()=>{await page.reload({waitUntil:'domcontentloaded'});await ready();};
