@@ -132,7 +132,7 @@ export function createReferenceDressing({THREE,finish,artTexture,wx,wz}){
     const r=rooms.find(q=>q.id==='room_b');if(!r)return;
     const top=Math.min(M(r.heightMm||2700),cut);if(top>.001){
       const g=group('reference-child-thin-pink-wall-finish','room_b',top*1000,cut,{decorativeFinishOnly:true,noWallMove:true,nominalThicknessMm:2});
-      box(g,121,1670,2,3100,0,top*1000,material('rose',C.pink),'reference-child-2mm-pink-wall-face',
+      box(g,121,1670,2,3100,0,top*1000,material('cream',C.pink),'reference-child-2mm-pink-wall-face',
         {wallInteriorPlaneMm:120,nominalThicknessMm:2,noStructuralModification:true});archUp.add(g);created.push(g);
     }
     const g=group('reference-child-outline-wall-decals','room_b',2050,cut,{visualDecalOnly:true,noTallFurniture:true});
