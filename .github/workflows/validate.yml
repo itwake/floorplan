@@ -37,5 +37,6 @@ jobs:
       - run: node tests/family-electrical-20261012.cjs
       - run: node tests/family-kitchen-heater-20261013.cjs
       - run: node tests/family-living-east-20261018.cjs
+      - run: node tests/family-reference-finish-20261025.cjs
       - run: node tests/visible-raycast.cjs
       - run: git diff --exit-code -- data/house-plans.js data/manifest.json

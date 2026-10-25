@@ -210,7 +210,7 @@ function applyFamilyLivingEast(bundle){
   return bundle;
 }
 function beforeFamilyLivingEast(value){
-  const out=clone(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyLivingEastUpdate;if(!m)return out;
+  const out=require('./family-reference-finish-20261025.cjs').beforeFamilyReferenceFinish(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyLivingEastUpdate;if(!m)return out;
   const old=new Map(m.previousFurniture.map(q=>[q.id,q])),current=new Map(p.defaultFurniture.map(q=>[q.id,q]));
   p.defaultFurniture=m.previousFurnitureOrder.map(id=>clone(old.get(id)||current.get(id)));
   for(const[k,v]of Object.entries(m.previousPlanFields))p[k]=clone(v);

@@ -64,6 +64,7 @@ function checkMount(p,f){
  assert.equal(solidOverlap(furnitureSolid(f),rect(s.x+s.w/2,s.y+s.d/2,s.w,s.d,0,s.z,s.h)),false,'panel is not buried '+f.id);
 }
 function verifyFamilyLivingEast(bundle){
+ bundle=require('../tools/family-reference-finish-20261025.cjs').beforeFamilyReferenceFinish(bundle);
  const inputHash=hash(bundle),p=bundle.schemes.family,u=p.metadata.familyLivingEastUpdate,oldBundle=beforeFamilyLivingEast(bundle),old=oldBundle.schemes.family;
  assert.equal(REVISION,'family-living-east-20261018');assert.equal(u?.id,REVISION);
  assert.equal(hash(old),baseline.family,'independent frozen 121-object published before-image');assert.equal(hash(beforeFamilyLivingEast(p)),baseline.family,'plan-only rollback');assert.equal(hash(beforeFamilyLivingEast(old)),baseline.family,'absent layer inert');

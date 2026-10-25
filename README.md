@@ -254,6 +254,14 @@ GitHub Pages 发布 `master` 分支根目录。原编辑器 MIT 许可与作者�
 
 独立可逆层：`tools/family-living-east-20261018.cjs`；静态验证：`node tests/family-living-east-20261018.cjs`。浏览器验证：`node tests/family-living-east-browser.cjs --self-host`；线上验证使用 `FLOORPLAN_BASE_URL` 加 `--published-smoke`。截图目录可通过 `FLOORPLAN_LIVING_EAST_SHOTS` 指定。旧草稿仅升级未改默认字段，自定义柜体尺寸/组件保持并提示复核，移除的背柜保留JSON归档。
 
+### 2026-10-25 · 方案2六图效果参考重建
+
+按业主六张图重建奶白平板通顶柜、原木背板双灯带、深木开放格电视柜/艺术屏、两卧软包床及儿童粉色拱龛、悬浮书桌双木层板、窗帘与斑马帘。用户确认保留已购IKEA和无茶几，沙发仍靠东墙；餐边柜最终改为相对原长北退800mm（西直4090mm），入户转角180°功能不变。三间卧室/书房使用真正木地板，客餐厅仍米白大砖。房间实测洞口、设备、水电及其待核状态保留。
+
+3D顶部“效果视角”提供六个室内镜头，可分享 `?scheme=family&view=3d&look=master`（另有living/tv/dining/child/study）。纹理、绘画与软装是原创建模/程序材质近似，不是设计方原始模型、原厂材料或离线效果图复刻；所给VR是公开全景，未导入其加密资产。要逐件同款/同纹理/同光照精确复现，仍需原始模型、贴图和灯光参数。悬浮柜/窗帘/灯具构造与承载、电位及安装净空未获施工确认。
+
+生成层 `tools/family-reference-finish-20261025.cjs`，静态验证 `node tests/family-reference-finish-20261025.cjs`；实际3D与草稿迁移验证 `node tests/family-reference-finish-browser.cjs --self-host`。旧默认地砖才自动升级为木地板，自定义地材/柜尺寸/柜组件/家具摆位与删除保持；查看完整新默认方案前请先导出JSON备份。
+
 ## 社交媒体
 
 - X（Twitter）：[@akokoi1](https://x.com/akokoi1)

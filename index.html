@@ -275,6 +275,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
       <button class="btn on" data-mode="orbit" data-en="Orbit">鸟瞰</button>
       <button class="btn" data-mode="walk" data-en="Walk">漫游</button>
     </div>
+    <div class="grp only3d" id="referenceViewTools"><select id="referenceViewSelect" aria-label="参考效果视角"><option value="">效果视角</option><option value="living">客厅 · 沙发</option><option value="tv">客厅 · 电视</option><option value="dining">餐边柜</option><option value="master">主卧</option><option value="child">次卧</option><option value="study">书房</option></select></div>
     <div class="grp" id="electricalTools">
       <button class="btn chip on" id="electricalLayer" data-layer="electrical" aria-pressed="true" data-en="Electrical">电位</button>
     </div>
@@ -371,7 +372,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=living-east-20261018"></script>
+<script src="data/house-plans.js?v=reference-finish-20261025"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -481,7 +482,7 @@ const uid = () => 'f' + Date.now().toString(36) + (_n++);
 const F = (type,name,cx,cy,w,d,rot=0,color) => ({id:uid(),type,name,cx,cy,w,d,rot,color:color||typeColor(type)});
 
 function defaultFurniture(){ return structuredClone(HOUSE_PLAN.defaultFurniture); }
-function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update,HOUSE_PLAN.metadata.familyBalconyRecessUpdate,HOUSE_PLAN.metadata.familyFloorDrainsUpdate,HOUSE_PLAN.metadata.familyElectricalUpdate,HOUSE_PLAN.metadata.familyKitchenHeaterUpdate,HOUSE_PLAN.metadata.familyLivingEastUpdate].filter(Boolean);}
+function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update,HOUSE_PLAN.metadata.familyBalconyRecessUpdate,HOUSE_PLAN.metadata.familyFloorDrainsUpdate,HOUSE_PLAN.metadata.familyElectricalUpdate,HOUSE_PLAN.metadata.familyKitchenHeaterUpdate,HOUSE_PLAN.metadata.familyLivingEastUpdate,HOUSE_PLAN.metadata.familyReferenceFinishUpdate].filter(Boolean);}
 function defaultState(){
   const rooms = {}; ROOMS.forEach(r => rooms[r.id] = {name:r.name, mat:r.mat});
   return {schemaVersion:2,projectId:'house-design',schemeId:SCHEME_ID,sourceVersion:PLAN_LIBRARY.version,
@@ -526,6 +527,8 @@ function refreshCabinetDesign(f){
   if(recessRevision&&(f.layoutCustomPartsRevision===recessRevision||f.layoutCustomSizeRevision===recessRevision))return;
   const livingRevision=HOUSE_PLAN.metadata.familyLivingEastUpdate?.id;
   if(livingRevision&&(f.layoutCustomPartsRevision===livingRevision||f.layoutCustomSizeRevision===livingRevision))return;
+  const finishRevision=HOUSE_PLAN.metadata.familyReferenceFinishUpdate?.id;
+  if(finishRevision&&(f.layoutCustomPartsRevision===finishRevision||f.layoutCustomSizeRevision===finishRevision))return;
   const fresh=HOUSE_PLAN.defaultFurniture.find(q=>q.id===f.id);
   if(!fresh?.cabinetRevision || f.cabinetRevision===fresh.cabinetRevision) return;
   // Keep placement, custom dimensions/colours, names and deletions. Only an
@@ -642,6 +645,9 @@ function upgradeConfirmedLayouts(s){
         s.layoutMigrationWallArchive.push({revisionId:revision.id,wallId:id,wall:structuredClone(revision.previousWalls?.[+id.slice(1)])});
         return [];
       });
+    }
+    for(const change of revision.roomMaterialChanges||[]){
+      const room=s.rooms?.[change.roomId];if(room?.mat===change.previousMat)room.mat=change.mat;
     }
     s.appliedLayoutRevisions=[...(Array.isArray(s.appliedLayoutRevisions)?s.appliedLayoutRevisions:[]),revision.id];
     s.layoutMigrationKeptIds=[...kept];
@@ -1332,6 +1338,7 @@ function updateHeader(){
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
 function livingEastNotice(f){
+  if(HOUSE_PLAN.metadata.familyReferenceFinishUpdate&&(!f||f.referenceStyle))return `<section class="project-note" data-family-reference-finish><b>${tr('方案2 · 六图效果参考重建','Scheme 2 · six-image reference reconstruction')}</b><p>${tr('保留已购IKEA沙发、餐桌椅及无茶几；沙发仍靠东墙。餐边柜从原飘台端缩短800mm（西直段4090mm），保留南转角180°库门。三间卧室/书房为真正木地板，客餐厅仍为米白大砖。','Purchased IKEA living/dining furniture and no coffee table are retained, with the sofa on the east wall. The sideboard retreats 800 mm from its original bay end (4090 mm straight run) and retains the 180° corner pantry. Bedrooms/study have real wood floors; the public area keeps pale large-format tile.')}</p><p>${tr('奶白通顶柜、木背板双灯带、深木多格电视柜、两卧软包床/拱龛、悬浮书桌与窗饰按图重建。请用顶部“效果视角”逐房查看。原实测墙门窗和窗边空调不改；桌后木色门为滑门，不假称可拉抽。','Reference-led full-height cabinets, two lit wood shelves, dark-wood cubbies, upholstered beds/arch niche, floating desks and window dressings are rebuilt. Use the reference-view selector above. Surveyed walls/openings and window-side AC remain. Wood fronts behind the table slide rather than pull out as drawers.')}</p><small>${tr('这是基于照片的参数化重建，不是原始设计模型或原厂材质复用；纹理/画作属程序近似，不能承诺与离线效果图完全相同。窗帘、悬浮柜及灯具尺寸/承载/散热/配线仍待深化。自定义草稿保留，先导出备份再重置可查看完整新默认方案。','This is a photo-led parametric reconstruction, not the original scene or manufacturer materials. Textures/artwork are procedural approximations, not a promise of identical offline renders. Installation details remain unverified. Private edits are preserved; export before resetting to the full new defaults.')}</small></section>`;
   const m=HOUSE_PLAN.metadata.familyLivingEastUpdate;if(!m||f&&!m.changedFurnitureIds.includes(f.id))return '';
   const custom=f&&(f.layoutCustomPartsRevision===m.id||f.layoutCustomSizeRevision===m.id);
   return `<section class="project-note" data-family-living-east-warning><b>${tr('方案2 · 东墙沙发与短餐边柜','Scheme 2 · east-wall sofa and shorter sideboard')}</b><p>${tr('默认沙发参考方案4背靠东墙、面向西侧，电视仍保留北墙（斜向观看）。原沙发背后低柜已移除；餐桌、地毯、灯、飘台和墙门窗保持。','The default sofa follows Scheme 4 against the east wall facing west; the TV stays on the north wall for angled viewing. The former sofa-back cabinet is removed; dining furniture, rug, lights, bay seat and architecture are unchanged.')}</p><p>${tr('餐边柜从靠飘台的北端缩短1000mm，西墙直段4890→3890mm；入户南端、通顶高度及180°转角库保持。五台台面电器和P19–P23用途点随短柜重排，P17移至沙发南侧。灯带保留；三抽改南段，开启三抽或转角库前需临时移南餐椅，关柜后恢复。','The sideboard is shortened by 1000 mm at its north/bay end: the west straight run is 4890→3890 mm. Its entrance end, full height and 180° corner pantry remain. Five appliances and P19–P23 follow the shorter niche; P17 moves south of the sofa. LEDs remain. The three drawers move to the south segment; temporarily move the south dining chair before opening drawers or pantry, then restore it.')}</p>${custom?`<p data-custom-living-cabinet-warning>${tr('保留了你的自定义柜体组件或尺寸，未强制替换；请核对它与新电器/电位是否重叠。可先导出备份，再重置当前方案查看完整默认布局。','Your custom cabinet assembly or dimensions were preserved; check the revised appliances and points for overlaps. Export a backup before resetting to the complete default layout.')}</p>`:''}<small>${tr('以上为模型默认布局，柜体收口、设备散热、开盖/蒸汽、电位与现场动线仍需复核，不是下单或施工确认。','These are model defaults, not order or installation approval. Verify cabinetry, equipment heat/lid/steam clearance, electrical points and circulation on site.')}</small></section>`;
@@ -2095,6 +2102,9 @@ import {PointerLockControls} from 'three/addons/controls/PointerLockControls.js'
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 import {CSS2DRenderer, CSS2DObject} from 'three/addons/renderers/CSS2DRenderer.js';
+import {createReferenceFinishes} from './reference-finishes.js?v=20261025';
+import {createReferenceInterior} from './reference-interior.js?v=20261025';
+import {createReferenceDressing} from './reference-dressing.js?v=20261025';
 
 const stage = $('#stage'), host = $('#view3d');
 const OX = HOUSE_PLAN.CENTER.x, OY = HOUSE_PLAN.CENTER.y, H = Math.max(HOUSE_PLAN.HEIGHT_MM,...WALL_META.map(w=>w.heightMm))/1000, FOV = 45;       // 户型中心放在世界原点，层高 2.8 m
@@ -2117,6 +2127,11 @@ const doors = [], cabinetDoors = [], cabinetDoorControllers = new Map(), keys = 
 // Separate from implicit room lamps so rebuilding cut walls does not discard
 // editable lamp emitters, and rebuilding furniture never duplicates them.
 const furnitureCeilingLights=[];
+const referenceEnabled=Boolean(HOUSE_PLAN.metadata.familyReferenceFinishUpdate);
+const referenceFinishes=createReferenceFinishes(THREE,{getEnvironment:()=>envTex});
+const referenceInterior=createReferenceInterior({THREE,RoundedBoxGeometry,finish:referenceFinishes.material});
+const referenceDressing=createReferenceDressing({THREE,finish:referenceFinishes.material,artTexture:referenceInterior.artTexture,wx,wz});
+if(!referenceEnabled)$('#referenceViewTools')?.remove();
 
 /* ======================= 初始化 ======================= */
 function init(){
@@ -2142,6 +2157,7 @@ function init(){
   walkCtl.addEventListener('unlock', () => { if (opt.mode === 'walk'){ $('#walkOverlay').style.display = 'flex'; $('#cross').style.display = 'none'; } });
 
   hemi = new THREE.HemisphereLight(0xfff8ee, 0xb9a88f, 1.1);
+  if(referenceEnabled)hemi.groundColor.set('#D7D0C3');
   sun = new THREE.DirectionalLight(0xfff1dd, 2.6);
   sun.castShadow = true; sun.shadow.mapSize.setScalar(2048);   // 平板 GPU 用小一点的阴影贴图
   Object.assign(sun.shadow.camera, {left:-11, right:11, top:11, bottom:-11, near:1, far:60});
@@ -2152,7 +2168,7 @@ function init(){
 
   const pm = new THREE.PMREMGenerator(renderer); envTex = pm.fromScene(new RoomEnvironment(), .04).texture; pm.dispose();
   glassMat = new THREE.MeshPhysicalMaterial({color:0xcfe6ef, roughness:.05, transparent:true, opacity:.28, depthWrite:false, side:THREE.DoubleSide});
-  wallMat = mat('#f4f1eb', {roughness:.92}); capMat = mat('#34312d', {roughness:.9}); frameMat = mat('#5d6166', {roughness:.5, metalness:.4});
+  wallMat = referenceEnabled?referenceFinishes.material('cream','#EEE9DE'):mat('#f4f1eb', {roughness:.92}); capMat = mat('#34312d', {roughness:.9}); frameMat = mat('#5d6166', {roughness:.5, metalness:.4});
 
   archFloor = new THREE.Group(); archUp = new THREE.Group(); furnG = new THREE.Group(); labelG = new THREE.Group(); lampG = new THREE.Group(); furnitureLampG = new THREE.Group();
   scene.add(archFloor, archUp, furnG, labelG, lampG, furnitureLampG);
@@ -2332,8 +2348,8 @@ const hwMat = () => mat('#b9b3a8', {metalness:.85, roughness:.3});
 const blackMetal = () => mat('#2b2b2d', {metalness:.6, roughness:.4});
 const mirror = () => mat('#dfeaee', {metalness:.55, roughness:.06});
 const ceramic = (o = {}) => mat('#fbfbf9', {roughness:.12, ...o});
-const fabric = c => mat(c, {roughness:.96});
-const woodM = c => mat(c, {roughness:.55});
+const fabric = c => referenceEnabled?referenceFinishes.material('linen',c):mat(c, {roughness:.96});
+const woodM = c => referenceEnabled?referenceFinishes.material('wood',c):mat(c, {roughness:.55});
 const screenMat = (glow = '#1a2636') => mat('#0b0e13', {roughness:.1, metalness:.3, emissive:glow, emissiveIntensity:.35});
 const glowMat = (c = '#fff4dc', e = '#ffdca0', k = .5) => mat(c, {emissive:e, emissiveIntensity:k, roughness:.9, side:THREE.DoubleSide});
 
@@ -2384,8 +2400,10 @@ function buildCabinetParts(g,f){
     const reflective=f.cabinetRevision==='family-study-laundry-confirmed-20261011'&&p.role==='mirror-face';
     const projection=f.modelVariant==='balcony-exterior-projection',projectionMetal=projection&&/metal|guard|steel/i.test(p.material||p.role||'');
     const drainMetal=f.modelVariant==='square-floor-drain'&&!/slot-bed|recess/.test(p.role||'');
-    const material=projection?mat(pc,{metalness:projectionMetal?.65:0,roughness:projectionMetal?.48:.7,clippingPlanes:[balconyProjectionPlane],clipShadows:true}):drainMetal?mat(pc,{metalness:.7,roughness:.32}):reflective?mirror():led?glowMat('#fff4d8','#ffe2ac',f.cabinetRevision==='sideboard-reference-v2'?1.6:.55):p.role?.includes('cushion')?fabric(pc):oak?cabinetWood(pc):mat(pc,{roughness:.7});
-    if(p.cabinetDoor){
+    const material=projection?mat(pc,{metalness:projectionMetal?.65:0,roughness:projectionMetal?.48:.7,clippingPlanes:[balconyProjectionPlane],clipShadows:true}):drainMetal?mat(pc,{metalness:.7,roughness:.32}):reflective?mirror():led?glowMat('#fff4d8','#ffe2ac',f.cabinetRevision==='sideboard-reference-v2'?1.6:.55):referenceEnabled&&f.referenceStyle?referenceFinishes.material(oak?(f.id==='family-f7'?'dark-oak':'wood'):/metal|rail|hinge/i.test(p.material||p.role||'')?'metal':'cream',pc):p.role?.includes('cushion')?fabric(pc):oak?cabinetWood(pc):mat(pc,{roughness:.7});
+    const special=referenceEnabled&&f.referenceStyle?referenceInterior.buildSpecialPanel(p,W,D,height):null;
+    if(special){special.material=material;special.position.set(x,y+height/2,z);g.add(special);}
+    else if(p.cabinetDoor){
       const d=p.cabinetDoor,closed=[d.closedDirection[0]*sx,d.closedDirection[1]*sz],opened=[d.openDirection[0]*sx,d.openDirection[1]*sz],normalScale=Math.hypot(d.closedDirection[1]*sx,d.closedDirection[0]*sz),L=M(d.lengthMm*Math.hypot(...closed)),T=M((d.thicknessMm||18)*normalScale),normalOffset=M((d.normalOffsetMm||0)*normalScale);
       const pivot=new THREE.Group();pivot.position.set(M(d.hingeMm[0]*sx),y,M(d.hingeMm[1]*sz));
       let controller=cabinetDoorControllers.get(f.id);
@@ -2453,6 +2471,11 @@ function buildCabinetParts(g,f){
         if(projection){o.userData.balconyProjectionCutMin=M((f.elevationMm||0)+p.elevationMm*sy);o.visible=o.userData.balconyProjectionCutMin<opt.cut;}
       }
     });
+    if(referenceEnabled&&f.id==='living-east-art'&&p.role==='wall-art'){
+      const picture=new THREE.Mesh(new THREE.PlaneGeometry(D*.92,height*.92),new THREE.MeshStandardMaterial({map:referenceInterior.artTexture('warm-abstract'),roughness:1}));
+      picture.rotation.y=-Math.PI/2;picture.position.set(M(p.x*sx)-.0005,y+height/2,z);
+      picture.userData={role:'reference-original-abstract-art',referenceApproximation:true};g.add(picture);
+    }
     // Downward light avoids the unshadowed point-light leak through the upper
     // cabinet bottom. At most two directed lights illuminate the long niche.
     if(led && p.lightWash){
@@ -2460,14 +2483,14 @@ function buildCabinetParts(g,f){
       const count=length>1.5?2:1;
       for(let i=0;i<count;i++){
         const offset=count===1?0:(i?1:-1)*length/4;
-        const wash=new THREE.SpotLight(0xffdca0,.25,2.4,Math.PI/2.5,.65,2);
+        const wash=new THREE.SpotLight(0xffdca0,referenceEnabled&&f.referenceStyle?.09:.25,2.4,Math.PI/2.5,.65,2);
         wash.position.set(x+(across?0:offset),y-.035,z+(across?offset:0));
         const sign=['east','south'].includes(p.face)?1:-1;
         wash.target.position.copy(wash.position).add(new THREE.Vector3(across?-sign*.16:0,-.45,across?0:-sign*.16));
         wash.userData.cabinetLED=true;g.add(wash,wash.target);
       }
     }
-    if(led && f.cabinetRevision==='sideboard-reference-v2'){
+    if(led && (f.cabinetRevision==='sideboard-reference-v2'||referenceEnabled&&f.referenceStyle)){
       const across=['east','west'].includes(p.face),along=across?p.y+p.d/2:p.x+p.w/2;
       const back=(f.parts||[]).find(b=>b.face===p.face && /back/.test(b.role||'') && b.elevationMm<p.elevationMm && b.elevationMm+b.heightMm>=p.elevationMm && along>=(across?b.y:b.x) && along<=(across?b.y+b.d:b.x+b.w));
       if(back){
@@ -2581,9 +2604,12 @@ function buildKitchenGasHeater(g,f){
 }
 function buildFurniture(f){
   const g = new THREE.Group(), w = M(f.w), d = M(f.d), c = f.color || '#ddd', bz = -d/2, R = rng(Math.round(f.w*7 + f.d*13 + f.cx + f.cy));
-  switch (f.type){
+  let referenceHandled=false;
+  if(referenceEnabled)try{referenceHandled=referenceInterior.buildFurniture(g,f);}catch(e){g.clear();g.userData.referenceFallback=String(e.message);}
+  if(!referenceHandled)switch (f.type){
     case 'fixture': {
       buildCabinetParts(g,f);
+      if(referenceEnabled)referenceInterior.decorateFurniture?.(g,f);
       break;
     }
     case 'ceilinglight': {
@@ -2818,7 +2844,8 @@ function buildFurniture(f){
       break;
     }
     case 'chair': {
-      const lw = woodM('#6b543f'), fab = fabric(c), sy = .44;
+      const purchasedAsh=referenceEnabled&&Boolean(f.purchasedProductId);
+      const lw = woodM(purchasedAsh?c:'#6b543f'), fab = purchasedAsh?woodM(c):fabric(c), sy = .44;
       [[-1, 1], [1, 1]].forEach(([s]) => g.add(rod([s*(w/2 - .04), 0, d/2 - .05], [s*(w/2 - .05), sy, d/2 - .07], .012, lw, .018)));
       [-1, 1].forEach(s => g.add(rod([s*(w/2 - .04), 0, bz + .03], [s*(w/2 - .05), .86, bz + .07], .012, lw, .018)));
       g.add(box(w - .08, .025, .02, lw, 0, .15, d/2 - .06), box(w - .08, .025, .02, lw, 0, .15, bz + .05));
@@ -2873,6 +2900,14 @@ function buildFurniture(f){
       g.add(rbox(w, .4, d - .02, sm, 0, .1, -.01, .01));
       fronts(g, -w/2 + .005, .105, w - .01, .39, d/2 - .02, n, 1, sm, 'edge');
       }
+      if(referenceEnabled&&f.referenceStyle){
+        const frame=rbox(1.7,.94,.035,referenceFinishes.material('dark-oak','#77634D'),0,.76,bz+.022,.006);
+        const screen=box(1.664,.904,.002,new THREE.MeshStandardMaterial({map:referenceInterior.artTexture('cloud-landscape'),roughness:.7}),0,.778,bz+.0405);
+        frame.userData.role='reference-art-tv-frame';screen.userData.role='reference-art-tv-screen';g.add(frame,screen);
+        const h=M(f.heightMm);vase(g,w/2-.21,h,0,.055,.24,'#E3DED2',R);
+        g.add(box(.22,.025,.15,'#8F7860',-w/2+.27,h,0),box(.19,.02,.13,'#E0D6C4',-w/2+.27,h+.025,0));
+        break;
+      }
       g.add(rbox(1.45, .84, .025, mat('#18181a', {roughness:.4, metalness:.3}), 0, .95, bz + .03, .004), box(1.43, .81, .002, screenMat(), 0, .962, bz + .0435));
       g.add(rbox(.9, .06, .09, '#2a2a2c', 0, .5, -.02, .02), box(.86, .045, .002, fabric('#3a3a3c'), 0, .507, .026));
       vase(g, w/2 - .25, .5, 0, .06, .26, '#d8cfc2', R);
@@ -2898,7 +2933,8 @@ function buildFurniture(f){
       break;
     }
     case 'table': {
-      const tm = mat(c, {roughness:.4}), lw = woodM(darker(c, .55)), ns = Math.max(1, Math.round(w/.62)), top = .75;
+      const purchasedAsh=referenceEnabled&&Boolean(f.purchasedProductId);
+      const tm = purchasedAsh?referenceFinishes.material('wood',c):mat(c, {roughness:.4}), lw = woodM(darker(c,purchasedAsh?.82:.55)), ns = Math.max(1, Math.round(w/.62)), top = .75;
       [[-1,-1],[1,-1],[-1,1],[1,1]].forEach(([a, b]) => g.add(rod([a*(w/2 - .08), 0, b*(d/2 - .08)], [a*(w/2 - .1), .715, b*(d/2 - .1)], .016, lw, .026)));
       g.add(rbox(w, .035, d, tm, 0, .715, 0, .012), box(w - .22, .07, d - .22, lw, 0, .645));
       g.add(box(w*.7, .003, .32, fabric('#b9a58c'), 0, top, 0));
@@ -3309,7 +3345,7 @@ function buildFurniture(f){
     const workstation=new THREE.Group();workstation.add(...g.children.slice());
     workstation.rotation.y=Math.PI;g.add(workstation);
   }
-  if(f.type!=='fixture' && f.modelVariant!=='macro-gas-waterheater' && !(f.cabinetRevision && f.parts?.length) && f.heightMm){
+  if(!referenceHandled&&f.type!=='fixture' && f.modelVariant!=='macro-gas-waterheater' && !(f.cabinetRevision && f.parts?.length) && f.heightMm){
     // Match the imported physical envelope, not generic library template dimensions.
     const b=new THREE.Box3().setFromObject(g),sz=b.getSize(new THREE.Vector3());
     if(sz.x>0 && sz.y>0 && sz.z>0){
@@ -3319,6 +3355,7 @@ function buildFurniture(f){
     }
   }
   g.position.set(wx(f.cx), M(f.elevationMm||0), wz(f.cy));
+  if(referenceHandled&&f.type==='ceilinglight')g.traverse(o=>{if(o.isMesh){o.material=o.material.clone();o.material.clippingPlanes=[ceilingLightingPlane];o.userData.ceilingLightingCutMin=M(f.elevationMm||0);}});
   g.rotation.y = -f.rot * Math.PI/180;       // 平面顺时针旋转 → 绕 Y 轴负向
   g.userData.fid = f.id;
   if(f.modelVariant)g.userData.modelVariant=f.modelVariant;
@@ -3354,7 +3391,7 @@ function buildArch(){
   clearGroup(archFloor); clearGroup(archUp); lampG.clear(); doors.length = 0; colliders = [];
   const top = opt.cut;
   ROOMS.forEach(r => {
-    const m = floorMat(state.rooms[r.id].mat), bay = r.counted === false;
+    const m = referenceEnabled&&r.counted!==false?referenceFinishes.floor(state.rooms[r.id].mat)||floorMat(state.rooms[r.id].mat):floorMat(state.rooms[r.id].mat), bay = r.counted === false;
     const geo = bay ? new THREE.ExtrudeGeometry(shapeOf(r.poly), {depth:M(r.sillMm||400), bevelEnabled:false}) : new THREE.ShapeGeometry(shapeOf(r.poly));
     geo.rotateX(-Math.PI/2);
     const fl = new THREE.Mesh(geo, bay ? [m, mat('#e9e4da')] : m);
@@ -3368,7 +3405,7 @@ function buildArch(){
     const explicitLivingLighting=HOUSE_PLAN.metadata.familyCeilingLightingUpdate?.disabledImplicitRoomLampIds?.includes(r.id);
     if (r.at&&!explicitLivingLighting){
       const lamp = new THREE.Mesh(new THREE.CylinderGeometry(.22, .22, .02, 32), new THREE.MeshStandardMaterial({color:'#fff', emissive:'#fff2d6', emissiveIntensity:.3}));
-      lamp.position.set(wx(r.at[0]),roomTop-.012,wz(r.at[1]));lamp.visible=top>=roomTop; lampG.add(lamp);
+      lamp.position.set(wx(r.at[0]),roomTop-.012,wz(r.at[1]));lamp.visible=top>=roomTop&&!(referenceEnabled&&['room_a','room_b'].includes(r.id)); lampG.add(lamp);
       const pl = new THREE.PointLight(0xffd9a8, 0, 7, 1.6); pl.position.set(wx(r.at[0]),roomTop-.25,wz(r.at[1])); lampG.add(pl);
     }
   });
@@ -3468,6 +3505,7 @@ function buildArch(){
       leaf.userData.door=leaf2.userData.door=door;doors.push(door);archUp.add(pivot);
     });
   });
+  if(referenceEnabled)referenceDressing.build({archUp,archFloor,rooms:ROOMS,windows:WINS,windowMeta:WIN_META,cut:top});
   applyLight(); applyGrow();
 }
 
@@ -3480,7 +3518,7 @@ function buildFurn(){
   state.furniture.forEach(f => {
     const group=buildFurniture(f);if(f.electricalDesign)group.visible=ui.layers.electrical;furnG.add(group);
     if(f.type==='ceilinglight'){
-      const face=group.children.find(o=>o.userData.role==='ceilinglight-downward-face');
+      const face=group.children.find(o=>['ceilinglight-downward-face','reference-dining-pendant-warm-diffuser'].includes(o.userData.role));
       furnitureCeilingLights.push({fid:f.id,group,face,light:null});
     }
   });
@@ -3582,11 +3620,12 @@ function applyLight(){
   sun.position.set(Math.cos(az)*18, Math.sin(el)*20 + 3, -Math.sin(az)*10 + 8); sun.target.position.set(0, 0, 0);
   sun.color.setHSL(.09, .5 + warm*.4, .92 - warm*.12);
   sun.intensity = opt.night ? .05 : 1.4 + Math.sin(Math.PI*t)*1.6;
-  hemi.intensity = opt.night ? .12 : 1.1;
+  hemi.intensity = opt.night ? .12 : referenceEnabled?1.5:1.1;
+  if(referenceEnabled&&!opt.night)sun.intensity=1.8;
   scene.background = new THREE.Color(opt.night ? 0x1c2130 : 0xf7f4ee);
   ground.material.color.set(opt.night ? 0x2a2e38 : 0xf2eee7);
   lampG.children.forEach(o => { if (o.isPointLight) o.intensity = opt.night ? 6 : 0; else o.material.emissiveIntensity = opt.night ? 2 : .3; });
-  furnitureCeilingLights.forEach(entry=>{entry.face.material.emissiveIntensity=opt.night?2:.25;entry.light.intensity=opt.night?6:0;});
+  furnitureCeilingLights.forEach(entry=>{if(entry.face)entry.face.material.emissiveIntensity=opt.night?2:.25;entry.light.intensity=opt.night?6:0;});
   renderer.toneMappingExposure = opt.night ? 1.25 : 1.05;
   envK = opt.night ? .15 : 1; matCache.forEach(m => { if (m.envMap) m.envMapIntensity = m.userData.env*envK; });
   const h = Math.floor(opt.hour), m = Math.round((opt.hour - h)*60);
@@ -3641,6 +3680,21 @@ function flyToRoom(id){
   const dir = camera.position.clone().sub(orbit.target).setY(0); if (dir.lengthSq() < .01) dir.set(.6, 0, .8); dir.normalize();
   const dist = size*1.3 + 2.2;
   flyTo(pose(t, new THREE.Vector3(t.x + dir.x*dist*.7, dist*1.05, t.z + dir.z*dist*.7)));
+}
+function referenceView(key){
+  if(!referenceEnabled||!active||anim)return false;
+  const views={
+    living:{eye:[3500,1550,8750],target:[6250,1050,8000],fov:67},
+    tv:{eye:[4950,1520,9250],target:[5050,1150,6420],fov:65},
+    dining:{eye:[5150,1550,10800],target:[2300,1350,11400],fov:72},
+    master:{eye:[4725,1430,3150],target:[5000,1230,1350],fov:78},
+    child:{eye:[2400,1410,3110],target:[1850,1210,1050],fov:82},
+    study:{eye:[2200,1430,5510],target:[770,1120,4740],fov:76}
+  },v=views[key];if(!v)return false;
+  if(opt.mode==='walk')setMode('orbit');opt.cut=H;opt.labels=false;opt.night=false;opt.hour=10.5;syncCutBtns();sync();showLabels(false);applyLight();
+  $('#referenceViewSelect').value=key;closeDrawers();
+  const target=new THREE.Vector3(wx(v.target[0]),M(v.target[1]),wz(v.target[2])),eye=new THREE.Vector3(wx(v.eye[0]),M(v.eye[1]),wz(v.eye[2]));
+  flyTo(pose(target,eye),700,.12,v.fov,true);return true;
 }
 function flyToFurniture(id){
   const f=getF(id);if(!f || !active || anim)return;
@@ -3978,6 +4032,7 @@ function syncWalkTexts(){
   syncHint3d();
 }
 function bindUI(){
+  if(referenceEnabled)$('#referenceViewSelect').onchange=e=>referenceView(e.target.value);
   document.querySelectorAll('#modes3d .btn').forEach(b => b.onclick = () => setMode(b.dataset.mode));
   // 触屏设备用摇杆漫游；桌面端锁定鼠标，锁定失败时也退回到摇杆
   $('#walkOverlay').onclick = () => COARSE ? startTouchWalk() : walkCtl.lock();
@@ -4026,9 +4081,9 @@ function shot(){ const a = document.createElement('a'); a.download = tr('户型�
 
 function relang(){ syncWalkTexts(); if (inited) buildLabels(); }
 
-window.View3D = {enter, exit, relang, sync:() => sync(), shot, groundAt, flyToRoom:id => active && !anim && flyToRoom(id), flyToFurniture, focusKitchenHeater, focusElectrical, focusFloorDrain, focusBalconyRecess, focusCornerStorage, focusCeilingLight, toggleCabinetDoors, cornerDoorsClosed:fid=>{const c=cabinetDoorControllers.get(fid);return !c||(!c.open&&c.progress<=.0001);}, walking:() => active && opt.mode === 'walk'};
+window.View3D = {enter, exit, relang, sync:() => sync(), shot, groundAt, referenceView, flyToRoom:id => active && !anim && flyToRoom(id), flyToFurniture, focusKitchenHeater, focusElectrical, focusFloorDrain, focusBalconyRecess, focusCornerStorage, focusCeilingLight, toggleCabinetDoors, cornerDoorsClosed:fid=>{const c=cabinetDoorControllers.get(fid);return !c||(!c.open&&c.progress<=.0001);}, walking:() => active && opt.mode === 'walk'};
 // A shareable 3D entry point; ordinary editor links still start in 2D.
-if (new URLSearchParams(location.search).get('view') === '3d') requestAnimationFrame(() => setView('3d'));
+if (new URLSearchParams(location.search).get('view') === '3d') requestAnimationFrame(async()=>{await setView('3d');const look=new URLSearchParams(location.search).get('look');if(look)referenceView(look);});
 </script>
 </body>
 </html>
