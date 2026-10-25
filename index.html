@@ -275,7 +275,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
       <button class="btn on" data-mode="orbit" data-en="Orbit">鸟瞰</button>
       <button class="btn" data-mode="walk" data-en="Walk">漫游</button>
     </div>
-    <div class="grp only3d" id="referenceViewTools"><select id="referenceViewSelect" aria-label="参考效果视角"><option value="">效果视角</option><option value="living">客厅 · 沙发</option><option value="tv">客厅 · 电视</option><option value="dining">餐边柜</option><option value="master">主卧</option><option value="child">次卧</option><option value="study">书房</option></select></div>
+    <div class="grp only3d" id="referenceViewTools"><select id="referenceViewSelect" aria-label="参考效果视角"><option value="">效果视角</option><option value="living">客厅 · 沙发</option><option value="tv">客厅 · 电视</option><option value="dining">餐边柜</option><option value="master">主卧</option><option value="child">次卧</option><option value="study">书房</option><option value="master-wardrobe">主卧 · 挂衣龛</option><option value="child-wardrobe">次卧 · 粉色拱龛</option></select></div>
     <div class="grp" id="electricalTools">
       <button class="btn chip on" id="electricalLayer" data-layer="electrical" aria-pressed="true" data-en="Electrical">电位</button>
     </div>
@@ -3689,7 +3689,9 @@ function referenceView(key){
     dining:{eye:[5150,1550,10800],target:[2300,1350,11400],fov:72},
     master:{eye:[4725,1430,3150],target:[5000,1230,1350],fov:78},
     child:{eye:[2400,1410,3110],target:[1850,1210,1050],fov:82},
-    study:{eye:[2200,1430,5510],target:[770,1120,4740],fov:76}
+    study:{eye:[2200,1430,5510],target:[770,1120,4740],fov:76},
+    'master-wardrobe':{eye:[5300,1420,2130],target:[3800,1420,1850],fov:86},
+    'child-wardrobe':{eye:[1450,1400,720],target:[3080,1400,400],fov:86}
   },v=views[key];if(!v)return false;
   if(opt.mode==='walk')setMode('orbit');opt.cut=H;opt.labels=false;opt.night=false;opt.hour=10.5;syncCutBtns();sync();showLabels(false);applyLight();
   $('#referenceViewSelect').value=key;closeDrawers();

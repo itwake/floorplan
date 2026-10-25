@@ -128,9 +128,11 @@ const painted=()=>{const c=document.querySelector('#view3d canvas');if(!c?.width
   console.log('Reference finish: six actual room views');
   const viewDefs=[
    ['living',[3100,1650,10800],[5700,1050,7900]],['dining',[4650,1700,11050],[2270,1380,11200]],['tv',[5100,1600,9250],[5050,1050,6450]],
-   ['master',[4400,1570,3050],[5600,1180,1600]],['child',[2450,1520,3060],[1400,1100,1450]],['study',[2190,1450,4090],[850,1180,5640]]
+   ['master',[4400,1570,3050],[5600,1180,1600]],['child',[2450,1520,3060],[1400,1100,1450]],['study',[2190,1450,4090],[850,1180,5640]],
+   ['master-wardrobe',[5300,1420,2130],[3800,1420,1850]],['child-wardrobe',[1450,1400,720],[3080,1400,400]]
   ];
   for(const[key,position,target]of viewDefs){
+   if(process.argv.includes('--wardrobe-only')&&!key.endsWith('-wardrobe'))continue;
    const before=await stateSnapshot();let used='inspection-camera';const select=page.locator('#referenceViewSelect');
    if(await select.count()&&await select.locator('option[value="'+key+'"]').count()){await select.selectOption(key);await page.waitForFunction(()=>window.__familyReferenceQA.ready()&&!switching);used='referenceViewSelect';}
    else{await page.evaluate(({p,t})=>window.__familyReferenceQA.camera(p,t),{p:position,t:target});}
