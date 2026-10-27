@@ -372,7 +372,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=reference-finish-20261025"></script>
+<script src="data/house-plans.js?v=drawing-20261027"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -482,7 +482,7 @@ const uid = () => 'f' + Date.now().toString(36) + (_n++);
 const F = (type,name,cx,cy,w,d,rot=0,color) => ({id:uid(),type,name,cx,cy,w,d,rot,color:color||typeColor(type)});
 
 function defaultFurniture(){ return structuredClone(HOUSE_PLAN.defaultFurniture); }
-function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update,HOUSE_PLAN.metadata.familyBalconyRecessUpdate,HOUSE_PLAN.metadata.familyFloorDrainsUpdate,HOUSE_PLAN.metadata.familyElectricalUpdate,HOUSE_PLAN.metadata.familyKitchenHeaterUpdate,HOUSE_PLAN.metadata.familyLivingEastUpdate,HOUSE_PLAN.metadata.familyReferenceFinishUpdate].filter(Boolean);}
+function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update,HOUSE_PLAN.metadata.familyBalconyRecessUpdate,HOUSE_PLAN.metadata.familyFloorDrainsUpdate,HOUSE_PLAN.metadata.familyElectricalUpdate,HOUSE_PLAN.metadata.familyKitchenHeaterUpdate,HOUSE_PLAN.metadata.familyLivingEastUpdate,HOUSE_PLAN.metadata.familyReferenceFinishUpdate,HOUSE_PLAN.metadata.familyDrawingUpdate].filter(Boolean);}
 function defaultState(){
   const rooms = {}; ROOMS.forEach(r => rooms[r.id] = {name:r.name, mat:r.mat});
   return {schemaVersion:2,projectId:'house-design',schemeId:SCHEME_ID,sourceVersion:PLAN_LIBRARY.version,
@@ -502,6 +502,7 @@ function load(){
   return null;
 }
 function balconyRecessNotice(f){
+  if(HOUSE_PLAN.metadata.familyDrawingUpdate)return '';
   const revision=HOUSE_PLAN.metadata.familyBalconyRecessUpdate;
   if(!revision)return '';
   if(f&&!['laundry_dryer','balcony_robot','balcony_recess_housing','balcony_bucket_tap','fit-kitchen-20261005'].includes(f.id))return '';
@@ -513,6 +514,7 @@ function bindBalconyRecessView(){
   button.onclick=async()=>{if(viewMode!=='3d')await setView('3d');if(viewMode==='3d')window.View3D?.focusBalconyRecess();closeDrawers();};
 }
 function floorDrainNotice(f){
+  if(HOUSE_PLAN.metadata.familyDrawingUpdate)return '';
   const revision=HOUSE_PLAN.metadata.familyFloorDrainsUpdate;if(!revision)return '';
   if(f&&f.modelVariant!=='square-floor-drain')return '';
   return `<section class="project-note" data-family-floor-drains-warning><b>${tr('5处地漏 · 位置暂估','Five floor drains · provisional positions')}</b><p>${tr('D1生活阳台接水区；D2主卫干区、D3主卫淋浴；D4客卫干区、D5客卫淋浴。地漏盖先按150×150mm示意，可选中编辑、移动或删除；实际格栅应与完成地面齐平，4mm仅为显示厚度，不是地面凸起。','D1 balcony bucket area; D2/D3 main-bath dry/shower zones; D4/D5 guest-bath dry/shower zones. The editable grates are 150 × 150 mm placeholders; actual covers sit flush with the finished floor. The 4 mm display thickness is not a proposed raised edge.')}</p><p>${tr('未绘制地下排水管、存水弯或地面找坡；现有排水口、接管条件、防水、坡向、地漏型号及清理净空须现场核验。洗衣机排水仍独立待核，不默认接入干区地漏。阳台接水时避免向电器溅水，水桶使用后移走。','No underground pipes, traps or floor falls are modeled. Existing outlets, connections, waterproofing, slopes, models and cleaning access require site checks. Washer drainage remains independently unresolved, not automatically connected to a dry-zone grate. Avoid splashing appliances and remove the bucket after use.')}</p>${f?`<button class="btn" id="viewFloorDrain3d">${tr('近看此地漏3D','Inspect this floor drain in 3D')}</button>`:''}</section>`;
@@ -522,6 +524,8 @@ function bindFloorDrainView(f){
   button.onclick=async()=>{if(viewMode!=='3d')await setView('3d');if(viewMode==='3d')window.View3D?.focusFloorDrain(f.id);closeDrawers();};
 }
 function refreshCabinetDesign(f){
+  const drawingRevision=HOUSE_PLAN.metadata.familyDrawingUpdate?.id;
+  if(drawingRevision&&(f.layoutCustomPartsRevision===drawingRevision||f.layoutCustomSizeRevision===drawingRevision))return;
   if(f.layoutCustomSizeRevision&&f.layoutCustomSizeRevision===HOUSE_PLAN.metadata.familyStudyDoorUpdate?.id)return;
   const recessRevision=HOUSE_PLAN.metadata.familyBalconyRecessUpdate?.id;
   if(recessRevision&&(f.layoutCustomPartsRevision===recessRevision||f.layoutCustomSizeRevision===recessRevision))return;
@@ -1077,7 +1081,7 @@ function cornerCabinetDoorSVG(f,original){
 // plan buttons and dashed control relationships are annotations, not physical
 // dimensions or concealed cable routes. The old shoe-niche plate is reused.
 function currentElectricalPoints(){
-  const revision=HOUSE_PLAN.metadata.familyElectricalUpdate;if(!revision)return [];
+  const revision=HOUSE_PLAN.metadata.familyDrawingElectricalUpdate||HOUSE_PLAN.metadata.familyElectricalUpdate;if(!revision)return [];
   const points=state.furniture.filter(f=>f.electricalDesign).map(f=>({id:f.id,f,design:f.electricalDesign,cx:f.cx,cy:f.cy,rot:f.rot,h:(f.elevationMm||0)+(f.heightMm||86)/2}));
   for(const e of revision.existingPoints||[]){
     const f=getF(e.hostFurnitureId),p=f?.parts?.find(q=>q.id===e.hostPartId);if(!f||!p)continue;
@@ -1094,15 +1098,15 @@ function electricalTargets(d){
   }).filter(Boolean);
 }
 function electricalNotice(f){
-  const m=HOUSE_PLAN.metadata.familyElectricalUpdate;if(!m)return '';
+  const m=HOUSE_PLAN.metadata.familyDrawingElectricalUpdate||HOUSE_PLAN.metadata.familyElectricalUpdate;if(!m)return '';
   const all=currentElectricalPoints(),point=f?all.find(q=>q.f.id===f.id):null;
   if(f&&!point)return '';
   const missingPeers=point?(point.design.groupIds||[]).flatMap(id=>(m.groups.find(g=>g.id===id)?.controlPointIds||[]).filter(id=>!getF(id))):[];
   const duplicatedCode=point&&all.filter(q=>q.design.code===point.design.code).length>1;
   const controlReview=(missingPeers.length?`<p data-electrical-missing-peer>${tr('同组开关已被移除，当前双控关系不完整，请重新核对：','A controller was removed; this two-way group is incomplete. Review: ')}${missingPeers.map(id=>esc(id.replace('family-elec-','').toUpperCase())).join('、')}</p>`:'')+(duplicatedCode?`<p data-electrical-duplicate-code>${tr('该编号有复制点，控制组不再是原来的两处，请重新核对编号和关系。','This code has a duplicate; its group is no longer the original pair. Review codes and relationships.')}</p>`:'');
-  const detail=point?`<p data-electrical-detail><b>${esc(point.design.code+' · '+point.design.purpose)}</b><br>${tr('当前中心高','Current center height')} ${Math.round(point.h)} mm · ${tr('完成地面起算／暂估','above finished floor / provisional')}${point.existing?'<br>'+tr('复用鞋柜原面板；位置随原柜体组件，不额外复制实体。','Reuses the existing shoe-niche plate; follows its owner part, without duplicated geometry.'):`<br>${tr('底边高','Bottom elevation')} ${f.elevationMm||0} mm`}</p>${!point.existing?`<label>${tr('面板中心高','Plate center height')} (mm)<input id="electricalCenterHeight" type="number" min="${f.heightMm/2}" max="10000" step="10" value="${point.h}"></label>`:''}${point.design.kind==='switch'?`<p data-electrical-controls>${esc(point.design.controlType==='two-way'?tr('双控：同组两处控制同一盏灯','Two-way: both points control the same lamp'):tr('独立／多功能用途控制','Independent / multifunction concept'))}<br>${(point.design.groupIds||[]).map(id=>esc(m.groups.find(g=>g.id===id)?.title||id)).join('、')}<br>${electricalTargets(point.design).map(t=>esc(t.name)).join('<br>')||tr('关联灯具已移除，请复核','Linked fixture removed; review required')}</p>`:''}<button class="btn" id="viewElectrical3d" data-point="${esc(point.id)}">${tr('近看此电位3D','Inspect this plate in 3D')}</button>`:'';
+  const detail=point?`<p data-electrical-detail><b>${esc(point.design.code+' · '+point.design.purpose)}</b><br>${tr('当前中心高','Current center height')} ${Math.round(point.h)} mm · ${tr('完成地面起算／暂估','above finished floor / provisional')}${point.existing?'<br>'+tr('复用鞋柜原面板；位置随原柜体组件，不额外复制实体。','Reuses the existing shoe-niche plate; follows its owner part, without duplicated geometry.'):`<br>${tr('底边高','Bottom elevation')} ${f.elevationMm||0} mm`}</p>${!point.existing?`<label>${tr('面板中心高','Plate center height')} (mm)<input id="electricalCenterHeight" type="number" min="${f.heightMm/2}" max="10000" step="10" value="${point.h}"></label>`:''}${point.design.kind==='switch'?`<p data-electrical-controls>${esc(point.design.controlType==='two-way'?tr('双控：同组两处控制同一盏灯','Two-way: both points control the same lamp'):point.design.controlType==='three-location'?tr('三控：同组三处控制同一盏灯','Three-location control of the same light'):tr('独立／多功能用途控制','Independent / multifunction concept'))}<br>${(point.design.groupIds||[]).map(id=>esc(m.groups.find(g=>g.id===id)?.title||id)).join('、')}<br>${electricalTargets(point.design).map(t=>esc(t.name)).join('<br>')||tr('关联灯具已移除，请复核','Linked fixture removed; review required')}</p>`:''}<button class="btn" id="viewElectrical3d" data-point="${esc(point.id)}">${tr('近看此电位3D','Inspect this plate in 3D')}</button>`:'';
   const list=all.slice().sort((a,b)=>a.design.code.localeCompare(b.design.code)).map(q=>`<button class="btn" data-electrical-select="${esc(q.id)}" style="margin:2px" title="${esc(q.design.purpose)}">${esc(q.design.code)}</button>`).join('');
-  return `<section class="project-note" data-family-electrical-warning><b>${tr('电位与双控 · 待电工深化','Electrical / two-way controls · electrician review pending')}</b><p>${tr('54个逻辑电位：14开关、36电源、4弱电；其中鞋柜P16复用，新增53个实体。三房与客厅共四组双控。S开关／P电源／N弱电；点击编号查看用途和中心高。“电位”统一显隐新增面板及全部编号，鞋柜原P16实体不隐藏。','54 logical points: 14 switches, 36 power, 4 data; P16 reuses its old plate, 53 new entities. Four two-way groups cover the three rooms and living room. Select S/P/N codes to inspect purpose and center height. Electrical toggles the new plates and all codes; the original P16 plate remains visible.')}</p><p>${tr('虚线仅是控制关系，不是施工走线，也不模拟真实供电。点位、中心高和86面板外形均暂估；未确定回路、负荷、线径、额定电流、防护等级、接地或漏电保护。涉水区、设备线长、散热与柜内暗盒/穿线须由合格电工和安装商现场核验，不能照图直接施工。','Dashed lines show functional relationships, not wiring or operating power. Positions, center heights and 86-mm plates are provisional. Circuits, loads, wire sizes, ratings, IP, earthing and residual-current protection are unresolved. Qualified professionals must review wet zones, cable reach, heat and cabinet boxes on site; do not construct from this concept.')}</p>${detail}${controlReview}<details ${point?'':'open'}><summary>${tr('电位索引 · 当前','Point index · current')} ${all.length}/54</summary><div id="electricalPointList">${list}</div></details></section>`;
+  return `<section class="project-note" data-family-electrical-warning><b>${tr('电位与双控 · 待电工深化','Electrical / two-way controls · electrician review pending')}</b><p>${tr('电位按当前图纸及既有设备用途布置；主卧三控，客厅和餐厅各双控。S开关／P电源／N弱电；点击编号查看用途和中心高。“电位”统一显隐新增面板及全部编号，鞋柜原P16实体不隐藏。','Points follow the current drawing and existing device requirements; the main bedroom has three-location control and the living and dining areas have two-way controls. Select S/P/N codes to inspect purpose and center height. Electrical toggles the new plates and all codes; the original P16 plate remains visible.')}</p><p>${tr('虚线仅是控制关系，不是施工走线，也不模拟真实供电。点位、中心高和86面板外形均暂估；未确定回路、负荷、线径、额定电流、防护等级、接地或漏电保护。涉水区、设备线长、散热与柜内暗盒/穿线须由合格电工和安装商现场核验，不能照图直接施工。','Dashed lines show functional relationships, not wiring or operating power. Positions, center heights and 86-mm plates are provisional. Circuits, loads, wire sizes, ratings, IP, earthing and residual-current protection are unresolved. Qualified professionals must review wet zones, cable reach, heat and cabinet boxes on site; do not construct from this concept.')}</p>${detail}${controlReview}<details ${point?'':'open'}><summary>${tr('电位索引 · 当前','Point index · current')} ${all.length}</summary><div id="electricalPointList">${list}</div></details></section>`;
 }
 function bindElectricalControls(f){
   document.querySelectorAll('[data-electrical-select]').forEach(button=>button.onclick=()=>{
@@ -1266,6 +1270,11 @@ function renderDims(){
     return s;
   };
   const g = $('#gDims');
+  if(HOUSE_PLAN.metadata.familyDrawingUpdate){
+    g.innerHTML=chain(true,-1100,120,[7970])+chain(false,-770,120,[13770])+
+      `<text x="8550" y="-1100" font-size="230" fill="${DC}">N ↑</text><text x="120" y="14940" font-size="150" fill="${DC}">${tr('图纸尺寸基准 · 13770×7970 mm；现场复核','Drawing datum · 13770 × 7970 mm; verify on site')}</text>`;
+    g.setAttribute('display',ui.layers.dims?'inline':'none');return;
+  }
   const topWalls=WALLS.filter(w=>w[1]<=180), bottomWalls=WALLS.filter(w=>w[3]>=13900);
   const x0=Math.min(...WALLS.map(w=>w[0])),y0=Math.min(...WALLS.map(w=>w[1])),y1=Math.max(...WALLS.map(w=>w[3]));
   const topX=Math.max(...topWalls.map(w=>w[2])),bx0=Math.min(...bottomWalls.map(w=>w[0])),bx1=Math.max(...bottomWalls.map(w=>w[2]));
@@ -1338,12 +1347,14 @@ function updateHeader(){
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
 function livingEastNotice(f){
+  if(HOUSE_PLAN.metadata.familyDrawingUpdate)return `<section class="project-note" data-family-drawing><b>${tr('方案2 · 最新图纸调整','Scheme 2 · latest drawing')}</b><p>${tr('墙体与门窗按最新图纸建模；沙发与电视按图布置，已购1400mm餐桌保留。餐边柜靠窗端缩短800mm；烘干机在阳台，扫地机器人位于入户鞋柜下。','Walls and openings follow the latest drawing; the sofa faces the television, the purchased 1400 mm dining table remains, and the sideboard is shortened by 800 mm. The dryer stays by the balcony, while the robot moves beneath the entry shoe cabinet.')}</p><p>${tr('主卧床架至衣柜约500mm，次卧约760mm；书房未来放1.5m床时须重新核对桌子和通道。图纸尺寸、窗高及设备安装条件仍以现场复核为准。','Frame-to-wardrobe gaps are approximately 500 mm in the main bedroom and 760 mm in the second; the study desk and access need review for a future 1.5 m bed. Verify dimensions, window heights and equipment installation on site.')}</p></section>`;
   if(HOUSE_PLAN.metadata.familyReferenceFinishUpdate&&(!f||f.referenceStyle))return `<section class="project-note" data-family-reference-finish><b>${tr('方案2 · 六图效果参考重建','Scheme 2 · six-image reference reconstruction')}</b><p>${tr('保留已购IKEA沙发、餐桌椅及无茶几；沙发仍靠东墙。餐边柜从原飘台端缩短800mm（西直段4090mm），保留南转角180°库门。三间卧室/书房为真正木地板，客餐厅仍为米白大砖。','Purchased IKEA living/dining furniture and no coffee table are retained, with the sofa on the east wall. The sideboard retreats 800 mm from its original bay end (4090 mm straight run) and retains the 180° corner pantry. Bedrooms/study have real wood floors; the public area keeps pale large-format tile.')}</p><p>${tr('奶白通顶柜、木背板双灯带、深木多格电视柜、两卧软包床/拱龛、悬浮书桌与窗饰按图重建。请用顶部“效果视角”逐房查看。原实测墙门窗和窗边空调不改；桌后木色门为滑门，不假称可拉抽。','Reference-led full-height cabinets, two lit wood shelves, dark-wood cubbies, upholstered beds/arch niche, floating desks and window dressings are rebuilt. Use the reference-view selector above. Surveyed walls/openings and window-side AC remain. Wood fronts behind the table slide rather than pull out as drawers.')}</p><small>${tr('这是基于照片的参数化重建，不是原始设计模型或原厂材质复用；纹理/画作属程序近似，不能承诺与离线效果图完全相同。窗帘、悬浮柜及灯具尺寸/承载/散热/配线仍待深化。自定义草稿保留，先导出备份再重置可查看完整新默认方案。','This is a photo-led parametric reconstruction, not the original scene or manufacturer materials. Textures/artwork are procedural approximations, not a promise of identical offline renders. Installation details remain unverified. Private edits are preserved; export before resetting to the full new defaults.')}</small></section>`;
   const m=HOUSE_PLAN.metadata.familyLivingEastUpdate;if(!m||f&&!m.changedFurnitureIds.includes(f.id))return '';
   const custom=f&&(f.layoutCustomPartsRevision===m.id||f.layoutCustomSizeRevision===m.id);
   return `<section class="project-note" data-family-living-east-warning><b>${tr('方案2 · 东墙沙发与短餐边柜','Scheme 2 · east-wall sofa and shorter sideboard')}</b><p>${tr('默认沙发参考方案4背靠东墙、面向西侧，电视仍保留北墙（斜向观看）。原沙发背后低柜已移除；餐桌、地毯、灯、飘台和墙门窗保持。','The default sofa follows Scheme 4 against the east wall facing west; the TV stays on the north wall for angled viewing. The former sofa-back cabinet is removed; dining furniture, rug, lights, bay seat and architecture are unchanged.')}</p><p>${tr('餐边柜从靠飘台的北端缩短1000mm，西墙直段4890→3890mm；入户南端、通顶高度及180°转角库保持。五台台面电器和P19–P23用途点随短柜重排，P17移至沙发南侧。灯带保留；三抽改南段，开启三抽或转角库前需临时移南餐椅，关柜后恢复。','The sideboard is shortened by 1000 mm at its north/bay end: the west straight run is 4890→3890 mm. Its entrance end, full height and 180° corner pantry remain. Five appliances and P19–P23 follow the shorter niche; P17 moves south of the sofa. LEDs remain. The three drawers move to the south segment; temporarily move the south dining chair before opening drawers or pantry, then restore it.')}</p>${custom?`<p data-custom-living-cabinet-warning>${tr('保留了你的自定义柜体组件或尺寸，未强制替换；请核对它与新电器/电位是否重叠。可先导出备份，再重置当前方案查看完整默认布局。','Your custom cabinet assembly or dimensions were preserved; check the revised appliances and points for overlaps. Export a backup before resetting to the complete default layout.')}</p>`:''}<small>${tr('以上为模型默认布局，柜体收口、设备散热、开盖/蒸汽、电位与现场动线仍需复核，不是下单或施工确认。','These are model defaults, not order or installation approval. Verify cabinetry, equipment heat/lid/steam clearance, electrical points and circulation on site.')}</small></section>`;
 }
 function kitchenHeaterNotice(f){
+  if(HOUSE_PLAN.metadata.familyDrawingUpdate)return '';
   const m=HOUSE_PLAN.metadata.familyKitchenHeaterUpdate;if(!m||f&&f.modelVariant!=='macro-gas-waterheater')return '';
   return `<section class="project-note" data-family-kitchen-heater-warning><b>${tr('薄型壁挂燃气热水器 · 商品图参考','Slim wall-mounted gas heater · product-image reference')}</b><p>${tr('按两张参考图的万家乐JSLQ27-16U10 ULTRA(F)造型，奶白竖纹面板、右侧控制区、顶部60mm烟口及底部三个短接口。参考机身宽340×深190×高525mm，不是含接口、挂板和烟管的完整安装外包，也不视为已购确认。','Macro JSLQ27-16U10 ULTRA(F) appearance from the two supplied images: cream fluted front, right controls, 60 mm top collar and three short bottom ports. Reference casing W340 × D190 × H525 mm excludes projections, brackets and exhaust routing and does not confirm purchase.')}</p>${f?`<p data-heater-body-dimensions>${tr('当前机身','Current casing')} ${f.w}×${f.d}×${f.heightMm} mm · ${tr('机身底高暂沿用','Illustrative casing bottom remains')} ${f.elevationMm||0} mm</p><button class="btn" id="viewKitchenHeater3d">${tr('全高近看热水器3D','Inspect heater in full-height 3D')}</button>`:''}<p>${tr('本轮只改方案2的造型与机身尺寸，背面仍贴原东墙；安装高度暂沿用旧1320mm，未据商品图改成施工尺寸。北侧模型间隙约95mm，净空、挂板、烟管路径、通风、水/气接口及P27电源仍待厂家安装商现场核验；未绘制完整排烟、水气管路或新墙孔。','Only Scheme 2 appearance and casing dimensions change, maintaining the east-wall datum. The old illustrative 1320 mm bottom remains, not an installation instruction. The modeled north gap is about 95 mm. Clearances, bracket, exhaust, ventilation, water/gas connections and P27 require the manufacturer installer’s site review. No complete exhaust, supply pipes or new wall penetrations are modeled.')}</p><p>${tr('两图的进出水口间距分别标223.9与233.9mm，存在冲突；短接口仅供识别，不按此配管。原图542.2／571.5／598.5mm等标注单独保存，未擅自解释为完整安装高度。','The supplied water-port pitches conflict (223.9 vs 233.9 mm); short ports are identification-only, not plumbing coordinates. The 542.2 / 571.5 / 598.5 mm diagram annotations are retained separately without interpreting a full installed height.')}</p></section>`;
 }
@@ -1374,7 +1385,7 @@ function overviewPanel(){
   const dem = state.demolished.map(id => WALLS[+id.slice(1)]);
   const demLen = dem.reduce((a,w) => a + Math.max(w[2]-w[0], w[3]-w[1]), 0) / 1000;
   return `
-  <section class="project-note"><b>${esc(HOUSE_PLAN.name)}</b>${layoutRevisions().map(r=>`<br>${esc(r.title)}`).join('')}${HOUSE_PLAN.metadata.bedroomUpdate?`<p data-bedroom-clearance>${tr('两卧床尾至衣柜约555mm，偏紧；下部采用滑门。桌椅、床架及门套尺寸仍需现场核对。','Both bed-foot gaps are about 555 mm and tight. Lower wardrobe doors slide; furniture and door trim dimensions need verification.')}</p>`:''}${HOUSE_PLAN.metadata.familyBathUpdate?`<p data-family-bath-clearance>${tr('主卫门已北移并改北铰内开，盆厕背靠南墙。马桶侧至淋浴仅60mm，排水移位、门套及绕门通行仍待核；主卫窗保留旧定位示意，实测500×1400mm，窗台及定位待核。','The bathroom door moves north and is north-hinged inward, with the vanity and toilet against the south wall. The toilet/shower side gap is only 60 mm; drainage, trim and routes around doors need verification. The bath window retains its old illustrative placement: measured 500 × 1400 mm, sill and positioning pending.')}</p>`:''}${state.layoutMigrationKeptIds?.length?`<p data-layout-migration-warning>${tr('保留了你的自定义摆位或尺寸；已移除的旧布局物件另存于JSON备份记录。请核对重叠与动线；查看完整新默认布局前，可先导出备份再重置当前方案。','Your custom placement or dimensions were preserved; removed objects are archived in JSON. Check collisions and routes; export a backup before resetting to see the complete new default layout.')}</p>`:''}<br>${tr('原网站方案已导入；局部复尺值已应用，待核尺寸保留原示意。墙体承重性未鉴定，草案改墙不是施工许可。','Original schemes imported; partial surveys applied, unresolved values remain illustrative. Wall structure is unverified.')}<br><small>${tr('编辑自动保存于当前浏览器，各方案独立。换设备请导出 JSON。','Edits auto-save in this browser per scheme. Export JSON to change devices.')}</small></section>
+  <section class="project-note"><b>${esc(HOUSE_PLAN.name)}</b>${layoutRevisions().map(r=>`<br>${esc(r.title)}`).join('')}${HOUSE_PLAN.metadata.bedroomUpdate&&!HOUSE_PLAN.metadata.familyDrawingUpdate?`<p data-bedroom-clearance>${tr('两卧床尾至衣柜约555mm，偏紧；下部采用滑门。桌椅、床架及门套尺寸仍需现场核对。','Both bed-foot gaps are about 555 mm and tight. Lower wardrobe doors slide; furniture and door trim dimensions need verification.')}</p>`:''}${HOUSE_PLAN.metadata.familyBathUpdate&&!HOUSE_PLAN.metadata.familyDrawingUpdate?`<p data-family-bath-clearance>${tr('主卫门已北移并改北铰内开，盆厕背靠南墙。马桶侧至淋浴仅60mm，排水移位、门套及绕门通行仍待核；主卫窗保留旧定位示意，实测500×1400mm，窗台及定位待核。','The bathroom door moves north and is north-hinged inward, with the vanity and toilet against the south wall. The toilet/shower side gap is only 60 mm; drainage, trim and routes around doors need verification. The bath window retains its old illustrative placement: measured 500 × 1400 mm, sill and positioning pending.')}</p>`:''}${state.layoutMigrationKeptIds?.length?`<p data-layout-migration-warning>${tr('保留了你的自定义摆位或尺寸；已移除的旧布局物件另存于JSON备份记录。请核对重叠与动线；查看完整新默认布局前，可先导出备份再重置当前方案。','Your custom placement or dimensions were preserved; removed objects are archived in JSON. Check collisions and routes; export a backup before resetting to see the complete new default layout.')}</p>`:''}<br>${tr('原网站方案已导入；局部复尺值已应用，待核尺寸保留原示意。墙体承重性未鉴定，草案改墙不是施工许可。','Original schemes imported; partial surveys applied, unresolved values remain illustrative. Wall structure is unverified.')}<br><small>${tr('编辑自动保存于当前浏览器，各方案独立。换设备请导出 JSON。','Edits auto-save in this browser per scheme. Export JSON to change devices.')}</small></section>
   ${cabinetOverview()}
   ${HOUSE_PLAN.metadata.familyStudyLaundryUpdate?`<section class="project-note" data-family-study-laundry-warning>${tr('书房当前保留沙发；将来1500×2000床垫按2100×1600床架替换沙发校核，床侧710mm与桌椅共用、床尾120mm不是通道。客卫台前610mm偏紧；机门、管线与检修须实物核对。阳台已取消借厅外凸，模型净宽1420与复尺1240mm仍差180mm，定位待核。','The study keeps its sofa now. A future 1500 × 2000 mattress is checked with an assumed 2100 × 1600 frame replacing it: the shared desk/bed-side strip is 710 mm; the 120 mm foot gap is not a passage. The guest bath has only 610 mm in front of the counter; appliance doors, hoses and servicing need on-site checks. The balcony no longer protrudes into the living room; the model width 1420 versus surveyed 1240 mm remains unresolved.')}</section>`:''}
   ${HOUSE_PLAN.metadata.familyDoorRefinement?`<section class="project-note" data-family-door-refinement-warning>${tr('厨房与生活阳台已改双扇双轨玻璃推拉门，原洞口1700/1500mm不变。叠放后的名义开口约850/750mm，实际门框与搭接还需扣减；不是施工净宽。','The kitchen and laundry balcony now have two-leaf, two-track glass sliders. The original 1700/1500 mm apertures remain; nominal stacked openings are about 850/750 mm before frame and overlap deductions, not certified clear widths.')}</section>`:''}
@@ -2103,8 +2114,8 @@ import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js'
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 import {CSS2DRenderer, CSS2DObject} from 'three/addons/renderers/CSS2DRenderer.js';
 import {createReferenceFinishes} from './reference-finishes.js?v=20261025';
-import {createReferenceInterior} from './reference-interior.js?v=20261025';
-import {createReferenceDressing} from './reference-dressing.js?v=20261025';
+import {createReferenceInterior} from './reference-interior.js?v=drawing-20261027';
+import {createReferenceDressing} from './reference-dressing.js?v=drawing-20261027';
 
 const stage = $('#stage'), host = $('#view3d');
 const OX = HOUSE_PLAN.CENTER.x, OY = HOUSE_PLAN.CENTER.y, H = Math.max(HOUSE_PLAN.HEIGHT_MM,...WALL_META.map(w=>w.heightMm))/1000, FOV = 45;       // 户型中心放在世界原点，层高 2.8 m
@@ -3443,7 +3454,9 @@ function buildArch(){
     }else wallBox(r,0,Math.min(sill,top));
     if(top>head && meta.type!=='bay-front')wallBox(r,head,Math.min(top,openingWallTop(r)));
     colliders.push([wx(r[0]),wz(r[1]),wx(r[2]),wz(r[3])]);
-    if(meta.noFrame) return;
+    // The conditional 600 mm balcony projection carries its own outer guard;
+    // keep the original low boundary but do not draw a second inner grille.
+    if(meta.noFrame||(meta.guard&&HOUSE_PLAN.metadata.familyDrawingUpdate&&getF('balcony_outer_projection'))) return;
     const gTop=Math.min(head,top);if(gTop<=sill)return;
     const [x0,y0,x1,y1]=r,hz=x1-x0>=y1-y0,L=M(hz?x1-x0:y1-y0),gh=gTop-sill,cx=wx((x0+x1)/2),cz=wz((y0+y1)/2);
     if(!meta.noGlass){const pane=new THREE.Mesh(new THREE.BoxGeometry(hz?L:.01,gh,hz?.01:L),glassMat);pane.position.set(cx,sill+gh/2,cz);pane.userData={windowSourceId:meta.id,role:'window-glass'};archUp.add(pane);}
@@ -3692,7 +3705,14 @@ function referenceView(key){
     study:{eye:[2200,1430,5510],target:[770,1120,4740],fov:76},
     'master-wardrobe':{eye:[5300,1420,2130],target:[3800,1420,1850],fov:86},
     'child-wardrobe':{eye:[1450,1400,720],target:[3080,1400,400],fov:86}
-  },v=views[key];if(!v)return false;
+  };
+  if(HOUSE_PLAN.metadata.familyDrawingUpdate){
+    views.living={eye:[3500,1550,8100],target:[5165,1050,9320],fov:67};
+    views.tv={eye:[5165,1550,8500],target:[5165,1150,6420],fov:65};
+    views.child={eye:[2400,1410,3110],target:[1170,1210,1820],fov:82};
+    views.study={eye:[2200,1430,4310],target:[770,1120,5775],fov:76};
+  }
+  const v=views[key];if(!v)return false;
   if(opt.mode==='walk')setMode('orbit');opt.cut=H;opt.labels=false;opt.night=false;opt.hour=10.5;syncCutBtns();sync();showLabels(false);applyLight();
   $('#referenceViewSelect').value=key;closeDrawers();
   const target=new THREE.Vector3(wx(v.target[0]),M(v.target[1]),wz(v.target[2])),eye=new THREE.Vector3(wx(v.eye[0]),M(v.eye[1]),wz(v.eye[2]));

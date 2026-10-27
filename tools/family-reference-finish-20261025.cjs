@@ -385,7 +385,7 @@ function applyFamilyReferenceFinish(bundle){
   return bundle;
 }
 function beforeFamilyReferenceFinish(value){
-  const out=clone(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyReferenceFinishUpdate;if(!m)return out;
+  const out=require('./family-drawing-20261027.cjs').beforeFamilyDrawing(value),p=out.schemes?out.schemes.family:out,m=p?.metadata?.familyReferenceFinishUpdate;if(!m)return out;
   const old=new Map(m.previousFurniture.map(q=>[q.id,q])),now=new Map(p.defaultFurniture.map(q=>[q.id,q]));
   p.defaultFurniture=m.previousFurnitureOrder.map(id=>clone(old.get(id)||now.get(id)));
   for(const[k,v]of Object.entries(m.previousPlanFields))p[k]=clone(v);

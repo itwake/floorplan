@@ -173,7 +173,7 @@ export function createReferenceInterior({THREE,RoundedBoxGeometry,finish}) {
     o.userData.openArch=p.shape==='arch-spandrel';o.userData.panelShape=p.shape;return o;
   }
   function decorateFurniture(g,f){
-    if(f.id!=='family-f3'||!f.referenceStyle)return false;
+    if(f.id!=='family-f3'||f.referenceStyle?.variant!=='master-cream-wardrobe')return false;
     const assembly=new THREE.Group();assembly.name='reference-master-open-niche-garments';assembly.userData={referenceInterior:true,referenceApproximation:true,role:'reference-open-wardrobe-garments'};
     const settings=[{kind:'coat',x:-.919,z:.065,w:.340,h:.950,bottom:1.030,color:'#B4AD9E',fold:'#A29B8D',hanger:'#524C43'},
       {kind:'shirt',x:-.863,z:-.035,w:.330,h:.865,bottom:1.115,color:'#EEE8DA',fold:'#DDD5C6',hanger:'#A2835F'}];

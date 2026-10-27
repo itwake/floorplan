@@ -3,6 +3,7 @@
 // furniture, a hidden architectural edit, or an installation approval.
 export function createReferenceDressing({THREE,finish,artTexture,wx,wz}){
   const M=n=>Number(n||0)/1000,cache=new Map();
+  const drawingRoom=r=>r?.layoutRevision==='family-drawing-shell-20261027';
   const C={cream:'#ECE6DB',curtain:'#BDB5A9',sheer:'#F4F1E8',pink:'#E7D5CE',rose:'#CDAEA5',wood:'#A28361',gold:'#C4A46D'};
   function material(kind,color){
     const key=kind+color;if(cache.has(key))return cache.get(key);
@@ -130,14 +131,16 @@ export function createReferenceDressing({THREE,finish,artTexture,wx,wz}){
   }
   function childWallAccents(archUp,rooms,cut,created){
     const r=rooms.find(q=>q.id==='room_b');if(!r)return;
+    const drawing=drawingRoom(r),west=drawing?Math.min(...r.poly.map(p=>p[0])):120,
+      north=drawing?Math.min(...r.poly.map(p=>p[1])):120,south=drawing?Math.max(...r.poly.map(p=>p[1])):3220;
     const top=Math.min(M(r.heightMm||2700),cut);if(top>.001){
       const g=group('reference-child-thin-pink-wall-finish','room_b',top*1000,cut,{decorativeFinishOnly:true,noWallMove:true,nominalThicknessMm:2});
-      box(g,121,1670,2,3100,0,top*1000,material('cream',C.pink),'reference-child-2mm-pink-wall-face',
-        {wallInteriorPlaneMm:120,nominalThicknessMm:2,noStructuralModification:true});archUp.add(g);created.push(g);
+      box(g,west+1,(north+south)/2,2,south-north,0,top*1000,material('cream',C.pink),'reference-child-2mm-pink-wall-face',
+        {wallInteriorPlaneMm:west,nominalThicknessMm:2,noStructuralModification:true});archUp.add(g);created.push(g);
     }
     const g=group('reference-child-outline-wall-decals','room_b',2050,cut,{visualDecalOnly:true,noTallFurniture:true});
     function outline(points,color,role){
-      const geo=new THREE.BufferGeometry().setFromPoints(points.map(([y,z])=>new THREE.Vector3(wx(124),M(z),wz(y))));
+      const geo=new THREE.BufferGeometry().setFromPoints(points.map(([y,z])=>new THREE.Vector3(wx(west+4),M(z),wz(y))));
       const o=new THREE.LineLoop(geo,new THREE.LineBasicMaterial({color}));o.userData={role,referenceDressing:true,referenceApproximation:true,visualDecalOnly:true};g.add(o);
     }
     const star=[];for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,r=i%2?55:115;star.push([2050+Math.cos(a)*r,1780+Math.sin(a)*r]);}
@@ -181,6 +184,9 @@ export function createReferenceDressing({THREE,finish,artTexture,wx,wz}){
   }
   function masterBedsidePendant(archUp,rooms,cut,created){
     const room=rooms.find(r=>r.id==='room_a');if(!room)return;
+    // The old east-side concept pendant now lands over the relocated bed.
+    // No replacement pendant position is specified by the construction plan.
+    if(drawingRoom(room))return;
     const H=Number(room.heightMm||2790),x=6500,y=900;
     // Existing master desk is below750mm, bed starts y1020, and the 180mm
     // shade ends y990. The north-wall AC/window and west wardrobe are away
@@ -213,11 +219,16 @@ export function createReferenceDressing({THREE,finish,artTexture,wx,wz}){
       const g=zebraBlind(id,roomId,windows,windowMeta,cut,{count:24,living});if(g){archUp.add(g);created.push(g);}
     }
     rugs(archFloor,rooms,cut,created);childWallAccents(archUp,rooms,cut,created);
-    if(rooms.some(r=>r.id==='room_c')){
-      const p=painting({roomId:'room_c',x:1170,y:3345,w:600,h:700,bottom:1100,face:'south',cut,role:'reference-study-north-warm-art'});archUp.add(p);created.push(p);
+    const study=rooms.find(r=>r.id==='room_c');
+    if(study){
+      const drawing=drawingRoom(study),x=drawing?(Math.min(...study.poly.map(p=>p[0]))+Math.max(...study.poly.map(p=>p[0])))/2:1170,
+        y=drawing?Math.min(...study.poly.map(p=>p[1]))+5:3345;
+      const p=painting({roomId:'room_c',x,y,w:600,h:700,bottom:1100,face:'south',cut,role:'reference-study-north-warm-art'});archUp.add(p);created.push(p);
     }
-    if(rooms.some(r=>r.id==='room_a')){
-      const p=painting({roomId:'room_a',x:6745,y:1800,w:460,h:600,bottom:1700,face:'west',cut,role:'reference-master-east-warm-art'});archUp.add(p);created.push(p);
+    const master=rooms.find(r=>r.id==='room_a');
+    if(master){
+      const x=drawingRoom(master)?Math.max(...master.poly.map(p=>p[0]))-5:6745;
+      const p=painting({roomId:'room_a',x,y:1800,w:460,h:600,bottom:1700,face:'west',cut,role:'reference-master-east-warm-art'});archUp.add(p);created.push(p);
     }
     bedroomCeilingLights(archUp,rooms,cut,created);masterBedsidePendant(archUp,rooms,cut,created);
     return{groups:created,windowIds:created.map(g=>g.userData.windowSourceId).filter(Boolean),referenceDressing:true,referenceApproximation:true};

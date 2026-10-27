@@ -72,6 +72,7 @@ function panelContains(q,x,y,z){
  return true;
 }
 function verifyFamilyReferenceFinish(bundle){
+ bundle=require('../tools/family-drawing-20261027.cjs').beforeFamilyDrawing(bundle);
  const inputHash=hash(bundle),p=bundle.schemes.family,u=p.metadata.familyReferenceFinishUpdate,oldBundle=beforeFamilyReferenceFinish(bundle),old=oldBundle.schemes.family;
  assert.equal(REVISION,'family-reference-finish-20261025');assert.equal(u?.id,REVISION);assert.equal(u.date,'2026-10-25');assert.equal(hash(old),baseline.family,'independent 17aff3b full 120-object before-image');
  assert.equal(hash(beforeFamilyReferenceFinish(p)),baseline.family,'plan-only exact rollback');assert.equal(hash(beforeFamilyReferenceFinish(old)),baseline.family,'absent layer inert');
