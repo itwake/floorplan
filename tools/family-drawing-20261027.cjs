@@ -8,7 +8,7 @@ const {applyFamilyDrawingPublic}=require('./family-drawing-public-20261027.cjs')
 const REVISION='family-drawing-20261027',KEY='familyDrawingUpdate',clone=structuredClone;
 const CHILD_KEYS=['familyDrawingShellUpdate','familyDrawingBedroomsUpdate','familyDrawingElectricalUpdate'];
 function beforeFamilyDrawing(value){
-  const result=clone(value),p=result.schemes?.family||result,m=p?.metadata?.[KEY];if(!m)return result;
+  const result=require('./family-dryer-kitchen-20261031.cjs').beforeFamilyDryerKitchen(value),p=result.schemes?.family||result,m=p?.metadata?.[KEY];if(!m)return result;
   for(const [key,entry] of Object.entries(m.previousFields)){if(entry.present)p[key]=clone(entry.value);else delete p[key];}
   const old=new Map(m.previousFurniture.map(f=>[f.id,f])),now=new Map(p.defaultFurniture.map(f=>[f.id,f]));
   p.defaultFurniture=m.previousFurnitureOrder.map(id=>clone(old.get(id)||now.get(id)));

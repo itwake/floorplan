@@ -1,6 +1,6 @@
 'use strict';
 const assert=require('node:assert/strict');
-const plans=require('../data/house-plans.js');
+const plans=require('../tools/family-dryer-kitchen-20261031.cjs').beforeFamilyDryerKitchen(require('../data/house-plans.js'));
 const {beforeFamilyDrawing,applyFamilyDrawing}=require('../tools/family-drawing-20261027.cjs');
 const {validateFamilyDrawingShell}=require('../tools/family-drawing-shell-20261027.cjs');
 const {validateFamilyDrawingElectrical}=require('../tools/family-drawing-electrical-20261027.cjs');

@@ -14587,6 +14587,7 @@ const plans = {
             12590
           ],
           "heightMm": 2700,
+          "notes": "2026-10-31保留890台面，窗下680宽单烘干机条件机位朝阳台；原上窗保留、余墙不作已批准可拆。",
           "dimensionStatus": "design-pending",
           "planAreaM2": 6.25,
           "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
@@ -14650,7 +14651,7 @@ const plans = {
             10200
           ],
           "heightMm": 2700,
-          "notes": "按新图约1050×1600mm阳台轮廓，东北/东南柱及围护以图纸示意；烘干机单独位于窗下，扫地机移入户鞋柜下。600mm外挑为非踩踏概念，实际结构、排水及安装条件待核。",
+          "notes": "原1050×1600主体轮廓、约1.662m²不扩大；烘干机拟经中央680×870窗下条件通口移至厨房，从阳台取衣，原阳台机柜取消。门前600mm操作区仅敏感性占位，结构/连续楼板/厂家净空待核。机器人仍在入户鞋柜下；龙头、地漏及600非踩踏外挑不动。",
           "dimensionStatus": "design-pending",
           "planAreaM2": 1.662,
           "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
@@ -17783,7 +17784,7 @@ const plans = {
           "noGlass": false,
           "noFrame": false,
           "guard": false,
-          "layoutRevision": "family-drawing-shell-20261027",
+          "layoutRevision": "family-dryer-kitchen-20261031",
           "drawingSource": {
             "id": "owner-construction-dwg-20261027",
             "file": "业主提供施工图.dwg",
@@ -17818,7 +17819,73 @@ const plans = {
           },
           "structuralUnverified": true,
           "notConstructionApproval": true,
-          "notes": "2026-10-27平面窗位/宽度按DWG更新。图例CH为窗洞高1350、DH为窗台离地1000；已与第20页立面C下段1000及窗段1350交叉核对，上口2350mm，待现场复核；不沿用原窗下低位服务开口。"
+          "notes": "原共窗890宽、台1000、窗高1350、上口2350保留；2026-10-31仅在窗下中央提出680×870单烘干机条件通口。两侧各105低墙和上方130墙带仍真实建模；窗框支承、钢筋/墙梁/管线、墙下楼板、防水及拆改审批均未确定，不是施工许可。",
+          "lowerServiceOpeningMm": {
+            "x1": 7145,
+            "x2": 7825,
+            "bottom": 0,
+            "top": 870
+          },
+          "lowerServiceOpeningDesign": {
+            "revision": "family-dryer-kitchen-20261031",
+            "status": "conditional-design-void-not-measured-existing-opening",
+            "machineId": "laundry_dryer",
+            "housingId": "family-dryer-kitchen-housing",
+            "widthMm": 680,
+            "heightMm": 870,
+            "originalWindowWidthMm": 890,
+            "remainingLowWallWidthsMm": [
+              105,
+              105
+            ],
+            "remainingBandHeightMm": 130,
+            "originalUpperWindowRetained": true,
+            "originalSillDatumMm": 1000,
+            "originalWindowHeightMm": 1350,
+            "originalWindowHeadMm": 2350,
+            "remainingSolidWorldMm": [
+              [
+                7040,
+                11160,
+                0,
+                7145,
+                11290,
+                1000
+              ],
+              [
+                7825,
+                11160,
+                0,
+                7930,
+                11290,
+                1000
+              ],
+              [
+                7145,
+                11160,
+                870,
+                7825,
+                11290,
+                1000
+              ]
+            ],
+            "conditionalSupportFloorMm": [
+              7145,
+              11160,
+              0,
+              7825,
+              11290,
+              0
+            ],
+            "demolitionApproved": false,
+            "structuralAssessmentCompleted": false,
+            "sillSupportConfirmed": false,
+            "existingServicesSurveyed": false,
+            "floorSlabContinuityConfirmed": false,
+            "waterproofingApproved": false,
+            "isPedestrianDoorway": false,
+            "isInstalledOpening": false
+          }
         },
         {
           "id": "balcony_north_opening",
@@ -24475,9 +24542,9 @@ const plans = {
         {
           "id": "laundry_dryer",
           "type": "dryer",
-          "name": "烘干机600×600×840 · 阳台窗下独立开放柜",
+          "name": "烘干机600×600×840 · 厨房条件凹位 / 朝阳台取衣",
           "cx": 7485,
-          "cy": 10810,
+          "cy": 11460,
           "w": 600,
           "d": 600,
           "rot": 180,
@@ -24487,11 +24554,11 @@ const plans = {
           "sourceId": "laundry_dryer",
           "sourceFootprintMm": {
             "x": 7185,
-            "y": 10510,
+            "y": 11160,
             "w": 600,
             "d": 600
           },
-          "roomId": "balcony",
+          "roomId": "kitchen",
           "face": "north",
           "dimensionStatus": "owner-provided",
           "originalSourceFootprintMm": {
@@ -24500,30 +24567,42 @@ const plans = {
             "w": 600,
             "d": 650
           },
-          "layoutRevision": "family-drawing-kitchen-20261027",
-          "notes": "按业主确认仅烘干机保留阳台，新窗下660×670独立柜内落地朝北，不再跨入厨房或挤进客厅；仍为原600×600×840机身，非第二台洗衣机。净腔620×650×980，左右各10、后30、上140仅几何余量，散热及开门检修待厂家核验。",
+          "layoutRevision": "family-dryer-kitchen-20261031",
+          "notes": "方案2烘干机保留600×600×840mm机身，朝北从生活阳台取衣；前脸在共墙阳台面y11160，机身全部后移至厨房侧，不再凸入原阳台地面。扫地机器人仍在厨房侧入户鞋柜下。 机位净宽640、净深710、净高870；600×600×840机身左右各20、机后110、顶部仅30mm。以上仅模型几何，不能据此认定满足散热、进气、接头、维修或厂家安装要求。 机位不加橱柜底板、踢脚或门槛；暂按厨房/共墙下地坪与阳台同标高0展示。共墙下是否有连续可承载楼板、墙下梁、管线、高差及防水未知；可见地面桥只是条件示意，未新增已确认楼板。 机门铰链、门径、最大开角与实际前突尺寸未给出；暂在阳台标680宽×600深操作敏感性区，不能当作真实门扇扫掠或确定检修尺寸。按600前突时北侧余1000mm深，开机门时不宜把前区当通道。 厨房水槽、洗碗机、冰箱、炉灶、热水器、扫地机器人、洗地龙头及地漏不移动。烘干机是水盒冷凝还是直排未知，不把阳台地漏或热水器管线自动当作烘干机接管。 整机安装及拆机方向按从阳台向南推入、向北退回阳台示意，不能从厨房侧向南直接抽出：往南超过110mm即遇机位后背板，超过130mm又遇U形水槽柜。北退650mm至原机位的600mm宽扫掠仅检查机箱，与固定模型无交叉；地漏左缘距此路径右缘仅10mm，须保护且不得放桶等临时物。门框净宽、机门/把手外突、搬运姿态、地坪高差、线管和人员站位未知，不据模型认定实物搬运或安装可行。",
           "conditions": [
-            "独立柜和机器全在DWG原阳台地面内，不放在北/东外挑铁皮、不穿窗下墙。",
-            "净腔620×650×980不是厂家确认安装尺寸；开门、散热、接头、搬入及检修仍待核。"
+            "方案2烘干机保留600×600×840mm机身，朝北从生活阳台取衣；前脸在共墙阳台面y11160，机身全部后移至厨房侧，不再凸入原阳台地面。扫地机器人仍在厨房侧入户鞋柜下。",
+            "机位净宽640、净深710、净高870；600×600×840机身左右各20、机后110、顶部仅30mm。以上仅模型几何，不能据此认定满足散热、进气、接头、维修或厂家安装要求。",
+            "机位不加橱柜底板、踢脚或门槛；暂按厨房/共墙下地坪与阳台同标高0展示。共墙下是否有连续可承载楼板、墙下梁、管线、高差及防水未知；可见地面桥只是条件示意，未新增已确认楼板。",
+            "机门铰链、门径、最大开角与实际前突尺寸未给出；暂在阳台标680宽×600深操作敏感性区，不能当作真实门扇扫掠或确定检修尺寸。按600前突时北侧余1000mm深，开机门时不宜把前区当通道。",
+            "厨房水槽、洗碗机、冰箱、炉灶、热水器、扫地机器人、洗地龙头及地漏不移动。烘干机是水盒冷凝还是直排未知，不把阳台地漏或热水器管线自动当作烘干机接管。",
+            "整机安装及拆机方向按从阳台向南推入、向北退回阳台示意，不能从厨房侧向南直接抽出：往南超过110mm即遇机位后背板，超过130mm又遇U形水槽柜。北退650mm至原机位的600mm宽扫掠仅检查机箱，与固定模型无交叉；地漏左缘距此路径右缘仅10mm，须保护且不得放桶等临时物。门框净宽、机门/把手外突、搬运姿态、地坪高差、线管和人员站位未知，不据模型认定实物搬运或安装可行。"
           ],
           "applianceDesign": {
-            "revision": "family-drawing-kitchen-20261027",
-            "cabinetId": "drawing-balcony-dryer-cabinet",
+            "revision": "family-dryer-kitchen-20261031",
+            "cabinetId": "family-dryer-kitchen-housing",
             "netCavityMm": [
-              620,
-              650,
-              980
+              640,
+              710,
+              870
             ],
-            "rearNominalClearanceMm": 30,
-            "sideNominalClearanceMm": 10,
+            "rearNominalClearanceMm": 110,
+            "sideNominalClearanceMm": 20,
             "connectionsConfirmed": false,
-            "installationApproved": false
-          }
+            "installationApproved": false,
+            "topNominalClearanceMm": 30,
+            "frontAccessRoomId": "balcony",
+            "isConditionalStructuralOpening": true,
+            "actualDoorProjectionMm": null,
+            "doorHingeSide": null,
+            "condensateDrainMode": null,
+            "manufacturerClearancesConfirmed": false
+          },
+          "operationRoomId": "balcony"
         },
         {
           "id": "fit-kitchen-20261005",
           "type": "fixture",
-          "name": "厨房定制柜 · 按DWG重排 / 保留890台面",
+          "name": "厨房定制柜 · 890台面保留 / 单烘干机朝阳台条件凹位",
           "cx": 6820,
           "cy": 12590,
           "w": 2420,
@@ -24771,118 +24850,6 @@ const plans = {
               "label": "20mm高柜顶板",
               "color": "#F3EFE6",
               "material": "Cream",
-              "face": "south"
-            },
-            {
-              "id": "drawing-kitchen-north-low-floor",
-              "x": 210,
-              "y": -1280,
-              "w": 980,
-              "d": 560,
-              "elevationMm": 100,
-              "heightMm": 20,
-              "role": "cabinet-bottom",
-              "label": "地柜20mm底板",
-              "color": "#F3EFE6",
-              "material": "Cream",
-              "face": "south"
-            },
-            {
-              "id": "drawing-kitchen-north-low-back",
-              "x": 210,
-              "y": -1300,
-              "w": 980,
-              "d": 20,
-              "elevationMm": 100,
-              "heightMm": 770,
-              "role": "cabinet-back",
-              "label": "地柜背板",
-              "color": "#F3EFE6",
-              "material": "Cream",
-              "face": "south"
-            },
-            {
-              "id": "drawing-kitchen-north-low-west",
-              "x": 190,
-              "y": -1300,
-              "w": 20,
-              "d": 600,
-              "elevationMm": 100,
-              "heightMm": 770,
-              "role": "cabinet-side",
-              "label": "地柜侧板",
-              "color": "#F3EFE6",
-              "material": "Cream",
-              "face": "south"
-            },
-            {
-              "id": "drawing-kitchen-north-low-east",
-              "x": 1190,
-              "y": -1300,
-              "w": 20,
-              "d": 600,
-              "elevationMm": 100,
-              "heightMm": 770,
-              "role": "cabinet-side",
-              "label": "地柜侧板",
-              "color": "#F3EFE6",
-              "material": "Cream",
-              "face": "south"
-            },
-            {
-              "id": "drawing-kitchen-north-low-plinth",
-              "x": 190,
-              "y": -1220,
-              "w": 1020,
-              "d": 500,
-              "elevationMm": 0,
-              "heightMm": 100,
-              "role": "plinth",
-              "label": "内退踢脚",
-              "color": "#F3EFE6",
-              "material": "Cream",
-              "face": "south"
-            },
-            {
-              "id": "drawing-kitchen-north-low-door-0",
-              "x": 191.5,
-              "y": -720,
-              "w": 507,
-              "d": 20,
-              "elevationMm": 121.5,
-              "heightMm": 747,
-              "role": "door-hinged",
-              "label": "窗下低柜门",
-              "color": "#F3EFE6",
-              "material": "Cream",
-              "face": "south"
-            },
-            {
-              "id": "drawing-kitchen-north-low-door-1",
-              "x": 701.5,
-              "y": -720,
-              "w": 507,
-              "d": 20,
-              "elevationMm": 121.5,
-              "heightMm": 747,
-              "role": "door-hinged",
-              "label": "窗下低柜门",
-              "color": "#F3EFE6",
-              "material": "Cream",
-              "face": "south"
-            },
-            {
-              "id": "drawing-kitchen-north-counter",
-              "x": 190,
-              "y": -1300,
-              "w": 1020,
-              "d": 600,
-              "elevationMm": 870,
-              "heightMm": 20,
-              "role": "countertop",
-              "label": "20mm台面完成面890，窗台1000",
-              "color": "#ECE8DF",
-              "material": "Stone",
               "face": "south"
             },
             {
@@ -25936,6 +25903,202 @@ const plans = {
               "color": "#E8E5DF",
               "material": "Tile",
               "face": "north"
+            },
+            {
+              "id": "dryer-kitchen-north-fill-west-floor",
+              "x": 210,
+              "y": -1280,
+              "w": 95,
+              "d": 560,
+              "elevationMm": 100,
+              "heightMm": 20,
+              "role": "cabinet-bottom",
+              "label": "单机位外窄填柜20mm底板",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "north"
+            },
+            {
+              "id": "dryer-kitchen-north-fill-west-back",
+              "x": 210,
+              "y": -1300,
+              "w": 95,
+              "d": 20,
+              "elevationMm": 100,
+              "heightMm": 770,
+              "role": "cabinet-back",
+              "label": "单机位外窄填柜20mm背板",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "north"
+            },
+            {
+              "id": "dryer-kitchen-north-fill-west-west",
+              "x": 190,
+              "y": -1300,
+              "w": 20,
+              "d": 600,
+              "elevationMm": 100,
+              "heightMm": 770,
+              "role": "cabinet-side",
+              "label": "窄填柜独立20mm侧板",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "north"
+            },
+            {
+              "id": "dryer-kitchen-north-fill-west-east",
+              "x": 305,
+              "y": -1300,
+              "w": 20,
+              "d": 600,
+              "elevationMm": 100,
+              "heightMm": 770,
+              "role": "cabinet-side",
+              "label": "窄填柜独立20mm侧板",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "north"
+            },
+            {
+              "id": "dryer-kitchen-north-fill-west-plinth",
+              "x": 190,
+              "y": -1220,
+              "w": 135,
+              "d": 500,
+              "elevationMm": 0,
+              "heightMm": 100,
+              "role": "plinth",
+              "label": "仅窄填柜有内退踢脚，不经过机器",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "north"
+            },
+            {
+              "id": "dryer-kitchen-north-fill-west-access-front",
+              "x": 191.5,
+              "y": -720,
+              "w": 132,
+              "d": 20,
+              "elevationMm": 121.5,
+              "heightMm": 747,
+              "role": "door-hinged",
+              "label": "窄填柜/检修封板，非完整电器位",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "north"
+            },
+            {
+              "id": "dryer-kitchen-north-fill-west-top",
+              "x": 190,
+              "y": -1300,
+              "w": 135,
+              "d": 600,
+              "elevationMm": 870,
+              "heightMm": 20,
+              "role": "countertop",
+              "label": "保留890完成面的分段20mm台板",
+              "material": "Stone",
+              "color": "#ECE8DF",
+              "face": "north"
+            },
+            {
+              "id": "dryer-kitchen-north-fill-east-floor",
+              "x": 1025,
+              "y": -1280,
+              "w": 165,
+              "d": 560,
+              "elevationMm": 100,
+              "heightMm": 20,
+              "role": "cabinet-bottom",
+              "label": "单机位外窄填柜20mm底板",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "north"
+            },
+            {
+              "id": "dryer-kitchen-north-fill-east-back",
+              "x": 1025,
+              "y": -1300,
+              "w": 165,
+              "d": 20,
+              "elevationMm": 100,
+              "heightMm": 770,
+              "role": "cabinet-back",
+              "label": "单机位外窄填柜20mm背板",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "north"
+            },
+            {
+              "id": "dryer-kitchen-north-fill-east-west",
+              "x": 1005,
+              "y": -1300,
+              "w": 20,
+              "d": 600,
+              "elevationMm": 100,
+              "heightMm": 770,
+              "role": "cabinet-side",
+              "label": "窄填柜独立20mm侧板",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "north"
+            },
+            {
+              "id": "dryer-kitchen-north-fill-east-east",
+              "x": 1190,
+              "y": -1300,
+              "w": 20,
+              "d": 600,
+              "elevationMm": 100,
+              "heightMm": 770,
+              "role": "cabinet-side",
+              "label": "窄填柜独立20mm侧板",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "north"
+            },
+            {
+              "id": "dryer-kitchen-north-fill-east-plinth",
+              "x": 1005,
+              "y": -1220,
+              "w": 205,
+              "d": 500,
+              "elevationMm": 0,
+              "heightMm": 100,
+              "role": "plinth",
+              "label": "仅窄填柜有内退踢脚，不经过机器",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "north"
+            },
+            {
+              "id": "dryer-kitchen-north-fill-east-access-front",
+              "x": 1006.5,
+              "y": -720,
+              "w": 202,
+              "d": 20,
+              "elevationMm": 121.5,
+              "heightMm": 747,
+              "role": "door-hinged",
+              "label": "窄填柜/检修封板，非完整电器位",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "north"
+            },
+            {
+              "id": "dryer-kitchen-north-fill-east-top",
+              "x": 1005,
+              "y": -1300,
+              "w": 205,
+              "d": 600,
+              "elevationMm": 870,
+              "heightMm": 20,
+              "role": "countertop",
+              "label": "保留890完成面的分段20mm台板",
+              "material": "Stone",
+              "color": "#ECE8DF",
+              "face": "north"
             }
           ],
           "sourceId": "fit-kitchen-20261005",
@@ -25945,11 +26108,13 @@ const plans = {
             "DWG厨房净宽2420、南北2600；北侧800冰箱槽+600电器柜，东侧800水槽柜+600洗碗机位，南侧避开410×450现状烟道。",
             "所有20mm板件按新轮廓重建，未把旧柜整体拉伸。800冰箱槽与600电器柜为图纸柜格，不是已购产品外形或已验证安装孔。",
             "保留用户机器：冰箱650×600×1900、洗碗机600×600×805；冰箱后20、前方比台面多20，洗碗机后20、前方多20，均为展示余量，厂家散热/接头/门扇及检修待核。",
-            "厨房与阳台890窗宽、1000窗台和1350窗洞按DWG及第20页立面C；旧1114双机凹柜及窗下条件开口取消，不在墙中画新的机器洞。",
-            "烘干机留阳台窗下，扫地机移玄关鞋柜；电器高柜仅留示意格，不新增未经确认购买的烤箱/洗衣机。",
-            "吊柜高度和板件为按立面适配的柜体方案；厂家燃气灶/烟机/热水器安装、吊装、防火、通风、排烟及检修净空未批准。"
+            "吊柜高度和板件为按立面适配的柜体方案；厂家燃气灶/烟机/热水器安装、吊装、防火、通风、排烟及检修净空未批准。",
+            "仅提出原890mm窗下中央680宽×870高的单机条件通口，两侧各105mm原低墙及通口上130mm高原墙带保留，上窗台1000、窗高1350、上口2350不变。墙体/窗支承是否可改未鉴定，不是已存在洞口或拆改许可。",
+            "原厨房台面完成高890、台底870保持；中部680mm台板只位于厨房侧y11290..11890，不穿进870..1000的保留墙带。20mm侧板独立承台，台板不压烘干机。",
+            "机位净宽640、净深710、净高870；600×600×840机身左右各20、机后110、顶部仅30mm。以上仅模型几何，不能据此认定满足散热、进气、接头、维修或厂家安装要求。",
+            "整机安装及拆机方向按从阳台向南推入、向北退回阳台示意，不能从厨房侧向南直接抽出：往南超过110mm即遇机位后背板，超过130mm又遇U形水槽柜。北退650mm至原机位的600mm宽扫掠仅检查机箱，与固定模型无交叉；地漏左缘距此路径右缘仅10mm，须保护且不得放桶等临时物。门框净宽、机门/把手外突、搬运姿态、地坪高差、线管和人员站位未知，不据模型认定实物搬运或安装可行。"
           ],
-          "cabinetRevision": "family-drawing-kitchen-20261027",
+          "cabinetRevision": "family-dryer-kitchen-20261031",
           "baseHeightMm": 2400,
           "cabinetDesign": {
             "revision": "cream-oak-functional-v1",
@@ -25997,8 +26162,8 @@ const plans = {
             ],
             "layoutRevision": "family-balcony-recess-20261012"
           },
-          "layoutRevision": "family-drawing-kitchen-20261027",
-          "notes": "DWG厨房净宽2420、南北2600；北侧800冰箱槽+600电器柜，东侧800水槽柜+600洗碗机位，南侧避开410×450现状烟道。 所有20mm板件按新轮廓重建，未把旧柜整体拉伸。800冰箱槽与600电器柜为图纸柜格，不是已购产品外形或已验证安装孔。 保留用户机器：冰箱650×600×1900、洗碗机600×600×805；冰箱后20、前方比台面多20，洗碗机后20、前方多20，均为展示余量，厂家散热/接头/门扇及检修待核。 厨房与阳台890窗宽、1000窗台和1350窗洞按DWG及第20页立面C；旧1114双机凹柜及窗下条件开口取消，不在墙中画新的机器洞。 烘干机留阳台窗下，扫地机移玄关鞋柜；电器高柜仅留示意格，不新增未经确认购买的烤箱/洗衣机。 吊柜高度和板件为按立面适配的柜体方案；厂家燃气灶/烟机/热水器安装、吊装、防火、通风、排烟及检修净空未批准。",
+          "layoutRevision": "family-dryer-kitchen-20261031",
+          "notes": "DWG厨房净宽2420、南北2600；北侧800冰箱槽+600电器柜，东侧800水槽柜+600洗碗机位，南侧避开410×450现状烟道。 所有20mm板件按新轮廓重建，未把旧柜整体拉伸。800冰箱槽与600电器柜为图纸柜格，不是已购产品外形或已验证安装孔。 保留用户机器：冰箱650×600×1900、洗碗机600×600×805；冰箱后20、前方比台面多20，洗碗机后20、前方多20，均为展示余量，厂家散热/接头/门扇及检修待核。 吊柜高度和板件为按立面适配的柜体方案；厂家燃气灶/烟机/热水器安装、吊装、防火、通风、排烟及检修净空未批准。 仅提出原890mm窗下中央680宽×870高的单机条件通口，两侧各105mm原低墙及通口上130mm高原墙带保留，上窗台1000、窗高1350、上口2350不变。墙体/窗支承是否可改未鉴定，不是已存在洞口或拆改许可。 原厨房台面完成高890、台底870保持；中部680mm台板只位于厨房侧y11290..11890，不穿进870..1000的保留墙带。20mm侧板独立承台，台板不压烘干机。 机位净宽640、净深710、净高870；600×600×840机身左右各20、机后110、顶部仅30mm。以上仅模型几何，不能据此认定满足散热、进气、接头、维修或厂家安装要求。 整机安装及拆机方向按从阳台向南推入、向北退回阳台示意，不能从厨房侧向南直接抽出：往南超过110mm即遇机位后背板，超过130mm又遇U形水槽柜。北退650mm至原机位的600mm宽扫掠仅检查机箱，与固定模型无交叉；地漏左缘距此路径右缘仅10mm，须保护且不得放桶等临时物。门框净宽、机门/把手外突、搬运姿态、地坪高差、线管和人员站位未知，不据模型认定实物搬运或安装可行。",
           "sourceFootprintMm": {
             "x": 5610,
             "y": 11290,
@@ -26099,7 +26264,49 @@ const plans = {
             "oldRecessRemoved": true,
             "clearancesAreNominalOnly": true,
             "manufacturerClearancesConfirmed": false,
-            "installationApproved": false
+            "installationApproved": false,
+            "dryerKitchenRevision": "family-dryer-kitchen-20261031",
+            "newSingleDryerOpeningIsConditional": true,
+            "currentConditionalOpening": {
+              "x1": 7145,
+              "x2": 7825,
+              "bottom": 0,
+              "top": 870
+            }
+          },
+          "dryerKitchenDesign": {
+            "revision": "family-dryer-kitchen-20261031",
+            "housingId": "family-dryer-kitchen-housing",
+            "windowId": "window_kitchen_balcony",
+            "conditionalOpening": {
+              "x1": 7145,
+              "x2": 7825,
+              "bottom": 0,
+              "top": 870
+            },
+            "originalNorthLowCabinetWidthMm": 1020,
+            "machineHousingWidthMm": 680,
+            "remainingNorthFillerWidthsMm": [
+              135,
+              205
+            ],
+            "countertopTopMm": 890,
+            "countertopUndersideMm": 870,
+            "countertopRaised": false,
+            "boardThicknessMm": 20,
+            "oldNorthPartsReplacedIds": [
+              "drawing-kitchen-north-low-floor",
+              "drawing-kitchen-north-low-back",
+              "drawing-kitchen-north-low-west",
+              "drawing-kitchen-north-low-east",
+              "drawing-kitchen-north-low-plinth",
+              "drawing-kitchen-north-low-door-0",
+              "drawing-kitchen-north-low-door-1",
+              "drawing-kitchen-north-counter"
+            ],
+            "constructionApproved": false,
+            "structuralAssessmentCompleted": false,
+            "manufacturerClearancesConfirmed": false
           }
         },
         {
@@ -42288,9 +42495,9 @@ const plans = {
           "type": "fixture",
           "nativeType": "socket",
           "modelVariant": "electrical-socket",
-          "name": "P36 · 阳台烘干机 · 窗下低墙可达电源",
-          "cx": 7100,
-          "cy": 11156,
+          "name": "P36 · 烘干机 · 原东南柱侧服务电源",
+          "cx": 7926,
+          "cy": 11103,
           "w": 86,
           "d": 8,
           "heightMm": 86,
@@ -42298,14 +42505,14 @@ const plans = {
           "baseWidthMm": 86,
           "baseDepthMm": 8,
           "baseHeightMm": 86,
-          "rot": 180,
+          "rot": 90,
           "color": "#F7F4EC",
           "roomId": "balcony",
-          "face": "north",
+          "face": "west",
           "kind": "socket",
           "code": "P36",
-          "dimensionStatus": "drawing-intent-model-host-not-site-survey",
-          "layoutRevision": "family-drawing-electrical-20261027",
+          "dimensionStatus": "service-relocation-on-model-pier-not-site-survey",
+          "layoutRevision": "family-dryer-kitchen-20261031",
           "cabinetRevision": "family-electrical-20261012",
           "visualOnly": true,
           "installationApproved": false,
@@ -42314,9 +42521,9 @@ const plans = {
           "electricalDesign": {
             "kind": "socket",
             "code": "P36",
-            "purpose": "阳台烘干机 · 窗下低墙可达电源",
+            "purpose": "烘干机 · 原东南实心柱西面服务电源",
             "centerHeightMm": 550,
-            "face": "north",
+            "face": "west",
             "mountingRoomId": "balcony",
             "groupIds": [],
             "controlTargets": [],
@@ -42324,24 +42531,30 @@ const plans = {
               "laundry_dryer"
             ],
             "anchor": {
-              "kind": "window-sill",
-              "windowId": "window_kitchen_balcony",
-              "sourceAxisMm": [
-                7040,
-                11225,
+              "kind": "wall",
+              "wallIndex": 33,
+              "wallRectMm": [
                 7930,
-                11225
+                11050,
+                8270,
+                11290,
+                "e"
               ],
-              "sourceWindowRectMm": [
-                7040,
-                11160,
-                7930,
-                11290
+              "hostDescription": "original-southeast-pier-west-face",
+              "relatedWindowId": "window_kitchen_balcony",
+              "previousNarrowJambPositionMm": [
+                7100,
+                11156,
+                550
               ],
+              "modelHostAlongMarginsMm": [
+                10,
+                144
+              ],
+              "hypotheticalDoorZoneSideGapMm": 97,
               "surfaceVerifiedAgainstCurrentModel": true,
-              "aboveWindowHeadMm": null,
-              "belowWindowSillMm": 407,
-              "siteVerified": false
+              "siteVerified": false,
+              "boxInstallationApproved": false
             },
             "installationApproved": false,
             "ratingAmps": null,
@@ -42351,8 +42564,8 @@ const plans = {
             "circuitConfirmed": false,
             "protectiveMeasuresConfirmed": false,
             "separateCircuitRecommendation": "electrician-review-pending",
-            "servedRoomId": "balcony",
-            "reviewNotes": "为避开原厨房右侧盆柜北板及台面，西移至现凹位厨房侧封板的空段，面朝厨房；厂家电源线长、插拔检修、穿线/固定电盒、独立断电及涉水防护未深化。",
+            "servedRoomId": "kitchen",
+            "reviewNotes": "P36由西侧105mm余墙移至原东南实心柱西面，中心(7926,11103)、离地550mm、朝西；86mm板在柱面纵向边距10/144mm，板到680mm门前敏感性区横向97mm。避开了原余墙仅2mm边距，但暗盒、柱内钢筋/管线、插头、湿区保护和机后到电位的线长/穿板均未核，不据几何认定可施工。",
             "visibleFaceplateModules": 1,
             "nominalModuleDimensionsMm": [
               86,
@@ -42362,7 +42575,7 @@ const plans = {
             "selectedProduct": false,
             "backBoxesModeled": false,
             "multipleOutletGroup": false,
-            "layoutRevision": "family-drawing-electrical-20261027",
+            "layoutRevision": "family-dryer-kitchen-20261031",
             "drawingEvidence": {
               "source": {
                 "file": "业主提供施工图.pdf",
@@ -42379,23 +42592,31 @@ const plans = {
                 "status": "drawing-intent-not-measured-or-approved",
                 "symbolCentersNotExtractedFromTextInsertionPoints": true
               },
-              "heightStatus": "low-wall-service-concept/SD02-appliance-H550",
+              "heightStatus": "retained-550-service-height-not-measured",
               "heightMm": 550,
-              "positionStatus": "room-or-service-relative-drawing-location-pending-final-datum",
-              "textPositionIsNotOutletPosition": true
+              "positionStatus": "owner-dryer-recess-service-adaptation-not-source-drawing-location",
+              "textPositionIsNotOutletPosition": true,
+              "currentPositionMm": [
+                7926,
+                11103,
+                550
+              ]
             },
-            "wetAreaReviewPending": true
+            "wetAreaReviewPending": true,
+            "manufacturerCordRouteConfirmed": false,
+            "hiddenServicesSurveyed": false
           },
-          "notes": "2026-10-27：阳台只保烘干机；点位在窗台1000以下、烘干机西侧空段，避免机背与玻璃。插头、线长、涉水保护及可达性待核。 面板外形仅86mm单元组合示意，非已选暗盒；线缆、回路和涉水保护未批准。",
+          "notes": "P36由西侧105mm余墙移至原东南实心柱西面，中心(7926,11103)、离地550mm、朝西；86mm板在柱面纵向边距10/144mm，板到680mm门前敏感性区横向97mm。避开了原余墙仅2mm边距，但暗盒、柱内钢筋/管线、插头、湿区保护和机后到电位的线长/穿板均未核，不据几何认定可施工。",
           "conditions": [
             "86×86×8mm是新面板暂估外形，仅显示墙/柜面安装面；高度为完成地面到面板中心的暂估值，非暗盒尺寸、开槽深度或施工放线批准。P16沿用既有70×70×5mm柜内面板，不重新覆盖。",
-            "电流额定值、线径、负荷、回路容量、插座制式、安全门、接地、漏电保护、等电位、防溅/防护等级及涉水区分区均未确定，须由合格电工结合实测、设备厂家和适用规范审查。不得按示意点位直接施工。"
+            "电流额定值、线径、负荷、回路容量、插座制式、安全门、接地、漏电保护、等电位、防溅/防护等级及涉水区分区均未确定，须由合格电工结合实测、设备厂家和适用规范审查。不得按示意点位直接施工。",
+            "P36由西侧105mm余墙移至原东南实心柱西面，中心(7926,11103)、离地550mm、朝西；86mm板在柱面纵向边距10/144mm，板到680mm门前敏感性区横向97mm。避开了原余墙仅2mm边距，但暗盒、柱内钢筋/管线、插头、湿区保护和机后到电位的线长/穿板均未核，不据几何认定可施工。"
           ],
           "sourceFootprintMm": {
-            "x": 7057,
-            "y": 11152,
-            "w": 86,
-            "d": 8
+            "x": 7922,
+            "y": 11060,
+            "w": 8,
+            "d": 86
           },
           "parts": [
             {
@@ -43353,114 +43574,6 @@ const plans = {
           }
         },
         {
-          "id": "drawing-balcony-dryer-cabinet",
-          "sourceId": "drawing-balcony-dryer-cabinet",
-          "type": "fixture",
-          "roomId": "balcony",
-          "color": "#F3EFE6",
-          "dimensionStatus": "drawing-adapted-installation-pending",
-          "installationApproved": false,
-          "name": "阳台单烘干机开放柜 · 660×670×1000",
-          "cx": 7485,
-          "cy": 10825,
-          "w": 660,
-          "d": 670,
-          "heightMm": 1000,
-          "elevationMm": 0,
-          "rot": 0,
-          "baseWidthMm": 660,
-          "baseDepthMm": 670,
-          "baseHeightMm": 1000,
-          "layoutRevision": "family-drawing-kitchen-20261027",
-          "cabinetRevision": "family-drawing-kitchen-20261027",
-          "sourceFootprintMm": {
-            "x": 7155,
-            "y": 10490,
-            "w": 660,
-            "d": 670
-          },
-          "parts": [
-            {
-              "id": "drawing-balcony-dryer-side-west",
-              "x": -330,
-              "y": -335,
-              "w": 20,
-              "d": 670,
-              "elevationMm": 0,
-              "heightMm": 980,
-              "role": "cabinet-side",
-              "label": "独立台面20mm侧支承",
-              "color": "#F3EFE6",
-              "material": "Cream",
-              "face": "north"
-            },
-            {
-              "id": "drawing-balcony-dryer-side-east",
-              "x": 310,
-              "y": -335,
-              "w": 20,
-              "d": 670,
-              "elevationMm": 0,
-              "heightMm": 980,
-              "role": "cabinet-side",
-              "label": "独立台面20mm侧支承",
-              "color": "#F3EFE6",
-              "material": "Cream",
-              "face": "north"
-            },
-            {
-              "id": "drawing-balcony-dryer-back",
-              "x": -310,
-              "y": 315,
-              "w": 620,
-              "d": 20,
-              "elevationMm": 0,
-              "heightMm": 980,
-              "role": "cabinet-back",
-              "label": "窗台下20mm背板，连接及通风待核",
-              "color": "#F3EFE6",
-              "material": "Cream",
-              "face": "north"
-            },
-            {
-              "id": "drawing-balcony-dryer-top",
-              "x": -330,
-              "y": -335,
-              "w": 660,
-              "d": 670,
-              "elevationMm": 980,
-              "heightMm": 20,
-              "role": "countertop",
-              "label": "独立20mm顶板，完成面1000，无洗手盆",
-              "color": "#ECE8DF",
-              "material": "Stone",
-              "face": "north"
-            }
-          ],
-          "face": "north",
-          "openApplianceBay": true,
-          "referenceStyle": {
-            "revision": "family-drawing-kitchen-20261027",
-            "variant": "drawing-balcony-dryer-cabinet",
-            "installationApproved": false
-          },
-          "cabinetDesign": {
-            "layoutRevision": "family-drawing-kitchen-20261027",
-            "title": "单烘干机窗下柜",
-            "features": [
-              "无底板、无踢脚、无门，原地面落机；独立侧板支承顶板，不压机器。",
-              "净宽620、净深650、台底980；外包660×670×1000，背靠原窗下墙内面11160。"
-            ],
-            "dimensions": [
-              "原机器600×600×840；侧余10/10、后余30、上余140均待厂家确认。"
-            ]
-          },
-          "conditions": [
-            "柜体与烘干机不穿1000窗台下墙，顶部1000与图注窗台齐平；原890mm共墙窗宽、1350窗洞不变，窗框及开启净空待核。",
-            "独立柜只是几何适配，侧板支承/防潮、厂家散热、机器门扇及检修尚未批准。"
-          ]
-        },
-        {
           "id": "family-elec-s15",
           "sourceId": "family-elec-s15",
           "type": "fixture",
@@ -44261,6 +44374,249 @@ const plans = {
               "face": "south"
             }
           ]
+        },
+        {
+          "id": "family-dryer-kitchen-housing",
+          "sourceId": "family-dryer-kitchen-housing",
+          "type": "fixture",
+          "roomId": "kitchen",
+          "name": "厨房侧单烘干机条件凹位 · 朝阳台 / 台面890不抬高",
+          "cx": 7485,
+          "cy": 11525,
+          "w": 680,
+          "d": 730,
+          "heightMm": 890,
+          "elevationMm": 0,
+          "rot": 0,
+          "baseWidthMm": 680,
+          "baseDepthMm": 730,
+          "baseHeightMm": 890,
+          "color": "#F3EFE6",
+          "face": "north",
+          "modelVariant": "single-dryer-kitchen-recess",
+          "layoutRevision": "family-dryer-kitchen-20261031",
+          "cabinetRevision": "family-dryer-kitchen-20261031",
+          "dimensionStatus": "conditional-structure-and-manufacturer-review-pending",
+          "installationApproved": false,
+          "notConstructionApproval": true,
+          "openApplianceBay": true,
+          "parts": [
+            {
+              "id": "dryer-kitchen-recess-west",
+              "x": -340,
+              "y": -365,
+              "w": 20,
+              "d": 730,
+              "elevationMm": 0,
+              "heightMm": 870,
+              "role": "cabinet-side",
+              "label": "20mm独立承台侧板，机位左净20",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "north"
+            },
+            {
+              "id": "dryer-kitchen-recess-east",
+              "x": 320,
+              "y": -365,
+              "w": 20,
+              "d": 730,
+              "elevationMm": 0,
+              "heightMm": 870,
+              "role": "cabinet-side",
+              "label": "20mm独立承台侧板，机位右净20",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "north"
+            },
+            {
+              "id": "dryer-kitchen-recess-back",
+              "x": -320,
+              "y": 345,
+              "w": 640,
+              "d": 20,
+              "elevationMm": 0,
+              "heightMm": 870,
+              "role": "cabinet-back",
+              "label": "20mm背板，机器后110余量，检修/通风待核",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "north"
+            },
+            {
+              "id": "dryer-kitchen-recess-top",
+              "x": -340,
+              "y": -235,
+              "w": 680,
+              "d": 600,
+              "elevationMm": 870,
+              "heightMm": 20,
+              "role": "countertop",
+              "label": "独立20mm台板仅在厨房，完成面890",
+              "material": "Stone",
+              "color": "#ECE8DF",
+              "face": "north"
+            }
+          ],
+          "sourceFootprintMm": {
+            "x": 7145,
+            "y": 11160,
+            "w": 680,
+            "d": 730
+          },
+          "referenceStyle": {
+            "revision": "family-dryer-kitchen-20261031",
+            "variant": "cream-kitchen-dryer-recess",
+            "installationApproved": false
+          },
+          "cabinetDesign": {
+            "layoutRevision": "family-dryer-kitchen-20261031",
+            "title": "单烘干机跨窗下墙的条件凹位",
+            "palette": {
+              "door": "#F3EFE6",
+              "wood": "#C6AA83"
+            },
+            "faces": [
+              {
+                "face": "north",
+                "lengthMm": 680
+              }
+            ],
+            "features": [
+              "机位外包680×730×890，只有厨房侧600深有20mm顶板；墙中130段上方保留870..1000原墙带。",
+              "无橱柜底板、门、踢脚或门槛；机器暂按连续原地坪0承载，实物/结构未知。",
+              "净640宽×710深×870高；600×600×840机器两侧20、后110、顶部30，不能等同厂家安装要求。"
+            ],
+            "dimensions": [
+              "低位条件墙洞680×870；原890窗洞两侧各105原墙保留，竖向余墙130。",
+              "原1020×600厨房台面拆成135+680+205三段，完成高890不变。"
+            ]
+          },
+          "applianceBayDesign": {
+            "revision": "family-dryer-kitchen-20261031",
+            "machineId": "laundry_dryer",
+            "openingWorldMm": [
+              7145,
+              11160,
+              0,
+              7825,
+              11290,
+              870
+            ],
+            "netCavityMm": [
+              640,
+              710,
+              870
+            ],
+            "machineWorldMm": [
+              7185,
+              11160,
+              0,
+              7785,
+              11760,
+              840
+            ],
+            "cavityWorldMm": [
+              7165,
+              11160,
+              0,
+              7805,
+              11870,
+              870
+            ],
+            "sideNominalClearancesMm": [
+              20,
+              20
+            ],
+            "rearNominalClearanceMm": 110,
+            "topNominalClearanceMm": 30,
+            "hasBottomBoard": false,
+            "hasPlinth": false,
+            "hasFrontDoor": false,
+            "topSupportedBySidePanels": true,
+            "topLoadsMachine": false,
+            "supportFloor": {
+              "datumMm": 0,
+              "bottomBoardThicknessMm": 0,
+              "existingSlabContinuityConfirmed": false,
+              "loadCapacityConfirmed": false,
+              "thresholdHeightConfirmed": false,
+              "conditionalBridgeWorldMm": [
+                7145,
+                11160,
+                0,
+                7825,
+                11290,
+                0
+              ],
+              "notNewFloorArea": true,
+              "structuralApproval": false
+            },
+            "doorOperation": {
+              "accessFrom": "balcony",
+              "machineFrontPlaneY": 11160,
+              "hingeSide": null,
+              "hingeLocationMm": null,
+              "openingAngleDegrees": null,
+              "doorRadiusMm": null,
+              "actualDoorProjectionMm": null,
+              "maximumOpenEnvelopeConfirmed": false,
+              "hypotheticalProjectionDepthMm": 600,
+              "zoneWorldMm": [
+                7145,
+                10560,
+                0,
+                7825,
+                11160,
+                1000
+              ],
+              "zoneIsSensitivityOnly": true,
+              "remainingNorthDepthAt600ProjectionMm": 1000,
+              "requiresClearBeforeOpening": true
+            },
+            "wholeMachineHandling": {
+              "installationFrom": "balcony-north-to-south",
+              "withdrawalTo": "balcony-north",
+              "southKitchenWithdrawalAllowed": false,
+              "northWithdrawalSweepMm": [
+                7185,
+                10510,
+                0,
+                7785,
+                11760,
+                840
+              ],
+              "northWithdrawnBodyMm": [
+                7185,
+                10510,
+                0,
+                7785,
+                11110,
+                840
+              ],
+              "northWithdrawalDistanceMm": 650,
+              "nominalDrainSideGapMm": 10,
+              "bodyEnvelopeOnly": true,
+              "actualHandlingConfirmed": false,
+              "installedBalconyDoorClearWidthConfirmed": false,
+              "manufacturerMaximumEnvelopeConfirmed": false,
+              "floorLevelContinuityConfirmed": false
+            },
+            "manufacturerClearancesConfirmed": false,
+            "ventilationConfirmed": false,
+            "condensateDrainMode": null,
+            "drainConnectionConfirmed": false,
+            "installationApproved": false
+          },
+          "conditions": [
+            "仅提出原890mm窗下中央680宽×870高的单机条件通口，两侧各105mm原低墙及通口上130mm高原墙带保留，上窗台1000、窗高1350、上口2350不变。墙体/窗支承是否可改未鉴定，不是已存在洞口或拆改许可。",
+            "原厨房台面完成高890、台底870保持；中部680mm台板只位于厨房侧y11290..11890，不穿进870..1000的保留墙带。20mm侧板独立承台，台板不压烘干机。",
+            "机位净宽640、净深710、净高870；600×600×840机身左右各20、机后110、顶部仅30mm。以上仅模型几何，不能据此认定满足散热、进气、接头、维修或厂家安装要求。",
+            "机位不加橱柜底板、踢脚或门槛；暂按厨房/共墙下地坪与阳台同标高0展示。共墙下是否有连续可承载楼板、墙下梁、管线、高差及防水未知；可见地面桥只是条件示意，未新增已确认楼板。",
+            "机门铰链、门径、最大开角与实际前突尺寸未给出；暂在阳台标680宽×600深操作敏感性区，不能当作真实门扇扫掠或确定检修尺寸。按600前突时北侧余1000mm深，开机门时不宜把前区当通道。",
+            "整机安装及拆机方向按从阳台向南推入、向北退回阳台示意，不能从厨房侧向南直接抽出：往南超过110mm即遇机位后背板，超过130mm又遇U形水槽柜。北退650mm至原机位的600mm宽扫掠仅检查机箱，与固定模型无交叉；地漏左缘距此路径右缘仅10mm，须保护且不得放桶等临时物。门框净宽、机门/把手外突、搬运姿态、地坪高差、线管和人员站位未知，不据模型认定实物搬运或安装可行。"
+          ],
+          "notes": "仅提出原890mm窗下中央680宽×870高的单机条件通口，两侧各105mm原低墙及通口上130mm高原墙带保留，上窗台1000、窗高1350、上口2350不变。墙体/窗支承是否可改未鉴定，不是已存在洞口或拆改许可。 原厨房台面完成高890、台底870保持；中部680mm台板只位于厨房侧y11290..11890，不穿进870..1000的保留墙带。20mm侧板独立承台，台板不压烘干机。 机位净宽640、净深710、净高870；600×600×840机身左右各20、机后110、顶部仅30mm。以上仅模型几何，不能据此认定满足散热、进气、接头、维修或厂家安装要求。 机位不加橱柜底板、踢脚或门槛；暂按厨房/共墙下地坪与阳台同标高0展示。共墙下是否有连续可承载楼板、墙下梁、管线、高差及防水未知；可见地面桥只是条件示意，未新增已确认楼板。 机门铰链、门径、最大开角与实际前突尺寸未给出；暂在阳台标680宽×600深操作敏感性区，不能当作真实门扇扫掠或确定检修尺寸。按600前突时北侧余1000mm深，开机门时不宜把前区当通道。 整机安装及拆机方向按从阳台向南推入、向北退回阳台示意，不能从厨房侧向南直接抽出：往南超过110mm即遇机位后背板，超过130mm又遇U形水槽柜。北退650mm至原机位的600mm宽扫掠仅检查机箱，与固定模型无交叉；地漏左缘距此路径右缘仅10mm，须保护且不得放桶等临时物。门框净宽、机门/把手外突、搬运姿态、地坪高差、线管和人员站位未知，不据模型认定实物搬运或安装可行。"
         }
       ],
       "HEIGHT_MM": 2700,
@@ -44696,7 +45052,16 @@ const plans = {
           "主次卧2240×600mm衣柜原占地不变，下部主要衣柜区域仍使用滑门，床尾模型净距555mm偏紧。主柜通顶2790mm、次柜2700mm仅跟随各自模型室高；上柜开门、顶面安装、门套、床尾操作和承重待定制方复核。",
           "主卧入口端挂衣龛和下方两木抽为参考构造，抽屉最大250mm仅概念，不据555mm床尾带认定站位舒适。次卧窗边粉色拱龛为18mm薄背、真实空洞、四道白层板及奶白拱形饰面，不把实心粉块当开放柜。",
           "三卧（含书房）地面改真木地板意向，公共区与厨卫及阳台地面不变；木材种类、铺法、基层防潮、地暖适用性、门底净空与完成面厚度待实物和现场核定，不默认为木纹瓷砖。",
-          "18mm柜板/门板、3mm门缝、薄背与灯带均为构造概念参数，柜门五金、开角、防夹、电源、布线、驱动检修、承重及厂家深化均未批准；原燃气/排烟、排水、电位与建筑待核事项继续有效。"
+          "18mm柜板/门板、3mm门缝、薄背与灯带均为构造概念参数，柜门五金、开角、防夹、电源、布线、驱动检修、承重及厂家深化均未批准；原燃气/排烟、排水、电位与建筑待核事项继续有效。",
+          "方案2烘干机保留600×600×840mm机身，朝北从生活阳台取衣；前脸在共墙阳台面y11160，机身全部后移至厨房侧，不再凸入原阳台地面。扫地机器人仍在厨房侧入户鞋柜下。",
+          "仅提出原890mm窗下中央680宽×870高的单机条件通口，两侧各105mm原低墙及通口上130mm高原墙带保留，上窗台1000、窗高1350、上口2350不变。墙体/窗支承是否可改未鉴定，不是已存在洞口或拆改许可。",
+          "原厨房台面完成高890、台底870保持；中部680mm台板只位于厨房侧y11290..11890，不穿进870..1000的保留墙带。20mm侧板独立承台，台板不压烘干机。",
+          "机位净宽640、净深710、净高870；600×600×840机身左右各20、机后110、顶部仅30mm。以上仅模型几何，不能据此认定满足散热、进气、接头、维修或厂家安装要求。",
+          "机位不加橱柜底板、踢脚或门槛；暂按厨房/共墙下地坪与阳台同标高0展示。共墙下是否有连续可承载楼板、墙下梁、管线、高差及防水未知；可见地面桥只是条件示意，未新增已确认楼板。",
+          "机门铰链、门径、最大开角与实际前突尺寸未给出；暂在阳台标680宽×600深操作敏感性区，不能当作真实门扇扫掠或确定检修尺寸。按600前突时北侧余1000mm深，开机门时不宜把前区当通道。",
+          "P36由西侧105mm余墙移至原东南实心柱西面，中心(7926,11103)、离地550mm、朝西；86mm板在柱面纵向边距10/144mm，板到680mm门前敏感性区横向97mm。避开了原余墙仅2mm边距，但暗盒、柱内钢筋/管线、插头、湿区保护和机后到电位的线长/穿板均未核，不据几何认定可施工。",
+          "厨房水槽、洗碗机、冰箱、炉灶、热水器、扫地机器人、洗地龙头及地漏不移动。烘干机是水盒冷凝还是直排未知，不把阳台地漏或热水器管线自动当作烘干机接管。",
+          "整机安装及拆机方向按从阳台向南推入、向北退回阳台示意，不能从厨房侧向南直接抽出：往南超过110mm即遇机位后背板，超过130mm又遇U形水槽柜。北退650mm至原机位的600mm宽扫掠仅检查机箱，与固定模型无交叉；地漏左缘距此路径右缘仅10mm，须保护且不得放桶等临时物。门框净宽、机门/把手外突、搬运姿态、地坪高差、线管和人员站位未知，不据模型认定实物搬运或安装可行。"
         ],
         "balconyOpenness": {
           "id": "balcony-two-sided-open-20261005",
@@ -44748,7 +45113,7 @@ const plans = {
             }
           }
         },
-        "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs + tools/family-study-door-20261012.cjs + tools/family-appliances-20261012.cjs + tools/family-ac-window-20261012.cjs + tools/family-living-clear-20261012.cjs + tools/family-balcony-service-20261012.cjs + tools/family-corner-storage-20261012.cjs + tools/family-ceiling-lighting-20261012.cjs + tools/family-lighting-study-refinement-20261012.cjs + tools/family-corner-door-180-20261012.cjs + tools/family-balcony-recess-20261012.cjs + tools/family-floor-drains-20261012.cjs + tools/family-electrical-20261012.cjs + tools/family-kitchen-heater-20261013.cjs + tools/family-living-east-20261018.cjs + tools/family-reference-finish-20261025.cjs",
+        "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs + tools/family-study-door-20261012.cjs + tools/family-appliances-20261012.cjs + tools/family-ac-window-20261012.cjs + tools/family-living-clear-20261012.cjs + tools/family-balcony-service-20261012.cjs + tools/family-corner-storage-20261012.cjs + tools/family-ceiling-lighting-20261012.cjs + tools/family-lighting-study-refinement-20261012.cjs + tools/family-corner-door-180-20261012.cjs + tools/family-balcony-recess-20261012.cjs + tools/family-floor-drains-20261012.cjs + tools/family-electrical-20261012.cjs + tools/family-kitchen-heater-20261013.cjs + tools/family-living-east-20261018.cjs + tools/family-reference-finish-20261025.cjs + tools/family-dryer-kitchen-20261031.cjs",
         "wallStatus": "承重性未鉴定；原源数据未授权将未知内墙标记为可拆非承重墙。",
         "cabinetRevision": {
           "revision": "cream-oak-functional-v1",
@@ -45113,6 +45478,17 @@ const plans = {
             ],
             "description": "方案2按六张业主参考图重建餐边、电视、两卧柜及书房两悬板；餐边相对原长缩800，三卧真木地板、床桌软装造型标签，已购沙发餐桌餐椅及无茶几布局保持。",
             "sourceSnapshotsUnchanged": true
+          },
+          {
+            "id": "family-dryer-kitchen-20261031",
+            "date": "2026-10-31",
+            "sourceIds": [
+              "laundry_dryer",
+              "fit-kitchen-20261005",
+              "window_kitchen_balcony"
+            ],
+            "sourceSnapshotsUnchanged": true,
+            "description": "仅方案2烘干机拟移厨房侧，680×870单机低位条件通口；890台面和1000窗台不抬高，上窗不变；结构、楼板与机器顶部30净空待核，机器人仍在鞋柜下。"
           }
         ],
         "entryFamilyUpdate": {
@@ -135561,6 +135937,4749 @@ const plans = {
             "studyFutureBedSideToWestReturn": 200
           },
           "sourceStatus": "drawing-reconstruction-not-site-survey-or-approval"
+        },
+        "familyDryerKitchenUpdate": {
+          "id": "family-dryer-kitchen-20261031",
+          "date": "2026-10-31",
+          "title": "方案2 · 单烘干机移厨房侧，朝阳台的条件机位",
+          "status": "conditional-opening-not-existing-or-approved-demolition",
+          "installationApproved": false,
+          "notConstructionApproval": true,
+          "geometry": {
+            "window": {
+              "rectMm": [
+                7040,
+                11160,
+                7930,
+                11290
+              ],
+              "widthMm": 890,
+              "sillMm": 1000,
+              "heightMm": 1350,
+              "headMm": 2350
+            },
+            "conditionalLowerOpeningMm": {
+              "x1": 7145,
+              "x2": 7825,
+              "bottom": 0,
+              "top": 870
+            },
+            "housingOuterRectMm": [
+              7145,
+              11160,
+              7825,
+              11890
+            ],
+            "housingHeightMm": 890,
+            "clearMachineBayMm": [
+              7165,
+              11160,
+              0,
+              7805,
+              11870,
+              870
+            ],
+            "machineBodyMm": [
+              7185,
+              11160,
+              0,
+              7785,
+              11760,
+              840
+            ],
+            "kitchenOnlyTopMm": [
+              7145,
+              11290,
+              870,
+              7825,
+              11890,
+              890
+            ],
+            "sillRemaindersMm": [
+              [
+                7040,
+                11160,
+                0,
+                7145,
+                11290,
+                1000
+              ],
+              [
+                7825,
+                11160,
+                0,
+                7930,
+                11290,
+                1000
+              ],
+              [
+                7145,
+                11160,
+                870,
+                7825,
+                11290,
+                1000
+              ]
+            ],
+            "conditionalSupportFloorMm": [
+              7145,
+              11160,
+              0,
+              7825,
+              11290,
+              0
+            ],
+            "doorUseZoneMm": [
+              7145,
+              10560,
+              0,
+              7825,
+              11160,
+              1000
+            ],
+            "doorUseZoneStatus": "600mm-depth-sensitivity-placeholder-not-known-hinge-sweep",
+            "p36WorldMm": [
+              7922,
+              11060,
+              507,
+              7930,
+              11146,
+              593
+            ],
+            "p36CenterMm": [
+              7926,
+              11103,
+              550
+            ],
+            "p36HostWallRectMm": [
+              7930,
+              11050,
+              8270,
+              11290
+            ],
+            "p36Face": "west",
+            "p36HypotheticalDoorZoneSideGapMm": 97,
+            "p36HostAlongMarginsMm": [
+              10,
+              144
+            ],
+            "northMachineWithdrawalSweepMm": [
+              7185,
+              10510,
+              0,
+              7785,
+              11760,
+              840
+            ],
+            "northWithdrawnBodyMm": [
+              7185,
+              10510,
+              0,
+              7785,
+              11110,
+              840
+            ],
+            "northWithdrawalDistanceMm": 650,
+            "southWithdrawalBackPanelGapMm": 110,
+            "southWithdrawalSinkSideGapMm": 130,
+            "northWithdrawalToDrainSideGapMm": 10,
+            "removedBalconyCabinetRectMm": [
+              7155,
+              10490,
+              7815,
+              11160
+            ],
+            "kitchenNorthCounterRectMm": [
+              7010,
+              11290,
+              8030,
+              11890
+            ],
+            "countertopTopMm": 890,
+            "countertopUndersideMm": 870,
+            "boardThicknessMm": 20
+          },
+          "clearancesMm": {
+            "west": 20,
+            "east": 20,
+            "rear": 110,
+            "top": 30
+          },
+          "validation": {
+            "ok": true,
+            "machineBodyMm": [
+              7185,
+              11160,
+              0,
+              7785,
+              11760,
+              840
+            ],
+            "clearMachineBayMm": [
+              7165,
+              11160,
+              0,
+              7805,
+              11870,
+              870
+            ],
+            "nominalClearancesMm": {
+              "west": 20,
+              "east": 20,
+              "rear": 110,
+              "top": 30
+            },
+            "lowerOpeningMm": {
+              "x1": 7145,
+              "x2": 7825,
+              "bottom": 0,
+              "top": 870
+            },
+            "lowWallRemainingWidthsMm": [
+              105,
+              105
+            ],
+            "wallBandAboveOpeningMm": 130,
+            "upperWindowUnchanged": true,
+            "countertopRaised": false,
+            "countertopTopMm": 890,
+            "countertopUndersideMm": 870,
+            "bottomBoardThicknessMm": 0,
+            "conditionalFloorContinuityConfirmed": false,
+            "freedBalconyCabinetFootprintM2": 0.4422,
+            "balconyFloorAreaChanged": false,
+            "hypotheticalDoorZoneMm": [
+              7145,
+              10560,
+              0,
+              7825,
+              11160,
+              1000
+            ],
+            "hypothetical600ProjectionNorthRemainingMm": 1000,
+            "actualDoorSweepConfirmed": false,
+            "p36PointMoved": true,
+            "p36WorldMm": [
+              7922,
+              11060,
+              507,
+              7930,
+              11146,
+              593
+            ],
+            "p36HostAlongMarginsMm": [
+              10,
+              144
+            ],
+            "p36HypotheticalDoorZoneSideGapMm": 97,
+            "p36InstallationApproved": false,
+            "wholeMachineInstallationDirection": "from-balcony-towards-south",
+            "wholeMachineWithdrawalDirection": "towards-north-balcony",
+            "northWithdrawalSweepMm": [
+              7185,
+              10510,
+              0,
+              7785,
+              11760,
+              840
+            ],
+            "northWithdrawalDistanceMm": 650,
+            "northFixedBodyObstacles": [],
+            "northBodyToDrainSideGapMm": 10,
+            "southWithdrawalBlockedBeyondMm": 110,
+            "southSinkCabinetObstructionBeyondMm": 130,
+            "actualHandlingConfirmed": false,
+            "mainWaterAndGasAppliancesUnmoved": true,
+            "robotRemainsUnderEntryShoeCabinet": true
+          },
+          "previousPlanFields": {
+            "WIN_META": [
+              {
+                "id": "window_b",
+                "sourceId": "window_b",
+                "name": "次卧北飘窗主体洞口",
+                "grade": "施工图平面定位／竖向来源分列",
+                "source": "业主提供施工图.dwg PL-02/PL-06；平面为原生毫米坐标，窗台/窗高来源另列，不由平面比例推断。",
+                "sourceAxisMm": [
+                  1000,
+                  0,
+                  2760,
+                  0
+                ],
+                "rect": [
+                  1000,
+                  -120,
+                  2760,
+                  120
+                ],
+                "openingWidthMm": 1760,
+                "sillMm": 400,
+                "heightMm": 1670,
+                "headMm": 2070,
+                "dimensionStatus": "CAD-plan-position-with-separate-vertical-source",
+                "placementStatus": "native-DWG-plan-reference",
+                "verticalDimensionStatus": "retained-recorded-partial-measurement-not-new-CAD-height",
+                "type": "bay-aperture",
+                "noGlass": true,
+                "noFrame": true,
+                "guard": false,
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "measurementStatus": {
+                  "date": "2026-10-04",
+                  "reference": "models/measurements-20261004-r2.json",
+                  "scope": "B2_WINDOW_*：宽1760、高1670、台400mm；西墙段870定位，东墙段待全屋闭合；外凸600仍旧占位。",
+                  "fullyLocated": false,
+                  "retainedVerticalRecordOnly": true
+                },
+                "structuralUnverified": true,
+                "notConstructionApproval": true,
+                "notes": "2026-10-27平面窗位/宽度按DWG更新。本次图未给出可确认的该窗完整竖向定位，沿用旧窗台400／窗高1670／上口2070mm示意或原部分复尺记录，仍待现场闭合。"
+              },
+              {
+                "id": "window_b-front",
+                "sourceId": "window_b",
+                "name": "次卧北飘窗前窗",
+                "grade": "施工图平面定位／竖向来源分列",
+                "source": "业主提供施工图.dwg PL-02/PL-06；平面为原生毫米坐标，窗台/窗高来源另列，不由平面比例推断。",
+                "sourceAxisMm": [
+                  1000,
+                  -540,
+                  2760,
+                  -540
+                ],
+                "rect": [
+                  1000,
+                  -600,
+                  2760,
+                  -480
+                ],
+                "openingWidthMm": 1760,
+                "sillMm": 400,
+                "heightMm": 1670,
+                "headMm": 2070,
+                "dimensionStatus": "CAD-plan-position-with-separate-vertical-source",
+                "placementStatus": "native-DWG-plan-reference",
+                "verticalDimensionStatus": "retained-recorded-partial-measurement-not-new-CAD-height",
+                "type": "bay-front",
+                "noGlass": false,
+                "noFrame": false,
+                "guard": false,
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "measurementStatus": {
+                  "date": "2026-10-04",
+                  "reference": "models/measurements-20261004-r2.json",
+                  "scope": "B2_WINDOW_*：宽1760、高1670、台400mm；西墙段870定位，东墙段待全屋闭合；外凸600仍旧占位。",
+                  "fullyLocated": false,
+                  "retainedVerticalRecordOnly": true
+                },
+                "structuralUnverified": true,
+                "notConstructionApproval": true,
+                "notes": "2026-10-27平面窗位/宽度按DWG更新。本次图未给出可确认的该窗完整竖向定位，沿用旧窗台400／窗高1670／上口2070mm示意或原部分复尺记录，仍待现场闭合。"
+              },
+              {
+                "id": "window_a",
+                "sourceId": "window_a",
+                "name": "主卧北飘窗主体洞口",
+                "grade": "施工图平面定位／竖向来源分列",
+                "source": "业主提供施工图.dwg PL-02/PL-06；平面为原生毫米坐标，窗台/窗高来源另列，不由平面比例推断。",
+                "sourceAxisMm": [
+                  4140,
+                  0,
+                  5900,
+                  0
+                ],
+                "rect": [
+                  4140,
+                  -120,
+                  5900,
+                  120
+                ],
+                "openingWidthMm": 1760,
+                "sillMm": 410,
+                "heightMm": 1660,
+                "headMm": 2070,
+                "dimensionStatus": "CAD-plan-position-with-separate-vertical-source",
+                "placementStatus": "native-DWG-plan-reference",
+                "verticalDimensionStatus": "retained-recorded-partial-measurement-not-new-CAD-height",
+                "type": "bay-aperture",
+                "noGlass": true,
+                "noFrame": true,
+                "guard": false,
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "measurementStatus": {
+                  "date": "2026-10-04",
+                  "reference": "models/measurements-20261004-r2.json",
+                  "scope": "R2 B3_WINDOW_LENGTH/UPPER_OFFSET/LOWER_OFFSET：窗宽1760mm，按西墙段860mm条件定位；860＋1760＋870＝3490比净跨3500少10mm，模型东段暂880mm。台410／高1660，外凸600仍旧占位。",
+                  "fullyLocated": false,
+                  "retainedVerticalRecordOnly": true
+                },
+                "structuralUnverified": true,
+                "notConstructionApproval": true,
+                "notes": "2026-10-27平面窗位/宽度按DWG更新。本次图未给出可确认的该窗完整竖向定位，沿用旧窗台410／窗高1660／上口2070mm示意或原部分复尺记录，仍待现场闭合。"
+              },
+              {
+                "id": "window_a-front",
+                "sourceId": "window_a",
+                "name": "主卧北飘窗前窗",
+                "grade": "施工图平面定位／竖向来源分列",
+                "source": "业主提供施工图.dwg PL-02/PL-06；平面为原生毫米坐标，窗台/窗高来源另列，不由平面比例推断。",
+                "sourceAxisMm": [
+                  4140,
+                  -540,
+                  5900,
+                  -540
+                ],
+                "rect": [
+                  4140,
+                  -600,
+                  5900,
+                  -480
+                ],
+                "openingWidthMm": 1760,
+                "sillMm": 410,
+                "heightMm": 1660,
+                "headMm": 2070,
+                "dimensionStatus": "CAD-plan-position-with-separate-vertical-source",
+                "placementStatus": "native-DWG-plan-reference",
+                "verticalDimensionStatus": "retained-recorded-partial-measurement-not-new-CAD-height",
+                "type": "bay-front",
+                "noGlass": false,
+                "noFrame": false,
+                "guard": false,
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "measurementStatus": {
+                  "date": "2026-10-04",
+                  "reference": "models/measurements-20261004-r2.json",
+                  "scope": "R2 B3_WINDOW_LENGTH/UPPER_OFFSET/LOWER_OFFSET：窗宽1760mm，按西墙段860mm条件定位；860＋1760＋870＝3490比净跨3500少10mm，模型东段暂880mm。台410／高1660，外凸600仍旧占位。",
+                  "fullyLocated": false,
+                  "retainedVerticalRecordOnly": true
+                },
+                "structuralUnverified": true,
+                "notConstructionApproval": true,
+                "notes": "2026-10-27平面窗位/宽度按DWG更新。本次图未给出可确认的该窗完整竖向定位，沿用旧窗台410／窗高1660／上口2070mm示意或原部分复尺记录，仍待现场闭合。"
+              },
+              {
+                "id": "window_c",
+                "sourceId": "window_c",
+                "name": "书房西窗1150 · 窗台900／窗高1200暂估",
+                "grade": "施工图平面定位／竖向来源分列",
+                "source": "业主提供施工图.dwg PL-02/PL-06；平面为原生毫米坐标，窗台/窗高来源另列，不由平面比例推断。",
+                "sourceAxisMm": [
+                  0,
+                  3980,
+                  0,
+                  5130
+                ],
+                "rect": [
+                  -120,
+                  3980,
+                  120,
+                  5130
+                ],
+                "openingWidthMm": 1150,
+                "sillMm": 900,
+                "heightMm": 1200,
+                "headMm": 2100,
+                "dimensionStatus": "CAD-plan-position-with-separate-vertical-source",
+                "placementStatus": "native-DWG-plan-reference",
+                "verticalDimensionStatus": "owner-confirmed-provisional-900-sill-1200-opening",
+                "type": "window",
+                "noGlass": false,
+                "noFrame": false,
+                "guard": false,
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "structuralUnverified": true,
+                "notConstructionApproval": true,
+                "notes": "2026-10-27平面窗位/宽度按DWG更新。本次图未给出可确认的该窗完整竖向定位，沿用旧窗台900／窗高1200／上口2100mm示意或原部分复尺记录，仍待现场闭合。"
+              },
+              {
+                "id": "window_living_west",
+                "sourceId": "window_living_west",
+                "name": "客厅西低飘窗主体洞口2100",
+                "grade": "施工图平面定位／竖向来源分列",
+                "source": "业主提供施工图.dwg PL-02/PL-06；平面为原生毫米坐标，窗台/窗高来源另列，不由平面比例推断。",
+                "sourceAxisMm": [
+                  2020,
+                  6310,
+                  2020,
+                  8410
+                ],
+                "rect": [
+                  1900,
+                  6310,
+                  2140,
+                  8410
+                ],
+                "openingWidthMm": 2100,
+                "sillMm": 400,
+                "heightMm": 2210,
+                "headMm": 2610,
+                "dimensionStatus": "CAD-plan-position-with-separate-vertical-source",
+                "placementStatus": "native-DWG-plan-reference",
+                "verticalDimensionStatus": "retained-recorded-partial-measurement-not-new-CAD-height",
+                "type": "bay-aperture",
+                "noGlass": true,
+                "noFrame": true,
+                "guard": false,
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "measurementStatus": {
+                  "date": "2026-10-04",
+                  "reference": "models/measurements-20261004-r2.json",
+                  "scope": "L02/L03/L04/L05：宽2120、高2210、台400、外凸600mm；中心位置暂留旧模型，净框基准待核。",
+                  "fullyLocated": false,
+                  "retainedVerticalRecordOnly": true
+                },
+                "structuralUnverified": true,
+                "notConstructionApproval": true,
+                "notes": "2026-10-27平面窗位/宽度按DWG更新。本次图未给出可确认的该窗完整竖向定位，沿用旧窗台400／窗高2210／上口2610mm示意或原部分复尺记录，仍待现场闭合。"
+              },
+              {
+                "id": "window_living_west-front",
+                "sourceId": "window_living_west",
+                "name": "客厅西低飘窗前窗2100",
+                "grade": "施工图平面定位／竖向来源分列",
+                "source": "业主提供施工图.dwg PL-02/PL-06；平面为原生毫米坐标，窗台/窗高来源另列，不由平面比例推断。",
+                "sourceAxisMm": [
+                  1480,
+                  6310,
+                  1480,
+                  8410
+                ],
+                "rect": [
+                  1420,
+                  6310,
+                  1540,
+                  8410
+                ],
+                "openingWidthMm": 2100,
+                "sillMm": 400,
+                "heightMm": 2210,
+                "headMm": 2610,
+                "dimensionStatus": "CAD-plan-position-with-separate-vertical-source",
+                "placementStatus": "native-DWG-plan-reference",
+                "verticalDimensionStatus": "retained-recorded-partial-measurement-not-new-CAD-height",
+                "type": "bay-front",
+                "noGlass": false,
+                "noFrame": false,
+                "guard": false,
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "measurementStatus": {
+                  "date": "2026-10-04",
+                  "reference": "models/measurements-20261004-r2.json",
+                  "scope": "L02/L03/L04/L05：宽2120、高2210、台400、外凸600mm；中心位置暂留旧模型，净框基准待核。",
+                  "fullyLocated": false,
+                  "retainedVerticalRecordOnly": true
+                },
+                "structuralUnverified": true,
+                "notConstructionApproval": true,
+                "notes": "2026-10-27平面窗位/宽度按DWG更新。本次图未给出可确认的该窗完整竖向定位，沿用旧窗台400／窗高2210／上口2610mm示意或原部分复尺记录，仍待现场闭合。"
+              },
+              {
+                "id": "window_bath_1_east",
+                "sourceId": "window_bath_1_east",
+                "name": "主卫东窗500 · 竖向保留旧示意待核",
+                "grade": "施工图平面定位／竖向来源分列",
+                "source": "业主提供施工图.dwg PL-02/PL-06；平面为原生毫米坐标，窗台/窗高来源另列，不由平面比例推断。",
+                "sourceAxisMm": [
+                  6920,
+                  3520,
+                  6920,
+                  4020
+                ],
+                "rect": [
+                  6800,
+                  3520,
+                  7040,
+                  4020
+                ],
+                "openingWidthMm": 500,
+                "sillMm": 1500,
+                "heightMm": 800,
+                "headMm": 2300,
+                "dimensionStatus": "CAD-plan-position-with-separate-vertical-source",
+                "placementStatus": "native-DWG-plan-reference",
+                "verticalDimensionStatus": "retained-old-800-opening-1400-measurement-not-vertically-located",
+                "type": "window",
+                "noGlass": false,
+                "noFrame": false,
+                "guard": false,
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "measurementStatus": {
+                  "date": "2026-10-04",
+                  "reference": "models/measurements-20261004-r2.json",
+                  "scope": "R2 S05/S06：实测记录窗宽500、窗高1400mm；经用户确认保留旧位置及台1500／高800mm示意，不将1400叠加旧窗台；窗台、窗中心、净高及框内/框外参考面待核。",
+                  "fullyLocated": false,
+                  "retainedVerticalRecordOnly": true
+                },
+                "structuralUnverified": true,
+                "notConstructionApproval": true,
+                "notes": "2026-10-27平面窗位/宽度按DWG更新。本次图未给出可确认的该窗完整竖向定位，沿用旧窗台1500／窗高800／上口2300mm示意或原部分复尺记录，仍待现场闭合。主卫原复尺窗高1400mm记录保留；窗台未测，因此继续用1500/800旧示意，不将1400加在旧窗台上。",
+                "recordedUnlocatedHeightMm": 1400
+              },
+              {
+                "id": "window_bath_2_east",
+                "sourceId": "window_bath_2_east",
+                "name": "客卫东窗530 · 窗台与窗高待核",
+                "grade": "施工图平面定位／竖向来源分列",
+                "source": "业主提供施工图.dwg PL-02/PL-06；平面为原生毫米坐标，窗台/窗高来源另列，不由平面比例推断。",
+                "sourceAxisMm": [
+                  6920,
+                  5250,
+                  6920,
+                  5780
+                ],
+                "rect": [
+                  6800,
+                  5250,
+                  7040,
+                  5780
+                ],
+                "openingWidthMm": 530,
+                "sillMm": 1500,
+                "heightMm": 800,
+                "headMm": 2300,
+                "dimensionStatus": "CAD-plan-position-with-separate-vertical-source",
+                "placementStatus": "native-DWG-plan-reference",
+                "verticalDimensionStatus": "retained-old-provisional-height-not-marked-in-examined-drawing",
+                "type": "window",
+                "noGlass": false,
+                "noFrame": false,
+                "guard": false,
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "structuralUnverified": true,
+                "notConstructionApproval": true,
+                "notes": "2026-10-27平面窗位/宽度按DWG更新。本次图未给出可确认的该窗完整竖向定位，沿用旧窗台1500／窗高800／上口2300mm示意或原部分复尺记录，仍待现场闭合。"
+              },
+              {
+                "id": "window_kitchen_balcony",
+                "sourceId": "window_kitchen_balcony",
+                "name": "厨房—阳台共用窗890 · 图注窗台1000／窗高1350",
+                "grade": "施工图平面定位／竖向来源分列",
+                "source": "业主提供施工图.dwg PL-02/PL-06；平面为原生毫米坐标，窗台/窗高来源另列，不由平面比例推断。",
+                "sourceAxisMm": [
+                  7040,
+                  11225,
+                  7930,
+                  11225
+                ],
+                "rect": [
+                  7040,
+                  11160,
+                  7930,
+                  11290
+                ],
+                "openingWidthMm": 890,
+                "sillMm": 1000,
+                "heightMm": 1350,
+                "headMm": 2350,
+                "dimensionStatus": "CAD-plan-position-with-separate-vertical-source",
+                "placementStatus": "native-DWG-plan-reference",
+                "verticalDimensionStatus": "CAD-CH-height1350-DH-sill1000-elevation-C-page20-not-site-measurement",
+                "type": "window",
+                "noGlass": false,
+                "noFrame": false,
+                "guard": false,
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval",
+                  "heightAnnotationHandles": [
+                    288590,
+                    288528
+                  ],
+                  "verticalElevationSheet": "EL-03-C",
+                  "verticalElevationPdfPage": 20,
+                  "heightLegend": {
+                    "CH": "window-opening-height",
+                    "DH": "window-sill-above-floor"
+                  }
+                },
+                "structuralUnverified": true,
+                "notConstructionApproval": true,
+                "notes": "2026-10-27平面窗位/宽度按DWG更新。图例CH为窗洞高1350、DH为窗台离地1000；已与第20页立面C下段1000及窗段1350交叉核对，上口2350mm，待现场复核；不沿用原窗下低位服务开口。"
+              },
+              {
+                "id": "balcony_north_opening",
+                "sourceId": "balcony_north_opening",
+                "name": "生活阳台北向通透围护1050 · 竖向待核",
+                "grade": "施工图平面定位／竖向来源分列",
+                "source": "业主提供施工图.dwg PL-02/PL-06；平面为原生毫米坐标，窗台/窗高来源另列，不由平面比例推断。",
+                "sourceAxisMm": [
+                  7040,
+                  9515,
+                  8090,
+                  9515
+                ],
+                "rect": [
+                  7040,
+                  9470,
+                  8090,
+                  9560
+                ],
+                "openingWidthMm": 1050,
+                "sillMm": 1100,
+                "heightMm": 1350,
+                "headMm": 2450,
+                "dimensionStatus": "CAD-plan-position-with-separate-vertical-source",
+                "placementStatus": "native-DWG-plan-reference",
+                "verticalDimensionStatus": "retained-old-provisional-height-not-marked-in-examined-drawing",
+                "type": "guarded-open-air",
+                "noGlass": true,
+                "noFrame": false,
+                "guard": true,
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "structuralUnverified": true,
+                "notConstructionApproval": true,
+                "notes": "2026-10-27平面窗位/宽度按DWG更新。本次图未给出可确认的该窗完整竖向定位，沿用旧窗台1100／窗高1350／上口2450mm示意或原部分复尺记录，仍待现场闭合。"
+              },
+              {
+                "id": "balcony_east_opening",
+                "sourceId": "balcony_east_opening",
+                "name": "生活阳台东向通透围护1490 · 竖向待核",
+                "grade": "施工图平面定位／竖向来源分列",
+                "source": "业主提供施工图.dwg PL-02/PL-06；平面为原生毫米坐标，窗台/窗高来源另列，不由平面比例推断。",
+                "sourceAxisMm": [
+                  8150,
+                  9560,
+                  8150,
+                  11050
+                ],
+                "rect": [
+                  8090,
+                  9560,
+                  8210,
+                  11050
+                ],
+                "openingWidthMm": 1490,
+                "sillMm": 1100,
+                "heightMm": 1350,
+                "headMm": 2450,
+                "dimensionStatus": "CAD-plan-position-with-separate-vertical-source",
+                "placementStatus": "native-DWG-plan-reference",
+                "verticalDimensionStatus": "retained-old-provisional-height-not-marked-in-examined-drawing",
+                "type": "guarded-open-air",
+                "noGlass": true,
+                "noFrame": false,
+                "guard": true,
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "structuralUnverified": true,
+                "notConstructionApproval": true,
+                "notes": "2026-10-27平面窗位/宽度按DWG更新。本次图未给出可确认的该窗完整竖向定位，沿用旧窗台1100／窗高1350／上口2450mm示意或原部分复尺记录，仍待现场闭合。"
+              },
+              {
+                "id": "window_b-west-return",
+                "sourceId": "window_b",
+                "name": "次卧飘窗西侧返玻璃 · 构造待核",
+                "grade": "施工图平面定位／竖向来源分列",
+                "source": "业主提供施工图.dwg PL-02/PL-06；平面为原生毫米坐标，窗台/窗高来源另列，不由平面比例推断。",
+                "sourceAxisMm": [
+                  940,
+                  -480,
+                  940,
+                  -120
+                ],
+                "rect": [
+                  880,
+                  -480,
+                  1000,
+                  -120
+                ],
+                "openingWidthMm": 360,
+                "sillMm": 400,
+                "heightMm": 1670,
+                "headMm": 2070,
+                "dimensionStatus": "CAD-plan-position-with-separate-vertical-source",
+                "placementStatus": "native-DWG-plan-reference",
+                "verticalDimensionStatus": "retained-recorded-partial-measurement-not-new-CAD-height",
+                "type": "bay-front",
+                "noGlass": false,
+                "noFrame": false,
+                "guard": false,
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "measurementStatus": {
+                  "date": "2026-10-04",
+                  "reference": "models/measurements-20261004-r2.json",
+                  "scope": "B2_WINDOW_*：宽1760、高1670、台400mm；西墙段870定位，东墙段待全屋闭合；外凸600仍旧占位。",
+                  "fullyLocated": false,
+                  "retainedVerticalRecordOnly": true
+                },
+                "returnGlazing": true,
+                "sourceGeometry": "CAD-side-frame-band-glazing-not-solid-bearing-wall",
+                "frameDetailStatus": "source-band-envelope-not-fabrication-detail",
+                "structuralUnverified": true,
+                "notConstructionApproval": true,
+                "notes": "2026-10-27平面窗位/宽度按DWG更新。本次图未给出可确认的该窗完整竖向定位，沿用旧窗台400／窗高1670／上口2070mm示意或原部分复尺记录，仍待现场闭合。"
+              },
+              {
+                "id": "window_b-east-return",
+                "sourceId": "window_b",
+                "name": "次卧飘窗东侧返玻璃 · 构造待核",
+                "grade": "施工图平面定位／竖向来源分列",
+                "source": "业主提供施工图.dwg PL-02/PL-06；平面为原生毫米坐标，窗台/窗高来源另列，不由平面比例推断。",
+                "sourceAxisMm": [
+                  2820,
+                  -480,
+                  2820,
+                  -120
+                ],
+                "rect": [
+                  2760,
+                  -480,
+                  2880,
+                  -120
+                ],
+                "openingWidthMm": 360,
+                "sillMm": 400,
+                "heightMm": 1670,
+                "headMm": 2070,
+                "dimensionStatus": "CAD-plan-position-with-separate-vertical-source",
+                "placementStatus": "native-DWG-plan-reference",
+                "verticalDimensionStatus": "retained-recorded-partial-measurement-not-new-CAD-height",
+                "type": "bay-front",
+                "noGlass": false,
+                "noFrame": false,
+                "guard": false,
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "measurementStatus": {
+                  "date": "2026-10-04",
+                  "reference": "models/measurements-20261004-r2.json",
+                  "scope": "B2_WINDOW_*：宽1760、高1670、台400mm；西墙段870定位，东墙段待全屋闭合；外凸600仍旧占位。",
+                  "fullyLocated": false,
+                  "retainedVerticalRecordOnly": true
+                },
+                "returnGlazing": true,
+                "sourceGeometry": "CAD-side-frame-band-glazing-not-solid-bearing-wall",
+                "frameDetailStatus": "source-band-envelope-not-fabrication-detail",
+                "structuralUnverified": true,
+                "notConstructionApproval": true,
+                "notes": "2026-10-27平面窗位/宽度按DWG更新。本次图未给出可确认的该窗完整竖向定位，沿用旧窗台400／窗高1670／上口2070mm示意或原部分复尺记录，仍待现场闭合。"
+              },
+              {
+                "id": "window_a-west-return",
+                "sourceId": "window_a",
+                "name": "主卧飘窗西侧返玻璃 · 构造待核",
+                "grade": "施工图平面定位／竖向来源分列",
+                "source": "业主提供施工图.dwg PL-02/PL-06；平面为原生毫米坐标，窗台/窗高来源另列，不由平面比例推断。",
+                "sourceAxisMm": [
+                  4080,
+                  -480,
+                  4080,
+                  -120
+                ],
+                "rect": [
+                  4020,
+                  -480,
+                  4140,
+                  -120
+                ],
+                "openingWidthMm": 360,
+                "sillMm": 410,
+                "heightMm": 1660,
+                "headMm": 2070,
+                "dimensionStatus": "CAD-plan-position-with-separate-vertical-source",
+                "placementStatus": "native-DWG-plan-reference",
+                "verticalDimensionStatus": "retained-recorded-partial-measurement-not-new-CAD-height",
+                "type": "bay-front",
+                "noGlass": false,
+                "noFrame": false,
+                "guard": false,
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "measurementStatus": {
+                  "date": "2026-10-04",
+                  "reference": "models/measurements-20261004-r2.json",
+                  "scope": "R2 B3_WINDOW_LENGTH/UPPER_OFFSET/LOWER_OFFSET：窗宽1760mm，按西墙段860mm条件定位；860＋1760＋870＝3490比净跨3500少10mm，模型东段暂880mm。台410／高1660，外凸600仍旧占位。",
+                  "fullyLocated": false,
+                  "retainedVerticalRecordOnly": true
+                },
+                "returnGlazing": true,
+                "sourceGeometry": "CAD-side-frame-band-glazing-not-solid-bearing-wall",
+                "frameDetailStatus": "source-band-envelope-not-fabrication-detail",
+                "structuralUnverified": true,
+                "notConstructionApproval": true,
+                "notes": "2026-10-27平面窗位/宽度按DWG更新。本次图未给出可确认的该窗完整竖向定位，沿用旧窗台410／窗高1660／上口2070mm示意或原部分复尺记录，仍待现场闭合。"
+              },
+              {
+                "id": "window_a-east-return",
+                "sourceId": "window_a",
+                "name": "主卧飘窗东侧返玻璃 · 构造待核",
+                "grade": "施工图平面定位／竖向来源分列",
+                "source": "业主提供施工图.dwg PL-02/PL-06；平面为原生毫米坐标，窗台/窗高来源另列，不由平面比例推断。",
+                "sourceAxisMm": [
+                  5960,
+                  -480,
+                  5960,
+                  -120
+                ],
+                "rect": [
+                  5900,
+                  -480,
+                  6020,
+                  -120
+                ],
+                "openingWidthMm": 360,
+                "sillMm": 410,
+                "heightMm": 1660,
+                "headMm": 2070,
+                "dimensionStatus": "CAD-plan-position-with-separate-vertical-source",
+                "placementStatus": "native-DWG-plan-reference",
+                "verticalDimensionStatus": "retained-recorded-partial-measurement-not-new-CAD-height",
+                "type": "bay-front",
+                "noGlass": false,
+                "noFrame": false,
+                "guard": false,
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "measurementStatus": {
+                  "date": "2026-10-04",
+                  "reference": "models/measurements-20261004-r2.json",
+                  "scope": "R2 B3_WINDOW_LENGTH/UPPER_OFFSET/LOWER_OFFSET：窗宽1760mm，按西墙段860mm条件定位；860＋1760＋870＝3490比净跨3500少10mm，模型东段暂880mm。台410／高1660，外凸600仍旧占位。",
+                  "fullyLocated": false,
+                  "retainedVerticalRecordOnly": true
+                },
+                "returnGlazing": true,
+                "sourceGeometry": "CAD-side-frame-band-glazing-not-solid-bearing-wall",
+                "frameDetailStatus": "source-band-envelope-not-fabrication-detail",
+                "structuralUnverified": true,
+                "notConstructionApproval": true,
+                "notes": "2026-10-27平面窗位/宽度按DWG更新。本次图未给出可确认的该窗完整竖向定位，沿用旧窗台410／窗高1660／上口2070mm示意或原部分复尺记录，仍待现场闭合。"
+              }
+            ],
+            "ROOMS": [
+              {
+                "id": "room_b",
+                "name": "次卧 B",
+                "poly": [
+                  [
+                    120,
+                    120
+                  ],
+                  [
+                    3530,
+                    120
+                  ],
+                  [
+                    3530,
+                    3200
+                  ],
+                  [
+                    120,
+                    3200
+                  ]
+                ],
+                "mat": "wood",
+                "at": [
+                  1720,
+                  2310
+                ],
+                "heightMm": 2700,
+                "dimensionStatus": "design-pending",
+                "planAreaM2": 10.503,
+                "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+              },
+              {
+                "id": "room_c",
+                "name": "书房 · 客卧",
+                "poly": [
+                  [
+                    120,
+                    3320
+                  ],
+                  [
+                    2420,
+                    3320
+                  ],
+                  [
+                    2420,
+                    6050
+                  ],
+                  [
+                    120,
+                    6050
+                  ]
+                ],
+                "mat": "wood",
+                "at": [
+                  1270,
+                  4550
+                ],
+                "heightMm": 2700,
+                "dimensionStatus": "design-pending",
+                "planAreaM2": 6.279,
+                "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+              },
+              {
+                "id": "room_a",
+                "name": "主卧",
+                "poly": [
+                  [
+                    3650,
+                    120
+                  ],
+                  [
+                    6800,
+                    120
+                  ],
+                  [
+                    6800,
+                    3140
+                  ],
+                  [
+                    5050,
+                    3140
+                  ],
+                  [
+                    5050,
+                    4470
+                  ],
+                  [
+                    3650,
+                    4470
+                  ]
+                ],
+                "mat": "wood",
+                "at": [
+                  5350,
+                  2680
+                ],
+                "heightMm": 2790,
+                "dimensionStatus": "design-pending",
+                "planAreaM2": 11.375,
+                "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+              },
+              {
+                "id": "bath_1",
+                "name": "主卫",
+                "poly": [
+                  [
+                    5150,
+                    3240
+                  ],
+                  [
+                    6800,
+                    3240
+                  ],
+                  [
+                    6800,
+                    4840
+                  ],
+                  [
+                    5940,
+                    4840
+                  ],
+                  [
+                    5940,
+                    4719.851
+                  ],
+                  [
+                    5150,
+                    4719.851
+                  ]
+                ],
+                "mat": "antislip",
+                "at": [
+                  6040,
+                  4130
+                ],
+                "heightMm": 2700,
+                "dimensionStatus": "design-pending",
+                "planAreaM2": 2.545,
+                "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+              },
+              {
+                "id": "bath_2",
+                "name": "客卫",
+                "poly": [
+                  [
+                    3650,
+                    4590
+                  ],
+                  [
+                    5050,
+                    4590
+                  ],
+                  [
+                    5050,
+                    4839.851
+                  ],
+                  [
+                    5810,
+                    4839.851
+                  ],
+                  [
+                    5810,
+                    4840
+                  ],
+                  [
+                    6800,
+                    4840
+                  ],
+                  [
+                    6800,
+                    6040
+                  ],
+                  [
+                    4220,
+                    6040
+                  ],
+                  [
+                    4220,
+                    6190
+                  ],
+                  [
+                    3650,
+                    6190
+                  ]
+                ],
+                "mat": "antislip",
+                "at": [
+                  4850,
+                  5600
+                ],
+                "heightMm": 2700,
+                "dimensionStatus": "design-pending",
+                "planAreaM2": 4.216,
+                "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+              },
+              {
+                "id": "living",
+                "name": "客餐厅 / 过道",
+                "poly": [
+                  [
+                    2540,
+                    3320
+                  ],
+                  [
+                    3530,
+                    3320
+                  ],
+                  [
+                    3530,
+                    6310
+                  ],
+                  [
+                    6800,
+                    6310
+                  ],
+                  [
+                    6800,
+                    11160
+                  ],
+                  [
+                    5470,
+                    11160
+                  ],
+                  [
+                    5470,
+                    13890
+                  ],
+                  [
+                    2140,
+                    13890
+                  ],
+                  [
+                    2140,
+                    6310
+                  ],
+                  [
+                    2540,
+                    6310
+                  ]
+                ],
+                "mat": "tile800",
+                "at": [
+                  4830,
+                  7600
+                ],
+                "heightMm": 2700,
+                "dimensionStatus": "design-pending",
+                "planAreaM2": 34.652,
+                "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+              },
+              {
+                "id": "kitchen",
+                "name": "厨房",
+                "poly": [
+                  [
+                    5610,
+                    11290
+                  ],
+                  [
+                    8030,
+                    11290
+                  ],
+                  [
+                    8030,
+                    13890
+                  ],
+                  [
+                    5690,
+                    13890
+                  ],
+                  [
+                    5690,
+                    13360
+                  ],
+                  [
+                    5610,
+                    13360
+                  ]
+                ],
+                "mat": "tile800",
+                "at": [
+                  6800,
+                  12590
+                ],
+                "heightMm": 2700,
+                "dimensionStatus": "design-pending",
+                "planAreaM2": 6.25,
+                "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+              },
+              {
+                "id": "balcony",
+                "name": "生活阳台",
+                "poly": [
+                  [
+                    7040,
+                    9560
+                  ],
+                  [
+                    8090,
+                    9560
+                  ],
+                  [
+                    8090,
+                    11050
+                  ],
+                  [
+                    7930,
+                    11050
+                  ],
+                  [
+                    7930,
+                    11160
+                  ],
+                  [
+                    7040,
+                    11160
+                  ]
+                ],
+                "mat": "antislip",
+                "at": [
+                  7565,
+                  10200
+                ],
+                "heightMm": 2700,
+                "notes": "按新图约1050×1600mm阳台轮廓，东北/东南柱及围护以图纸示意；烘干机单独位于窗下，扫地机移入户鞋柜下。600mm外挑为非踩踏概念，实际结构、排水及安装条件待核。",
+                "dimensionStatus": "design-pending",
+                "planAreaM2": 1.662,
+                "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+              },
+              {
+                "id": "bay_window_b",
+                "name": "次卧北飘窗（复尺400mm台面，软垫为条件设计）",
+                "poly": [
+                  [
+                    1000,
+                    -480
+                  ],
+                  [
+                    2760,
+                    -480
+                  ],
+                  [
+                    2760,
+                    120
+                  ],
+                  [
+                    1000,
+                    120
+                  ]
+                ],
+                "mat": "marble",
+                "counted": false,
+                "sillMm": 400,
+                "heightMm": 1670,
+                "bay": true,
+                "at": [
+                  1880,
+                  -170
+                ],
+                "planAreaM2": 1.056,
+                "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+              },
+              {
+                "id": "bay_window_a",
+                "name": "主卧北飘窗（存在确认，尺寸待复尺）",
+                "poly": [
+                  [
+                    4140,
+                    -480
+                  ],
+                  [
+                    5900,
+                    -480
+                  ],
+                  [
+                    5900,
+                    120
+                  ],
+                  [
+                    4140,
+                    120
+                  ]
+                ],
+                "mat": "marble",
+                "counted": false,
+                "sillMm": 410,
+                "heightMm": 1660,
+                "bay": true,
+                "at": [
+                  5020,
+                  -170
+                ],
+                "planAreaM2": 1.056,
+                "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+              },
+              {
+                "id": "bay_window_living_west",
+                "name": "客厅西低飘窗（400台高暂估，非实测）",
+                "poly": [
+                  [
+                    1540,
+                    6310
+                  ],
+                  [
+                    2140,
+                    6310
+                  ],
+                  [
+                    2140,
+                    8410
+                  ],
+                  [
+                    1540,
+                    8410
+                  ]
+                ],
+                "mat": "marble",
+                "counted": false,
+                "sillMm": 400,
+                "heightMm": 2210,
+                "bay": true,
+                "at": [
+                  1840,
+                  7360
+                ],
+                "planAreaM2": 1.26,
+                "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+                "layoutRevision": "family-drawing-shell-20261027",
+                "drawingSource": {
+                  "id": "owner-construction-dwg-20261027",
+                  "file": "业主提供施工图.dwg",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "pdf": "业主提供施工图.pdf",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06"
+                  ],
+                  "unit": "mm",
+                  "nativeNorth": "drawing-right",
+                  "modelNorth": "negative-y",
+                  "scalingApplied": false,
+                  "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                  "sheetDeltaX": {
+                    "PL-02": 0,
+                    "PL-03": 23138.659583967,
+                    "PL-06": 92554.638335861
+                  },
+                  "status": "construction-drawing-reference-not-site-or-structural-approval"
+                },
+                "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+              }
+            ]
+          },
+          "previousMetadataFields": {
+            "conditions": {
+              "present": true,
+              "value": [
+                "墙体、房间多边形和面积沿用既有方案；部分复尺已应用，全屋墙线和共同基准未闭合。",
+                "编辑器中的尺寸以模型坐标为准；已购家具保持机身外廓，安装、门套及五金余量待核。",
+                "入户门参照方案4向外开启，模型内不再扫过鞋柜正面；门外公共通行、相邻门、门套、闭门器及限位仍须现场确认，模型不构成外开施工批准。",
+                "方案2本轮主卧门南移300mm、主卫门北移300mm并改北铰内开；盆厕贴南墙面北。门位为确认设计参数，非新增实测；马桶侧至淋浴仅60mm，排水移位与门套、通行条件仍须现场深化。",
+                "方案2书房900门洞累计南移800，本轮再南移300并改南铰内开；7字南桌与浅书墙1450，与主卧门洞纵向间隔530mm。未来完整床须替换沙发并收椅。客卫台前610mm偏紧，机门/取衣须实物试摆。阳台取消借厅外凸但全屋净宽与复尺差180mm尚未闭合。",
+                "方案2厨房1700、生活阳台1500mm原门洞保持，仅改双扇双轨玻璃推拉门；厨房向北、阳台向南堆叠不变。开门后的可用通行宽度约为洞宽一半，实际门框/搭接/五金再扣，须核对搬运、操作和防水高差。",
+                "2026-10-12方案2书房1450桌/真实书架东端至40mm门叶连续扫掠外包约49.74mm，余量有限，不含把手、门套和安装偏差；洞下室内墙垛仅20mm。未来床侧710mm与坐椅共用偏紧，床尾120mm不是通道。",
+                "2026-10-12方案2新增12件暂估电器；原有47件家具、墙/门/窗、1450书房桌架与南铰门、厨房及阳台双扇门、其他3方案保持。",
+                "三房挂机底2250/顶2550mm；柜机放TV东侧、静态距墙和电视柜50mm只是模型几何空隙。冷凝排水、外机/管路、进回风、供电与检修未核。",
+                "厨房凉霸和两卫浴霸可见面板底2620/顶2700mm，80mm仅显示壳体；吊顶腔内机身深度、风管、安装禁区、防护等级、排风、电气保护与检修定位待核。",
+                "五台餐边电器底850mm落在真实400mm深西柜台面；不改原插座和灯带，不遮高柜展示格，南段保留1550mm连续空白备餐台面。所有实物尺寸、插头、开盖、蒸汽、散热及实际运行位置待核；不默认柜下蒸汽运行或五台同时接同一插排。",
+                "2026-10-12方案2三房挂机改到窗侧：主次卧北窗上方室内墙带，窗头2070至机身底2250为180mm；不装入外凸飘窗顶棚或玻璃，不改变窗体。",
+                "书房挂机向西移550mm至北墙西北窗侧角，距西墙50mm、距房顶150mm；西窗头2300上方直接挂装只有70mm顶棚余量的候选不采用，不为挤放而改机宽、书架或窗高。",
+                "三挂机仍900×250×300mm、底2250/顶2550；主卧/次卧/书房顶棚余240/150/150mm仅模型几何量，非厂家进风检修要求。窗帘、基层、墙梁、实际机型、室外机位及穿孔冷媒管/排水/电源需专业现场核对，不构成安装批准。",
+                "2026-10-12方案2移除电视前1200×620茶几及客厅落地灯；其他57件家具电器、墙门窗及其他方案保持。旧浏览器草稿中的这两件物品移除时保留JSON归档。",
+                "原矮墙、边柱、顶梁完整保留；只把原窗面的网框示意移至外挑边缘。北、东面无玻璃或新高柜。",
+                "非踩踏、非承载的新外挑概念：不得放机器、储物或站人。本模型未增地面楼板，未确认锚固、抗风、防坠、接缝排水或防水构造。",
+                "高层外立面外挑涉及物业/审批、结构与防护条件，必须由专业方现场核验；600仅为业主希望的设计值，不是施工许可。",
+                "转角库是400mm深两臂连通的浅型L柜，不是步入式储物间；不增加入户占地、不改墙门窗，也不保证容纳此前两辆车。",
+                "内转角无中立柱，合页在两外端；西门先开、南门后开，关闭反向。独立同时外开会互撞，需顺序联动/限位、门板重量与防夹设计，模型顺序动画不是五金安装批准。",
+                "模型开门范围不碰餐桌椅或室内入户门；距南餐椅约355mm只是门扫纵向间隔，不代表站位或能同时取物通行。",
+                "18mm板、调节轨、L形拼接和层板灯带均为构造示意；承重、背板锚固、防倾倒、门缝/踢脚线、通顶收口与下单尺寸由定制方现场深化。",
+                "2026-10-12仅方案2更新客餐厅两盏吸顶灯。客厅907×577×110mm为业主提供值；餐厅同尺寸为暂定占位，未推定已购买。两盏分别居地毯/餐桌中心，不能当作实际灯位施工图。",
+                "按当前模型2700层高贴顶，灯底2590；吊顶完成面、接线盒、安装固定、开关回路和实际灯具规格待现场核对。模型亮度/暖白外观仅为展示，不表示照度或厂家参数。",
+                "本次修订覆盖前版“餐厅同尺寸长方灯占位”及“书房挂机仍挂北墙”的现状说明：餐厅改原白圆灯，客厅长方灯背板白色，书房机移西窗墙上方朝东。此前文字属于历史方案，不是本版定位。",
+                "书房窗未新增复尺确认值：窗台900、窗洞高1200、窗顶2100及原宽1100/平面定位为暂估示意，不能为挤放空调当成实测或施工尺寸。实际窗口、顶部梁、墙体承载、机型及安装净空必须现场核验。",
+                "本版最大开角180°，西门先开、南门后开；关闭反序。原用餐位的南餐椅会在西门约123–166°扫掠中干涉，必须先移椅再开门。",
+                "保留南餐椅默认(2955,12080)，业主确认开柜时临时向东移至(3420,12080)，关门后再恢复；可撤销，不能把本版动画看成不挪椅也能开足。",
+                "虚拟轴外移5mm仅用于模型闭合对齐及全开10mm柜面间隙；实际180°铰链、挂接件、门重/挠度、联动限位、防夹与承重需定制商选型和现场确认。",
+                "条件外包1114=420+640+3×18；开口1200两侧各43。机位净深752=770−18，净高950。以上均旧模型试排，不是复尺确定值。",
+                "原台面完成890；本版机位上方独立台完成980，上升90。必须确认台面/隔板承重和冷热/防水接缝，不把台面荷载压在机器上。",
+                "窗下实体墙是否可拆、上方原窗支承、连续楼板/梁及机位防水先鉴定；该下穿开口是未批准概念，不调整原WALLS/WINS或房间地面面积。",
+                "阳台模型净宽1420与复尺1240差180；厨房模型净宽2870与复尺2420差450。凹位跨待核厨房段，不能以1114已放下推断现场可施工。",
+                "龙头在基站西侧墙垛，不与基站共用洗手台；水桶仅临时接水，使用后移走，不能挡住基站出入/回充。",
+                "出水口750仅本次展示暂估，非实测或施工高度。实际龙头/软管、防回流、排水坡度、湿区保护与检修净空待选型。",
+                "本版仅方案2新增五个可选中地漏盖示意：阳台洗地1、主卫干区1/淋浴1、客卫干区1/淋浴1。150×150mm是暂估格栅占位，非已购产品或实测地漏规格。",
+                "地漏点位、下方排水管/存水弯、管径、水封/防臭、检修、实际地坪高差及找坡均未核验；可见4mm仅格栅模型厚度，不代表完成地面应凸起或可据本图施工。",
+                "阳台地漏仅放在原室内楼板地面，不放在600mm非踩踏外挑。水龙头用于接桶/软管洗地，禁止直接冲电器；需由现场确认排水落点、防水及通往地漏的坡向。",
+                "两处淋浴地漏沿用原50mm模型盘面作为显示标高，未修改原盘、玻璃、门扇或地面坡度；原北侧装饰线性排水图例关闭，不重复表达两个实际排水口。",
+                "客卫洗衣机及盆柜位置和独立排水方案保持；洗衣机排水不能自动当作接到干区/淋浴/阳台新增地漏，实际接管与防溢流须单独深化。",
+                "本版只补充方案2电位概念：14处开关、36处电源用途点、4处弱电，共54个逻辑点；鞋柜原充电面板P16复用原实体，其余新增53个可选中面板。原68物件、建筑及其余方案保持。",
+                "86×86×8mm是新面板暂估外形，仅显示墙/柜面安装面；高度为完成地面到面板中心的暂估值，非暗盒尺寸、开槽深度或施工放线批准。P16沿用既有70×70×5mm柜内面板，不重新覆盖。",
+                "主卧、次卧、书房、客厅各一组双控，表示两处共同控制同一盏灯的功能意图，不代表实际接线拓扑、真实供电开关模拟、智能设备互通或已批准的控制系统。",
+                "电流额定值、线径、负荷、回路容量、插座制式、安全门、接地、漏电保护、等电位、防溅/防护等级及涉水区分区均未确定，须由合格电工结合实测、设备厂家和适用规范审查。不得按示意点位直接施工。",
+                "两卫开关放卫外干侧；盆机、台面及马桶用途插座只表达备选位置，并不保证符合涉水区安全距离。洗衣机、烘干机、厨房电器、空调及热水器的独立回路与检修空间须电工和安装商深化。",
+                "烘干机和扫地基站电源暂放凹位厨房侧封板，面朝厨房供检修，不藏在机器背后；从封板穿线/开孔、暗盒、护线、独立断电、通风及涉水隔离尚未深化。柜板挂面不等于已批准嵌入可燃板安装。",
+                "餐边柜五台电器分别预留用途点，不承诺同时使用不超负荷；各设备带线、排汽、散热、抬盖和柜灯电源布置待选型后复核。强弱电这里只列独立面板，不暗示间距、管线隔离或网络施工已验证。",
+                "本版仅方案2厨房热水器按业主提供参考图改为万家乐 JSLQ27-16U10ULTRA(F) 外观及机身340×190×525mm；购买/现场已安装均未确认，参考不是施工批准。",
+                "340×190×525mm仅机身外壳尺寸；参考图598.5、542.2、571.5mm原始标注各保留，不将其当作已验证安装总高、接管净空或替代机身高度。烟管、阀件、软硬管、插头、挂架和检修另需核验。",
+                "机身背面仍贴厨房东墙x8290，朝西，中心y11535、底高1320保持；深度190对应中心x8195。机身北边11365至厨房/阳台共墙室内边11270仅95mm模型间隔，不能据此判定满足厂家边距、散热或安装要求。",
+                "参考图排烟接口直径60mm只作为可见短接口环参考；短环高度、底部三接口位置/尺寸为视觉示意，不画实际烟管、进排水/燃气管、外墙孔或连接到原设施。",
+                "资料底部接口间距存在223.9与233.9mm冲突，保留待核，不用任何一值落地配管。挂架、机身与接口尺寸应由厂家正式安装图/实物核对，实际接管必须由具备相应资质的安装人员完成。",
+                "厨房P27电源用途点及其他120物件不改；参考热水器不自动确认插座额定电流、防护等级、接地、漏电保护、线径或独立回路。厂家安装条件、排烟/通风、燃气、电气及涉水安全审查均未完成。",
+                "2026-10-18仅方案2沙发参考方案4转为背靠东墙、面朝西；电视仍在原北墙，形成斜向观看，未把电视或玻璃改成墙，也不称为沙发正对电视。",
+                "已购VIMLE沙发机身2410×980×830mm不缩放；新中心(6260,8025)、旋转90°，背面落在原东墙室内面x6750。相比方案4参考位向南微调25mm，避免与原柜机占地重叠；原中部2000×250背柜移除。",
+                "餐边柜从靠客厅飘台的北端缩短1000mm：北端y8600改9600，南端y13890及入户转角保持。西侧直臂4890改3890mm，总包1625×4290mm只是L柜外接框，不是实心储物间。",
+                "不是把整柜或南转角压缩：18mm板件、3mm门缝、R60圆弧收口、240mm竖展示、200mm窄高柜、灯带及浅型转角库保留，中央台面/中空按2530mm重新分模块；柜高2700mm仍仅按模型屋顶。",
+                "五台原暂估小家电及其P19–P23用途点随缩短后中空段重排，均仍落在850mm真实台面。尺寸、开盖、蒸汽/散热、负荷、独立回路、插头和检修仍待真实型号及合格安装人员核验；不构成运行或电气安装批准。",
+                "南转角180°两面库门的世界轴线、层板、灯带及425mm返柜均保持；仍须先临时向东移南餐椅，先西门后南门，关闭反序。五金、门重、防夹、承重与现场净空尚未批准。",
+                "400mm三层抽屉重排到中央台面最南段y12330–12730，北段改滑门，避免抽屉扫到固定餐桌；南餐椅在原用餐位仍有极小投影交叠，开抽前必须先临时收/移南椅，不能把250mm概念行程当作免移椅取物或通行认证。",
+                "原东墙低位备用电源P17在新沙发背后被遮，随布局移至同一墙面中心y9420，暂估中心高300mm及用途保持；这只是可见面板几何避让，线缆、暗盒、回路、负荷与电气保护仍待合格电工核验。",
+                "2026-10-25本版只在方案2现有户型与家具定位上参考业主六张图深化材质和构造：奶白平板柜、整面浅木中空、悬浮视觉下柜、木色多格电视矮柜、主卧挂衣龛、次卧粉色拱龛和书房两层悬板。不是图片原房间实测、产品复刻或施工图。",
+                "已购IKEA VIMLE沙发、LISABO餐桌及四把餐椅保持原尺寸、颜色和位置；沙发仍靠东墙，电视仍北墙斜向观看，不恢复茶几、落地灯或原中部背柜。",
+                "餐边柜本轮按相对原4890mm直臂缩短800mm：北端y9400、南端y13890，西直臂4090mm；总包1625×4490mm仅为L柜外接框。原南转角浅型800库、425mm返柜、180°门轴与临时移椅方式保持。",
+                "中央2730×400mm台面y10000–12730，完成面850mm；木背开放区上口2250mm，1500/1900mm两道18mm全长层板及2250mm上柜下口均有真实板底灯带。柜高2700mm仅按现模型屋顶，净高和收口仍待现场核验。",
+                "下柜下口离地240mm仅为参考悬浮视觉；模型保留隐藏后支承示意，墙体锚固、悬臂承重、防倾倒与支腿尺寸均未批准。餐桌后段木色面板为滑门，不是假称可拉出的抽屉；最南400mm列为两抽，开抽前须临时移南餐椅，不构成取物站位或通行认证。",
+                "五台餐边电器和P19–P23用途面板的世界位置及真实机身尺寸保持，只重算对新柜的局部锚坐标。最低层板下灯带1496mm，比原面板上沿1433mm高63mm；这仅表示静态几何不相交，不证明插头、散热、蒸汽、开盖、负荷、回路或涉水电气安全。",
+                "主次卧2240×600mm衣柜原占地不变，下部主要衣柜区域仍使用滑门，床尾模型净距555mm偏紧。主柜通顶2790mm、次柜2700mm仅跟随各自模型室高；上柜开门、顶面安装、门套、床尾操作和承重待定制方复核。",
+                "主卧入口端挂衣龛和下方两木抽为参考构造，抽屉最大250mm仅概念，不据555mm床尾带认定站位舒适。次卧窗边粉色拱龛为18mm薄背、真实空洞、四道白层板及奶白拱形饰面，不把实心粉块当开放柜。",
+                "三卧（含书房）地面改真木地板意向，公共区与厨卫及阳台地面不变；木材种类、铺法、基层防潮、地暖适用性、门底净空与完成面厚度待实物和现场核定，不默认为木纹瓷砖。",
+                "18mm柜板/门板、3mm门缝、薄背与灯带均为构造概念参数，柜门五金、开角、防夹、电源、布线、驱动检修、承重及厂家深化均未批准；原燃气/排烟、排水、电位与建筑待核事项继续有效。"
+              ]
+            },
+            "designCorrections": {
+              "present": true,
+              "value": [
+                {
+                  "id": "bath-south-hinge-20261008",
+                  "sourceId": "door_bath_1",
+                  "description": "主卫北铰改南铰，仍向卫内开；门洞和全部家具位置不变。",
+                  "openingUnchanged": true,
+                  "hingeMm": [
+                    4450,
+                    4430
+                  ],
+                  "closedDirection": [
+                    0,
+                    -1
+                  ],
+                  "openDirection": [
+                    1,
+                    0
+                  ],
+                  "usageNote": "门扇转到入口南侧而非贴南墙。两门板间距不是通行净宽；旧源快照550mm门间带说明不再适用。",
+                  "status": "superseded-for-family",
+                  "supersededBy": "family-master-bath-confirmed-20261011"
+                },
+                {
+                  "id": "entry-family-layout-20261011",
+                  "sourceId": "entry_door",
+                  "description": "2026-10-11用户修订：入户门参照方案4向室外开启，保持本方案原洞口、宽高及门叶长度；合页从本方案洞口东端内退60mm作示意。公共走廊、邻户门、门套、闭门器及允许开启角度尚待现场核对，不构成外开施工批准。",
+                  "openingUnchanged": true,
+                  "hingeMm": [
+                    4840,
+                    13950
+                  ],
+                  "closedDirection": [
+                    -1,
+                    0
+                  ],
+                  "openDirection": [
+                    0,
+                    1
+                  ],
+                  "leafLengthMm": 890
+                },
+                {
+                  "id": "family-master-bath-confirmed-20261011",
+                  "date": "2026-10-11",
+                  "sourceIds": [
+                    "door_a",
+                    "door_bath_1",
+                    "vanity_main",
+                    "family-f11"
+                  ],
+                  "description": "方案2主卧门南移300mm；主卫门北移300mm、北铰内开；南墙盆厕及镜面朝北，淋浴和房间边界不动。",
+                  "openingWidthsUnchanged": true,
+                  "sourceSnapshotsUnchanged": true,
+                  "usageNote": "门侧墙段随新洞口补齐，未改变墙体轴线或主卫北墙；门位移是已确认设计参数而非新增实测，排水与五金仍待核。"
+                },
+                {
+                  "id": "family-study-laundry-confirmed-20261011",
+                  "date": "2026-10-11",
+                  "sourceIds": [
+                    "door_c",
+                    "study_full_desk",
+                    "family-f5",
+                    "fit-study_bookwall",
+                    "vanity_guest",
+                    "laundry_washer",
+                    "laundry_dryer",
+                    "study_window_return",
+                    "fit-laundry_wall",
+                    "fit-laundry_basin",
+                    "balcony_door"
+                  ],
+                  "description": "方案2确认书房门南移500及7字窗边桌；洗衣机入客卫左机右盆台，阳台只留单干机且退回原门轴。",
+                  "sourceSnapshotsUnchanged": true,
+                  "usageNote": "当前保留书房沙发，1500×2000未来床只作替换校核，不与沙发同时新增；客卫门和主卫、双卧本轮不动。"
+                },
+                {
+                  "id": "family-door-refinement-20261011",
+                  "date": "2026-10-11",
+                  "sourceIds": [
+                    "balcony_door",
+                    "door_kitchen"
+                  ],
+                  "description": "方案2厨房及生活阳台玻璃推拉门由三扇三轨改双扇双轨，保持原洞口和堆叠方向。",
+                  "sourceSnapshotsUnchanged": true,
+                  "openingWidthsUnchanged": true,
+                  "wallIndexesUnchanged": true,
+                  "furnitureUnchanged": true,
+                  "usageNote": "没有默认采纳尚待确认的书房反向开门及桌棚收短；此层只变两个推拉门。"
+                },
+                {
+                  "id": "family-study-door-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "door_c",
+                    "door_a",
+                    "study_full_desk",
+                    "fit-study_bookwall"
+                  ],
+                  "description": "方案2书房900门洞再南移300并改南铰内开，南桌与浅书墙缩至1450；坐椅原位避让西窗返桌，主卧门仅纠正说明为530mm纵向间隔。",
+                  "sourceSnapshotsUnchanged": true,
+                  "openingWidthsUnchanged": true,
+                  "wallAxesUnchanged": true,
+                  "usageNote": "独立新层取代书房北铰1680旧状态；历史版本元数据不改。返桌、沙发、未来床外包、厨房/阳台双扇门全部保持。"
+                },
+                {
+                  "id": "family-appliances-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "family-acwall-room_a",
+                    "family-acwall-room_b",
+                    "family-acwall-room_c",
+                    "family-living-aircon",
+                    "family-kitchen-ceilingfan",
+                    "family-bathheater-bath_1",
+                    "family-bathheater-bath_2",
+                    "family-sideboard-blender",
+                    "family-sideboard-temperaturekettle",
+                    "family-sideboard-sterilizer",
+                    "family-sideboard-healthkettle",
+                    "family-sideboard-waterdispenser"
+                  ],
+                  "description": "仅方案2增加主次卧及书房挂机、客厅电视东角柜机、厨房凉霸、两卫淋浴上方浴霸与餐边柜五台小家电；均暂估外包，原墙门窗、家具和定制柜板件不动。",
+                  "sourceSnapshotsUnchanged": true,
+                  "usageNote": "12件可编辑概念电器，不是已购型号、产品推荐或机电安装批准。"
+                },
+                {
+                  "id": "family-ac-window-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "family-acwall-room_a",
+                    "family-acwall-room_b",
+                    "family-acwall-room_c"
+                  ],
+                  "description": "仅方案2三台已有挂机移到窗侧：主次卧室内北墙窗头上方，书房北墙西北窗侧角；尺寸与底2250标高保持，不改窗墙柜及其他九件电器。",
+                  "sourceSnapshotsUnchanged": true,
+                  "usageNote": "窗边位置为概念摆放，不代表外机、管路或穿墙安装已核定。"
+                },
+                {
+                  "id": "family-living-clear-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "family-f8",
+                    "living-floorlamp"
+                  ],
+                  "description": "仅方案2移除电视前茶几及客厅落地灯，沙发、地毯、电视柜、餐桌与其他摆设原位保留。",
+                  "sourceSnapshotsUnchanged": true
+                },
+                {
+                  "id": "family-balcony-service-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "laundry_dryer",
+                    "balcony_service_counter",
+                    "balcony_outer_projection",
+                    "balcony_robot",
+                    "balcony_north_opening",
+                    "balcony_east_opening"
+                  ],
+                  "description": "仅方案2：北东铁皮/网框向外挑600概念，不扩地面；紧凑基站放门与烘干机之间，西盆东机连续独立台。",
+                  "sourceSnapshotsUnchanged": true
+                },
+                {
+                  "id": "family-corner-storage-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "fit-dining_sideboard_wall"
+                  ],
+                  "description": "方案2餐边柜西南转角参考照片做通顶连通浅型800库，两面柜门顺序开合、底部高件区和L形层板；不扩占地，不复原旧独立800库。",
+                  "sourceSnapshotsUnchanged": true
+                },
+                {
+                  "id": "family-ceiling-lighting-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "family-living-ceilinglight",
+                    "family-dining-ceilinglight"
+                  ],
+                  "description": "方案2客厅换业主参考的907×577×110圆角吸顶灯，置地毯中心；餐桌正上方新增同风格同尺寸暂定灯，取代客餐厅旧圆形占位灯。",
+                  "sourceSnapshotsUnchanged": true
+                },
+                {
+                  "id": "family-lighting-study-refinement-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "family-living-ceilinglight",
+                    "family-dining-ceilinglight",
+                    "family-acwall-room_c",
+                    "window_c"
+                  ],
+                  "description": "方案2餐厅沿用原客厅白色圆灯；客厅907×577灯顶背板白色、侧边黑色；书房挂机改西墙窗上方朝东，窗高暂估1200/窗台900且待实测。",
+                  "sourceSnapshotsUnchanged": true
+                },
+                {
+                  "id": "family-corner-door-180-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "fit-dining_sideboard_wall"
+                  ],
+                  "description": "方案2转角库两面柜门改显式180°顺序开合；保留用餐布局，开柜前临时移南餐椅并可恢复。柜内层板/灯带、整体占地、其他家具及房屋结构不改。",
+                  "sourceSnapshotsUnchanged": true
+                },
+                {
+                  "id": "family-balcony-recess-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "laundry_dryer",
+                    "balcony_robot",
+                    "fit-kitchen-20261005",
+                    "balcony_service_counter",
+                    "balcony_recess_housing",
+                    "balcony_bucket_tap",
+                    "window_kitchen_balcony"
+                  ],
+                  "sourceSnapshotsUnchanged": true,
+                  "description": "方案2阳台烘干机与基站推进厨房侧条件凹位；取消原阳台洗手盆/台面，保留独立接桶洗地龙头。客卫洗衣机不变。窗下下穿/机柜/局部台高仍为结构待核概念。"
+                },
+                {
+                  "id": "family-floor-drains-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "family-drain-balcony",
+                    "family-drain-bath1-dry",
+                    "family-drain-bath1-shower",
+                    "family-drain-bath2-dry",
+                    "family-drain-bath2-shower"
+                  ],
+                  "sourceSnapshotsUnchanged": true,
+                  "description": "仅方案2补充阳台及主客卫干区/淋浴共5个暂估方形地漏盖；不改原地面、机器、洗衣机排水、柜体、门窗、淋浴盘或玻璃。地下接管、水封和找坡仍待核。"
+                },
+                {
+                  "id": "family-electrical-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "family-elec-s01",
+                    "family-elec-s02",
+                    "family-elec-s03",
+                    "family-elec-s04",
+                    "family-elec-s05",
+                    "family-elec-s06",
+                    "family-elec-s07",
+                    "family-elec-s08",
+                    "family-elec-s09",
+                    "family-elec-s10",
+                    "family-elec-s11",
+                    "family-elec-s12",
+                    "family-elec-s13",
+                    "family-elec-s14",
+                    "family-elec-p01",
+                    "family-elec-p02",
+                    "family-elec-p03",
+                    "family-elec-p04",
+                    "family-elec-p05",
+                    "family-elec-p06",
+                    "family-elec-p07",
+                    "family-elec-p08",
+                    "family-elec-p09",
+                    "family-elec-p10",
+                    "family-elec-p11",
+                    "family-elec-p12",
+                    "family-elec-p13",
+                    "family-elec-p14",
+                    "family-elec-p15",
+                    "family-elec-p17",
+                    "family-elec-p18",
+                    "family-elec-p19",
+                    "family-elec-p20",
+                    "family-elec-p21",
+                    "family-elec-p22",
+                    "family-elec-p23",
+                    "family-elec-p24",
+                    "family-elec-p25",
+                    "family-elec-p26",
+                    "family-elec-p27",
+                    "family-elec-p28",
+                    "family-elec-p29",
+                    "family-elec-p30",
+                    "family-elec-p31",
+                    "family-elec-p32",
+                    "family-elec-p33",
+                    "family-elec-p34",
+                    "family-elec-p35",
+                    "family-elec-p36",
+                    "family-elec-n01",
+                    "family-elec-n02",
+                    "family-elec-n03",
+                    "family-elec-n04"
+                  ],
+                  "sourceSnapshotsUnchanged": true,
+                  "description": "仅方案2补充54个逻辑电位：14开关、36电源、4弱电；鞋柜P16复用原面板，其余53新增。三房及客厅四组双控；不改原68家具、建筑、实测来源，不模拟真实接线或批准施工。"
+                },
+                {
+                  "id": "family-kitchen-heater-20261013",
+                  "date": "2026-10-13",
+                  "sourceIds": [
+                    "kitchen_heater"
+                  ],
+                  "sourceSnapshotsUnchanged": true,
+                  "description": "仅方案2厨房热水器按业主参考更新机身340×190×525mm和万家乐外观，保持东墙西向及原底高；接口间距冲突、烟管/接管与安装条件待核，其他120物件及P27不改。"
+                },
+                {
+                  "id": "family-living-east-20261018",
+                  "date": "2026-10-18",
+                  "sourceIds": [
+                    "family-f6",
+                    "fit-dining_sideboard_wall",
+                    "fit-sofa_back_storage",
+                    "family-sideboard-blender",
+                    "family-elec-p19",
+                    "family-sideboard-temperaturekettle",
+                    "family-elec-p20",
+                    "family-sideboard-sterilizer",
+                    "family-elec-p21",
+                    "family-sideboard-healthkettle",
+                    "family-elec-p22",
+                    "family-sideboard-waterdispenser",
+                    "family-elec-p23"
+                  ],
+                  "sourceSnapshotsUnchanged": true,
+                  "description": "仅方案2沙发参考方案4背靠东墙，移除旧中部背柜；餐边柜北端缩短1000mm，保留南转角180°门和425mm返柜的世界位置，五台电器及用途点在短柜上重排。"
+                },
+                {
+                  "id": "family-reference-finish-20261025",
+                  "date": "2026-10-25",
+                  "sourceIds": [
+                    "bed_b",
+                    "family-f1",
+                    "bed_a",
+                    "family-f3",
+                    "study_full_desk",
+                    "family-f5",
+                    "family-living-rug",
+                    "family-f7",
+                    "study_north_sofa",
+                    "fit-dining_sideboard_wall",
+                    "fit-study_bookwall",
+                    "draft-desk-b",
+                    "draft-chair-b",
+                    "draft-night-b",
+                    "draft-desk-a",
+                    "draft-chair-a",
+                    "draft-night-a",
+                    "study_window_return",
+                    "family-dining-ceilinglight",
+                    "family-elec-p19",
+                    "family-elec-p20",
+                    "family-elec-p21",
+                    "family-elec-p22",
+                    "family-elec-p23"
+                  ],
+                  "description": "方案2按六张业主参考图重建餐边、电视、两卧柜及书房两悬板；餐边相对原长缩800，三卧真木地板、床桌软装造型标签，已购沙发餐桌餐椅及无茶几布局保持。",
+                  "sourceSnapshotsUnchanged": true
+                }
+              ]
+            },
+            "converter": {
+              "present": true,
+              "value": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs + tools/family-study-door-20261012.cjs + tools/family-appliances-20261012.cjs + tools/family-ac-window-20261012.cjs + tools/family-living-clear-20261012.cjs + tools/family-balcony-service-20261012.cjs + tools/family-corner-storage-20261012.cjs + tools/family-ceiling-lighting-20261012.cjs + tools/family-lighting-study-refinement-20261012.cjs + tools/family-corner-door-180-20261012.cjs + tools/family-balcony-recess-20261012.cjs + tools/family-floor-drains-20261012.cjs + tools/family-electrical-20261012.cjs + tools/family-kitchen-heater-20261013.cjs + tools/family-living-east-20261018.cjs + tools/family-reference-finish-20261025.cjs"
+            }
+          },
+          "previousFurnitureOrder": [
+            "bed_b",
+            "family-f1",
+            "bed_a",
+            "family-f3",
+            "study_full_desk",
+            "family-f5",
+            "family-living-rug",
+            "family-f6",
+            "family-f7",
+            "vanity_main",
+            "family-f11",
+            "family-f12",
+            "vanity_guest",
+            "family-f14",
+            "family-f15",
+            "study_north_sofa",
+            "family-f23",
+            "family-f24",
+            "family-f25",
+            "family-f26",
+            "family-f27",
+            "fit-bay_living_family",
+            "fit-entry_shoe_station",
+            "fit-dining_sideboard_wall",
+            "fit-study_bookwall",
+            "laundry_washer",
+            "laundry_dryer",
+            "fit-kitchen-20261005",
+            "kitchen_fridge",
+            "kitchen_dishwasher",
+            "kitchen_double_sink",
+            "kitchen_hob",
+            "kitchen_hood",
+            "kitchen_heater",
+            "kitchen_tap",
+            "living-east-art",
+            "draft-desk-b",
+            "draft-chair-b",
+            "draft-night-b",
+            "draft-desk-a",
+            "draft-chair-a",
+            "draft-night-a",
+            "study_window_return",
+            "family-acwall-room_a",
+            "family-acwall-room_b",
+            "family-acwall-room_c",
+            "family-living-aircon",
+            "family-kitchen-ceilingfan",
+            "family-bathheater-bath_1",
+            "family-bathheater-bath_2",
+            "family-sideboard-blender",
+            "family-sideboard-temperaturekettle",
+            "family-sideboard-sterilizer",
+            "family-sideboard-healthkettle",
+            "family-sideboard-waterdispenser",
+            "balcony_outer_projection",
+            "balcony_robot",
+            "family-living-ceilinglight",
+            "family-dining-ceilinglight",
+            "balcony_bucket_tap",
+            "family-drain-balcony",
+            "family-drain-bath1-dry",
+            "family-drain-bath1-shower",
+            "family-drain-bath2-dry",
+            "family-drain-bath2-shower",
+            "family-elec-s01",
+            "family-elec-s02",
+            "family-elec-s03",
+            "family-elec-s04",
+            "family-elec-s05",
+            "family-elec-s06",
+            "family-elec-s07",
+            "family-elec-s08",
+            "family-elec-s09",
+            "family-elec-s10",
+            "family-elec-s11",
+            "family-elec-s12",
+            "family-elec-s13",
+            "family-elec-s14",
+            "family-elec-p01",
+            "family-elec-p02",
+            "family-elec-p03",
+            "family-elec-p04",
+            "family-elec-p05",
+            "family-elec-p06",
+            "family-elec-p07",
+            "family-elec-p08",
+            "family-elec-p09",
+            "family-elec-p10",
+            "family-elec-p11",
+            "family-elec-p12",
+            "family-elec-p13",
+            "family-elec-p14",
+            "family-elec-p15",
+            "family-elec-p17",
+            "family-elec-p18",
+            "family-elec-p19",
+            "family-elec-p20",
+            "family-elec-p21",
+            "family-elec-p22",
+            "family-elec-p23",
+            "family-elec-p24",
+            "family-elec-p25",
+            "family-elec-p26",
+            "family-elec-p27",
+            "family-elec-p28",
+            "family-elec-p29",
+            "family-elec-p30",
+            "family-elec-p31",
+            "family-elec-p32",
+            "family-elec-p33",
+            "family-elec-p34",
+            "family-elec-p35",
+            "family-elec-p36",
+            "family-elec-n01",
+            "family-elec-n02",
+            "family-elec-n03",
+            "family-elec-n04",
+            "drawing-night-a-north",
+            "drawing-living-armchair",
+            "drawing-balcony-dryer-cabinet",
+            "family-elec-s15",
+            "family-elec-p16",
+            "family-elec-p37"
+          ],
+          "previousFurniture": [
+            {
+              "id": "laundry_dryer",
+              "type": "dryer",
+              "name": "烘干机600×600×840 · 阳台窗下独立开放柜",
+              "cx": 7485,
+              "cy": 10810,
+              "w": 600,
+              "d": 600,
+              "rot": 180,
+              "color": "#D9DDDB",
+              "heightMm": 840,
+              "elevationMm": 0,
+              "sourceId": "laundry_dryer",
+              "sourceFootprintMm": {
+                "x": 7185,
+                "y": 10510,
+                "w": 600,
+                "d": 600
+              },
+              "roomId": "balcony",
+              "face": "north",
+              "dimensionStatus": "owner-provided",
+              "originalSourceFootprintMm": {
+                "x": 7350,
+                "y": 10400,
+                "w": 600,
+                "d": 650
+              },
+              "layoutRevision": "family-drawing-kitchen-20261027",
+              "notes": "按业主确认仅烘干机保留阳台，新窗下660×670独立柜内落地朝北，不再跨入厨房或挤进客厅；仍为原600×600×840机身，非第二台洗衣机。净腔620×650×980，左右各10、后30、上140仅几何余量，散热及开门检修待厂家核验。",
+              "conditions": [
+                "独立柜和机器全在DWG原阳台地面内，不放在北/东外挑铁皮、不穿窗下墙。",
+                "净腔620×650×980不是厂家确认安装尺寸；开门、散热、接头、搬入及检修仍待核。"
+              ],
+              "applianceDesign": {
+                "revision": "family-drawing-kitchen-20261027",
+                "cabinetId": "drawing-balcony-dryer-cabinet",
+                "netCavityMm": [
+                  620,
+                  650,
+                  980
+                ],
+                "rearNominalClearanceMm": 30,
+                "sideNominalClearanceMm": 10,
+                "connectionsConfirmed": false,
+                "installationApproved": false
+              }
+            },
+            {
+              "id": "fit-kitchen-20261005",
+              "type": "fixture",
+              "name": "厨房定制柜 · 按DWG重排 / 保留890台面",
+              "cx": 6820,
+              "cy": 12590,
+              "w": 2420,
+              "d": 2600,
+              "rot": 0,
+              "color": "#F4F1E9",
+              "baseWidthMm": 2420,
+              "baseDepthMm": 2600,
+              "heightMm": 2400,
+              "elevationMm": 0,
+              "parts": [
+                {
+                  "id": "drawing-kitchen-fridge-bay-west",
+                  "x": -1210,
+                  "y": -1300,
+                  "w": 20,
+                  "d": 600,
+                  "elevationMm": 0,
+                  "heightMm": 2400,
+                  "role": "cabinet-side",
+                  "label": "20mm高柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-fridge-bay-east",
+                  "x": -430,
+                  "y": -1300,
+                  "w": 20,
+                  "d": 600,
+                  "elevationMm": 0,
+                  "heightMm": 2400,
+                  "role": "cabinet-side",
+                  "label": "20mm高柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-fridge-bay-bridge-bottom",
+                  "x": -1190,
+                  "y": -1300,
+                  "w": 760,
+                  "d": 600,
+                  "elevationMm": 1940,
+                  "heightMm": 20,
+                  "role": "cabinet-bottom",
+                  "label": "冰箱上柜下口1940，散热条件待核",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-fridge-bay-bridge-back",
+                  "x": -1190,
+                  "y": -1300,
+                  "w": 760,
+                  "d": 20,
+                  "elevationMm": 1960,
+                  "heightMm": 420,
+                  "role": "cabinet-back",
+                  "label": "冰箱上柜背板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-fridge-bay-bridge-door-0",
+                  "x": -1188.5,
+                  "y": -720,
+                  "w": 377,
+                  "d": 20,
+                  "elevationMm": 1961.5,
+                  "heightMm": 417,
+                  "role": "door-hinged",
+                  "label": "冰箱上柜门",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-fridge-bay-bridge-door-1",
+                  "x": -808.5,
+                  "y": -720,
+                  "w": 377,
+                  "d": 20,
+                  "elevationMm": 1961.5,
+                  "heightMm": 417,
+                  "role": "door-hinged",
+                  "label": "冰箱上柜门",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-fridge-bay-top",
+                  "x": -1190,
+                  "y": -1300,
+                  "w": 760,
+                  "d": 600,
+                  "elevationMm": 2380,
+                  "heightMm": 20,
+                  "role": "cabinet-top",
+                  "label": "20mm高柜顶板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-appliance-tower-west",
+                  "x": -410,
+                  "y": -1300,
+                  "w": 20,
+                  "d": 600,
+                  "elevationMm": 0,
+                  "heightMm": 2400,
+                  "role": "cabinet-side",
+                  "label": "20mm高柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-appliance-tower-east",
+                  "x": 170,
+                  "y": -1300,
+                  "w": 20,
+                  "d": 600,
+                  "elevationMm": 0,
+                  "heightMm": 2400,
+                  "role": "cabinet-side",
+                  "label": "20mm高柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-appliance-tower-back",
+                  "x": -390,
+                  "y": -1300,
+                  "w": 560,
+                  "d": 20,
+                  "elevationMm": 0,
+                  "heightMm": 2400,
+                  "role": "cabinet-back",
+                  "label": "电器高柜背板，设备型号待定",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-appliance-tower-shelf-100",
+                  "x": -390,
+                  "y": -1280,
+                  "w": 560,
+                  "d": 580,
+                  "elevationMm": 100,
+                  "heightMm": 20,
+                  "role": "cabinet-shelf",
+                  "label": "电器高柜预留层板，非已购设备",
+                  "color": "#C6AA83",
+                  "material": "OakLight",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-appliance-tower-shelf-600",
+                  "x": -390,
+                  "y": -1280,
+                  "w": 560,
+                  "d": 580,
+                  "elevationMm": 600,
+                  "heightMm": 20,
+                  "role": "cabinet-shelf",
+                  "label": "电器高柜预留层板，非已购设备",
+                  "color": "#C6AA83",
+                  "material": "OakLight",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-appliance-tower-shelf-1100",
+                  "x": -390,
+                  "y": -1280,
+                  "w": 560,
+                  "d": 580,
+                  "elevationMm": 1100,
+                  "heightMm": 20,
+                  "role": "cabinet-shelf",
+                  "label": "电器高柜预留层板，非已购设备",
+                  "color": "#C6AA83",
+                  "material": "OakLight",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-appliance-tower-shelf-1500",
+                  "x": -390,
+                  "y": -1280,
+                  "w": 560,
+                  "d": 580,
+                  "elevationMm": 1500,
+                  "heightMm": 20,
+                  "role": "cabinet-shelf",
+                  "label": "电器高柜预留层板，非已购设备",
+                  "color": "#C6AA83",
+                  "material": "OakLight",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-appliance-tower-upper-door-0",
+                  "x": -388.5,
+                  "y": -720,
+                  "w": 277,
+                  "d": 20,
+                  "elevationMm": 1521.5,
+                  "heightMm": 857,
+                  "role": "door-hinged",
+                  "label": "电器高柜上柜门",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-appliance-tower-upper-door-1",
+                  "x": -108.5,
+                  "y": -720,
+                  "w": 277,
+                  "d": 20,
+                  "elevationMm": 1521.5,
+                  "heightMm": 857,
+                  "role": "door-hinged",
+                  "label": "电器高柜上柜门",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-appliance-tower-top",
+                  "x": -390,
+                  "y": -1300,
+                  "w": 560,
+                  "d": 600,
+                  "elevationMm": 2380,
+                  "heightMm": 20,
+                  "role": "cabinet-top",
+                  "label": "20mm高柜顶板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-north-low-floor",
+                  "x": 210,
+                  "y": -1280,
+                  "w": 980,
+                  "d": 560,
+                  "elevationMm": 100,
+                  "heightMm": 20,
+                  "role": "cabinet-bottom",
+                  "label": "地柜20mm底板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-north-low-back",
+                  "x": 210,
+                  "y": -1300,
+                  "w": 980,
+                  "d": 20,
+                  "elevationMm": 100,
+                  "heightMm": 770,
+                  "role": "cabinet-back",
+                  "label": "地柜背板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-north-low-west",
+                  "x": 190,
+                  "y": -1300,
+                  "w": 20,
+                  "d": 600,
+                  "elevationMm": 100,
+                  "heightMm": 770,
+                  "role": "cabinet-side",
+                  "label": "地柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-north-low-east",
+                  "x": 1190,
+                  "y": -1300,
+                  "w": 20,
+                  "d": 600,
+                  "elevationMm": 100,
+                  "heightMm": 770,
+                  "role": "cabinet-side",
+                  "label": "地柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-north-low-plinth",
+                  "x": 190,
+                  "y": -1220,
+                  "w": 1020,
+                  "d": 500,
+                  "elevationMm": 0,
+                  "heightMm": 100,
+                  "role": "plinth",
+                  "label": "内退踢脚",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-north-low-door-0",
+                  "x": 191.5,
+                  "y": -720,
+                  "w": 507,
+                  "d": 20,
+                  "elevationMm": 121.5,
+                  "heightMm": 747,
+                  "role": "door-hinged",
+                  "label": "窗下低柜门",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-north-low-door-1",
+                  "x": 701.5,
+                  "y": -720,
+                  "w": 507,
+                  "d": 20,
+                  "elevationMm": 121.5,
+                  "heightMm": 747,
+                  "role": "door-hinged",
+                  "label": "窗下低柜门",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-north-counter",
+                  "x": 190,
+                  "y": -1300,
+                  "w": 1020,
+                  "d": 600,
+                  "elevationMm": 870,
+                  "heightMm": 20,
+                  "role": "countertop",
+                  "label": "20mm台面完成面890，窗台1000",
+                  "color": "#ECE8DF",
+                  "material": "Stone",
+                  "face": "south"
+                },
+                {
+                  "id": "drawing-kitchen-sink-floor",
+                  "x": 630,
+                  "y": -680,
+                  "w": 560,
+                  "d": 760,
+                  "elevationMm": 100,
+                  "heightMm": 20,
+                  "role": "cabinet-bottom",
+                  "label": "水槽下柜底板，排水待深化",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-sink-back",
+                  "x": 1190,
+                  "y": -680,
+                  "w": 20,
+                  "d": 760,
+                  "elevationMm": 100,
+                  "heightMm": 770,
+                  "role": "cabinet-back",
+                  "label": "水槽柜背板，检修开孔待深化",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-sink-side-north",
+                  "x": 610,
+                  "y": -700,
+                  "w": 600,
+                  "d": 20,
+                  "elevationMm": 100,
+                  "heightMm": 770,
+                  "role": "cabinet-side",
+                  "label": "800水槽柜端板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-sink-side-south",
+                  "x": 610,
+                  "y": 80,
+                  "w": 600,
+                  "d": 20,
+                  "elevationMm": 100,
+                  "heightMm": 770,
+                  "role": "cabinet-side",
+                  "label": "800水槽柜端板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-sink-door-0",
+                  "x": 610,
+                  "y": -698.5,
+                  "w": 20,
+                  "d": 397,
+                  "elevationMm": 121.5,
+                  "heightMm": 747,
+                  "role": "door-hinged",
+                  "label": "水槽下柜门",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-sink-door-1",
+                  "x": 610,
+                  "y": -298.5,
+                  "w": 20,
+                  "d": 397,
+                  "elevationMm": 121.5,
+                  "heightMm": 747,
+                  "role": "door-hinged",
+                  "label": "水槽下柜门",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-sink-plinth",
+                  "x": 680,
+                  "y": -700,
+                  "w": 510,
+                  "d": 800,
+                  "elevationMm": 0,
+                  "heightMm": 100,
+                  "role": "plinth",
+                  "label": "水槽柜内退踢脚",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-east-counter-north",
+                  "x": 610,
+                  "y": -700,
+                  "w": 600,
+                  "d": 10,
+                  "elevationMm": 870,
+                  "heightMm": 20,
+                  "role": "countertop",
+                  "label": "带真实双槽缺口的20mm台面",
+                  "color": "#ECE8DF",
+                  "material": "Stone",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-east-counter-west",
+                  "x": 610,
+                  "y": -690,
+                  "w": 75,
+                  "d": 780,
+                  "elevationMm": 870,
+                  "heightMm": 20,
+                  "role": "countertop",
+                  "label": "带真实双槽缺口的20mm台面",
+                  "color": "#ECE8DF",
+                  "material": "Stone",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-east-counter-east",
+                  "x": 1135,
+                  "y": -690,
+                  "w": 75,
+                  "d": 780,
+                  "elevationMm": 870,
+                  "heightMm": 20,
+                  "role": "countertop",
+                  "label": "带真实双槽缺口的20mm台面",
+                  "color": "#ECE8DF",
+                  "material": "Stone",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-east-counter-south",
+                  "x": 610,
+                  "y": 90,
+                  "w": 600,
+                  "d": 610,
+                  "elevationMm": 870,
+                  "heightMm": 20,
+                  "role": "countertop",
+                  "label": "带真实双槽缺口的20mm台面",
+                  "color": "#ECE8DF",
+                  "material": "Stone",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-dw-south-support",
+                  "x": 610,
+                  "y": 700,
+                  "w": 600,
+                  "d": 20,
+                  "elevationMm": 0,
+                  "heightMm": 870,
+                  "role": "cabinet-side",
+                  "label": "洗碗机南侧独立台面支承",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-0-floor",
+                  "x": -700,
+                  "y": 720,
+                  "w": 190,
+                  "d": 560,
+                  "elevationMm": 100,
+                  "heightMm": 20,
+                  "role": "cabinet-bottom",
+                  "label": "烟道外地柜20mm底板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-0-back",
+                  "x": -700,
+                  "y": 1280,
+                  "w": 190,
+                  "d": 20,
+                  "elevationMm": 100,
+                  "heightMm": 770,
+                  "role": "cabinet-back",
+                  "label": "南地柜背板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-0-west",
+                  "x": -720,
+                  "y": 700,
+                  "w": 20,
+                  "d": 600,
+                  "elevationMm": 100,
+                  "heightMm": 770,
+                  "role": "cabinet-side",
+                  "label": "南地柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-0-east",
+                  "x": -510,
+                  "y": 700,
+                  "w": 20,
+                  "d": 600,
+                  "elevationMm": 100,
+                  "heightMm": 770,
+                  "role": "cabinet-side",
+                  "label": "南地柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-0-door",
+                  "x": -718.5,
+                  "y": 700,
+                  "w": 227,
+                  "d": 20,
+                  "elevationMm": 121.5,
+                  "heightMm": 747,
+                  "role": "door-hinged",
+                  "label": "南地柜门",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-0-plinth",
+                  "x": -720,
+                  "y": 770,
+                  "w": 230,
+                  "d": 510,
+                  "elevationMm": 0,
+                  "heightMm": 100,
+                  "role": "plinth",
+                  "label": "南柜内退踢脚",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-1-floor",
+                  "x": -470,
+                  "y": 720,
+                  "w": 740,
+                  "d": 560,
+                  "elevationMm": 100,
+                  "heightMm": 20,
+                  "role": "cabinet-bottom",
+                  "label": "烟道外地柜20mm底板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-1-back",
+                  "x": -470,
+                  "y": 1280,
+                  "w": 740,
+                  "d": 20,
+                  "elevationMm": 100,
+                  "heightMm": 770,
+                  "role": "cabinet-back",
+                  "label": "南地柜背板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-1-west",
+                  "x": -490,
+                  "y": 700,
+                  "w": 20,
+                  "d": 600,
+                  "elevationMm": 100,
+                  "heightMm": 770,
+                  "role": "cabinet-side",
+                  "label": "南地柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-1-east",
+                  "x": 270,
+                  "y": 700,
+                  "w": 20,
+                  "d": 600,
+                  "elevationMm": 100,
+                  "heightMm": 770,
+                  "role": "cabinet-side",
+                  "label": "南地柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-1-door",
+                  "x": -488.5,
+                  "y": 700,
+                  "w": 777,
+                  "d": 20,
+                  "elevationMm": 121.5,
+                  "heightMm": 747,
+                  "role": "door-hinged",
+                  "label": "南地柜门",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-1-plinth",
+                  "x": -490,
+                  "y": 770,
+                  "w": 780,
+                  "d": 510,
+                  "elevationMm": 0,
+                  "heightMm": 100,
+                  "role": "plinth",
+                  "label": "南柜内退踢脚",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-2-floor",
+                  "x": 310,
+                  "y": 720,
+                  "w": 280,
+                  "d": 560,
+                  "elevationMm": 100,
+                  "heightMm": 20,
+                  "role": "cabinet-bottom",
+                  "label": "烟道外地柜20mm底板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-2-back",
+                  "x": 310,
+                  "y": 1280,
+                  "w": 280,
+                  "d": 20,
+                  "elevationMm": 100,
+                  "heightMm": 770,
+                  "role": "cabinet-back",
+                  "label": "南地柜背板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-2-west",
+                  "x": 290,
+                  "y": 700,
+                  "w": 20,
+                  "d": 600,
+                  "elevationMm": 100,
+                  "heightMm": 770,
+                  "role": "cabinet-side",
+                  "label": "南地柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-2-east",
+                  "x": 590,
+                  "y": 700,
+                  "w": 20,
+                  "d": 600,
+                  "elevationMm": 100,
+                  "heightMm": 770,
+                  "role": "cabinet-side",
+                  "label": "南地柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-2-door",
+                  "x": 291.5,
+                  "y": 700,
+                  "w": 317,
+                  "d": 20,
+                  "elevationMm": 121.5,
+                  "heightMm": 747,
+                  "role": "door-hinged",
+                  "label": "南地柜门",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-2-plinth",
+                  "x": 290,
+                  "y": 770,
+                  "w": 320,
+                  "d": 510,
+                  "elevationMm": 0,
+                  "heightMm": 100,
+                  "role": "plinth",
+                  "label": "南柜内退踢脚",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-3-floor",
+                  "x": 630,
+                  "y": 720,
+                  "w": 560,
+                  "d": 560,
+                  "elevationMm": 100,
+                  "heightMm": 20,
+                  "role": "cabinet-bottom",
+                  "label": "烟道外地柜20mm底板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-3-back",
+                  "x": 630,
+                  "y": 1280,
+                  "w": 560,
+                  "d": 20,
+                  "elevationMm": 100,
+                  "heightMm": 770,
+                  "role": "cabinet-back",
+                  "label": "南地柜背板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-3-west",
+                  "x": 610,
+                  "y": 700,
+                  "w": 20,
+                  "d": 600,
+                  "elevationMm": 100,
+                  "heightMm": 770,
+                  "role": "cabinet-side",
+                  "label": "南地柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-3-east",
+                  "x": 1190,
+                  "y": 700,
+                  "w": 20,
+                  "d": 600,
+                  "elevationMm": 100,
+                  "heightMm": 770,
+                  "role": "cabinet-side",
+                  "label": "南地柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-3-door",
+                  "x": 611.5,
+                  "y": 700,
+                  "w": 597,
+                  "d": 20,
+                  "elevationMm": 121.5,
+                  "heightMm": 747,
+                  "role": "door-hinged",
+                  "label": "南地柜门",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-base-3-plinth",
+                  "x": 610,
+                  "y": 770,
+                  "w": 600,
+                  "d": 510,
+                  "elevationMm": 0,
+                  "heightMm": 100,
+                  "role": "plinth",
+                  "label": "南柜内退踢脚",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-counter-west",
+                  "x": -720,
+                  "y": 700,
+                  "w": 235,
+                  "d": 600,
+                  "elevationMm": 870,
+                  "heightMm": 20,
+                  "role": "countertop",
+                  "label": "按灶具轮廓留口的20mm台面",
+                  "color": "#ECE8DF",
+                  "material": "Stone",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-counter-north",
+                  "x": -485,
+                  "y": 700,
+                  "w": 750,
+                  "d": 70,
+                  "elevationMm": 870,
+                  "heightMm": 20,
+                  "role": "countertop",
+                  "label": "按灶具轮廓留口的20mm台面",
+                  "color": "#ECE8DF",
+                  "material": "Stone",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-counter-south",
+                  "x": -485,
+                  "y": 1220,
+                  "w": 750,
+                  "d": 80,
+                  "elevationMm": 870,
+                  "heightMm": 20,
+                  "role": "countertop",
+                  "label": "按灶具轮廓留口的20mm台面",
+                  "color": "#ECE8DF",
+                  "material": "Stone",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-counter-east",
+                  "x": 265,
+                  "y": 700,
+                  "w": 945,
+                  "d": 600,
+                  "elevationMm": 870,
+                  "heightMm": 20,
+                  "role": "countertop",
+                  "label": "按灶具轮廓留口的20mm台面",
+                  "color": "#ECE8DF",
+                  "material": "Stone",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-east-upper-bottom",
+                  "x": 910,
+                  "y": -700,
+                  "w": 300,
+                  "d": 1400,
+                  "elevationMm": 1500,
+                  "heightMm": 20,
+                  "role": "cabinet-bottom",
+                  "label": "吊柜20mm底板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-east-upper-top",
+                  "x": 910,
+                  "y": -700,
+                  "w": 300,
+                  "d": 1400,
+                  "elevationMm": 2380,
+                  "heightMm": 20,
+                  "role": "cabinet-top",
+                  "label": "吊柜20mm顶板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-east-upper-back",
+                  "x": 1190,
+                  "y": -700,
+                  "w": 20,
+                  "d": 1400,
+                  "elevationMm": 1520,
+                  "heightMm": 860,
+                  "role": "cabinet-back",
+                  "label": "吊柜背板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-east-upper-north",
+                  "x": 910,
+                  "y": -700,
+                  "w": 300,
+                  "d": 20,
+                  "elevationMm": 1520,
+                  "heightMm": 860,
+                  "role": "cabinet-side",
+                  "label": "吊柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-east-upper-south",
+                  "x": 910,
+                  "y": 680,
+                  "w": 300,
+                  "d": 20,
+                  "elevationMm": 1520,
+                  "heightMm": 860,
+                  "role": "cabinet-side",
+                  "label": "吊柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-east-upper-door-0",
+                  "x": 910,
+                  "y": -698.5,
+                  "w": 20,
+                  "d": 463.667,
+                  "elevationMm": 1521.5,
+                  "heightMm": 857,
+                  "role": "door-hinged",
+                  "label": "奶白吊柜门",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-east-upper-door-1",
+                  "x": 910,
+                  "y": -231.833,
+                  "w": 20,
+                  "d": 463.667,
+                  "elevationMm": 1521.5,
+                  "heightMm": 857,
+                  "role": "door-hinged",
+                  "label": "奶白吊柜门",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-east-upper-door-2",
+                  "x": 910,
+                  "y": 234.833,
+                  "w": 20,
+                  "d": 463.667,
+                  "elevationMm": 1521.5,
+                  "heightMm": 857,
+                  "role": "door-hinged",
+                  "label": "奶白吊柜门",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-east-upper-led",
+                  "x": 935,
+                  "y": -680,
+                  "w": 8,
+                  "d": 1360,
+                  "elevationMm": 1496,
+                  "heightMm": 4,
+                  "role": "led-strip",
+                  "label": "真实吊柜板底灯带",
+                  "color": "#FFF1CF",
+                  "material": "Light",
+                  "face": "west",
+                  "anchorPartId": "drawing-kitchen-east-upper-bottom",
+                  "anchor": "panel-underside",
+                  "lightWash": true,
+                  "installationApproved": false
+                },
+                {
+                  "id": "drawing-kitchen-south-upper-west-bottom",
+                  "x": -720,
+                  "y": 1000,
+                  "w": 210,
+                  "d": 300,
+                  "elevationMm": 1550,
+                  "heightMm": 20,
+                  "role": "cabinet-bottom",
+                  "label": "吊柜20mm底板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-upper-west-top",
+                  "x": -720,
+                  "y": 1000,
+                  "w": 210,
+                  "d": 300,
+                  "elevationMm": 2380,
+                  "heightMm": 20,
+                  "role": "cabinet-top",
+                  "label": "吊柜20mm顶板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-upper-west-back",
+                  "x": -720,
+                  "y": 1280,
+                  "w": 210,
+                  "d": 20,
+                  "elevationMm": 1570,
+                  "heightMm": 810,
+                  "role": "cabinet-back",
+                  "label": "吊柜背板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-upper-west-west",
+                  "x": -720,
+                  "y": 1000,
+                  "w": 20,
+                  "d": 300,
+                  "elevationMm": 1570,
+                  "heightMm": 810,
+                  "role": "cabinet-side",
+                  "label": "吊柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-upper-west-east",
+                  "x": -530,
+                  "y": 1000,
+                  "w": 20,
+                  "d": 300,
+                  "elevationMm": 1570,
+                  "heightMm": 810,
+                  "role": "cabinet-side",
+                  "label": "吊柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-upper-west-door-0",
+                  "x": -718.5,
+                  "y": 1000,
+                  "w": 207,
+                  "d": 20,
+                  "elevationMm": 1571.5,
+                  "heightMm": 807,
+                  "role": "door-hinged",
+                  "label": "奶白吊柜门",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-upper-west-led",
+                  "x": -700,
+                  "y": 1025,
+                  "w": 170,
+                  "d": 8,
+                  "elevationMm": 1546,
+                  "heightMm": 4,
+                  "role": "led-strip",
+                  "label": "真实吊柜板底灯带",
+                  "color": "#FFF1CF",
+                  "material": "Light",
+                  "face": "north",
+                  "anchorPartId": "drawing-kitchen-south-upper-west-bottom",
+                  "anchor": "panel-underside",
+                  "lightWash": true,
+                  "installationApproved": false
+                },
+                {
+                  "id": "drawing-kitchen-south-upper-east-bottom",
+                  "x": 290,
+                  "y": 1000,
+                  "w": 920,
+                  "d": 300,
+                  "elevationMm": 1550,
+                  "heightMm": 20,
+                  "role": "cabinet-bottom",
+                  "label": "吊柜20mm底板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-upper-east-top",
+                  "x": 290,
+                  "y": 1000,
+                  "w": 920,
+                  "d": 300,
+                  "elevationMm": 2380,
+                  "heightMm": 20,
+                  "role": "cabinet-top",
+                  "label": "吊柜20mm顶板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-upper-east-back",
+                  "x": 290,
+                  "y": 1280,
+                  "w": 920,
+                  "d": 20,
+                  "elevationMm": 1570,
+                  "heightMm": 810,
+                  "role": "cabinet-back",
+                  "label": "吊柜背板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-upper-east-west",
+                  "x": 290,
+                  "y": 1000,
+                  "w": 20,
+                  "d": 300,
+                  "elevationMm": 1570,
+                  "heightMm": 810,
+                  "role": "cabinet-side",
+                  "label": "吊柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-upper-east-east",
+                  "x": 1190,
+                  "y": 1000,
+                  "w": 20,
+                  "d": 300,
+                  "elevationMm": 1570,
+                  "heightMm": 810,
+                  "role": "cabinet-side",
+                  "label": "吊柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-upper-east-door-0",
+                  "x": 291.5,
+                  "y": 1000,
+                  "w": 457,
+                  "d": 20,
+                  "elevationMm": 1571.5,
+                  "heightMm": 807,
+                  "role": "door-hinged",
+                  "label": "奶白吊柜门",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-upper-east-door-1",
+                  "x": 751.5,
+                  "y": 1000,
+                  "w": 457,
+                  "d": 20,
+                  "elevationMm": 1571.5,
+                  "heightMm": 807,
+                  "role": "door-hinged",
+                  "label": "奶白吊柜门",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-south-upper-east-led",
+                  "x": 310,
+                  "y": 1025,
+                  "w": 880,
+                  "d": 8,
+                  "elevationMm": 1546,
+                  "heightMm": 4,
+                  "role": "led-strip",
+                  "label": "真实吊柜板底灯带",
+                  "color": "#FFF1CF",
+                  "material": "Light",
+                  "face": "north",
+                  "anchorPartId": "drawing-kitchen-south-upper-east-bottom",
+                  "anchor": "panel-underside",
+                  "lightWash": true,
+                  "installationApproved": false
+                },
+                {
+                  "id": "drawing-kitchen-hood-bridge-bottom",
+                  "x": -510,
+                  "y": 1000,
+                  "w": 800,
+                  "d": 300,
+                  "elevationMm": 2020,
+                  "heightMm": 20,
+                  "role": "cabinet-bottom",
+                  "label": "吊柜20mm底板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-hood-bridge-top",
+                  "x": -510,
+                  "y": 1000,
+                  "w": 800,
+                  "d": 300,
+                  "elevationMm": 2380,
+                  "heightMm": 20,
+                  "role": "cabinet-top",
+                  "label": "吊柜20mm顶板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-hood-bridge-back",
+                  "x": -510,
+                  "y": 1280,
+                  "w": 800,
+                  "d": 20,
+                  "elevationMm": 2040,
+                  "heightMm": 340,
+                  "role": "cabinet-back",
+                  "label": "吊柜背板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-hood-bridge-west",
+                  "x": -510,
+                  "y": 1000,
+                  "w": 20,
+                  "d": 300,
+                  "elevationMm": 2040,
+                  "heightMm": 340,
+                  "role": "cabinet-side",
+                  "label": "吊柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-hood-bridge-east",
+                  "x": 270,
+                  "y": 1000,
+                  "w": 20,
+                  "d": 300,
+                  "elevationMm": 2040,
+                  "heightMm": 340,
+                  "role": "cabinet-side",
+                  "label": "吊柜侧板",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-hood-bridge-door-0",
+                  "x": -508.5,
+                  "y": 1000,
+                  "w": 397,
+                  "d": 20,
+                  "elevationMm": 2041.5,
+                  "heightMm": 337,
+                  "role": "door-hinged",
+                  "label": "奶白吊柜门",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-hood-bridge-door-1",
+                  "x": -108.5,
+                  "y": 1000,
+                  "w": 397,
+                  "d": 20,
+                  "elevationMm": 2041.5,
+                  "heightMm": 337,
+                  "role": "door-hinged",
+                  "label": "奶白吊柜门",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-kitchen-hood-bridge-led",
+                  "x": -490,
+                  "y": 1025,
+                  "w": 760,
+                  "d": 8,
+                  "elevationMm": 2016,
+                  "heightMm": 4,
+                  "role": "led-strip",
+                  "label": "真实吊柜板底灯带",
+                  "color": "#FFF1CF",
+                  "material": "Light",
+                  "face": "north",
+                  "anchorPartId": "drawing-kitchen-hood-bridge-bottom",
+                  "anchor": "panel-underside",
+                  "lightWash": true,
+                  "installationApproved": false
+                },
+                {
+                  "id": "drawing-kitchen-east-splash",
+                  "x": 1198,
+                  "y": -700,
+                  "w": 12,
+                  "d": 1400,
+                  "elevationMm": 890,
+                  "heightMm": 610,
+                  "role": "backsplash",
+                  "label": "东墙瓷砖挡水示意",
+                  "color": "#E8E5DF",
+                  "material": "Tile",
+                  "face": "west"
+                },
+                {
+                  "id": "drawing-kitchen-south-splash",
+                  "x": -720,
+                  "y": 1288,
+                  "w": 1930,
+                  "d": 12,
+                  "elevationMm": 890,
+                  "heightMm": 660,
+                  "role": "backsplash",
+                  "label": "南墙瓷砖挡水示意",
+                  "color": "#E8E5DF",
+                  "material": "Tile",
+                  "face": "north"
+                }
+              ],
+              "sourceId": "fit-kitchen-20261005",
+              "dimensionStatus": "design-pending",
+              "roomId": "kitchen",
+              "conditions": [
+                "DWG厨房净宽2420、南北2600；北侧800冰箱槽+600电器柜，东侧800水槽柜+600洗碗机位，南侧避开410×450现状烟道。",
+                "所有20mm板件按新轮廓重建，未把旧柜整体拉伸。800冰箱槽与600电器柜为图纸柜格，不是已购产品外形或已验证安装孔。",
+                "保留用户机器：冰箱650×600×1900、洗碗机600×600×805；冰箱后20、前方比台面多20，洗碗机后20、前方多20，均为展示余量，厂家散热/接头/门扇及检修待核。",
+                "厨房与阳台890窗宽、1000窗台和1350窗洞按DWG及第20页立面C；旧1114双机凹柜及窗下条件开口取消，不在墙中画新的机器洞。",
+                "烘干机留阳台窗下，扫地机移玄关鞋柜；电器高柜仅留示意格，不新增未经确认购买的烤箱/洗衣机。",
+                "吊柜高度和板件为按立面适配的柜体方案；厂家燃气灶/烟机/热水器安装、吊装、防火、通风、排烟及检修净空未批准。"
+              ],
+              "cabinetRevision": "family-drawing-kitchen-20261027",
+              "baseHeightMm": 2400,
+              "cabinetDesign": {
+                "revision": "cream-oak-functional-v1",
+                "title": "厨房定制柜 · 奶白门板细化",
+                "status": "concept-pending-detail",
+                "previousColor": "#F3EFE6",
+                "boardThicknessMm": 18,
+                "doorGapMm": 3,
+                "palette": {
+                  "door": "#F4F1E9",
+                  "wood": "#CDB594",
+                  "counter": "#CDB594",
+                  "metal": "#9D9386",
+                  "light": "#FFF1CF"
+                },
+                "faces": [
+                  {
+                    "face": "south",
+                    "label": "北墙地柜 · 朝操作区",
+                    "lengthMm": 2070,
+                    "depthMm": 650
+                  },
+                  {
+                    "face": "west",
+                    "label": "东墙地柜/吊柜 · 朝操作区",
+                    "lengthMm": 1650,
+                    "depthMm": 650
+                  },
+                  {
+                    "face": "north",
+                    "label": "南墙地柜/吊柜 · 朝操作区",
+                    "lengthMm": 2270,
+                    "depthMm": 650
+                  }
+                ],
+                "features": [
+                  "只重做北侧凹位穿入的柜板和台面；洗碗机、双槽、南柜、吊柜及所有电器位置保持。",
+                  "奶白封闭门板配浅原木细节和内嵌灯带；热水器侧不补满吊柜。",
+                  "烟道、热水器、灶具通风与检修原条件全部保留。"
+                ],
+                "dimensions": [
+                  "既有厨房柜体、电器、窗与管井外包不变；缺省45cm待核模块仍待核。",
+                  "便捷分区与板件为概念建议；柜体高度、门轨、承重、安装与下单尺寸仍待厂家现场深化。",
+                  "局部条件凹位1114×770，机位净深752；台底950/完成980，比原890台面高90。450mm全屋宽差及结构待核。"
+                ],
+                "layoutRevision": "family-balcony-recess-20261012"
+              },
+              "layoutRevision": "family-drawing-kitchen-20261027",
+              "notes": "DWG厨房净宽2420、南北2600；北侧800冰箱槽+600电器柜，东侧800水槽柜+600洗碗机位，南侧避开410×450现状烟道。 所有20mm板件按新轮廓重建，未把旧柜整体拉伸。800冰箱槽与600电器柜为图纸柜格，不是已购产品外形或已验证安装孔。 保留用户机器：冰箱650×600×1900、洗碗机600×600×805；冰箱后20、前方比台面多20，洗碗机后20、前方多20，均为展示余量，厂家散热/接头/门扇及检修待核。 厨房与阳台890窗宽、1000窗台和1350窗洞按DWG及第20页立面C；旧1114双机凹柜及窗下条件开口取消，不在墙中画新的机器洞。 烘干机留阳台窗下，扫地机移玄关鞋柜；电器高柜仅留示意格，不新增未经确认购买的烤箱/洗衣机。 吊柜高度和板件为按立面适配的柜体方案；厂家燃气灶/烟机/热水器安装、吊装、防火、通风、排烟及检修净空未批准。",
+              "sourceFootprintMm": {
+                "x": 5610,
+                "y": 11290,
+                "w": 2420,
+                "d": 2600
+              },
+              "referenceStyle": {
+                "revision": "family-drawing-kitchen-20261027",
+                "variant": "drawing-cream-kitchen",
+                "installationApproved": false
+              },
+              "drawingKitchenDesign": {
+                "revision": "family-drawing-kitchen-20261027",
+                "source": {
+                  "id": "owner-construction-dwg-20261027",
+                  "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                  "sheets": [
+                    "PL-02",
+                    "PL-03",
+                    "PL-06",
+                    "EL-05",
+                    "EL-06",
+                    "EL-07"
+                  ],
+                  "unit": "mm",
+                  "status": "drawing-reconstruction-not-site-survey-or-approval"
+                },
+                "geometry": {
+                  "floor": [
+                    [
+                      5610,
+                      11290
+                    ],
+                    [
+                      8030,
+                      11290
+                    ],
+                    [
+                      8030,
+                      13890
+                    ],
+                    [
+                      5690,
+                      13890
+                    ],
+                    [
+                      5690,
+                      13360
+                    ],
+                    [
+                      5610,
+                      13360
+                    ]
+                  ],
+                  "fridgeBay": [
+                    5610,
+                    11290,
+                    6410,
+                    11890
+                  ],
+                  "applianceCabinetBay": [
+                    6410,
+                    11290,
+                    7010,
+                    11890
+                  ],
+                  "sinkBay": [
+                    7430,
+                    11890,
+                    8030,
+                    12690
+                  ],
+                  "dishwasherBay": [
+                    7430,
+                    12690,
+                    8030,
+                    13290
+                  ],
+                  "hob": [
+                    6335,
+                    13360,
+                    7085,
+                    13810
+                  ],
+                  "shaft": [
+                    5690,
+                    13440,
+                    6100,
+                    13890
+                  ]
+                },
+                "cabinetTopMm": 2400,
+                "countertopTopMm": 890,
+                "boardThicknessMm": 20,
+                "kitchenInteriorWidthMm": 2420,
+                "kitchenInteriorDepthMm": 2600,
+                "oldLowerSharedServiceOpeningRemoved": true,
+                "oldRecessRemoved": true,
+                "clearancesAreNominalOnly": true,
+                "manufacturerClearancesConfirmed": false,
+                "installationApproved": false
+              }
+            },
+            {
+              "id": "family-elec-p36",
+              "sourceId": "family-elec-p36",
+              "type": "fixture",
+              "nativeType": "socket",
+              "modelVariant": "electrical-socket",
+              "name": "P36 · 阳台烘干机 · 窗下低墙可达电源",
+              "cx": 7100,
+              "cy": 11156,
+              "w": 86,
+              "d": 8,
+              "heightMm": 86,
+              "elevationMm": 507,
+              "baseWidthMm": 86,
+              "baseDepthMm": 8,
+              "baseHeightMm": 86,
+              "rot": 180,
+              "color": "#F7F4EC",
+              "roomId": "balcony",
+              "face": "north",
+              "kind": "socket",
+              "code": "P36",
+              "dimensionStatus": "drawing-intent-model-host-not-site-survey",
+              "layoutRevision": "family-drawing-electrical-20261027",
+              "cabinetRevision": "family-electrical-20261012",
+              "visualOnly": true,
+              "installationApproved": false,
+              "notConstructionApproval": true,
+              "wiringModeled": false,
+              "electricalDesign": {
+                "kind": "socket",
+                "code": "P36",
+                "purpose": "阳台烘干机 · 窗下低墙可达电源",
+                "centerHeightMm": 550,
+                "face": "north",
+                "mountingRoomId": "balcony",
+                "groupIds": [],
+                "controlTargets": [],
+                "servedFurnitureIds": [
+                  "laundry_dryer"
+                ],
+                "anchor": {
+                  "kind": "window-sill",
+                  "windowId": "window_kitchen_balcony",
+                  "sourceAxisMm": [
+                    7040,
+                    11225,
+                    7930,
+                    11225
+                  ],
+                  "sourceWindowRectMm": [
+                    7040,
+                    11160,
+                    7930,
+                    11290
+                  ],
+                  "surfaceVerifiedAgainstCurrentModel": true,
+                  "aboveWindowHeadMm": null,
+                  "belowWindowSillMm": 407,
+                  "siteVerified": false
+                },
+                "installationApproved": false,
+                "ratingAmps": null,
+                "ipRating": null,
+                "wiringModeled": false,
+                "productSelected": false,
+                "circuitConfirmed": false,
+                "protectiveMeasuresConfirmed": false,
+                "separateCircuitRecommendation": "electrician-review-pending",
+                "servedRoomId": "balcony",
+                "reviewNotes": "为避开原厨房右侧盆柜北板及台面，西移至现凹位厨房侧封板的空段，面朝厨房；厂家电源线长、插拔检修、穿线/固定电盒、独立断电及涉水防护未深化。",
+                "visibleFaceplateModules": 1,
+                "nominalModuleDimensionsMm": [
+                  86,
+                  8,
+                  86
+                ],
+                "selectedProduct": false,
+                "backBoxesModeled": false,
+                "multipleOutletGroup": false,
+                "layoutRevision": "family-drawing-electrical-20261027",
+                "drawingEvidence": {
+                  "source": {
+                    "file": "业主提供施工图.pdf",
+                    "pages": [
+                      28,
+                      29,
+                      30
+                    ],
+                    "sheets": [
+                      "SD-01",
+                      "SD-02",
+                      "SD-03"
+                    ],
+                    "status": "drawing-intent-not-measured-or-approved",
+                    "symbolCentersNotExtractedFromTextInsertionPoints": true
+                  },
+                  "heightStatus": "low-wall-service-concept/SD02-appliance-H550",
+                  "heightMm": 550,
+                  "positionStatus": "room-or-service-relative-drawing-location-pending-final-datum",
+                  "textPositionIsNotOutletPosition": true
+                },
+                "wetAreaReviewPending": true
+              },
+              "notes": "2026-10-27：阳台只保烘干机；点位在窗台1000以下、烘干机西侧空段，避免机背与玻璃。插头、线长、涉水保护及可达性待核。 面板外形仅86mm单元组合示意，非已选暗盒；线缆、回路和涉水保护未批准。",
+              "conditions": [
+                "86×86×8mm是新面板暂估外形，仅显示墙/柜面安装面；高度为完成地面到面板中心的暂估值，非暗盒尺寸、开槽深度或施工放线批准。P16沿用既有70×70×5mm柜内面板，不重新覆盖。",
+                "电流额定值、线径、负荷、回路容量、插座制式、安全门、接地、漏电保护、等电位、防溅/防护等级及涉水区分区均未确定，须由合格电工结合实测、设备厂家和适用规范审查。不得按示意点位直接施工。"
+              ],
+              "sourceFootprintMm": {
+                "x": 7057,
+                "y": 11152,
+                "w": 86,
+                "d": 8
+              },
+              "parts": [
+                {
+                  "id": "family-elec-p36-drawing-unit-0-plate-body",
+                  "x": -43,
+                  "y": -4,
+                  "w": 86,
+                  "d": 6,
+                  "elevationMm": 0,
+                  "heightMm": 86,
+                  "role": "electrical-plate-body",
+                  "label": "暂估86面板可见背壳，不是墙内暗盒 · 1/1单元（制式待选）",
+                  "color": "#D8D3C9",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p36-drawing-unit-0-face",
+                  "x": -42,
+                  "y": 2,
+                  "w": 84,
+                  "d": 1.6,
+                  "elevationMm": 1,
+                  "heightMm": 84,
+                  "role": "electrical-face",
+                  "label": "奶白面板正面 · 1/1单元（制式待选）",
+                  "color": "#F7F4EC",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p36-drawing-unit-0-upper-left",
+                  "x": -19,
+                  "y": 3.6,
+                  "w": 7,
+                  "d": 0.4,
+                  "elevationMm": 52,
+                  "heightMm": 10,
+                  "role": "electrical-socket-symbol",
+                  "label": "五孔面符号 · 插座规格待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p36-drawing-unit-0-upper-right",
+                  "x": 12,
+                  "y": 3.6,
+                  "w": 7,
+                  "d": 0.4,
+                  "elevationMm": 52,
+                  "heightMm": 10,
+                  "role": "electrical-socket-symbol",
+                  "label": "五孔面符号 · 插座规格待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p36-drawing-unit-0-lower-earth",
+                  "x": -3,
+                  "y": 3.6,
+                  "w": 6,
+                  "d": 0.4,
+                  "elevationMm": 35,
+                  "heightMm": 12,
+                  "role": "electrical-socket-symbol",
+                  "label": "五孔面符号 · 插座规格待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p36-drawing-unit-0-lower-left",
+                  "x": -22,
+                  "y": 3.6,
+                  "w": 8,
+                  "d": 0.4,
+                  "elevationMm": 16,
+                  "heightMm": 11,
+                  "role": "electrical-socket-symbol",
+                  "label": "五孔面符号 · 插座规格待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p36-drawing-unit-0-lower-right",
+                  "x": 14,
+                  "y": 3.6,
+                  "w": 8,
+                  "d": 0.4,
+                  "elevationMm": 16,
+                  "heightMm": 11,
+                  "role": "electrical-socket-symbol",
+                  "label": "五孔面符号 · 插座规格待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p36-drawing-unit-0-earth-mark",
+                  "x": -3,
+                  "y": 3.6,
+                  "w": 6,
+                  "d": 0.4,
+                  "elevationMm": 72,
+                  "heightMm": 1,
+                  "role": "electrical-mark",
+                  "label": "接地符号 · 接地未建模 · 1/1单元（制式待选）",
+                  "color": "#C6C2B8",
+                  "material": "Cream",
+                  "face": "south"
+                }
+              ]
+            },
+            {
+              "id": "drawing-balcony-dryer-cabinet",
+              "sourceId": "drawing-balcony-dryer-cabinet",
+              "type": "fixture",
+              "roomId": "balcony",
+              "color": "#F3EFE6",
+              "dimensionStatus": "drawing-adapted-installation-pending",
+              "installationApproved": false,
+              "name": "阳台单烘干机开放柜 · 660×670×1000",
+              "cx": 7485,
+              "cy": 10825,
+              "w": 660,
+              "d": 670,
+              "heightMm": 1000,
+              "elevationMm": 0,
+              "rot": 0,
+              "baseWidthMm": 660,
+              "baseDepthMm": 670,
+              "baseHeightMm": 1000,
+              "layoutRevision": "family-drawing-kitchen-20261027",
+              "cabinetRevision": "family-drawing-kitchen-20261027",
+              "sourceFootprintMm": {
+                "x": 7155,
+                "y": 10490,
+                "w": 660,
+                "d": 670
+              },
+              "parts": [
+                {
+                  "id": "drawing-balcony-dryer-side-west",
+                  "x": -330,
+                  "y": -335,
+                  "w": 20,
+                  "d": 670,
+                  "elevationMm": 0,
+                  "heightMm": 980,
+                  "role": "cabinet-side",
+                  "label": "独立台面20mm侧支承",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-balcony-dryer-side-east",
+                  "x": 310,
+                  "y": -335,
+                  "w": 20,
+                  "d": 670,
+                  "elevationMm": 0,
+                  "heightMm": 980,
+                  "role": "cabinet-side",
+                  "label": "独立台面20mm侧支承",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-balcony-dryer-back",
+                  "x": -310,
+                  "y": 315,
+                  "w": 620,
+                  "d": 20,
+                  "elevationMm": 0,
+                  "heightMm": 980,
+                  "role": "cabinet-back",
+                  "label": "窗台下20mm背板，连接及通风待核",
+                  "color": "#F3EFE6",
+                  "material": "Cream",
+                  "face": "north"
+                },
+                {
+                  "id": "drawing-balcony-dryer-top",
+                  "x": -330,
+                  "y": -335,
+                  "w": 660,
+                  "d": 670,
+                  "elevationMm": 980,
+                  "heightMm": 20,
+                  "role": "countertop",
+                  "label": "独立20mm顶板，完成面1000，无洗手盆",
+                  "color": "#ECE8DF",
+                  "material": "Stone",
+                  "face": "north"
+                }
+              ],
+              "face": "north",
+              "openApplianceBay": true,
+              "referenceStyle": {
+                "revision": "family-drawing-kitchen-20261027",
+                "variant": "drawing-balcony-dryer-cabinet",
+                "installationApproved": false
+              },
+              "cabinetDesign": {
+                "layoutRevision": "family-drawing-kitchen-20261027",
+                "title": "单烘干机窗下柜",
+                "features": [
+                  "无底板、无踢脚、无门，原地面落机；独立侧板支承顶板，不压机器。",
+                  "净宽620、净深650、台底980；外包660×670×1000，背靠原窗下墙内面11160。"
+                ],
+                "dimensions": [
+                  "原机器600×600×840；侧余10/10、后余30、上余140均待厂家确认。"
+                ]
+              },
+              "conditions": [
+                "柜体与烘干机不穿1000窗台下墙，顶部1000与图注窗台齐平；原890mm共墙窗宽、1350窗洞不变，窗框及开启净空待核。",
+                "独立柜只是几何适配，侧板支承/防潮、厂家散热、机器门扇及检修尚未批准。"
+              ]
+            }
+          ],
+          "changedFurnitureIds": [
+            "laundry_dryer",
+            "fit-kitchen-20261005",
+            "family-elec-p36"
+          ],
+          "newFurnitureIds": [
+            "family-dryer-kitchen-housing"
+          ],
+          "removedFurnitureIds": [
+            "drawing-balcony-dryer-cabinet"
+          ],
+          "replacedFurnitureIds": [],
+          "migrationFields": {
+            "laundry_dryer": [
+              "applianceDesign",
+              "conditions",
+              "cy",
+              "layoutRevision",
+              "name",
+              "notes",
+              "operationRoomId",
+              "roomId",
+              "sourceFootprintMm"
+            ],
+            "fit-kitchen-20261005": [
+              "cabinetRevision",
+              "conditions",
+              "drawingKitchenDesign",
+              "dryerKitchenDesign",
+              "layoutRevision",
+              "name",
+              "notes",
+              "parts"
+            ],
+            "family-elec-p36": [
+              "conditions",
+              "cx",
+              "cy",
+              "dimensionStatus",
+              "electricalDesign",
+              "face",
+              "layoutRevision",
+              "name",
+              "notes",
+              "rot",
+              "sourceFootprintMm"
+            ]
+          },
+          "preserveCustomPartsIds": [
+            "fit-kitchen-20261005"
+          ],
+          "preserveCustomSizeIds": [
+            "fit-kitchen-20261005",
+            "laundry_dryer"
+          ],
+          "preserveCustomPlacementIds": [
+            "family-elec-p36"
+          ],
+          "operationAccessRoomId": "balcony",
+          "machineRoomId": "kitchen",
+          "robotLocationUnchanged": true,
+          "sourceSnapshotsUnchanged": true,
+          "notes": [
+            "方案2烘干机保留600×600×840mm机身，朝北从生活阳台取衣；前脸在共墙阳台面y11160，机身全部后移至厨房侧，不再凸入原阳台地面。扫地机器人仍在厨房侧入户鞋柜下。",
+            "仅提出原890mm窗下中央680宽×870高的单机条件通口，两侧各105mm原低墙及通口上130mm高原墙带保留，上窗台1000、窗高1350、上口2350不变。墙体/窗支承是否可改未鉴定，不是已存在洞口或拆改许可。",
+            "原厨房台面完成高890、台底870保持；中部680mm台板只位于厨房侧y11290..11890，不穿进870..1000的保留墙带。20mm侧板独立承台，台板不压烘干机。"
+          ],
+          "pending": [
+            "机位净宽640、净深710、净高870；600×600×840机身左右各20、机后110、顶部仅30mm。以上仅模型几何，不能据此认定满足散热、进气、接头、维修或厂家安装要求。",
+            "机位不加橱柜底板、踢脚或门槛；暂按厨房/共墙下地坪与阳台同标高0展示。共墙下是否有连续可承载楼板、墙下梁、管线、高差及防水未知；可见地面桥只是条件示意，未新增已确认楼板。",
+            "机门铰链、门径、最大开角与实际前突尺寸未给出；暂在阳台标680宽×600深操作敏感性区，不能当作真实门扇扫掠或确定检修尺寸。按600前突时北侧余1000mm深，开机门时不宜把前区当通道。",
+            "P36由西侧105mm余墙移至原东南实心柱西面，中心(7926,11103)、离地550mm、朝西；86mm板在柱面纵向边距10/144mm，板到680mm门前敏感性区横向97mm。避开了原余墙仅2mm边距，但暗盒、柱内钢筋/管线、插头、湿区保护和机后到电位的线长/穿板均未核，不据几何认定可施工。",
+            "厨房水槽、洗碗机、冰箱、炉灶、热水器、扫地机器人、洗地龙头及地漏不移动。烘干机是水盒冷凝还是直排未知，不把阳台地漏或热水器管线自动当作烘干机接管。",
+            "整机安装及拆机方向按从阳台向南推入、向北退回阳台示意，不能从厨房侧向南直接抽出：往南超过110mm即遇机位后背板，超过130mm又遇U形水槽柜。北退650mm至原机位的600mm宽扫掠仅检查机箱，与固定模型无交叉；地漏左缘距此路径右缘仅10mm，须保护且不得放桶等临时物。门框净宽、机门/把手外突、搬运姿态、地坪高差、线管和人员站位未知，不据模型认定实物搬运或安装可行。"
+          ],
+          "structure": {
+            "requiresSiteAssessment": true,
+            "demolitionApproved": false,
+            "reinforcementOrLintelDesigned": false,
+            "remainingBandsDoNotProveLoadCapacity": true,
+            "continuousFloorConfirmed": false,
+            "noNewFloorArea": true,
+            "waterproofingApproved": false
+          },
+          "plumbing": {
+            "bucketTapUnchanged": true,
+            "floorDrainUnchanged": true,
+            "condensateDrainMode": null,
+            "connectionConfirmed": false
+          },
+          "electricity": {
+            "pointId": "family-elec-p36",
+            "pointPositionUnchanged": false,
+            "previousCenterMm": [
+              7100,
+              11156,
+              550
+            ],
+            "currentCenterMm": [
+              7926,
+              11103,
+              550
+            ],
+            "hostWallRectMm": [
+              7930,
+              11050,
+              8270,
+              11290
+            ],
+            "p36HostAlongMarginsMm": [
+              10,
+              144
+            ],
+            "hypotheticalDoorZoneSideGapMm": 97,
+            "pointInstallationApproved": false,
+            "cableRouteConfirmed": false,
+            "hiddenServicesSurveyed": false
+          },
+          "handling": {
+            "installationDirection": "from-north-balcony",
+            "withdrawalDirection": "towards-north-balcony",
+            "southKitchenWithdrawalAllowed": false,
+            "bodyOnlyNorthSweepMm": [
+              7185,
+              10510,
+              0,
+              7785,
+              11760,
+              840
+            ],
+            "northWithdrawalDistanceMm": 650,
+            "drainSideGapMm": 10,
+            "southRearPanelGapMm": 110,
+            "southSinkCabinetGapMm": 130,
+            "actualDoorClearWidthConfirmed": false,
+            "actualHandlingConfirmed": false,
+            "notes": "整机安装及拆机方向按从阳台向南推入、向北退回阳台示意，不能从厨房侧向南直接抽出：往南超过110mm即遇机位后背板，超过130mm又遇U形水槽柜。北退650mm至原机位的600mm宽扫掠仅检查机箱，与固定模型无交叉；地漏左缘距此路径右缘仅10mm，须保护且不得放桶等临时物。门框净宽、机门/把手外突、搬运姿态、地坪高差、线管和人员站位未知，不据模型认定实物搬运或安装可行。"
+          },
+          "untouchedFurnitureIds": [
+            "bed_b",
+            "family-f1",
+            "bed_a",
+            "family-f3",
+            "study_full_desk",
+            "family-f5",
+            "family-living-rug",
+            "family-f6",
+            "family-f7",
+            "vanity_main",
+            "family-f11",
+            "family-f12",
+            "vanity_guest",
+            "family-f14",
+            "family-f15",
+            "study_north_sofa",
+            "family-f23",
+            "family-f24",
+            "family-f25",
+            "family-f26",
+            "family-f27",
+            "fit-bay_living_family",
+            "fit-entry_shoe_station",
+            "fit-dining_sideboard_wall",
+            "fit-study_bookwall",
+            "laundry_washer",
+            "kitchen_fridge",
+            "kitchen_dishwasher",
+            "kitchen_double_sink",
+            "kitchen_hob",
+            "kitchen_hood",
+            "kitchen_heater",
+            "kitchen_tap",
+            "living-east-art",
+            "draft-desk-b",
+            "draft-chair-b",
+            "draft-night-b",
+            "draft-desk-a",
+            "draft-chair-a",
+            "draft-night-a",
+            "study_window_return",
+            "family-acwall-room_a",
+            "family-acwall-room_b",
+            "family-acwall-room_c",
+            "family-living-aircon",
+            "family-kitchen-ceilingfan",
+            "family-bathheater-bath_1",
+            "family-bathheater-bath_2",
+            "family-sideboard-blender",
+            "family-sideboard-temperaturekettle",
+            "family-sideboard-sterilizer",
+            "family-sideboard-healthkettle",
+            "family-sideboard-waterdispenser",
+            "balcony_outer_projection",
+            "balcony_robot",
+            "family-living-ceilinglight",
+            "family-dining-ceilinglight",
+            "balcony_bucket_tap",
+            "family-drain-balcony",
+            "family-drain-bath1-dry",
+            "family-drain-bath1-shower",
+            "family-drain-bath2-dry",
+            "family-drain-bath2-shower",
+            "family-elec-s01",
+            "family-elec-s02",
+            "family-elec-s03",
+            "family-elec-s04",
+            "family-elec-s05",
+            "family-elec-s06",
+            "family-elec-s07",
+            "family-elec-s08",
+            "family-elec-s09",
+            "family-elec-s10",
+            "family-elec-s11",
+            "family-elec-s12",
+            "family-elec-s13",
+            "family-elec-s14",
+            "family-elec-p01",
+            "family-elec-p02",
+            "family-elec-p03",
+            "family-elec-p04",
+            "family-elec-p05",
+            "family-elec-p06",
+            "family-elec-p07",
+            "family-elec-p08",
+            "family-elec-p09",
+            "family-elec-p10",
+            "family-elec-p11",
+            "family-elec-p12",
+            "family-elec-p13",
+            "family-elec-p14",
+            "family-elec-p15",
+            "family-elec-p17",
+            "family-elec-p18",
+            "family-elec-p19",
+            "family-elec-p20",
+            "family-elec-p21",
+            "family-elec-p22",
+            "family-elec-p23",
+            "family-elec-p24",
+            "family-elec-p25",
+            "family-elec-p26",
+            "family-elec-p27",
+            "family-elec-p28",
+            "family-elec-p29",
+            "family-elec-p30",
+            "family-elec-p31",
+            "family-elec-p32",
+            "family-elec-p33",
+            "family-elec-p34",
+            "family-elec-p35",
+            "family-elec-n01",
+            "family-elec-n02",
+            "family-elec-n03",
+            "family-elec-n04",
+            "drawing-night-a-north",
+            "drawing-living-armchair",
+            "family-elec-s15",
+            "family-elec-p16",
+            "family-elec-p37"
+          ]
         }
       }
     },

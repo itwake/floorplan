@@ -372,7 +372,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=drawing-20261027"></script>
+<script src="data/house-plans.js?v=dryer-kitchen-20261031"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -482,7 +482,7 @@ const uid = () => 'f' + Date.now().toString(36) + (_n++);
 const F = (type,name,cx,cy,w,d,rot=0,color) => ({id:uid(),type,name,cx,cy,w,d,rot,color:color||typeColor(type)});
 
 function defaultFurniture(){ return structuredClone(HOUSE_PLAN.defaultFurniture); }
-function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update,HOUSE_PLAN.metadata.familyBalconyRecessUpdate,HOUSE_PLAN.metadata.familyFloorDrainsUpdate,HOUSE_PLAN.metadata.familyElectricalUpdate,HOUSE_PLAN.metadata.familyKitchenHeaterUpdate,HOUSE_PLAN.metadata.familyLivingEastUpdate,HOUSE_PLAN.metadata.familyReferenceFinishUpdate,HOUSE_PLAN.metadata.familyDrawingUpdate].filter(Boolean);}
+function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update,HOUSE_PLAN.metadata.familyBalconyRecessUpdate,HOUSE_PLAN.metadata.familyFloorDrainsUpdate,HOUSE_PLAN.metadata.familyElectricalUpdate,HOUSE_PLAN.metadata.familyKitchenHeaterUpdate,HOUSE_PLAN.metadata.familyLivingEastUpdate,HOUSE_PLAN.metadata.familyReferenceFinishUpdate,HOUSE_PLAN.metadata.familyDrawingUpdate,HOUSE_PLAN.metadata.familyDryerKitchenUpdate].filter(Boolean);}
 function defaultState(){
   const rooms = {}; ROOMS.forEach(r => rooms[r.id] = {name:r.name, mat:r.mat});
   return {schemaVersion:2,projectId:'house-design',schemeId:SCHEME_ID,sourceVersion:PLAN_LIBRARY.version,
@@ -502,6 +502,10 @@ function load(){
   return null;
 }
 function balconyRecessNotice(f){
+  if(HOUSE_PLAN.metadata.familyDryerKitchenUpdate){
+    if(f&&!['laundry_dryer','family-dryer-kitchen-housing','fit-kitchen-20261005'].includes(f.id))return '';
+    return `<section class="project-note" data-family-dryer-kitchen><b>${tr('烘干机嵌入厨房 · 面向阳台','Dryer recessed into kitchen, facing balcony')}</b><p>${tr('烘干机按600×600×840mm放在共用窗下，机门朝阳台；厨房台面完成高890mm，窗台1000mm及上方窗户保留。窗下通口约680×870mm为条件示意。','The 600 × 600 × 840 mm dryer sits below the shared window, with its door facing the balcony. The kitchen counter remains 890 mm high, and the 1000 mm sill and upper window remain. The approximately 680 × 870 mm opening is conditional.')}</p><p>${tr('台底到机器顶部的名义余量仅30mm；拆装需向阳台一侧退机，不能从厨房向后直接抽出。窗下墙体、楼板、防水、厂家散热和机门取物净空均须现场核验。','The nominal clearance above the appliance is only 30 mm. Removal is proposed towards the balcony, not back through the kitchen. Verify the opening, floor, waterproofing, ventilation and door clearance on site.')}</p><button class="btn" id="viewBalconyRecess3d">${tr('从阳台查看烘干机','View dryer from balcony')}</button></section>`;
+  }
   if(HOUSE_PLAN.metadata.familyDrawingUpdate)return '';
   const revision=HOUSE_PLAN.metadata.familyBalconyRecessUpdate;
   if(!revision)return '';
@@ -524,6 +528,8 @@ function bindFloorDrainView(f){
   button.onclick=async()=>{if(viewMode!=='3d')await setView('3d');if(viewMode==='3d')window.View3D?.focusFloorDrain(f.id);closeDrawers();};
 }
 function refreshCabinetDesign(f){
+  const dryerRevision=HOUSE_PLAN.metadata.familyDryerKitchenUpdate?.id;
+  if(dryerRevision&&(f.layoutCustomPartsRevision===dryerRevision||f.layoutCustomSizeRevision===dryerRevision))return;
   const drawingRevision=HOUSE_PLAN.metadata.familyDrawingUpdate?.id;
   if(drawingRevision&&(f.layoutCustomPartsRevision===drawingRevision||f.layoutCustomSizeRevision===drawingRevision))return;
   if(f.layoutCustomSizeRevision&&f.layoutCustomSizeRevision===HOUSE_PLAN.metadata.familyStudyDoorUpdate?.id)return;
@@ -601,6 +607,11 @@ function upgradeConfirmedLayouts(s){
       }
       const fresh=HOUSE_PLAN.defaultFurniture.find(q=>q.id===f.id);
       if(!fresh)continue;
+      // Keep a personally moved electrical point together with its original
+      // anchor metadata; do not attach a new default wall to an old position.
+      if(revision.preserveCustomPlacementIds?.includes(f.id)&&['cx','cy','rot','elevationMm','w','d','heightMm'].some(key=>!same(f[key],before[key])&&!same(f[key],fresh[key]))){
+        kept.add(f.id);f.layoutCustomPlacementRevision=revision.id;continue;
+      }
       // Keep an intentionally edited private cabinet assembly intact rather
       // than retaining old 90-degree doors under a new 180-degree design label.
       // An edited envelope with original boards still receives the hinge update.
@@ -1221,6 +1232,11 @@ function renderOpenings(){
       s+=`<g data-balcony-recess-concept><title>${tr('窗下设备通口概念','Under-window equipment aperture concept')} · ${lower.x2-lower.x1}×${lower.top-lower.bottom} mm · ${tr('结构与复尺待核，不是施工图','Structure and survey pending; not construction drawings')}</title><rect x="${lower.x1}" y="${y0}" width="${lower.x2-lower.x1}" height="${h}" fill="none" stroke="#b5653a" stroke-width="2" stroke-dasharray="5 3" vector-effect="non-scaling-stroke"/><text x="${(lower.x1+lower.x2)/2}" y="${y0-65}" font-size="100" text-anchor="middle" fill="#b5653a">${tr('窗下凹入机位 · 待核','Recessed equipment bays · pending')}</text></g>`;
     }
   });
+  const dryerUse=HOUSE_PLAN.metadata.familyDryerKitchenUpdate?.geometry?.doorUseZoneMm,dryer=getF('laundry_dryer');
+  if(dryerUse&&dryer&&dryer.cx===7485&&dryer.cy===11460&&dryer.rot===180){
+    const [x0,y0,,x1,y1]=dryerUse;
+    s+=`<g data-dryer-use-zone><title>${tr('烘干机门前600mm操作敏感区示意；实际门扇开角和净空待核','Illustrative 600 mm dryer operation zone; actual door swing and clearance pending')}</title><rect x="${x0}" y="${y0}" width="${x1-x0}" height="${y1-y0}" fill="none" stroke="#b5653a" stroke-width="2" stroke-dasharray="6 5" vector-effect="non-scaling-stroke"/></g>`;
+  }
   const DS = 'stroke="#3d3a34" stroke-width="1" vector-effect="non-scaling-stroke"';
   DOORS.forEach(d => {
     const [hx,hy] = d.h, L = d.len, T = 40;
@@ -1347,6 +1363,7 @@ function updateHeader(){
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
 function livingEastNotice(f){
+  if(HOUSE_PLAN.metadata.familyDryerKitchenUpdate)return `<section class="project-note" data-family-drawing><b>${tr('方案2 · 最新图纸调整','Scheme 2 · latest drawing')}</b><p>${tr('墙体与门窗按最新图纸建模，餐边柜靠窗端缩短800mm。烘干机嵌入厨房、机门朝阳台；扫地机器人位于入户鞋柜底部。','The layout follows the drawing with the sideboard shortened 800 mm. The dryer is recessed into the kitchen and faces the balcony; the robot remains under the entry shoe cabinet.')}</p><p>${tr('主卧床架至衣柜约500mm，次卧约760mm；书房未来放1.5m床时需重新核对桌子与通道。','The main and second bedroom bed-to-wardrobe gaps are approximately 500 and 760 mm; a future 1.5 m bed in the study requires desk and access review.')}</p></section>`;
   if(HOUSE_PLAN.metadata.familyDrawingUpdate)return `<section class="project-note" data-family-drawing><b>${tr('方案2 · 最新图纸调整','Scheme 2 · latest drawing')}</b><p>${tr('墙体与门窗按最新图纸建模；沙发与电视按图布置，已购1400mm餐桌保留。餐边柜靠窗端缩短800mm；烘干机在阳台，扫地机器人位于入户鞋柜下。','Walls and openings follow the latest drawing; the sofa faces the television, the purchased 1400 mm dining table remains, and the sideboard is shortened by 800 mm. The dryer stays by the balcony, while the robot moves beneath the entry shoe cabinet.')}</p><p>${tr('主卧床架至衣柜约500mm，次卧约760mm；书房未来放1.5m床时须重新核对桌子和通道。图纸尺寸、窗高及设备安装条件仍以现场复核为准。','Frame-to-wardrobe gaps are approximately 500 mm in the main bedroom and 760 mm in the second; the study desk and access need review for a future 1.5 m bed. Verify dimensions, window heights and equipment installation on site.')}</p></section>`;
   if(HOUSE_PLAN.metadata.familyReferenceFinishUpdate&&(!f||f.referenceStyle))return `<section class="project-note" data-family-reference-finish><b>${tr('方案2 · 六图效果参考重建','Scheme 2 · six-image reference reconstruction')}</b><p>${tr('保留已购IKEA沙发、餐桌椅及无茶几；沙发仍靠东墙。餐边柜从原飘台端缩短800mm（西直段4090mm），保留南转角180°库门。三间卧室/书房为真正木地板，客餐厅仍为米白大砖。','Purchased IKEA living/dining furniture and no coffee table are retained, with the sofa on the east wall. The sideboard retreats 800 mm from its original bay end (4090 mm straight run) and retains the 180° corner pantry. Bedrooms/study have real wood floors; the public area keeps pale large-format tile.')}</p><p>${tr('奶白通顶柜、木背板双灯带、深木多格电视柜、两卧软包床/拱龛、悬浮书桌与窗饰按图重建。请用顶部“效果视角”逐房查看。原实测墙门窗和窗边空调不改；桌后木色门为滑门，不假称可拉抽。','Reference-led full-height cabinets, two lit wood shelves, dark-wood cubbies, upholstered beds/arch niche, floating desks and window dressings are rebuilt. Use the reference-view selector above. Surveyed walls/openings and window-side AC remain. Wood fronts behind the table slide rather than pull out as drawers.')}</p><small>${tr('这是基于照片的参数化重建，不是原始设计模型或原厂材质复用；纹理/画作属程序近似，不能承诺与离线效果图完全相同。窗帘、悬浮柜及灯具尺寸/承载/散热/配线仍待深化。自定义草稿保留，先导出备份再重置可查看完整新默认方案。','This is a photo-led parametric reconstruction, not the original scene or manufacturer materials. Textures/artwork are procedural approximations, not a promise of identical offline renders. Installation details remain unverified. Private edits are preserved; export before resetting to the full new defaults.')}</small></section>`;
   const m=HOUSE_PLAN.metadata.familyLivingEastUpdate;if(!m||f&&!m.changedFurnitureIds.includes(f.id))return '';
@@ -1387,9 +1404,9 @@ function overviewPanel(){
   return `
   <section class="project-note"><b>${esc(HOUSE_PLAN.name)}</b>${layoutRevisions().map(r=>`<br>${esc(r.title)}`).join('')}${HOUSE_PLAN.metadata.bedroomUpdate&&!HOUSE_PLAN.metadata.familyDrawingUpdate?`<p data-bedroom-clearance>${tr('两卧床尾至衣柜约555mm，偏紧；下部采用滑门。桌椅、床架及门套尺寸仍需现场核对。','Both bed-foot gaps are about 555 mm and tight. Lower wardrobe doors slide; furniture and door trim dimensions need verification.')}</p>`:''}${HOUSE_PLAN.metadata.familyBathUpdate&&!HOUSE_PLAN.metadata.familyDrawingUpdate?`<p data-family-bath-clearance>${tr('主卫门已北移并改北铰内开，盆厕背靠南墙。马桶侧至淋浴仅60mm，排水移位、门套及绕门通行仍待核；主卫窗保留旧定位示意，实测500×1400mm，窗台及定位待核。','The bathroom door moves north and is north-hinged inward, with the vanity and toilet against the south wall. The toilet/shower side gap is only 60 mm; drainage, trim and routes around doors need verification. The bath window retains its old illustrative placement: measured 500 × 1400 mm, sill and positioning pending.')}</p>`:''}${state.layoutMigrationKeptIds?.length?`<p data-layout-migration-warning>${tr('保留了你的自定义摆位或尺寸；已移除的旧布局物件另存于JSON备份记录。请核对重叠与动线；查看完整新默认布局前，可先导出备份再重置当前方案。','Your custom placement or dimensions were preserved; removed objects are archived in JSON. Check collisions and routes; export a backup before resetting to see the complete new default layout.')}</p>`:''}<br>${tr('原网站方案已导入；局部复尺值已应用，待核尺寸保留原示意。墙体承重性未鉴定，草案改墙不是施工许可。','Original schemes imported; partial surveys applied, unresolved values remain illustrative. Wall structure is unverified.')}<br><small>${tr('编辑自动保存于当前浏览器，各方案独立。换设备请导出 JSON。','Edits auto-save in this browser per scheme. Export JSON to change devices.')}</small></section>
   ${cabinetOverview()}
-  ${HOUSE_PLAN.metadata.familyStudyLaundryUpdate?`<section class="project-note" data-family-study-laundry-warning>${tr('书房当前保留沙发；将来1500×2000床垫按2100×1600床架替换沙发校核，床侧710mm与桌椅共用、床尾120mm不是通道。客卫台前610mm偏紧；机门、管线与检修须实物核对。阳台已取消借厅外凸，模型净宽1420与复尺1240mm仍差180mm，定位待核。','The study keeps its sofa now. A future 1500 × 2000 mattress is checked with an assumed 2100 × 1600 frame replacing it: the shared desk/bed-side strip is 710 mm; the 120 mm foot gap is not a passage. The guest bath has only 610 mm in front of the counter; appliance doors, hoses and servicing need on-site checks. The balcony no longer protrudes into the living room; the model width 1420 versus surveyed 1240 mm remains unresolved.')}</section>`:''}
-  ${HOUSE_PLAN.metadata.familyDoorRefinement?`<section class="project-note" data-family-door-refinement-warning>${tr('厨房与生活阳台已改双扇双轨玻璃推拉门，原洞口1700/1500mm不变。叠放后的名义开口约850/750mm，实际门框与搭接还需扣减；不是施工净宽。','The kitchen and laundry balcony now have two-leaf, two-track glass sliders. The original 1700/1500 mm apertures remain; nominal stacked openings are about 850/750 mm before frame and overlap deductions, not certified clear widths.')}</section>`:''}
-  ${HOUSE_PLAN.metadata.familyStudyDoorUpdate?`<section class="project-note" data-family-study-door-warning>${tr('书房900mm门洞在上一版本基础上再南移300mm，南铰内开，打开后靠南墙。南桌与上方书架收短至1450mm，西窗返桌、座椅和沙发保留。门扇端部至桌架50mm、至南墙60mm为模型余量；门套、把手、基层和实物家具仍须现场复核。','The study’s 900 mm opening moves another 300 mm south, with a south hinge opening inward against the south wall. The south desk and bookwall shorten to 1450 mm; the window return, chair and sofa remain. The modeled 50 mm tip-to-furniture and 60 mm leaf-to-wall gaps require checks against actual trim, handles, supports and furniture.')}</section>`:''}
+  ${HOUSE_PLAN.metadata.familyStudyLaundryUpdate&&!HOUSE_PLAN.metadata.familyDrawingUpdate?`<section class="project-note" data-family-study-laundry-warning>${tr('书房当前保留沙发；将来1500×2000床垫按2100×1600床架替换沙发校核，床侧710mm与桌椅共用、床尾120mm不是通道。客卫台前610mm偏紧；机门、管线与检修须实物核对。阳台已取消借厅外凸，模型净宽1420与复尺1240mm仍差180mm，定位待核。','The study keeps its sofa now. A future 1500 × 2000 mattress is checked with an assumed 2100 × 1600 frame replacing it: the shared desk/bed-side strip is 710 mm; the 120 mm foot gap is not a passage. The guest bath has only 610 mm in front of the counter; appliance doors, hoses and servicing need on-site checks. The balcony no longer protrudes into the living room; the model width 1420 versus surveyed 1240 mm remains unresolved.')}</section>`:''}
+  ${HOUSE_PLAN.metadata.familyDoorRefinement&&!HOUSE_PLAN.metadata.familyDrawingUpdate?`<section class="project-note" data-family-door-refinement-warning>${tr('厨房与生活阳台已改双扇双轨玻璃推拉门，原洞口1700/1500mm不变。叠放后的名义开口约850/750mm，实际门框与搭接还需扣减；不是施工净宽。','The kitchen and laundry balcony now have two-leaf, two-track glass sliders. The original 1700/1500 mm apertures remain; nominal stacked openings are about 850/750 mm before frame and overlap deductions, not certified clear widths.')}</section>`:''}
+  ${HOUSE_PLAN.metadata.familyStudyDoorUpdate&&!HOUSE_PLAN.metadata.familyDrawingUpdate?`<section class="project-note" data-family-study-door-warning>${tr('书房900mm门洞在上一版本基础上再南移300mm，南铰内开，打开后靠南墙。南桌与上方书架收短至1450mm，西窗返桌、座椅和沙发保留。门扇端部至桌架50mm、至南墙60mm为模型余量；门套、把手、基层和实物家具仍须现场复核。','The study’s 900 mm opening moves another 300 mm south, with a south hinge opening inward against the south wall. The south desk and bookwall shorten to 1450 mm; the window return, chair and sofa remain. The modeled 50 mm tip-to-furniture and 60 mm leaf-to-wall gaps require checks against actual trim, handles, supports and furniture.')}</section>`:''}
   ${HOUSE_PLAN.metadata.familyAppliancesUpdate?`<section class="project-note" data-family-appliances-warning>${tr('方案2新增12件电器：三间卧室/书房壁挂空调、电视旁柜机、厨房凉霸、两卫淋浴区风暖浴霸，以及餐边柜五件台面电器。尺寸和型号均为概念占位；空调外机、冷凝排水、吊顶夹层、浴霸湿区适用性和用电回路待核。餐边柜中的蒸汽/加热电器需核对开盖及散热，模型摆得下不代表可在上柜下直接运行；不得据此把五台接到同一插排同时使用。','Scheme 2 adds twelve concept appliances: three wall AC units, a living-room floor AC, kitchen ceiling fan, two shower-area fan heaters and five sideboard appliances. Sizes/models are placeholders. Outdoor units, drainage, ceiling voids, wet-zone suitability and electrical circuits need verification. Lid access, steam and heat clearances must be checked; fitting in the niche does not approve operation below upper cabinets or simultaneous use on one power strip.')}</section>`:''}
   ${HOUSE_PLAN.metadata.familyLightingStudyRefinement?`<section class="project-note" data-family-lighting-study-warning>${tr('餐厅沿用原客厅白色圆灯，440×440×20mm是旧模型示意尺寸，实物待核。客厅907×577×110mm吸顶灯顶面白色、侧面黑色细边。书房挂机已移至西墙窗上方、朝东；主次卧挂机位置不变。书房窗台900、窗洞高1200、上口2100mm均待实测，1200为暂估而非复尺确认值。机底2250、机顶2550，上下各150mm仅为模型间隔；外机、窗帘、墙梁及厂家安装条件须现场核验。','The dining room reuses the old white round light; 440 × 440 × 20 mm is an old model placeholder, not measured hardware. The living fixture retains 907 × 577 × 110 mm with a white top and thin black side rim. The study AC is on the west wall above the window, facing east; bedroom units stay unchanged. Study sill 900, opening height 1200 and head 2100 mm remain unmeasured estimates. The 2250–2550 mm AC has modeled 150 mm upper/lower gaps, not approved installation clearances.')}</section>`:''}
   ${HOUSE_PLAN.metadata.familyAcWindowUpdate&&!HOUSE_PLAN.metadata.familyLightingStudyRefinement?`<section class="project-note" data-family-ac-window-warning>${tr('三房挂机已移至窗侧：主次卧在北飘窗上方的室内北墙，书房在西北窗侧角，仍挂北墙。机身尺寸和底2250mm标高不变；书房西窗上方仅70mm顶棚余量的方案未采用。外机、穿墙点、冷媒管和冷凝水排水均待现场核定，不代表已接通室外机。','The bedroom AC units move to the indoor north wall above the bay openings; the study unit moves to its northwest window-side corner, still on the north wall. Sizes and 2250 mm bottom elevations remain unchanged. The study’s over-window option with only 70 mm ceiling space is not used. Outdoor-unit locations, wall penetrations, refrigerant pipes and condensate drains remain unverified.')}</section>`:''}
@@ -3801,6 +3818,11 @@ function focusFloorDrain(id){
   return true;
 }
 function focusBalconyRecess(){
+  if(HOUSE_PLAN.metadata.familyDryerKitchenUpdate){
+    const dryer=getF('laundry_dryer');if(!dryer||!active||anim)return false;
+    if(opt.mode==='walk')setMode('orbit');showLabels(false);opt.labels=false;document.querySelector('[data-t="labels"]')?.classList.remove('on');
+    flyTo(pose(new THREE.Vector3(wx(dryer.cx),.47,wz(11200)),new THREE.Vector3(wx(dryer.cx-80),1.10,wz(10200))),1000,.35,60);return true;
+  }
   const f=getF('balcony_recess_housing');if(!f||!active||anim)return false;
   if(opt.mode==='walk')setMode('orbit');
   const a=f.rot*Math.PI/180,sd=f.d/(f.baseDepthMm||f.d),front=-f.d/2;
