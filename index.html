@@ -276,6 +276,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
       <button class="btn" data-mode="walk" data-en="Walk">漫游</button>
     </div>
     <div class="grp only3d" id="referenceViewTools"><select id="referenceViewSelect" aria-label="参考效果视角"><option value="">效果视角</option><option value="living">客厅 · 沙发</option><option value="tv">客厅 · 电视</option><option value="dining">餐边柜</option><option value="master">主卧</option><option value="child">次卧</option><option value="study">书房</option><option value="master-wardrobe">主卧 · 挂衣龛</option><option value="child-wardrobe">次卧 · 粉色拱龛</option></select></div>
+    <div class="grp only3d"><select id="quality3d" aria-label="3D画质" title="流畅适合日常查看，精细保留全部灯光" data-en-title="Smooth for navigation, detailed for all lights"><option value="smooth" data-en="Smooth">流畅</option><option value="balanced" selected data-en="Balanced">均衡</option><option value="detail" data-en="Detailed">精细</option></select></div>
     <div class="grp" id="electricalTools">
       <button class="btn chip on" id="electricalLayer" data-layer="electrical" aria-pressed="true" data-en="Electrical">电位</button>
     </div>
@@ -1646,7 +1647,7 @@ function bindFurnPanel(f){
 }
 
 /* ======================= 操作 ======================= */
-function select(sel){ ui.sel = sel; renderSel(); renderPanel();renderElectrical(); }
+function select(sel){ ui.sel = sel; renderSel(); renderPanel();renderElectrical();window.View3D?.invalidate(); }
 function rotateSel(d){ if (ui.sel?.kind==='furn') mutate(() => { const f = getF(ui.sel.id); f.rot = norm(f.rot + d); }); }
 function deleteSel(){ if (ui.sel?.kind==='furn'){ const id = ui.sel.id; ui.sel = null; mutate(() => state.furniture = state.furniture.filter(f => f.id !== id)); } }
 function duplicateSel(){
@@ -2139,6 +2140,7 @@ import {CSS2DRenderer, CSS2DObject} from 'three/addons/renderers/CSS2DRenderer.j
 import {createReferenceFinishes} from './reference-finishes.js?v=20261025';
 import {createReferenceInterior} from './reference-interior.js?v=drawing-20261027';
 import {createReferenceDressing} from './reference-dressing.js?v=study-north-20261102';
+import {QUALITY_PRESETS,drawingRatio,createStaticBatcher} from './viewer-performance.js?v=performance-20261102';
 
 const stage = $('#stage'), host = $('#view3d');
 const OX = HOUSE_PLAN.CENTER.x, OY = HOUSE_PLAN.CENTER.y, H = Math.max(HOUSE_PLAN.HEIGHT_MM,...WALL_META.map(w=>w.heightMm))/1000, FOV = 45;       // 户型中心放在世界原点，层高 2.8 m
@@ -2146,6 +2148,11 @@ const wx = x => (x - OX) / 1000, wz = y => (y - OY) / 1000, M = v => v / 1000;
 const SW = () => stage.clientWidth, SH = () => stage.clientHeight;
 document.querySelector('[data-cut="2.8"]').dataset.cut=H;
 const opt = {cut:H, furn:true, labels:true, night:false, hour:10, mode:'orbit'};
+let quality='balanced';try{const saved=localStorage.getItem('floorplan:3d-quality');if(Object.hasOwn(QUALITY_PRESETS,saved))quality=saved;}catch{}
+const staticBatcher=createStaticBatcher(THREE);
+let renderDirty=true,shadowDirty=true,lightCacheDirty=true,localLights=[];
+const renderStats={frames:0,shadowUpdates:0,lastRenderMs:0};
+function invalidate(shadows=false){renderDirty=true;shadowDirty=shadowDirty||shadows;startLoop();}
 // Only the proposed exterior enclosure uses this plane. Original floors and
 // ordinary furniture do not gain clipping or an assumed extension slab.
 const balconyProjectionPlane=new THREE.Plane(new THREE.Vector3(0,-1,0),H);
@@ -2172,9 +2179,10 @@ function init(){
   if (inited) return; inited = true;
   renderer = new THREE.WebGLRenderer({antialias:true, preserveDrawingBuffer:true});
   renderer.localClippingEnabled=true;
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+  renderer.setPixelRatio(drawingRatio(QUALITY_PRESETS[quality],SW(),SH(),devicePixelRatio));
   renderer.setSize(SW(), SH());
   renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.shadowMap.autoUpdate=false;
   renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
   host.prepend(renderer.domElement);
   labelRenderer = new CSS2DRenderer();
@@ -2186,14 +2194,16 @@ function init(){
   camera = new THREE.PerspectiveCamera(FOV, SW()/SH(), .05, 300);
   orbit = new OrbitControls(camera, renderer.domElement);
   orbit.enableDamping = true; orbit.maxPolarAngle = Math.PI*.495; orbit.minDistance = 1.5; orbit.maxDistance = 45;
+  orbit.addEventListener('change',()=>invalidate());
   walkCtl = new PointerLockControls(camera, document.body);
+  walkCtl.addEventListener('change',()=>invalidate());
   walkCtl.addEventListener('lock', () => { $('#walkOverlay').style.display = 'none'; $('#cross').style.display = 'block'; });
   walkCtl.addEventListener('unlock', () => { if (opt.mode === 'walk'){ $('#walkOverlay').style.display = 'flex'; $('#cross').style.display = 'none'; } });
 
   hemi = new THREE.HemisphereLight(0xfff8ee, 0xb9a88f, 1.1);
   if(referenceEnabled)hemi.groundColor.set('#D7D0C3');
   sun = new THREE.DirectionalLight(0xfff1dd, 2.6);
-  sun.castShadow = true; sun.shadow.mapSize.setScalar(2048);   // 平板 GPU 用小一点的阴影贴图
+  sun.castShadow = true; sun.shadow.mapSize.setScalar(QUALITY_PRESETS[quality].shadowSize);
   Object.assign(sun.shadow.camera, {left:-11, right:11, top:11, bottom:-11, near:1, far:60});
   sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.02;
   ground = new THREE.Mesh(new THREE.PlaneGeometry(160, 160), new THREE.MeshStandardMaterial({color:0xf2eee7, roughness:1}));
@@ -2235,6 +2245,7 @@ function init(){
     fdrag.moved = true; cv.style.cursor = 'grabbing';
     [f.cx, f.cy] = snapMove(f, g.x - fdrag.ox, g.y - fdrag.oy);
     furnG.children.find(o => o.userData.fid === f.id)?.position.set(wx(f.cx), M(f.elevationMm||0), wz(f.cy));   // 拖动中只挪模型，松手再整体同步
+    invalidate(true);
   });
   const endF = e => {
     if (!fdrag || e.pointerId !== fdrag.pid) return;
@@ -2262,13 +2273,41 @@ function init(){
     const w = SW(), h = SH(); if (!w || !h) return;
     renderer.getSize(renderedSize);
     if (renderedSize.x === w && renderedSize.y === h) return;
+    renderer.setPixelRatio(drawingRatio(QUALITY_PRESETS[quality],w,h,devicePixelRatio));
     renderer.setSize(w, h); labelRenderer.setSize(w, h);
     camera.aspect = w/h; camera.updateProjectionMatrix();
     // Resizing clears the WebGL buffer. Draw immediately so mobile toolbar
     // changes do not leave a blank canvas while waiting for the next frame.
-    if (active){ renderer.render(scene, camera); labelRenderer.render(scene, camera); }
+    invalidate();
   }).observe(stage);
   bindUI();
+}
+
+function setQuality(value){
+  if(!Object.hasOwn(QUALITY_PRESETS,value))return;
+  quality=value;try{localStorage.setItem('floorplan:3d-quality',quality);}catch{}
+  $('#quality3d').value=quality;
+  if(!inited)return;
+  const preset=QUALITY_PRESETS[quality];renderer.setPixelRatio(drawingRatio(preset,SW(),SH(),devicePixelRatio));renderer.setSize(SW(),SH());
+  if(sun.shadow.mapSize.x!==preset.shadowSize){sun.shadow.map?.dispose();sun.shadow.map=null;sun.shadow.mapSize.setScalar(preset.shadowSize);}
+  invalidate(true);
+}
+function updateLocalLights(){
+  if(lightCacheDirty){localLights=[];scene.traverse(o=>{if(o.isSpotLight||o.isPointLight)localLights.push(o);});lightCacheDirty=false;}
+  const preset=QUALITY_PRESETS[quality],position=new THREE.Vector3();
+  for(const [type,budget]of[['SpotLight',preset.spots],['PointLight',preset.points]]){
+    const entries=localLights.filter(o=>o.type===type&&o.intensity>0).map(o=>({o,d:o.getWorldPosition(position).distanceToSquared(camera.position)})).sort((a,b)=>a.d-b.d),allowed=new Set(entries.slice(0,budget).map(q=>q.o));
+    for(const o of localLights.filter(o=>o.type===type))o.visible=allowed.has(o);
+  }
+}
+function drawScene(){
+  updateLocalLights();
+  if(shadowDirty){renderer.shadowMap.needsUpdate=true;renderStats.shadowUpdates++;shadowDirty=false;}
+  const started=performance.now();renderer.render(scene,camera);labelRenderer.render(scene,camera);renderStats.lastRenderMs=performance.now()-started;renderStats.frames++;
+}
+function performanceStats(){
+  if(!inited)return{initialized:false,quality};
+  return{initialized:true,quality,idle:!raf,...renderStats,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,pixelRatio:renderer.getPixelRatio(),width:renderer.domElement.width,height:renderer.domElement.height,shadowSize:sun.shadow.mapSize.x,activeLocalLights:localLights.filter(o=>o.visible).length,geometries:renderer.info.memory.geometries};
 }
 
 /* ======================= 材质 ======================= */
@@ -3565,6 +3604,7 @@ function buildArch(){
     });
   });
   if(referenceEnabled)referenceDressing.build({archUp,archFloor,rooms:ROOMS,windows:WINS,windowMeta:WIN_META,cut:top});
+  staticBatcher.batch(archUp);staticBatcher.batch(archFloor);lightCacheDirty=true;
   applyLight(); applyGrow();
 }
 
@@ -3607,6 +3647,8 @@ function buildFurn(){
     light.userData={role:'ceilinglight-illumination',fid:entry.fid,modelVariant:entry.group.userData.modelVariant,lightingStatus:'illustrative-not-lux-verified'};
     furnitureLampG.add(light);entry.light=light;
   });
+  for(const group of furnG.children)staticBatcher.batch(group);
+  lightCacheDirty=true;
   furnG.visible = opt.furn; selKey = null; applyGrow();applyLight();
 }
 
@@ -3636,6 +3678,7 @@ function sync(force){
   if (force || l !== sigLabels){ sigLabels = l; buildLabels(); }
   for(const g of furnG.children){if(getF(g.userData.fid)?.electricalDesign)g.visible=ui.layers.electrical;}
   syncProjectionCut();
+  invalidate(true);
 }
 
 function toggleCabinetDoors(fid,beforeOverride){
@@ -3648,11 +3691,12 @@ function toggleCabinetDoors(fid,beforeOverride){
   // Keep live pivots for the animation; update the common 2D drawing and
   // property panel without rebuilding all furniture at the target pose.
   sigFurn=JSON.stringify(state.furniture);renderFurn();renderSel();renderPanel();
+  invalidate(true);
   return true;
 }
 function toggleDoor(d){
   if(d.cabinetFid)return toggleCabinetDoors(d.cabinetFid);
-  d.open=!d.open;return true;
+  d.open=!d.open;invalidate(true);return true;
 }
 function syncProjectionCut(){
   balconyProjectionPlane.constant=opt.cut;
@@ -3664,7 +3708,7 @@ function syncProjectionCut(){
 }
 
 // CSS2DRenderer 只看标签自身的 visible，不继承父级，所以逐个设置
-function showLabels(v){ labelG.visible = v; labelG.children.forEach(o => o.visible = v); }
+function showLabels(v){ labelG.visible = v; labelG.children.forEach(o => o.visible = v);invalidate(); }
 function applyGrow(){
   if (!inited) return;
   archUp.scale.y = Math.max(grow, .001);
@@ -3689,6 +3733,7 @@ function applyLight(){
   envK = opt.night ? .15 : 1; matCache.forEach(m => { if (m.envMap) m.envMapIntensity = m.userData.env*envK; });
   const h = Math.floor(opt.hour), m = Math.round((opt.hour - h)*60);
   $('#sunT').textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;
+  invalidate(true);
 }
 
 /* ======================= 相机位姿 / 动画 ======================= */
@@ -3718,7 +3763,7 @@ function camTween(A, B, e){
   camera.position.copy(t).add(new THREE.Vector3().setFromSpherical(s)); camera.lookAt(t); orbit.target.copy(t);
 }
 function setPose(P){ camera.position.copy(P.p); orbit.target.copy(P.t); camera.lookAt(P.t); }
-function animate(dur, fn){ return new Promise(res => { anim = {t0:performance.now(), dur, fn, res}; }); }
+function animate(dur, fn){ return new Promise(res => { anim = {t0:performance.now(), dur, fn, res};invalidate(true); }); }
 const wait = ms => new Promise(r => setTimeout(r, ms));
 function setCameraFov(fov=FOV){
   const next=THREE.MathUtils.clamp(fov,30,100);
@@ -3731,6 +3776,7 @@ function flyTo(B, dur = 900, minDistance = 1.5, fov=FOV, allowUpward=false){
   orbit.minDistance = minDistance;
   orbit.maxPolarAngle=allowUpward?Math.PI*.97:Math.PI*.495;
   fly = {t0:performance.now(), dur, A:curPose(), B};
+  invalidate();
 }
 function flyToRoom(id){
   const r = ROOMS.find(r => r.id === id), xs = r.poly.map(p => p[0]), ys = r.poly.map(p => p[1]);
@@ -3916,7 +3962,7 @@ async function enter(){
   const A = planPose(), B = isoFrom(A);
   grow = 0; furnGrow = 0; applyGrow(); setPose(A);
   stage.classList.add('animating');
-  startLoop(); renderer.render(scene, camera);
+  startLoop(); drawScene();
   stage.classList.add('is3d');                       // 交叉淡入：此刻 3D 画面与 2D 平面完全重合
   await wait(420);
   await animate(1700, t => {
@@ -4017,6 +4063,7 @@ function lookBy(dx, dy){
   eul.setFromQuaternion(camera.quaternion);
   eul.y += dx * .005; eul.x = THREE.MathUtils.clamp(eul.x + dy * .005, -1.35, 1.35);
   camera.quaternion.setFromEuler(eul);
+  invalidate();
 }
 function startTouchWalk(){
   touchWalk = true;
@@ -4034,6 +4081,7 @@ function bindJoystick(){
     let dx = e.clientX - (r.left + r.width/2), dy = e.clientY - (r.top + r.height/2);
     const L = Math.hypot(dx, dy); if (L > R){ dx *= R/L; dy *= R/L; }
     joy.x = dx/R; joy.y = dy/R; knob.style.transform = `translate(${dx}px,${dy}px)`;
+    invalidate();
   };
   el.addEventListener('pointerdown', e => { e.preventDefault(); joy.id = e.pointerId; el.setPointerCapture(e.pointerId); upd(e); });
   el.addEventListener('pointermove', e => { if (e.pointerId === joy.id) upd(e); });
@@ -4060,6 +4108,7 @@ function setMode(m){
   }
   showLabels(opt.labels && m === 'orbit');
   archUp.traverse(o => { if (o.userData.walkOnly) o.visible = m === 'walk'; });
+  invalidate();
 }
 function blocked(x, z, r = .22){
   for (const [x0, z0, x1, z1] of colliders) if (x > x0 - r && x < x1 + r && z > z0 - r && z < z1 + r) return true;
@@ -4088,6 +4137,7 @@ function stepWalk(dt){
 addEventListener('keydown', e => {
   if (!active || e.target.matches('input,select,textarea')) return;
   keys[e.code] = true;
+  invalidate();
   if (opt.mode === 'walk' && e.code === 'KeyE'){ const h = pick(); if (h?.door && h.dist < 2.5) toggleDoor(h.door); }
 });
 addEventListener('keyup', e => keys[e.code] = false);
@@ -4106,6 +4156,7 @@ function syncWalkTexts(){
   syncHint3d();
 }
 function bindUI(){
+  $('#quality3d').value=quality;$('#quality3d').onchange=e=>setQuality(e.target.value);
   if(referenceEnabled)$('#referenceViewSelect').onchange=e=>referenceView(e.target.value);
   document.querySelectorAll('#modes3d .btn').forEach(b => b.onclick = () => setMode(b.dataset.mode));
   // 触屏设备用摇杆漫游；桌面端锁定鼠标，锁定失败时也退回到摇杆
@@ -4122,40 +4173,53 @@ function bindUI(){
     if (k === 'furn'){ furnG.visible = opt.furn;applyGrow(); if (!opt.furn && ui.sel?.kind === 'furn') window.select(null); }
     if (k === 'labels') showLabels(opt.labels && opt.mode === 'orbit' && !anim);
     if (k === 'night') applyLight();
+    invalidate(k==='furn');
   });
   $('#sun').oninput = e => { opt.hour = +e.target.value; applyLight(); };
 }
 
 /* ======================= 主循环 ======================= */
 const clock = new THREE.Clock();
-function startLoop(){ if (!raf){ clock.getDelta(); raf = requestAnimationFrame(loop); } }
+function startLoop(){ if (active&&!document.hidden&&!raf)raf=requestAnimationFrame(loop); }
 function loop(){
-  raf = requestAnimationFrame(loop);
+  raf=0;if(!active||document.hidden)return;
   const dt = Math.min(clock.getDelta(), .05), now = performance.now();
-  if (anim){ const t = clamp01((now - anim.t0)/anim.dur); anim.fn(t); if (t >= 1){ const r = anim.res; anim = null; r(); } }
-  else if (fly){ const t = clamp01((now - fly.t0)/fly.dur); camTween(fly.A, fly.B, ease(t)); if (t >= 1) fly = null; }
+  if (anim){renderDirty=true;shadowDirty=true; const t = clamp01((now - anim.t0)/anim.dur); anim.fn(t); if (t >= 1){ const r = anim.res; anim = null; r(); } }
+  else if (fly){renderDirty=true; const t = clamp01((now - fly.t0)/fly.dur); camTween(fly.A, fly.B, ease(t)); if (t >= 1) fly = null; }
   else if (opt.mode === 'orbit') orbit.update();
-  else stepWalk(dt);
-  doors.forEach(d => { const tg = d.open ? d.a1 : d.a0; d.cur += (tg - d.cur) * Math.min(1, dt*6); d.pivot.rotation.y=d.cur;if(d.bifold)d.second.rotation.y+=( (d.open?Math.PI:0)-d.second.rotation.y )*Math.min(1,dt*6); });
+  else if((walkCtl.isLocked||touchWalk)&&(['KeyW','KeyS','KeyA','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].some(k=>keys[k])||Math.hypot(joy.x,joy.y)>.05)){stepWalk(dt);renderDirty=true;}
+  let movingDoors=false;
+  doors.forEach(d=>{
+    const target=d.open?d.a1:d.a0,second=d.bifold?(d.open?Math.PI:0):0;
+    if(Math.abs(target-d.cur)<=.0001&&(!d.bifold||Math.abs(second-d.second.rotation.y)<=.0001)){if(d.motion){d.cur=target;d.pivot.rotation.y=target;if(d.bifold)d.second.rotation.y=second;d.motion=null;movingDoors=true;}return;}
+    if(!d.motion||d.motion.target!==target)d.motion={t0:now,from:d.cur,second:d.second?.rotation.y||0,target};
+    const t=clamp01((now-d.motion.t0)/450),k=ease(t);movingDoors=true;
+    d.cur=t===1?target:d.motion.from+(target-d.motion.from)*k;d.pivot.rotation.y=d.cur;
+    if(d.bifold)d.second.rotation.y=t===1?second:d.motion.second+(second-d.motion.second)*k;
+    if(t===1)d.motion=null;
+  });
   // Keep the ordered west/south phases visible even on a slow render frame;
   // one delayed frame must not jump from both closed to both fully open.
   cabinetDoorControllers.forEach(c=>{
+    if(c.progress===Number(c.open))return;movingDoors=true;
     const target=Number(c.open);c.progress+=(target-c.progress)*Math.min(.18,dt*6);
     // Finish at the same tolerance used by cornerDoorsClosed rather than
     // converging forever. The final pose is exactly the 180-degree endpoint.
     if(Math.abs(target-c.progress)<=.0001)c.progress=target;
   });
   cabinetDoors.forEach(d=>{const fraction=clamp01(d.controller.progress*2-d.sequenceOrder);d.cur=d.a0+(d.a1-d.a0)*fraction;d.pivot.rotation.y=d.cur;});
-  updateSel();
-  renderer.render(scene, camera);
-  labelRenderer.render(scene, camera);
+  if(movingDoors){renderDirty=true;shadowDirty=true;}
+  if(renderDirty){renderDirty=false;updateSel();drawScene();}
+  if(anim||fly||movingDoors||renderDirty||opt.mode==='walk'&&(walkCtl.isLocked||touchWalk)&&(['KeyW','KeyS','KeyA','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].some(k=>keys[k])||Math.hypot(joy.x,joy.y)>.05))startLoop();
 }
 
-function shot(){ const a = document.createElement('a'); a.download = tr('户型装修方案', 'floor-plan-design') + '-3D.png'; a.href = renderer.domElement.toDataURL('image/png'); a.click(); }
+function shot(){drawScene(); const a = document.createElement('a'); a.download = tr('户型装修方案', 'floor-plan-design') + '-3D.png'; a.href = renderer.domElement.toDataURL('image/png'); a.click(); }
 
-function relang(){ syncWalkTexts(); if (inited) buildLabels(); }
+function relang(){ syncWalkTexts(); if (inited){buildLabels();invalidate();} }
+document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(raf);raf=0;}else invalidate(true);});
+addEventListener('blur',()=>{for(const k of Object.keys(keys))keys[k]=false;});
 
-window.View3D = {enter, exit, relang, sync:() => sync(), shot, groundAt, referenceView, flyToRoom:id => active && !anim && flyToRoom(id), flyToFurniture, focusKitchenHeater, focusElectrical, focusFloorDrain, focusBalconyRecess, focusCornerStorage, focusCeilingLight, toggleCabinetDoors, cornerDoorsClosed:fid=>{const c=cabinetDoorControllers.get(fid);return !c||(!c.open&&c.progress<=.0001);}, walking:() => active && opt.mode === 'walk'};
+window.View3D = {enter, exit, invalidate, performanceStats, setQuality, relang, sync:() => sync(), shot, groundAt, referenceView, flyToRoom:id => active && !anim && flyToRoom(id), flyToFurniture, focusKitchenHeater, focusElectrical, focusFloorDrain, focusBalconyRecess, focusCornerStorage, focusCeilingLight, toggleCabinetDoors, cornerDoorsClosed:fid=>{const c=cabinetDoorControllers.get(fid);return !c||(!c.open&&c.progress<=.0001);}, walking:() => active && opt.mode === 'walk'};
 // A shareable 3D entry point; ordinary editor links still start in 2D.
 if (new URLSearchParams(location.search).get('view') === '3d') requestAnimationFrame(async()=>{await setView('3d');const look=new URLSearchParams(location.search).get('look');if(look)referenceView(look);});
 </script>

@@ -1,0 +1,28 @@
+'use strict';
+const assert=require('node:assert/strict'),path=require('node:path'),{pathToFileURL}=require('node:url');
+(async()=>{
+  const THREE=await import(pathToFileURL(path.resolve(__dirname,'../vendor/three/build/three.module.js')).href),{createStaticBatcher,QUALITY_PRESETS,drawingRatio}=await import(pathToFileURL(path.resolve(__dirname,'../viewer-performance.js')).href);
+  assert.equal(drawingRatio(QUALITY_PRESETS.balanced,1920,1080,2),Math.sqrt(1800000/(1920*1080)));
+  assert.ok(drawingRatio(QUALITY_PRESETS.smooth,3840,2160,2)**2*3840*2160<=900001);
+  const root=new THREE.Group(),parent=new THREE.Group();parent.position.set(3,2,1);parent.rotation.y=.3;parent.add(root);
+  const cream=new THREE.MeshStandardMaterial({color:'#eee9de'}),dark=new THREE.MeshStandardMaterial({color:'#726354'});
+  const make=(x,material=cream)=>{const o=new THREE.Mesh(new THREE.BoxGeometry(.6,.8,.4),material);o.position.set(x,.4,0);o.castShadow=o.receiveShadow=true;root.add(o);return o;};
+  const first=make(-1),nested=new THREE.Group();nested.rotation.y=.15;root.add(nested);const second=make(0);nested.attach(second);
+  const third=make(1,[cream,cream,cream,cream,cream,dark]);first.userData={role:'cabinet-side',fid:'unit'};second.userData={role:'shelf',fid:'unit'};third.userData={role:'cabinet-face',fid:'unit'};
+  const glass=make(3,new THREE.MeshStandardMaterial({transparent:true,opacity:.3})),door=make(4);door.userData.door={open:false};
+  const clipped=make(5,new THREE.MeshStandardMaterial({clippingPlanes:[new THREE.Plane(new THREE.Vector3(0,1,0),1)]})),hidden=make(6);hidden.visible=false;
+  parent.updateMatrixWorld(true);
+  const shoot=x=>{const origin=root.localToWorld(new THREE.Vector3(x,.4,3)),target=root.localToWorld(new THREE.Vector3(x,.4,0));return new THREE.Raycaster(origin,target.sub(origin).normalize()).intersectObject(root,true);};
+  const before=[-1,0,1].map(x=>shoot(x)[0]);const originalTriangles=[first,second,third].reduce((s,o)=>s+o.geometry.index.count/3,0);
+  const result=createStaticBatcher(THREE).batch(root);assert.equal(result.sources,3);assert.ok(result.batches<6,'Batch the repeated draw calls');
+  parent.updateMatrixWorld(true);
+  const batches=root.children.filter(o=>o.userData.renderBatch);assert.equal(batches.reduce((s,o)=>s+(Number.isFinite(o.geometry.drawRange.count)?o.geometry.drawRange.count:o.geometry.attributes.position.count)/3,0),originalTriangles,'No surface lost or duplicated');
+  [-1,0,1].forEach((x,i)=>{const hit=shoot(x)[0],old=before[i];assert.equal(hit.object,old.object,'Pick returns original semantic object');assert.ok(Math.abs(hit.distance-old.distance)<1e-6);assert.ok(hit.point.distanceTo(old.point)<1e-6);assert.ok(hit.uv.distanceTo(old.uv)<1e-6);assert.equal(hit.face.materialIndex,old.face.materialIndex);assert.ok(hit.face.normal.distanceTo(old.face.normal)<1e-6);});
+  assert.equal(glass.layers.mask,1);assert.equal(door.layers.mask,1);assert.equal(clipped.layers.mask,1);assert.equal(hidden.layers.mask,1);
+  const singleton=batches.find(o=>o.userData.sourceMeshCount===1);assert.ok(singleton,'Keep unique material as an independent proxy');
+  const origin=root.localToWorld(new THREE.Vector3(1,.4,-3)),target=root.localToWorld(new THREE.Vector3(1,.4,0)),backHit=new THREE.Raycaster(origin,target.sub(origin).normalize()).intersectObject(root,true)[0];
+  assert.equal(backHit.object,third);assert.equal(backHit.face.materialIndex,5,'Unique rear-face material retains original index');
+  const again=createStaticBatcher(THREE).batch(root);assert.equal(again.sources,0,'Repeated batching does not duplicate geometry');
+  assert.equal(first.userData.role,'cabinet-side');assert.equal(door.userData.door.open,false);
+  console.log('PASS viewer performance: pixel budgets, transformed batching, original pick/UV/face ownership, singleton materials, glass/doors/clipping, idempotence');
+})().catch(e=>{console.error(e);process.exitCode=1;});

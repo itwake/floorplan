@@ -270,6 +270,16 @@ GitHub Pages 发布 `master` 分支根目录。原编辑器 MIT 许可与作者�
 
 可逆层 `tools/family-study-north-20261102.cjs`；静态回归 `node tests/family-study-north-20261102.cjs`，浏览器回归 `node tests/family-study-north-browser-20261102.cjs`（默认本地4194端口）。覆盖门叶避碰、真实床垫尺寸、原草稿升级、定制桌/电位保留及实际2D/3D截图。其他三套方案与源图纸快照不变。分享镜头：`?scheme=family&v=study-north-20261102&view=3d&look=study`。
 
+### 2026-11-02 · 3D查看性能优化
+
+3D顶部增加流畅／均衡／精细画质，默认均衡，选择保存在当前浏览器。根据画布像素预算限制渲染分辨率；均衡/流畅使用1024阴影图，精细为2048。白天关闭的灯不进入光照计算；均衡/流畅只保留镜头附近的局部光源，精细保留全部灯光，灯带模型和发光材质始终保留。
+
+画面静止时停止重绘；旋转、缩放、编辑、漫游、门动画及截图会唤醒渲染，切到后台暂停。相机移动复用静态阴影；移动物件、开关门和改变日照后更新阴影。普通门按实际经过时间完成450ms开关动画，避免慢设备上的门动画按帧拖长。按需绘制与阴影更新参考[Three.js官方说明](https://threejs.org/manual/pages/rendering-on-demand.html)及[WebGLRenderer阴影配置](https://threejs.org/docs/pages/WebGLRenderer)。
+
+`viewer-performance.js`按材质及阴影属性合并静态零件的提交，保留原物件身份、尺寸、材质、UV、拾取面及所属柜板。活动门、透明玻璃、裁切组件等继续独立绘制。原始户型数据和用户草稿格式不变。固定1280×900测试画布、相同全屋镜头，绘制调用2462→815（约减少67%），全屋三角面数189458不变；书房镜头416→151。GPU几何资源1995→737，静止700ms没有额外重绘。测试使用Chrome软件渲染器，不把测试耗时当作业主电脑实际帧率承诺。
+
+静态验证：`node tests/viewer-performance.cjs`；浏览器验证：`node tests/viewer-performance-browser.cjs`（本地4194，含固定镜头对比、闲置、阴影复用、开门、夜景、画质及保存）。可加 `--baseline` 用提交1e10d10复现优化前场景，或通过 `FLOORPLAN_BASELINE_REF` 指定基线。测试截图和报告写到工作区output/performance-20261102。
+
 ## 社交媒体
 
 - X（Twitter）：[@akokoi1](https://x.com/akokoi1)
