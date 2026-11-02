@@ -17,7 +17,7 @@ const digest = b => createHash('sha256').update(b).digest('hex');
 (async()=>{
   const results=[];
   for(const file of files){
-    const committed=execFileSync('git',['show','HEAD:'+file],{cwd:root,maxBuffer:5000000});
+    const committed=execFileSync('git',['show','HEAD:'+file],{cwd:root,maxBuffer:16000000});
     const response=await fetch(new URL(file,base),{signal:AbortSignal.timeout(30000),headers:{'Cache-Control':'no-cache'}});
     if(!response.ok)throw Error(file+': HTTP '+response.status);
     const body=Buffer.from(await response.arrayBuffer());

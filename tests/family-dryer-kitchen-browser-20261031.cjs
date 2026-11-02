@@ -4,9 +4,11 @@ const runtime=process.env.FLOORPLAN_NODE_MODULES||'C:/Users/dvnuo/.cache/codex-r
 let chromium;try{({chromium}=require('playwright'));}catch{({chromium}=createRequire(path.join(runtime,'_dryer-kitchen-qa.cjs'))('playwright'));}
 const executablePath=process.env.FLOORPLAN_CHROME||[chromium.executablePath(),'C:/Program Files/Google/Chrome/Application/chrome.exe'].find(fs.existsSync);
 const base=(process.env.FLOORPLAN_BASE_URL||'http://127.0.0.1:4194').replace(/\/$/,''),dir=path.resolve(__dirname,'../../output/dryer-kitchen-20261031-qa');
-const plans=require('../data/house-plans.js'),before=require('../tools/family-dryer-kitchen-20261031.cjs').beforeFamilyDryerKitchen(plans).schemes.family;
+const plans=require('../tools/family-study-north-20261102.cjs').beforeFamilyStudyNorth(require('../data/house-plans.js')),before=require('../tools/family-dryer-kitchen-20261031.cjs').beforeFamilyDryerKitchen(plans).schemes.family;
 (async()=>{fs.mkdirSync(dir,{recursive:true});const errors=[],browser=await chromium.launch({headless:true,executablePath,args:['--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 try{const page=await browser.newPage({viewport:{width:1440,height:1000}});page.on('pageerror',e=>{errors.push(e.message);console.log('PAGEERROR',e.message);});
+// Freeze this historical revision while exercising the current migration code.
+await page.route('**/data/house-plans.js*',route=>route.fulfill({contentType:'application/javascript',body:'window.HOUSE_PLANS='+JSON.stringify(plans)+';'}));
 await page.goto(base+'/?scheme=family&v=dryer-kitchen-20261031',{waitUntil:'domcontentloaded',timeout:60000});
 await page.waitForFunction(()=>document.querySelectorAll('#gFurn > .furn').length>0,null,{timeout:60000});
 const snap=()=>page.evaluate(()=>({objects:state.furniture.length,dryer:state.furniture.find(q=>q.id==='laundry_dryer'),point:state.furniture.find(q=>q.id==='family-elec-p36'),housing:state.furniture.some(q=>q.id==='family-dryer-kitchen-housing'),oldHousing:state.furniture.some(q=>q.id==='drawing-balcony-dryer-cabinet'),opening:HOUSE_PLAN.WIN_META.find(q=>q.id==='window_kitchen_balcony').lowerServiceOpeningMm,revision:HOUSE_PLAN.metadata.familyDryerKitchenUpdate.id,marked:!!document.querySelector('[data-dryer-use-zone]')}));

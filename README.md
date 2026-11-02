@@ -262,6 +262,14 @@ GitHub Pages 发布 `master` 分支根目录。原编辑器 MIT 许可与作者�
 
 生成层 `tools/family-reference-finish-20261025.cjs`，静态验证 `node tests/family-reference-finish-20261025.cjs`；实际3D与草稿迁移验证 `node tests/family-reference-finish-browser.cjs --self-host`。旧默认地砖才自动升级为木地板，自定义地材/柜尺寸/柜组件/家具摆位与删除保持；查看完整新默认方案前请先导出JSON备份。
 
+### 2026-11-02 · 方案2书房北墙书桌与南墙床
+
+按最新要求将书桌改为北墙2300×550mm通长桌，上方为白色洞洞板、开放木层板与板底暖光。移除原北墙沙发、西窗返桌及南墙桌上置物架。桌面电源/网口和床头双控随家具迁移，西窗及窗边空调保留。
+
+书房模型净2300×2730mm，采用1200×2000mm床垫、暂估1300×2100mm床架，床头向南、西侧贴墙，东侧留1000mm并布置办公椅。床尾至桌边仅80mm，不作通道。1500床垫配1600宽床架会与现有全开门叶重叠110mm，因此使用业主允许的1200床；房门及建筑不改。床架、桌深和挂架为暂估，实物尺寸仍需核对。
+
+可逆层 `tools/family-study-north-20261102.cjs`；静态回归 `node tests/family-study-north-20261102.cjs`，浏览器回归 `node tests/family-study-north-browser-20261102.cjs`（默认本地4194端口）。覆盖门叶避碰、真实床垫尺寸、原草稿升级、定制桌/电位保留及实际2D/3D截图。其他三套方案与源图纸快照不变。分享镜头：`?scheme=family&v=study-north-20261102&view=3d&look=study`。
+
 ## 社交媒体
 
 - X（Twitter）：[@akokoi1](https://x.com/akokoi1)

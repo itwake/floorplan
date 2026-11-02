@@ -14240,6 +14240,7 @@ const plans = {
             4550
           ],
           "heightMm": 2700,
+          "notes": "方案2书房按图纸内墙净面2300×2730mm试排，北墙通长桌2300×550×740，南墙床头朝南；原北墙沙发、西窗返桌、南墙桌上层板移除，墙体、880门洞及南铰内开方向不动。 采用1200×2000mm床垫，床架按1300×2100mm、床头高950mm暂估。床架西侧贴墙，东侧余1000mm，可从东侧上下床；桌边到床尾仅80mm，不能作为床尾通道。办公椅位于东侧桌段。 1500×2000mm床垫按1600×2100mm床架试排，东缘进入现有810mm门叶全开范围110mm；即使按裸1500宽也仅差10mm。因此本版使用用户允许的1200宽，不缩短床架强行放1500床。",
           "dimensionStatus": "design-pending",
           "planAreaM2": 6.279,
           "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
@@ -14266,7 +14267,9 @@ const plans = {
             },
             "status": "construction-drawing-reference-not-site-or-structural-approval"
           },
-          "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+          "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop",
+          "studyFurnitureRevision": "family-study-north-20261102",
+          "studyNorthDesk": true
         },
         {
           "id": "room_a",
@@ -20466,11 +20469,11 @@ const plans = {
         },
         {
           "id": "study_full_desk",
-          "type": "desk",
-          "name": "书房7字桌 · 图示南段1300×550",
-          "cx": 770,
-          "cy": 5775,
-          "w": 1300,
+          "type": "fixture",
+          "name": "北墙通长书桌2300×550 · 东侧办公",
+          "cx": 1270,
+          "cy": 3595,
+          "w": 2300,
           "d": 550,
           "rot": 0,
           "color": "#F3EFE6",
@@ -20479,63 +20482,149 @@ const plans = {
           "sourceId": "study_full_desk",
           "sourceFootprintMm": {
             "x": 120,
-            "y": 5500,
-            "w": 1300,
+            "y": 3320,
+            "w": 2300,
             "d": 550
           },
           "roomId": "room_c",
-          "face": "north",
-          "notes": "PL03图示南桌长1300；550深、740高沿用原暂估，南墙位置跟随外层实测架构。",
-          "dimensionStatus": "construction-drawing-dimensions-with-pending-details",
+          "face": "south",
+          "notes": "方案2书房按图纸内墙净面2300×2730mm试排，北墙通长桌2300×550×740，南墙床头朝南；原北墙沙发、西窗返桌、南墙桌上层板移除，墙体、880门洞及南铰内开方向不动。 采用1200×2000mm床垫，床架按1300×2100mm、床头高950mm暂估。床架西侧贴墙，东侧余1000mm，可从东侧上下床；桌边到床尾仅80mm，不能作为床尾通道。办公椅位于东侧桌段。",
+          "dimensionStatus": "owner-layout-with-provisional-furniture-dimensions",
           "originalSourceFootprintMm": {
             "x": 120,
             "y": 5650,
             "w": 2220,
             "d": 550
           },
-          "modelVariant": "north-facing-workstation",
-          "layoutRevision": "family-drawing-bedrooms-20261027",
+          "modelVariant": "study-north-wall-worktop",
+          "layoutRevision": "family-study-north-20261102",
           "referenceStyle": {
-            "revision": "family-reference-finish-20261025",
-            "variant": "floating-desk",
-            "source": "owner-six-reference-images-20261025",
-            "status": "concept-not-original-model",
-            "appearanceReferenceOnly": true,
-            "notPurchasedModel": true,
-            "installationApproved": false,
-            "palette": {
-              "cream": "#F3EFE6",
-              "oak": "#C6AA83",
-              "walnut": "#81664F",
-              "pink": "#D6B8AF",
-              "metal": "#282522",
-              "light": "#FFF0C8"
+            "revision": "family-study-north-20261102",
+            "variant": "full-wall-worktop",
+            "appearanceReferenceOnly": true
+          },
+          "nativeType": "desk",
+          "baseWidthMm": 2300,
+          "baseDepthMm": 550,
+          "baseHeightMm": 740,
+          "cabinetRevision": "family-study-north-20261102",
+          "parts": [
+            {
+              "id": "study-north-top",
+              "x": -1150,
+              "y": -275,
+              "w": 2300,
+              "d": 550,
+              "elevationMm": 710,
+              "heightMm": 30,
+              "role": "desktop",
+              "label": "满墙30mm浅色桌板",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south"
             },
-            "preserveExistingEnvelope": true
-          }
+            {
+              "id": "study-north-support-west",
+              "x": -1150,
+              "y": -255,
+              "w": 30,
+              "d": 510,
+              "elevationMm": 0,
+              "heightMm": 710,
+              "role": "desk-side-support",
+              "label": "桌端支承示意",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south"
+            },
+            {
+              "id": "study-north-support-east",
+              "x": 1120,
+              "y": -255,
+              "w": 30,
+              "d": 510,
+              "elevationMm": 0,
+              "heightMm": 710,
+              "role": "desk-side-support",
+              "label": "桌端支承示意",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south"
+            },
+            {
+              "id": "study-north-back-rail",
+              "x": -1120,
+              "y": -275,
+              "w": 2240,
+              "d": 30,
+              "elevationMm": 560,
+              "heightMm": 150,
+              "role": "desk-support-rail",
+              "label": "后沿加强，不遮挡东侧坐人空间",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south"
+            },
+            {
+              "id": "study-north-mid-support",
+              "x": -30,
+              "y": -255,
+              "w": 30,
+              "d": 490,
+              "elevationMm": 0,
+              "heightMm": 710,
+              "role": "desk-side-support",
+              "label": "中部支承位于床宽区域，东侧座位留空",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south"
+            }
+          ],
+          "cabinetDesign": {
+            "revision": "family-study-north-20261102",
+            "title": "北墙满墙书桌",
+            "palette": {
+              "door": "#F3EFE6",
+              "wood": "#C6AA83"
+            },
+            "faces": [
+              {
+                "face": "south",
+                "lengthMm": 2300
+              }
+            ],
+            "features": [
+              "2300×550通长桌板，完成高740mm。",
+              "东侧办公位，桌下不做满柜；左侧桌段位于床尾，80mm间隙不作通道。"
+            ]
+          },
+          "conditions": [
+            "采用1200×2000mm床垫，床架按1300×2100mm、床头高950mm暂估。床架西侧贴墙，东侧余1000mm，可从东侧上下床；桌边到床尾仅80mm，不能作为床尾通道。办公椅位于东侧桌段。",
+            "床架、桌深、椅子回退、门套及踢脚尚未实物复核；2300×2730是现有图纸模型内墙尺寸，不是新的复尺结果。此版日常办公从东侧座位使用，床西侧贴墙。"
+          ]
         },
         {
           "id": "family-f5",
           "type": "officechair",
           "name": "书房办公椅",
-          "cx": 870,
-          "cy": 5200,
+          "cx": 1970,
+          "cy": 4200,
           "w": 480,
           "d": 500,
-          "rot": 0,
+          "rot": 180,
           "color": "#D7D1C6",
           "heightMm": 900,
           "elevationMm": 0,
           "sourceId": "family-f5",
           "sourceFootprintMm": {
-            "x": 630,
-            "y": 4950,
+            "x": 1730,
+            "y": 3950,
             "w": 480,
             "d": 500
           },
           "roomId": "room_c",
-          "face": "south",
-          "notes": "书房南桌椅跟随1300桌；原实物占位480×500保留。",
+          "face": "north",
+          "notes": "北墙书桌东侧座位；椅子与床架、桌沿及房门扫掠分离。",
           "dimensionStatus": "construction-drawing-dimensions-with-pending-details",
           "originalSourceFootprintMm": {
             "x": 990,
@@ -20543,7 +20632,7 @@ const plans = {
             "w": 480,
             "d": 500
           },
-          "layoutRevision": "family-drawing-bedrooms-20261027",
+          "layoutRevision": "family-study-north-20261102",
           "referenceStyle": {
             "revision": "family-reference-finish-20261025",
             "variant": "cream-wood-chair",
@@ -22009,49 +22098,6 @@ const plans = {
           "dimensionStatus": "design-pending",
           "layoutRevision": "family-drawing-20261027",
           "notes": "客卫淋浴区按图中玻璃线与东墙之间约990×1000外接框示意；玻璃门开启待深化。"
-        },
-        {
-          "id": "study_north_sofa",
-          "type": "sofa",
-          "name": "书房北墙沙发",
-          "cx": 1270,
-          "cy": 3745,
-          "w": 1900,
-          "d": 850,
-          "rot": 0,
-          "color": "#E8E0D1",
-          "heightMm": 830,
-          "elevationMm": 0,
-          "sourceId": "study_north_sofa",
-          "sourceFootprintMm": {
-            "x": 320,
-            "y": 3320,
-            "w": 1900,
-            "d": 850
-          },
-          "roomId": "room_c",
-          "face": "south",
-          "notes": "PL03北墙沙发床长1900；深850、高830沿用原暂估，展开尺寸图未给。",
-          "dimensionStatus": "construction-drawing-dimensions-with-pending-details",
-          "referenceStyle": {
-            "revision": "family-reference-finish-20261025",
-            "variant": "low-linen-sofa",
-            "source": "owner-six-reference-images-20261025",
-            "status": "concept-not-original-model",
-            "appearanceReferenceOnly": true,
-            "notPurchasedModel": true,
-            "installationApproved": false,
-            "palette": {
-              "cream": "#F3EFE6",
-              "oak": "#C6AA83",
-              "walnut": "#81664F",
-              "pink": "#D6B8AF",
-              "metal": "#282522",
-              "light": "#FFF0C8"
-            },
-            "preserveExistingEnvelope": true
-          },
-          "layoutRevision": "family-drawing-bedrooms-20261027"
         },
         {
           "id": "family-f23",
@@ -24267,245 +24313,6 @@ const plans = {
             "floatingBaseVisualMm": 240,
             "hiddenSupportPending": true,
             "drawingReference": true
-          }
-        },
-        {
-          "id": "fit-study_bookwall",
-          "type": "fixture",
-          "name": "书房南墙 · 两道浅木悬板与板底暖光",
-          "cx": 770,
-          "cy": 5908.75,
-          "w": 1300,
-          "d": 282.5,
-          "rot": 0,
-          "color": "#C6AA83",
-          "baseWidthMm": 1300,
-          "baseDepthMm": 282.5,
-          "heightMm": 2500,
-          "elevationMm": 0,
-          "parts": [
-            {
-              "id": "fit-study_bookwall-drawing-shelf-1500",
-              "x": -650,
-              "y": -141.25,
-              "w": 1300,
-              "d": 282.5,
-              "elevationMm": 1500,
-              "heightMm": 18,
-              "role": "display-shelf",
-              "label": "书房1300通长18mm悬板 · 1500",
-              "color": "#C6AA83",
-              "material": "OakLight",
-              "face": "north"
-            },
-            {
-              "id": "fit-study_bookwall-drawing-led-1500",
-              "x": -626,
-              "y": -106.25,
-              "w": 1252,
-              "d": 8,
-              "elevationMm": 1496,
-              "heightMm": 4,
-              "role": "led-strip",
-              "label": "真实层板底4mm灯带",
-              "color": "#FFF0C8",
-              "material": "Light",
-              "face": "north",
-              "anchorPartId": "fit-study_bookwall-drawing-shelf-1500",
-              "anchor": "panel-underside",
-              "installationApproved": false
-            },
-            {
-              "id": "fit-study_bookwall-drawing-bracket-1500-0",
-              "x": -590,
-              "y": 129.25,
-              "w": 30,
-              "d": 12,
-              "elevationMm": 1466,
-              "heightMm": 34,
-              "role": "hidden-shelf-support",
-              "label": "后沿隐藏支架示意",
-              "color": "#282522",
-              "material": "WarmGrayMetal",
-              "face": "north",
-              "hiddenSupport": true,
-              "structuralCapacityConfirmed": false
-            },
-            {
-              "id": "fit-study_bookwall-drawing-bracket-1500-1",
-              "x": -15,
-              "y": 129.25,
-              "w": 30,
-              "d": 12,
-              "elevationMm": 1466,
-              "heightMm": 34,
-              "role": "hidden-shelf-support",
-              "label": "后沿隐藏支架示意",
-              "color": "#282522",
-              "material": "WarmGrayMetal",
-              "face": "north",
-              "hiddenSupport": true,
-              "structuralCapacityConfirmed": false
-            },
-            {
-              "id": "fit-study_bookwall-drawing-bracket-1500-2",
-              "x": 560,
-              "y": 129.25,
-              "w": 30,
-              "d": 12,
-              "elevationMm": 1466,
-              "heightMm": 34,
-              "role": "hidden-shelf-support",
-              "label": "后沿隐藏支架示意",
-              "color": "#282522",
-              "material": "WarmGrayMetal",
-              "face": "north",
-              "hiddenSupport": true,
-              "structuralCapacityConfirmed": false
-            },
-            {
-              "id": "fit-study_bookwall-drawing-shelf-1950",
-              "x": -650,
-              "y": -141.25,
-              "w": 1300,
-              "d": 282.5,
-              "elevationMm": 1950,
-              "heightMm": 18,
-              "role": "display-shelf",
-              "label": "书房1300通长18mm悬板 · 1950",
-              "color": "#C6AA83",
-              "material": "OakLight",
-              "face": "north"
-            },
-            {
-              "id": "fit-study_bookwall-drawing-led-1950",
-              "x": -626,
-              "y": -106.25,
-              "w": 1252,
-              "d": 8,
-              "elevationMm": 1946,
-              "heightMm": 4,
-              "role": "led-strip",
-              "label": "真实层板底4mm灯带",
-              "color": "#FFF0C8",
-              "material": "Light",
-              "face": "north",
-              "anchorPartId": "fit-study_bookwall-drawing-shelf-1950",
-              "anchor": "panel-underside",
-              "installationApproved": false
-            },
-            {
-              "id": "fit-study_bookwall-drawing-bracket-1950-0",
-              "x": -590,
-              "y": 129.25,
-              "w": 30,
-              "d": 12,
-              "elevationMm": 1916,
-              "heightMm": 34,
-              "role": "hidden-shelf-support",
-              "label": "后沿隐藏支架示意",
-              "color": "#282522",
-              "material": "WarmGrayMetal",
-              "face": "north",
-              "hiddenSupport": true,
-              "structuralCapacityConfirmed": false
-            },
-            {
-              "id": "fit-study_bookwall-drawing-bracket-1950-1",
-              "x": -15,
-              "y": 129.25,
-              "w": 30,
-              "d": 12,
-              "elevationMm": 1916,
-              "heightMm": 34,
-              "role": "hidden-shelf-support",
-              "label": "后沿隐藏支架示意",
-              "color": "#282522",
-              "material": "WarmGrayMetal",
-              "face": "north",
-              "hiddenSupport": true,
-              "structuralCapacityConfirmed": false
-            },
-            {
-              "id": "fit-study_bookwall-drawing-bracket-1950-2",
-              "x": 560,
-              "y": 129.25,
-              "w": 30,
-              "d": 12,
-              "elevationMm": 1916,
-              "heightMm": 34,
-              "role": "hidden-shelf-support",
-              "label": "后沿隐藏支架示意",
-              "color": "#282522",
-              "material": "WarmGrayMetal",
-              "face": "north",
-              "hiddenSupport": true,
-              "structuralCapacityConfirmed": false
-            }
-          ],
-          "sourceId": "fit-study_bookwall",
-          "dimensionStatus": "construction-drawing-dimensions-with-pending-details",
-          "roomId": "room_c",
-          "notes": "两木悬板长度随南桌改1300，层板高度与18mm细分沿用原方案；图纸未标层板加工尺寸。",
-          "conditions": [
-            "原1450×282.5mm投影及东端x1570避门范围保持；两悬板1500/1950高、18mm厚、各自真实底面暖光。",
-            "完整18mm板和4mm灯带仍应参与门叶扫掠检查，不能当成空投影；基层、锚固、承重、眩光与驱动检修待核。"
-          ],
-          "cabinetRevision": "family-drawing-bedrooms-20261027",
-          "baseHeightMm": 2500,
-          "cabinetDesign": {
-            "revision": "family-drawing-bedrooms-20261027",
-            "title": "施工图1300桌上两悬板",
-            "status": "concept-not-original-model",
-            "boardThicknessMm": 18,
-            "doorGapMm": 0,
-            "palette": {
-              "wood": "#C6AA83",
-              "light": "#FFF0C8"
-            },
-            "faces": [
-              {
-                "face": "north",
-                "lengthMm": 1300,
-                "depthMm": 282.5
-              }
-            ],
-            "features": [
-              "两道真实18mm通长木板，不以实心大柜体代替。",
-              "各悬板底面真实4mm暖光灯带，后沿隐藏支承仅概念。"
-            ],
-            "dimensions": [
-              "1300×282.5mm投影；两悬板保留1500/1950mm板底及18mm板厚，图纸未给书架高度细分。"
-            ]
-          },
-          "layoutRevision": "family-drawing-bedrooms-20261027",
-          "sourceFootprintMm": {
-            "x": 120,
-            "y": 5767.5,
-            "w": 1300,
-            "d": 282.5
-          },
-          "referenceStyle": {
-            "revision": "family-reference-finish-20261025",
-            "variant": "two-floating-oak-shelves",
-            "source": "owner-six-reference-images-20261025",
-            "status": "concept-not-original-model",
-            "appearanceReferenceOnly": true,
-            "notPurchasedModel": true,
-            "installationApproved": false,
-            "palette": {
-              "cream": "#F3EFE6",
-              "oak": "#C6AA83",
-              "walnut": "#81664F",
-              "pink": "#D6B8AF",
-              "metal": "#282522",
-              "light": "#FFF0C8"
-            },
-            "shelfBottomsMm": [
-              1500,
-              1950
-            ],
-            "boardThicknessMm": 18
           }
         },
         {
@@ -26878,50 +26685,6 @@ const plans = {
           "referenceStyle": {
             "revision": "family-reference-finish-20261025",
             "variant": "oak-two-drawer-nightstand",
-            "source": "owner-six-reference-images-20261025",
-            "status": "concept-not-original-model",
-            "appearanceReferenceOnly": true,
-            "notPurchasedModel": true,
-            "installationApproved": false,
-            "palette": {
-              "cream": "#F3EFE6",
-              "oak": "#C6AA83",
-              "walnut": "#81664F",
-              "pink": "#D6B8AF",
-              "metal": "#282522",
-              "light": "#FFF0C8"
-            },
-            "preserveExistingEnvelope": true
-          }
-        },
-        {
-          "id": "study_window_return",
-          "sourceId": "study_window_return",
-          "type": "desk",
-          "name": "书房7字桌 · 西窗返桌",
-          "cx": 370,
-          "cy": 5195,
-          "w": 500,
-          "d": 610,
-          "rot": 0,
-          "color": "#F3EFE6",
-          "heightMm": 740,
-          "elevationMm": 0,
-          "roomId": "room_c",
-          "face": "east",
-          "dimensionStatus": "construction-drawing-dimensions-with-pending-details",
-          "layoutRevision": "family-drawing-bedrooms-20261027",
-          "modelVariant": "bare-worktop",
-          "sourceFootprintMm": {
-            "x": 120,
-            "y": 4890,
-            "w": 500,
-            "d": 610
-          },
-          "notes": "保留7字西窗返桌500×610，图纸未标返桌净尺寸，明确待核。",
-          "referenceStyle": {
-            "revision": "family-reference-finish-20261025",
-            "variant": "floating-desk",
             "source": "owner-six-reference-images-20261025",
             "status": "concept-not-original-model",
             "appearanceReferenceOnly": true,
@@ -31459,24 +31222,24 @@ const plans = {
           "type": "fixture",
           "nativeType": "switch",
           "modelVariant": "electrical-switch",
-          "name": "S06 · 书房北墙 · 主灯双控（沙发／未来床头）",
-          "cx": 420,
-          "cy": 3324,
+          "name": "S06 · 南墙床头 · 主灯双控",
+          "cx": 1490,
+          "cy": 6046,
           "w": 86,
           "d": 8,
           "heightMm": 86,
-          "elevationMm": 1307,
+          "elevationMm": 1057,
           "baseWidthMm": 86,
           "baseDepthMm": 8,
           "baseHeightMm": 86,
-          "rot": 0,
+          "rot": 180,
           "color": "#F7F4EC",
           "roomId": "room_c",
-          "face": "south",
+          "face": "north",
           "kind": "switch",
           "code": "S06",
           "dimensionStatus": "drawing-intent-model-host-not-site-survey",
-          "layoutRevision": "family-drawing-electrical-20261027",
+          "layoutRevision": "family-study-north-20261102",
           "cabinetRevision": "family-electrical-20261012",
           "visualOnly": true,
           "installationApproved": false,
@@ -31485,9 +31248,9 @@ const plans = {
           "electricalDesign": {
             "kind": "switch",
             "code": "S06",
-            "purpose": "书房北墙 · 主灯双控（沙发／未来床头）",
-            "centerHeightMm": 1350,
-            "face": "south",
+            "purpose": "南墙床头 · 主灯双控",
+            "centerHeightMm": 1100,
+            "face": "north",
             "mountingRoomId": "room_c",
             "groupIds": [
               "G-C"
@@ -31498,24 +31261,22 @@ const plans = {
                 "roomId": "room_c"
               }
             ],
-            "servedFurnitureIds": [],
+            "servedFurnitureIds": [
+              "study_south_bed"
+            ],
             "controlType": "two-way",
             "anchor": {
               "kind": "wall",
-              "wallIndex": 7,
+              "wallIndex": 27,
               "wallRectMm": [
                 -120,
-                3200,
-                2590,
-                3320,
-                "i"
+                6050,
+                2140,
+                6180,
+                "e"
               ],
               "surfaceVerifiedAgainstCurrentModel": true,
-              "siteVerified": false,
-              "requestedAlongMm": 420,
-              "clampedAlongMm": 420,
-              "relocationToSolidHostMm": 0,
-              "drawingHostRecheckRequired": false
+              "siteVerified": false
             },
             "installationApproved": false,
             "ratingAmps": null,
@@ -31525,7 +31286,7 @@ const plans = {
             "circuitConfirmed": false,
             "protectiveMeasuresConfirmed": false,
             "separateCircuitRecommendation": "electrician-review-pending",
-            "reviewNotes": "面板、点位、高度、线路和保护措施均需现场核验。",
+            "reviewNotes": "桌面电源P09/P10和网口N03移至北墙、中心高1000；床头双控S06移南墙高1100、床头电源P11高700，均位于床架东侧，避免被床头板遮住。保留门侧双控S05及西窗空调/电源P12；点位为布局联动示意，线缆及现场安装未确定。",
             "visibleFaceplateModules": 1,
             "nominalModuleDimensionsMm": [
               86,
@@ -31535,7 +31296,7 @@ const plans = {
             "selectedProduct": false,
             "backBoxesModeled": false,
             "multipleOutletGroup": false,
-            "layoutRevision": "family-drawing-electrical-20261027",
+            "layoutRevision": "family-study-north-20261102",
             "drawingEvidence": {
               "source": {
                 "file": "业主提供施工图.pdf",
@@ -31552,10 +31313,16 @@ const plans = {
                 "status": "drawing-intent-not-measured-or-approved",
                 "symbolCentersNotExtractedFromTextInsertionPoints": true
               },
-              "heightStatus": "SD03-general-switch-height-not-individual-SD01-measurement",
-              "heightMm": 1350,
-              "positionStatus": "room-or-service-relative-drawing-location-pending-final-datum",
-              "textPositionIsNotOutletPosition": true
+              "heightStatus": "owner-study-layout-provisional-not-SD03-individual-location",
+              "heightMm": 1100,
+              "positionStatus": "owner-study-north-desk-south-bed-adaptation",
+              "textPositionIsNotOutletPosition": true,
+              "sourceDrawingHeightMm": 1350,
+              "currentPositionMm": [
+                1490,
+                6046,
+                1100
+              ]
             },
             "channelControls": [
               {
@@ -31570,14 +31337,14 @@ const plans = {
               }
             ]
           },
-          "notes": "2026-10-27：保留原书房双控用途，高于现沙发及未来床头暂估高度；图纸开关分线与高度须深化。 面板外形仅86mm单元组合示意，非已选暗盒；线缆、回路和涉水保护未批准。",
+          "notes": "桌面电源P09/P10和网口N03移至北墙、中心高1000；床头双控S06移南墙高1100、床头电源P11高700，均位于床架东侧，避免被床头板遮住。保留门侧双控S05及西窗空调/电源P12；点位为布局联动示意，线缆及现场安装未确定。",
           "conditions": [
             "86×86×8mm是新面板暂估外形，仅显示墙/柜面安装面；高度为完成地面到面板中心的暂估值，非暗盒尺寸、开槽深度或施工放线批准。P16沿用既有70×70×5mm柜内面板，不重新覆盖。",
             "电流额定值、线径、负荷、回路容量、插座制式、安全门、接地、漏电保护、等电位、防溅/防护等级及涉水区分区均未确定，须由合格电工结合实测、设备厂家和适用规范审查。不得按示意点位直接施工。"
           ],
           "sourceFootprintMm": {
-            "x": 377,
-            "y": 3320,
+            "x": 1447,
+            "y": 6042,
             "w": 86,
             "d": 8
           },
@@ -35809,9 +35576,9 @@ const plans = {
           "type": "fixture",
           "nativeType": "socket",
           "modelVariant": "electrical-socket",
-          "name": "P09 · 书房南段书桌 · 电脑电源",
-          "cx": 450,
-          "cy": 6046,
+          "name": "P09 · 北墙书桌 · 电脑/充电电源",
+          "cx": 1600,
+          "cy": 3324,
           "w": 86,
           "d": 8,
           "heightMm": 86,
@@ -35819,14 +35586,14 @@ const plans = {
           "baseWidthMm": 86,
           "baseDepthMm": 8,
           "baseHeightMm": 86,
-          "rot": 180,
+          "rot": 0,
           "color": "#F7F4EC",
           "roomId": "room_c",
-          "face": "north",
+          "face": "south",
           "kind": "socket",
           "code": "P09",
           "dimensionStatus": "drawing-intent-model-host-not-site-survey",
-          "layoutRevision": "family-drawing-electrical-20261027",
+          "layoutRevision": "family-study-north-20261102",
           "cabinetRevision": "family-electrical-20261012",
           "visualOnly": true,
           "installationApproved": false,
@@ -35835,9 +35602,9 @@ const plans = {
           "electricalDesign": {
             "kind": "socket",
             "code": "P09",
-            "purpose": "书房南段书桌 · 电脑电源",
+            "purpose": "北墙书桌 · 电脑/充电电源",
             "centerHeightMm": 1000,
-            "face": "north",
+            "face": "south",
             "mountingRoomId": "room_c",
             "groupIds": [],
             "controlTargets": [],
@@ -35846,20 +35613,16 @@ const plans = {
             ],
             "anchor": {
               "kind": "wall",
-              "wallIndex": 27,
+              "wallIndex": 7,
               "wallRectMm": [
                 -120,
-                6050,
-                2140,
-                6180,
-                "e"
+                3200,
+                2590,
+                3320,
+                "i"
               ],
               "surfaceVerifiedAgainstCurrentModel": true,
-              "siteVerified": false,
-              "requestedAlongMm": 450,
-              "clampedAlongMm": 450,
-              "relocationToSolidHostMm": 0,
-              "drawingHostRecheckRequired": false
+              "siteVerified": false
             },
             "installationApproved": false,
             "ratingAmps": null,
@@ -35869,7 +35632,7 @@ const plans = {
             "circuitConfirmed": false,
             "protectiveMeasuresConfirmed": false,
             "separateCircuitRecommendation": "electrician-review-pending",
-            "reviewNotes": "面板、点位、高度、线路和保护措施均需现场核验。",
+            "reviewNotes": "桌面电源P09/P10和网口N03移至北墙、中心高1000；床头双控S06移南墙高1100、床头电源P11高700，均位于床架东侧，避免被床头板遮住。保留门侧双控S05及西窗空调/电源P12；点位为布局联动示意，线缆及现场安装未确定。",
             "visibleFaceplateModules": 1,
             "nominalModuleDimensionsMm": [
               86,
@@ -35879,7 +35642,7 @@ const plans = {
             "selectedProduct": false,
             "backBoxesModeled": false,
             "multipleOutletGroup": false,
-            "layoutRevision": "family-drawing-electrical-20261027",
+            "layoutRevision": "family-study-north-20261102",
             "drawingEvidence": {
               "source": {
                 "file": "业主提供施工图.pdf",
@@ -35896,21 +35659,27 @@ const plans = {
                 "status": "drawing-intent-not-measured-or-approved",
                 "symbolCentersNotExtractedFromTextInsertionPoints": true
               },
-              "heightStatus": "SD02-labelled-height",
+              "heightStatus": "owner-study-layout-provisional-not-SD03-individual-location",
               "heightMm": 1000,
               "textHandle": 249330,
-              "positionStatus": "room-or-service-relative-drawing-location-pending-final-datum",
-              "textPositionIsNotOutletPosition": true
+              "positionStatus": "owner-study-north-desk-south-bed-adaptation",
+              "textPositionIsNotOutletPosition": true,
+              "sourceDrawingHeightMm": 1000,
+              "currentPositionMm": [
+                1600,
+                3324,
+                1000
+              ]
             }
           },
-          "notes": "2026-10-27：依据施工图用途与新模型安装面重新锚定。 面板外形仅86mm单元组合示意，非已选暗盒；线缆、回路和涉水保护未批准。",
+          "notes": "桌面电源P09/P10和网口N03移至北墙、中心高1000；床头双控S06移南墙高1100、床头电源P11高700，均位于床架东侧，避免被床头板遮住。保留门侧双控S05及西窗空调/电源P12；点位为布局联动示意，线缆及现场安装未确定。",
           "conditions": [
             "86×86×8mm是新面板暂估外形，仅显示墙/柜面安装面；高度为完成地面到面板中心的暂估值，非暗盒尺寸、开槽深度或施工放线批准。P16沿用既有70×70×5mm柜内面板，不重新覆盖。",
             "电流额定值、线径、负荷、回路容量、插座制式、安全门、接地、漏电保护、等电位、防溅/防护等级及涉水区分区均未确定，须由合格电工结合实测、设备厂家和适用规范审查。不得按示意点位直接施工。"
           ],
           "sourceFootprintMm": {
-            "x": 407,
-            "y": 6042,
+            "x": 1557,
+            "y": 3320,
             "w": 86,
             "d": 8
           },
@@ -36035,9 +35804,9 @@ const plans = {
           "type": "fixture",
           "nativeType": "socket",
           "modelVariant": "electrical-socket",
-          "name": "P10 · 书房南段书桌 · 备用电源",
-          "cx": 950,
-          "cy": 6046,
+          "name": "P10 · 北墙书桌 · 电脑/充电电源",
+          "cx": 1880,
+          "cy": 3324,
           "w": 86,
           "d": 8,
           "heightMm": 86,
@@ -36045,14 +35814,14 @@ const plans = {
           "baseWidthMm": 86,
           "baseDepthMm": 8,
           "baseHeightMm": 86,
-          "rot": 180,
+          "rot": 0,
           "color": "#F7F4EC",
           "roomId": "room_c",
-          "face": "north",
+          "face": "south",
           "kind": "socket",
           "code": "P10",
           "dimensionStatus": "drawing-intent-model-host-not-site-survey",
-          "layoutRevision": "family-drawing-electrical-20261027",
+          "layoutRevision": "family-study-north-20261102",
           "cabinetRevision": "family-electrical-20261012",
           "visualOnly": true,
           "installationApproved": false,
@@ -36061,9 +35830,9 @@ const plans = {
           "electricalDesign": {
             "kind": "socket",
             "code": "P10",
-            "purpose": "书房南段书桌 · 备用电源",
+            "purpose": "北墙书桌 · 电脑/充电电源",
             "centerHeightMm": 1000,
-            "face": "north",
+            "face": "south",
             "mountingRoomId": "room_c",
             "groupIds": [],
             "controlTargets": [],
@@ -36072,20 +35841,16 @@ const plans = {
             ],
             "anchor": {
               "kind": "wall",
-              "wallIndex": 27,
+              "wallIndex": 7,
               "wallRectMm": [
                 -120,
-                6050,
-                2140,
-                6180,
-                "e"
+                3200,
+                2590,
+                3320,
+                "i"
               ],
               "surfaceVerifiedAgainstCurrentModel": true,
-              "siteVerified": false,
-              "requestedAlongMm": 950,
-              "clampedAlongMm": 950,
-              "relocationToSolidHostMm": 0,
-              "drawingHostRecheckRequired": false
+              "siteVerified": false
             },
             "installationApproved": false,
             "ratingAmps": null,
@@ -36095,7 +35860,7 @@ const plans = {
             "circuitConfirmed": false,
             "protectiveMeasuresConfirmed": false,
             "separateCircuitRecommendation": "electrician-review-pending",
-            "reviewNotes": "面板、点位、高度、线路和保护措施均需现场核验。",
+            "reviewNotes": "桌面电源P09/P10和网口N03移至北墙、中心高1000；床头双控S06移南墙高1100、床头电源P11高700，均位于床架东侧，避免被床头板遮住。保留门侧双控S05及西窗空调/电源P12；点位为布局联动示意，线缆及现场安装未确定。",
             "visibleFaceplateModules": 1,
             "nominalModuleDimensionsMm": [
               86,
@@ -36105,7 +35870,7 @@ const plans = {
             "selectedProduct": false,
             "backBoxesModeled": false,
             "multipleOutletGroup": false,
-            "layoutRevision": "family-drawing-electrical-20261027",
+            "layoutRevision": "family-study-north-20261102",
             "drawingEvidence": {
               "source": {
                 "file": "业主提供施工图.pdf",
@@ -36122,21 +35887,27 @@ const plans = {
                 "status": "drawing-intent-not-measured-or-approved",
                 "symbolCentersNotExtractedFromTextInsertionPoints": true
               },
-              "heightStatus": "SD02-labelled-height",
+              "heightStatus": "owner-study-layout-provisional-not-SD03-individual-location",
               "heightMm": 1000,
               "textHandle": 249330,
-              "positionStatus": "room-or-service-relative-drawing-location-pending-final-datum",
-              "textPositionIsNotOutletPosition": true
+              "positionStatus": "owner-study-north-desk-south-bed-adaptation",
+              "textPositionIsNotOutletPosition": true,
+              "sourceDrawingHeightMm": 1000,
+              "currentPositionMm": [
+                1880,
+                3324,
+                1000
+              ]
             }
           },
-          "notes": "2026-10-27：依据施工图用途与新模型安装面重新锚定。 面板外形仅86mm单元组合示意，非已选暗盒；线缆、回路和涉水保护未批准。",
+          "notes": "桌面电源P09/P10和网口N03移至北墙、中心高1000；床头双控S06移南墙高1100、床头电源P11高700，均位于床架东侧，避免被床头板遮住。保留门侧双控S05及西窗空调/电源P12；点位为布局联动示意，线缆及现场安装未确定。",
           "conditions": [
             "86×86×8mm是新面板暂估外形，仅显示墙/柜面安装面；高度为完成地面到面板中心的暂估值，非暗盒尺寸、开槽深度或施工放线批准。P16沿用既有70×70×5mm柜内面板，不重新覆盖。",
             "电流额定值、线径、负荷、回路容量、插座制式、安全门、接地、漏电保护、等电位、防溅/防护等级及涉水区分区均未确定，须由合格电工结合实测、设备厂家和适用规范审查。不得按示意点位直接施工。"
           ],
           "sourceFootprintMm": {
-            "x": 907,
-            "y": 6042,
+            "x": 1837,
+            "y": 3320,
             "w": 86,
             "d": 8
           },
@@ -36261,24 +36032,24 @@ const plans = {
           "type": "fixture",
           "nativeType": "socket",
           "modelVariant": "electrical-socket",
-          "name": "P11 · 书房沙发／未来床头电源",
-          "cx": 200,
-          "cy": 3324,
+          "name": "P11 · 南墙床侧 · 充电电源",
+          "cx": 1490,
+          "cy": 6046,
           "w": 86,
           "d": 8,
           "heightMm": 86,
-          "elevationMm": 307,
+          "elevationMm": 657,
           "baseWidthMm": 86,
           "baseDepthMm": 8,
           "baseHeightMm": 86,
-          "rot": 0,
+          "rot": 180,
           "color": "#F7F4EC",
           "roomId": "room_c",
-          "face": "south",
+          "face": "north",
           "kind": "socket",
           "code": "P11",
           "dimensionStatus": "drawing-intent-model-host-not-site-survey",
-          "layoutRevision": "family-drawing-electrical-20261027",
+          "layoutRevision": "family-study-north-20261102",
           "cabinetRevision": "family-electrical-20261012",
           "visualOnly": true,
           "installationApproved": false,
@@ -36287,31 +36058,27 @@ const plans = {
           "electricalDesign": {
             "kind": "socket",
             "code": "P11",
-            "purpose": "书房沙发／未来床头电源",
-            "centerHeightMm": 350,
-            "face": "south",
+            "purpose": "南墙床侧 · 充电电源",
+            "centerHeightMm": 700,
+            "face": "north",
             "mountingRoomId": "room_c",
             "groupIds": [],
             "controlTargets": [],
             "servedFurnitureIds": [
-              "study_north_sofa"
+              "study_south_bed"
             ],
             "anchor": {
               "kind": "wall",
-              "wallIndex": 7,
+              "wallIndex": 27,
               "wallRectMm": [
                 -120,
-                3200,
-                2590,
-                3320,
-                "i"
+                6050,
+                2140,
+                6180,
+                "e"
               ],
               "surfaceVerifiedAgainstCurrentModel": true,
-              "siteVerified": false,
-              "requestedAlongMm": 200,
-              "clampedAlongMm": 200,
-              "relocationToSolidHostMm": 0,
-              "drawingHostRecheckRequired": false
+              "siteVerified": false
             },
             "installationApproved": false,
             "ratingAmps": null,
@@ -36321,7 +36088,7 @@ const plans = {
             "circuitConfirmed": false,
             "protectiveMeasuresConfirmed": false,
             "separateCircuitRecommendation": "electrician-review-pending",
-            "reviewNotes": "高于当前830沙发和未来暂估1080床头；未来床架外形与插头操作空间仍待核。",
+            "reviewNotes": "桌面电源P09/P10和网口N03移至北墙、中心高1000；床头双控S06移南墙高1100、床头电源P11高700，均位于床架东侧，避免被床头板遮住。保留门侧双控S05及西窗空调/电源P12；点位为布局联动示意，线缆及现场安装未确定。",
             "visibleFaceplateModules": 1,
             "nominalModuleDimensionsMm": [
               86,
@@ -36331,7 +36098,7 @@ const plans = {
             "selectedProduct": false,
             "backBoxesModeled": false,
             "multipleOutletGroup": false,
-            "layoutRevision": "family-drawing-electrical-20261027",
+            "layoutRevision": "family-study-north-20261102",
             "drawingEvidence": {
               "source": {
                 "file": "业主提供施工图.pdf",
@@ -36348,20 +36115,26 @@ const plans = {
                 "status": "drawing-intent-not-measured-or-approved",
                 "symbolCentersNotExtractedFromTextInsertionPoints": true
               },
-              "heightStatus": "SD02-labelled-height",
-              "heightMm": 350,
-              "positionStatus": "room-or-service-relative-drawing-location-pending-final-datum",
-              "textPositionIsNotOutletPosition": true
+              "heightStatus": "owner-study-layout-provisional-not-SD03-individual-location",
+              "heightMm": 700,
+              "positionStatus": "owner-study-north-desk-south-bed-adaptation",
+              "textPositionIsNotOutletPosition": true,
+              "sourceDrawingHeightMm": 350,
+              "currentPositionMm": [
+                1490,
+                6046,
+                700
+              ]
             }
           },
-          "notes": "2026-10-27：图示低位用途放沙发北墙左侧露出段，避开1900宽沙发实体；未来床和电源线可达性另核。 面板外形仅86mm单元组合示意，非已选暗盒；线缆、回路和涉水保护未批准。",
+          "notes": "桌面电源P09/P10和网口N03移至北墙、中心高1000；床头双控S06移南墙高1100、床头电源P11高700，均位于床架东侧，避免被床头板遮住。保留门侧双控S05及西窗空调/电源P12；点位为布局联动示意，线缆及现场安装未确定。",
           "conditions": [
             "86×86×8mm是新面板暂估外形，仅显示墙/柜面安装面；高度为完成地面到面板中心的暂估值，非暗盒尺寸、开槽深度或施工放线批准。P16沿用既有70×70×5mm柜内面板，不重新覆盖。",
             "电流额定值、线径、负荷、回路容量、插座制式、安全门、接地、漏电保护、等电位、防溅/防护等级及涉水区分区均未确定，须由合格电工结合实测、设备厂家和适用规范审查。不得按示意点位直接施工。"
           ],
           "sourceFootprintMm": {
-            "x": 157,
-            "y": 3320,
+            "x": 1447,
+            "y": 6042,
             "w": 86,
             "d": 8
           },
@@ -43105,9 +42878,9 @@ const plans = {
           "type": "fixture",
           "nativeType": "data",
           "modelVariant": "electrical-data",
-          "name": "N03 · 书房南书桌网络用途点",
-          "cx": 1220,
-          "cy": 6046,
+          "name": "N03 · 北墙书桌 · 网络接口",
+          "cx": 2160,
+          "cy": 3324,
           "w": 86,
           "d": 8,
           "heightMm": 86,
@@ -43115,14 +42888,14 @@ const plans = {
           "baseWidthMm": 86,
           "baseDepthMm": 8,
           "baseHeightMm": 86,
-          "rot": 180,
+          "rot": 0,
           "color": "#F7F4EC",
           "roomId": "room_c",
-          "face": "north",
+          "face": "south",
           "kind": "data",
           "code": "N03",
           "dimensionStatus": "drawing-intent-model-host-not-site-survey",
-          "layoutRevision": "family-drawing-electrical-20261027",
+          "layoutRevision": "family-study-north-20261102",
           "cabinetRevision": "family-electrical-20261012",
           "visualOnly": true,
           "installationApproved": false,
@@ -43131,9 +42904,9 @@ const plans = {
           "electricalDesign": {
             "kind": "data",
             "code": "N03",
-            "purpose": "书房南书桌网络用途点",
+            "purpose": "北墙书桌 · 网络接口",
             "centerHeightMm": 1000,
-            "face": "north",
+            "face": "south",
             "mountingRoomId": "room_c",
             "groupIds": [],
             "controlTargets": [],
@@ -43142,20 +42915,16 @@ const plans = {
             ],
             "anchor": {
               "kind": "wall",
-              "wallIndex": 27,
+              "wallIndex": 7,
               "wallRectMm": [
                 -120,
-                6050,
-                2140,
-                6180,
-                "e"
+                3200,
+                2590,
+                3320,
+                "i"
               ],
               "surfaceVerifiedAgainstCurrentModel": true,
-              "siteVerified": false,
-              "requestedAlongMm": 1220,
-              "clampedAlongMm": 1220,
-              "relocationToSolidHostMm": 0,
-              "drawingHostRecheckRequired": false
+              "siteVerified": false
             },
             "installationApproved": false,
             "ratingAmps": null,
@@ -43165,7 +42934,7 @@ const plans = {
             "circuitConfirmed": false,
             "protectiveMeasuresConfirmed": false,
             "separateCircuitRecommendation": "electrician-review-pending",
-            "reviewNotes": "面板、点位、高度、线路和保护措施均需现场核验。",
+            "reviewNotes": "桌面电源P09/P10和网口N03移至北墙、中心高1000；床头双控S06移南墙高1100、床头电源P11高700，均位于床架东侧，避免被床头板遮住。保留门侧双控S05及西窗空调/电源P12；点位为布局联动示意，线缆及现场安装未确定。",
             "visibleFaceplateModules": 1,
             "nominalModuleDimensionsMm": [
               86,
@@ -43175,7 +42944,7 @@ const plans = {
             "selectedProduct": false,
             "backBoxesModeled": false,
             "multipleOutletGroup": false,
-            "layoutRevision": "family-drawing-electrical-20261027",
+            "layoutRevision": "family-study-north-20261102",
             "drawingEvidence": {
               "source": {
                 "file": "业主提供施工图.pdf",
@@ -43192,21 +42961,27 @@ const plans = {
                 "status": "drawing-intent-not-measured-or-approved",
                 "symbolCentersNotExtractedFromTextInsertionPoints": true
               },
-              "heightStatus": "SD02-labelled-height",
+              "heightStatus": "owner-study-layout-provisional-not-SD03-individual-location",
               "heightMm": 1000,
               "textHandle": 249331,
-              "positionStatus": "room-or-service-relative-drawing-location-pending-final-datum",
-              "textPositionIsNotOutletPosition": true
+              "positionStatus": "owner-study-north-desk-south-bed-adaptation",
+              "textPositionIsNotOutletPosition": true,
+              "sourceDrawingHeightMm": 1000,
+              "currentPositionMm": [
+                2160,
+                3324,
+                1000
+              ]
             }
           },
-          "notes": "2026-10-27：依据施工图用途与新模型安装面重新锚定。 面板外形仅86mm单元组合示意，非已选暗盒；线缆、回路和涉水保护未批准。",
+          "notes": "桌面电源P09/P10和网口N03移至北墙、中心高1000；床头双控S06移南墙高1100、床头电源P11高700，均位于床架东侧，避免被床头板遮住。保留门侧双控S05及西窗空调/电源P12；点位为布局联动示意，线缆及现场安装未确定。",
           "conditions": [
             "86×86×8mm是新面板暂估外形，仅显示墙/柜面安装面；高度为完成地面到面板中心的暂估值，非暗盒尺寸、开槽深度或施工放线批准。P16沿用既有70×70×5mm柜内面板，不重新覆盖。",
             "电流额定值、线径、负荷、回路容量、插座制式、安全门、接地、漏电保护、等电位、防溅/防护等级及涉水区分区均未确定，须由合格电工结合实测、设备厂家和适用规范审查。不得按示意点位直接施工。"
           ],
           "sourceFootprintMm": {
-            "x": 1177,
-            "y": 6042,
+            "x": 2117,
+            "y": 3320,
             "w": 86,
             "d": 8
           },
@@ -44617,6 +44392,394 @@ const plans = {
             "整机安装及拆机方向按从阳台向南推入、向北退回阳台示意，不能从厨房侧向南直接抽出：往南超过110mm即遇机位后背板，超过130mm又遇U形水槽柜。北退650mm至原机位的600mm宽扫掠仅检查机箱，与固定模型无交叉；地漏左缘距此路径右缘仅10mm，须保护且不得放桶等临时物。门框净宽、机门/把手外突、搬运姿态、地坪高差、线管和人员站位未知，不据模型认定实物搬运或安装可行。"
           ],
           "notes": "仅提出原890mm窗下中央680宽×870高的单机条件通口，两侧各105mm原低墙及通口上130mm高原墙带保留，上窗台1000、窗高1350、上口2350不变。墙体/窗支承是否可改未鉴定，不是已存在洞口或拆改许可。 原厨房台面完成高890、台底870保持；中部680mm台板只位于厨房侧y11290..11890，不穿进870..1000的保留墙带。20mm侧板独立承台，台板不压烘干机。 机位净宽640、净深710、净高870；600×600×840机身左右各20、机后110、顶部仅30mm。以上仅模型几何，不能据此认定满足散热、进气、接头、维修或厂家安装要求。 机位不加橱柜底板、踢脚或门槛；暂按厨房/共墙下地坪与阳台同标高0展示。共墙下是否有连续可承载楼板、墙下梁、管线、高差及防水未知；可见地面桥只是条件示意，未新增已确认楼板。 机门铰链、门径、最大开角与实际前突尺寸未给出；暂在阳台标680宽×600深操作敏感性区，不能当作真实门扇扫掠或确定检修尺寸。按600前突时北侧余1000mm深，开机门时不宜把前区当通道。 整机安装及拆机方向按从阳台向南推入、向北退回阳台示意，不能从厨房侧向南直接抽出：往南超过110mm即遇机位后背板，超过130mm又遇U形水槽柜。北退650mm至原机位的600mm宽扫掠仅检查机箱，与固定模型无交叉；地漏左缘距此路径右缘仅10mm，须保护且不得放桶等临时物。门框净宽、机门/把手外突、搬运姿态、地坪高差、线管和人员站位未知，不据模型认定实物搬运或安装可行。"
+        },
+        {
+          "id": "study_south_bed",
+          "sourceId": "study_south_bed",
+          "type": "bed",
+          "roomId": "room_c",
+          "name": "书房南墙床 · 床垫1200×2000",
+          "cx": 770,
+          "cy": 5000,
+          "w": 1300,
+          "d": 2100,
+          "heightMm": 950,
+          "elevationMm": 0,
+          "rot": 180,
+          "face": "north",
+          "headDirection": "south",
+          "mattressMm": [
+            1200,
+            2000
+          ],
+          "color": "#E7E1D6",
+          "layoutRevision": "family-study-north-20261102",
+          "dimensionStatus": "provisional-frame-not-purchased-product",
+          "referenceStyle": {
+            "revision": "family-study-north-20261102",
+            "variant": "master-channel-bed",
+            "mattressMm": [
+              1200,
+              2000
+            ],
+            "appearanceReferenceOnly": true,
+            "notPurchasedModel": true
+          },
+          "notes": "采用1200×2000mm床垫，床架按1300×2100mm、床头高950mm暂估。床架西侧贴墙，东侧余1000mm，可从东侧上下床；桌边到床尾仅80mm，不能作为床尾通道。办公椅位于东侧桌段。 1500×2000mm床垫按1600×2100mm床架试排，东缘进入现有810mm门叶全开范围110mm；即使按裸1500宽也仅差10mm。因此本版使用用户允许的1200宽，不缩短床架强行放1500床。",
+          "conditions": [
+            "采用1200×2000mm床垫，床架按1300×2100mm、床头高950mm暂估。床架西侧贴墙，东侧余1000mm，可从东侧上下床；桌边到床尾仅80mm，不能作为床尾通道。办公椅位于东侧桌段。",
+            "床架、桌深、椅子回退、门套及踢脚尚未实物复核；2300×2730是现有图纸模型内墙尺寸，不是新的复尺结果。此版日常办公从东侧座位使用，床西侧贴墙。"
+          ],
+          "sourceFootprintMm": {
+            "x": 120,
+            "y": 3950,
+            "w": 1300,
+            "d": 2100
+          }
+        },
+        {
+          "id": "study_north_organizer",
+          "sourceId": "study_north_organizer",
+          "type": "fixture",
+          "roomId": "room_c",
+          "name": "北墙置物架与白色洞洞板 · 无吊柜",
+          "cx": 1270,
+          "cy": 3450,
+          "w": 2260,
+          "d": 240,
+          "heightMm": 2070,
+          "elevationMm": 0,
+          "rot": 0,
+          "face": "south",
+          "baseWidthMm": 2260,
+          "baseDepthMm": 240,
+          "baseHeightMm": 2070,
+          "color": "#F3EFE6",
+          "cabinetRevision": "family-study-north-20261102",
+          "layoutRevision": "family-study-north-20261102",
+          "modelVariant": "study-pegboard-open-shelves",
+          "referenceStyle": {
+            "revision": "family-study-north-20261102",
+            "variant": "pegboard-open-shelves",
+            "appearanceReferenceOnly": true
+          },
+          "dimensionStatus": "provisional-joinery-dimensions",
+          "parts": [
+            {
+              "id": "study-north-pegboard",
+              "x": -1125,
+              "y": -120,
+              "w": 2250,
+              "d": 12,
+              "elevationMm": 1100,
+              "heightMm": 620,
+              "role": "pegboard-panel",
+              "label": "白色穿孔洞洞板 · 桌上留出插座带",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south",
+              "shape": "perforated-pegboard",
+              "holePitchMm": 30,
+              "holeDiameterMm": 6
+            },
+            {
+              "id": "study-north-shelf-lower",
+              "x": -1130,
+              "y": -120,
+              "w": 2260,
+              "d": 240,
+              "elevationMm": 1790,
+              "heightMm": 20,
+              "role": "display-shelf",
+              "label": "开放浅木层板，无上部柜门",
+              "material": "OakLight",
+              "color": "#C6AA83",
+              "face": "south"
+            },
+            {
+              "id": "study-north-led-lower",
+              "x": -1110,
+              "y": 55,
+              "w": 2220,
+              "d": 8,
+              "elevationMm": 1786,
+              "heightMm": 4,
+              "role": "led-strip",
+              "label": "层板底暖光",
+              "material": "Light",
+              "color": "#F3EFE6",
+              "face": "south",
+              "lightWash": true
+            },
+            {
+              "id": "study-north-bracket-lower-220",
+              "x": -1050,
+              "y": -120,
+              "w": 20,
+              "d": 205,
+              "elevationMm": 1720,
+              "heightMm": 70,
+              "role": "shelf-bracket",
+              "label": "薄支架示意",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south"
+            },
+            {
+              "id": "study-north-bracket-lower-2300",
+              "x": 1030,
+              "y": -120,
+              "w": 20,
+              "d": 205,
+              "elevationMm": 1720,
+              "heightMm": 70,
+              "role": "shelf-bracket",
+              "label": "薄支架示意",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south"
+            },
+            {
+              "id": "study-north-shelf-upper",
+              "x": -1130,
+              "y": -120,
+              "w": 1100,
+              "d": 240,
+              "elevationMm": 2050,
+              "heightMm": 20,
+              "role": "display-shelf",
+              "label": "开放浅木层板，无上部柜门",
+              "material": "OakLight",
+              "color": "#C6AA83",
+              "face": "south"
+            },
+            {
+              "id": "study-north-led-upper",
+              "x": -1110,
+              "y": 55,
+              "w": 1060,
+              "d": 8,
+              "elevationMm": 2046,
+              "heightMm": 4,
+              "role": "led-strip",
+              "label": "层板底暖光",
+              "material": "Light",
+              "color": "#F3EFE6",
+              "face": "south",
+              "lightWash": true
+            },
+            {
+              "id": "study-north-bracket-upper-220",
+              "x": -1050,
+              "y": -120,
+              "w": 20,
+              "d": 205,
+              "elevationMm": 1980,
+              "heightMm": 70,
+              "role": "shelf-bracket",
+              "label": "薄支架示意",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south"
+            },
+            {
+              "id": "study-north-bracket-upper-1140",
+              "x": -130,
+              "y": -120,
+              "w": 20,
+              "d": 205,
+              "elevationMm": 1980,
+              "heightMm": 70,
+              "role": "shelf-bracket",
+              "label": "薄支架示意",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south"
+            },
+            {
+              "id": "study-north-mini-shelf",
+              "x": 470,
+              "y": -108,
+              "w": 540,
+              "d": 150,
+              "elevationMm": 1430,
+              "heightMm": 18,
+              "role": "pegboard-shelf",
+              "label": "可调小层板",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south"
+            },
+            {
+              "id": "study-north-hook-stem-0",
+              "x": 210,
+              "y": -108,
+              "w": 8,
+              "d": 45,
+              "elevationMm": 1260,
+              "heightMm": 8,
+              "role": "pegboard-hook",
+              "label": "洞洞板小挂钩",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south"
+            },
+            {
+              "id": "study-north-hook-tip-0",
+              "x": 210,
+              "y": -71,
+              "w": 8,
+              "d": 8,
+              "elevationMm": 1260,
+              "heightMm": 25,
+              "role": "pegboard-hook",
+              "label": "挂钩上弯示意",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south"
+            },
+            {
+              "id": "study-north-hook-stem-1",
+              "x": 340,
+              "y": -108,
+              "w": 8,
+              "d": 45,
+              "elevationMm": 1260,
+              "heightMm": 8,
+              "role": "pegboard-hook",
+              "label": "洞洞板小挂钩",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south"
+            },
+            {
+              "id": "study-north-hook-tip-1",
+              "x": 340,
+              "y": -71,
+              "w": 8,
+              "d": 8,
+              "elevationMm": 1260,
+              "heightMm": 25,
+              "role": "pegboard-hook",
+              "label": "挂钩上弯示意",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south"
+            },
+            {
+              "id": "study-north-hook-stem-2",
+              "x": 470,
+              "y": -108,
+              "w": 8,
+              "d": 45,
+              "elevationMm": 1260,
+              "heightMm": 8,
+              "role": "pegboard-hook",
+              "label": "洞洞板小挂钩",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south"
+            },
+            {
+              "id": "study-north-hook-tip-2",
+              "x": 470,
+              "y": -71,
+              "w": 8,
+              "d": 8,
+              "elevationMm": 1260,
+              "heightMm": 25,
+              "role": "pegboard-hook",
+              "label": "挂钩上弯示意",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south"
+            },
+            {
+              "id": "study-north-hook-stem-3",
+              "x": 600,
+              "y": -108,
+              "w": 8,
+              "d": 45,
+              "elevationMm": 1260,
+              "heightMm": 8,
+              "role": "pegboard-hook",
+              "label": "洞洞板小挂钩",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south"
+            },
+            {
+              "id": "study-north-hook-tip-3",
+              "x": 600,
+              "y": -71,
+              "w": 8,
+              "d": 8,
+              "elevationMm": 1260,
+              "heightMm": 25,
+              "role": "pegboard-hook",
+              "label": "挂钩上弯示意",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south"
+            },
+            {
+              "id": "study-north-hook-stem-4",
+              "x": 730,
+              "y": -108,
+              "w": 8,
+              "d": 45,
+              "elevationMm": 1260,
+              "heightMm": 8,
+              "role": "pegboard-hook",
+              "label": "洞洞板小挂钩",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south"
+            },
+            {
+              "id": "study-north-hook-tip-4",
+              "x": 730,
+              "y": -71,
+              "w": 8,
+              "d": 8,
+              "elevationMm": 1260,
+              "heightMm": 25,
+              "role": "pegboard-hook",
+              "label": "挂钩上弯示意",
+              "material": "Cream",
+              "color": "#F3EFE6",
+              "face": "south"
+            }
+          ],
+          "cabinetDesign": {
+            "revision": "family-study-north-20261102",
+            "title": "开放层板与洞洞板",
+            "palette": {
+              "door": "#F3EFE6",
+              "wood": "#C6AA83"
+            },
+            "faces": [
+              {
+                "face": "south",
+                "lengthMm": 2260
+              }
+            ],
+            "features": [
+              "洞洞板底1100、顶1720mm；插座中心1000位于板下。",
+              "通长开放层板1790mm、左侧第二层2050mm，均20厚、底部暖光。",
+              "小层板和挂钩用于常用小物，不新增封闭吊柜。"
+            ]
+          },
+          "conditions": [
+            "北墙桌上为白色洞洞板、开放木层板、板底灯带与小挂件，不做封闭吊柜；洞洞板孔距30、孔径6、板厚12mm为外观暂估，基层、承重及加工尺寸待深化。"
+          ],
+          "notes": "北墙桌上为白色洞洞板、开放木层板、板底灯带与小挂件，不做封闭吊柜；洞洞板孔距30、孔径6、板厚12mm为外观暂估，基层、承重及加工尺寸待深化。",
+          "sourceFootprintMm": {
+            "x": 140,
+            "y": 3330,
+            "w": 2260,
+            "d": 240
+          }
         }
       ],
       "HEIGHT_MM": 2700,
@@ -45061,7 +45224,13 @@ const plans = {
           "机门铰链、门径、最大开角与实际前突尺寸未给出；暂在阳台标680宽×600深操作敏感性区，不能当作真实门扇扫掠或确定检修尺寸。按600前突时北侧余1000mm深，开机门时不宜把前区当通道。",
           "P36由西侧105mm余墙移至原东南实心柱西面，中心(7926,11103)、离地550mm、朝西；86mm板在柱面纵向边距10/144mm，板到680mm门前敏感性区横向97mm。避开了原余墙仅2mm边距，但暗盒、柱内钢筋/管线、插头、湿区保护和机后到电位的线长/穿板均未核，不据几何认定可施工。",
           "厨房水槽、洗碗机、冰箱、炉灶、热水器、扫地机器人、洗地龙头及地漏不移动。烘干机是水盒冷凝还是直排未知，不把阳台地漏或热水器管线自动当作烘干机接管。",
-          "整机安装及拆机方向按从阳台向南推入、向北退回阳台示意，不能从厨房侧向南直接抽出：往南超过110mm即遇机位后背板，超过130mm又遇U形水槽柜。北退650mm至原机位的600mm宽扫掠仅检查机箱，与固定模型无交叉；地漏左缘距此路径右缘仅10mm，须保护且不得放桶等临时物。门框净宽、机门/把手外突、搬运姿态、地坪高差、线管和人员站位未知，不据模型认定实物搬运或安装可行。"
+          "整机安装及拆机方向按从阳台向南推入、向北退回阳台示意，不能从厨房侧向南直接抽出：往南超过110mm即遇机位后背板，超过130mm又遇U形水槽柜。北退650mm至原机位的600mm宽扫掠仅检查机箱，与固定模型无交叉；地漏左缘距此路径右缘仅10mm，须保护且不得放桶等临时物。门框净宽、机门/把手外突、搬运姿态、地坪高差、线管和人员站位未知，不据模型认定实物搬运或安装可行。",
+          "方案2书房按图纸内墙净面2300×2730mm试排，北墙通长桌2300×550×740，南墙床头朝南；原北墙沙发、西窗返桌、南墙桌上层板移除，墙体、880门洞及南铰内开方向不动。",
+          "采用1200×2000mm床垫，床架按1300×2100mm、床头高950mm暂估。床架西侧贴墙，东侧余1000mm，可从东侧上下床；桌边到床尾仅80mm，不能作为床尾通道。办公椅位于东侧桌段。",
+          "1500×2000mm床垫按1600×2100mm床架试排，东缘进入现有810mm门叶全开范围110mm；即使按裸1500宽也仅差10mm。因此本版使用用户允许的1200宽，不缩短床架强行放1500床。",
+          "北墙桌上为白色洞洞板、开放木层板、板底灯带与小挂件，不做封闭吊柜；洞洞板孔距30、孔径6、板厚12mm为外观暂估，基层、承重及加工尺寸待深化。",
+          "桌面电源P09/P10和网口N03移至北墙、中心高1000；床头双控S06移南墙高1100、床头电源P11高700，均位于床架东侧，避免被床头板遮住。保留门侧双控S05及西窗空调/电源P12；点位为布局联动示意，线缆及现场安装未确定。",
+          "床架、桌深、椅子回退、门套及踢脚尚未实物复核；2300×2730是现有图纸模型内墙尺寸，不是新的复尺结果。此版日常办公从东侧座位使用，床西侧贴墙。"
         ],
         "balconyOpenness": {
           "id": "balcony-two-sided-open-20261005",
@@ -45113,7 +45282,7 @@ const plans = {
             }
           }
         },
-        "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs + tools/family-study-door-20261012.cjs + tools/family-appliances-20261012.cjs + tools/family-ac-window-20261012.cjs + tools/family-living-clear-20261012.cjs + tools/family-balcony-service-20261012.cjs + tools/family-corner-storage-20261012.cjs + tools/family-ceiling-lighting-20261012.cjs + tools/family-lighting-study-refinement-20261012.cjs + tools/family-corner-door-180-20261012.cjs + tools/family-balcony-recess-20261012.cjs + tools/family-floor-drains-20261012.cjs + tools/family-electrical-20261012.cjs + tools/family-kitchen-heater-20261013.cjs + tools/family-living-east-20261018.cjs + tools/family-reference-finish-20261025.cjs + tools/family-dryer-kitchen-20261031.cjs",
+        "converter": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs + tools/family-study-door-20261012.cjs + tools/family-appliances-20261012.cjs + tools/family-ac-window-20261012.cjs + tools/family-living-clear-20261012.cjs + tools/family-balcony-service-20261012.cjs + tools/family-corner-storage-20261012.cjs + tools/family-ceiling-lighting-20261012.cjs + tools/family-lighting-study-refinement-20261012.cjs + tools/family-corner-door-180-20261012.cjs + tools/family-balcony-recess-20261012.cjs + tools/family-floor-drains-20261012.cjs + tools/family-electrical-20261012.cjs + tools/family-kitchen-heater-20261013.cjs + tools/family-living-east-20261018.cjs + tools/family-reference-finish-20261025.cjs + tools/family-dryer-kitchen-20261031.cjs + tools/family-study-north-20261102.cjs",
         "wallStatus": "承重性未鉴定；原源数据未授权将未知内墙标记为可拆非承重墙。",
         "cabinetRevision": {
           "revision": "cream-oak-functional-v1",
@@ -45489,6 +45658,15 @@ const plans = {
             ],
             "sourceSnapshotsUnchanged": true,
             "description": "仅方案2烘干机拟移厨房侧，680×870单机低位条件通口；890台面和1000窗台不抬高，上窗不变；结构、楼板与机器顶部30净空待核，机器人仍在鞋柜下。"
+          },
+          {
+            "id": "family-study-north-20261102",
+            "date": "2026-11-02",
+            "description": "书房北墙2300通长桌与开放置物架/洞洞板，床头南向，因1500床与现有门叶冲突采用1200床垫。",
+            "sourceIds": [
+              "room_c"
+            ],
+            "sourceSnapshotsUnchanged": true
           }
         ],
         "entryFamilyUpdate": {
@@ -140680,6 +140858,2980 @@ const plans = {
             "family-elec-p16",
             "family-elec-p37"
           ]
+        },
+        "familyStudyNorthUpdate": {
+          "id": "family-study-north-20261102",
+          "date": "2026-11-02",
+          "title": "方案2 · 书房北墙满墙桌、南向1200床与洞洞板",
+          "status": "owner-layout-provisional-furniture-details",
+          "validation": {
+            "ok": true,
+            "roomNetMm": [
+              2300,
+              2730
+            ],
+            "deskMm": [
+              2300,
+              550,
+              740
+            ],
+            "mattressMm": [
+              1200,
+              2000
+            ],
+            "frameMm": [
+              1300,
+              2100,
+              950
+            ],
+            "headDirection": "south",
+            "eastAccessWidthMm": 1000,
+            "bedFootToDeskMm": 80,
+            "bedFootPassage": false,
+            "chairRectMm": [
+              1730,
+              3950,
+              2210,
+              4450
+            ],
+            "doorSweepSampleStepDegrees": 0.5,
+            "currentBedDoorHits": [],
+            "rejected1500FrameDoorOverlapMm": 110,
+            "doorUnchanged": true,
+            "westWindowAndACUnchanged": true,
+            "oldSouthShelvesRemoved": true,
+            "closedUpperCabinets": false
+          },
+          "notes": [
+            "方案2书房按图纸内墙净面2300×2730mm试排，北墙通长桌2300×550×740，南墙床头朝南；原北墙沙发、西窗返桌、南墙桌上层板移除，墙体、880门洞及南铰内开方向不动。",
+            "采用1200×2000mm床垫，床架按1300×2100mm、床头高950mm暂估。床架西侧贴墙，东侧余1000mm，可从东侧上下床；桌边到床尾仅80mm，不能作为床尾通道。办公椅位于东侧桌段。",
+            "1500×2000mm床垫按1600×2100mm床架试排，东缘进入现有810mm门叶全开范围110mm；即使按裸1500宽也仅差10mm。因此本版使用用户允许的1200宽，不缩短床架强行放1500床。",
+            "北墙桌上为白色洞洞板、开放木层板、板底灯带与小挂件，不做封闭吊柜；洞洞板孔距30、孔径6、板厚12mm为外观暂估，基层、承重及加工尺寸待深化。",
+            "桌面电源P09/P10和网口N03移至北墙、中心高1000；床头双控S06移南墙高1100、床头电源P11高700，均位于床架东侧，避免被床头板遮住。保留门侧双控S05及西窗空调/电源P12；点位为布局联动示意，线缆及现场安装未确定。",
+            "床架、桌深、椅子回退、门套及踢脚尚未实物复核；2300×2730是现有图纸模型内墙尺寸，不是新的复尺结果。此版日常办公从东侧座位使用，床西侧贴墙。"
+          ],
+          "previousFurnitureOrder": [
+            "bed_b",
+            "family-f1",
+            "bed_a",
+            "family-f3",
+            "study_full_desk",
+            "family-f5",
+            "family-living-rug",
+            "family-f6",
+            "family-f7",
+            "vanity_main",
+            "family-f11",
+            "family-f12",
+            "vanity_guest",
+            "family-f14",
+            "family-f15",
+            "study_north_sofa",
+            "family-f23",
+            "family-f24",
+            "family-f25",
+            "family-f26",
+            "family-f27",
+            "fit-bay_living_family",
+            "fit-entry_shoe_station",
+            "fit-dining_sideboard_wall",
+            "fit-study_bookwall",
+            "laundry_washer",
+            "laundry_dryer",
+            "fit-kitchen-20261005",
+            "kitchen_fridge",
+            "kitchen_dishwasher",
+            "kitchen_double_sink",
+            "kitchen_hob",
+            "kitchen_hood",
+            "kitchen_heater",
+            "kitchen_tap",
+            "living-east-art",
+            "draft-desk-b",
+            "draft-chair-b",
+            "draft-night-b",
+            "draft-desk-a",
+            "draft-chair-a",
+            "draft-night-a",
+            "study_window_return",
+            "family-acwall-room_a",
+            "family-acwall-room_b",
+            "family-acwall-room_c",
+            "family-living-aircon",
+            "family-kitchen-ceilingfan",
+            "family-bathheater-bath_1",
+            "family-bathheater-bath_2",
+            "family-sideboard-blender",
+            "family-sideboard-temperaturekettle",
+            "family-sideboard-sterilizer",
+            "family-sideboard-healthkettle",
+            "family-sideboard-waterdispenser",
+            "balcony_outer_projection",
+            "balcony_robot",
+            "family-living-ceilinglight",
+            "family-dining-ceilinglight",
+            "balcony_bucket_tap",
+            "family-drain-balcony",
+            "family-drain-bath1-dry",
+            "family-drain-bath1-shower",
+            "family-drain-bath2-dry",
+            "family-drain-bath2-shower",
+            "family-elec-s01",
+            "family-elec-s02",
+            "family-elec-s03",
+            "family-elec-s04",
+            "family-elec-s05",
+            "family-elec-s06",
+            "family-elec-s07",
+            "family-elec-s08",
+            "family-elec-s09",
+            "family-elec-s10",
+            "family-elec-s11",
+            "family-elec-s12",
+            "family-elec-s13",
+            "family-elec-s14",
+            "family-elec-p01",
+            "family-elec-p02",
+            "family-elec-p03",
+            "family-elec-p04",
+            "family-elec-p05",
+            "family-elec-p06",
+            "family-elec-p07",
+            "family-elec-p08",
+            "family-elec-p09",
+            "family-elec-p10",
+            "family-elec-p11",
+            "family-elec-p12",
+            "family-elec-p13",
+            "family-elec-p14",
+            "family-elec-p15",
+            "family-elec-p17",
+            "family-elec-p18",
+            "family-elec-p19",
+            "family-elec-p20",
+            "family-elec-p21",
+            "family-elec-p22",
+            "family-elec-p23",
+            "family-elec-p24",
+            "family-elec-p25",
+            "family-elec-p26",
+            "family-elec-p27",
+            "family-elec-p28",
+            "family-elec-p29",
+            "family-elec-p30",
+            "family-elec-p31",
+            "family-elec-p32",
+            "family-elec-p33",
+            "family-elec-p34",
+            "family-elec-p35",
+            "family-elec-p36",
+            "family-elec-n01",
+            "family-elec-n02",
+            "family-elec-n03",
+            "family-elec-n04",
+            "drawing-night-a-north",
+            "drawing-living-armchair",
+            "family-elec-s15",
+            "family-elec-p16",
+            "family-elec-p37",
+            "family-dryer-kitchen-housing"
+          ],
+          "previousFurniture": [
+            {
+              "id": "study_full_desk",
+              "type": "desk",
+              "name": "书房7字桌 · 图示南段1300×550",
+              "cx": 770,
+              "cy": 5775,
+              "w": 1300,
+              "d": 550,
+              "rot": 0,
+              "color": "#F3EFE6",
+              "heightMm": 740,
+              "elevationMm": 0,
+              "sourceId": "study_full_desk",
+              "sourceFootprintMm": {
+                "x": 120,
+                "y": 5500,
+                "w": 1300,
+                "d": 550
+              },
+              "roomId": "room_c",
+              "face": "north",
+              "notes": "PL03图示南桌长1300；550深、740高沿用原暂估，南墙位置跟随外层实测架构。",
+              "dimensionStatus": "construction-drawing-dimensions-with-pending-details",
+              "originalSourceFootprintMm": {
+                "x": 120,
+                "y": 5650,
+                "w": 2220,
+                "d": 550
+              },
+              "modelVariant": "north-facing-workstation",
+              "layoutRevision": "family-drawing-bedrooms-20261027",
+              "referenceStyle": {
+                "revision": "family-reference-finish-20261025",
+                "variant": "floating-desk",
+                "source": "owner-six-reference-images-20261025",
+                "status": "concept-not-original-model",
+                "appearanceReferenceOnly": true,
+                "notPurchasedModel": true,
+                "installationApproved": false,
+                "palette": {
+                  "cream": "#F3EFE6",
+                  "oak": "#C6AA83",
+                  "walnut": "#81664F",
+                  "pink": "#D6B8AF",
+                  "metal": "#282522",
+                  "light": "#FFF0C8"
+                },
+                "preserveExistingEnvelope": true
+              }
+            },
+            {
+              "id": "family-f5",
+              "type": "officechair",
+              "name": "书房办公椅",
+              "cx": 870,
+              "cy": 5200,
+              "w": 480,
+              "d": 500,
+              "rot": 0,
+              "color": "#D7D1C6",
+              "heightMm": 900,
+              "elevationMm": 0,
+              "sourceId": "family-f5",
+              "sourceFootprintMm": {
+                "x": 630,
+                "y": 4950,
+                "w": 480,
+                "d": 500
+              },
+              "roomId": "room_c",
+              "face": "south",
+              "notes": "书房南桌椅跟随1300桌；原实物占位480×500保留。",
+              "dimensionStatus": "construction-drawing-dimensions-with-pending-details",
+              "originalSourceFootprintMm": {
+                "x": 990,
+                "y": 5100,
+                "w": 480,
+                "d": 500
+              },
+              "layoutRevision": "family-drawing-bedrooms-20261027",
+              "referenceStyle": {
+                "revision": "family-reference-finish-20261025",
+                "variant": "cream-wood-chair",
+                "source": "owner-six-reference-images-20261025",
+                "status": "concept-not-original-model",
+                "appearanceReferenceOnly": true,
+                "notPurchasedModel": true,
+                "installationApproved": false,
+                "palette": {
+                  "cream": "#F3EFE6",
+                  "oak": "#C6AA83",
+                  "walnut": "#81664F",
+                  "pink": "#D6B8AF",
+                  "metal": "#282522",
+                  "light": "#FFF0C8"
+                },
+                "preserveExistingEnvelope": true
+              }
+            },
+            {
+              "id": "family-elec-s06",
+              "sourceId": "family-elec-s06",
+              "type": "fixture",
+              "nativeType": "switch",
+              "modelVariant": "electrical-switch",
+              "name": "S06 · 书房北墙 · 主灯双控（沙发／未来床头）",
+              "cx": 420,
+              "cy": 3324,
+              "w": 86,
+              "d": 8,
+              "heightMm": 86,
+              "elevationMm": 1307,
+              "baseWidthMm": 86,
+              "baseDepthMm": 8,
+              "baseHeightMm": 86,
+              "rot": 0,
+              "color": "#F7F4EC",
+              "roomId": "room_c",
+              "face": "south",
+              "kind": "switch",
+              "code": "S06",
+              "dimensionStatus": "drawing-intent-model-host-not-site-survey",
+              "layoutRevision": "family-drawing-electrical-20261027",
+              "cabinetRevision": "family-electrical-20261012",
+              "visualOnly": true,
+              "installationApproved": false,
+              "notConstructionApproval": true,
+              "wiringModeled": false,
+              "electricalDesign": {
+                "kind": "switch",
+                "code": "S06",
+                "purpose": "书房北墙 · 主灯双控（沙发／未来床头）",
+                "centerHeightMm": 1350,
+                "face": "south",
+                "mountingRoomId": "room_c",
+                "groupIds": [
+                  "G-C"
+                ],
+                "controlTargets": [
+                  {
+                    "kind": "room-lamp",
+                    "roomId": "room_c"
+                  }
+                ],
+                "servedFurnitureIds": [],
+                "controlType": "two-way",
+                "anchor": {
+                  "kind": "wall",
+                  "wallIndex": 7,
+                  "wallRectMm": [
+                    -120,
+                    3200,
+                    2590,
+                    3320,
+                    "i"
+                  ],
+                  "surfaceVerifiedAgainstCurrentModel": true,
+                  "siteVerified": false,
+                  "requestedAlongMm": 420,
+                  "clampedAlongMm": 420,
+                  "relocationToSolidHostMm": 0,
+                  "drawingHostRecheckRequired": false
+                },
+                "installationApproved": false,
+                "ratingAmps": null,
+                "ipRating": null,
+                "wiringModeled": false,
+                "productSelected": false,
+                "circuitConfirmed": false,
+                "protectiveMeasuresConfirmed": false,
+                "separateCircuitRecommendation": "electrician-review-pending",
+                "reviewNotes": "面板、点位、高度、线路和保护措施均需现场核验。",
+                "visibleFaceplateModules": 1,
+                "nominalModuleDimensionsMm": [
+                  86,
+                  8,
+                  86
+                ],
+                "selectedProduct": false,
+                "backBoxesModeled": false,
+                "multipleOutletGroup": false,
+                "layoutRevision": "family-drawing-electrical-20261027",
+                "drawingEvidence": {
+                  "source": {
+                    "file": "业主提供施工图.pdf",
+                    "pages": [
+                      28,
+                      29,
+                      30
+                    ],
+                    "sheets": [
+                      "SD-01",
+                      "SD-02",
+                      "SD-03"
+                    ],
+                    "status": "drawing-intent-not-measured-or-approved",
+                    "symbolCentersNotExtractedFromTextInsertionPoints": true
+                  },
+                  "heightStatus": "SD03-general-switch-height-not-individual-SD01-measurement",
+                  "heightMm": 1350,
+                  "positionStatus": "room-or-service-relative-drawing-location-pending-final-datum",
+                  "textPositionIsNotOutletPosition": true
+                },
+                "channelControls": [
+                  {
+                    "groupId": "G-C",
+                    "controlType": "two-way",
+                    "targets": [
+                      {
+                        "kind": "room-lamp",
+                        "roomId": "room_c"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "notes": "2026-10-27：保留原书房双控用途，高于现沙发及未来床头暂估高度；图纸开关分线与高度须深化。 面板外形仅86mm单元组合示意，非已选暗盒；线缆、回路和涉水保护未批准。",
+              "conditions": [
+                "86×86×8mm是新面板暂估外形，仅显示墙/柜面安装面；高度为完成地面到面板中心的暂估值，非暗盒尺寸、开槽深度或施工放线批准。P16沿用既有70×70×5mm柜内面板，不重新覆盖。",
+                "电流额定值、线径、负荷、回路容量、插座制式、安全门、接地、漏电保护、等电位、防溅/防护等级及涉水区分区均未确定，须由合格电工结合实测、设备厂家和适用规范审查。不得按示意点位直接施工。"
+              ],
+              "sourceFootprintMm": {
+                "x": 377,
+                "y": 3320,
+                "w": 86,
+                "d": 8
+              },
+              "parts": [
+                {
+                  "id": "family-elec-s06-drawing-unit-0-plate-body",
+                  "x": -43,
+                  "y": -4,
+                  "w": 86,
+                  "d": 6,
+                  "elevationMm": 0,
+                  "heightMm": 86,
+                  "role": "electrical-plate-body",
+                  "label": "暂估86面板可见背壳，不是墙内暗盒 · 1/1单元（制式待选）",
+                  "color": "#D8D3C9",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-s06-drawing-unit-0-face",
+                  "x": -42,
+                  "y": 2,
+                  "w": 84,
+                  "d": 1.6,
+                  "elevationMm": 1,
+                  "heightMm": 84,
+                  "role": "electrical-face",
+                  "label": "奶白面板正面 · 1/1单元（制式待选）",
+                  "color": "#F7F4EC",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-s06-drawing-unit-0-rocker",
+                  "x": -35,
+                  "y": 3.6,
+                  "w": 70,
+                  "d": 0.4,
+                  "elevationMm": 10,
+                  "heightMm": 62,
+                  "role": "electrical-rocker",
+                  "label": "控制键 · 功能示意 · 1/1单元（制式待选）",
+                  "color": "#EFECE3",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-s06-drawing-unit-0-rocker-seam",
+                  "x": -34,
+                  "y": 3.6,
+                  "w": 68,
+                  "d": 0.4,
+                  "elevationMm": 12,
+                  "heightMm": 1,
+                  "role": "electrical-seam",
+                  "label": "按键边界 · 1/1单元（制式待选）",
+                  "color": "#D8D3C9",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-s06-drawing-unit-0-indicator",
+                  "x": 28,
+                  "y": 3.6,
+                  "w": 3,
+                  "d": 0.4,
+                  "elevationMm": 77,
+                  "heightMm": 2,
+                  "role": "electrical-indicator",
+                  "label": "指示符号 · 非通电状态 · 1/1单元（制式待选）",
+                  "color": "#8C9D94",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-s06-drawing-unit-0-rocker-seam-left",
+                  "x": -36,
+                  "y": 3.6,
+                  "w": 1,
+                  "d": 0.4,
+                  "elevationMm": 10,
+                  "heightMm": 62,
+                  "role": "electrical-seam",
+                  "label": "按键左侧细缝 · 1/1单元（制式待选）",
+                  "color": "#D8D3C9",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-s06-drawing-unit-0-rocker-seam-right",
+                  "x": 35,
+                  "y": 3.6,
+                  "w": 1,
+                  "d": 0.4,
+                  "elevationMm": 10,
+                  "heightMm": 62,
+                  "role": "electrical-seam",
+                  "label": "按键右侧细缝 · 1/1单元（制式待选）",
+                  "color": "#D8D3C9",
+                  "material": "Cream",
+                  "face": "south"
+                }
+              ]
+            },
+            {
+              "id": "family-elec-p09",
+              "sourceId": "family-elec-p09",
+              "type": "fixture",
+              "nativeType": "socket",
+              "modelVariant": "electrical-socket",
+              "name": "P09 · 书房南段书桌 · 电脑电源",
+              "cx": 450,
+              "cy": 6046,
+              "w": 86,
+              "d": 8,
+              "heightMm": 86,
+              "elevationMm": 957,
+              "baseWidthMm": 86,
+              "baseDepthMm": 8,
+              "baseHeightMm": 86,
+              "rot": 180,
+              "color": "#F7F4EC",
+              "roomId": "room_c",
+              "face": "north",
+              "kind": "socket",
+              "code": "P09",
+              "dimensionStatus": "drawing-intent-model-host-not-site-survey",
+              "layoutRevision": "family-drawing-electrical-20261027",
+              "cabinetRevision": "family-electrical-20261012",
+              "visualOnly": true,
+              "installationApproved": false,
+              "notConstructionApproval": true,
+              "wiringModeled": false,
+              "electricalDesign": {
+                "kind": "socket",
+                "code": "P09",
+                "purpose": "书房南段书桌 · 电脑电源",
+                "centerHeightMm": 1000,
+                "face": "north",
+                "mountingRoomId": "room_c",
+                "groupIds": [],
+                "controlTargets": [],
+                "servedFurnitureIds": [
+                  "study_full_desk"
+                ],
+                "anchor": {
+                  "kind": "wall",
+                  "wallIndex": 27,
+                  "wallRectMm": [
+                    -120,
+                    6050,
+                    2140,
+                    6180,
+                    "e"
+                  ],
+                  "surfaceVerifiedAgainstCurrentModel": true,
+                  "siteVerified": false,
+                  "requestedAlongMm": 450,
+                  "clampedAlongMm": 450,
+                  "relocationToSolidHostMm": 0,
+                  "drawingHostRecheckRequired": false
+                },
+                "installationApproved": false,
+                "ratingAmps": null,
+                "ipRating": null,
+                "wiringModeled": false,
+                "productSelected": false,
+                "circuitConfirmed": false,
+                "protectiveMeasuresConfirmed": false,
+                "separateCircuitRecommendation": "electrician-review-pending",
+                "reviewNotes": "面板、点位、高度、线路和保护措施均需现场核验。",
+                "visibleFaceplateModules": 1,
+                "nominalModuleDimensionsMm": [
+                  86,
+                  8,
+                  86
+                ],
+                "selectedProduct": false,
+                "backBoxesModeled": false,
+                "multipleOutletGroup": false,
+                "layoutRevision": "family-drawing-electrical-20261027",
+                "drawingEvidence": {
+                  "source": {
+                    "file": "业主提供施工图.pdf",
+                    "pages": [
+                      28,
+                      29,
+                      30
+                    ],
+                    "sheets": [
+                      "SD-01",
+                      "SD-02",
+                      "SD-03"
+                    ],
+                    "status": "drawing-intent-not-measured-or-approved",
+                    "symbolCentersNotExtractedFromTextInsertionPoints": true
+                  },
+                  "heightStatus": "SD02-labelled-height",
+                  "heightMm": 1000,
+                  "textHandle": 249330,
+                  "positionStatus": "room-or-service-relative-drawing-location-pending-final-datum",
+                  "textPositionIsNotOutletPosition": true
+                }
+              },
+              "notes": "2026-10-27：依据施工图用途与新模型安装面重新锚定。 面板外形仅86mm单元组合示意，非已选暗盒；线缆、回路和涉水保护未批准。",
+              "conditions": [
+                "86×86×8mm是新面板暂估外形，仅显示墙/柜面安装面；高度为完成地面到面板中心的暂估值，非暗盒尺寸、开槽深度或施工放线批准。P16沿用既有70×70×5mm柜内面板，不重新覆盖。",
+                "电流额定值、线径、负荷、回路容量、插座制式、安全门、接地、漏电保护、等电位、防溅/防护等级及涉水区分区均未确定，须由合格电工结合实测、设备厂家和适用规范审查。不得按示意点位直接施工。"
+              ],
+              "sourceFootprintMm": {
+                "x": 407,
+                "y": 6042,
+                "w": 86,
+                "d": 8
+              },
+              "parts": [
+                {
+                  "id": "family-elec-p09-drawing-unit-0-plate-body",
+                  "x": -43,
+                  "y": -4,
+                  "w": 86,
+                  "d": 6,
+                  "elevationMm": 0,
+                  "heightMm": 86,
+                  "role": "electrical-plate-body",
+                  "label": "暂估86面板可见背壳，不是墙内暗盒 · 1/1单元（制式待选）",
+                  "color": "#D8D3C9",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p09-drawing-unit-0-face",
+                  "x": -42,
+                  "y": 2,
+                  "w": 84,
+                  "d": 1.6,
+                  "elevationMm": 1,
+                  "heightMm": 84,
+                  "role": "electrical-face",
+                  "label": "奶白面板正面 · 1/1单元（制式待选）",
+                  "color": "#F7F4EC",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p09-drawing-unit-0-upper-left",
+                  "x": -19,
+                  "y": 3.6,
+                  "w": 7,
+                  "d": 0.4,
+                  "elevationMm": 52,
+                  "heightMm": 10,
+                  "role": "electrical-socket-symbol",
+                  "label": "五孔面符号 · 插座规格待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p09-drawing-unit-0-upper-right",
+                  "x": 12,
+                  "y": 3.6,
+                  "w": 7,
+                  "d": 0.4,
+                  "elevationMm": 52,
+                  "heightMm": 10,
+                  "role": "electrical-socket-symbol",
+                  "label": "五孔面符号 · 插座规格待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p09-drawing-unit-0-lower-earth",
+                  "x": -3,
+                  "y": 3.6,
+                  "w": 6,
+                  "d": 0.4,
+                  "elevationMm": 35,
+                  "heightMm": 12,
+                  "role": "electrical-socket-symbol",
+                  "label": "五孔面符号 · 插座规格待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p09-drawing-unit-0-lower-left",
+                  "x": -22,
+                  "y": 3.6,
+                  "w": 8,
+                  "d": 0.4,
+                  "elevationMm": 16,
+                  "heightMm": 11,
+                  "role": "electrical-socket-symbol",
+                  "label": "五孔面符号 · 插座规格待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p09-drawing-unit-0-lower-right",
+                  "x": 14,
+                  "y": 3.6,
+                  "w": 8,
+                  "d": 0.4,
+                  "elevationMm": 16,
+                  "heightMm": 11,
+                  "role": "electrical-socket-symbol",
+                  "label": "五孔面符号 · 插座规格待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p09-drawing-unit-0-earth-mark",
+                  "x": -3,
+                  "y": 3.6,
+                  "w": 6,
+                  "d": 0.4,
+                  "elevationMm": 72,
+                  "heightMm": 1,
+                  "role": "electrical-mark",
+                  "label": "接地符号 · 接地未建模 · 1/1单元（制式待选）",
+                  "color": "#C6C2B8",
+                  "material": "Cream",
+                  "face": "south"
+                }
+              ]
+            },
+            {
+              "id": "family-elec-p10",
+              "sourceId": "family-elec-p10",
+              "type": "fixture",
+              "nativeType": "socket",
+              "modelVariant": "electrical-socket",
+              "name": "P10 · 书房南段书桌 · 备用电源",
+              "cx": 950,
+              "cy": 6046,
+              "w": 86,
+              "d": 8,
+              "heightMm": 86,
+              "elevationMm": 957,
+              "baseWidthMm": 86,
+              "baseDepthMm": 8,
+              "baseHeightMm": 86,
+              "rot": 180,
+              "color": "#F7F4EC",
+              "roomId": "room_c",
+              "face": "north",
+              "kind": "socket",
+              "code": "P10",
+              "dimensionStatus": "drawing-intent-model-host-not-site-survey",
+              "layoutRevision": "family-drawing-electrical-20261027",
+              "cabinetRevision": "family-electrical-20261012",
+              "visualOnly": true,
+              "installationApproved": false,
+              "notConstructionApproval": true,
+              "wiringModeled": false,
+              "electricalDesign": {
+                "kind": "socket",
+                "code": "P10",
+                "purpose": "书房南段书桌 · 备用电源",
+                "centerHeightMm": 1000,
+                "face": "north",
+                "mountingRoomId": "room_c",
+                "groupIds": [],
+                "controlTargets": [],
+                "servedFurnitureIds": [
+                  "study_full_desk"
+                ],
+                "anchor": {
+                  "kind": "wall",
+                  "wallIndex": 27,
+                  "wallRectMm": [
+                    -120,
+                    6050,
+                    2140,
+                    6180,
+                    "e"
+                  ],
+                  "surfaceVerifiedAgainstCurrentModel": true,
+                  "siteVerified": false,
+                  "requestedAlongMm": 950,
+                  "clampedAlongMm": 950,
+                  "relocationToSolidHostMm": 0,
+                  "drawingHostRecheckRequired": false
+                },
+                "installationApproved": false,
+                "ratingAmps": null,
+                "ipRating": null,
+                "wiringModeled": false,
+                "productSelected": false,
+                "circuitConfirmed": false,
+                "protectiveMeasuresConfirmed": false,
+                "separateCircuitRecommendation": "electrician-review-pending",
+                "reviewNotes": "面板、点位、高度、线路和保护措施均需现场核验。",
+                "visibleFaceplateModules": 1,
+                "nominalModuleDimensionsMm": [
+                  86,
+                  8,
+                  86
+                ],
+                "selectedProduct": false,
+                "backBoxesModeled": false,
+                "multipleOutletGroup": false,
+                "layoutRevision": "family-drawing-electrical-20261027",
+                "drawingEvidence": {
+                  "source": {
+                    "file": "业主提供施工图.pdf",
+                    "pages": [
+                      28,
+                      29,
+                      30
+                    ],
+                    "sheets": [
+                      "SD-01",
+                      "SD-02",
+                      "SD-03"
+                    ],
+                    "status": "drawing-intent-not-measured-or-approved",
+                    "symbolCentersNotExtractedFromTextInsertionPoints": true
+                  },
+                  "heightStatus": "SD02-labelled-height",
+                  "heightMm": 1000,
+                  "textHandle": 249330,
+                  "positionStatus": "room-or-service-relative-drawing-location-pending-final-datum",
+                  "textPositionIsNotOutletPosition": true
+                }
+              },
+              "notes": "2026-10-27：依据施工图用途与新模型安装面重新锚定。 面板外形仅86mm单元组合示意，非已选暗盒；线缆、回路和涉水保护未批准。",
+              "conditions": [
+                "86×86×8mm是新面板暂估外形，仅显示墙/柜面安装面；高度为完成地面到面板中心的暂估值，非暗盒尺寸、开槽深度或施工放线批准。P16沿用既有70×70×5mm柜内面板，不重新覆盖。",
+                "电流额定值、线径、负荷、回路容量、插座制式、安全门、接地、漏电保护、等电位、防溅/防护等级及涉水区分区均未确定，须由合格电工结合实测、设备厂家和适用规范审查。不得按示意点位直接施工。"
+              ],
+              "sourceFootprintMm": {
+                "x": 907,
+                "y": 6042,
+                "w": 86,
+                "d": 8
+              },
+              "parts": [
+                {
+                  "id": "family-elec-p10-drawing-unit-0-plate-body",
+                  "x": -43,
+                  "y": -4,
+                  "w": 86,
+                  "d": 6,
+                  "elevationMm": 0,
+                  "heightMm": 86,
+                  "role": "electrical-plate-body",
+                  "label": "暂估86面板可见背壳，不是墙内暗盒 · 1/1单元（制式待选）",
+                  "color": "#D8D3C9",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p10-drawing-unit-0-face",
+                  "x": -42,
+                  "y": 2,
+                  "w": 84,
+                  "d": 1.6,
+                  "elevationMm": 1,
+                  "heightMm": 84,
+                  "role": "electrical-face",
+                  "label": "奶白面板正面 · 1/1单元（制式待选）",
+                  "color": "#F7F4EC",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p10-drawing-unit-0-upper-left",
+                  "x": -19,
+                  "y": 3.6,
+                  "w": 7,
+                  "d": 0.4,
+                  "elevationMm": 52,
+                  "heightMm": 10,
+                  "role": "electrical-socket-symbol",
+                  "label": "五孔面符号 · 插座规格待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p10-drawing-unit-0-upper-right",
+                  "x": 12,
+                  "y": 3.6,
+                  "w": 7,
+                  "d": 0.4,
+                  "elevationMm": 52,
+                  "heightMm": 10,
+                  "role": "electrical-socket-symbol",
+                  "label": "五孔面符号 · 插座规格待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p10-drawing-unit-0-lower-earth",
+                  "x": -3,
+                  "y": 3.6,
+                  "w": 6,
+                  "d": 0.4,
+                  "elevationMm": 35,
+                  "heightMm": 12,
+                  "role": "electrical-socket-symbol",
+                  "label": "五孔面符号 · 插座规格待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p10-drawing-unit-0-lower-left",
+                  "x": -22,
+                  "y": 3.6,
+                  "w": 8,
+                  "d": 0.4,
+                  "elevationMm": 16,
+                  "heightMm": 11,
+                  "role": "electrical-socket-symbol",
+                  "label": "五孔面符号 · 插座规格待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p10-drawing-unit-0-lower-right",
+                  "x": 14,
+                  "y": 3.6,
+                  "w": 8,
+                  "d": 0.4,
+                  "elevationMm": 16,
+                  "heightMm": 11,
+                  "role": "electrical-socket-symbol",
+                  "label": "五孔面符号 · 插座规格待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p10-drawing-unit-0-earth-mark",
+                  "x": -3,
+                  "y": 3.6,
+                  "w": 6,
+                  "d": 0.4,
+                  "elevationMm": 72,
+                  "heightMm": 1,
+                  "role": "electrical-mark",
+                  "label": "接地符号 · 接地未建模 · 1/1单元（制式待选）",
+                  "color": "#C6C2B8",
+                  "material": "Cream",
+                  "face": "south"
+                }
+              ]
+            },
+            {
+              "id": "family-elec-p11",
+              "sourceId": "family-elec-p11",
+              "type": "fixture",
+              "nativeType": "socket",
+              "modelVariant": "electrical-socket",
+              "name": "P11 · 书房沙发／未来床头电源",
+              "cx": 200,
+              "cy": 3324,
+              "w": 86,
+              "d": 8,
+              "heightMm": 86,
+              "elevationMm": 307,
+              "baseWidthMm": 86,
+              "baseDepthMm": 8,
+              "baseHeightMm": 86,
+              "rot": 0,
+              "color": "#F7F4EC",
+              "roomId": "room_c",
+              "face": "south",
+              "kind": "socket",
+              "code": "P11",
+              "dimensionStatus": "drawing-intent-model-host-not-site-survey",
+              "layoutRevision": "family-drawing-electrical-20261027",
+              "cabinetRevision": "family-electrical-20261012",
+              "visualOnly": true,
+              "installationApproved": false,
+              "notConstructionApproval": true,
+              "wiringModeled": false,
+              "electricalDesign": {
+                "kind": "socket",
+                "code": "P11",
+                "purpose": "书房沙发／未来床头电源",
+                "centerHeightMm": 350,
+                "face": "south",
+                "mountingRoomId": "room_c",
+                "groupIds": [],
+                "controlTargets": [],
+                "servedFurnitureIds": [
+                  "study_north_sofa"
+                ],
+                "anchor": {
+                  "kind": "wall",
+                  "wallIndex": 7,
+                  "wallRectMm": [
+                    -120,
+                    3200,
+                    2590,
+                    3320,
+                    "i"
+                  ],
+                  "surfaceVerifiedAgainstCurrentModel": true,
+                  "siteVerified": false,
+                  "requestedAlongMm": 200,
+                  "clampedAlongMm": 200,
+                  "relocationToSolidHostMm": 0,
+                  "drawingHostRecheckRequired": false
+                },
+                "installationApproved": false,
+                "ratingAmps": null,
+                "ipRating": null,
+                "wiringModeled": false,
+                "productSelected": false,
+                "circuitConfirmed": false,
+                "protectiveMeasuresConfirmed": false,
+                "separateCircuitRecommendation": "electrician-review-pending",
+                "reviewNotes": "高于当前830沙发和未来暂估1080床头；未来床架外形与插头操作空间仍待核。",
+                "visibleFaceplateModules": 1,
+                "nominalModuleDimensionsMm": [
+                  86,
+                  8,
+                  86
+                ],
+                "selectedProduct": false,
+                "backBoxesModeled": false,
+                "multipleOutletGroup": false,
+                "layoutRevision": "family-drawing-electrical-20261027",
+                "drawingEvidence": {
+                  "source": {
+                    "file": "业主提供施工图.pdf",
+                    "pages": [
+                      28,
+                      29,
+                      30
+                    ],
+                    "sheets": [
+                      "SD-01",
+                      "SD-02",
+                      "SD-03"
+                    ],
+                    "status": "drawing-intent-not-measured-or-approved",
+                    "symbolCentersNotExtractedFromTextInsertionPoints": true
+                  },
+                  "heightStatus": "SD02-labelled-height",
+                  "heightMm": 350,
+                  "positionStatus": "room-or-service-relative-drawing-location-pending-final-datum",
+                  "textPositionIsNotOutletPosition": true
+                }
+              },
+              "notes": "2026-10-27：图示低位用途放沙发北墙左侧露出段，避开1900宽沙发实体；未来床和电源线可达性另核。 面板外形仅86mm单元组合示意，非已选暗盒；线缆、回路和涉水保护未批准。",
+              "conditions": [
+                "86×86×8mm是新面板暂估外形，仅显示墙/柜面安装面；高度为完成地面到面板中心的暂估值，非暗盒尺寸、开槽深度或施工放线批准。P16沿用既有70×70×5mm柜内面板，不重新覆盖。",
+                "电流额定值、线径、负荷、回路容量、插座制式、安全门、接地、漏电保护、等电位、防溅/防护等级及涉水区分区均未确定，须由合格电工结合实测、设备厂家和适用规范审查。不得按示意点位直接施工。"
+              ],
+              "sourceFootprintMm": {
+                "x": 157,
+                "y": 3320,
+                "w": 86,
+                "d": 8
+              },
+              "parts": [
+                {
+                  "id": "family-elec-p11-drawing-unit-0-plate-body",
+                  "x": -43,
+                  "y": -4,
+                  "w": 86,
+                  "d": 6,
+                  "elevationMm": 0,
+                  "heightMm": 86,
+                  "role": "electrical-plate-body",
+                  "label": "暂估86面板可见背壳，不是墙内暗盒 · 1/1单元（制式待选）",
+                  "color": "#D8D3C9",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p11-drawing-unit-0-face",
+                  "x": -42,
+                  "y": 2,
+                  "w": 84,
+                  "d": 1.6,
+                  "elevationMm": 1,
+                  "heightMm": 84,
+                  "role": "electrical-face",
+                  "label": "奶白面板正面 · 1/1单元（制式待选）",
+                  "color": "#F7F4EC",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p11-drawing-unit-0-upper-left",
+                  "x": -19,
+                  "y": 3.6,
+                  "w": 7,
+                  "d": 0.4,
+                  "elevationMm": 52,
+                  "heightMm": 10,
+                  "role": "electrical-socket-symbol",
+                  "label": "五孔面符号 · 插座规格待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p11-drawing-unit-0-upper-right",
+                  "x": 12,
+                  "y": 3.6,
+                  "w": 7,
+                  "d": 0.4,
+                  "elevationMm": 52,
+                  "heightMm": 10,
+                  "role": "electrical-socket-symbol",
+                  "label": "五孔面符号 · 插座规格待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p11-drawing-unit-0-lower-earth",
+                  "x": -3,
+                  "y": 3.6,
+                  "w": 6,
+                  "d": 0.4,
+                  "elevationMm": 35,
+                  "heightMm": 12,
+                  "role": "electrical-socket-symbol",
+                  "label": "五孔面符号 · 插座规格待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p11-drawing-unit-0-lower-left",
+                  "x": -22,
+                  "y": 3.6,
+                  "w": 8,
+                  "d": 0.4,
+                  "elevationMm": 16,
+                  "heightMm": 11,
+                  "role": "electrical-socket-symbol",
+                  "label": "五孔面符号 · 插座规格待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p11-drawing-unit-0-lower-right",
+                  "x": 14,
+                  "y": 3.6,
+                  "w": 8,
+                  "d": 0.4,
+                  "elevationMm": 16,
+                  "heightMm": 11,
+                  "role": "electrical-socket-symbol",
+                  "label": "五孔面符号 · 插座规格待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-p11-drawing-unit-0-earth-mark",
+                  "x": -3,
+                  "y": 3.6,
+                  "w": 6,
+                  "d": 0.4,
+                  "elevationMm": 72,
+                  "heightMm": 1,
+                  "role": "electrical-mark",
+                  "label": "接地符号 · 接地未建模 · 1/1单元（制式待选）",
+                  "color": "#C6C2B8",
+                  "material": "Cream",
+                  "face": "south"
+                }
+              ]
+            },
+            {
+              "id": "family-elec-n03",
+              "sourceId": "family-elec-n03",
+              "type": "fixture",
+              "nativeType": "data",
+              "modelVariant": "electrical-data",
+              "name": "N03 · 书房南书桌网络用途点",
+              "cx": 1220,
+              "cy": 6046,
+              "w": 86,
+              "d": 8,
+              "heightMm": 86,
+              "elevationMm": 957,
+              "baseWidthMm": 86,
+              "baseDepthMm": 8,
+              "baseHeightMm": 86,
+              "rot": 180,
+              "color": "#F7F4EC",
+              "roomId": "room_c",
+              "face": "north",
+              "kind": "data",
+              "code": "N03",
+              "dimensionStatus": "drawing-intent-model-host-not-site-survey",
+              "layoutRevision": "family-drawing-electrical-20261027",
+              "cabinetRevision": "family-electrical-20261012",
+              "visualOnly": true,
+              "installationApproved": false,
+              "notConstructionApproval": true,
+              "wiringModeled": false,
+              "electricalDesign": {
+                "kind": "data",
+                "code": "N03",
+                "purpose": "书房南书桌网络用途点",
+                "centerHeightMm": 1000,
+                "face": "north",
+                "mountingRoomId": "room_c",
+                "groupIds": [],
+                "controlTargets": [],
+                "servedFurnitureIds": [
+                  "study_full_desk"
+                ],
+                "anchor": {
+                  "kind": "wall",
+                  "wallIndex": 27,
+                  "wallRectMm": [
+                    -120,
+                    6050,
+                    2140,
+                    6180,
+                    "e"
+                  ],
+                  "surfaceVerifiedAgainstCurrentModel": true,
+                  "siteVerified": false,
+                  "requestedAlongMm": 1220,
+                  "clampedAlongMm": 1220,
+                  "relocationToSolidHostMm": 0,
+                  "drawingHostRecheckRequired": false
+                },
+                "installationApproved": false,
+                "ratingAmps": null,
+                "ipRating": null,
+                "wiringModeled": false,
+                "productSelected": false,
+                "circuitConfirmed": false,
+                "protectiveMeasuresConfirmed": false,
+                "separateCircuitRecommendation": "electrician-review-pending",
+                "reviewNotes": "面板、点位、高度、线路和保护措施均需现场核验。",
+                "visibleFaceplateModules": 1,
+                "nominalModuleDimensionsMm": [
+                  86,
+                  8,
+                  86
+                ],
+                "selectedProduct": false,
+                "backBoxesModeled": false,
+                "multipleOutletGroup": false,
+                "layoutRevision": "family-drawing-electrical-20261027",
+                "drawingEvidence": {
+                  "source": {
+                    "file": "业主提供施工图.pdf",
+                    "pages": [
+                      28,
+                      29,
+                      30
+                    ],
+                    "sheets": [
+                      "SD-01",
+                      "SD-02",
+                      "SD-03"
+                    ],
+                    "status": "drawing-intent-not-measured-or-approved",
+                    "symbolCentersNotExtractedFromTextInsertionPoints": true
+                  },
+                  "heightStatus": "SD02-labelled-height",
+                  "heightMm": 1000,
+                  "textHandle": 249331,
+                  "positionStatus": "room-or-service-relative-drawing-location-pending-final-datum",
+                  "textPositionIsNotOutletPosition": true
+                }
+              },
+              "notes": "2026-10-27：依据施工图用途与新模型安装面重新锚定。 面板外形仅86mm单元组合示意，非已选暗盒；线缆、回路和涉水保护未批准。",
+              "conditions": [
+                "86×86×8mm是新面板暂估外形，仅显示墙/柜面安装面；高度为完成地面到面板中心的暂估值，非暗盒尺寸、开槽深度或施工放线批准。P16沿用既有70×70×5mm柜内面板，不重新覆盖。",
+                "电流额定值、线径、负荷、回路容量、插座制式、安全门、接地、漏电保护、等电位、防溅/防护等级及涉水区分区均未确定，须由合格电工结合实测、设备厂家和适用规范审查。不得按示意点位直接施工。"
+              ],
+              "sourceFootprintMm": {
+                "x": 1177,
+                "y": 6042,
+                "w": 86,
+                "d": 8
+              },
+              "parts": [
+                {
+                  "id": "family-elec-n03-drawing-unit-0-plate-body",
+                  "x": -43,
+                  "y": -4,
+                  "w": 86,
+                  "d": 6,
+                  "elevationMm": 0,
+                  "heightMm": 86,
+                  "role": "electrical-plate-body",
+                  "label": "暂估86面板可见背壳，不是墙内暗盒 · 1/1单元（制式待选）",
+                  "color": "#D8D3C9",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-n03-drawing-unit-0-face",
+                  "x": -42,
+                  "y": 2,
+                  "w": 84,
+                  "d": 1.6,
+                  "elevationMm": 1,
+                  "heightMm": 84,
+                  "role": "electrical-face",
+                  "label": "奶白面板正面 · 1/1单元（制式待选）",
+                  "color": "#F7F4EC",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-n03-drawing-unit-0-port-frame",
+                  "x": -20,
+                  "y": 3.6,
+                  "w": 40,
+                  "d": 0.4,
+                  "elevationMm": 30,
+                  "heightMm": 25,
+                  "role": "electrical-data-frame",
+                  "label": "弱电面接口框 · 1/1单元（制式待选）",
+                  "color": "#D8D5CC",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-n03-drawing-unit-0-port-dark",
+                  "x": -16,
+                  "y": 3.6,
+                  "w": 32,
+                  "d": 0.4,
+                  "elevationMm": 33,
+                  "heightMm": 18,
+                  "role": "electrical-data-port",
+                  "label": "弱电端口示意 · 制式待定 · 1/1单元（制式待选）",
+                  "color": "#4E5552",
+                  "material": "Cream",
+                  "face": "south"
+                },
+                {
+                  "id": "family-elec-n03-drawing-unit-0-port-tab",
+                  "x": -7,
+                  "y": 3.6,
+                  "w": 14,
+                  "d": 0.4,
+                  "elevationMm": 30,
+                  "heightMm": 3,
+                  "role": "electrical-data-tab",
+                  "label": "接口卡扣符号 · 1/1单元（制式待选）",
+                  "color": "#8E958F",
+                  "material": "Cream",
+                  "face": "south"
+                }
+              ]
+            },
+            {
+              "id": "study_window_return",
+              "sourceId": "study_window_return",
+              "type": "desk",
+              "name": "书房7字桌 · 西窗返桌",
+              "cx": 370,
+              "cy": 5195,
+              "w": 500,
+              "d": 610,
+              "rot": 0,
+              "color": "#F3EFE6",
+              "heightMm": 740,
+              "elevationMm": 0,
+              "roomId": "room_c",
+              "face": "east",
+              "dimensionStatus": "construction-drawing-dimensions-with-pending-details",
+              "layoutRevision": "family-drawing-bedrooms-20261027",
+              "modelVariant": "bare-worktop",
+              "sourceFootprintMm": {
+                "x": 120,
+                "y": 4890,
+                "w": 500,
+                "d": 610
+              },
+              "notes": "保留7字西窗返桌500×610，图纸未标返桌净尺寸，明确待核。",
+              "referenceStyle": {
+                "revision": "family-reference-finish-20261025",
+                "variant": "floating-desk",
+                "source": "owner-six-reference-images-20261025",
+                "status": "concept-not-original-model",
+                "appearanceReferenceOnly": true,
+                "notPurchasedModel": true,
+                "installationApproved": false,
+                "palette": {
+                  "cream": "#F3EFE6",
+                  "oak": "#C6AA83",
+                  "walnut": "#81664F",
+                  "pink": "#D6B8AF",
+                  "metal": "#282522",
+                  "light": "#FFF0C8"
+                },
+                "preserveExistingEnvelope": true
+              }
+            },
+            {
+              "id": "study_north_sofa",
+              "type": "sofa",
+              "name": "书房北墙沙发",
+              "cx": 1270,
+              "cy": 3745,
+              "w": 1900,
+              "d": 850,
+              "rot": 0,
+              "color": "#E8E0D1",
+              "heightMm": 830,
+              "elevationMm": 0,
+              "sourceId": "study_north_sofa",
+              "sourceFootprintMm": {
+                "x": 320,
+                "y": 3320,
+                "w": 1900,
+                "d": 850
+              },
+              "roomId": "room_c",
+              "face": "south",
+              "notes": "PL03北墙沙发床长1900；深850、高830沿用原暂估，展开尺寸图未给。",
+              "dimensionStatus": "construction-drawing-dimensions-with-pending-details",
+              "referenceStyle": {
+                "revision": "family-reference-finish-20261025",
+                "variant": "low-linen-sofa",
+                "source": "owner-six-reference-images-20261025",
+                "status": "concept-not-original-model",
+                "appearanceReferenceOnly": true,
+                "notPurchasedModel": true,
+                "installationApproved": false,
+                "palette": {
+                  "cream": "#F3EFE6",
+                  "oak": "#C6AA83",
+                  "walnut": "#81664F",
+                  "pink": "#D6B8AF",
+                  "metal": "#282522",
+                  "light": "#FFF0C8"
+                },
+                "preserveExistingEnvelope": true
+              },
+              "layoutRevision": "family-drawing-bedrooms-20261027"
+            },
+            {
+              "id": "fit-study_bookwall",
+              "type": "fixture",
+              "name": "书房南墙 · 两道浅木悬板与板底暖光",
+              "cx": 770,
+              "cy": 5908.75,
+              "w": 1300,
+              "d": 282.5,
+              "rot": 0,
+              "color": "#C6AA83",
+              "baseWidthMm": 1300,
+              "baseDepthMm": 282.5,
+              "heightMm": 2500,
+              "elevationMm": 0,
+              "parts": [
+                {
+                  "id": "fit-study_bookwall-drawing-shelf-1500",
+                  "x": -650,
+                  "y": -141.25,
+                  "w": 1300,
+                  "d": 282.5,
+                  "elevationMm": 1500,
+                  "heightMm": 18,
+                  "role": "display-shelf",
+                  "label": "书房1300通长18mm悬板 · 1500",
+                  "color": "#C6AA83",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-drawing-led-1500",
+                  "x": -626,
+                  "y": -106.25,
+                  "w": 1252,
+                  "d": 8,
+                  "elevationMm": 1496,
+                  "heightMm": 4,
+                  "role": "led-strip",
+                  "label": "真实层板底4mm灯带",
+                  "color": "#FFF0C8",
+                  "material": "Light",
+                  "face": "north",
+                  "anchorPartId": "fit-study_bookwall-drawing-shelf-1500",
+                  "anchor": "panel-underside",
+                  "installationApproved": false
+                },
+                {
+                  "id": "fit-study_bookwall-drawing-bracket-1500-0",
+                  "x": -590,
+                  "y": 129.25,
+                  "w": 30,
+                  "d": 12,
+                  "elevationMm": 1466,
+                  "heightMm": 34,
+                  "role": "hidden-shelf-support",
+                  "label": "后沿隐藏支架示意",
+                  "color": "#282522",
+                  "material": "WarmGrayMetal",
+                  "face": "north",
+                  "hiddenSupport": true,
+                  "structuralCapacityConfirmed": false
+                },
+                {
+                  "id": "fit-study_bookwall-drawing-bracket-1500-1",
+                  "x": -15,
+                  "y": 129.25,
+                  "w": 30,
+                  "d": 12,
+                  "elevationMm": 1466,
+                  "heightMm": 34,
+                  "role": "hidden-shelf-support",
+                  "label": "后沿隐藏支架示意",
+                  "color": "#282522",
+                  "material": "WarmGrayMetal",
+                  "face": "north",
+                  "hiddenSupport": true,
+                  "structuralCapacityConfirmed": false
+                },
+                {
+                  "id": "fit-study_bookwall-drawing-bracket-1500-2",
+                  "x": 560,
+                  "y": 129.25,
+                  "w": 30,
+                  "d": 12,
+                  "elevationMm": 1466,
+                  "heightMm": 34,
+                  "role": "hidden-shelf-support",
+                  "label": "后沿隐藏支架示意",
+                  "color": "#282522",
+                  "material": "WarmGrayMetal",
+                  "face": "north",
+                  "hiddenSupport": true,
+                  "structuralCapacityConfirmed": false
+                },
+                {
+                  "id": "fit-study_bookwall-drawing-shelf-1950",
+                  "x": -650,
+                  "y": -141.25,
+                  "w": 1300,
+                  "d": 282.5,
+                  "elevationMm": 1950,
+                  "heightMm": 18,
+                  "role": "display-shelf",
+                  "label": "书房1300通长18mm悬板 · 1950",
+                  "color": "#C6AA83",
+                  "material": "OakLight",
+                  "face": "north"
+                },
+                {
+                  "id": "fit-study_bookwall-drawing-led-1950",
+                  "x": -626,
+                  "y": -106.25,
+                  "w": 1252,
+                  "d": 8,
+                  "elevationMm": 1946,
+                  "heightMm": 4,
+                  "role": "led-strip",
+                  "label": "真实层板底4mm灯带",
+                  "color": "#FFF0C8",
+                  "material": "Light",
+                  "face": "north",
+                  "anchorPartId": "fit-study_bookwall-drawing-shelf-1950",
+                  "anchor": "panel-underside",
+                  "installationApproved": false
+                },
+                {
+                  "id": "fit-study_bookwall-drawing-bracket-1950-0",
+                  "x": -590,
+                  "y": 129.25,
+                  "w": 30,
+                  "d": 12,
+                  "elevationMm": 1916,
+                  "heightMm": 34,
+                  "role": "hidden-shelf-support",
+                  "label": "后沿隐藏支架示意",
+                  "color": "#282522",
+                  "material": "WarmGrayMetal",
+                  "face": "north",
+                  "hiddenSupport": true,
+                  "structuralCapacityConfirmed": false
+                },
+                {
+                  "id": "fit-study_bookwall-drawing-bracket-1950-1",
+                  "x": -15,
+                  "y": 129.25,
+                  "w": 30,
+                  "d": 12,
+                  "elevationMm": 1916,
+                  "heightMm": 34,
+                  "role": "hidden-shelf-support",
+                  "label": "后沿隐藏支架示意",
+                  "color": "#282522",
+                  "material": "WarmGrayMetal",
+                  "face": "north",
+                  "hiddenSupport": true,
+                  "structuralCapacityConfirmed": false
+                },
+                {
+                  "id": "fit-study_bookwall-drawing-bracket-1950-2",
+                  "x": 560,
+                  "y": 129.25,
+                  "w": 30,
+                  "d": 12,
+                  "elevationMm": 1916,
+                  "heightMm": 34,
+                  "role": "hidden-shelf-support",
+                  "label": "后沿隐藏支架示意",
+                  "color": "#282522",
+                  "material": "WarmGrayMetal",
+                  "face": "north",
+                  "hiddenSupport": true,
+                  "structuralCapacityConfirmed": false
+                }
+              ],
+              "sourceId": "fit-study_bookwall",
+              "dimensionStatus": "construction-drawing-dimensions-with-pending-details",
+              "roomId": "room_c",
+              "notes": "两木悬板长度随南桌改1300，层板高度与18mm细分沿用原方案；图纸未标层板加工尺寸。",
+              "conditions": [
+                "原1450×282.5mm投影及东端x1570避门范围保持；两悬板1500/1950高、18mm厚、各自真实底面暖光。",
+                "完整18mm板和4mm灯带仍应参与门叶扫掠检查，不能当成空投影；基层、锚固、承重、眩光与驱动检修待核。"
+              ],
+              "cabinetRevision": "family-drawing-bedrooms-20261027",
+              "baseHeightMm": 2500,
+              "cabinetDesign": {
+                "revision": "family-drawing-bedrooms-20261027",
+                "title": "施工图1300桌上两悬板",
+                "status": "concept-not-original-model",
+                "boardThicknessMm": 18,
+                "doorGapMm": 0,
+                "palette": {
+                  "wood": "#C6AA83",
+                  "light": "#FFF0C8"
+                },
+                "faces": [
+                  {
+                    "face": "north",
+                    "lengthMm": 1300,
+                    "depthMm": 282.5
+                  }
+                ],
+                "features": [
+                  "两道真实18mm通长木板，不以实心大柜体代替。",
+                  "各悬板底面真实4mm暖光灯带，后沿隐藏支承仅概念。"
+                ],
+                "dimensions": [
+                  "1300×282.5mm投影；两悬板保留1500/1950mm板底及18mm板厚，图纸未给书架高度细分。"
+                ]
+              },
+              "layoutRevision": "family-drawing-bedrooms-20261027",
+              "sourceFootprintMm": {
+                "x": 120,
+                "y": 5767.5,
+                "w": 1300,
+                "d": 282.5
+              },
+              "referenceStyle": {
+                "revision": "family-reference-finish-20261025",
+                "variant": "two-floating-oak-shelves",
+                "source": "owner-six-reference-images-20261025",
+                "status": "concept-not-original-model",
+                "appearanceReferenceOnly": true,
+                "notPurchasedModel": true,
+                "installationApproved": false,
+                "palette": {
+                  "cream": "#F3EFE6",
+                  "oak": "#C6AA83",
+                  "walnut": "#81664F",
+                  "pink": "#D6B8AF",
+                  "metal": "#282522",
+                  "light": "#FFF0C8"
+                },
+                "shelfBottomsMm": [
+                  1500,
+                  1950
+                ],
+                "boardThicknessMm": 18
+              }
+            }
+          ],
+          "previousRooms": [
+            {
+              "id": "room_b",
+              "name": "次卧 B",
+              "poly": [
+                [
+                  120,
+                  120
+                ],
+                [
+                  3530,
+                  120
+                ],
+                [
+                  3530,
+                  3200
+                ],
+                [
+                  120,
+                  3200
+                ]
+              ],
+              "mat": "wood",
+              "at": [
+                1720,
+                2310
+              ],
+              "heightMm": 2700,
+              "dimensionStatus": "design-pending",
+              "planAreaM2": 10.503,
+              "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+              "layoutRevision": "family-drawing-shell-20261027",
+              "drawingSource": {
+                "id": "owner-construction-dwg-20261027",
+                "file": "业主提供施工图.dwg",
+                "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                "pdf": "业主提供施工图.pdf",
+                "sheets": [
+                  "PL-02",
+                  "PL-03",
+                  "PL-06"
+                ],
+                "unit": "mm",
+                "nativeNorth": "drawing-right",
+                "modelNorth": "negative-y",
+                "scalingApplied": false,
+                "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                "sheetDeltaX": {
+                  "PL-02": 0,
+                  "PL-03": 23138.659583967,
+                  "PL-06": 92554.638335861
+                },
+                "status": "construction-drawing-reference-not-site-or-structural-approval"
+              },
+              "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+            },
+            {
+              "id": "room_c",
+              "name": "书房 · 客卧",
+              "poly": [
+                [
+                  120,
+                  3320
+                ],
+                [
+                  2420,
+                  3320
+                ],
+                [
+                  2420,
+                  6050
+                ],
+                [
+                  120,
+                  6050
+                ]
+              ],
+              "mat": "wood",
+              "at": [
+                1270,
+                4550
+              ],
+              "heightMm": 2700,
+              "dimensionStatus": "design-pending",
+              "planAreaM2": 6.279,
+              "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+              "layoutRevision": "family-drawing-shell-20261027",
+              "drawingSource": {
+                "id": "owner-construction-dwg-20261027",
+                "file": "业主提供施工图.dwg",
+                "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                "pdf": "业主提供施工图.pdf",
+                "sheets": [
+                  "PL-02",
+                  "PL-03",
+                  "PL-06"
+                ],
+                "unit": "mm",
+                "nativeNorth": "drawing-right",
+                "modelNorth": "negative-y",
+                "scalingApplied": false,
+                "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                "sheetDeltaX": {
+                  "PL-02": 0,
+                  "PL-03": 23138.659583967,
+                  "PL-06": 92554.638335861
+                },
+                "status": "construction-drawing-reference-not-site-or-structural-approval"
+              },
+              "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+            },
+            {
+              "id": "room_a",
+              "name": "主卧",
+              "poly": [
+                [
+                  3650,
+                  120
+                ],
+                [
+                  6800,
+                  120
+                ],
+                [
+                  6800,
+                  3140
+                ],
+                [
+                  5050,
+                  3140
+                ],
+                [
+                  5050,
+                  4470
+                ],
+                [
+                  3650,
+                  4470
+                ]
+              ],
+              "mat": "wood",
+              "at": [
+                5350,
+                2680
+              ],
+              "heightMm": 2790,
+              "dimensionStatus": "design-pending",
+              "planAreaM2": 11.375,
+              "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+              "layoutRevision": "family-drawing-shell-20261027",
+              "drawingSource": {
+                "id": "owner-construction-dwg-20261027",
+                "file": "业主提供施工图.dwg",
+                "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                "pdf": "业主提供施工图.pdf",
+                "sheets": [
+                  "PL-02",
+                  "PL-03",
+                  "PL-06"
+                ],
+                "unit": "mm",
+                "nativeNorth": "drawing-right",
+                "modelNorth": "negative-y",
+                "scalingApplied": false,
+                "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                "sheetDeltaX": {
+                  "PL-02": 0,
+                  "PL-03": 23138.659583967,
+                  "PL-06": 92554.638335861
+                },
+                "status": "construction-drawing-reference-not-site-or-structural-approval"
+              },
+              "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+            },
+            {
+              "id": "bath_1",
+              "name": "主卫",
+              "poly": [
+                [
+                  5150,
+                  3240
+                ],
+                [
+                  6800,
+                  3240
+                ],
+                [
+                  6800,
+                  4840
+                ],
+                [
+                  5940,
+                  4840
+                ],
+                [
+                  5940,
+                  4719.851
+                ],
+                [
+                  5150,
+                  4719.851
+                ]
+              ],
+              "mat": "antislip",
+              "at": [
+                6040,
+                4130
+              ],
+              "heightMm": 2700,
+              "dimensionStatus": "design-pending",
+              "planAreaM2": 2.545,
+              "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+              "layoutRevision": "family-drawing-shell-20261027",
+              "drawingSource": {
+                "id": "owner-construction-dwg-20261027",
+                "file": "业主提供施工图.dwg",
+                "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                "pdf": "业主提供施工图.pdf",
+                "sheets": [
+                  "PL-02",
+                  "PL-03",
+                  "PL-06"
+                ],
+                "unit": "mm",
+                "nativeNorth": "drawing-right",
+                "modelNorth": "negative-y",
+                "scalingApplied": false,
+                "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                "sheetDeltaX": {
+                  "PL-02": 0,
+                  "PL-03": 23138.659583967,
+                  "PL-06": 92554.638335861
+                },
+                "status": "construction-drawing-reference-not-site-or-structural-approval"
+              },
+              "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+            },
+            {
+              "id": "bath_2",
+              "name": "客卫",
+              "poly": [
+                [
+                  3650,
+                  4590
+                ],
+                [
+                  5050,
+                  4590
+                ],
+                [
+                  5050,
+                  4839.851
+                ],
+                [
+                  5810,
+                  4839.851
+                ],
+                [
+                  5810,
+                  4840
+                ],
+                [
+                  6800,
+                  4840
+                ],
+                [
+                  6800,
+                  6040
+                ],
+                [
+                  4220,
+                  6040
+                ],
+                [
+                  4220,
+                  6190
+                ],
+                [
+                  3650,
+                  6190
+                ]
+              ],
+              "mat": "antislip",
+              "at": [
+                4850,
+                5600
+              ],
+              "heightMm": 2700,
+              "dimensionStatus": "design-pending",
+              "planAreaM2": 4.216,
+              "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+              "layoutRevision": "family-drawing-shell-20261027",
+              "drawingSource": {
+                "id": "owner-construction-dwg-20261027",
+                "file": "业主提供施工图.dwg",
+                "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                "pdf": "业主提供施工图.pdf",
+                "sheets": [
+                  "PL-02",
+                  "PL-03",
+                  "PL-06"
+                ],
+                "unit": "mm",
+                "nativeNorth": "drawing-right",
+                "modelNorth": "negative-y",
+                "scalingApplied": false,
+                "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                "sheetDeltaX": {
+                  "PL-02": 0,
+                  "PL-03": 23138.659583967,
+                  "PL-06": 92554.638335861
+                },
+                "status": "construction-drawing-reference-not-site-or-structural-approval"
+              },
+              "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+            },
+            {
+              "id": "living",
+              "name": "客餐厅 / 过道",
+              "poly": [
+                [
+                  2540,
+                  3320
+                ],
+                [
+                  3530,
+                  3320
+                ],
+                [
+                  3530,
+                  6310
+                ],
+                [
+                  6800,
+                  6310
+                ],
+                [
+                  6800,
+                  11160
+                ],
+                [
+                  5470,
+                  11160
+                ],
+                [
+                  5470,
+                  13890
+                ],
+                [
+                  2140,
+                  13890
+                ],
+                [
+                  2140,
+                  6310
+                ],
+                [
+                  2540,
+                  6310
+                ]
+              ],
+              "mat": "tile800",
+              "at": [
+                4830,
+                7600
+              ],
+              "heightMm": 2700,
+              "dimensionStatus": "design-pending",
+              "planAreaM2": 34.652,
+              "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+              "layoutRevision": "family-drawing-shell-20261027",
+              "drawingSource": {
+                "id": "owner-construction-dwg-20261027",
+                "file": "业主提供施工图.dwg",
+                "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                "pdf": "业主提供施工图.pdf",
+                "sheets": [
+                  "PL-02",
+                  "PL-03",
+                  "PL-06"
+                ],
+                "unit": "mm",
+                "nativeNorth": "drawing-right",
+                "modelNorth": "negative-y",
+                "scalingApplied": false,
+                "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                "sheetDeltaX": {
+                  "PL-02": 0,
+                  "PL-03": 23138.659583967,
+                  "PL-06": 92554.638335861
+                },
+                "status": "construction-drawing-reference-not-site-or-structural-approval"
+              },
+              "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+            },
+            {
+              "id": "kitchen",
+              "name": "厨房",
+              "poly": [
+                [
+                  5610,
+                  11290
+                ],
+                [
+                  8030,
+                  11290
+                ],
+                [
+                  8030,
+                  13890
+                ],
+                [
+                  5690,
+                  13890
+                ],
+                [
+                  5690,
+                  13360
+                ],
+                [
+                  5610,
+                  13360
+                ]
+              ],
+              "mat": "tile800",
+              "at": [
+                6800,
+                12590
+              ],
+              "heightMm": 2700,
+              "notes": "2026-10-31保留890台面，窗下680宽单烘干机条件机位朝阳台；原上窗保留、余墙不作已批准可拆。",
+              "dimensionStatus": "design-pending",
+              "planAreaM2": 6.25,
+              "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+              "layoutRevision": "family-drawing-shell-20261027",
+              "drawingSource": {
+                "id": "owner-construction-dwg-20261027",
+                "file": "业主提供施工图.dwg",
+                "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                "pdf": "业主提供施工图.pdf",
+                "sheets": [
+                  "PL-02",
+                  "PL-03",
+                  "PL-06"
+                ],
+                "unit": "mm",
+                "nativeNorth": "drawing-right",
+                "modelNorth": "negative-y",
+                "scalingApplied": false,
+                "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                "sheetDeltaX": {
+                  "PL-02": 0,
+                  "PL-03": 23138.659583967,
+                  "PL-06": 92554.638335861
+                },
+                "status": "construction-drawing-reference-not-site-or-structural-approval"
+              },
+              "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+            },
+            {
+              "id": "balcony",
+              "name": "生活阳台",
+              "poly": [
+                [
+                  7040,
+                  9560
+                ],
+                [
+                  8090,
+                  9560
+                ],
+                [
+                  8090,
+                  11050
+                ],
+                [
+                  7930,
+                  11050
+                ],
+                [
+                  7930,
+                  11160
+                ],
+                [
+                  7040,
+                  11160
+                ]
+              ],
+              "mat": "antislip",
+              "at": [
+                7565,
+                10200
+              ],
+              "heightMm": 2700,
+              "notes": "原1050×1600主体轮廓、约1.662m²不扩大；烘干机拟经中央680×870窗下条件通口移至厨房，从阳台取衣，原阳台机柜取消。门前600mm操作区仅敏感性占位，结构/连续楼板/厂家净空待核。机器人仍在入户鞋柜下；龙头、地漏及600非踩踏外挑不动。",
+              "dimensionStatus": "design-pending",
+              "planAreaM2": 1.662,
+              "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+              "layoutRevision": "family-drawing-shell-20261027",
+              "drawingSource": {
+                "id": "owner-construction-dwg-20261027",
+                "file": "业主提供施工图.dwg",
+                "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                "pdf": "业主提供施工图.pdf",
+                "sheets": [
+                  "PL-02",
+                  "PL-03",
+                  "PL-06"
+                ],
+                "unit": "mm",
+                "nativeNorth": "drawing-right",
+                "modelNorth": "negative-y",
+                "scalingApplied": false,
+                "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                "sheetDeltaX": {
+                  "PL-02": 0,
+                  "PL-03": 23138.659583967,
+                  "PL-06": 92554.638335861
+                },
+                "status": "construction-drawing-reference-not-site-or-structural-approval"
+              },
+              "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+            },
+            {
+              "id": "bay_window_b",
+              "name": "次卧北飘窗（复尺400mm台面，软垫为条件设计）",
+              "poly": [
+                [
+                  1000,
+                  -480
+                ],
+                [
+                  2760,
+                  -480
+                ],
+                [
+                  2760,
+                  120
+                ],
+                [
+                  1000,
+                  120
+                ]
+              ],
+              "mat": "marble",
+              "counted": false,
+              "sillMm": 400,
+              "heightMm": 1670,
+              "bay": true,
+              "at": [
+                1880,
+                -170
+              ],
+              "planAreaM2": 1.056,
+              "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+              "layoutRevision": "family-drawing-shell-20261027",
+              "drawingSource": {
+                "id": "owner-construction-dwg-20261027",
+                "file": "业主提供施工图.dwg",
+                "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                "pdf": "业主提供施工图.pdf",
+                "sheets": [
+                  "PL-02",
+                  "PL-03",
+                  "PL-06"
+                ],
+                "unit": "mm",
+                "nativeNorth": "drawing-right",
+                "modelNorth": "negative-y",
+                "scalingApplied": false,
+                "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                "sheetDeltaX": {
+                  "PL-02": 0,
+                  "PL-03": 23138.659583967,
+                  "PL-06": 92554.638335861
+                },
+                "status": "construction-drawing-reference-not-site-or-structural-approval"
+              },
+              "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+            },
+            {
+              "id": "bay_window_a",
+              "name": "主卧北飘窗（存在确认，尺寸待复尺）",
+              "poly": [
+                [
+                  4140,
+                  -480
+                ],
+                [
+                  5900,
+                  -480
+                ],
+                [
+                  5900,
+                  120
+                ],
+                [
+                  4140,
+                  120
+                ]
+              ],
+              "mat": "marble",
+              "counted": false,
+              "sillMm": 410,
+              "heightMm": 1660,
+              "bay": true,
+              "at": [
+                5020,
+                -170
+              ],
+              "planAreaM2": 1.056,
+              "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+              "layoutRevision": "family-drawing-shell-20261027",
+              "drawingSource": {
+                "id": "owner-construction-dwg-20261027",
+                "file": "业主提供施工图.dwg",
+                "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                "pdf": "业主提供施工图.pdf",
+                "sheets": [
+                  "PL-02",
+                  "PL-03",
+                  "PL-06"
+                ],
+                "unit": "mm",
+                "nativeNorth": "drawing-right",
+                "modelNorth": "negative-y",
+                "scalingApplied": false,
+                "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                "sheetDeltaX": {
+                  "PL-02": 0,
+                  "PL-03": 23138.659583967,
+                  "PL-06": 92554.638335861
+                },
+                "status": "construction-drawing-reference-not-site-or-structural-approval"
+              },
+              "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+            },
+            {
+              "id": "bay_window_living_west",
+              "name": "客厅西低飘窗（400台高暂估，非实测）",
+              "poly": [
+                [
+                  1540,
+                  6310
+                ],
+                [
+                  2140,
+                  6310
+                ],
+                [
+                  2140,
+                  8410
+                ],
+                [
+                  1540,
+                  8410
+                ]
+              ],
+              "mat": "marble",
+              "counted": false,
+              "sillMm": 400,
+              "heightMm": 2210,
+              "bay": true,
+              "at": [
+                1840,
+                7360
+              ],
+              "planAreaM2": 1.26,
+              "areaStatus": "CAD-inner-face-rendering-region-not-survey-certified-area",
+              "layoutRevision": "family-drawing-shell-20261027",
+              "drawingSource": {
+                "id": "owner-construction-dwg-20261027",
+                "file": "业主提供施工图.dwg",
+                "sha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+                "pdf": "业主提供施工图.pdf",
+                "sheets": [
+                  "PL-02",
+                  "PL-03",
+                  "PL-06"
+                ],
+                "unit": "mm",
+                "nativeNorth": "drawing-right",
+                "modelNorth": "negative-y",
+                "scalingApplied": false,
+                "transform": "modelX=-2031202.7024225995-CADY+120; modelY=16370039.22570109+sheetDeltaX-CADX+120",
+                "sheetDeltaX": {
+                  "PL-02": 0,
+                  "PL-03": 23138.659583967,
+                  "PL-06": 92554.638335861
+                },
+                "status": "construction-drawing-reference-not-site-or-structural-approval"
+              },
+              "heightStatus": "retained-prior-room-height-not-reinterpreted-as-ceiling-drop"
+            }
+          ],
+          "previousMetadataFields": {
+            "conditions": {
+              "present": true,
+              "value": [
+                "墙体、房间多边形和面积沿用既有方案；部分复尺已应用，全屋墙线和共同基准未闭合。",
+                "编辑器中的尺寸以模型坐标为准；已购家具保持机身外廓，安装、门套及五金余量待核。",
+                "入户门参照方案4向外开启，模型内不再扫过鞋柜正面；门外公共通行、相邻门、门套、闭门器及限位仍须现场确认，模型不构成外开施工批准。",
+                "方案2本轮主卧门南移300mm、主卫门北移300mm并改北铰内开；盆厕贴南墙面北。门位为确认设计参数，非新增实测；马桶侧至淋浴仅60mm，排水移位与门套、通行条件仍须现场深化。",
+                "方案2书房900门洞累计南移800，本轮再南移300并改南铰内开；7字南桌与浅书墙1450，与主卧门洞纵向间隔530mm。未来完整床须替换沙发并收椅。客卫台前610mm偏紧，机门/取衣须实物试摆。阳台取消借厅外凸但全屋净宽与复尺差180mm尚未闭合。",
+                "方案2厨房1700、生活阳台1500mm原门洞保持，仅改双扇双轨玻璃推拉门；厨房向北、阳台向南堆叠不变。开门后的可用通行宽度约为洞宽一半，实际门框/搭接/五金再扣，须核对搬运、操作和防水高差。",
+                "2026-10-12方案2书房1450桌/真实书架东端至40mm门叶连续扫掠外包约49.74mm，余量有限，不含把手、门套和安装偏差；洞下室内墙垛仅20mm。未来床侧710mm与坐椅共用偏紧，床尾120mm不是通道。",
+                "2026-10-12方案2新增12件暂估电器；原有47件家具、墙/门/窗、1450书房桌架与南铰门、厨房及阳台双扇门、其他3方案保持。",
+                "三房挂机底2250/顶2550mm；柜机放TV东侧、静态距墙和电视柜50mm只是模型几何空隙。冷凝排水、外机/管路、进回风、供电与检修未核。",
+                "厨房凉霸和两卫浴霸可见面板底2620/顶2700mm，80mm仅显示壳体；吊顶腔内机身深度、风管、安装禁区、防护等级、排风、电气保护与检修定位待核。",
+                "五台餐边电器底850mm落在真实400mm深西柜台面；不改原插座和灯带，不遮高柜展示格，南段保留1550mm连续空白备餐台面。所有实物尺寸、插头、开盖、蒸汽、散热及实际运行位置待核；不默认柜下蒸汽运行或五台同时接同一插排。",
+                "2026-10-12方案2三房挂机改到窗侧：主次卧北窗上方室内墙带，窗头2070至机身底2250为180mm；不装入外凸飘窗顶棚或玻璃，不改变窗体。",
+                "书房挂机向西移550mm至北墙西北窗侧角，距西墙50mm、距房顶150mm；西窗头2300上方直接挂装只有70mm顶棚余量的候选不采用，不为挤放而改机宽、书架或窗高。",
+                "三挂机仍900×250×300mm、底2250/顶2550；主卧/次卧/书房顶棚余240/150/150mm仅模型几何量，非厂家进风检修要求。窗帘、基层、墙梁、实际机型、室外机位及穿孔冷媒管/排水/电源需专业现场核对，不构成安装批准。",
+                "2026-10-12方案2移除电视前1200×620茶几及客厅落地灯；其他57件家具电器、墙门窗及其他方案保持。旧浏览器草稿中的这两件物品移除时保留JSON归档。",
+                "原矮墙、边柱、顶梁完整保留；只把原窗面的网框示意移至外挑边缘。北、东面无玻璃或新高柜。",
+                "非踩踏、非承载的新外挑概念：不得放机器、储物或站人。本模型未增地面楼板，未确认锚固、抗风、防坠、接缝排水或防水构造。",
+                "高层外立面外挑涉及物业/审批、结构与防护条件，必须由专业方现场核验；600仅为业主希望的设计值，不是施工许可。",
+                "转角库是400mm深两臂连通的浅型L柜，不是步入式储物间；不增加入户占地、不改墙门窗，也不保证容纳此前两辆车。",
+                "内转角无中立柱，合页在两外端；西门先开、南门后开，关闭反向。独立同时外开会互撞，需顺序联动/限位、门板重量与防夹设计，模型顺序动画不是五金安装批准。",
+                "模型开门范围不碰餐桌椅或室内入户门；距南餐椅约355mm只是门扫纵向间隔，不代表站位或能同时取物通行。",
+                "18mm板、调节轨、L形拼接和层板灯带均为构造示意；承重、背板锚固、防倾倒、门缝/踢脚线、通顶收口与下单尺寸由定制方现场深化。",
+                "2026-10-12仅方案2更新客餐厅两盏吸顶灯。客厅907×577×110mm为业主提供值；餐厅同尺寸为暂定占位，未推定已购买。两盏分别居地毯/餐桌中心，不能当作实际灯位施工图。",
+                "按当前模型2700层高贴顶，灯底2590；吊顶完成面、接线盒、安装固定、开关回路和实际灯具规格待现场核对。模型亮度/暖白外观仅为展示，不表示照度或厂家参数。",
+                "本次修订覆盖前版“餐厅同尺寸长方灯占位”及“书房挂机仍挂北墙”的现状说明：餐厅改原白圆灯，客厅长方灯背板白色，书房机移西窗墙上方朝东。此前文字属于历史方案，不是本版定位。",
+                "书房窗未新增复尺确认值：窗台900、窗洞高1200、窗顶2100及原宽1100/平面定位为暂估示意，不能为挤放空调当成实测或施工尺寸。实际窗口、顶部梁、墙体承载、机型及安装净空必须现场核验。",
+                "本版最大开角180°，西门先开、南门后开；关闭反序。原用餐位的南餐椅会在西门约123–166°扫掠中干涉，必须先移椅再开门。",
+                "保留南餐椅默认(2955,12080)，业主确认开柜时临时向东移至(3420,12080)，关门后再恢复；可撤销，不能把本版动画看成不挪椅也能开足。",
+                "虚拟轴外移5mm仅用于模型闭合对齐及全开10mm柜面间隙；实际180°铰链、挂接件、门重/挠度、联动限位、防夹与承重需定制商选型和现场确认。",
+                "条件外包1114=420+640+3×18；开口1200两侧各43。机位净深752=770−18，净高950。以上均旧模型试排，不是复尺确定值。",
+                "原台面完成890；本版机位上方独立台完成980，上升90。必须确认台面/隔板承重和冷热/防水接缝，不把台面荷载压在机器上。",
+                "窗下实体墙是否可拆、上方原窗支承、连续楼板/梁及机位防水先鉴定；该下穿开口是未批准概念，不调整原WALLS/WINS或房间地面面积。",
+                "阳台模型净宽1420与复尺1240差180；厨房模型净宽2870与复尺2420差450。凹位跨待核厨房段，不能以1114已放下推断现场可施工。",
+                "龙头在基站西侧墙垛，不与基站共用洗手台；水桶仅临时接水，使用后移走，不能挡住基站出入/回充。",
+                "出水口750仅本次展示暂估，非实测或施工高度。实际龙头/软管、防回流、排水坡度、湿区保护与检修净空待选型。",
+                "本版仅方案2新增五个可选中地漏盖示意：阳台洗地1、主卫干区1/淋浴1、客卫干区1/淋浴1。150×150mm是暂估格栅占位，非已购产品或实测地漏规格。",
+                "地漏点位、下方排水管/存水弯、管径、水封/防臭、检修、实际地坪高差及找坡均未核验；可见4mm仅格栅模型厚度，不代表完成地面应凸起或可据本图施工。",
+                "阳台地漏仅放在原室内楼板地面，不放在600mm非踩踏外挑。水龙头用于接桶/软管洗地，禁止直接冲电器；需由现场确认排水落点、防水及通往地漏的坡向。",
+                "两处淋浴地漏沿用原50mm模型盘面作为显示标高，未修改原盘、玻璃、门扇或地面坡度；原北侧装饰线性排水图例关闭，不重复表达两个实际排水口。",
+                "客卫洗衣机及盆柜位置和独立排水方案保持；洗衣机排水不能自动当作接到干区/淋浴/阳台新增地漏，实际接管与防溢流须单独深化。",
+                "本版只补充方案2电位概念：14处开关、36处电源用途点、4处弱电，共54个逻辑点；鞋柜原充电面板P16复用原实体，其余新增53个可选中面板。原68物件、建筑及其余方案保持。",
+                "86×86×8mm是新面板暂估外形，仅显示墙/柜面安装面；高度为完成地面到面板中心的暂估值，非暗盒尺寸、开槽深度或施工放线批准。P16沿用既有70×70×5mm柜内面板，不重新覆盖。",
+                "主卧、次卧、书房、客厅各一组双控，表示两处共同控制同一盏灯的功能意图，不代表实际接线拓扑、真实供电开关模拟、智能设备互通或已批准的控制系统。",
+                "电流额定值、线径、负荷、回路容量、插座制式、安全门、接地、漏电保护、等电位、防溅/防护等级及涉水区分区均未确定，须由合格电工结合实测、设备厂家和适用规范审查。不得按示意点位直接施工。",
+                "两卫开关放卫外干侧；盆机、台面及马桶用途插座只表达备选位置，并不保证符合涉水区安全距离。洗衣机、烘干机、厨房电器、空调及热水器的独立回路与检修空间须电工和安装商深化。",
+                "烘干机和扫地基站电源暂放凹位厨房侧封板，面朝厨房供检修，不藏在机器背后；从封板穿线/开孔、暗盒、护线、独立断电、通风及涉水隔离尚未深化。柜板挂面不等于已批准嵌入可燃板安装。",
+                "餐边柜五台电器分别预留用途点，不承诺同时使用不超负荷；各设备带线、排汽、散热、抬盖和柜灯电源布置待选型后复核。强弱电这里只列独立面板，不暗示间距、管线隔离或网络施工已验证。",
+                "本版仅方案2厨房热水器按业主提供参考图改为万家乐 JSLQ27-16U10ULTRA(F) 外观及机身340×190×525mm；购买/现场已安装均未确认，参考不是施工批准。",
+                "340×190×525mm仅机身外壳尺寸；参考图598.5、542.2、571.5mm原始标注各保留，不将其当作已验证安装总高、接管净空或替代机身高度。烟管、阀件、软硬管、插头、挂架和检修另需核验。",
+                "机身背面仍贴厨房东墙x8290，朝西，中心y11535、底高1320保持；深度190对应中心x8195。机身北边11365至厨房/阳台共墙室内边11270仅95mm模型间隔，不能据此判定满足厂家边距、散热或安装要求。",
+                "参考图排烟接口直径60mm只作为可见短接口环参考；短环高度、底部三接口位置/尺寸为视觉示意，不画实际烟管、进排水/燃气管、外墙孔或连接到原设施。",
+                "资料底部接口间距存在223.9与233.9mm冲突，保留待核，不用任何一值落地配管。挂架、机身与接口尺寸应由厂家正式安装图/实物核对，实际接管必须由具备相应资质的安装人员完成。",
+                "厨房P27电源用途点及其他120物件不改；参考热水器不自动确认插座额定电流、防护等级、接地、漏电保护、线径或独立回路。厂家安装条件、排烟/通风、燃气、电气及涉水安全审查均未完成。",
+                "2026-10-18仅方案2沙发参考方案4转为背靠东墙、面朝西；电视仍在原北墙，形成斜向观看，未把电视或玻璃改成墙，也不称为沙发正对电视。",
+                "已购VIMLE沙发机身2410×980×830mm不缩放；新中心(6260,8025)、旋转90°，背面落在原东墙室内面x6750。相比方案4参考位向南微调25mm，避免与原柜机占地重叠；原中部2000×250背柜移除。",
+                "餐边柜从靠客厅飘台的北端缩短1000mm：北端y8600改9600，南端y13890及入户转角保持。西侧直臂4890改3890mm，总包1625×4290mm只是L柜外接框，不是实心储物间。",
+                "不是把整柜或南转角压缩：18mm板件、3mm门缝、R60圆弧收口、240mm竖展示、200mm窄高柜、灯带及浅型转角库保留，中央台面/中空按2530mm重新分模块；柜高2700mm仍仅按模型屋顶。",
+                "五台原暂估小家电及其P19–P23用途点随缩短后中空段重排，均仍落在850mm真实台面。尺寸、开盖、蒸汽/散热、负荷、独立回路、插头和检修仍待真实型号及合格安装人员核验；不构成运行或电气安装批准。",
+                "南转角180°两面库门的世界轴线、层板、灯带及425mm返柜均保持；仍须先临时向东移南餐椅，先西门后南门，关闭反序。五金、门重、防夹、承重与现场净空尚未批准。",
+                "400mm三层抽屉重排到中央台面最南段y12330–12730，北段改滑门，避免抽屉扫到固定餐桌；南餐椅在原用餐位仍有极小投影交叠，开抽前必须先临时收/移南椅，不能把250mm概念行程当作免移椅取物或通行认证。",
+                "原东墙低位备用电源P17在新沙发背后被遮，随布局移至同一墙面中心y9420，暂估中心高300mm及用途保持；这只是可见面板几何避让，线缆、暗盒、回路、负荷与电气保护仍待合格电工核验。",
+                "2026-10-25本版只在方案2现有户型与家具定位上参考业主六张图深化材质和构造：奶白平板柜、整面浅木中空、悬浮视觉下柜、木色多格电视矮柜、主卧挂衣龛、次卧粉色拱龛和书房两层悬板。不是图片原房间实测、产品复刻或施工图。",
+                "已购IKEA VIMLE沙发、LISABO餐桌及四把餐椅保持原尺寸、颜色和位置；沙发仍靠东墙，电视仍北墙斜向观看，不恢复茶几、落地灯或原中部背柜。",
+                "餐边柜本轮按相对原4890mm直臂缩短800mm：北端y9400、南端y13890，西直臂4090mm；总包1625×4490mm仅为L柜外接框。原南转角浅型800库、425mm返柜、180°门轴与临时移椅方式保持。",
+                "中央2730×400mm台面y10000–12730，完成面850mm；木背开放区上口2250mm，1500/1900mm两道18mm全长层板及2250mm上柜下口均有真实板底灯带。柜高2700mm仅按现模型屋顶，净高和收口仍待现场核验。",
+                "下柜下口离地240mm仅为参考悬浮视觉；模型保留隐藏后支承示意，墙体锚固、悬臂承重、防倾倒与支腿尺寸均未批准。餐桌后段木色面板为滑门，不是假称可拉出的抽屉；最南400mm列为两抽，开抽前须临时移南餐椅，不构成取物站位或通行认证。",
+                "五台餐边电器和P19–P23用途面板的世界位置及真实机身尺寸保持，只重算对新柜的局部锚坐标。最低层板下灯带1496mm，比原面板上沿1433mm高63mm；这仅表示静态几何不相交，不证明插头、散热、蒸汽、开盖、负荷、回路或涉水电气安全。",
+                "主次卧2240×600mm衣柜原占地不变，下部主要衣柜区域仍使用滑门，床尾模型净距555mm偏紧。主柜通顶2790mm、次柜2700mm仅跟随各自模型室高；上柜开门、顶面安装、门套、床尾操作和承重待定制方复核。",
+                "主卧入口端挂衣龛和下方两木抽为参考构造，抽屉最大250mm仅概念，不据555mm床尾带认定站位舒适。次卧窗边粉色拱龛为18mm薄背、真实空洞、四道白层板及奶白拱形饰面，不把实心粉块当开放柜。",
+                "三卧（含书房）地面改真木地板意向，公共区与厨卫及阳台地面不变；木材种类、铺法、基层防潮、地暖适用性、门底净空与完成面厚度待实物和现场核定，不默认为木纹瓷砖。",
+                "18mm柜板/门板、3mm门缝、薄背与灯带均为构造概念参数，柜门五金、开角、防夹、电源、布线、驱动检修、承重及厂家深化均未批准；原燃气/排烟、排水、电位与建筑待核事项继续有效。",
+                "方案2烘干机保留600×600×840mm机身，朝北从生活阳台取衣；前脸在共墙阳台面y11160，机身全部后移至厨房侧，不再凸入原阳台地面。扫地机器人仍在厨房侧入户鞋柜下。",
+                "仅提出原890mm窗下中央680宽×870高的单机条件通口，两侧各105mm原低墙及通口上130mm高原墙带保留，上窗台1000、窗高1350、上口2350不变。墙体/窗支承是否可改未鉴定，不是已存在洞口或拆改许可。",
+                "原厨房台面完成高890、台底870保持；中部680mm台板只位于厨房侧y11290..11890，不穿进870..1000的保留墙带。20mm侧板独立承台，台板不压烘干机。",
+                "机位净宽640、净深710、净高870；600×600×840机身左右各20、机后110、顶部仅30mm。以上仅模型几何，不能据此认定满足散热、进气、接头、维修或厂家安装要求。",
+                "机位不加橱柜底板、踢脚或门槛；暂按厨房/共墙下地坪与阳台同标高0展示。共墙下是否有连续可承载楼板、墙下梁、管线、高差及防水未知；可见地面桥只是条件示意，未新增已确认楼板。",
+                "机门铰链、门径、最大开角与实际前突尺寸未给出；暂在阳台标680宽×600深操作敏感性区，不能当作真实门扇扫掠或确定检修尺寸。按600前突时北侧余1000mm深，开机门时不宜把前区当通道。",
+                "P36由西侧105mm余墙移至原东南实心柱西面，中心(7926,11103)、离地550mm、朝西；86mm板在柱面纵向边距10/144mm，板到680mm门前敏感性区横向97mm。避开了原余墙仅2mm边距，但暗盒、柱内钢筋/管线、插头、湿区保护和机后到电位的线长/穿板均未核，不据几何认定可施工。",
+                "厨房水槽、洗碗机、冰箱、炉灶、热水器、扫地机器人、洗地龙头及地漏不移动。烘干机是水盒冷凝还是直排未知，不把阳台地漏或热水器管线自动当作烘干机接管。",
+                "整机安装及拆机方向按从阳台向南推入、向北退回阳台示意，不能从厨房侧向南直接抽出：往南超过110mm即遇机位后背板，超过130mm又遇U形水槽柜。北退650mm至原机位的600mm宽扫掠仅检查机箱，与固定模型无交叉；地漏左缘距此路径右缘仅10mm，须保护且不得放桶等临时物。门框净宽、机门/把手外突、搬运姿态、地坪高差、线管和人员站位未知，不据模型认定实物搬运或安装可行。"
+              ]
+            },
+            "designCorrections": {
+              "present": true,
+              "value": [
+                {
+                  "id": "bath-south-hinge-20261008",
+                  "sourceId": "door_bath_1",
+                  "description": "主卫北铰改南铰，仍向卫内开；门洞和全部家具位置不变。",
+                  "openingUnchanged": true,
+                  "hingeMm": [
+                    4450,
+                    4430
+                  ],
+                  "closedDirection": [
+                    0,
+                    -1
+                  ],
+                  "openDirection": [
+                    1,
+                    0
+                  ],
+                  "usageNote": "门扇转到入口南侧而非贴南墙。两门板间距不是通行净宽；旧源快照550mm门间带说明不再适用。",
+                  "status": "superseded-for-family",
+                  "supersededBy": "family-master-bath-confirmed-20261011"
+                },
+                {
+                  "id": "entry-family-layout-20261011",
+                  "sourceId": "entry_door",
+                  "description": "2026-10-11用户修订：入户门参照方案4向室外开启，保持本方案原洞口、宽高及门叶长度；合页从本方案洞口东端内退60mm作示意。公共走廊、邻户门、门套、闭门器及允许开启角度尚待现场核对，不构成外开施工批准。",
+                  "openingUnchanged": true,
+                  "hingeMm": [
+                    4840,
+                    13950
+                  ],
+                  "closedDirection": [
+                    -1,
+                    0
+                  ],
+                  "openDirection": [
+                    0,
+                    1
+                  ],
+                  "leafLengthMm": 890
+                },
+                {
+                  "id": "family-master-bath-confirmed-20261011",
+                  "date": "2026-10-11",
+                  "sourceIds": [
+                    "door_a",
+                    "door_bath_1",
+                    "vanity_main",
+                    "family-f11"
+                  ],
+                  "description": "方案2主卧门南移300mm；主卫门北移300mm、北铰内开；南墙盆厕及镜面朝北，淋浴和房间边界不动。",
+                  "openingWidthsUnchanged": true,
+                  "sourceSnapshotsUnchanged": true,
+                  "usageNote": "门侧墙段随新洞口补齐，未改变墙体轴线或主卫北墙；门位移是已确认设计参数而非新增实测，排水与五金仍待核。"
+                },
+                {
+                  "id": "family-study-laundry-confirmed-20261011",
+                  "date": "2026-10-11",
+                  "sourceIds": [
+                    "door_c",
+                    "study_full_desk",
+                    "family-f5",
+                    "fit-study_bookwall",
+                    "vanity_guest",
+                    "laundry_washer",
+                    "laundry_dryer",
+                    "study_window_return",
+                    "fit-laundry_wall",
+                    "fit-laundry_basin",
+                    "balcony_door"
+                  ],
+                  "description": "方案2确认书房门南移500及7字窗边桌；洗衣机入客卫左机右盆台，阳台只留单干机且退回原门轴。",
+                  "sourceSnapshotsUnchanged": true,
+                  "usageNote": "当前保留书房沙发，1500×2000未来床只作替换校核，不与沙发同时新增；客卫门和主卫、双卧本轮不动。"
+                },
+                {
+                  "id": "family-door-refinement-20261011",
+                  "date": "2026-10-11",
+                  "sourceIds": [
+                    "balcony_door",
+                    "door_kitchen"
+                  ],
+                  "description": "方案2厨房及生活阳台玻璃推拉门由三扇三轨改双扇双轨，保持原洞口和堆叠方向。",
+                  "sourceSnapshotsUnchanged": true,
+                  "openingWidthsUnchanged": true,
+                  "wallIndexesUnchanged": true,
+                  "furnitureUnchanged": true,
+                  "usageNote": "没有默认采纳尚待确认的书房反向开门及桌棚收短；此层只变两个推拉门。"
+                },
+                {
+                  "id": "family-study-door-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "door_c",
+                    "door_a",
+                    "study_full_desk",
+                    "fit-study_bookwall"
+                  ],
+                  "description": "方案2书房900门洞再南移300并改南铰内开，南桌与浅书墙缩至1450；坐椅原位避让西窗返桌，主卧门仅纠正说明为530mm纵向间隔。",
+                  "sourceSnapshotsUnchanged": true,
+                  "openingWidthsUnchanged": true,
+                  "wallAxesUnchanged": true,
+                  "usageNote": "独立新层取代书房北铰1680旧状态；历史版本元数据不改。返桌、沙发、未来床外包、厨房/阳台双扇门全部保持。"
+                },
+                {
+                  "id": "family-appliances-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "family-acwall-room_a",
+                    "family-acwall-room_b",
+                    "family-acwall-room_c",
+                    "family-living-aircon",
+                    "family-kitchen-ceilingfan",
+                    "family-bathheater-bath_1",
+                    "family-bathheater-bath_2",
+                    "family-sideboard-blender",
+                    "family-sideboard-temperaturekettle",
+                    "family-sideboard-sterilizer",
+                    "family-sideboard-healthkettle",
+                    "family-sideboard-waterdispenser"
+                  ],
+                  "description": "仅方案2增加主次卧及书房挂机、客厅电视东角柜机、厨房凉霸、两卫淋浴上方浴霸与餐边柜五台小家电；均暂估外包，原墙门窗、家具和定制柜板件不动。",
+                  "sourceSnapshotsUnchanged": true,
+                  "usageNote": "12件可编辑概念电器，不是已购型号、产品推荐或机电安装批准。"
+                },
+                {
+                  "id": "family-ac-window-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "family-acwall-room_a",
+                    "family-acwall-room_b",
+                    "family-acwall-room_c"
+                  ],
+                  "description": "仅方案2三台已有挂机移到窗侧：主次卧室内北墙窗头上方，书房北墙西北窗侧角；尺寸与底2250标高保持，不改窗墙柜及其他九件电器。",
+                  "sourceSnapshotsUnchanged": true,
+                  "usageNote": "窗边位置为概念摆放，不代表外机、管路或穿墙安装已核定。"
+                },
+                {
+                  "id": "family-living-clear-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "family-f8",
+                    "living-floorlamp"
+                  ],
+                  "description": "仅方案2移除电视前茶几及客厅落地灯，沙发、地毯、电视柜、餐桌与其他摆设原位保留。",
+                  "sourceSnapshotsUnchanged": true
+                },
+                {
+                  "id": "family-balcony-service-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "laundry_dryer",
+                    "balcony_service_counter",
+                    "balcony_outer_projection",
+                    "balcony_robot",
+                    "balcony_north_opening",
+                    "balcony_east_opening"
+                  ],
+                  "description": "仅方案2：北东铁皮/网框向外挑600概念，不扩地面；紧凑基站放门与烘干机之间，西盆东机连续独立台。",
+                  "sourceSnapshotsUnchanged": true
+                },
+                {
+                  "id": "family-corner-storage-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "fit-dining_sideboard_wall"
+                  ],
+                  "description": "方案2餐边柜西南转角参考照片做通顶连通浅型800库，两面柜门顺序开合、底部高件区和L形层板；不扩占地，不复原旧独立800库。",
+                  "sourceSnapshotsUnchanged": true
+                },
+                {
+                  "id": "family-ceiling-lighting-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "family-living-ceilinglight",
+                    "family-dining-ceilinglight"
+                  ],
+                  "description": "方案2客厅换业主参考的907×577×110圆角吸顶灯，置地毯中心；餐桌正上方新增同风格同尺寸暂定灯，取代客餐厅旧圆形占位灯。",
+                  "sourceSnapshotsUnchanged": true
+                },
+                {
+                  "id": "family-lighting-study-refinement-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "family-living-ceilinglight",
+                    "family-dining-ceilinglight",
+                    "family-acwall-room_c",
+                    "window_c"
+                  ],
+                  "description": "方案2餐厅沿用原客厅白色圆灯；客厅907×577灯顶背板白色、侧边黑色；书房挂机改西墙窗上方朝东，窗高暂估1200/窗台900且待实测。",
+                  "sourceSnapshotsUnchanged": true
+                },
+                {
+                  "id": "family-corner-door-180-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "fit-dining_sideboard_wall"
+                  ],
+                  "description": "方案2转角库两面柜门改显式180°顺序开合；保留用餐布局，开柜前临时移南餐椅并可恢复。柜内层板/灯带、整体占地、其他家具及房屋结构不改。",
+                  "sourceSnapshotsUnchanged": true
+                },
+                {
+                  "id": "family-balcony-recess-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "laundry_dryer",
+                    "balcony_robot",
+                    "fit-kitchen-20261005",
+                    "balcony_service_counter",
+                    "balcony_recess_housing",
+                    "balcony_bucket_tap",
+                    "window_kitchen_balcony"
+                  ],
+                  "sourceSnapshotsUnchanged": true,
+                  "description": "方案2阳台烘干机与基站推进厨房侧条件凹位；取消原阳台洗手盆/台面，保留独立接桶洗地龙头。客卫洗衣机不变。窗下下穿/机柜/局部台高仍为结构待核概念。"
+                },
+                {
+                  "id": "family-floor-drains-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "family-drain-balcony",
+                    "family-drain-bath1-dry",
+                    "family-drain-bath1-shower",
+                    "family-drain-bath2-dry",
+                    "family-drain-bath2-shower"
+                  ],
+                  "sourceSnapshotsUnchanged": true,
+                  "description": "仅方案2补充阳台及主客卫干区/淋浴共5个暂估方形地漏盖；不改原地面、机器、洗衣机排水、柜体、门窗、淋浴盘或玻璃。地下接管、水封和找坡仍待核。"
+                },
+                {
+                  "id": "family-electrical-20261012",
+                  "date": "2026-10-12",
+                  "sourceIds": [
+                    "family-elec-s01",
+                    "family-elec-s02",
+                    "family-elec-s03",
+                    "family-elec-s04",
+                    "family-elec-s05",
+                    "family-elec-s06",
+                    "family-elec-s07",
+                    "family-elec-s08",
+                    "family-elec-s09",
+                    "family-elec-s10",
+                    "family-elec-s11",
+                    "family-elec-s12",
+                    "family-elec-s13",
+                    "family-elec-s14",
+                    "family-elec-p01",
+                    "family-elec-p02",
+                    "family-elec-p03",
+                    "family-elec-p04",
+                    "family-elec-p05",
+                    "family-elec-p06",
+                    "family-elec-p07",
+                    "family-elec-p08",
+                    "family-elec-p09",
+                    "family-elec-p10",
+                    "family-elec-p11",
+                    "family-elec-p12",
+                    "family-elec-p13",
+                    "family-elec-p14",
+                    "family-elec-p15",
+                    "family-elec-p17",
+                    "family-elec-p18",
+                    "family-elec-p19",
+                    "family-elec-p20",
+                    "family-elec-p21",
+                    "family-elec-p22",
+                    "family-elec-p23",
+                    "family-elec-p24",
+                    "family-elec-p25",
+                    "family-elec-p26",
+                    "family-elec-p27",
+                    "family-elec-p28",
+                    "family-elec-p29",
+                    "family-elec-p30",
+                    "family-elec-p31",
+                    "family-elec-p32",
+                    "family-elec-p33",
+                    "family-elec-p34",
+                    "family-elec-p35",
+                    "family-elec-p36",
+                    "family-elec-n01",
+                    "family-elec-n02",
+                    "family-elec-n03",
+                    "family-elec-n04"
+                  ],
+                  "sourceSnapshotsUnchanged": true,
+                  "description": "仅方案2补充54个逻辑电位：14开关、36电源、4弱电；鞋柜P16复用原面板，其余53新增。三房及客厅四组双控；不改原68家具、建筑、实测来源，不模拟真实接线或批准施工。"
+                },
+                {
+                  "id": "family-kitchen-heater-20261013",
+                  "date": "2026-10-13",
+                  "sourceIds": [
+                    "kitchen_heater"
+                  ],
+                  "sourceSnapshotsUnchanged": true,
+                  "description": "仅方案2厨房热水器按业主参考更新机身340×190×525mm和万家乐外观，保持东墙西向及原底高；接口间距冲突、烟管/接管与安装条件待核，其他120物件及P27不改。"
+                },
+                {
+                  "id": "family-living-east-20261018",
+                  "date": "2026-10-18",
+                  "sourceIds": [
+                    "family-f6",
+                    "fit-dining_sideboard_wall",
+                    "fit-sofa_back_storage",
+                    "family-sideboard-blender",
+                    "family-elec-p19",
+                    "family-sideboard-temperaturekettle",
+                    "family-elec-p20",
+                    "family-sideboard-sterilizer",
+                    "family-elec-p21",
+                    "family-sideboard-healthkettle",
+                    "family-elec-p22",
+                    "family-sideboard-waterdispenser",
+                    "family-elec-p23"
+                  ],
+                  "sourceSnapshotsUnchanged": true,
+                  "description": "仅方案2沙发参考方案4背靠东墙，移除旧中部背柜；餐边柜北端缩短1000mm，保留南转角180°门和425mm返柜的世界位置，五台电器及用途点在短柜上重排。"
+                },
+                {
+                  "id": "family-reference-finish-20261025",
+                  "date": "2026-10-25",
+                  "sourceIds": [
+                    "bed_b",
+                    "family-f1",
+                    "bed_a",
+                    "family-f3",
+                    "study_full_desk",
+                    "family-f5",
+                    "family-living-rug",
+                    "family-f7",
+                    "study_north_sofa",
+                    "fit-dining_sideboard_wall",
+                    "fit-study_bookwall",
+                    "draft-desk-b",
+                    "draft-chair-b",
+                    "draft-night-b",
+                    "draft-desk-a",
+                    "draft-chair-a",
+                    "draft-night-a",
+                    "study_window_return",
+                    "family-dining-ceilinglight",
+                    "family-elec-p19",
+                    "family-elec-p20",
+                    "family-elec-p21",
+                    "family-elec-p22",
+                    "family-elec-p23"
+                  ],
+                  "description": "方案2按六张业主参考图重建餐边、电视、两卧柜及书房两悬板；餐边相对原长缩800，三卧真木地板、床桌软装造型标签，已购沙发餐桌餐椅及无茶几布局保持。",
+                  "sourceSnapshotsUnchanged": true
+                },
+                {
+                  "id": "family-dryer-kitchen-20261031",
+                  "date": "2026-10-31",
+                  "sourceIds": [
+                    "laundry_dryer",
+                    "fit-kitchen-20261005",
+                    "window_kitchen_balcony"
+                  ],
+                  "sourceSnapshotsUnchanged": true,
+                  "description": "仅方案2烘干机拟移厨房侧，680×870单机低位条件通口；890台面和1000窗台不抬高，上窗不变；结构、楼板与机器顶部30净空待核，机器人仍在鞋柜下。"
+                }
+              ]
+            },
+            "converter": {
+              "present": true,
+              "value": "tools/convert-house-plans.cjs + tools/entry-family-layout-20261011.cjs + tools/family-master-bath-20261011.cjs + tools/family-study-laundry-20261011.cjs + tools/family-door-refinement-20261011.cjs + tools/family-study-door-20261012.cjs + tools/family-appliances-20261012.cjs + tools/family-ac-window-20261012.cjs + tools/family-living-clear-20261012.cjs + tools/family-balcony-service-20261012.cjs + tools/family-corner-storage-20261012.cjs + tools/family-ceiling-lighting-20261012.cjs + tools/family-lighting-study-refinement-20261012.cjs + tools/family-corner-door-180-20261012.cjs + tools/family-balcony-recess-20261012.cjs + tools/family-floor-drains-20261012.cjs + tools/family-electrical-20261012.cjs + tools/family-kitchen-heater-20261013.cjs + tools/family-living-east-20261018.cjs + tools/family-reference-finish-20261025.cjs + tools/family-dryer-kitchen-20261031.cjs"
+            }
+          },
+          "changedFurnitureIds": [
+            "study_full_desk",
+            "family-f5",
+            "family-elec-s06",
+            "family-elec-p09",
+            "family-elec-p10",
+            "family-elec-p11",
+            "family-elec-n03"
+          ],
+          "newFurnitureIds": [
+            "study_south_bed",
+            "study_north_organizer"
+          ],
+          "removedFurnitureIds": [
+            "study_window_return",
+            "study_north_sofa",
+            "fit-study_bookwall"
+          ],
+          "replacedFurnitureIds": [],
+          "migrationFields": {
+            "study_full_desk": [
+              "type",
+              "name",
+              "cx",
+              "cy",
+              "w",
+              "sourceFootprintMm",
+              "face",
+              "notes",
+              "dimensionStatus",
+              "modelVariant",
+              "layoutRevision",
+              "referenceStyle",
+              "nativeType",
+              "baseWidthMm",
+              "baseDepthMm",
+              "baseHeightMm",
+              "cabinetRevision",
+              "parts",
+              "cabinetDesign",
+              "conditions"
+            ],
+            "family-f5": [
+              "cx",
+              "cy",
+              "rot",
+              "sourceFootprintMm",
+              "face",
+              "notes",
+              "layoutRevision"
+            ],
+            "family-elec-s06": [
+              "name",
+              "cx",
+              "cy",
+              "elevationMm",
+              "rot",
+              "face",
+              "layoutRevision",
+              "electricalDesign",
+              "notes",
+              "sourceFootprintMm"
+            ],
+            "family-elec-p09": [
+              "name",
+              "cx",
+              "cy",
+              "rot",
+              "face",
+              "layoutRevision",
+              "electricalDesign",
+              "notes",
+              "sourceFootprintMm"
+            ],
+            "family-elec-p10": [
+              "name",
+              "cx",
+              "cy",
+              "rot",
+              "face",
+              "layoutRevision",
+              "electricalDesign",
+              "notes",
+              "sourceFootprintMm"
+            ],
+            "family-elec-p11": [
+              "name",
+              "cx",
+              "cy",
+              "elevationMm",
+              "rot",
+              "face",
+              "layoutRevision",
+              "electricalDesign",
+              "notes",
+              "sourceFootprintMm"
+            ],
+            "family-elec-n03": [
+              "name",
+              "cx",
+              "cy",
+              "rot",
+              "face",
+              "layoutRevision",
+              "electricalDesign",
+              "notes",
+              "sourceFootprintMm"
+            ]
+          },
+          "preserveCustomPartsIds": [
+            "study_full_desk"
+          ],
+          "preserveCustomSizeIds": [
+            "study_full_desk"
+          ],
+          "preserveCustomPlacementIds": [
+            "study_full_desk",
+            "family-f5",
+            "family-elec-s06",
+            "family-elec-p09",
+            "family-elec-p10",
+            "family-elec-p11",
+            "family-elec-n03"
+          ],
+          "sourceSnapshotsUnchanged": true,
+          "otherSchemesUnchanged": true
         }
       }
     },

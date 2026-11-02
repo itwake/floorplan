@@ -220,7 +220,7 @@ export function createReferenceDressing({THREE,finish,artTexture,wx,wz}){
     }
     rugs(archFloor,rooms,cut,created);childWallAccents(archUp,rooms,cut,created);
     const study=rooms.find(r=>r.id==='room_c');
-    if(study){
+    if(study&&!study.studyNorthDesk){
       const drawing=drawingRoom(study),x=drawing?(Math.min(...study.poly.map(p=>p[0]))+Math.max(...study.poly.map(p=>p[0])))/2:1170,
         y=drawing?Math.min(...study.poly.map(p=>p[1]))+5:3345;
       const p=painting({roomId:'room_c',x,y,w:600,h:700,bottom:1100,face:'south',cut,role:'reference-study-north-warm-art'});archUp.add(p);created.push(p);

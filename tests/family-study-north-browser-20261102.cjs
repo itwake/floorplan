@@ -1,0 +1,28 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),{createRequire}=require('node:module');
+const runtime=process.env.FLOORPLAN_NODE_MODULES||'C:/Users/dvnuo/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules';
+let chromium;try{({chromium}=require('playwright'));}catch{({chromium}=createRequire(path.join(runtime,'_study-qa.cjs'))('playwright'));}
+const executablePath=process.env.FLOORPLAN_CHROME||[chromium.executablePath(),'C:/Program Files/Google/Chrome/Application/chrome.exe'].find(fs.existsSync);
+const base=(process.env.FLOORPLAN_BASE_URL||'http://127.0.0.1:4194').replace(/\/$/,''),dir=path.resolve(__dirname,'../../output/study-north-20261102-qa');
+const plans=require('../data/house-plans.js'),before=require('../tools/family-study-north-20261102.cjs').beforeFamilyStudyNorth(plans).schemes.family;
+(async()=>{fs.mkdirSync(dir,{recursive:true});const errors=[],browser=await chromium.launch({headless:true,executablePath,args:['--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+try{const page=await browser.newPage({viewport:{width:1440,height:1000}});page.on('pageerror',e=>{errors.push(e.message);console.log('PAGEERROR',e.message);});
+await page.goto(base+'/?scheme=family&v=study-north-20261102',{waitUntil:'domcontentloaded',timeout:60000});await page.waitForFunction(()=>document.querySelectorAll('#gFurn > .furn').length>0);
+const snap=()=>page.evaluate(()=>({objects:state.furniture.length,bed:state.furniture.find(f=>f.id==='study_south_bed'),desk:state.furniture.find(f=>f.id==='study_full_desk'),point:state.furniture.find(f=>f.id==='family-elec-p09'),organizer:state.furniture.find(f=>f.id==='study_north_organizer'),oldObjects:state.furniture.filter(f=>['study_north_sofa','study_window_return','fit-study_bookwall'].includes(f.id)),revision:state.appliedLayoutRevisions.includes('family-study-north-20261102')}));
+let s=await snap();assert.equal(s.objects,123);assert.equal(s.desk.w,2300);assert.deepEqual(s.bed.mattressMm,[1200,2000]);assert.equal(s.oldObjects.length,0);assert.ok(s.revision&&s.organizer);
+async function seed(mode){await page.evaluate(({old,mode})=>{const s=structuredClone(state);s.furniture=structuredClone(old.defaultFurniture);s.appliedLayoutRevisions=s.appliedLayoutRevisions.filter(id=>id!=='family-study-north-20261102');const desk=s.furniture.find(f=>f.id==='study_full_desk'),pt=s.furniture.find(f=>f.id==='family-elec-p09');if(mode==='custom'){desk.w=1250;desk.ownerNote='private desk';pt.cx+=40;pt.ownerNote='private point';}if(mode==='empty')s.furniture=[];if(mode==='deleted')s.furniture=s.furniture.filter(f=>f.id!=='study_full_desk');localStorage.setItem(STORE,JSON.stringify(s));},{old:before,mode});await page.reload({waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.appliedLayoutRevisions.includes('family-study-north-20261102'));}
+await seed('default');s=await snap();assert.equal(s.desk.type,'fixture');assert.equal(s.desk.cy,3595);assert.equal(s.point.cy,3324);assert.equal(s.bed.rot,180);assert.equal(s.oldObjects.length,0);
+await seed('custom');s=await snap();assert.equal(s.desk.w,1250);assert.equal(s.desk.cy,5775);assert.equal(s.desk.type,'desk');assert.equal(s.desk.ownerNote,'private desk');assert.equal(s.desk.layoutCustomSizeRevision,'family-study-north-20261102');assert.equal(s.point.cx,490);assert.equal(s.point.cy,6046);assert.equal(s.point.electricalDesign.anchor.wallIndex,27);assert.equal(s.point.ownerNote,'private point');
+await seed('deleted');s=await snap();assert.equal(s.desk,undefined,'Deleted desk not resurrected');
+await seed('empty');s=await snap();assert.equal(s.objects,0,'Empty draft not repopulated');
+console.log('PASS fresh/default migration, custom desk/point anchors, deleted object and empty draft');
+await page.evaluate(()=>localStorage.removeItem(STORE));await page.reload({waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.furniture.length===123);
+await page.locator('#tgLib').click();await page.locator('#tgPanel').click();await page.waitForTimeout(450);
+await page.evaluate(()=>{view.s=Math.min(svg.clientWidth/3400,svg.clientHeight/3400);view.x0=1270-svg.clientWidth/view.s/2;view.y0=4685-svg.clientHeight/view.s/2;applyView();renderFurn();});
+await page.screenshot({path:path.join(dir,'study-plan.png')});
+if(process.argv.includes('--migration-only')){assert.deepEqual(errors,[]);return;}
+await page.locator('[data-view="3d"]').click({noWaitAfter:true,timeout:120000});await page.waitForFunction(()=>document.querySelector('#stage').classList.contains('is3d')&&Boolean(document.querySelector('#view3d canvas')),null,{timeout:120000});
+await page.waitForFunction(()=>{const c=document.querySelector('#view3d canvas');if(!c?.width)return false;const p=document.createElement('canvas');p.width=p.height=32;const g=p.getContext('2d');g.drawImage(c,0,0,32,32);const a=g.getImageData(0,0,32,32).data,s=new Set();for(let i=0;i<a.length;i+=4)s.add((a[i]<<16)|(a[i+1]<<8)|a[i+2]);return s.size>15;},null,{timeout:120000});
+await page.waitForFunction(()=>window.View3D.referenceView('study'),null,{timeout:120000});await page.waitForTimeout(1800);await page.screenshot({path:path.join(dir,'study-north-3d.png'),timeout:120000});
+await page.evaluate(()=>window.View3D.flyToFurniture('study_south_bed'));await page.waitForTimeout(1800);await page.screenshot({path:path.join(dir,'study-bed-3d.png'),timeout:120000});assert.deepEqual(errors,[]);console.log('PASS 2D + 3D study desk/bed views',dir);
+}finally{await browser.close();}})().catch(e=>{console.error(e.stack||e);process.exitCode=1;});

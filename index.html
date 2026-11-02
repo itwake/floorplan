@@ -372,7 +372,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=dryer-kitchen-20261031"></script>
+<script src="data/house-plans.js?v=study-north-20261102"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -482,7 +482,7 @@ const uid = () => 'f' + Date.now().toString(36) + (_n++);
 const F = (type,name,cx,cy,w,d,rot=0,color) => ({id:uid(),type,name,cx,cy,w,d,rot,color:color||typeColor(type)});
 
 function defaultFurniture(){ return structuredClone(HOUSE_PLAN.defaultFurniture); }
-function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update,HOUSE_PLAN.metadata.familyBalconyRecessUpdate,HOUSE_PLAN.metadata.familyFloorDrainsUpdate,HOUSE_PLAN.metadata.familyElectricalUpdate,HOUSE_PLAN.metadata.familyKitchenHeaterUpdate,HOUSE_PLAN.metadata.familyLivingEastUpdate,HOUSE_PLAN.metadata.familyReferenceFinishUpdate,HOUSE_PLAN.metadata.familyDrawingUpdate,HOUSE_PLAN.metadata.familyDryerKitchenUpdate].filter(Boolean);}
+function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update,HOUSE_PLAN.metadata.familyBalconyRecessUpdate,HOUSE_PLAN.metadata.familyFloorDrainsUpdate,HOUSE_PLAN.metadata.familyElectricalUpdate,HOUSE_PLAN.metadata.familyKitchenHeaterUpdate,HOUSE_PLAN.metadata.familyLivingEastUpdate,HOUSE_PLAN.metadata.familyReferenceFinishUpdate,HOUSE_PLAN.metadata.familyDrawingUpdate,HOUSE_PLAN.metadata.familyDryerKitchenUpdate,HOUSE_PLAN.metadata.familyStudyNorthUpdate].filter(Boolean);}
 function defaultState(){
   const rooms = {}; ROOMS.forEach(r => rooms[r.id] = {name:r.name, mat:r.mat});
   return {schemaVersion:2,projectId:'house-design',schemeId:SCHEME_ID,sourceVersion:PLAN_LIBRARY.version,
@@ -528,6 +528,8 @@ function bindFloorDrainView(f){
   button.onclick=async()=>{if(viewMode!=='3d')await setView('3d');if(viewMode==='3d')window.View3D?.focusFloorDrain(f.id);closeDrawers();};
 }
 function refreshCabinetDesign(f){
+  const studyRevision=HOUSE_PLAN.metadata.familyStudyNorthUpdate?.id;
+  if(studyRevision&&(f.layoutCustomPartsRevision===studyRevision||f.layoutCustomSizeRevision===studyRevision||f.layoutCustomPlacementRevision===studyRevision))return;
   const dryerRevision=HOUSE_PLAN.metadata.familyDryerKitchenUpdate?.id;
   if(dryerRevision&&(f.layoutCustomPartsRevision===dryerRevision||f.layoutCustomSizeRevision===dryerRevision))return;
   const drawingRevision=HOUSE_PLAN.metadata.familyDrawingUpdate?.id;
@@ -607,11 +609,6 @@ function upgradeConfirmedLayouts(s){
       }
       const fresh=HOUSE_PLAN.defaultFurniture.find(q=>q.id===f.id);
       if(!fresh)continue;
-      // Keep a personally moved electrical point together with its original
-      // anchor metadata; do not attach a new default wall to an old position.
-      if(revision.preserveCustomPlacementIds?.includes(f.id)&&['cx','cy','rot','elevationMm','w','d','heightMm'].some(key=>!same(f[key],before[key])&&!same(f[key],fresh[key]))){
-        kept.add(f.id);f.layoutCustomPlacementRevision=revision.id;continue;
-      }
       // Keep an intentionally edited private cabinet assembly intact rather
       // than retaining old 90-degree doors under a new 180-degree design label.
       // An edited envelope with original boards still receives the hinge update.
@@ -622,6 +619,11 @@ function upgradeConfirmedLayouts(s){
       // replace its boards or move its centre while preserving only its width.
       if(revision.preserveCustomSizeIds?.includes(f.id)&&['w','d','heightMm'].some(key=>!same(f[key],before[key])&&!same(f[key],fresh[key]))){
         kept.add(f.id);f.layoutCustomSizeRevision=revision.id;continue;
+      }
+      // Keep a personally moved electrical point together with its original
+      // anchor metadata; do not attach a new default wall to an old position.
+      if(revision.preserveCustomPlacementIds?.includes(f.id)&&['cx','cy','rot','elevationMm','w','d','heightMm'].some(key=>!same(f[key],before[key])&&!same(f[key],fresh[key]))){
+        kept.add(f.id);f.layoutCustomPlacementRevision=revision.id;continue;
       }
       const keys=Array.isArray(revision.migrationFields)
         ? [...new Set([...Object.keys(before),...Object.keys(fresh)])].filter(k=>k!=='id'&&!same(before[k],fresh[k]))
@@ -1363,6 +1365,10 @@ function updateHeader(){
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
 function livingEastNotice(f){
+  if(HOUSE_PLAN.metadata.familyStudyNorthUpdate){
+    const study=!f||f.roomId==='room_c';
+    return `<section class="project-note" data-family-study-north><b>${tr('方案2 · 最新布局','Scheme 2 · current layout')}</b><p>${tr('墙门窗沿用最新图纸；餐边柜靠窗端缩短800mm，烘干机嵌入厨房、开口朝阳台，机器人在入户鞋柜下。','The drawing shell remains; the sideboard is shortened 800 mm. The dryer faces the balcony from its kitchen recess, and the robot stays under the entry shoe cabinet.')}</p>${study?`<p>${tr('书房北墙满墙桌2300×550mm，上方为开放层板和白色洞洞板。床头靠南，床垫1200×2000mm、暂估床架1300×2100mm；1500床会进入现有门叶开启范围。东侧上下床，床尾至桌边80mm不作通道。','The north-wall desk is 2300 × 550 mm, with open shelves and a white pegboard. A south-head 1200 × 2000 mm mattress uses a provisional 1300 × 2100 mm frame; a 1500 mm bed conflicts with the door swing. Access is from the east; the 80 mm foot gap is not a passage.')}</p>`:''}</section>`;
+  }
   if(HOUSE_PLAN.metadata.familyDryerKitchenUpdate)return `<section class="project-note" data-family-drawing><b>${tr('方案2 · 最新图纸调整','Scheme 2 · latest drawing')}</b><p>${tr('墙体与门窗按最新图纸建模，餐边柜靠窗端缩短800mm。烘干机嵌入厨房、机门朝阳台；扫地机器人位于入户鞋柜底部。','The layout follows the drawing with the sideboard shortened 800 mm. The dryer is recessed into the kitchen and faces the balcony; the robot remains under the entry shoe cabinet.')}</p><p>${tr('主卧床架至衣柜约500mm，次卧约760mm；书房未来放1.5m床时需重新核对桌子与通道。','The main and second bedroom bed-to-wardrobe gaps are approximately 500 and 760 mm; a future 1.5 m bed in the study requires desk and access review.')}</p></section>`;
   if(HOUSE_PLAN.metadata.familyDrawingUpdate)return `<section class="project-note" data-family-drawing><b>${tr('方案2 · 最新图纸调整','Scheme 2 · latest drawing')}</b><p>${tr('墙体与门窗按最新图纸建模；沙发与电视按图布置，已购1400mm餐桌保留。餐边柜靠窗端缩短800mm；烘干机在阳台，扫地机器人位于入户鞋柜下。','Walls and openings follow the latest drawing; the sofa faces the television, the purchased 1400 mm dining table remains, and the sideboard is shortened by 800 mm. The dryer stays by the balcony, while the robot moves beneath the entry shoe cabinet.')}</p><p>${tr('主卧床架至衣柜约500mm，次卧约760mm；书房未来放1.5m床时须重新核对桌子和通道。图纸尺寸、窗高及设备安装条件仍以现场复核为准。','Frame-to-wardrobe gaps are approximately 500 mm in the main bedroom and 760 mm in the second; the study desk and access need review for a future 1.5 m bed. Verify dimensions, window heights and equipment installation on site.')}</p></section>`;
   if(HOUSE_PLAN.metadata.familyReferenceFinishUpdate&&(!f||f.referenceStyle))return `<section class="project-note" data-family-reference-finish><b>${tr('方案2 · 六图效果参考重建','Scheme 2 · six-image reference reconstruction')}</b><p>${tr('保留已购IKEA沙发、餐桌椅及无茶几；沙发仍靠东墙。餐边柜从原飘台端缩短800mm（西直段4090mm），保留南转角180°库门。三间卧室/书房为真正木地板，客餐厅仍为米白大砖。','Purchased IKEA living/dining furniture and no coffee table are retained, with the sofa on the east wall. The sideboard retreats 800 mm from its original bay end (4090 mm straight run) and retains the 180° corner pantry. Bedrooms/study have real wood floors; the public area keeps pale large-format tile.')}</p><p>${tr('奶白通顶柜、木背板双灯带、深木多格电视柜、两卧软包床/拱龛、悬浮书桌与窗饰按图重建。请用顶部“效果视角”逐房查看。原实测墙门窗和窗边空调不改；桌后木色门为滑门，不假称可拉抽。','Reference-led full-height cabinets, two lit wood shelves, dark-wood cubbies, upholstered beds/arch niche, floating desks and window dressings are rebuilt. Use the reference-view selector above. Surveyed walls/openings and window-side AC remain. Wood fronts behind the table slide rather than pull out as drawers.')}</p><small>${tr('这是基于照片的参数化重建，不是原始设计模型或原厂材质复用；纹理/画作属程序近似，不能承诺与离线效果图完全相同。窗帘、悬浮柜及灯具尺寸/承载/散热/配线仍待深化。自定义草稿保留，先导出备份再重置可查看完整新默认方案。','This is a photo-led parametric reconstruction, not the original scene or manufacturer materials. Textures/artwork are procedural approximations, not a promise of identical offline renders. Installation details remain unverified. Private edits are preserved; export before resetting to the full new defaults.')}</small></section>`;
@@ -1383,7 +1389,7 @@ function renderPanel(){
   renderFab();
   const p = $('#panel');
   if (ui.sel?.kind === 'furn'){ const f = getF(ui.sel.id); if (f){ p.innerHTML = furnPanel(f); bindFurnPanel(f); bindBalconyRecessView();bindFloorDrainView(f);bindElectricalControls(f);bindKitchenHeaterView(f); return; } }
-  if (ui.sel?.kind === 'room'){ const r=ROOMS.find(r => r.id === ui.sel.id);p.innerHTML = (r.id==='living'?livingEastNotice():'')+electricalNotice()+(r.id==='kitchen'?kitchenHeaterNotice():'')+(['balcony','bath_1','bath_2'].includes(r.id)?floorDrainNotice():'')+(['balcony','kitchen'].includes(r.id)?balconyRecessNotice():'')+roomPanel(r); bindRoomPanel();bindBalconyRecessView();bindElectricalControls(); return; }
+  if (ui.sel?.kind === 'room'){ const r=ROOMS.find(r => r.id === ui.sel.id);p.innerHTML = (r.id==='living'||(r.id==='room_c'&&HOUSE_PLAN.metadata.familyStudyNorthUpdate)?livingEastNotice({roomId:r.id}):'')+electricalNotice()+(r.id==='kitchen'?kitchenHeaterNotice():'')+(['balcony','bath_1','bath_2'].includes(r.id)?floorDrainNotice():'')+(['balcony','kitchen'].includes(r.id)?balconyRecessNotice():'')+roomPanel(r); bindRoomPanel();bindBalconyRecessView();bindElectricalControls(); return; }
   p.innerHTML = livingEastNotice()+electricalNotice()+kitchenHeaterNotice()+floorDrainNotice()+balconyRecessNotice()+overviewPanel(); bindOverview();bindBalconyRecessView();bindElectricalControls();
 }
 
@@ -2132,7 +2138,7 @@ import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 import {CSS2DRenderer, CSS2DObject} from 'three/addons/renderers/CSS2DRenderer.js';
 import {createReferenceFinishes} from './reference-finishes.js?v=20261025';
 import {createReferenceInterior} from './reference-interior.js?v=drawing-20261027';
-import {createReferenceDressing} from './reference-dressing.js?v=drawing-20261027';
+import {createReferenceDressing} from './reference-dressing.js?v=study-north-20261102';
 
 const stage = $('#stage'), host = $('#view3d');
 const OX = HOUSE_PLAN.CENTER.x, OY = HOUSE_PLAN.CENTER.y, H = Math.max(HOUSE_PLAN.HEIGHT_MM,...WALL_META.map(w=>w.heightMm))/1000, FOV = 45;       // 户型中心放在世界原点，层高 2.8 m
@@ -2416,6 +2422,21 @@ function cabinetWood(color){
   }
   return cabinetWoodCache.get(color);
 }
+const pegboardGeometryCache=new Map();
+function perforatedPegboardGeometry(W,height,D,pitch,diameter){
+  const key=[W,height,D,pitch,diameter].join(':');if(pegboardGeometryCache.has(key))return pegboardGeometryCache.get(key);
+  const panel=new THREE.Shape();panel.moveTo(-W/2,-height/2);panel.lineTo(W/2,-height/2);panel.lineTo(W/2,height/2);panel.lineTo(-W/2,height/2);panel.closePath();
+  const radius=Math.min(diameter/2,pitch*.4);
+  const cols=Math.floor(W/pitch+1e-6),rows=Math.floor(height/pitch+1e-6);
+  for(let i=0;i<cols;i++)for(let j=0;j<rows;j++){
+    const x=(i-(cols-1)/2)*pitch,y=(j-(rows-1)/2)*pitch;
+    const hole=new THREE.Path();hole.absarc(x,y,radius,0,Math.PI*2,true);panel.holes.push(hole);
+  }
+  // One cached mesh with actual through-holes and visible inner edges. Unlike
+  // a mipmapped cutout, distant rows do not disappear against a white wall.
+  const geometry=new THREE.ExtrudeGeometry(panel,{depth:D,bevelEnabled:false,curveSegments:4,steps:1});geometry.translate(0,0,-D/2);
+  geometry.userData.pegboardHoleCount=panel.holes.length;pegboardGeometryCache.set(key,geometry);return geometry;
+}
 function buildCabinetParts(g,f){
   const original=HOUSE_PLAN.defaultFurniture.find(p=>p.id===f.id);
   const baseline=original?.color||f.cabinetDesign?.palette?.door;
@@ -2431,7 +2452,15 @@ function buildCabinetParts(g,f){
     const material=projection?mat(pc,{metalness:projectionMetal?.65:0,roughness:projectionMetal?.48:.7,clippingPlanes:[balconyProjectionPlane],clipShadows:true}):drainMetal?mat(pc,{metalness:.7,roughness:.32}):reflective?mirror():led?glowMat('#fff4d8','#ffe2ac',f.cabinetRevision==='sideboard-reference-v2'?1.6:.55):referenceEnabled&&f.referenceStyle?referenceFinishes.material(oak?(f.id==='family-f7'?'dark-oak':'wood'):/metal|rail|hinge/i.test(p.material||p.role||'')?'metal':'cream',pc):p.role?.includes('cushion')?fabric(pc):oak?cabinetWood(pc):mat(pc,{roughness:.7});
     const special=referenceEnabled&&f.referenceStyle?referenceInterior.buildSpecialPanel(p,W,D,height):null;
     if(special){special.material=material;special.position.set(x,y+height/2,z);g.add(special);}
-    else if(p.cabinetDoor){
+    else if(p.shape==='perforated-pegboard'){
+      const geometry=perforatedPegboardGeometry(W,height,D,M((p.holePitchMm||30)*sx),M((p.holeDiameterMm||6)*sx));
+      const board=mesh(geometry,[material,mat('#9d998f',{roughness:1})]);
+      board.position.set(x,y+height/2,z);board.userData.perforatedPegboard=true;board.userData.holePitchMm=p.holePitchMm||30;board.userData.holeCount=geometry.userData.pegboardHoleCount;g.add(board);
+      // A recessed shadow surface makes the small openings legible against a
+      // white wall. This is appearance shading, not an extra cabinet back.
+      const shadow=mesh(new THREE.PlaneGeometry(W,height),mat('#817d75',{roughness:1}));
+      shadow.position.set(x,y+height/2,z-D/2-.0005);shadow.castShadow=false;shadow.userData.pegboardHoleShadow=true;shadow.userData.visualOnlyDecoration=true;g.add(shadow);
+    }else if(p.cabinetDoor){
       const d=p.cabinetDoor,closed=[d.closedDirection[0]*sx,d.closedDirection[1]*sz],opened=[d.openDirection[0]*sx,d.openDirection[1]*sz],normalScale=Math.hypot(d.closedDirection[1]*sx,d.closedDirection[0]*sz),L=M(d.lengthMm*Math.hypot(...closed)),T=M((d.thicknessMm||18)*normalScale),normalOffset=M((d.normalOffsetMm||0)*normalScale);
       const pivot=new THREE.Group();pivot.position.set(M(d.hingeMm[0]*sx),y,M(d.hingeMm[1]*sz));
       let controller=cabinetDoorControllers.get(f.id);
@@ -3729,6 +3758,7 @@ function referenceView(key){
     views.child={eye:[2400,1410,3110],target:[1170,1210,1820],fov:82};
     views.study={eye:[2200,1430,4310],target:[770,1120,5775],fov:76};
   }
+  if(HOUSE_PLAN.metadata.familyStudyNorthUpdate)views.study={eye:[2160,1540,5010],target:[1250,1330,3380],fov:76};
   const v=views[key];if(!v)return false;
   if(opt.mode==='walk')setMode('orbit');opt.cut=H;opt.labels=false;opt.night=false;opt.hour=10.5;syncCutBtns();sync();showLabels(false);applyLight();
   $('#referenceViewSelect').value=key;closeDrawers();

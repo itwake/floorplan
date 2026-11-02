@@ -4,7 +4,7 @@
 // tests calculate occupied boxes from stored dimensions (including fixture
 // normalization) rather than relying only on the layer's own validation result.
 const assert=require('node:assert/strict');
-const generated=require('../data/house-plans.js');
+const generated=require('../tools/family-study-north-20261102.cjs').beforeFamilyStudyNorth(require('../data/house-plans.js'));
 const {applyFamilyDryerKitchen,beforeFamilyDryerKitchen,validateFamilyDryerKitchen,KEY,REVISION}=require('../tools/family-dryer-kitchen-20261031.cjs');
 const {applyFamilyDrawing,beforeFamilyDrawing}=require('../tools/family-drawing-20261027.cjs');
 const clone=structuredClone,round=n=>Math.round(n*1e6)/1e6;
