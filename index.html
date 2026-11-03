@@ -375,6 +375,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 <div id="toast"></div>
 
 <script src="data/house-plans.js?v=study-north-20261102"></script>
+<script src="purchase-plan.js?v=linked-budget-20261103"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
 const LANG_KEY = 'huxing-lang';
@@ -710,7 +711,11 @@ const ui = {tool:'select', sel:null, mA:null, mCur:null,
 let view = {x0:0, y0:0, s:.06};
 const undoStack = [], redoStack = [];
 
-function save(){ try { localStorage.setItem(STORE, JSON.stringify(state)); } catch(e) {} }
+function publishPurchaseLayout(){
+  const snapshot=PurchasePlan.snapshot({schemeId:SCHEME_ID,schemeName:HOUSE_PLAN.name,rooms:ROOMS,furniture:state.furniture,roomNames:state.rooms,ownedFurnitureIds:HOUSE_PLAN.defaultFurniture.filter(f=>f.purchasedProductId).map(f=>f.id)});
+  try{localStorage.setItem(PurchasePlan.KEY+SCHEME_ID,JSON.stringify(snapshot));return true;}catch(e){return false;}
+}
+function save(){ try { localStorage.setItem(STORE, JSON.stringify(state)); } catch(e) {} publishPurchaseLayout(); }
 const snap = () => JSON.stringify(state);
 function commit(before){ undoStack.push(before); if (undoStack.length > 150) undoStack.shift(); redoStack.length = 0; save(); }
 function mutate(fn){ const b = snap(); fn(); commit(b); renderAll(); }
@@ -2120,11 +2125,12 @@ $('#schemeSelect').onchange=e=>{save();const url=new URL(location.href);url.sear
 ['#tools','#layers','#langSel','#modes3d','#toggles3d','#fit','#undo','#vIso','#sun'].forEach(id=>$(id)?.closest('.grp')?.classList.add('mobile-extra'));
 $('[data-cut]').closest('.grp').classList.add('mobile-extra');$('#fullscreen').classList.add('mobile-extra');
 $('#moreTools').onclick=()=>{const expanded=document.querySelector('header').classList.toggle('tools-open');$('#moreTools').ariaExpanded=String(expanded);$('#moreTools').textContent=expanded?tr('收起 ▴','Less ▴'):tr('工具 ▾','Tools ▾');};
-$('#purchaseBudgetLink').addEventListener('click',()=>{const scheme=$('#schemeSelect').value;$('#purchaseBudgetLink').href='budget.html?scheme='+encodeURIComponent(scheme);});
+$('#purchaseBudgetLink').addEventListener('click',e=>{save();if(!publishPurchaseLayout()){e.preventDefault();toast(tr('无法传递当前布置，请先导出方案并检查浏览器存储空间。','Unable to save the current layout for budgeting. Export the plan and check browser storage.'));return;}const params=new URLSearchParams({scheme:SCHEME_ID,v:'linked-budget-20261103'});if(viewMode==='3d'){params.set('view','3d');const look=$('#referenceViewSelect').value;if(look)params.set('look',look);}$('#purchaseBudgetLink').href='budget.html?'+params;});
 applyStaticLang(); syncFullscreen();
 buildDefs(); buildLib(); renderOpenings(); renderDims();
 $('#tip').textContent = TIPS()['2d'];
 fitView(); renderAll();
+publishPurchaseLayout();
 </script>
 <script type="module">
 /* ============================================================

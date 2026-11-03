@@ -57,6 +57,59 @@ def url(cell):
     return candidate if re.match(r"^https?://", candidate) else ""
 
 
+def enrich(product, sheets, r, price_row):
+    category = product['category']
+    config = {
+        'ac': ('参数对比', 7, list('DEFGHIJKLMNQRTX') + ['AA'], 'Y'),
+        'cooler': ('参数与安装', 6, list('DEFGHIJKLM'), 'N'),
+        'heater': ('参数对比', 7, list('CDEFGHIJKLMN'), 'O'),
+        'oven': ('参数明细', 8, list('DEFIJKLMNOPQRV'), 'U'),
+        'robot': ('型号对比', 6, list('LMNOPQRSTUVX'), 'Y'),
+        'hood': ('油烟机对比', 6, list('MNOPQRSTUVWX'), 'AA'),
+        'stove': ('燃气灶对比', 6, list('MNOPQRSTUVWXYZA'), 'AC'),
+    }[category]
+    sheet, head, columns, source_col = config
+    sr = r
+    if category == 'robot':
+        priority = price_row.get('A', {}).get('value')
+        matches = [n for n, row in sheets[sheet].items() if n > head and row.get('A', {}).get('value') == priority]
+        if not matches:
+            raise ValueError(f'Robot parameters missing: {product["id"]}')
+        sr = matches[0]
+    row = sheets[sheet][sr]
+    get = lambda c: row.get(c, {}).get('value', '')
+    columns = list(dict.fromkeys(columns))
+    product['specs'] = [{'label': sheets[sheet][head].get(c, {}).get('value', c).replace('\n', ' '),
+                         'value': get(c).replace('\n', ' '), 'cell': f'{c}{sr}'}
+                        for c in columns if get(c) and c != 'A']
+    if category == 'stove':
+        for spec in product['specs']:
+            if spec['cell'] == f'O{sr}' and number(get('O')) is not None:
+                spec['value'] = f"{float(get('O')) * 100:g}%"
+    product['specSheet'] = sheet
+    product['specUrl'] = url(row.get(source_col, {}))
+    product['dimensions'] = None
+    def triple(text):
+        m = re.match(r'^\s*(\d+(?:\.\d+)?)\s*[×xX*]\s*(\d+(?:\.\d+)?)\s*[×xX*]\s*(\d+(?:\.\d+)?)', text)
+        return [float(n) for n in m.groups()] if m else None
+    if category == 'ac':
+        product['acForm'] = 'floor' if '立式' in get('D') else 'wall' if '壁挂' in get('D') else None
+        match = re.search(r'(\d+(?:\.\d+)?)\s*[–—~～-]\s*(\d+(?:\.\d+)?)', get('F'))
+        product['areaRange'] = [float(v) for v in match.groups()] if match else None
+        dims = triple(get('Q'))
+        if dims: product['dimensions'] = dict(zip(['width', 'height', 'depth'], dims))
+    elif category in ['hood', 'stove']:
+        cols = ['T', 'U', 'V'] if category == 'hood' else ['U', 'V', 'W']
+        values = [number(get(c)) for c in cols]
+        if all(v is not None for v in values): product['dimensions'] = dict(zip(['width', 'depth', 'height'], values))
+    elif category == 'heater':
+        dims = triple(get('I'))
+        if dims: product['dimensions'] = dict(zip(['height', 'width', 'depth'], dims))
+    elif category == 'oven' and '宽×深×高' in get('P'):
+        dims = triple(get('P'))
+        if dims: product['dimensions'] = dict(zip(['width', 'depth', 'height'], dims))
+
+
 def main():
     args = argparse.ArgumentParser()
     args.add_argument("source", type=pathlib.Path)
@@ -85,20 +138,26 @@ def main():
                 raise ValueError(f"Missing model: {filename} {sheet}!{r}")
             if category == "robot":
                 title += " · " + get("D")
-            products.append({
+            product = {
                 "id": f"{category}-{r}", "category": category, "name": title,
                 "price": number(get(price)), "priceKind": "历史/公开条件参考",
                 "date": date(get(day)), "note": get(note),
                 "url": url(row.get(link, {})), "evidenceUrl": url(row.get(evidence, {})),
                 "sourceFile": filename, "sourceSheet": sheet, "sourceCell": f"{price}{r}",
-            })
+            }
+            enrich(product, books[filename], r, row)
+            products.append(product)
     categories = [
-        {"id": "furniture", "name": "家具 / 自定义"}, {"id": "ac", "name": "空调"},
+        {"id": "furniture", "name": "家具 / 其他设备"}, {"id": "ac", "name": "空调"},
         {"id": "hood", "name": "油烟机"}, {"id": "stove", "name": "燃气灶"},
         {"id": "heater", "name": "燃气热水器"}, {"id": "oven", "name": "蒸烤箱"},
         {"id": "cooler", "name": "厨房凉霸"}, {"id": "robot", "name": "扫地机器人"},
     ]
     catalog = {"version": 1, "asOf": "2026-11-02", "categories": categories, "sources": sources, "products": products}
+    photos = pathlib.Path(__file__).resolve().parents[1] / 'data/purchase-photos.json'
+    if photos.exists():
+        supplements = json.loads(photos.read_text(encoding='utf-8'))
+        for product in products: product.update(supplements.get(product['id'], {}))
     opt.output.parent.mkdir(parents=True, exist_ok=True)
     opt.output.write_text("// Generated from the original comparison workbooks. Do not treat these as current quotes.\nwindow.PURCHASE_CATALOG = " + json.dumps(catalog, ensure_ascii=False, indent=2) + ";\n", encoding="utf-8")
     print(json.dumps({"products": len(products), "withPrice": sum(p["price"] is not None for p in products), "categories": {c["name"]: sum(p["category"] == c["id"] for p in products) for c in categories}}, ensure_ascii=False))

@@ -1,0 +1,12 @@
+{
+  "ac-10": {
+    "photoUrl": "data/purchase-images/haier-e1-plus-floor.png",
+    "photoOriginalUrl": "https://image.haier.com/cn/air_conditioners/W020250427380289493227_1200.png",
+    "photoSource": "https://www.haier.com/air_conditioners/20250427_260359.shtml"
+  },
+  "ac-14": {
+    "photoUrl": "data/purchase-images/haier-e1-wall.png",
+    "photoOriginalUrl": "https://image.haier.com/cn/air_conditioners/W020250220350768451352_1200.png",
+    "photoSource": "https://www.haier.com/air_conditioners/20250220_256367.shtml"
+  }
+}

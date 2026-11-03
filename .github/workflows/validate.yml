@@ -44,4 +44,5 @@ jobs:
       - run: node tests/visible-raycast.cjs
       - run: node tests/viewer-performance.cjs
       - run: node tests/purchase-budget.cjs
+      - run: node tests/purchase-plan.cjs
       - run: git diff --exit-code -- data/house-plans.js data/manifest.json

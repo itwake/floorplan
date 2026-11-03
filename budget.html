@@ -6,10 +6,13 @@
   <meta name="theme-color" content="#fffdf9">
   <meta name="description" content="木光之家家具家电购买预算：自由选择型号、填写报价和数量，组合比较整家购买预算。">
   <title>家具家电预算 · 木光之家</title>
-  <link rel="stylesheet" href="purchase-budget.css?v=20261102">
-  <script defer src="data/purchase-catalog.js?v=20261102"></script>
+  <link rel="stylesheet" href="purchase-budget.css?v=linked-20261103">
+  <link rel="stylesheet" href="purchase-budget-details.css?v=linked-20261103">
+  <script defer src="data/house-plans.js?v=study-north-20261102"></script>
+  <script defer src="purchase-plan.js?v=linked-20261103"></script>
+  <script defer src="data/purchase-catalog.js?v=linked-20261103"></script>
   <script defer src="purchase-budget-core.js?v=20261102"></script>
-  <script defer src="purchase-budget.js?v=20261102"></script>
+  <script defer src="purchase-budget.js?v=linked-20261103"></script>
 </head>
 <body>
   <header class="topbar">
@@ -18,7 +21,7 @@
   </header>
   <main>
     <div class="intro">
-      <div><p class="eyebrow">采购计划 / PURCHASE PLAN</p><h1>把喜欢的，放进预算里。</h1><p>选型号、调数量、填报价，自由组合一整家的家具与家电。</p></div>
+      <div><p class="eyebrow">采购计划 / PURCHASE PLAN</p><h1>当前户型的整套购买预算</h1><p>家具、设备与数量随布置带入，再选型号、填报价，汇总全屋预算。</p></div>
       <div class="source-note"><b id="catalogCount">正在读取候选型号</b><span>来自 6 份对比表 · 整理于 2026-11-02</span><span>参考价保留原优惠条件，未核验当前广州结算价。</span></div>
     </div>
     <noscript><p class="notice">请启用 JavaScript，以使用型号选择和自动汇总。</p></noscript>
@@ -30,8 +33,10 @@
           <div class="buttons"><button id="duplicatePlan">复制方案</button><button id="newPlan">新建方案</button><button id="deletePlan" class="quiet">删除</button></div>
         </div>
         <div class="plan-heading"><label>方案名称<input id="planName" maxlength="60" aria-label="方案名称"></label><span id="saveStatus" role="status">保存在当前浏览器</span></div>
+        <section class="layout-link"><div><b id="layoutTitle">读取当前户型</b><p id="layoutInfo"></p></div><button id="syncLayout">同步当前户型</button><details id="sourceHistory" hidden><summary>已移出清单的历史报价</summary><div></div></details></section>
         <div class="list-heading"><h2>购买清单 <span id="includedCount"></span></h2><button id="addItem" class="accent">＋ 添加家具 / 其他</button></div>
-        <p class="help">勾选后计入预算。单价留空使用所选型号参考价；安装、运费填本行合计，免收请填 0。</p>
+        <p class="help">户型物件自动计数，已购物件默认不计新增支出。单价留空用所选型号参考价；安装运费填本行合计，免收填 0。</p>
+        <div class="room-filter"><label>按房间查看<select id="roomFilter" aria-label="筛选房间"></select></label><span id="filterHint">汇总包含全部房间</span></div>
         <div class="quick-add" aria-label="快速添加家具"><span>快速添加</span><button data-furniture="沙发">沙发</button><button data-furniture="床 / 床垫">床 / 床垫</button><button data-furniture="餐桌椅">餐桌椅</button><button data-furniture="定制柜">定制柜</button><button data-furniture="灯具">灯具</button></div>
         <div id="items"></div>
         <button id="addAppliance" class="add-line">＋ 再添加一件家电</button>
@@ -48,7 +53,7 @@
           <button id="zeroFees" class="wide">将未填附加费设为 0</button><p class="fine">仅在确认这些项目无需安装、运费时使用。</p></details>
         </section>
         <section class="comparison"><h2>方案比较</h2><p>复制当前组合，再换型号比较差价。</p><div id="planComparison"></div></section>
-        <div class="aside-note">预算独立保存，不会更改户型中的家具或设备。网页内没有预置沙发、床等家具的市场价格，可按实际报价填写。</div>
+        <div class="aside-note">清单按当前户型及浏览器中的实际布置同步，报价单独保存。房间面积为当前模型计算值；家具尺寸与预览用于选型对照，安装净空仍需厂家图纸核验。</div>
       </aside>
     </div>
   </main>

@@ -6,7 +6,8 @@ const path = require('node:path');
 const root = path.resolve(__dirname,'..');
 const base = process.env.FLOORPLAN_BASE_URL || 'https://itwake.github.io/floorplan/';
 const files = ['index.html','data/house-plans.js','data/manifest.json',
-  'budget.html','purchase-budget.css','purchase-budget.js','purchase-budget-core.js','data/purchase-catalog.js',
+  'budget.html','purchase-budget.css','purchase-budget-details.css','purchase-budget.js','purchase-budget-core.js','purchase-plan.js','data/purchase-catalog.js',
+  'data/purchase-images/haier-e1-plus-floor.png','data/purchase-images/haier-e1-wall.png',
   'reference-finishes.js','reference-interior.js','reference-dressing.js','viewer-performance.js',
   'vendor/three/build/three.module.js',
   'vendor/three/examples/jsm/controls/OrbitControls.js',
