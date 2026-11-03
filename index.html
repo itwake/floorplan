@@ -252,6 +252,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
     </div>
     <div class="brand"><b data-en="Warm Timber Home · Plan Editor">木光之家 · 户型编辑</b><span id="subtitle">现有方案 · 尺寸单位 mm</span></div>
     <select id="schemeSelect" aria-label="选择户型方案"></select>
+    <a class="btn primary" id="purchaseBudgetLink" href="budget.html" data-en="Purchase budget">家具家电预算</a>
     <a class="btn" href="https://itwake.github.io/house-design/" target="_blank" rel="noopener" data-en="Original studio ↗">原设计网站 ↗</a>
     <div class="grp seg" id="viewSeg" title="切换 2D / 3D (T)" data-en-title="Switch 2D / 3D (T)">
       <span class="pill"></span>
@@ -2119,6 +2120,7 @@ $('#schemeSelect').onchange=e=>{save();const url=new URL(location.href);url.sear
 ['#tools','#layers','#langSel','#modes3d','#toggles3d','#fit','#undo','#vIso','#sun'].forEach(id=>$(id)?.closest('.grp')?.classList.add('mobile-extra'));
 $('[data-cut]').closest('.grp').classList.add('mobile-extra');$('#fullscreen').classList.add('mobile-extra');
 $('#moreTools').onclick=()=>{const expanded=document.querySelector('header').classList.toggle('tools-open');$('#moreTools').ariaExpanded=String(expanded);$('#moreTools').textContent=expanded?tr('收起 ▴','Less ▴'):tr('工具 ▾','Tools ▾');};
+$('#purchaseBudgetLink').addEventListener('click',()=>{const scheme=$('#schemeSelect').value;$('#purchaseBudgetLink').href='budget.html?scheme='+encodeURIComponent(scheme);});
 applyStaticLang(); syncFullscreen();
 buildDefs(); buildLib(); renderOpenings(); renderDims();
 $('#tip').textContent = TIPS()['2d'];

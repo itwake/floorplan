@@ -1,0 +1,23 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const {money,line,summary}=require('../purchase-budget-core.js');
+const context={window:{}};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../data/purchase-catalog.js'),'utf8'),context);
+const catalog=context.window.PURCHASE_CATALOG,products=new Map(catalog.products.map(p=>[p.id,p]));
+assert.equal(products.size,94);assert.equal(catalog.sources.length,6);assert.equal(catalog.products.filter(p=>p.price!==null).length,74);
+for(const p of catalog.products){assert.ok(p.name&&p.sourceFile&&p.sourceSheet&&p.sourceCell);assert.ok(p.price===null||!money(p.price).invalid);assert.ok(!p.url||/^https?:\/\//.test(p.url));}
+assert.equal(products.get('cooler-7').price,305.91);assert.equal(products.get('ac-8').price,5130.64);assert.equal(products.get('robot-7').price,3051.6);assert.equal(products.get('oven-9').date,'2026-10-29');
+const make=overrides=>({included:true,productId:'',quantity:'1',unitPrice:'',fee:'',...overrides});
+const quoted=make({quantity:'3',unitPrice:'0.10',fee:'0.20'});
+assert.equal(line(quoted,products).total,50,'Three 0.10 items plus a one-time 0.20 delivery is exactly 0.50');
+const reference=make({productId:'cooler-7',quantity:'2',fee:'30'});
+assert.equal(line(reference,products).total,64182,'Quantity multiplies goods, not the line installation fee');
+assert.equal(line({...reference,unitPrice:'100'},products).total,23000,'Quote overrides source price');
+assert.equal(line(make({unitPrice:'0',fee:'0'}),products).total,0,'A zero quote and free delivery are valid');
+assert.equal(line(make({unitPrice:'',fee:'0'}),products).total,null,'Unknown price stays unavailable');
+assert.equal(line(make({unitPrice:'100',fee:''}),products).total,null,'Unknown delivery prevents a complete total');
+for(const v of ['-1','12.345','NaN','Infinity','1e3','10000001'])assert.equal(money(v).invalid,true,v);
+for(const q of ['0','-1','1.5','1000','1e2'])assert.equal(line(make({quantity:q,unitPrice:'1'}),products).invalid,true,q);
+const plan={limit:'700',rows:[reference,quoted,make({included:false,unitPrice:'9999',fee:'0'}),make({unitPrice:'',fee:''})]};
+const sum=summary(plan,products);assert.equal(sum.known,64232);assert.equal(sum.remaining,5768);assert.equal(sum.missingPrices,1);assert.equal(sum.missingFees,1);assert.equal(sum.complete,false);assert.equal(sum.referenceRows,1);
+assert.equal(summary({limit:'',rows:[]},products).complete,false);
+console.log('PASS source catalog, cents, quantity, one-time delivery, overrides, zero/missing, invalid inputs, exclusions and incomplete totals');
