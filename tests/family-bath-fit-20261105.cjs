@@ -1,6 +1,6 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),crypto=require('node:crypto');
-const plans=require('../data/house-plans.js'),{applyFamilyBathFit,beforeFamilyBathFit,validateFamilyBathFit,KEY,REVISION,rect,overlap,insideRect}=require('../tools/family-bath-fit-20261105.cjs');
+const plans=require('../tools/family-guest-shower-rect-20261105.cjs').beforeFamilyGuestShower(require('../data/house-plans.js')),{applyFamilyBathFit,beforeFamilyBathFit,validateFamilyBathFit,KEY,REVISION,rect,overlap,insideRect}=require('../tools/family-bath-fit-20261105.cjs');
 const p=plans.schemes.family,old=beforeFamilyBathFit(plans),m=p.metadata[KEY],get=id=>p.defaultFurniture.find(f=>f.id===id);
 assert.ok(validateFamilyBathFit(p).ok);
 assert.deepEqual(applyFamilyBathFit(structuredClone(old)),plans,'Exact rollback/replay');

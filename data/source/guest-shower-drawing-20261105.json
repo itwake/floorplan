@@ -1,0 +1,260 @@
+{
+  "sourceSha256": "405226e8cc00211cc665399110ab7de0f54daeb29c0a456b5f528c1d0db08eb0",
+  "sheets": [
+    "PL-02",
+    "PL-06"
+  ],
+  "units": "mm",
+  "status": "native-CAD-plan-reference-not-site-or-product-installation-measurement",
+  "showerRectMm": [
+    5810,
+    5040,
+    6800,
+    6040
+  ],
+  "northDrawingBandRectMm": [
+    5810,
+    4840,
+    6800,
+    5040
+  ],
+  "glassLines": [
+    {
+      "type": "LINE",
+      "handle": 190403,
+      "layer": "0",
+      "insertPath": [],
+      "points": [
+        [
+          5870,
+          5040
+        ],
+        [
+          5870,
+          6040
+        ]
+      ],
+      "sampledDisplayGeometry": false
+    },
+    {
+      "type": "LINE",
+      "handle": 190404,
+      "layer": "0",
+      "insertPath": [],
+      "points": [
+        [
+          5810,
+          5040
+        ],
+        [
+          5810,
+          6040
+        ]
+      ],
+      "sampledDisplayGeometry": false
+    },
+    {
+      "type": "LINE",
+      "handle": 190405,
+      "layer": "0",
+      "insertPath": [],
+      "points": [
+        [
+          5840,
+          5040
+        ],
+        [
+          5840,
+          6040
+        ]
+      ],
+      "sampledDisplayGeometry": false
+    }
+  ],
+  "northDrawingBandLines": [
+    {
+      "type": "LINE",
+      "handle": 263557,
+      "layer": "0",
+      "insertPath": [
+        222374
+      ],
+      "points": [
+        [
+          5810,
+          4840
+        ],
+        [
+          5810,
+          5040
+        ]
+      ],
+      "sampledDisplayGeometry": false
+    },
+    {
+      "type": "LINE",
+      "handle": 263558,
+      "layer": "0",
+      "insertPath": [
+        222374
+      ],
+      "points": [
+        [
+          5850,
+          4880
+        ],
+        [
+          5850,
+          5000
+        ]
+      ],
+      "sampledDisplayGeometry": false
+    },
+    {
+      "type": "LINE",
+      "handle": 263559,
+      "layer": "0",
+      "insertPath": [
+        222374
+      ],
+      "points": [
+        [
+          5810,
+          5040
+        ],
+        [
+          6800,
+          5040
+        ]
+      ],
+      "sampledDisplayGeometry": false
+    },
+    {
+      "type": "LINE",
+      "handle": 263560,
+      "layer": "0",
+      "insertPath": [
+        222374
+      ],
+      "points": [
+        [
+          5850,
+          5000
+        ],
+        [
+          6800,
+          5000
+        ]
+      ],
+      "sampledDisplayGeometry": false
+    },
+    {
+      "type": "LINE",
+      "handle": 263561,
+      "layer": "0",
+      "insertPath": [
+        222374
+      ],
+      "points": [
+        [
+          5850,
+          4880
+        ],
+        [
+          6800,
+          4880
+        ]
+      ],
+      "sampledDisplayGeometry": false
+    },
+    {
+      "type": "LINE",
+      "handle": 263562,
+      "layer": "0",
+      "insertPath": [
+        222374
+      ],
+      "points": [
+        [
+          5810,
+          4840
+        ],
+        [
+          6800,
+          4840
+        ]
+      ],
+      "sampledDisplayGeometry": false
+    }
+  ],
+  "dimensions": [
+    {
+      "type": "DIMENSION_ALIGNED",
+      "handle": 218488,
+      "textPoint": [
+        6305,
+        5637.338
+      ],
+      "a": [
+        6800,
+        5250
+      ],
+      "b": [
+        5810,
+        5250
+      ],
+      "actMeasurement": 989.9999999993015,
+      "userText": "",
+      "dimlfac": 1,
+      "dimrnd": 5,
+      "dimsScale": 50
+    },
+    {
+      "type": "DIMENSION_ALIGNED",
+      "handle": 220807,
+      "textPoint": [
+        6533.372,
+        5330.871
+      ],
+      "a": [
+        6665.318,
+        5040
+      ],
+      "b": [
+        6665.318,
+        6040
+      ],
+      "actMeasurement": 1000.0000000018626,
+      "userText": "",
+      "dimlfac": 1,
+      "dimrnd": 5,
+      "dimsScale": 50
+    },
+    {
+      "type": "DIMENSION_ALIGNED",
+      "handle": 221077,
+      "textPoint": [
+        7346.803,
+        4940
+      ],
+      "a": [
+        7095.44,
+        5040
+      ],
+      "b": [
+        7095.44,
+        4840
+      ],
+      "actMeasurement": 200.00000000186265,
+      "userText": "",
+      "dimlfac": 1,
+      "dimrnd": 5,
+      "dimsScale": 50
+    }
+  ],
+  "doorOperation": "not-specified-in-reviewed-plan",
+  "verticalDimensions": "retained-prior-placeholder-not-inferred-from-plan",
+  "northBandHeightAndFunction": "not-resolved-from-plan-no-invented-3D-extrusion",
+  "showerControlSymbolWall": "south",
+  "showerControlSymbolCenterX": 6337.713
+}

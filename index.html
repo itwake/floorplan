@@ -374,7 +374,7 @@ main.drawer-panel #fab{opacity:0;visibility:hidden}
 </div>
 <div id="toast"></div>
 
-<script src="data/house-plans.js?v=bath-fit-20261105"></script>
+<script src="data/house-plans.js?v=guest-shower-rect-20261105"></script>
 <script src="purchase-plan.js?v=linked-budget-20261103"></script>
 <script>
 /* ======================= 多语言（中文 / English，默认中文） ======================= */
@@ -485,7 +485,7 @@ const uid = () => 'f' + Date.now().toString(36) + (_n++);
 const F = (type,name,cx,cy,w,d,rot=0,color) => ({id:uid(),type,name,cx,cy,w,d,rot,color:color||typeColor(type)});
 
 function defaultFurniture(){ return structuredClone(HOUSE_PLAN.defaultFurniture); }
-function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update,HOUSE_PLAN.metadata.familyBalconyRecessUpdate,HOUSE_PLAN.metadata.familyFloorDrainsUpdate,HOUSE_PLAN.metadata.familyElectricalUpdate,HOUSE_PLAN.metadata.familyKitchenHeaterUpdate,HOUSE_PLAN.metadata.familyLivingEastUpdate,HOUSE_PLAN.metadata.familyReferenceFinishUpdate,HOUSE_PLAN.metadata.familyDrawingUpdate,HOUSE_PLAN.metadata.familyDryerKitchenUpdate,HOUSE_PLAN.metadata.familyStudyNorthUpdate,HOUSE_PLAN.metadata.familyBathFitUpdate].filter(Boolean);}
+function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update,HOUSE_PLAN.metadata.familyBalconyRecessUpdate,HOUSE_PLAN.metadata.familyFloorDrainsUpdate,HOUSE_PLAN.metadata.familyElectricalUpdate,HOUSE_PLAN.metadata.familyKitchenHeaterUpdate,HOUSE_PLAN.metadata.familyLivingEastUpdate,HOUSE_PLAN.metadata.familyReferenceFinishUpdate,HOUSE_PLAN.metadata.familyDrawingUpdate,HOUSE_PLAN.metadata.familyDryerKitchenUpdate,HOUSE_PLAN.metadata.familyStudyNorthUpdate,HOUSE_PLAN.metadata.familyBathFitUpdate,HOUSE_PLAN.metadata.familyGuestShowerDrawingUpdate].filter(Boolean);}
 function defaultState(){
   const rooms = {}; ROOMS.forEach(r => rooms[r.id] = {name:r.name, mat:r.mat});
   return {schemaVersion:2,projectId:'house-design',schemeId:SCHEME_ID,sourceVersion:PLAN_LIBRARY.version,
@@ -1161,6 +1161,10 @@ function renderElectrical(){
   }).join('');
 }
 function fixtureSVG(f){
+  if(f.type==='shower'&&f.showerDesign?.shape==='rectangle'){
+    const x=-f.w/2,y=-f.d/2;
+    return `<g data-bath-shower-shape="rectangle"><rect x="${x}" y="${y}" width="${f.w}" height="${f.d}" fill="${esc(f.color)}" fill-opacity=".22" stroke="#7d9b9c" stroke-width="1" vector-effect="non-scaling-stroke"/>${[0,30,60].map(dx=>`<line x1="${x+dx}" x2="${x+dx}" y1="${y}" y2="${y+f.d}" stroke="#78999a" stroke-width="1" vector-effect="non-scaling-stroke"/>`).join('')}<title>${tr('客卫按原图长方形990×1000mm，西侧直线玻璃；开启方式待明确','Drawing: rectangular 990 × 1000 mm shower, straight west glazing; door operation unspecified')}</title></g>`;
+  }
   if(f.type==='shower'&&f.showerDesign){
     const x=-f.w/2,y=-f.d/2,a=Math.min(f.showerDesign.chamferMm,f.w*.48,f.d*.57),hx=x+a,hy=y,L=Math.SQRT2*a,t=(135-f.showerDesign.defaultAngleDegrees)*Math.PI/180,ex=hx+L*Math.cos(t),ey=hy+L*Math.sin(t);
     return `<g data-bath-shower-entry="north-west"><path d="M ${hx} ${y} H ${x+f.w} V ${y+f.d} H ${x} V ${y+a} Z" fill="${esc(f.color)}" fill-opacity=".22" stroke="#7d9b9c" stroke-width="1.3" vector-effect="non-scaling-stroke"/><path d="M ${hx} ${hy} L ${ex} ${ey} M ${x} ${y+a} A ${L} ${L} 0 0 0 ${ex} ${ey}" fill="none" stroke="#78999a" stroke-width="1" stroke-dasharray="4 3" vector-effect="non-scaling-stroke"/><title>${tr('斜角玻璃门向淋浴内部开；名义门长636mm，净口待选型','Chamfered glass door opens inward; nominal 636 mm leaf, installed clearance pending')}</title></g>`;
@@ -1218,7 +1222,12 @@ function renderFurn(){
       </g>`;
     }
     return `<g class="furn" data-fid="${f.id}" transform="translate(${f.cx} ${f.cy}) rotate(${f.rot})"><title>${esc(longName)} · ${f.w}×${f.d}×${f.heightMm||800} mm</title>${fixtureSVG(f)}${label}</g>`;
-  }).join('');
+  }).join('')+guestShowerSourceBandSVG();
+}
+
+function guestShowerSourceBandSVG(){
+  const source=HOUSE_PLAN.metadata.familyGuestShowerDrawingUpdate?.source;if(!source)return '';
+  return `<g data-guest-shower-source-band pointer-events="none"><title>${tr('原图北侧200mm图示带；功能与竖向未明确，仅还原平面线','Drawing: separate 200 mm north band; function and height unresolved, plan lines only')}</title>${source.northDrawingBandLines.map(q=>{const[a,b]=q.points;return `<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="#78918b" stroke-width="1" vector-effect="non-scaling-stroke"/>`;}).join('')}</g>`;
 }
 
 function renderWalls(){
@@ -1406,6 +1415,7 @@ function renderPanel(){
 
 function bathFitNotice(){
   if(!HOUSE_PLAN.metadata.familyBathFitUpdate)return '';
+  if(HOUSE_PLAN.metadata.familyGuestShowerDrawingUpdate)return `<section class="project-note" data-bath-fit data-guest-shower-drawing><b>${tr('两卫隔墙与嵌入布置 · 客卫按原图修正','Fitted bathrooms · guest shower corrected to drawing')}</b><p>${tr('两卫保持完整实墙。客卫淋浴按原设计图恢复990×1000mm长方形、西侧直线玻璃，花洒靠南墙；北侧另保留200mm图示带，取消上版斜角门。西盆东机一体台及洗衣机净腔位置保留。','The solid partition remains. The guest shower follows the drawing: a 990 × 1000 mm rectangle, straight west glazing, and south-wall shower controls. The separate 200 mm north band is retained in plan; the previous chamfer is removed. The fitted basin/washer counter remains.')}</p><p>${tr('原图未明确客卫玻璃门的开启方式，暂不添加内开或推拉假定。主卫仍为900×800mm斜角淋浴，马桶两侧中心距各约340mm；实物选型与安装净空需复核。','The guest glass-door operation is not specified in the reviewed plan. The main shower retains its chamfered 900 × 800 mm layout and approximately 340 mm toilet side-center distances; actual products and installation clearances need verification.')}</p></section>`;
   return `<section class="project-note" data-bath-fit><b>${tr('两卫隔墙与嵌入布置','Bathroom partition and fitted layout')}</b><p>${tr('两卫之间补齐约120mm实墙。主卫600盆柜贴西南角、马桶靠东墙，900×800淋浴贴东南角；客卫保留西盆东机的一体台，马桶靠隔墙、淋浴贴东南角。','A continuous approximately 120 mm wall separates both baths. The main bath has a southwest vanity, east-wall toilet and southeast 900 × 800 shower. The guest counter keeps its west basin and east washer, with the toilet at the partition and shower in the southeast.')}</p><p>${tr('淋浴斜角门向内开，可从“效果视角”查看两卫。主卫马桶两侧中心距各约340mm，属于紧凑试排；洁具选型、管线及实际净口仍需复核。','Shower doors open inward at the chamfered corner; use Reference views to inspect either bath. The main toilet has approximately 340 mm to either side boundary, a compact provisional fit. Verify actual products, services and installed clearances.')}</p></section>`;
 }
 
@@ -3161,6 +3171,15 @@ function buildFurniture(f){
       break;
     }
     case 'shower': {
+      if(f.showerDesign?.shape==='rectangle'){
+        const cm=chrome(),design=f.showerDesign,h=M(design.glassHeightMm),x=-w/2+M(design.glassCenterInsetMm),south=d/2-.025,controlX=M(design.controlsCenterOffsetMm||0);
+        const tray=rbox(w,.05,d,mat('#f4f4f2',{roughness:.3}),0,0,0,.008);tray.userData.role='shower-tray-surface';g.add(tray);
+        const glass=box(.008,h,d-.012,glassMat,x,.05,0);glass.castShadow=false;glass.userData.role='guest-shower-straight-west-glass';g.add(glass);
+        g.add(rod([x,h+.05,-d/2+.006],[x,h+.05,d/2-.006],.006,frameMat));
+        g.add(rbox(.14,.10,.025,cm,controlX,1,south-.0125,.004),rod([controlX,1.10,south],[controlX,1.95,south],.012,cm),tube([[controlX,1.95,south],[controlX,2.02,south-.05],[controlX,2.03,south-.20]],.01,cm),rbox(.22,.012,.22,cm,controlX,2.02,south-.20,.004));
+        g.userData.showerShape='rectangle';g.userData.doorOperation=design.doorOperation;
+        break;
+      }
       if(f.showerDesign){
         const cm=chrome(),a=M(Math.min(f.showerDesign.chamferMm,f.w*.48,f.d*.57)),left=-w/2+.008,north=-d/2+.008,h=M(f.showerDesign.glassHeightMm),hx=left+a,hy=north;
         const tray=rbox(w,.05,d,mat('#f4f4f2',{roughness:.3}),0,0,0,.008);tray.userData.role='shower-tray-surface';g.add(tray);

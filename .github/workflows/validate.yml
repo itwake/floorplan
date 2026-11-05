@@ -42,6 +42,7 @@ jobs:
       - run: node tests/family-dryer-kitchen-20261031.cjs
       - run: node tests/family-study-north-20261102.cjs
       - run: node tests/family-bath-fit-20261105.cjs
+      - run: node tests/family-guest-shower-rect-20261105.cjs
       - run: node tests/visible-raycast.cjs
       - run: node tests/viewer-performance.cjs
       - run: node tests/purchase-budget.cjs
