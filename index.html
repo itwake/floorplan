@@ -485,7 +485,7 @@ const uid = () => 'f' + Date.now().toString(36) + (_n++);
 const F = (type,name,cx,cy,w,d,rot=0,color) => ({id:uid(),type,name,cx,cy,w,d,rot,color:color||typeColor(type)});
 
 function defaultFurniture(){ return structuredClone(HOUSE_PLAN.defaultFurniture); }
-function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update,HOUSE_PLAN.metadata.familyBalconyRecessUpdate,HOUSE_PLAN.metadata.familyFloorDrainsUpdate,HOUSE_PLAN.metadata.familyElectricalUpdate,HOUSE_PLAN.metadata.familyKitchenHeaterUpdate,HOUSE_PLAN.metadata.familyLivingEastUpdate,HOUSE_PLAN.metadata.familyReferenceFinishUpdate,HOUSE_PLAN.metadata.familyDrawingUpdate,HOUSE_PLAN.metadata.familyDryerKitchenUpdate,HOUSE_PLAN.metadata.familyStudyNorthUpdate].filter(Boolean);}
+function layoutRevisions(){return [HOUSE_PLAN.metadata.layoutUpdate,HOUSE_PLAN.metadata.entryFamilyUpdate,HOUSE_PLAN.metadata.bedroomUpdate,HOUSE_PLAN.metadata.familyBathUpdate,HOUSE_PLAN.metadata.familyStudyLaundryUpdate,HOUSE_PLAN.metadata.familyDoorRefinement,HOUSE_PLAN.metadata.familyStudyDoorUpdate,HOUSE_PLAN.metadata.familyAppliancesUpdate,HOUSE_PLAN.metadata.familyAcWindowUpdate,HOUSE_PLAN.metadata.familyLivingClearUpdate,HOUSE_PLAN.metadata.familyBalconyServiceUpdate,HOUSE_PLAN.metadata.familyCornerStorageUpdate,HOUSE_PLAN.metadata.familyCeilingLightingUpdate,HOUSE_PLAN.metadata.familyLightingStudyRefinement,HOUSE_PLAN.metadata.familyCornerDoor180Update,HOUSE_PLAN.metadata.familyBalconyRecessUpdate,HOUSE_PLAN.metadata.familyFloorDrainsUpdate,HOUSE_PLAN.metadata.familyElectricalUpdate,HOUSE_PLAN.metadata.familyKitchenHeaterUpdate,HOUSE_PLAN.metadata.familyLivingEastUpdate,HOUSE_PLAN.metadata.familyReferenceFinishUpdate,HOUSE_PLAN.metadata.familyDrawingUpdate,HOUSE_PLAN.metadata.familyDryerKitchenUpdate,HOUSE_PLAN.metadata.familyStudyNorthUpdate,HOUSE_PLAN.metadata.familyBathFitUpdate].filter(Boolean);}
 function defaultState(){
   const rooms = {}; ROOMS.forEach(r => rooms[r.id] = {name:r.name, mat:r.mat});
   return {schemaVersion:2,projectId:'house-design',schemeId:SCHEME_ID,sourceVersion:PLAN_LIBRARY.version,
@@ -1161,6 +1161,10 @@ function renderElectrical(){
   }).join('');
 }
 function fixtureSVG(f){
+  if(f.type==='shower'&&f.showerDesign){
+    const x=-f.w/2,y=-f.d/2,a=Math.min(f.showerDesign.chamferMm,f.w*.48,f.d*.57),hx=x+a,hy=y,L=Math.SQRT2*a,t=(135-f.showerDesign.defaultAngleDegrees)*Math.PI/180,ex=hx+L*Math.cos(t),ey=hy+L*Math.sin(t);
+    return `<g data-bath-shower-entry="north-west"><path d="M ${hx} ${y} H ${x+f.w} V ${y+f.d} H ${x} V ${y+a} Z" fill="${esc(f.color)}" fill-opacity=".22" stroke="#7d9b9c" stroke-width="1.3" vector-effect="non-scaling-stroke"/><path d="M ${hx} ${hy} L ${ex} ${ey} M ${x} ${y+a} A ${L} ${L} 0 0 0 ${ex} ${ey}" fill="none" stroke="#78999a" stroke-width="1" stroke-dasharray="4 3" vector-effect="non-scaling-stroke"/><title>${tr('斜角玻璃门向淋浴内部开；名义门长636mm，净口待选型','Chamfered glass door opens inward; nominal 636 mm leaf, installed clearance pending')}</title></g>`;
+  }
   if(f.modelVariant==='macro-gas-waterheater')return `<g data-gas-heater-plan="${esc(f.id)}"><title>${tr('燃气热水器机身投影；烟管未绘制','Gas heater casing projection; exhaust routing not modeled')} · ${f.w}×${f.d} mm</title><rect x="${-f.w/2}" y="${-f.d/2}" width="${f.w}" height="${f.d}" rx="${12*f.w/340}" fill="${esc(f.color)}" fill-opacity=".65" stroke="#a89d8c" stroke-width="1" stroke-dasharray="4 3" vector-effect="non-scaling-stroke"/><line x1="${-f.w/2+12}" x2="${f.w/2-12}" y1="${f.d/2-9}" y2="${f.d/2-9}" stroke="#a89d8c" stroke-width="1" vector-effect="non-scaling-stroke"/><circle cx="0" cy="${-f.d*.20}" r="30" fill="#dee2e1" fill-opacity=".7" stroke="#89928f" stroke-width="1" vector-effect="non-scaling-stroke" pointer-events="none"><title>${tr('顶部烟口60毫米参考投影，仅短接口示意','60 mm reference top collar projection, illustrative short connection only')}</title></circle></g>`;
   if(f.type!=='fixture') return furnSVG(f.type,f.w,f.d,f.color,f.type==='shower'&&HOUSE_PLAN.metadata.familyFloorDrainsUpdate?.disabledImplicitShowerDrainIds?.includes(f.id)?'explicit-floor-drain':f.modelVariant);
   const sx=f.w/f.baseWidthMm,sy=f.d/f.baseDepthMm, original=HOUSE_PLAN.defaultFurniture.find(p=>p.id===f.id)?.color||f.cabinetDesign?.palette?.door;
@@ -1396,8 +1400,13 @@ function renderPanel(){
   renderFab();
   const p = $('#panel');
   if (ui.sel?.kind === 'furn'){ const f = getF(ui.sel.id); if (f){ p.innerHTML = furnPanel(f); bindFurnPanel(f); bindBalconyRecessView();bindFloorDrainView(f);bindElectricalControls(f);bindKitchenHeaterView(f); return; } }
-  if (ui.sel?.kind === 'room'){ const r=ROOMS.find(r => r.id === ui.sel.id);p.innerHTML = (r.id==='living'||(r.id==='room_c'&&HOUSE_PLAN.metadata.familyStudyNorthUpdate)?livingEastNotice({roomId:r.id}):'')+electricalNotice()+(r.id==='kitchen'?kitchenHeaterNotice():'')+(['balcony','bath_1','bath_2'].includes(r.id)?floorDrainNotice():'')+(['balcony','kitchen'].includes(r.id)?balconyRecessNotice():'')+roomPanel(r); bindRoomPanel();bindBalconyRecessView();bindElectricalControls(); return; }
-  p.innerHTML = livingEastNotice()+electricalNotice()+kitchenHeaterNotice()+floorDrainNotice()+balconyRecessNotice()+overviewPanel(); bindOverview();bindBalconyRecessView();bindElectricalControls();
+  if (ui.sel?.kind === 'room'){ const r=ROOMS.find(r => r.id === ui.sel.id);p.innerHTML = (['bath_1','bath_2'].includes(r.id)?bathFitNotice():'')+(r.id==='living'||(r.id==='room_c'&&HOUSE_PLAN.metadata.familyStudyNorthUpdate)?livingEastNotice({roomId:r.id}):'')+electricalNotice()+(r.id==='kitchen'?kitchenHeaterNotice():'')+(['balcony','bath_1','bath_2'].includes(r.id)?floorDrainNotice():'')+(['balcony','kitchen'].includes(r.id)?balconyRecessNotice():'')+roomPanel(r); bindRoomPanel();bindBalconyRecessView();bindElectricalControls(); return; }
+  p.innerHTML = bathFitNotice()+livingEastNotice()+electricalNotice()+kitchenHeaterNotice()+floorDrainNotice()+balconyRecessNotice()+overviewPanel(); bindOverview();bindBalconyRecessView();bindElectricalControls();
+}
+
+function bathFitNotice(){
+  if(!HOUSE_PLAN.metadata.familyBathFitUpdate)return '';
+  return `<section class="project-note" data-bath-fit><b>${tr('两卫隔墙与嵌入布置','Bathroom partition and fitted layout')}</b><p>${tr('两卫之间补齐约120mm实墙。主卫600盆柜贴西南角、马桶靠东墙，900×800淋浴贴东南角；客卫保留西盆东机的一体台，马桶靠隔墙、淋浴贴东南角。','A continuous approximately 120 mm wall separates both baths. The main bath has a southwest vanity, east-wall toilet and southeast 900 × 800 shower. The guest counter keeps its west basin and east washer, with the toilet at the partition and shower in the southeast.')}</p><p>${tr('淋浴斜角门向内开，可从“效果视角”查看两卫。主卫马桶两侧中心距各约340mm，属于紧凑试排；洁具选型、管线及实际净口仍需复核。','Shower doors open inward at the chamfered corner; use Reference views to inspect either bath. The main toilet has approximately 340 mm to either side boundary, a compact provisional fit. Verify actual products, services and installed clearances.')}</p></section>`;
 }
 
 function overviewPanel(){
@@ -1599,6 +1608,7 @@ function furnPanel(f){
       <button class="btn" id="aTop">${tr('置于顶层','Bring to front')}</button><button class="btn" id="aBot">${tr('置于底层','Send to back')}</button>
       <button class="btn danger" id="aDel">${tr('删除','Delete')}</button><button class="btn" id="back">${tr('← 返回','← Back')}</button>
     </div></section>
+  ${['bath_1','bath_2'].includes(f.roomId)?bathFitNotice():''}
   ${livingEastNotice(f)}
   ${kitchenHeaterNotice(f)}
   ${electricalNotice(f)}
@@ -2181,6 +2191,7 @@ const referenceFinishes=createReferenceFinishes(THREE,{getEnvironment:()=>envTex
 const referenceInterior=createReferenceInterior({THREE,RoundedBoxGeometry,finish:referenceFinishes.material});
 const referenceDressing=createReferenceDressing({THREE,finish:referenceFinishes.material,artTexture:referenceInterior.artTexture,wx,wz});
 if(!referenceEnabled)$('#referenceViewTools')?.remove();
+if(HOUSE_PLAN.metadata.familyBathFitUpdate)$('#referenceViewSelect').insertAdjacentHTML('beforeend','<option value="master-bath">主卫 · 隔墙与洁具</option><option value="guest-bath">客卫 · 盆柜与洗衣机</option>');
 
 /* ======================= 初始化 ======================= */
 function init(){
@@ -3150,6 +3161,20 @@ function buildFurniture(f){
       break;
     }
     case 'shower': {
+      if(f.showerDesign){
+        const cm=chrome(),a=M(Math.min(f.showerDesign.chamferMm,f.w*.48,f.d*.57)),left=-w/2+.008,north=-d/2+.008,h=M(f.showerDesign.glassHeightMm),hx=left+a,hy=north;
+        const tray=rbox(w,.05,d,mat('#f4f4f2',{roughness:.3}),0,0,0,.008);tray.userData.role='shower-tray-surface';g.add(tray);
+        function pane(A,B,role){const dx=B[0]-A[0],dz=B[1]-A[1],L=Math.hypot(dx,dz),p=box(L,h,.008,glassMat,(A[0]+B[0])/2,.05,(A[1]+B[1])/2);p.rotation.y=-Math.atan2(dz,dx);p.castShadow=false;p.userData.role=role;g.add(p);g.add(rod([A[0],h+.05,A[1]],[B[0],h+.05,B[1]],.006,frameMat));}
+        // Glass faces the dry area; east/south are the existing room walls.
+        pane([hx,hy],[w/2-.006,hy],'shower-fixed-north');pane([left,hy+a],[left,d/2-.006],'shower-fixed-west');
+        const angle=(135-f.showerDesign.defaultAngleDegrees)*Math.PI/180,L=Math.SQRT2*a,end=[hx+L*Math.cos(angle),hy+L*Math.sin(angle)];
+        pane([hx,hy],end,'shower-inward-door');g.add(rod([hx,.05,hy],[hx,h+.05,hy],.008,cm),rod([end[0],.95,end[1]],[end[0],1.12,end[1]],.009,cm));
+        // Controls and rail sit on the solid east wall below the high window.
+        const ex=w/2-.025,z=d/2-.21;
+        g.add(box(.025,.10,.14,cm,ex-.0125,1,z),rod([ex,1.10,z],[ex,1.95,z],.012,cm),tube([[ex,1.95,z],[ex-.05,2.02,z],[ex-.20,2.03,z]],.01,cm),rbox(.22,.012,.22,cm,ex-.20,2.02,z,.004));
+        g.userData.showerEntry={corner:'north-west',opens:'inward',nominalLeafMm:f.showerDesign.doorLengthMm};
+        break;
+      }
       const cm = chrome(), x = -w/4;
       const tray=rbox(w,.05,d,mat('#f4f4f2',{roughness:.3}),0,0,0,.01);
       tray.userData.role='shower-tray-surface';g.add(tray);
@@ -3813,6 +3838,10 @@ function referenceView(key){
     views.study={eye:[2200,1430,4310],target:[770,1120,5775],fov:76};
   }
   if(HOUSE_PLAN.metadata.familyStudyNorthUpdate)views.study={eye:[2160,1540,5010],target:[1250,1330,3380],fov:76};
+  if(HOUSE_PLAN.metadata.familyBathFitUpdate){
+    views['master-bath']={eye:[5320,1570,3580],target:[6320,1100,4360],fov:83};
+    views['guest-bath']={eye:[3880,1600,5750],target:[4940,1100,4830],fov:90};
+  }
   const v=views[key];if(!v)return false;
   if(opt.mode==='walk')setMode('orbit');opt.cut=H;opt.labels=false;opt.night=false;opt.hour=10.5;syncCutBtns();sync();showLabels(false);applyLight();
   $('#referenceViewSelect').value=key;closeDrawers();

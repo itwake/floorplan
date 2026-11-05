@@ -1,5 +1,5 @@
 'use strict';
-const assert=require('node:assert/strict'),plans=require('../data/house-plans.js');
+const assert=require('node:assert/strict'),plans=require('../tools/family-bath-fit-20261105.cjs').beforeFamilyBathFit(require('../data/house-plans.js'));
 const {beforeFamilyStudyNorth,applyFamilyStudyNorth,validateFamilyStudyNorth,KEY,REVISION}=require('../tools/family-study-north-20261102.cjs');
 const old=beforeFamilyStudyNorth(plans),p=plans.schemes.family,m=p.metadata[KEY],get=id=>p.defaultFurniture.find(f=>f.id===id);
 assert.ok(validateFamilyStudyNorth(p).ok);
